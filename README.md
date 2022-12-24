@@ -3,14 +3,18 @@ Medieval Dynasty Mod Loader (MDML) is a fork of the [Unreal Engine Mod Loader](h
 
 # Requirements
 - The mod loader only supports the 64-Bit Windows version of the game
-- You need to use DirectX 11, otherwise the GUI will crash. Go to ```Settings>Graphics>Rendering Mode``` and switch to DirectX 11
- 
+- You need to use DirectX11, otherwise the GUI will crash. Go to ```Settings>Graphics>Rendering Mode``` and switch to DirectX11
+- 
 
 # Installation 
 - Download the latest [Release](https://github.com/stulu08/Medieval-Dynasty-Mod-Loader/releases/latest) as a zip file
 - Unzip the file
 - Copy everything into your medieval dynasty binaries folder, it is normally located at ```[SteamLibraryFolder]/common/Medieval Dynasty/Medieval_Dynasty/Binaries/Win64``` and there should be a file called ```Medieval_Dynasty-Win64-Shipping.exe```
 - Now start the game, if you did everything correct a GUI will pop up by pressing F1 and you should be able to find a Log folder inside the binaries folder
+
+# Bugs
+- When you get a DirectX error you may have started in DirectX12 Rendering Mode, switch it to DirectX11 in ```Settings>Graphics>Rendering Mode```
+- Dont start using the ```Medieval_Dynasty-Win64-Shipping.exe``` executable, use steam
 
 # Installing Logic Mods
 - ```pak``` or Logic Mods are placed inside ```[SteamLibraryFolder]/common/Medieval Dynasty/Medieval_Dynasty/Content/Paks/LogicMods```
@@ -19,7 +23,7 @@ Medieval Dynasty Mod Loader (MDML) is a fork of the [Unreal Engine Mod Loader](h
 # Installing Core Mods
 - ```dll``` or Core Mods are placed inside ```[SteamLibraryFolder]/common/Medieval Dynasty/Medieval_Dynasty/Content/CoreMods```
 - Here is a [guide](https://youtu.be/i-hp3NS6heQ?list=PL-dFOLrGFgdwbzcHmZ2ghuN3LXxlazbZP) to creating Core Mods 
-- An example CoreMod can be downloaded in the [Release Tab](https://github.com/stulu08/Medieval-Dynasty-Mod-Loader/releases/latest) as SampleMod.zip
+- An example CoreMod can be downloaded in the [Release Tab](https://github.com/stulu08/Medieval-Dynasty-Mod-Loader/releases/latest) as SampleModProject.zip
 
 # Unreal Engine Mod Loader
 A tool used to load Blueprint and basic SDK based C++ Mods for Unreal Engine 4 games
