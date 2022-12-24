@@ -4,7 +4,6 @@ Medieval Dynasty Mod Loader (MDML) is a fork of the [Unreal Engine Mod Loader](h
 # Requirements
 - The mod loader only supports the 64-Bit Windows version of the game
 - You need to use DirectX11, otherwise the GUI will crash. Go to ```Settings>Graphics>Rendering Mode``` and switch to DirectX11
-- 
 
 # Installation 
 - Download the latest [Release](https://github.com/stulu08/Medieval-Dynasty-Mod-Loader/releases/latest) as a zip file
