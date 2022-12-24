@@ -28,6 +28,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved) {
 	if (fdwReason == DLL_THREAD_ATTACH) {
 		hooked = true;
 		Loader::LoadModLoader();
+		return (TRUE);
 	}
 	return (TRUE);
 }

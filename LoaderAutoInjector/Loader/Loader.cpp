@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <process.h>
 #include <string>
-#include "../../UnrealEngineModLoader/INI/INI.h"
+#include "../../ModLoader/INI/INI.h"
 
 std::string GetModuleFilePath(HMODULE hModule)
 {
@@ -15,7 +15,6 @@ std::string GetModuleFilePath(HMODULE hModule)
 
 	return ModuleName;
 }
-
 void InjectDLL(std::string path)
 {
 	HANDLE hProc = OpenProcess(PROCESS_ALL_ACCESS, 0, _getpid());
@@ -37,13 +36,5 @@ void InjectDLL(std::string path)
 
 void Loader::LoadModLoader()
 {
-	auto Module = GetModuleHandleA(0);
-	std::string path = GetModuleFilePath(Module);
-	path = path.substr(0, path.find_last_of("/\\"));
-	auto LoaderInfoInI = path + "\\ModLoaderInfo.ini";
-	INI::PARSE_FLAGS = INI::PARSE_COMMENTS_ALL | INI::PARSE_COMMENTS_SLASH | INI::PARSE_COMMENTS_HASH;
-	INI LoaderInfo(LoaderInfoInI, true);
-	LoaderInfo.select("INFO");
-	auto ModLoaderDLLPath = LoaderInfo.get("INFO", "LoaderPath", "");
-	InjectDLL(ModLoaderDLLPath);
+	InjectDLL("MDML.dll");
 }

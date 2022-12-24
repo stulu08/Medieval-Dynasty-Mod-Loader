@@ -8,12 +8,13 @@ public:
 	//Basic Mod Info
 	ExampleMod()
 	{
-		ModName = "ExampleMod"; // Mod Name -- If Using BP ModActor, Should Be The Same Name As Your Pak
-		ModVersion = "1.0.0"; // Mod Version
-		ModDescription = "HAHAHAHA MOD GO BURR"; // Mod Description
-		ModAuthors = "RussellJ"; // Mod Author
-		ModLoaderVersion = "2.2.1";
-
+		ModName = "GuiThemeChanger"; // Mod Name -- If Using BP ModActor, Should Be The Same Name As Your Pak
+		ModVersion = "1.0.1"; // Mod Version
+		ModDescription = "Changes the gui theme"; // Mod Description
+		ModAuthors = "Stulu"; // Mod Author
+		ModLoaderVersion = MODLOADER_VERSION;
+		MedievalModLoaderVersion = MEDIEVAL_VERSION;
+		ShowMainModWindow = true;
 		// Dont Touch The Internal Stuff
 		ModRef = this;
 		CompleteModCreation();
@@ -34,10 +35,14 @@ public:
 	//DX11 hook for when an image will be presented to the screen
 	virtual void DX11Present(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, ID3D11RenderTargetView* pRenderTargetView) override;
 
+	virtual void DX11ResizeBuffers(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, UINT Width, UINT Height, DXGI_FORMAT NewFormat, UINT SwapChainFlags) override;
+
 	virtual void OnModMenuButtonPressed() override;
 
 	//Call ImGui Here (CALLED EVERY FRAME ON DX HOOK)
 	virtual void DrawImGui() override;
+
+	virtual void SetupImGui(ImGuiIO& io) override;
 
 private:
 	// If you have a BP Mod Actor, This is a straight refrence to it

@@ -1,0 +1,8 @@
+You can put a mod inside a folder but the mod only loads when:
+it has the same name as the folder
+or
+when there is a mod.ini file which tells MDML where the mod is
+mod.ini file content:
+
+[Mod]
+DLLPath=YourMod.dll

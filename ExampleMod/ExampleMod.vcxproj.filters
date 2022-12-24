@@ -16,22 +16,22 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\UnrealEngineModLoader\UE4\Basic.cpp">
-      <Filter>UE4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\UnrealEngineModLoader\UE4\CoreUObject_functions.cpp">
-      <Filter>UE4</Filter>
-    </ClCompile>
     <ClCompile Include="ExampleMod.cpp">
       <Filter>Mod</Filter>
     </ClCompile>
+    <ClCompile Include="..\ModLoader\UE4\Basic.cpp">
+      <Filter>UE4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ModLoader\UE4\CoreUObject_functions.cpp">
+      <Filter>UE4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\UnrealEngineModLoader\UE4\Ue4.hpp">
-      <Filter>UE4</Filter>
-    </ClInclude>
     <ClInclude Include="ExampleMod.h">
       <Filter>Mod</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ModLoader\UE4\Ue4.hpp">
+      <Filter>UE4</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
