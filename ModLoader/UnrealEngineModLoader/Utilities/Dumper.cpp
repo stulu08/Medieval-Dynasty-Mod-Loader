@@ -2,6 +2,7 @@
 #include <windows.h>
 #include "../UE4/Ue4.hpp"
 #include "Globals.h"
+#include <filesystem>
 
 Dumper* Dumper::DumpRef;
 
@@ -14,11 +15,17 @@ Dumper* Dumper::GetDumper()
 	return DumpRef;
 }
 
+void Dumper::CreateDumpDir() {
+	if (!std::filesystem::exists("Dump"))
+		std::filesystem::create_directory("Dump");
+}
+
 
 bool Dumper::DumpObjectArray()
 {
+	CreateDumpDir();
 	FILE* Log = NULL;
-	fopen_s(&Log, "ObjectDump.txt", "w+");
+	fopen_s(&Log, "Dump/ObjectDump.txt", "w+");
 	if (UE4::UObject::GObjects != nullptr)
 	{
 		if (GameProfile::SelectedGameProfile.IsUsingFChunkedFixedUObjectArray)
@@ -51,11 +58,14 @@ bool Dumper::DumpObjectArray()
 	}
 }
 
-
+#pragma warning( push )
+#pragma warning( disable : 4477 )
+#pragma warning( disable : 4313 )
 bool Dumper::DumpEngineInfo()
 {
+	CreateDumpDir();
 	FILE* Log = NULL;
-	fopen_s(&Log, "EngineInfo.txt", "w+");
+	fopen_s(&Log, "Dump/EngineInfo.txt", "w+");
 	if (Log != NULL) {
 		fprintf(Log, "#Engine Info Dump\n");
 		fprintf(Log, "[GInfo]\nIsGInfoPatterns=0\nGName=0x%p\nGObject=0x%p\nGWorld=0x%p\n", GameProfile::SelectedGameProfile.GName - (DWORD64)GetModuleHandleW(0), GameProfile::SelectedGameProfile.GObject - (DWORD64)GetModuleHandleW(0), GameProfile::SelectedGameProfile.GWorld - (DWORD64)GetModuleHandleW(0));
@@ -70,13 +80,16 @@ bool Dumper::DumpEngineInfo()
 	}
 	return false;
 }
-
+#pragma warning( pop )
 bool Dumper::DumpWorldActors()
 {
+	CreateDumpDir();
 	FILE* Log = NULL;
-	std::string FileName = UE4::UGameplayStatics::GetCurrentLevelName(false).ToString() + "_Dump.txt";
+	std::string FileName = std::string("Dump/") + UE4::UGameplayStatics::GetCurrentLevelName(false).ToString() + "_Dump.txt";
 	auto GameplayStatics = UE4::UObject::GetDefaultObjectFromArray<UE4::UGameplayStatics>(UE4::UGameplayStatics::StaticClass());
 	fopen_s(&Log, FileName.c_str(), "w+");
+	if (Log == NULL)
+		return false;
 	auto actors = UE4::UObject::GetAllObjectsOfType<UE4::AActor>(UE4::AActor::StaticClass(), true);
 	for (size_t i = 0; i < actors.size(); i++)
 	{

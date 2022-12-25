@@ -20,7 +20,7 @@ namespace PakLoader
 			std::filesystem::create_directory(path);
 		}
 		if(Global::GetGlobals()->ModInfoList.size() >= 1)
-			Global::GetGlobals()->ModInfoList.empty();
+			bool empty = Global::GetGlobals()->ModInfoList.empty();
 		for (const auto& entry : fs::directory_iterator(path))
 		{
 			if (entry.path().extension().string() == ".pak")
@@ -31,8 +31,14 @@ namespace PakLoader
 					modNameW = modNameW.substr(0, modNameW.length() - 2);
 				if (modNameW.substr(modNameW.length() - 2, 2) == L"_P")
 					modNameW = modNameW.substr(0, modNameW.length() - 2);
-				std::string str(modNameW.begin(), modNameW.end());
-				Log::Info("PakModLoaded: %s", str.c_str());
+
+				//i changed this because of a MSVC wchar_t to char truncation warning
+				//std::string str(modNameW.begin(), modNameW.end());
+				std::string str(modNameW.length(), 0);
+				std::transform(modNameW.begin(), modNameW.end(), str.begin(), [](wchar_t c) { return (char)c; });
+
+
+				Log::Info("PakModLoaded: {0}", str.c_str());
 				ModInfo CurrentMod;
 				CurrentMod.ModName = modNameW;
 				CurrentMod.IsEnabled = true;

@@ -8,6 +8,7 @@
 #include "UnrealEngineModLoader/Memory/CoreModLoader.h"
 #include "UE4/Ue4.hpp"
 #include "LoaderUI.h"
+#include <algorithm>
 bool bIsProcessInternalsHooked = false;
 bool GameStateClassInitNotRan = true;
 
@@ -36,7 +37,7 @@ namespace Hooks
 					auto msg = Frame->GetInputParams<PrintStringParams>()->Message;
 					if (msg.IsValid())
 					{
-						Log::Print("%s", msg.ToString().c_str());
+						Log::Trace("{0}", msg.ToString());
 					}
 				}
 				if (Frame->Node->GetName() == "GetPersistentObject")
@@ -82,12 +83,12 @@ namespace Hooks
 						auto CurrentCoreMod = Global::GetGlobals()->CoreMods[i];
 						if (CurrentCoreMod->IsFinishedCreating)
 						{
-							Log::Info("InitializeMod Called For %s", CurrentCoreMod->ModName.c_str());
+							Log::Info("InitializeMod Called For {0}", CurrentCoreMod->ModName.c_str());
 							CurrentCoreMod->InitializeMod();
 						}
 						else
 						{
-							Log::Error("Mod %s wasnt setup in time"), CurrentCoreMod->ModName;
+							Log::Error("Mod {0} wasnt setup in time"), CurrentCoreMod->ModName;
 						}
 					}
 				}
@@ -134,7 +135,11 @@ namespace Hooks
 					{
 						if (GameProfile::SelectedGameProfile.StaticLoadObject)
 						{
-							std::string str(CurrentMod.begin(), CurrentMod.end());
+							//i changed this because of a MSVC wchar_t to char truncation warning
+							//std::string str(CurrentMod.begin(), CurrentMod.end());
+							std::string str(CurrentMod.length(), 0);
+							std::transform(CurrentMod.begin(), CurrentMod.end(), str.begin(), [](wchar_t c) { return (char)c; });
+
 							const std::wstring Path = L"/Game/Mods/" + CurrentMod + L"/ModActor.ModActor_C";
 							UE4::UClass* ModObject = UE4::UClass::LoadClassFromString(Path.c_str(), false);
 							if (ModObject)
@@ -216,18 +221,19 @@ namespace Hooks
 										}
 									}
 									ModActor->CallFunctionByNameWithArguments(L"PreBeginPlay", nullptr, NULL, true);
-									Log::Info("Sucessfully Loaded %s", str.c_str());
+									Log::Info("Sucessfully Loaded {0}", str.c_str());
 								}
 							}
 							else
 							{
-								Log::Info("Could not locate ModActor for %s", str.c_str());
+								Log::Info("Could not locate ModActor for {0}", str.c_str());
 							}
 						}
 					}
 				}
 				Log::Info("Finished Spawning PakMods");
-				Global::GetGlobals()->eventSystem.dispatchEvent("InitGameState");
+				//Global::GetGlobals()->eventSystem.dispatchEvent("InitGameState");
+				Global::GetGlobals()->CoreMods.callEvent("InitGameState");
 			}
 			Log::Info("Returning to GameState --------------------------------------------------------");
 			return origInitGameState(Ret);
@@ -251,7 +257,7 @@ namespace Hooks
 							{
 								for (size_t bi = 0; bi < ModButtons.Num(); bi++)
 								{
-									auto CurrentButton = ModButtons[bi];
+									auto CurrentButton = ModButtons[(int)bi];
 									if (CurrentButton.IsValid())
 									{
 										Global::GetGlobals()->ModInfoList[i].ModButtons.push_back(CurrentButton.ToString());
@@ -259,11 +265,13 @@ namespace Hooks
 								}
 							}
 							CurrentModActor->CallFunctionByNameWithArguments(L"PostBeginPlay", nullptr, NULL, true);
-							Global::GetGlobals()->eventSystem.dispatchEvent("PostBeginPlay", Global::GetGlobals()->ModInfoList[i].ModName, CurrentModActor);
+							//Global::GetGlobals()->eventSystem.dispatchEvent("PostBeginPlay", Global::GetGlobals()->ModInfoList[i].ModName, CurrentModActor);
+							Global::GetGlobals()->CoreMods.callEvent("PostBeginPlay", Global::GetGlobals()->ModInfoList[i].ModName, CurrentModActor);
 						}
 					}
 				}
-				Global::GetGlobals()->eventSystem.dispatchEvent("BeginPlay", Actor);
+				//Global::GetGlobals()->eventSystem.dispatchEvent("BeginPlay", Actor);
+				Global::GetGlobals()->CoreMods.callEvent("BeginPlay", Actor);
 			}
 			return origBeginPlay(Actor);
 		}

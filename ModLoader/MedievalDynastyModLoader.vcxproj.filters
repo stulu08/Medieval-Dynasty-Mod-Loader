@@ -76,7 +76,10 @@
     <ClCompile Include="ImGui\imgui_impl_win32.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="UnrealEngineModLoader\Utilities\Logger.cpp" />
+    <ClCompile Include="ModStack.cpp" />
+    <ClCompile Include="UnrealEngineModLoader\Utilities\Logger.cpp">
+      <Filter>UnrealModLoader\Utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UnrealEngineModLoader\Utilities\Globals.h">
@@ -145,5 +148,6 @@
       <Filter>UnrealModLoader\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="UMLDefs.h" />
+    <ClInclude Include="ModStack.h" />
   </ItemGroup>
 </Project>

@@ -5,6 +5,7 @@
 #include "Utilities/Globals.h"
 #include "Utilities/MinHook.h"
 #include "Utilities/Version.h"
+#include <algorithm>
 
 LoaderUI* LoaderUI::UI;
 
@@ -131,8 +132,8 @@ HRESULT LoaderUI::LoaderResizeBuffers(IDXGISwapChain* pSwapChain, UINT BufferCou
 
 		// Set up the viewport.
 		D3D11_VIEWPORT vp;
-		vp.Width = Width;
-		vp.Height = Height;
+		vp.Width = (FLOAT)Width;
+		vp.Height = (FLOAT)Height;
 		vp.MinDepth = 0.0f;
 		vp.MaxDepth = 1.0f;
 		vp.TopLeftX = 0;
@@ -154,7 +155,13 @@ void ShowLogicMods()
 
 	for (size_t i = 0; i < Global::GetGlobals()->ModInfoList.size(); i++)
 	{
-		std::string str(Global::GetGlobals()->ModInfoList[i].ModName.begin(), Global::GetGlobals()->ModInfoList[i].ModName.end());
+		//i changed this because of a MSVC wchar_t to char truncation warning
+		//std::string str(Global::GetGlobals()->ModInfoList[i].ModName.begin(), Global::GetGlobals()->ModInfoList[i].ModName.end());
+		//std::string str(CurrentMod.begin(), CurrentMod.end());
+		std::wstring modName = Global::GetGlobals()->ModInfoList[i].ModName;
+		std::string str(modName.length(), 0);
+		std::transform(modName.begin(), modName.end(), str.begin(), [](wchar_t c) { return (char)c; });
+
 		std::string ModLabel = str + "##" + std::to_string(i);
 		if (ImGui::TreeNode(ModLabel.c_str()))
 		{
@@ -203,7 +210,6 @@ void ShowCoreMods()
 		std::string ModLabel = str + "##cm" + std::to_string(i);
 		if (ImGui::TreeNode(ModLabel.c_str()))
 		{
-			Mod* mod = Global::GetGlobals()->CoreMods[i];
 			std::string Author = "Created By: " + Global::GetGlobals()->CoreMods[i]->ModAuthors;
 			ImGui::Text(Author.c_str());
 			ImGui::Separator();
@@ -220,16 +226,6 @@ void ShowCoreMods()
 				if (ImGui::Button(ButtonLabel.c_str()))
 				{
 					Global::GetGlobals()->CoreMods[i]->OnModMenuButtonPressed();
-				}
-			}
-			if (mod->ShowMainModWindow) {
-				if (ImGui::Button("Hide main window")) {
-					mod->ShowMainModWindow = false;
-				}
-			}
-			else {
-				if (ImGui::Button("Show main window")) {
-					mod->ShowMainModWindow = true;
 				}
 			}
 			ImGui::TreePop();
@@ -298,7 +294,8 @@ LRESULT CALLBACK LoaderUI::hookWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPAR
 HRESULT hookResizeBuffers(IDXGISwapChain* pSwapChain, UINT BufferCount, UINT Width, UINT Height, DXGI_FORMAT NewFormat, UINT SwapChainFlags)
 {
 	LoaderUI* UI = LoaderUI::GetUI();
-	Global::GetGlobals()->eventSystem.dispatchEvent("DX11ResizeBuffers", UI->pDevice, UI->pContext, Width, Height, NewFormat, SwapChainFlags);
+	//Global::GetGlobals()->eventSystem.dispatchEvent("DX11ResizeBuffers", UI->pDevice, UI->pContext, Width, Height, NewFormat, SwapChainFlags);
+	Global::GetGlobals()->CoreMods.callEvent("DX11ResizeBuffers", UI->pDevice, UI->pContext, Width, Height, NewFormat, SwapChainFlags);
 	return UI->LoaderResizeBuffers(pSwapChain, BufferCount, Width, Height, NewFormat, SwapChainFlags);
 }
 
@@ -334,16 +331,16 @@ void LoaderUI::LoaderD3D11Present(IDXGISwapChain* pSwapChain, UINT SyncInterval,
 		io.IniFilename = GameProfile::SelectedGameProfile.ImGuiFile.c_str();
 		io.ConfigFlags = ImGuiConfigFlags_NoMouseCursorChange;
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
-		
+		StyleColorsPhotoShopDark();
+		//Global::GetGlobals()->eventSystem.dispatchEvent("SetupImGui", ImGui::GetIO);
+		Global::GetGlobals()->CoreMods.callEvent<ImGuiIO&>("SetupImGui", io);
 
 		HWND hGameWindow = MEM::FindWindow(GetCurrentProcessId(), L"UnrealWindow");
 		LoaderUI::GetUI()->hGameWindowProc = (WNDPROC)SetWindowLongPtr(hGameWindow, GWLP_WNDPROC, (LONG_PTR)LoaderUI::hookWndProc);
 		ImGui_ImplWin32_Init(hGameWindow);
-
 		//ImGui_ImplDX11_CreateDeviceObjects();
 		ImGui_ImplDX11_Init(LoaderUI::GetUI()->pDevice, LoaderUI::GetUI()->pContext);
-		StyleColorsPhotoShopDark();
-		Global::GetGlobals()->eventSystem.dispatchEvent("SetupImGui", ImGui::GetIO);
+		
 
 		LoaderUI::GetUI()->initRendering = false;
 	}
@@ -360,7 +357,8 @@ void LoaderUI::LoaderD3D11Present(IDXGISwapChain* pSwapChain, UINT SyncInterval,
 	if (Global::GetGlobals()->bIsMenuOpen)
 	{
 		DrawImGui();
-		Global::GetGlobals()->eventSystem.dispatchEvent("DrawImGui");
+		//Global::GetGlobals()->eventSystem.dispatchEvent("DrawImGui");
+		Global::GetGlobals()->CoreMods.callEvent("DrawImGui");
 	}
 
 	//ImGui::Render();
@@ -377,7 +375,9 @@ HRESULT __stdcall hookD3D11Present(IDXGISwapChain* pSwapChain, UINT SyncInterval
 	// LoaderUI initializes D3D objects, mods can then use those objects for drawing, hardware access, etc.
 	LoaderUI* UI = LoaderUI::GetUI();
 	UI->LoaderD3D11Present(pSwapChain, SyncInterval, Flags);
-	Global::GetGlobals()->eventSystem.dispatchEvent("DX11Present", UI->pDevice, UI->pContext, UI->pRenderTargetView);
+	//Global::GetGlobals()->eventSystem.dispatchEvent("DX11Present", UI->pDevice, UI->pContext, UI->pRenderTargetView);
+	Global::GetGlobals()->CoreMods.callEvent("DX11Present", UI->pDevice, UI->pContext, UI->pRenderTargetView);
+
 	return D3D11Present(pSwapChain, SyncInterval, Flags);
 }
 

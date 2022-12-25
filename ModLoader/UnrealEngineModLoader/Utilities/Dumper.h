@@ -8,5 +8,6 @@ public:
 	bool DumpWorldActors();
 	static Dumper* GetDumper();
 private:
+	void CreateDumpDir();
 	static Dumper* DumpRef;
 };

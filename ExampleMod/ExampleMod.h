@@ -14,7 +14,8 @@ public:
 		ModAuthors = "Stulu"; // Mod Author
 		ModLoaderVersion = MODLOADER_VERSION;
 		MedievalModLoaderVersion = MEDIEVAL_VERSION;
-		ShowMainModWindow = true;
+		CreateLogger = false; // Creates a logger for the mod
+		LogToFile = false; // Creates a file sink for the logger
 		// Dont Touch The Internal Stuff
 		ModRef = this;
 		CompleteModCreation();
@@ -45,6 +46,8 @@ public:
 	virtual void SetupImGui(ImGuiIO& io) override;
 
 private:
+	bool m_showWindow = true;
+
 	// If you have a BP Mod Actor, This is a straight refrence to it
 	UE4::AActor* ModActor;
 };

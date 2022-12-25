@@ -5,7 +5,9 @@
 #include <string>
 #include "../UMLDefs.h"
 #include "../Mod/Mod.h"
-#include "../EventSystem.h"
+#include "../ModStack.h"
+
+
 struct ModInfo
 {
 	std::wstring ModName;
@@ -30,9 +32,10 @@ public:
 	std::vector<ModInfo> ModInfoList;
 	std::string GameName;
 	bool bIsMenuOpen;
-	std::vector<class Mod*> CoreMods;
+	ModStack CoreMods;
+	//std::vector<class Mod*> CoreMods;
 	std::vector<BPFunctionWrapper> BPFunctionWrappers;
-	EventDispatcher eventSystem;
+	//EventDispatcher eventSystem;//in ModStack now
 
 	static Global* GetGlobals();
 

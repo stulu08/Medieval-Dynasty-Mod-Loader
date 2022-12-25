@@ -37,7 +37,7 @@ struct Offsets {
 class LOADER_API GameProfile
 {
 public:
-	std::string LoaderPath;
+	std::string LogDir;
 	std::string ImGuiFile;
 
 	int UsesFNamePool = 0;

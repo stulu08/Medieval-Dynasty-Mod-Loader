@@ -136,7 +136,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;EXAMPLEMOD_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ModLoader\MinHook\;$(SolutionDir)ModLoader\UE4;$(SolutionDir)ModLoader\UnrealEngineModLoader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ModLoader\MinHook\;$(SolutionDir)ModLoader\UE4;$(SolutionDir)BaseMod\src;$(SolutionDir)ModLoader\UnrealEngineModLoader;$(SolutionDir)ModLoader\spdlog;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <DisableSpecificWarnings>4251</DisableSpecificWarnings>
@@ -161,6 +161,9 @@
     <ClInclude Include="ExampleMod.h" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BaseMod\BaseMod.vcxproj">
+      <Project>{4e9b1e62-e2d2-40de-8c90-556649880ce7}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\ModLoader\MedievalDynastyModLoader.vcxproj">
       <Project>{de3bc2ad-2683-4d76-ad72-95d98164e9c7}</Project>
     </ProjectReference>

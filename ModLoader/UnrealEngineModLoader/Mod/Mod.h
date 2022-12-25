@@ -17,11 +17,10 @@ public:
 	std::string ModLoaderVersion;
 	std::string MedievalModLoaderVersion;
 	bool UseMenuButton = 0;
+	bool CreateLogger = 0;
+	bool LogToFile = 0;
 	//ModInternals
 	bool IsFinishedCreating = 0;
-	
-	//Used Internally to setup Hook Event System
-	void SetupHooks();
 
 	//Called after each mod is injected, Looped through via gloabals
 	virtual void InitializeMod();
@@ -48,13 +47,13 @@ public:
 
 	virtual void OnModMenuButtonPressed();
 
-	//Called When Mod Construct Finishes
-	void CompleteModCreation();
-
-	void SetImGuiColorTheme(ImGuiColorTheme theme);
+	//Used Internally to setup Hook Event System
+	void SetupHooks();
 
 	static Mod* ModRef;
-	//this should be used in your main ImGui::BeginWindow() function, so the user can hide your main window, it can be reopen in the MDML window
-	//Note that when ShowMainModWindow is false your DrawImGui function will not get called
-	static bool ShowMainModWindow;
+protected:
+	//Called When Mod Construct Finishes
+	void CompleteModCreation();
+	void SetImGuiColorTheme(ImGuiColorTheme theme);
+	Ref<Logger> logger = nullptr;
 };

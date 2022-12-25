@@ -3,7 +3,6 @@
 #include "Utilities/Version.h"
 
 Mod* Mod::ModRef;
-bool Mod::ShowMainModWindow;
 
 namespace CallBackHandler
 {
@@ -19,8 +18,7 @@ namespace CallBackHandler
 
 	void CallBackDrawImGui()
 	{
-		if(Mod::ModRef->ShowMainModWindow)
-			Mod::ModRef->DrawImGui();
+		Mod::ModRef->DrawImGui();
 	}
 
 	void CallBackSetupImGui(ImGuiIO& io) {
@@ -74,30 +72,40 @@ void Mod::DrawImGui()
 void Mod::SetupImGui(ImGuiIO& io)
 {
 }
-
-void Mod::SetupHooks()
-{
-	Global::GetGlobals()->eventSystem.registerEvent(new Event<UE4::AActor*>("BeginPlay", &CallBackHandler::CallBackBeginPlay));
-	Global::GetGlobals()->eventSystem.registerEvent(new Event<>("InitGameState", &CallBackHandler::CallBackInitGameState));
-	Global::GetGlobals()->eventSystem.registerEvent(new Event<std::wstring, UE4::AActor*>("PostBeginPlay", &CallBackHandler::CallBackPostBeginPlay));
-	Global::GetGlobals()->eventSystem.registerEvent(new Event<>("DrawImGui", &CallBackHandler::CallBackDrawImGui));
-	Global::GetGlobals()->eventSystem.registerEvent(new Event<ImGuiIO&>("SetupImGui", &CallBackHandler::CallBackSetupImGui));
-	Global::GetGlobals()->eventSystem.registerEvent(new Event<ID3D11Device*, ID3D11DeviceContext*, ID3D11RenderTargetView*>("DX11Present", &CallBackHandler::CallBackDX11Present));
-	Global::GetGlobals()->eventSystem.registerEvent(new Event<ID3D11Device*, ID3D11DeviceContext*, UINT, UINT, DXGI_FORMAT, UINT>("DX11ResizeBuffers", &CallBackHandler::CallBackDX11ResizeBuffers));
+#define REGISTER_EVENT(name, ...) Global::GetGlobals()->CoreMods.registerEvent(new ModEvent<__VA_ARGS__>(this, #name, &CallBackHandler::CallBack##name));
+void Mod::SetupHooks() {
+	REGISTER_EVENT(BeginPlay, UE4::AActor*);
+	REGISTER_EVENT(InitGameState);
+	REGISTER_EVENT(PostBeginPlay, std::wstring, UE4::AActor*);
+	REGISTER_EVENT(DrawImGui);
+	REGISTER_EVENT(SetupImGui, ImGuiIO&);
+	REGISTER_EVENT(DX11Present, ID3D11Device*, ID3D11DeviceContext*, ID3D11RenderTargetView*);
+	REGISTER_EVENT(DX11ResizeBuffers, ID3D11Device*, ID3D11DeviceContext*, UINT, UINT, DXGI_FORMAT, UINT);
 }
 
 void Mod::CompleteModCreation()
 {
 	IsFinishedCreating = true;
 	Global::GetGlobals()->AddToCoreMods(ModRef);
-	Log::Info("Core Mod Created: %s", ModName.c_str());
+	if (CreateLogger) {
+		if (LogToFile) {
+			logger = Logger::Create(ModName, Log::getLogFile(ModName + "-log.txt"));
+			logger->Info("Created logger with file sink({1}) for mod {0}", ModName, Log::getLogFile(ModName + "-log.txt"));
+		}
+		else {
+			logger = Logger::Create(ModName);
+			logger->Info("Created logger for mod {0}", ModName);
+		}
+	}
+
+	Log::Info("Core Mod Created: {0}", ModName.c_str());
 	if (ModLoaderVersion != MODLOADER_VERSION)
 	{
-		Log::Warn("Mod: %s was created with a different version of the Unreal Mod Loader. This mod may be unstable.", ModName.c_str());
+		Log::Warn("Mod: {0} was created with a different version of the Unreal Mod Loader. This mod may be unstable.", ModName.c_str());
 	}
 	if (MedievalModLoaderVersion != MEDIEVAL_VERSION)
 	{
-		Log::Warn("Mod: %s was created with a different version of the MDML. This mod may be unstable.", ModName.c_str());
+		Log::Warn("Mod: {0} was created with a different version of the MDML. This mod may be unstable.", ModName.c_str());
 	}
 }
 

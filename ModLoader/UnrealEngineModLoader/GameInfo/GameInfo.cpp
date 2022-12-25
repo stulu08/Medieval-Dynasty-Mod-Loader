@@ -31,53 +31,54 @@ std::string GetModuleFilePath(HMODULE hModule)
 
 void SetupProfile(std::string Path)
 {
-	GameProfile::SelectedGameProfile.LoaderPath = Path;
 	GameProfile::SelectedGameProfile.ImGuiFile = Path + "/Config/WindowConfig.ini";
 	INI::PARSE_FLAGS = INI::PARSE_COMMENTS_ALL | INI::PARSE_COMMENTS_SLASH | INI::PARSE_COMMENTS_HASH;
 	INI LoaderInfo(Path + "/" + ModLoaderConfigFile, true);
-	//log file detection
+	//log dir detection
 	LoaderInfo.select("General");
 	{
-		Log::outputFile = Path + "/" + Log::outputFile;
-		std::string logFile = Log::outputFile;
-		logFile = Path + "/" + LoaderInfo.get("General", "LogFile", logFile);
-		auto logFilePath = (std::filesystem::path(logFile));
-		if(!std::filesystem::exists(logFilePath.parent_path()))
-			std::filesystem::create_directories(logFilePath.parent_path());
-		if (FILE* file = fopen(logFile.c_str(), "w")) {
-			fclose(file);
-			Log::outputFile = logFile;
-		}
-		else {
-			Log::Warn("Not able to create log file %s!", logFile);
-			std::filesystem::create_directory("Logs");
-			Log::Warn("Resetting to %s!", Log::outputFile);
-		}
+		std::string logDir = Path + "/" + DEFAULT_LOG_DIR;
+		logDir = Path + "/" + LoaderInfo.get("General", "LogDir", logDir);
+		auto logFileDir = (std::filesystem::path(logDir));
+		if (!std::filesystem::exists(logFileDir))
+			std::filesystem::create_directories(logFileDir);
+		GameProfile::SelectedGameProfile.LogDir = logFileDir.string();
 	}
 	//Output File Initialization
 	LoaderInfo.select("DEBUG");
 	if (LoaderInfo.getAs<int>("DEBUG", "UseConsole", 0) == 1)
 	{
 		ShowWindow(GetConsoleWindow(), SW_SHOW);
-		FreeConsole();
+		//FreeConsole();
+		//AllocConsole();
+		//freopen("CON", "w", LOG_STREAM);
+		
 		AllocConsole();
-		freopen("CON", "w", LOG_STREAM);
-		Log::Info("Loader Created by ~Russell.J Release V %s", MODLOADER_VERSION);
-		Log::Info("Optmized and edited for Medieval Dynasty by Stulu");
-		Log::Info("Medieval Version %s", MEDIEVAL_VERSION);
+		FILE* newstdin = nullptr;
+		FILE* newstdout = nullptr;
+		FILE* newstderr = nullptr;
+
+		freopen_s(&newstdin, "CONIN$", "r", stdin);
+		freopen_s(&newstdout, "CONOUT$", "w", stdout);
+		freopen_s(&newstderr, "CONOUT$", "w", stderr);
+
+		Log::Init(GameProfile::SelectedGameProfile.LogDir);
 	}
+	Log::Info("Loader Created by ~Russell.J Release V {0}", MODLOADER_VERSION);
+	Log::Info_MDML("Optmized and edited for Medieval Dynasty by Stulu");
+	Log::Info_MDML("Medieval Version {0}", MEDIEVAL_VERSION);
 	//profile detection
 	LoaderInfo.select("General");
 	std::string Profile = Path + "/" + LoaderInfo.get("General", "Profile", "Config/Default.profile");
 	if (!std::filesystem::exists(Profile)) {
-		Log::Error("Profile %s not found!", Profile.c_str());
+		Log::Error_MDML("Profile {0} not found!", Profile.c_str());
 		return;
 	}
 
 	if (std::filesystem::exists(Profile))
 	{
 		//GameProfile::SelectedGameProfile.ProfileName = gamename;
-		Log::Info("Profile Detected: %s", Profile.c_str());
+		Log::Info("Profile Detected: {0}", Profile.c_str());
 		std::ifstream file("Profile");
 
 		INI GameInfo(Profile, true);
@@ -130,7 +131,7 @@ void SetupProfile(std::string Path)
 				{
 					auto FPoolPatoffset = *reinterpret_cast<uint32_t*>(FPoolPat + 5);
 					GameProfile::SelectedGameProfile.GName = (DWORD64)(FPoolPat + 9 + FPoolPatoffset);
-					Log::Info("FoundNamePool: 0x%p", GameProfile::SelectedGameProfile.GName);
+					Log::Info("FoundNamePool: 0x{0}", GameProfile::SelectedGameProfile.GName);
 				}
 				else
 				{
@@ -144,7 +145,7 @@ void SetupProfile(std::string Path)
 				{
 					auto GNamesAddress = *reinterpret_cast<uint32_t*>(GNamePat + 11);
 					GameProfile::SelectedGameProfile.GName = (DWORD64)(GNamePat + 15 + GNamesAddress);
-					Log::Info("GName: 0x%p", GameProfile::SelectedGameProfile.GName);
+					Log::Info("GName: 0x{0}", GameProfile::SelectedGameProfile.GName);
 				}
 				else
 				{
@@ -157,7 +158,7 @@ void SetupProfile(std::string Path)
 			{
 				auto GObjectOffset = *reinterpret_cast<uint32_t*>(GObjectPat + 14);
 				GameProfile::SelectedGameProfile.GObject = (DWORD64)(GObjectPat + 18 + GObjectOffset);
-				Log::Info("GObject: 0x%p", GameProfile::SelectedGameProfile.GObject);
+				Log::Info("GObject: 0x{0}", GameProfile::SelectedGameProfile.GObject);
 			}
 			else
 			{
@@ -169,7 +170,7 @@ void SetupProfile(std::string Path)
 			{
 				auto GWorldAddress = *reinterpret_cast<uint32_t*>(GWorldPat + 8);
 				GameProfile::SelectedGameProfile.GWorld = (DWORD64)(GWorldPat + 12 + GWorldAddress);
-				Log::Info("GWorld: 0x%p", GameProfile::SelectedGameProfile.GWorld);
+				Log::Info("GWorld: 0x{0}", GameProfile::SelectedGameProfile.GWorld);
 			}
 			else
 			{
@@ -254,7 +255,7 @@ void SetupProfile(std::string Path)
 		else
 		{
 			GameProfile::SelectedGameProfile.GameStateInit = (DWORD64)Pattern::Find("40 53 48 83 EC 20 48 8B 41 10 48 8B D9 48 8B 91");
-			Log::Info("GameStateInit: 0x%p", (void*)GameProfile::SelectedGameProfile.GameStateInit);
+			Log::Info("GameStateInit: 0x{0}", (void*)GameProfile::SelectedGameProfile.GameStateInit);
 			if (!GameProfile::SelectedGameProfile.GameStateInit)
 			{
 				Log::Error("GameStateInit NOT FOUND!");
@@ -265,7 +266,7 @@ void SetupProfile(std::string Path)
 			if (BeginPlay != nullptr)
 			{
 				GameProfile::SelectedGameProfile.BeginPlay = (DWORD64)MEM::GetAddressPTR(BeginPlay, 0x1, 0x5);
-				Log::Info("AActor::BeginPlay: 0x%p", (void*)GameProfile::SelectedGameProfile.BeginPlay);
+				Log::Info("AActor::BeginPlay: 0x{0}", (void*)GameProfile::SelectedGameProfile.BeginPlay);
 			}
 			else
 			{
@@ -306,7 +307,7 @@ void SetupProfile(std::string Path)
 			}
 			GameProfile::SelectedGameProfile.StaticLoadObject = (DWORD64)MEM::GetAddressPTR(StaticLoadObject, 0x1, 0x5);
 
-			Log::Info("StaticLoadObject: 0x%p", (void*)GameProfile::SelectedGameProfile.StaticLoadObject);
+			Log::Info("StaticLoadObject: 0x{0}", (void*)GameProfile::SelectedGameProfile.StaticLoadObject);
 
 			auto SpawnActorFTrans = Pattern::Find("4C 8B C6 48 8B C8 48 8B D3 E8 ? ? ? ? 48 8B 5C 24 ? 48 8B 74 24");
 			if (SpawnActorFTrans != nullptr)
@@ -327,7 +328,7 @@ void SetupProfile(std::string Path)
 			}
 
 			GameProfile::SelectedGameProfile.SpawnActorFTrans = (DWORD64)MEM::GetAddressPTR(SpawnActorFTrans, 0x1, 0x5);
-			Log::Info("UWorld::SpawnActor: 0x%p", (void*)GameProfile::SelectedGameProfile.SpawnActorFTrans);
+			Log::Info("UWorld::SpawnActor: 0x{0}", (void*)GameProfile::SelectedGameProfile.SpawnActorFTrans);
 
 			auto CallFunctionByNameWithArguments = Pattern::Find("8B ? E8 ? ? ? ? ? 0A ? FF ? EB 9E ? 8B");
 			if (CallFunctionByNameWithArguments != nullptr)
@@ -348,14 +349,14 @@ void SetupProfile(std::string Path)
 					Log::Error("CallFunctionByNameWithArguments NOT FOUND!");
 				}
 			}
-			Log::Info("CallFunctionByNameWithArguments: 0x%p", (void*)GameProfile::SelectedGameProfile.CallFunctionByNameWithArguments);
+			Log::Info("CallFunctionByNameWithArguments: 0x{0}", (void*)GameProfile::SelectedGameProfile.CallFunctionByNameWithArguments);
 
 			auto ProcessEvent = Pattern::Find("75 0E ? ? ? 48 ? ? 48 ? ? E8 ? ? ? ? 48 8B ? 24 ? 48 8B ? 24 38 48 8B ? 24 40");
 			ProcessEvent += 0xB;
 			if (ProcessEvent != nullptr)
 			{
 				GameProfile::SelectedGameProfile.ProcessEvent = (DWORD64)MEM::GetAddressPTR(ProcessEvent, 0x1, 0x5);
-				Log::Info("UObject::ProcessEvent: 0x%p", (void*)GameProfile::SelectedGameProfile.ProcessEvent);
+				Log::Info("UObject::ProcessEvent: 0x{0}", (void*)GameProfile::SelectedGameProfile.ProcessEvent);
 			}
 			else
 			{
@@ -383,12 +384,12 @@ void SetupProfile(std::string Path)
 					}
 				}
 			}
-			Log::Info("UClass::CreateDefualtObject: 0x%p", (void*)GameProfile::SelectedGameProfile.CreateDefaultObject);
+			Log::Info("UClass::CreateDefualtObject: 0x{0}", (void*)GameProfile::SelectedGameProfile.CreateDefaultObject);
 		}
 		if (GameInfo.select("ProcessInternalFunction"))
 		{
 			GameProfile::SelectedGameProfile.ProcessInternals = (DWORD64)Pattern::Find(GameInfo.get("ProcessInternalFunction", "ProcessInternal", "").c_str());
-			Log::Info("ProcessInternalFunction: 0x%p", (void*)GameProfile::SelectedGameProfile.ProcessInternals);
+			Log::Info("ProcessInternalFunction: 0x{0}", (void*)GameProfile::SelectedGameProfile.ProcessInternals);
 		}
 		else
 		{
@@ -399,7 +400,7 @@ void SetupProfile(std::string Path)
 				{
 					auto ProcessAddyOffset = *reinterpret_cast<uint32_t*>(ProcessAddy + 16);
 					GameProfile::SelectedGameProfile.ProcessInternals = (ProcessAddy + 20 + ProcessAddyOffset);
-					Log::Info("ProcessInternalFunction: 0x%p", (void*)GameProfile::SelectedGameProfile.ProcessInternals);
+					Log::Info("ProcessInternalFunction: 0x{0}", (void*)GameProfile::SelectedGameProfile.ProcessInternals);
 				}
 			}
 		}
@@ -441,14 +442,14 @@ void SetupProfile(std::string Path)
 				}
 			}
 			GameProfile::SelectedGameProfile.StaticConstructObject_Internal = (DWORD64)MEM::GetAddressPTR(StaticConstructObject_Internal, 0x1, 0x5);
-			Log::Info("StaticConstructObject_Internal 0x%p", (void*)GameProfile::SelectedGameProfile.StaticConstructObject_Internal);
+			Log::Info("StaticConstructObject_Internal 0x{0}", (void*)GameProfile::SelectedGameProfile.StaticConstructObject_Internal);
 		}
-		Log::Info("Setup %s", Profile.c_str());
+		Log::Info("Setup {0}", Profile.c_str());
 		Hooks::SetupHooks();
 	}
 	else
 	{
-		Log::Error("Profile %s Not Detected!", Profile.c_str());
+		Log::Error("Profile {0} Not Detected!", Profile.c_str());
 	}
 }
 

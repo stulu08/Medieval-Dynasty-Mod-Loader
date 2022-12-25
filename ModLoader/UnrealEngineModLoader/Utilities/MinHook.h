@@ -22,15 +22,15 @@ namespace MinHook
 	{
 		if (MH_CreateHook((LPVOID)pTarget, pDetour, reinterpret_cast<LPVOID*>(ppOriginal)) != MH_OK)
 		{
-			Log::Error("Failed to create hook: %s", displayName.c_str());
+			Log::Error("Failed to create hook: {0}", displayName.c_str());
 			return;
 		}
 
 		if (MH_EnableHook((LPVOID)pTarget) != MH_OK)
 		{
-			Log::Error("Failed to enable hook: %s", displayName.c_str());
+			Log::Error("Failed to enable hook: {0}", displayName.c_str());
 			return;
 		}
-		Log::Info("Added hook: %s", displayName.c_str());
+		Log::Info("Added hook: {0}", displayName.c_str());
 	}
 }
