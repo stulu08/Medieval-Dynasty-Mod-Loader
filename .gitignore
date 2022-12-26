@@ -44,7 +44,7 @@ Generated\ Files/
 # Visual Studio project files
 #*.sln
 #*.vcxproj
-*.vcxproj.filters
+#*.vcxproj.filters
 *.vcxproj.user 
 
 # MSTest test Results
