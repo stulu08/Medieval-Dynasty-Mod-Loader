@@ -41,8 +41,10 @@ namespace CoreModLoader
 		{
 			std::filesystem::create_directory(path);
 		}
-		for (const auto& entry : fs::directory_iterator(path))
-		{
+		//i use std::filesystem::path so every path looks the same here
+		std::vector<std::filesystem::path> mods;
+
+		for (const auto& entry : fs::directory_iterator(path)) {
 			if (entry.is_directory()) {
 				//this way you will be able to create a mod inside a folder to have resources or smth
 				auto dirName = entry.path().filename().string();
@@ -53,25 +55,38 @@ namespace CoreModLoader
 					INI LoaderInfo(iniPath.string(), true);
 					LoaderInfo.select("Mod");
 
-					std::string path = std::filesystem::path(dirPath + "/" + LoaderInfo.get("DLLPath", dirName + ".dll")).string();
-					std::string str(path.begin(), path.end());
-					InjectDLL(str);
+					mods.push_back(std::filesystem::path(dirPath + "/" + LoaderInfo.get("DLLPath", dirName + ".dll")));
 				}
 				else {
 					std::string altPath = dirPath + "/" + dirName + ".dll";
 					if (std::filesystem::exists(altPath)) {
-						std::string path = std::filesystem::path(altPath).string();
-						std::string str(path.begin(), path.end());
-						InjectDLL(str);
+						mods.push_back(std::filesystem::path(altPath).string());
 					}
 				}
 			}
 			if (entry.path().extension().string() == ".dll")
 			{
-				std::string path = entry.path().string();
-				std::string str(path.begin(), path.end());
-				InjectDLL(str);
+				mods.push_back(entry.path().string());
 			}
 		}
+		//move basemod to front
+		const std::filesystem::path baseModPath = path + "/BaseMod/BaseMod.dll";
+		auto baseModIt = std::find(mods.begin(), mods.end(), baseModPath);
+		if (baseModIt != mods.end()) {
+			Log::Info_MDML("Moved /BaseMod/BaseMod.dll to front");
+			std::rotate(mods.begin(), baseModIt, baseModIt + 1);
+		}
+
+		//inject all mods
+		for (uint32_t i = 0; i < mods.size(); i++) {
+			auto& path = mods[i];
+			if (std::filesystem::exists(path)) {
+				if(path.extension().string() == ".dll")
+					InjectDLL(path.string());
+			}
+		}
+
+
+		
 	}
 };

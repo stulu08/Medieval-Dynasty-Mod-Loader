@@ -1,16 +1,34 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <None Include="xinput1_3\xinput1_3.def" />
+    <Filter Include="Loader">
+      <UniqueIdentifier>{1C9C36C1-083E-6197-F1F8-74EBDD39E8E7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xinput1_3">
+      <UniqueIdentifier>{9060BF94-FCCA-730B-4509-25B1B1B25160}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="xinput1_3\xinput1_3.cpp" />
-    <ClCompile Include="Loader\Loader.cpp" />
+    <ClInclude Include="Loader\Loader.h">
+      <Filter>Loader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="xinput1_3\xinput1_3_asm.asm" />
+    <ClCompile Include="Loader\Loader.cpp">
+      <Filter>Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="xinput1_3\xinput1_3.cpp">
+      <Filter>xinput1_3</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Loader\Loader.h" />
+    <None Include="xinput1_3\xinput1_3.def">
+      <Filter>xinput1_3</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Masm Include="xinput1_3\xinput1_3_asm.asm">
+      <Filter>xinput1_3</Filter>
+    </Masm>
   </ItemGroup>
 </Project>

@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LoaderAutoInjector", "Loade
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BaseMod", "BaseMod\BaseMod.vcxproj", "{4E9B1E62-E2D2-40DE-8C90-556649880CE7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MDML", "MDML", "{AA68CA45-0A45-4FF5-A5A6-BC0742C6087D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -54,6 +56,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DE3BC2AD-2683-4D76-AD72-95D98164E9C7} = {AA68CA45-0A45-4FF5-A5A6-BC0742C6087D}
+		{ACD937DA-925A-4640-9AD0-39A381D323EA} = {AA68CA45-0A45-4FF5-A5A6-BC0742C6087D}
+		{4E9B1E62-E2D2-40DE-8C90-556649880CE7} = {AA68CA45-0A45-4FF5-A5A6-BC0742C6087D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9BBAE879-6117-442A-9B9C-A8346519C4A3}

@@ -1,9 +1,15 @@
 #include <windows.h>
 #include "BaseMod.h"
 
-void CreateMod()
-{
-    auto CoreMod = new BaseMod();
+namespace MDMLBase {
+    Mod* Mod::s_instance;
+
+    class DLLHandler {
+    public:
+        static void CreateMod() {
+            MDMLBase::Mod::s_instance = new MDMLBase::Mod();
+        }
+    };
 }
 
 BOOL APIENTRY DllMain(HMODULE hModule,
@@ -14,7 +20,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
-        CreateMod();
+        MDMLBase::DLLHandler::CreateMod();
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:
     case DLL_PROCESS_DETACH:

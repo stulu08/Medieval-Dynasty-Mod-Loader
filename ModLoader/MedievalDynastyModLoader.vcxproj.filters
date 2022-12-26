@@ -1,124 +1,72 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="UnrealModLoader">
-      <UniqueIdentifier>{2943f03b-3913-4b1d-b86c-36bce15f644e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UnrealModLoader\GameInfo">
-      <UniqueIdentifier>{f2e7939d-44db-4039-ac34-8c81f78c03bf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UnrealModLoader\Memory">
-      <UniqueIdentifier>{0689fbc3-4a71-41a3-b534-3e1d5afcb78f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UnrealModLoader\Utilities">
-      <UniqueIdentifier>{3a334267-87a4-43b3-9398-6d5070b9fc93}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UE4">
-      <UniqueIdentifier>{a62dc67b-5a0e-4ae6-813a-f30f232b4629}</UniqueIdentifier>
+    <Filter Include="INI">
+      <UniqueIdentifier>{C5F3870B-31FD-877C-BA78-9E7C2681937C}</UniqueIdentifier>
     </Filter>
     <Filter Include="ImGui">
-      <UniqueIdentifier>{33d5da26-bc24-4afa-a2ef-169d9efcbcb8}</UniqueIdentifier>
+      <UniqueIdentifier>{C0FF640D-2C14-8DBE-F595-301E616989EF}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UnrealModLoader\Mod">
-      <UniqueIdentifier>{31c4735e-1d2d-4355-95df-b9c75892f6af}</UniqueIdentifier>
+    <Filter Include="MinHook">
+      <UniqueIdentifier>{1A77E127-8656-60C3-8F6E-EB99FBCCC624}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MinHook\include">
+      <UniqueIdentifier>{8D189920-F9A3-06E5-02B5-89D96EBF62E5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4">
+      <UniqueIdentifier>{9325880B-FF2E-887C-88AA-9E7CF4B2937C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UnrealEngineModLoader">
+      <UniqueIdentifier>{599B9222-C507-4E1D-8EFB-E57AFA267085}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UnrealEngineModLoader\GameInfo">
+      <UniqueIdentifier>{CE1ED90D-BA44-A374-A38A-28408F4FC840}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UnrealEngineModLoader\Memory">
+      <UniqueIdentifier>{A1F40826-8DAF-F8D1-3667-711C22014362}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UnrealEngineModLoader\Mod">
+      <UniqueIdentifier>{E8BBCD16-547E-01A1-9D2E-902D0930DA7E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UnrealEngineModLoader\Utilities">
+      <UniqueIdentifier>{04835F8F-7066-6ECF-7969-9C0BE5CB3420}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spdlog">
+      <UniqueIdentifier>{8EAD431C-7A4F-6EF2-630A-82464F4BF542}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spdlog\spdlog">
+      <UniqueIdentifier>{06F29812-72B2-1449-3BED-5DC6A76C5925}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spdlog\spdlog\cfg">
+      <UniqueIdentifier>{85FD49BA-F113-4850-3A8B-D371A6E018D8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spdlog\spdlog\details">
+      <UniqueIdentifier>{7B882EEE-E7F4-E9E8-B0E8-81461C140C51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spdlog\spdlog\fmt">
+      <UniqueIdentifier>{3C0B4ABA-A821-4850-F198-D3715DEE18D8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spdlog\spdlog\fmt\bundled">
+      <UniqueIdentifier>{29A61BFB-9568-4F85-DE18-DE114A1A2863}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="spdlog\spdlog\sinks">
+      <UniqueIdentifier>{FDCBE275-692D-C083-F29A-06365EFBF642}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="UnrealEngineModLoader\dllmain.cpp">
-      <Filter>UnrealModLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="UnrealEngineModLoader\Utilities\Globals.cpp">
-      <Filter>UnrealModLoader\Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="UnrealEngineModLoader\Utilities\EngineDefFinder.cpp">
-      <Filter>UnrealModLoader\Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="UnrealEngineModLoader\Memory\mem.cpp">
-      <Filter>UnrealModLoader\Memory</Filter>
-    </ClCompile>
-    <ClCompile Include="UnrealEngineModLoader\GameInfo\GameInfo.cpp">
-      <Filter>UnrealModLoader\GameInfo</Filter>
-    </ClCompile>
-    <ClCompile Include="UE4\CoreUObject_functions.cpp">
-      <Filter>UE4</Filter>
-    </ClCompile>
-    <ClCompile Include="UE4\Basic.cpp">
-      <Filter>UE4</Filter>
-    </ClCompile>
-    <ClCompile Include="PakLoader.cpp" />
-    <ClCompile Include="UnrealEngineModLoader\Utilities\Dumper.cpp">
-      <Filter>UnrealModLoader\Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="UnrealEngineModLoader\Memory\CoreModLoader.cpp" />
-    <ClCompile Include="Hooks.cpp" />
-    <ClCompile Include="LoaderUI.cpp" />
-    <ClCompile Include="UnrealEngineModLoader\Mod\Mod.cpp">
-      <Filter>UnrealModLoader\Mod</Filter>
-    </ClCompile>
-    <ClCompile Include="ImGui\imgui_tables.cpp">
-      <Filter>ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="ImGui\imgui_widgets.cpp">
-      <Filter>ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="ImGui\imgui.cpp">
-      <Filter>ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="ImGui\imgui_demo.cpp">
-      <Filter>ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="ImGui\imgui_draw.cpp">
-      <Filter>ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="ImGui\imgui_impl_dx11.cpp">
-      <Filter>ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="ImGui\imgui_impl_win32.cpp">
-      <Filter>ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="ModStack.cpp" />
-    <ClCompile Include="UnrealEngineModLoader\Utilities\Logger.cpp">
-      <Filter>UnrealModLoader\Utilities</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="UnrealEngineModLoader\Utilities\Globals.h">
-      <Filter>UnrealModLoader\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="UnrealEngineModLoader\Utilities\Logger.h">
-      <Filter>UnrealModLoader\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="UnrealEngineModLoader\Utilities\MinHook.h">
-      <Filter>UnrealModLoader\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="UnrealEngineModLoader\Utilities\Pattern.h">
-      <Filter>UnrealModLoader\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="UnrealEngineModLoader\Utilities\Dumper.h">
-      <Filter>UnrealModLoader\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="UnrealEngineModLoader\Utilities\EngineDefFinder.h">
-      <Filter>UnrealModLoader\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="UnrealEngineModLoader\Memory\mem.h">
-      <Filter>UnrealModLoader\Memory</Filter>
-    </ClInclude>
-    <ClInclude Include="UnrealEngineModLoader\GameInfo\GameInfo.h">
-      <Filter>UnrealModLoader\GameInfo</Filter>
-    </ClInclude>
-    <ClInclude Include="UE4\CoreUObject_classes.hpp">
-      <Filter>UE4</Filter>
-    </ClInclude>
-    <ClInclude Include="UE4\Ue4.hpp">
-      <Filter>UE4</Filter>
-    </ClInclude>
-    <ClInclude Include="PakLoader.h" />
-    <ClInclude Include="UnrealEngineModLoader\Memory\CoreModLoader.h" />
-    <ClInclude Include="Hooks.h" />
-    <ClInclude Include="LoaderUI.h" />
     <ClInclude Include="EventSystem.h" />
-    <ClInclude Include="UnrealEngineModLoader\Mod\Mod.h">
-      <Filter>UnrealModLoader\Mod</Filter>
+    <ClInclude Include="Hooks.h" />
+    <ClInclude Include="INI\INI.h">
+      <Filter>INI</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imconfig.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui_impl_dx11.h">
+      <Filter>ImGui</Filter>
     </ClInclude>
     <ClInclude Include="ImGui\imgui_impl_win32.h">
       <Filter>ImGui</Filter>
@@ -135,19 +83,393 @@
     <ClInclude Include="ImGui\imstb_truetype.h">
       <Filter>ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="ImGui\imconfig.h">
-      <Filter>ImGui</Filter>
+    <ClInclude Include="LoaderUI.h" />
+    <ClInclude Include="MinHook\include\MinHook.h">
+      <Filter>MinHook\include</Filter>
     </ClInclude>
-    <ClInclude Include="ImGui\imgui.h">
-      <Filter>ImGui</Filter>
+    <ClInclude Include="ModStack.h" />
+    <ClInclude Include="PakLoader.h" />
+    <ClInclude Include="UE4\Basic.hpp">
+      <Filter>UE4</Filter>
     </ClInclude>
-    <ClInclude Include="ImGui\imgui_impl_dx11.h">
-      <Filter>ImGui</Filter>
+    <ClInclude Include="UE4\CoreUObject_classes.hpp">
+      <Filter>UE4</Filter>
     </ClInclude>
-    <ClInclude Include="UnrealEngineModLoader\Utilities\Version.h">
-      <Filter>UnrealModLoader\Utilities</Filter>
+    <ClInclude Include="UE4\CoreUObject_parameters.hpp">
+      <Filter>UE4</Filter>
+    </ClInclude>
+    <ClInclude Include="UE4\CoreUObject_structs.hpp">
+      <Filter>UE4</Filter>
+    </ClInclude>
+    <ClInclude Include="UE4\Ue4.hpp">
+      <Filter>UE4</Filter>
     </ClInclude>
     <ClInclude Include="UMLDefs.h" />
-    <ClInclude Include="ModStack.h" />
+    <ClInclude Include="UnrealEngineModLoader\GameInfo\GameInfo.h">
+      <Filter>UnrealEngineModLoader\GameInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealEngineModLoader\Memory\CoreModLoader.h">
+      <Filter>UnrealEngineModLoader\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealEngineModLoader\Memory\mem.h">
+      <Filter>UnrealEngineModLoader\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealEngineModLoader\Mod\Mod.h">
+      <Filter>UnrealEngineModLoader\Mod</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealEngineModLoader\Utilities\Dumper.h">
+      <Filter>UnrealEngineModLoader\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealEngineModLoader\Utilities\EngineDefFinder.h">
+      <Filter>UnrealEngineModLoader\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealEngineModLoader\Utilities\Globals.h">
+      <Filter>UnrealEngineModLoader\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealEngineModLoader\Utilities\Logger.h">
+      <Filter>UnrealEngineModLoader\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealEngineModLoader\Utilities\MinHook.h">
+      <Filter>UnrealEngineModLoader\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealEngineModLoader\Utilities\Pattern.h">
+      <Filter>UnrealEngineModLoader\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="UnrealEngineModLoader\Utilities\Version.h">
+      <Filter>UnrealEngineModLoader\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\async.h">
+      <Filter>spdlog\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\async_logger-inl.h">
+      <Filter>spdlog\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\async_logger.h">
+      <Filter>spdlog\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\cfg\argv.h">
+      <Filter>spdlog\spdlog\cfg</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\cfg\env.h">
+      <Filter>spdlog\spdlog\cfg</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\cfg\helpers-inl.h">
+      <Filter>spdlog\spdlog\cfg</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\cfg\helpers.h">
+      <Filter>spdlog\spdlog\cfg</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\common-inl.h">
+      <Filter>spdlog\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\common.h">
+      <Filter>spdlog\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\backtracer-inl.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\backtracer.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\circular_q.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\console_globals.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\file_helper-inl.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\file_helper.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\fmt_helper.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\log_msg-inl.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\log_msg.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\log_msg_buffer-inl.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\log_msg_buffer.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\mpmc_blocking_q.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\null_mutex.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\os-inl.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\os.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\periodic_worker-inl.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\periodic_worker.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\registry-inl.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\registry.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\synchronous_factory.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\tcp_client-windows.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\tcp_client.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\thread_pool-inl.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\thread_pool.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\details\windows_include.h">
+      <Filter>spdlog\spdlog\details</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\bin_to_hex.h">
+      <Filter>spdlog\spdlog\fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\bundled\args.h">
+      <Filter>spdlog\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\bundled\chrono.h">
+      <Filter>spdlog\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\bundled\color.h">
+      <Filter>spdlog\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\bundled\compile.h">
+      <Filter>spdlog\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\bundled\core.h">
+      <Filter>spdlog\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\bundled\format-inl.h">
+      <Filter>spdlog\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\bundled\format.h">
+      <Filter>spdlog\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\bundled\locale.h">
+      <Filter>spdlog\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\bundled\os.h">
+      <Filter>spdlog\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\bundled\ostream.h">
+      <Filter>spdlog\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\bundled\printf.h">
+      <Filter>spdlog\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\bundled\ranges.h">
+      <Filter>spdlog\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\bundled\xchar.h">
+      <Filter>spdlog\spdlog\fmt\bundled</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\chrono.h">
+      <Filter>spdlog\spdlog\fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\fmt.h">
+      <Filter>spdlog\spdlog\fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fmt\ostr.h">
+      <Filter>spdlog\spdlog\fmt</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\formatter.h">
+      <Filter>spdlog\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\fwd.h">
+      <Filter>spdlog\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\logger-inl.h">
+      <Filter>spdlog\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\logger.h">
+      <Filter>spdlog\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\pattern_formatter-inl.h">
+      <Filter>spdlog\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\pattern_formatter.h">
+      <Filter>spdlog\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\android_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\ansicolor_sink-inl.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\ansicolor_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\base_sink-inl.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\base_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\basic_file_sink-inl.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\basic_file_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\daily_file_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\dist_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\dup_filter_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\hourly_file_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\msvc_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\null_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\ostream_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\ringbuffer_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\rotating_file_sink-inl.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\rotating_file_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\sink-inl.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\stdout_color_sinks-inl.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\stdout_color_sinks.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\stdout_sinks-inl.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\stdout_sinks.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\syslog_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\systemd_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\tcp_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\win_eventlog_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\wincolor_sink-inl.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\sinks\wincolor_sink.h">
+      <Filter>spdlog\spdlog\sinks</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\spdlog-inl.h">
+      <Filter>spdlog\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\spdlog.h">
+      <Filter>spdlog\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\stopwatch.h">
+      <Filter>spdlog\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\tweakme.h">
+      <Filter>spdlog\spdlog</Filter>
+    </ClInclude>
+    <ClInclude Include="spdlog\spdlog\version.h">
+      <Filter>spdlog\spdlog</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Hooks.cpp" />
+    <ClCompile Include="ImGui\imgui.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_demo.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_draw.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_impl_dx11.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_impl_win32.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_tables.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_widgets.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="LoaderUI.cpp" />
+    <ClCompile Include="ModStack.cpp" />
+    <ClCompile Include="PakLoader.cpp" />
+    <ClCompile Include="UE4\Basic.cpp">
+      <Filter>UE4</Filter>
+    </ClCompile>
+    <ClCompile Include="UE4\CoreUObject_functions.cpp">
+      <Filter>UE4</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealEngineModLoader\GameInfo\GameInfo.cpp">
+      <Filter>UnrealEngineModLoader\GameInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealEngineModLoader\Memory\CoreModLoader.cpp">
+      <Filter>UnrealEngineModLoader\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealEngineModLoader\Memory\mem.cpp">
+      <Filter>UnrealEngineModLoader\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealEngineModLoader\Mod\Mod.cpp">
+      <Filter>UnrealEngineModLoader\Mod</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealEngineModLoader\Utilities\Dumper.cpp">
+      <Filter>UnrealEngineModLoader\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealEngineModLoader\Utilities\EngineDefFinder.cpp">
+      <Filter>UnrealEngineModLoader\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealEngineModLoader\Utilities\Globals.cpp">
+      <Filter>UnrealEngineModLoader\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealEngineModLoader\Utilities\Logger.cpp">
+      <Filter>UnrealEngineModLoader\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="UnrealEngineModLoader\dllmain.cpp">
+      <Filter>UnrealEngineModLoader</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

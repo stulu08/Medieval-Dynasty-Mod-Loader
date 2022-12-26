@@ -1,34 +1,49 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="..\ModLoader\UE4\CoreUObject_functions.cpp">
-      <Filter>UE4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\ModLoader\UE4\Basic.cpp">
-      <Filter>UE4</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BaseMod.cpp">
-      <Filter>Mod</Filter>
-    </ClCompile>
+    <Filter Include="ModLoader">
+      <UniqueIdentifier>{3C282D37-A892-E1AD-F1D0-92535D7ABF02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ModLoader\UE4">
+      <UniqueIdentifier>{B91EDADD-25DF-5514-EE19-9F915A999AF0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\ModLoader\UE4\Basic.hpp">
+      <Filter>ModLoader\UE4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ModLoader\UE4\CoreUObject_classes.hpp">
+      <Filter>ModLoader\UE4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ModLoader\UE4\CoreUObject_parameters.hpp">
+      <Filter>ModLoader\UE4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ModLoader\UE4\CoreUObject_structs.hpp">
+      <Filter>ModLoader\UE4</Filter>
+    </ClInclude>
     <ClInclude Include="..\ModLoader\UE4\Ue4.hpp">
-      <Filter>UE4</Filter>
+      <Filter>ModLoader\UE4</Filter>
     </ClInclude>
     <ClInclude Include="src\BaseMod.h">
-      <Filter>Mod</Filter>
+      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Utils.h">
-      <Filter>Mod</Filter>
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="UE4">
-      <UniqueIdentifier>{088c3756-0766-43ef-91de-277835d3cdf6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Mod">
-      <UniqueIdentifier>{8d7d50ad-fc57-48e5-98e5-65590e534bb3}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="..\ModLoader\UE4\Basic.cpp">
+      <Filter>ModLoader\UE4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ModLoader\UE4\CoreUObject_functions.cpp">
+      <Filter>ModLoader\UE4</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="src\BaseMod.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
