@@ -19,10 +19,11 @@ Medieval Dynasty Mod Loader (MDML) is a fork of the [Unreal Engine Mod Loader](h
 # Bugs
 - When you get a DirectX error you may have started in DirectX12 Rendering Mode, switch it to DirectX11 in ```Settings>Graphics>Rendering Mode```
 - Dont start using the ```Medieval_Dynasty-Win64-Shipping.exe``` executable, use steam
+- .Pak mods doesn't work since the game uses signed paks!
 
 # Installing Logic Mods
 - ```pak``` or Logic Mods are placed inside ```[SteamLibraryFolder]/common/Medieval Dynasty/Medieval_Dynasty/Content/Paks/LogicMods```
-- Here is a [guide](https://youtu.be/i-hp3NS6heQ?list=PL-dFOLrGFgdwbzcHmZ2ghuN3LXxlazbZP) to creating Logic Mods
+- Here is a [guide](https://youtu.be/i-hp3NS6heQ?list=PL-dFOLrGFgdwbzcHmZ2ghuN3LXxlazbZP) to creating Logic Mods, this does not work since the game uses signed pak files, but I am working on a fix.
 
 # Installing Core Mods
 - ```dll``` or Core Mods are placed inside ```[SteamLibraryFolder]/common/Medieval Dynasty/Medieval_Dynasty/Content/CoreMods```
