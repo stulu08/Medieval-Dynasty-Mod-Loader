@@ -42,8 +42,8 @@ bin-int
 Generated\ Files/
 
 # Visual Studio project files
-*.sln
-*.vcxproj
+#*.sln
+#*.vcxproj
 *.vcxproj.filters
 *.vcxproj.user 
 
