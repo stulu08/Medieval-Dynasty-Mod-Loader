@@ -64,18 +64,28 @@ public:
                     event->dispatch(a...);
                 }
                 catch (std::exception& ex) {
-                    Log::Error_MDML("Exception thrown in {0} from mod %s: %s", event->getName().c_str(), event->getMod()->ModName.c_str(), ex.what());
-                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->ModName.c_str());
+                    Log::Error_MDML("Exception thrown in {0} from mod {1}: {2}", event->getName(), event->getMod()->ModName, ex.what());
+                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->ModName);
                     this->popMod(event->getMod());
                 }
                 catch (int code) {
-                    Log::Error_MDML("Exception thrown in {0} from mod %s, exception code: %d", event->getName().c_str(), event->getMod()->ModName.c_str(), code);
-                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->ModName.c_str());
+                    Log::Error_MDML("Exception thrown in {0} from mod {1}, exception code: {2}", event->getName(), event->getMod()->ModName, code);
+                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->ModName);
+                    this->popMod(event->getMod());
+                }
+                catch (const char* str) {
+                    Log::Error_MDML("Exception thrown in {0} from mod {1}: {2}", event->getName(), event->getMod()->ModName, str);
+                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->ModName);
+                    this->popMod(event->getMod());
+                }
+                catch (std::string str) {
+                    Log::Error_MDML("Exception thrown in {0} from mod {1}: {2}", event->getName(), event->getMod()->ModName, str);
+                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->ModName);
                     this->popMod(event->getMod());
                 }
                 catch (...) {
-                    Log::Error_MDML("Exception thrown in {0} from mod %s", event->getName().c_str(), event->getMod()->ModName.c_str());
-                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->ModName.c_str());
+                    Log::Error_MDML("Exception thrown in {0} from mod {1}", event->getName(), event->getMod()->ModName);
+                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->ModName);
                     this->popMod(event->getMod());
                 }
             }

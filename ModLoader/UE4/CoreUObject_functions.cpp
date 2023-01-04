@@ -189,9 +189,11 @@ namespace UE4
 		return nullptr;
 	}
 
-	void UObject::ProcessEvent(class UFunction* function, void* parms)
-	{
-		return reinterpret_cast<void(*)(UObject*, class UFunction*, void*)>(GameProfile::SelectedGameProfile.ProcessEvent)(this, function, parms);
+	void UObject::ProcessEvent(class UFunction* function, void* parms) {
+		if (function)
+			return reinterpret_cast<void(*)(UObject*, class UFunction*, void*)>(GameProfile::SelectedGameProfile.ProcessEvent)(this, function, parms);
+		else
+			Log::Error_MDML("Function not valid");
 	}
 
 	UObject* UObject::StaticLoadObject(class UClass* uclass, UObject* InOuter, const wchar_t* InName, const wchar_t* Filename, unsigned int LoadFlags, void* Sandbox, bool bAllowObjectReconciliation)
@@ -275,7 +277,19 @@ namespace UE4
 	//UFunction Functions
 	//---------------------------------------------------------------------------
 
-	int32_t UFunction::GetFunctionFlags() const { return Read<int32_t>((byte*)this + GameProfile::SelectedGameProfile.defs.UFunction.FunctionFlags); };
+	EFunctionFlags UFunction::GetFunctionFlags() const { 
+		return (EFunctionFlags)Read<uint32_t>((byte*)this + GameProfile::SelectedGameProfile.defs.UFunction.FunctionFlags);
+	}
+	uint8 UFunction::GetNumParms() const {
+		return Read<uint8>((byte*)this + GameProfile::SelectedGameProfile.defs.UFunction.NumParams);
+	}
+	uint16 UFunction::GetParamsSize() const {
+		return Read<uint16>((byte*)this + GameProfile::SelectedGameProfile.defs.UFunction.ParamsSize);
+	}
+	uint16 UFunction::GetReturnValueOffset() const {
+		return Read<uint16>((byte*)this + GameProfile::SelectedGameProfile.defs.UFunction.ReturnValueOffset);
+	}
+	;
 	void* UFunction::GetFunction() const { return Read<void*>((byte*)this + GameProfile::SelectedGameProfile.defs.UFunction.Func); };
 
 	//---------------------------------------------------------------------------
@@ -330,6 +344,17 @@ namespace UE4
 	//Actor Functions
 	//---------------------------------------------------------------------------
 
+#define CHECK_FUNCTION(FName, NullReturn) \
+{ \
+	if(fn == nullptr) { \
+		Log::Critical_MDML("Function {0} not found", #FName); \
+		return NullReturn; \
+	} \
+}
+#define GET_FUNCTION(FullName, NullReturn) \
+static UE4::UFunction* fn = UObject::FindObject<UFunction>("Function " #FullName); \
+CHECK_FUNCTION(FullName, NullReturn);
+
 	FTransform AActor::GetTransform()
 	{
 		static auto fn = UObject::FindObject<UFunction>("Function Engine.Actor.GetTransform");
@@ -340,7 +365,6 @@ namespace UE4
 		UObject::ProcessEvent(fn, &params);
 		return params.ReturnValue;
 	}
-
 	FRotator AActor::GetActorRotation()
 	{
 		static auto fn = UObject::FindObject<UFunction>("Function Engine.Actor.K2_GetActorRotation");
@@ -351,7 +375,6 @@ namespace UE4
 		UObject::ProcessEvent(fn, &params);
 		return params.ReturnValue;
 	}
-
 	FVector AActor::GetActorLocation()
 	{
 		static auto fn = UObject::FindObject<UFunction>("Function Engine.Actor.K2_GetActorLocation");
@@ -362,7 +385,6 @@ namespace UE4
 		UObject::ProcessEvent(fn, &params);
 		return params.ReturnValue;
 	}
-
 	FVector AActor::GetActorScale3D()
 	{
 		static auto fn = UObject::FindObject<UFunction>("Function Engine.Actor.GetActorScale3D");
@@ -370,6 +392,95 @@ namespace UE4
 		{
 			FVector ReturnValue;
 		}params;
+		UObject::ProcessEvent(fn, &params);
+		return params.ReturnValue;
+	}
+
+	FVector AActor::GetActorForwardVector() {
+		GET_FUNCTION(Engine.Actor.GetActorForwardVector, UE4::FVector());
+		struct
+		{
+			FVector ReturnValue;
+		}params;
+		UObject::ProcessEvent(fn, &params);
+		return params.ReturnValue;
+	}
+	FVector AActor::GetActorUpVector() {
+		GET_FUNCTION(Engine.Actor.GetActorUpVector, UE4::FVector());
+		struct
+		{
+			FVector ReturnValue;
+		}params;
+		UObject::ProcessEvent(fn, &params);
+		return params.ReturnValue;
+	}
+	FVector AActor::GetActorRightVector() {
+		GET_FUNCTION(Engine.Actor.GetActorRightVector, UE4::FVector());
+		struct
+		{
+			FVector ReturnValue;
+		}params;
+		UObject::ProcessEvent(fn, &params);
+		return params.ReturnValue;
+	}
+	void AActor::SetActorScale3D(const FVector& NewScale3D) {
+		GET_FUNCTION(Engine.Actor.SetActorScale3D,);
+		struct
+		{
+			FRotator NewScale3D;
+		}params;
+		params.NewScale3D = NewScale3D;
+		UObject::ProcessEvent(fn, &params);
+		return;
+	}
+	bool AActor::K2_SetActorTransform(const FTransform& NewTransform, bool bSweep, FHitResult& _SweepHitResult, bool bTeleport) {
+		GET_FUNCTION(Engine.Actor.K2_SetActorTransform, false);
+		struct A
+		{
+			struct FTransform NewTransform = FTransform();
+			bool bSweep = false;
+			struct FHitResult& SweepHitResult;
+			bool bTeleport = false;
+			bool ReturnValue = false;
+
+			explicit A(FHitResult& d) : SweepHitResult(d) {}
+		}params(_SweepHitResult);
+		params.NewTransform = NewTransform;
+		params.bSweep = bSweep;
+		params.SweepHitResult = _SweepHitResult;
+		params.bTeleport = bTeleport;
+		UObject::ProcessEvent(fn, &params);
+		return params.ReturnValue;
+	}
+	bool AActor::K2_SetActorLocation(const FVector& NewLocation, bool bSweep, FHitResult& _SweepHitResult, bool bTeleport) {
+		GET_FUNCTION(Engine.Actor.K2_SetActorLocation, false);
+		struct A
+		{
+			struct FVector NewTransform = FVector();
+			bool bSweep = false;
+			struct FHitResult& SweepHitResult;
+			bool bTeleport = false;
+			bool ReturnValue = false;
+
+			explicit A(FHitResult& d) : SweepHitResult(d) {}
+		}params(_SweepHitResult);
+		params.NewTransform = NewLocation;
+		params.bSweep = bSweep;
+		params.SweepHitResult = _SweepHitResult;
+		params.bTeleport = bTeleport;
+		UObject::ProcessEvent(fn, &params);
+		return params.ReturnValue;
+	}
+	bool AActor::K2_SetActorRotation(const FRotator& NewRotation, bool bTeleportPhysics) {
+		GET_FUNCTION(Engine.Actor.K2_SetActorRotation, false);
+		struct
+		{
+			FRotator NewRotation;
+			bool bTeleportPhysics;
+			bool ReturnValue = false; 
+		}params;
+		params.NewRotation = NewRotation;
+		params.bTeleportPhysics = bTeleportPhysics;
 		UObject::ProcessEvent(fn, &params);
 		return params.ReturnValue;
 	}
@@ -508,8 +619,6 @@ namespace UE4
 		params.SpecificPlayer = SpecificPlayer;
 		GameplayStatics->ProcessEvent(fn, &params);
 	}
-
-
 }
 
 #ifdef _MSC_VER

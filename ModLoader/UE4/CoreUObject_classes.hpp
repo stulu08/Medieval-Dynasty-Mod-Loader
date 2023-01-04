@@ -269,7 +269,10 @@ namespace UE4
 	class UFunction : public UStruct
 	{
 	public:
-		int32_t GetFunctionFlags() const;
+		EFunctionFlags GetFunctionFlags() const;
+		uint8 GetNumParms() const;
+		uint16 GetParamsSize() const;
+		uint16 GetReturnValueOffset() const;
 		void* GetFunction() const;
 		
 		static UClass* StaticClass()
@@ -277,6 +280,32 @@ namespace UE4
 			static auto ptr = UObject::FindClass("Class CoreUObject.Function");
 			return ptr;
 		}
+		//Members in 4.27.2:
+		//
+		// EFunctionFlags FunctionFlags;
+		//		// Variables in memory only.
+		//		//** Number of parameters total */
+		// uint8 NumParms;
+		//		//** Total size of parameters in memory */
+		// uint16 ParmsSize;
+		//		//** Memory offset of return value property */
+		// uint16 ReturnValueOffset;
+		//		//** Id of this RPC function call (must be FUNC_Net & (FUNC_NetService|FUNC_NetResponse)) */
+		// uint16 RPCId;
+		//		//** Id of the corresponding response call (must be FUNC_Net & FUNC_NetService) */
+		// uint16 RPCResponseId;
+		//		//** pointer to first local struct property in this UFunction that contains defaults */
+		// FProperty* FirstPropertyToInit;
+#if UE_BLUEPRINT_EVENTGRAPH_FASTCALLS
+		//		//** The event graph this function calls in to (persistent) */
+		// UFunction* EventGraphFunction;
+		//
+		//		//** The state offset inside of the event graph (persistent) */
+		// int32 EventGraphCallOffset;
+#endif
+		//		//** C++ function this is bound to */
+		// FNativeFuncPtr Func;
+
 
 	};
 	// UE4.25 AND UP
@@ -331,18 +360,80 @@ namespace UE4
 	public:
 		// WARNING TENDS TO CRASH AND I HAVE NO FUCKING CLUE WHY
 		FTransform GetTransform();
-
 		FRotator GetActorRotation();
-
 		FVector GetActorLocation();
-
 		FVector GetActorScale3D();
+		/** Get the forward (X) vector (length 1.0) from this Actor, in world space.  */
+		FVector GetActorForwardVector();
+		/** Get the up (Z) vector (length 1.0) from this Actor, in world space.  */
+		FVector GetActorUpVector();
+		/** Get the right (Y) vector (length 1.0) from this Actor, in world space.  */
+		FVector GetActorRightVector();
+
+		/**
+		 * Set the Actors transform to the specified one.
+		 * @param NewTransform		The new transform.
+		 * @param bSweep			Whether we sweep to the destination location, triggering overlaps along the way and stopping short of the target if blocked by something.
+		 *							Only the root component is swept and checked for blocking collision, child components move without sweeping. If collision is off, this has no effect.
+		 * @param bTeleport			Whether we teleport the physics state (if physics collision is enabled for this object).
+		 *							If true, physics velocity for this object is unchanged (so ragdoll parts are not affected by change in location).
+		 *							If false, physics velocity is updated based on the change in position (affecting ragdoll parts).
+		 *							If CCD is on and not teleporting, this will affect objects along the entire swept volume.
+		*/
+		bool SetActorTransform(const FTransform& NewTransform, bool bSweep = false, FHitResult* OutSweepHitResult = nullptr, bool bTeleport = true) {
+			if (OutSweepHitResult)
+				return K2_SetActorTransform(NewTransform, bSweep, *OutSweepHitResult, bTeleport);
+			else {
+				FHitResult hit = FHitResult();
+				return K2_SetActorTransform(NewTransform, bSweep, hit, bTeleport);
+			}
+		}
+		/**
+		 * Move the Actor to the specified location.
+		 * @param NewLocation	The new location to move the Actor to.
+		 * @param bSweep		Whether we sweep to the destination location, triggering overlaps along the way and stopping short of the target if blocked by something.
+		 *						Only the root component is swept and checked for blocking collision, child components move without sweeping. If collision is off, this has no effect.
+		 * @param bTeleport		Whether we teleport the physics state (if physics collision is enabled for this object).
+		 *						If true, physics velocity for this object is unchanged (so ragdoll parts are not affected by change in location).
+		 *						If false, physics velocity is updated based on the change in position (affecting ragdoll parts).
+		 *						If CCD is on and not teleporting, this will affect objects along the entire swept volume.
+		 * @param SweepHitResult	The hit result from the move if swept.
+		 * @return	Whether the location was successfully set (if not swept), or whether movement occurred at all (if swept).
+		*/
+		bool SetActorLocation(const FVector& NewLocation, bool bSweep = false, FHitResult* SweepHitResult = nullptr, bool bTeleport = true) {
+			if (SweepHitResult)
+				return K2_SetActorLocation(NewLocation, bSweep, *SweepHitResult, bTeleport);
+			else {
+				FHitResult hit = FHitResult();
+				return K2_SetActorLocation(NewLocation, bSweep, hit, bTeleport);
+			}
+		}
+		/**
+		 * Set the Actor's rotation instantly to the specified rotation.
+		 *
+		 * @param	NewRotation	The new rotation for the Actor.
+		 * @param	Teleport	How we teleport the physics state (if physics collision is enabled for this object).
+		 *						If equal to ETeleportType::TeleportPhysics, physics velocity for this object is unchanged (so ragdoll parts are not affected by change in location).
+		 *						If equal to ETeleportType::None, physics velocity is updated based on the change in position (affecting ragdoll parts).
+		 * @return	Whether the rotation was successfully set.
+		 */
+		bool SetActorRotation(const FRotator& NewRotation, ETeleportType Teleport = ETeleportType::None) {
+			return K2_SetActorRotation(NewRotation, Teleport == ETeleportType::TeleportPhysics);
+		}
+		bool SetActorRotation(const FQuat& NewRotation, ETeleportType Teleport = ETeleportType::None) {
+			return K2_SetActorRotation(NewRotation.Rotator(), Teleport == ETeleportType::TeleportPhysics);
+		}
+		void SetActorScale3D(const FVector& NewScale3D);
 
 		static UClass* StaticClass()
 		{
 			static auto ptr = UObject::FindClass("Class Engine.Actor");
 			return ptr;
 		}
+	private:
+		bool K2_SetActorTransform(const FTransform& NewTransform, bool bSweep, FHitResult& SweepHitResult, bool bTeleport);
+		bool K2_SetActorLocation(const FVector& NewLocation, bool bSweep, FHitResult& SweepHitResult, bool bTeleport);
+		bool K2_SetActorRotation(const FRotator& NewLocation, bool bTeleportPhysics);
 	};
 
 	class APlayerController : public AActor

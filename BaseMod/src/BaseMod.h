@@ -1,11 +1,5 @@
 #pragma once
-#include "Mod/Mod.h"
-
-#ifdef BaseMod_EXPORTS
-#define BASEMOD_API __declspec(dllexport)
-#else
-#define BASEMOD_API __declspec(dllimport)
-#endif
+#include "World.h"
 
 namespace MDMLBase {
 	class BASEMOD_API Mod : public ::Mod
@@ -52,11 +46,22 @@ namespace MDMLBase {
 		virtual void SetupImGui(ImGuiIO& io) override;
 
 		std::string getLevelName() const;
+		Ref<World> getWorld() const { return m_world; }
+
+		UE4::AActor* getPlayer() const;
+		//UE4::AActor* FindPlayer() const;
+		//bool IsPlayerValid(UE4::AActor*) const;
 
 		inline static Mod& Get() { return *s_instance; }
 	private:
+
 		// If you have a BP Mod Actor, This is a straight refrence to it
+		Ref<World> m_world;
 		UE4::AActor* ModActor;
+
+		UE4::AActor* PlayerActor;
+		UE4::AActor* PlayerControler;
+
 		static Mod* s_instance;
 		friend class DLLHandler;
 	};

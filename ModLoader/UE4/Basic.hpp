@@ -13,6 +13,7 @@
 #include "GameInfo/GameInfo.h"
 #include "Utilities/Logger.h"
 #include "Memory/mem.h"
+#include "../Math.h"
 
 namespace UE4
 {

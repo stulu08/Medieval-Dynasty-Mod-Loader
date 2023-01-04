@@ -1,0 +1,2 @@
+#define LOADER_API __declspec(dllexport)
+#define LOADER_API __declspec(dllimport)

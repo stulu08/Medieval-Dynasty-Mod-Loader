@@ -22,6 +22,9 @@ struct Offsets {
 	} UStruct;
 	struct {
 		uint16_t FunctionFlags = 0x0;
+		uint16_t NumParams = 0x0;
+		uint16_t ParamsSize = 0x0;
+		uint16_t ReturnValueOffset = 0x0;
 		uint16_t Func = 0x0;
 	} UFunction;
 	struct {
@@ -33,7 +36,6 @@ struct Offsets {
 		uint16_t Offset = 0x0;
 	} Property;
 };
-
 class LOADER_API GameProfile
 {
 public:

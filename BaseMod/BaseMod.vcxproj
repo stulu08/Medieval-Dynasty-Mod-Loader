@@ -7,7 +7,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4E9B1E62-E2D2-40DE-8C90-556649880CE7}</ProjectGuid>
+    <ProjectGuid>{A066E1C6-0C46-6062-155E-EB3881BCC6C3}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>BaseMod</RootNamespace>
@@ -41,7 +41,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>NDEBUG;BaseMod_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ModLoader\spdlog;..\ModLoader\MinHook;src;..\ModLoader\UnrealEngineModLoader;..\ModLoader\UE4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ModLoader\spdlog;..\ModLoader\MinHook;src;..\ModLoader\UnrealEngineModLoader;..\ModLoader\UE4;..\ModLoader\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -73,13 +73,16 @@
     <ClInclude Include="..\ModLoader\UE4\CoreUObject_structs.hpp" />
     <ClInclude Include="..\ModLoader\UE4\Ue4.hpp" />
     <ClInclude Include="src\BaseMod.h" />
+    <ClInclude Include="src\Defs.h" />
     <ClInclude Include="src\Utils.h" />
+    <ClInclude Include="src\World.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\ModLoader\UE4\Basic.cpp" />
     <ClCompile Include="..\ModLoader\UE4\CoreUObject_functions.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="src\BaseMod.cpp" />
+    <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ModLoader\MedievalDynastyModLoader.vcxproj">

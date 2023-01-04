@@ -45,6 +45,7 @@ IncludeDir["spdlog"] = "%{wks.location}/ModLoader/spdlog"
 IncludeDir["UE4"] = "%{wks.location}/ModLoader/UE4"
 IncludeDir["MinHook"] = "%{wks.location}/ModLoader/MinHook"
 IncludeDir["ModLoader"] = "%{wks.location}/ModLoader/UnrealEngineModLoader"
+IncludeDir["glm"] = "%{wks.location}/ModLoader/glm"
 IncludeDir["INI"] = "%{wks.location}/ModLoader/INI"
 IncludeDir["BaseMod"] = "%{wks.location}/BaseMod/src"
 

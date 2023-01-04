@@ -63,9 +63,8 @@ void ExampleMod::OnModMenuButtonPressed() {
 void ExampleMod::DrawImGui() {
 	if (m_showWindow) {
 		if (ImGui::Begin("Theme Changed", &m_showWindow)) {
-			//ImGui::Text(MDMLBase::Mod::Get().getLevelName().c_str());
 			static int currentTheme = 0;
-			if (ImGui::Combo("Color Theme", &currentTheme, "PhotoshopDark\0Dark\0AmoledDark\0OceanDark\0ImGuiClassic\0ImGuiDark\0ImGuiLight"))
+			if (ImGui::MDML_Combo("Color Theme", currentTheme, {"PhotoshopDark", "Dark", "AmoledDark", "OceanDark", "ImGuiClassic", "ImGuiDark", "ImGuiLight"}))
 				SetImGuiColorTheme((ImGuiColorTheme)currentTheme);
 		}
 		ImGui::End();

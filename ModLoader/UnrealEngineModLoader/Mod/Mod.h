@@ -4,6 +4,7 @@
 #include "GameInfo/GameInfo.h"
 #include "Utilities/Globals.h"
 #include "../LoaderUI.h"
+#include "../Math.h"
 #include "Ue4.hpp"
 
 class LOADER_API Mod
@@ -57,3 +58,11 @@ protected:
 	void SetImGuiColorTheme(ImGuiColorTheme theme);
 	Ref<Logger> logger = nullptr;
 };
+
+namespace std {
+	inline std::ostream& operator<<(std::ostream& os, const UE4::FQuat& quat) { return os << glm::to_string((glm::quat)quat); }
+	inline std::ostream& operator<<(std::ostream& os, const UE4::FVector4& vector) { return os << glm::to_string((glm::vec4)vector); }
+	inline std::ostream& operator<<(std::ostream& os, const UE4::FVector& vector) { return os << glm::to_string((glm::vec3)vector); }
+	inline std::ostream& operator<<(std::ostream& os, const UE4::FRotator& vector) { return os << glm::to_string((glm::vec3)vector); }
+	inline std::ostream& operator<<(std::ostream& os, const UE4::FVector2D& vector) { return os << glm::to_string((glm::vec2)vector); }
+}

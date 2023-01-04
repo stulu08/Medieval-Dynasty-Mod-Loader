@@ -30,7 +30,13 @@
     <ClInclude Include="src\BaseMod.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\Defs.h">
+      <Filter>src</Filter>
+    </ClInclude>
     <ClInclude Include="src\Utils.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\World.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
@@ -43,6 +49,9 @@
     </ClCompile>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="src\BaseMod.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\World.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

@@ -9,10 +9,12 @@
 #include "ImGui/imgui_internal.h"
 #include "ImGui/imgui_impl_dx11.h"
 #include "ImGui/imgui_impl_win32.h"
+#include "ImGui/imgui_stdlib.h"
+#include "Ue4.hpp"
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "D3dcompiler.lib")
-
+#define DEFAULT_TREE_NODE_FLAGS ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick
 enum class ImGuiColorTheme {
 	PhotoshopDark, Dark, AmoledDark, OceanDark, ImGuiClassic, ImGuiDark, ImGuiLight
 };
@@ -57,4 +59,65 @@ public:
 private:
 	static LoaderUI* UI;
 };
+
+namespace ImGui {
+	LOADER_API bool MDML_Combo(const std::string& header, int& current_item, const char* items_separated_by_zeros, int height_in_items = -1);
+	LOADER_API bool MDML_Combo(const std::string& header, int32_t& current_item, const std::vector<std::string>& items);
+	LOADER_API bool MDML_Vector4(const std::string& header, glm::vec4& vec, bool readonly = false);
+	LOADER_API bool MDML_Vector4(const std::string& header, glm::quat& quat, bool readonly = false);
+	LOADER_API bool MDML_Vector3(const std::string& header, glm::vec3& vec, bool readonly = false);
+	LOADER_API bool MDML_Vector2(const std::string& header, glm::vec2& vec, bool readonly = false);
+	LOADER_API bool MDML_String(const std::string& header, std::string& v, bool readonly = false);
+	LOADER_API bool MDML_Bool(const std::string& header, bool& v, bool readonly = false);
+	LOADER_API bool MDML_Int(const std::string& header, int& v, bool readonly = false);
+	LOADER_API bool MDML_IntSlider(const std::string& header, int& v, int min = 0, int max = 10, bool readonly = false);
+	LOADER_API bool MDML_UInt(const std::string& header, uint32_t& v, bool readonly = false);
+	LOADER_API bool MDML_UIntSlider(const std::string& header, uint32_t& v, uint32_t min = 0, uint32_t max = 10, bool readonly = false);
+	LOADER_API bool MDML_Float(const std::string& header, float& v, float min = .0f, float max = .0f, float speed = .1f, bool readonly = false);
+	LOADER_API bool MDML_FloatSlider(const std::string& header, float& v, float min = 0.0f, float max = 1.0f, bool readonly = false);
+	LOADER_API void MDML_HelpMarker(const std::string& text);
+
+	inline bool Button(const std::string& header, std::function<void()> executeIfPressed, const ImVec2& Size = ImVec2(0,0)) {
+		if (ImGui::Button(header.c_str(), Size)) {
+			executeIfPressed();
+			return true;
+		}
+		return false;
+	}
+	inline bool MDML_Vector4(const std::string& header, UE4::FQuat& quat, bool readonly = false) {
+		glm::quat v = quat;
+		bool re = MDML_Vector4(header, v, readonly);
+		if (re)
+			quat = v;
+		return re;
+	}
+	inline bool MDML_Vector4(const std::string& header, UE4::FVector4& vec, bool readonly = false) {
+		glm::vec4 v = vec;
+		bool re = MDML_Vector4(header, v, readonly);
+		if (re)
+			vec = v;
+		return re;
+	}
+	inline bool MDML_Vector2(const std::string& header, UE4::FVector2D& vec, bool readonly = false) {
+		glm::vec2 v = vec;
+		bool re = MDML_Vector2(header, v, readonly);
+		if (re)
+			vec = v;
+		return re;
+	}
+	inline bool MDML_Vector3(const std::string& header, UE4::FVector& vec, bool readonly = false) {
+		glm::vec3 v = vec;
+		bool re = MDML_Vector3(header, v, readonly);
+		if (re)
+			vec = v;
+		return re;
+	}
+	inline bool MDML_Vector3(const std::string& header, UE4::FRotator& vec, bool readonly = false) {
+		glm::vec3 v = vec;
+		bool re = MDML_Vector3(header, v, readonly);
+		if (re)
+			vec = v;
+		return re;
+	}
+}
 

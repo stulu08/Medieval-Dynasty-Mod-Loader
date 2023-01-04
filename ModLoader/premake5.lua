@@ -32,6 +32,7 @@ project "MedievalDynastyModLoader"
 		"%{IncludeDir.ModLoader}",
 		"%{IncludeDir.INI}",
 		"%{IncludeDir.UE4}",
+		"%{IncludeDir.glm}",
 	}
 	postbuildcommands {
 		"{MKDIR} \"%{wks.location}/bin/" .. outputdir .. "/Config\"",

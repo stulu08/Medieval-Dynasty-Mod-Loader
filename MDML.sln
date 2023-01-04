@@ -1,24 +1,29 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.1.32210.238
-MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C861B4B2-34C3-91C0-BD30-D8722991C87F}"
 	ProjectSection(SolutionItems) = preProject
-		Config\Default.profile = Config\Default.profile
-		Config\ModLoaderInfo.ini = Config\ModLoaderInfo.ini
+		Config/Default.profile = Config/Default.profile
+		Config/ModLoaderInfo.ini = Config/ModLoaderInfo.ini
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExampleMod", "ExampleMod\ExampleMod.vcxproj", "{7152763F-5D0A-B88C-C611-91E8B2E8527D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F4A9865-FB6E-E7E5-24BA-CC75103EE603} = {0F4A9865-FB6E-E7E5-24BA-CC75103EE603}
+		{A066E1C6-0C46-6062-155E-EB3881BCC6C3} = {A066E1C6-0C46-6062-155E-EB3881BCC6C3}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MDML", "MDML", "{1660C85D-0218-0AAB-6B1F-E30657F6A49B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BaseMod", "BaseMod\BaseMod.vcxproj", "{4E9B1E62-E2D2-40DE-8C90-556649880CE7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BaseMod", "BaseMod\BaseMod.vcxproj", "{A066E1C6-0C46-6062-155E-EB3881BCC6C3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F4A9865-FB6E-E7E5-24BA-CC75103EE603} = {0F4A9865-FB6E-E7E5-24BA-CC75103EE603}
+	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LoaderAutoInjector", "LoaderAutoInjector\LoaderAutoInjector.vcxproj", "{ACD937DA-925A-4640-9AD0-39A381D323EA}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LoaderAutoInjector", "LoaderAutoInjector\LoaderAutoInjector.vcxproj", "{33873803-1F6B-F958-88CB-F3AB74CEE3DA}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MedievalDynastyModLoader", "ModLoader\MedievalDynastyModLoader.vcxproj", "{DE3BC2AD-2683-4D76-AD72-95D98164E9C7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MedievalDynastyModLoader", "ModLoader\MedievalDynastyModLoader.vcxproj", "{0F4A9865-FB6E-E7E5-24BA-CC75103EE603}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,22 +32,19 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7152763F-5D0A-B88C-C611-91E8B2E8527D}.Release|x64.ActiveCfg = Release|x64
 		{7152763F-5D0A-B88C-C611-91E8B2E8527D}.Release|x64.Build.0 = Release|x64
-		{4E9B1E62-E2D2-40DE-8C90-556649880CE7}.Release|x64.ActiveCfg = Release|x64
-		{4E9B1E62-E2D2-40DE-8C90-556649880CE7}.Release|x64.Build.0 = Release|x64
-		{ACD937DA-925A-4640-9AD0-39A381D323EA}.Release|x64.ActiveCfg = Release|x64
-		{ACD937DA-925A-4640-9AD0-39A381D323EA}.Release|x64.Build.0 = Release|x64
-		{DE3BC2AD-2683-4D76-AD72-95D98164E9C7}.Release|x64.ActiveCfg = Release|x64
-		{DE3BC2AD-2683-4D76-AD72-95D98164E9C7}.Release|x64.Build.0 = Release|x64
+		{A066E1C6-0C46-6062-155E-EB3881BCC6C3}.Release|x64.ActiveCfg = Release|x64
+		{A066E1C6-0C46-6062-155E-EB3881BCC6C3}.Release|x64.Build.0 = Release|x64
+		{33873803-1F6B-F958-88CB-F3AB74CEE3DA}.Release|x64.ActiveCfg = Release|x64
+		{33873803-1F6B-F958-88CB-F3AB74CEE3DA}.Release|x64.Build.0 = Release|x64
+		{0F4A9865-FB6E-E7E5-24BA-CC75103EE603}.Release|x64.ActiveCfg = Release|x64
+		{0F4A9865-FB6E-E7E5-24BA-CC75103EE603}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{4E9B1E62-E2D2-40DE-8C90-556649880CE7} = {1660C85D-0218-0AAB-6B1F-E30657F6A49B}
-		{ACD937DA-925A-4640-9AD0-39A381D323EA} = {1660C85D-0218-0AAB-6B1F-E30657F6A49B}
-		{DE3BC2AD-2683-4D76-AD72-95D98164E9C7} = {1660C85D-0218-0AAB-6B1F-E30657F6A49B}
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F167F047-26E2-40E0-9A13-71A7527BB7C9}
+		{A066E1C6-0C46-6062-155E-EB3881BCC6C3} = {1660C85D-0218-0AAB-6B1F-E30657F6A49B}
+		{33873803-1F6B-F958-88CB-F3AB74CEE3DA} = {1660C85D-0218-0AAB-6B1F-E30657F6A49B}
+		{0F4A9865-FB6E-E7E5-24BA-CC75103EE603} = {1660C85D-0218-0AAB-6B1F-E30657F6A49B}
 	EndGlobalSection
 EndGlobal

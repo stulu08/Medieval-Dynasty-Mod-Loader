@@ -7,7 +7,7 @@ public:
 	bool DumpEngineInfo();
 	bool DumpWorldActors();
 	static Dumper* GetDumper();
-private:
 	void CreateDumpDir();
+private:
 	static Dumper* DumpRef;
 };
