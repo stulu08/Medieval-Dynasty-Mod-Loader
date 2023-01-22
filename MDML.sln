@@ -3,8 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C861B4B2-34C3-91C0-BD30-D8722991C87F}"
 	ProjectSection(SolutionItems) = preProject
-		Config/Default.profile = Config/Default.profile
 		Config/ModLoaderInfo.ini = Config/ModLoaderInfo.ini
+		Config/NoOverwrite.ini = Config/NoOverwrite.ini
 		README.md = README.md
 	EndProjectSection
 EndProject

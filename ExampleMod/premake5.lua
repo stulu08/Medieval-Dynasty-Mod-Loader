@@ -28,10 +28,12 @@ project "ExampleMod"
 	{
 		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.MinHook}",
-		"%{IncludeDir.BaseMod}",
 		"%{IncludeDir.ModLoader}",
-		"%{IncludeDir.UE4}",
+		"%{IncludeDir.INI}",
 		"%{IncludeDir.glm}",
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.BaseMod}",
+		"%{IncludeDir.UE4}",
 	}
 	postbuildcommands {
 		"{COPYDIR} \"%{ProjectDir.ExampleMod}/Config\" \"%{wks.location}/bin/" .. outputdir .. "/ExampleMod\"",

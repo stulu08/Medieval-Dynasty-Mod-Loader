@@ -26,7 +26,7 @@ Medieval Dynasty Mod Loader (MDML) is a fork of the [Unreal Engine Mod Loader](h
 - Here is a [guide](https://youtu.be/i-hp3NS6heQ?list=PL-dFOLrGFgdwbzcHmZ2ghuN3LXxlazbZP) to creating Logic Mods, this does not work since the game uses signed pak files, but I am working on a fix.
 
 # Installing Core Mods
-- ```dll``` or Core Mods are placed inside ```[SteamLibraryFolder]/common/Medieval Dynasty/Medieval_Dynasty/Content/CoreMods```
+- ```dll``` or Core Mods are placed inside ```[SteamLibraryFolder]/common/Medieval Dynasty/Medieval_Dynasty/Content/Mods```
 - You can put either a DLL directly inside the folder or you can put a folder with a ```mod.ini``` file, which tells MDML where the mod is, inside it
 - Here is a [guide](https://youtu.be/i-hp3NS6heQ?list=PL-dFOLrGFgdwbzcHmZ2ghuN3LXxlazbZP) to creating Core Mods 
 - An example CoreMod can be downloaded in the [Release Tab](https://github.com/stulu08/Medieval-Dynasty-Mod-Loader/releases/latest) as SampleModProject.zip

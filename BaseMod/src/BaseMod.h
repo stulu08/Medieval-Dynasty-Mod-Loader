@@ -1,13 +1,11 @@
 #pragma once
-#include "World.h"
+#include "Defs.h"
 
 namespace MDMLBase {
-	class BASEMOD_API Mod : public ::Mod
-	{
-	public:
+	class BASEMOD_API Mod : public ::Mod {
+	private:
 		//Basic Mod Info
-		Mod()
-		{
+		Mod(HMODULE handle = nullptr) {
 			ModName = "BaseMod"; // Mod Name -- If Using BP ModActor, Should Be The Same Name As Your Pak
 			ModVersion = "1.0.0"; // Mod Version
 			ModDescription = "Base Mod of MDML"; // Mod Description
@@ -18,8 +16,11 @@ namespace MDMLBase {
 			LogToFile = true;
 			// Dont Touch The Internal Stuff
 			ModRef = this;
+			hModule = handle;
 			CompleteModCreation();
 		}
+		~Mod();
+	public:
 
 		//Called When Internal Mod Setup is finished
 		virtual void InitializeMod() override;
@@ -40,24 +41,21 @@ namespace MDMLBase {
 
 		virtual void OnModMenuButtonPressed() override;
 
-		//Call ImGui Here (CALLED EVERY FRAME ON DX HOOK)
 		virtual void DrawImGui() override;
 
 		virtual void SetupImGui(ImGuiIO& io) override;
 
 		std::string getLevelName() const;
-		Ref<World> getWorld() const { return m_world; }
 
 		UE4::AActor* getPlayer() const;
-		//UE4::AActor* FindPlayer() const;
-		//bool IsPlayerValid(UE4::AActor*) const;
+		UE4::AActor* getPlayerController() const;
+		Ref<Logger> getLogger() const { return logger; }
 
 		inline static Mod& Get() { return *s_instance; }
 	private:
-
-		// If you have a BP Mod Actor, This is a straight refrence to it
-		Ref<World> m_world;
 		UE4::AActor* ModActor;
+		UE4::UClass* ModObject;
+		UE4::UObject* ModObjectC;
 
 		UE4::AActor* PlayerActor;
 		UE4::AActor* PlayerControler;

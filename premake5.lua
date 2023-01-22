@@ -12,8 +12,8 @@ workspace "MDML"
 	}
 	solution_items 
 	{
-		"Config/Default.profile",
 		"Config/ModLoaderInfo.ini",
+		"Config/NoOverwrite.ini",
 		"README.md"
 	}
 	architecture "x86_64"
@@ -41,12 +41,14 @@ builddir = "%{wks.location}/build/%{cfg.buildcfg}-%{cfg.system}-%{cfg.architectu
 
 
 IncludeDir = {}
-IncludeDir["spdlog"] = "%{wks.location}/ModLoader/spdlog"
-IncludeDir["UE4"] = "%{wks.location}/ModLoader/UE4"
-IncludeDir["MinHook"] = "%{wks.location}/ModLoader/MinHook"
-IncludeDir["ModLoader"] = "%{wks.location}/ModLoader/UnrealEngineModLoader"
-IncludeDir["glm"] = "%{wks.location}/ModLoader/glm"
-IncludeDir["INI"] = "%{wks.location}/ModLoader/INI"
+IncludeDir["spdlog"] = "%{wks.location}/ModLoader/vendor/spdlog"
+IncludeDir["MinHook"] = "%{wks.location}/ModLoader/vendor/MinHook"
+IncludeDir["glm"] = "%{wks.location}/ModLoader/vendor/glm"
+IncludeDir["INI"] = "%{wks.location}/ModLoader/vendor/INI"
+IncludeDir["ImGui"] = "%{wks.location}/ModLoader/vendor/ImGui"
+
+IncludeDir["ModLoader"] = "%{wks.location}/ModLoader/src"
+IncludeDir["UE4"] = "%{wks.location}/ModLoader/src/UE4"
 IncludeDir["BaseMod"] = "%{wks.location}/BaseMod/src"
 
 

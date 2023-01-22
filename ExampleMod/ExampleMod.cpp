@@ -21,7 +21,7 @@ void ExampleMod::InitializeMod()
 	UE4::InitSDK();
 	SetupHooks();
 	REGISTER_FUNCTION(WriteToFile);
-	//if you want to name them on you own do this
+	//if you want to name them on your own do this
 	//REGISTER_FUNCTION_NAMED(WriteToFile, "WriteToFile");
 
 	//MinHook::Init(); //Uncomment if you plan to do hooks
@@ -30,7 +30,7 @@ void ExampleMod::InitializeMod()
 }
 
 void ExampleMod::InitGameState() {
-
+	//Log::Info_MDML("Mod path is: {0}", GetFolder());
 }
 
 void ExampleMod::BeginPlay(UE4::AActor* Actor) {
@@ -51,6 +51,7 @@ void ExampleMod::PostBeginPlay(std::wstring ModActorName, UE4::AActor* Actor)
 }
 
 void ExampleMod::DX11Present(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, ID3D11RenderTargetView* pRenderTargetView) {
+	
 }
 
 void ExampleMod::DX11ResizeBuffers(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, UINT Width, UINT Height, DXGI_FORMAT NewFormat, UINT SwapChainFlags){
@@ -65,7 +66,7 @@ void ExampleMod::DrawImGui() {
 		if (ImGui::Begin("Theme Changed", &m_showWindow)) {
 			static int currentTheme = 0;
 			if (ImGui::MDML_Combo("Color Theme", currentTheme, {"PhotoshopDark", "Dark", "AmoledDark", "OceanDark", "ImGuiClassic", "ImGuiDark", "ImGuiLight"}))
-				SetImGuiColorTheme((ImGuiColorTheme)currentTheme);
+				LoaderUI::setColorTheme((ImGuiColorTheme)currentTheme);
 		}
 		ImGui::End();
 	}

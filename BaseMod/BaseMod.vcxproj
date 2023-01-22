@@ -41,7 +41,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>NDEBUG;BaseMod_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ModLoader\spdlog;..\ModLoader\MinHook;src;..\ModLoader\UnrealEngineModLoader;..\ModLoader\UE4;..\ModLoader\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ModLoader\vendor\spdlog;..\ModLoader\vendor\MinHook;..\ModLoader\src;..\ModLoader\vendor\INI;..\ModLoader\vendor\glm;src;..\ModLoader\vendor\ImGui;..\ModLoader\src\UE4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -58,7 +58,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>..\ModLoader\MinHook\lib\libMinHook-x64-v141-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\ModLoader\vendor\MinHook\lib\libMinHook-x64-v141-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Release-windows-x86_64\BaseMod\BaseMod.lib</ImportLibrary>
       <AdditionalOptions>/ignore:4006 /ignore:4099 /ignore:4251 %(AdditionalOptions)</AdditionalOptions>
     </Link>
@@ -67,22 +67,22 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\ModLoader\UE4\Basic.hpp" />
-    <ClInclude Include="..\ModLoader\UE4\CoreUObject_classes.hpp" />
-    <ClInclude Include="..\ModLoader\UE4\CoreUObject_parameters.hpp" />
-    <ClInclude Include="..\ModLoader\UE4\CoreUObject_structs.hpp" />
-    <ClInclude Include="..\ModLoader\UE4\Ue4.hpp" />
+    <ClInclude Include="..\ModLoader\src\UE4\Ue4.hpp" />
     <ClInclude Include="src\BaseMod.h" />
     <ClInclude Include="src\Defs.h" />
     <ClInclude Include="src\Utils.h" />
-    <ClInclude Include="src\World.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\ModLoader\UE4\Basic.cpp" />
-    <ClCompile Include="..\ModLoader\UE4\CoreUObject_functions.cpp" />
+    <ClCompile Include="..\ModLoader\src\UE4\Engine\UserDefinedEnum.cpp" />
+    <ClCompile Include="..\ModLoader\src\UE4\Engine\World.cpp" />
+    <ClCompile Include="..\ModLoader\src\UE4\GameFramework\Actor.cpp" />
+    <ClCompile Include="..\ModLoader\src\UE4\Kismet\GameplayStatics.cpp" />
+    <ClCompile Include="..\ModLoader\src\UE4\UObject\Class.cpp" />
+    <ClCompile Include="..\ModLoader\src\UE4\UObject\CoreTypes.cpp" />
+    <ClCompile Include="..\ModLoader\src\UE4\UObject\Object.cpp" />
+    <ClCompile Include="..\ModLoader\src\UE4\UObject\UnrealType.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="src\BaseMod.cpp" />
-    <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ModLoader\MedievalDynastyModLoader.vcxproj">

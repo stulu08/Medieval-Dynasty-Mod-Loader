@@ -7,6 +7,9 @@ project "MedievalDynastyModLoader"
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "")
 	objdir ("bin-int/" .. outputdir .. "")
 	
+	pchheader "Core.h"
+	pchsource "src/Core.cpp"
+	
 	defines
 	{
 		"NDEBUG",
@@ -23,7 +26,7 @@ project "MedievalDynastyModLoader"
 	}
 	libdirs 
 	{
-		"%{IncludeDir.MinHook}/lib"
+		--"%{IncludeDir.MinHook}/lib"
 	}
 	includedirs
 	{
@@ -31,8 +34,11 @@ project "MedievalDynastyModLoader"
 		"%{IncludeDir.MinHook}",
 		"%{IncludeDir.ModLoader}",
 		"%{IncludeDir.INI}",
-		"%{IncludeDir.UE4}",
 		"%{IncludeDir.glm}",
+		"%{IncludeDir.ImGui}",
+		
+		"%{IncludeDir.UE4}",
+		
 	}
 	postbuildcommands {
 		"{MKDIR} \"%{wks.location}/bin/" .. outputdir .. "/Config\"",
@@ -40,8 +46,10 @@ project "MedievalDynastyModLoader"
 	}
 	links
 	{
-		--"%{IncludeDir.MinHook}/lib/libMinHook-x64-v141-mtd.lib"
+		"%{IncludeDir.MinHook}/lib/libMinHook-x64-v141-mtd.lib"
 	}
+	filter "files:vendor/**.cpp or files:src/UE4/**.cpp"
+		flags {"NoPCH"}
 	filter "system:windows"
 		systemversion "latest"
 

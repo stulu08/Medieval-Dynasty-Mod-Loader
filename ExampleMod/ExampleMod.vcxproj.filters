@@ -4,34 +4,55 @@
     <Filter Include="ModLoader">
       <UniqueIdentifier>{3C282D37-A892-E1AD-F1D0-92535D7ABF02}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ModLoader\UE4">
-      <UniqueIdentifier>{B91EDADD-25DF-5514-EE19-9F915A999AF0}</UniqueIdentifier>
+    <Filter Include="ModLoader\src">
+      <UniqueIdentifier>{53A4DADD-BF64-5614-889F-9F91F41E9BF0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ModLoader\src\UE4">
+      <UniqueIdentifier>{50CE85D8-BCE4-836E-055C-0F9071B154F6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ModLoader\src\UE4\Engine">
+      <UniqueIdentifier>{D57EAA09-C1A3-F989-EAEE-DE19D672F8A7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ModLoader\src\UE4\GameFramework">
+      <UniqueIdentifier>{8779BB6E-F35C-CAAE-FC5F-F8EA68C290FF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ModLoader\src\UE4\Kismet">
+      <UniqueIdentifier>{8C9C5517-78C1-A497-A10C-8A278D90A3B5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ModLoader\src\UE4\UObject">
+      <UniqueIdentifier>{CB25F4C5-37E8-2750-8098-B6DCEC99002E}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\ModLoader\UE4\Basic.hpp">
-      <Filter>ModLoader\UE4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ModLoader\UE4\CoreUObject_classes.hpp">
-      <Filter>ModLoader\UE4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ModLoader\UE4\CoreUObject_parameters.hpp">
-      <Filter>ModLoader\UE4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ModLoader\UE4\CoreUObject_structs.hpp">
-      <Filter>ModLoader\UE4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ModLoader\UE4\Ue4.hpp">
-      <Filter>ModLoader\UE4</Filter>
+    <ClInclude Include="..\ModLoader\src\UE4\Ue4.hpp">
+      <Filter>ModLoader\src\UE4</Filter>
     </ClInclude>
     <ClInclude Include="ExampleMod.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\ModLoader\UE4\Basic.cpp">
-      <Filter>ModLoader\UE4</Filter>
+    <ClCompile Include="..\ModLoader\src\UE4\Engine\UserDefinedEnum.cpp">
+      <Filter>ModLoader\src\UE4\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="..\ModLoader\UE4\CoreUObject_functions.cpp">
-      <Filter>ModLoader\UE4</Filter>
+    <ClCompile Include="..\ModLoader\src\UE4\Engine\World.cpp">
+      <Filter>ModLoader\src\UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ModLoader\src\UE4\GameFramework\Actor.cpp">
+      <Filter>ModLoader\src\UE4\GameFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ModLoader\src\UE4\Kismet\GameplayStatics.cpp">
+      <Filter>ModLoader\src\UE4\Kismet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ModLoader\src\UE4\UObject\Class.cpp">
+      <Filter>ModLoader\src\UE4\UObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ModLoader\src\UE4\UObject\CoreTypes.cpp">
+      <Filter>ModLoader\src\UE4\UObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ModLoader\src\UE4\UObject\Object.cpp">
+      <Filter>ModLoader\src\UE4\UObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ModLoader\src\UE4\UObject\UnrealType.cpp">
+      <Filter>ModLoader\src\UE4\UObject</Filter>
     </ClCompile>
     <ClCompile Include="ExampleMod.cpp" />
     <ClCompile Include="dllmain.cpp" />

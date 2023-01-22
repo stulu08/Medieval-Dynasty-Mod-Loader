@@ -3,7 +3,6 @@
 #include <windows.h>
 #include <process.h>
 #include <string>
-#include "../../ModLoader/INI/INI.h"
 
 std::string GetModuleFilePath(HMODULE hModule)
 {
