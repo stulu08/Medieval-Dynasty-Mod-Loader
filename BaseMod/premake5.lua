@@ -6,7 +6,7 @@ project "BaseMod"
 	targetname ("BaseMod");
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/BaseMod")
 	objdir ("bin-int/" .. outputdir .. "")
-	
+	dependson { "MedievalDynastyModLoader" }
 	defines
 	{
 		"NDEBUG",
@@ -29,8 +29,11 @@ project "BaseMod"
 	{
 		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.MinHook}",
-		"%{IncludeDir.BaseMod}",
 		"%{IncludeDir.ModLoader}",
+		"%{IncludeDir.INI}",
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.BaseMod}",
+		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.UE4}",
 	}
 	postbuildcommands {

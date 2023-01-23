@@ -6,7 +6,7 @@ class ExampleMod : public Mod
 public:
 
 	//Basic Mod Info
-	ExampleMod()
+	ExampleMod(HMODULE handle = nullptr)
 	{
 		ModName = "GuiThemeChanger"; // Mod Name -- If Using BP ModActor, Should Be The Same Name As Your Pak
 		ModVersion = "1.0.1"; // Mod Version
@@ -18,6 +18,8 @@ public:
 		LogToFile = false; // Creates a file sink for the logger
 		// Dont Touch The Internal Stuff
 		ModRef = this;
+		hModule = handle;
+
 		CompleteModCreation();
 	}
 

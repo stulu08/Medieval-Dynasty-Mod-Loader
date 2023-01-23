@@ -7,7 +7,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DE3BC2AD-2683-4D76-AD72-95D98164E9C7}</ProjectGuid>
+    <ProjectGuid>{0F4A9865-FB6E-E7E5-24BA-CC75103EE603}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>MedievalDynastyModLoader</RootNamespace>
@@ -37,11 +37,12 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Core.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>NDEBUG;UNREALENGINEMODLOADER_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>spdlog;MinHook;UnrealEngineModLoader;INI;UE4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog;vendor\MinHook;src;vendor\INI;vendor\glm;vendor\ImGui;src\UE4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -58,7 +59,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>MinHook\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>vendor\MinHook\lib\libMinHook-x64-v141-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Release-windows-x86_64\MDML.lib</ImportLibrary>
       <AdditionalOptions>/ignore:4006 /ignore:4099 /ignore:4251 %(AdditionalOptions)</AdditionalOptions>
     </Link>
@@ -68,153 +69,519 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="EventSystem.h" />
-    <ClInclude Include="Hooks.h" />
-    <ClInclude Include="INI\INI.h" />
-    <ClInclude Include="ImGui\imconfig.h" />
-    <ClInclude Include="ImGui\imgui.h" />
-    <ClInclude Include="ImGui\imgui_impl_dx11.h" />
-    <ClInclude Include="ImGui\imgui_impl_win32.h" />
-    <ClInclude Include="ImGui\imgui_internal.h" />
-    <ClInclude Include="ImGui\imstb_rectpack.h" />
-    <ClInclude Include="ImGui\imstb_textedit.h" />
-    <ClInclude Include="ImGui\imstb_truetype.h" />
-    <ClInclude Include="LoaderUI.h" />
-    <ClInclude Include="MinHook\include\MinHook.h" />
-    <ClInclude Include="ModStack.h" />
-    <ClInclude Include="PakLoader.h" />
-    <ClInclude Include="UE4\Basic.hpp" />
-    <ClInclude Include="UE4\CoreUObject_classes.hpp" />
-    <ClInclude Include="UE4\CoreUObject_parameters.hpp" />
-    <ClInclude Include="UE4\CoreUObject_structs.hpp" />
-    <ClInclude Include="UE4\Ue4.hpp" />
-    <ClInclude Include="UMLDefs.h" />
-    <ClInclude Include="UnrealEngineModLoader\GameInfo\GameInfo.h" />
-    <ClInclude Include="UnrealEngineModLoader\Memory\CoreModLoader.h" />
-    <ClInclude Include="UnrealEngineModLoader\Memory\mem.h" />
-    <ClInclude Include="UnrealEngineModLoader\Mod\Mod.h" />
-    <ClInclude Include="UnrealEngineModLoader\Utilities\Dumper.h" />
-    <ClInclude Include="UnrealEngineModLoader\Utilities\EngineDefFinder.h" />
-    <ClInclude Include="UnrealEngineModLoader\Utilities\Globals.h" />
-    <ClInclude Include="UnrealEngineModLoader\Utilities\Logger.h" />
-    <ClInclude Include="UnrealEngineModLoader\Utilities\MinHook.h" />
-    <ClInclude Include="UnrealEngineModLoader\Utilities\Pattern.h" />
-    <ClInclude Include="UnrealEngineModLoader\Utilities\Version.h" />
-    <ClInclude Include="spdlog\spdlog\async.h" />
-    <ClInclude Include="spdlog\spdlog\async_logger-inl.h" />
-    <ClInclude Include="spdlog\spdlog\async_logger.h" />
-    <ClInclude Include="spdlog\spdlog\cfg\argv.h" />
-    <ClInclude Include="spdlog\spdlog\cfg\env.h" />
-    <ClInclude Include="spdlog\spdlog\cfg\helpers-inl.h" />
-    <ClInclude Include="spdlog\spdlog\cfg\helpers.h" />
-    <ClInclude Include="spdlog\spdlog\common-inl.h" />
-    <ClInclude Include="spdlog\spdlog\common.h" />
-    <ClInclude Include="spdlog\spdlog\details\backtracer-inl.h" />
-    <ClInclude Include="spdlog\spdlog\details\backtracer.h" />
-    <ClInclude Include="spdlog\spdlog\details\circular_q.h" />
-    <ClInclude Include="spdlog\spdlog\details\console_globals.h" />
-    <ClInclude Include="spdlog\spdlog\details\file_helper-inl.h" />
-    <ClInclude Include="spdlog\spdlog\details\file_helper.h" />
-    <ClInclude Include="spdlog\spdlog\details\fmt_helper.h" />
-    <ClInclude Include="spdlog\spdlog\details\log_msg-inl.h" />
-    <ClInclude Include="spdlog\spdlog\details\log_msg.h" />
-    <ClInclude Include="spdlog\spdlog\details\log_msg_buffer-inl.h" />
-    <ClInclude Include="spdlog\spdlog\details\log_msg_buffer.h" />
-    <ClInclude Include="spdlog\spdlog\details\mpmc_blocking_q.h" />
-    <ClInclude Include="spdlog\spdlog\details\null_mutex.h" />
-    <ClInclude Include="spdlog\spdlog\details\os-inl.h" />
-    <ClInclude Include="spdlog\spdlog\details\os.h" />
-    <ClInclude Include="spdlog\spdlog\details\periodic_worker-inl.h" />
-    <ClInclude Include="spdlog\spdlog\details\periodic_worker.h" />
-    <ClInclude Include="spdlog\spdlog\details\registry-inl.h" />
-    <ClInclude Include="spdlog\spdlog\details\registry.h" />
-    <ClInclude Include="spdlog\spdlog\details\synchronous_factory.h" />
-    <ClInclude Include="spdlog\spdlog\details\tcp_client-windows.h" />
-    <ClInclude Include="spdlog\spdlog\details\tcp_client.h" />
-    <ClInclude Include="spdlog\spdlog\details\thread_pool-inl.h" />
-    <ClInclude Include="spdlog\spdlog\details\thread_pool.h" />
-    <ClInclude Include="spdlog\spdlog\details\windows_include.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\bin_to_hex.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\bundled\args.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\bundled\chrono.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\bundled\color.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\bundled\compile.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\bundled\core.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\bundled\format-inl.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\bundled\format.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\bundled\locale.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\bundled\os.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\bundled\ostream.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\bundled\printf.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\bundled\ranges.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\bundled\xchar.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\chrono.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\fmt.h" />
-    <ClInclude Include="spdlog\spdlog\fmt\ostr.h" />
-    <ClInclude Include="spdlog\spdlog\formatter.h" />
-    <ClInclude Include="spdlog\spdlog\fwd.h" />
-    <ClInclude Include="spdlog\spdlog\logger-inl.h" />
-    <ClInclude Include="spdlog\spdlog\logger.h" />
-    <ClInclude Include="spdlog\spdlog\pattern_formatter-inl.h" />
-    <ClInclude Include="spdlog\spdlog\pattern_formatter.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\android_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\ansicolor_sink-inl.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\ansicolor_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\base_sink-inl.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\base_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\basic_file_sink-inl.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\basic_file_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\daily_file_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\dist_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\dup_filter_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\hourly_file_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\msvc_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\null_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\ostream_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\ringbuffer_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\rotating_file_sink-inl.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\rotating_file_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\sink-inl.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\stdout_color_sinks-inl.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\stdout_color_sinks.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\stdout_sinks-inl.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\stdout_sinks.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\syslog_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\systemd_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\tcp_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\win_eventlog_sink.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\wincolor_sink-inl.h" />
-    <ClInclude Include="spdlog\spdlog\sinks\wincolor_sink.h" />
-    <ClInclude Include="spdlog\spdlog\spdlog-inl.h" />
-    <ClInclude Include="spdlog\spdlog\spdlog.h" />
-    <ClInclude Include="spdlog\spdlog\stopwatch.h" />
-    <ClInclude Include="spdlog\spdlog\tweakme.h" />
-    <ClInclude Include="spdlog\spdlog\version.h" />
+    <ClInclude Include="src\Core.h" />
+    <ClInclude Include="src\GameInfo.h" />
+    <ClInclude Include="src\Globals.h" />
+    <ClInclude Include="src\MDML.h" />
+    <ClInclude Include="src\Mod\Mod.h" />
+    <ClInclude Include="src\Mod\ModLoader.h" />
+    <ClInclude Include="src\Mod\ModStack.h" />
+    <ClInclude Include="src\UE4\Containers\Array.h" />
+    <ClInclude Include="src\UE4\Containers\Pointers.h" />
+    <ClInclude Include="src\UE4\Containers\String.h" />
+    <ClInclude Include="src\UE4\Containers\Templates.h" />
+    <ClInclude Include="src\UE4\Containers\Text.h" />
+    <ClInclude Include="src\UE4\Engine\BlueprintGeneratedClass.h" />
+    <ClInclude Include="src\UE4\Engine\EngineTypes.h" />
+    <ClInclude Include="src\UE4\Engine\GameInstance.h" />
+    <ClInclude Include="src\UE4\Engine\Level.h" />
+    <ClInclude Include="src\UE4\Engine\UserDefinedEnum.h" />
+    <ClInclude Include="src\UE4\Engine\UserDefinedStruct.h" />
+    <ClInclude Include="src\UE4\Engine\World.h" />
+    <ClInclude Include="src\UE4\GameFramework\Actor.h" />
+    <ClInclude Include="src\UE4\GameFramework\GameFrameworkTypes.h" />
+    <ClInclude Include="src\UE4\GameFramework\GameMode.h" />
+    <ClInclude Include="src\UE4\GameFramework\GameState.h" />
+    <ClInclude Include="src\UE4\GameFramework\Pawn.h" />
+    <ClInclude Include="src\UE4\GameFramework\PlayerController.h" />
+    <ClInclude Include="src\UE4\Kismet\BlueprintFunctionLibrary.h" />
+    <ClInclude Include="src\UE4\Kismet\GameplayStatics.h" />
+    <ClInclude Include="src\UE4\Math\Box.h" />
+    <ClInclude Include="src\UE4\Math\Color.h" />
+    <ClInclude Include="src\UE4\Math\InterpCurve.h" />
+    <ClInclude Include="src\UE4\Math\Plane.h" />
+    <ClInclude Include="src\UE4\Math\Quat.h" />
+    <ClInclude Include="src\UE4\Math\Rotator.h" />
+    <ClInclude Include="src\UE4\Math\Transform.h" />
+    <ClInclude Include="src\UE4\Math\UnrealMathUtility.h" />
+    <ClInclude Include="src\UE4\Math\Vector.h" />
+    <ClInclude Include="src\UE4\Math\Vector2.h" />
+    <ClInclude Include="src\UE4\Math\Vector4.h" />
+    <ClInclude Include="src\UE4\UObject\Class.h" />
+    <ClInclude Include="src\UE4\UObject\CoreTypes.h" />
+    <ClInclude Include="src\UE4\UObject\NamePool.h" />
+    <ClInclude Include="src\UE4\UObject\Object.h" />
+    <ClInclude Include="src\UE4\UObject\ObjectsArray.h" />
+    <ClInclude Include="src\UE4\UObject\Stack.h" />
+    <ClInclude Include="src\UE4\UObject\UnrealType.h" />
+    <ClInclude Include="src\UE4\Ue4.hpp" />
+    <ClInclude Include="src\UI\LoaderUI.h" />
+    <ClInclude Include="src\Utilities\Dumper.h" />
+    <ClInclude Include="src\Utilities\EngineDefFinder.h" />
+    <ClInclude Include="src\Utilities\HooksManager.h" />
+    <ClInclude Include="src\Utilities\Logger.h" />
+    <ClInclude Include="src\Utilities\Math.h" />
+    <ClInclude Include="src\Utilities\Memory.h" />
+    <ClInclude Include="src\Utilities\MinHook.h" />
+    <ClInclude Include="src\Utilities\NameValidator.h" />
+    <ClInclude Include="src\Utilities\Pattern.h" />
+    <ClInclude Include="vendor\INI\INI.h" />
+    <ClInclude Include="vendor\ImGui\imgui\imconfig.h" />
+    <ClInclude Include="vendor\ImGui\imgui\imgui.h" />
+    <ClInclude Include="vendor\ImGui\imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="vendor\ImGui\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="vendor\ImGui\imgui\imgui_internal.h" />
+    <ClInclude Include="vendor\ImGui\imgui\imgui_stdlib.h" />
+    <ClInclude Include="vendor\ImGui\imgui\imstb_rectpack.h" />
+    <ClInclude Include="vendor\ImGui\imgui\imstb_textedit.h" />
+    <ClInclude Include="vendor\ImGui\imgui\imstb_truetype.h" />
+    <ClInclude Include="vendor\MinHook\include\MinHook.h" />
+    <ClInclude Include="vendor\glm\glm\common.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\_features.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\_fixes.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\_noise.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\_swizzle.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\_swizzle_func.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\_vectorize.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\compute_common.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\compute_vector_relational.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\qualifier.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\setup.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\type_float.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\type_half.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\type_mat2x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\type_mat2x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\type_mat2x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\type_mat3x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\type_mat3x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\type_mat3x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\type_mat4x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\type_mat4x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\type_mat4x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\type_quat.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\type_vec1.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\type_vec2.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\type_vec3.hpp" />
+    <ClInclude Include="vendor\glm\glm\detail\type_vec4.hpp" />
+    <ClInclude Include="vendor\glm\glm\exponential.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_clip_space.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_common.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double2x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double2x2_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double2x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double2x3_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double2x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double2x4_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double3x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double3x2_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double3x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double3x3_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double3x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double3x4_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double4x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double4x2_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double4x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double4x3_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double4x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_double4x4_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float2x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float2x2_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float2x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float2x3_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float2x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float2x4_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float3x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float3x2_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float3x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float3x3_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float3x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float3x4_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float4x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float4x2_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float4x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float4x3_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float4x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_float4x4_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int2x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int2x2_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int2x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int2x3_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int2x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int2x4_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int3x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int3x2_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int3x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int3x3_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int3x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int3x4_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int4x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int4x2_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int4x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int4x3_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int4x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_int4x4_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_integer.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_projection.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_relational.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_transform.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint2x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint2x2_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint2x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint2x3_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint2x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint2x4_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint3x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint3x2_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint3x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint3x3_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint3x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint3x4_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint4x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint4x2_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint4x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint4x3_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint4x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\matrix_uint4x4_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\quaternion_common.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\quaternion_double.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\quaternion_double_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\quaternion_exponential.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\quaternion_float.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\quaternion_float_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\quaternion_geometric.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\quaternion_relational.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\quaternion_transform.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\quaternion_trigonometric.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\scalar_common.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\scalar_constants.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\scalar_int_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\scalar_integer.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\scalar_packing.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\scalar_reciprocal.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\scalar_relational.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\scalar_uint_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\scalar_ulp.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_bool1.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_bool1_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_bool2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_bool2_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_bool3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_bool3_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_bool4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_bool4_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_common.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_double1.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_double1_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_double2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_double2_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_double3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_double3_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_double4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_double4_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_float1.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_float1_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_float2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_float2_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_float3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_float3_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_float4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_float4_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_int1.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_int1_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_int2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_int2_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_int3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_int3_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_int4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_int4_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_integer.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_packing.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_reciprocal.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_relational.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_uint1.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_uint1_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_uint2.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_uint2_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_uint3.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_uint3_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_uint4.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_uint4_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_ulp.hpp" />
+    <ClInclude Include="vendor\glm\glm\fwd.hpp" />
+    <ClInclude Include="vendor\glm\glm\geometric.hpp" />
+    <ClInclude Include="vendor\glm\glm\glm.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\bitfield.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\color_space.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\constants.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\epsilon.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\integer.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\matrix_access.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\matrix_integer.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\matrix_inverse.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\matrix_transform.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\noise.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\packing.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\quaternion.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\random.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\reciprocal.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\round.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\type_aligned.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\type_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\type_ptr.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\ulp.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\vec1.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\associated_min_max.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\bit.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\closest_point.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\color_encoding.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\color_space.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\color_space_YCoCg.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\common.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\compatibility.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\component_wise.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\dual_quaternion.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\easing.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\euler_angles.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\extend.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\extended_min_max.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\exterior_product.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\fast_exponential.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\fast_square_root.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\fast_trigonometry.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\functions.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\gradient_paint.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\handed_coordinate_space.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\hash.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\integer.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\intersect.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\io.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\log_base.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\matrix_cross_product.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\matrix_decompose.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\matrix_factorisation.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\matrix_interpolation.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\matrix_major_storage.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\matrix_operation.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\matrix_query.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\matrix_transform_2d.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\mixed_product.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\norm.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\normal.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\normalize_dot.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\number_precision.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\optimum_pow.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\orthonormalize.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\pca.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\perpendicular.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\polar_coordinates.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\projection.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\quaternion.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\range.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\raw_data.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\rotate_normalized_axis.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\rotate_vector.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\scalar_multiplication.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\scalar_relational.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\spline.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\std_based_type.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\string_cast.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\texture.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\transform.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\transform2.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\type_aligned.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\type_trait.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\vec_swizzle.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\vector_angle.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\vector_query.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtx\wrap.hpp" />
+    <ClInclude Include="vendor\glm\glm\integer.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat2x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat2x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat2x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat3x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat3x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat3x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat4x2.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat4x3.hpp" />
+    <ClInclude Include="vendor\glm\glm\mat4x4.hpp" />
+    <ClInclude Include="vendor\glm\glm\matrix.hpp" />
+    <ClInclude Include="vendor\glm\glm\packing.hpp" />
+    <ClInclude Include="vendor\glm\glm\simd\common.h" />
+    <ClInclude Include="vendor\glm\glm\simd\exponential.h" />
+    <ClInclude Include="vendor\glm\glm\simd\geometric.h" />
+    <ClInclude Include="vendor\glm\glm\simd\integer.h" />
+    <ClInclude Include="vendor\glm\glm\simd\matrix.h" />
+    <ClInclude Include="vendor\glm\glm\simd\neon.h" />
+    <ClInclude Include="vendor\glm\glm\simd\packing.h" />
+    <ClInclude Include="vendor\glm\glm\simd\platform.h" />
+    <ClInclude Include="vendor\glm\glm\simd\trigonometric.h" />
+    <ClInclude Include="vendor\glm\glm\simd\vector_relational.h" />
+    <ClInclude Include="vendor\glm\glm\trigonometric.hpp" />
+    <ClInclude Include="vendor\glm\glm\vec2.hpp" />
+    <ClInclude Include="vendor\glm\glm\vec3.hpp" />
+    <ClInclude Include="vendor\glm\glm\vec4.hpp" />
+    <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
+    <ClInclude Include="vendor\spdlog\spdlog\async.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\async_logger-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\async_logger.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\cfg\argv.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\cfg\env.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\cfg\helpers-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\cfg\helpers.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\common-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\common.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\backtracer-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\backtracer.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\circular_q.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\console_globals.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\file_helper-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\file_helper.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\fmt_helper.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\log_msg-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\log_msg.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\log_msg_buffer-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\log_msg_buffer.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\mpmc_blocking_q.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\null_mutex.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\os-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\os.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\periodic_worker-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\periodic_worker.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\registry-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\registry.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\synchronous_factory.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\tcp_client-windows.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\tcp_client.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\thread_pool-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\thread_pool.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\details\windows_include.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\bin_to_hex.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\bundled\args.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\bundled\chrono.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\bundled\color.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\bundled\compile.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\bundled\core.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\bundled\format-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\bundled\format.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\bundled\locale.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\bundled\os.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\bundled\ostream.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\bundled\printf.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\bundled\ranges.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\bundled\xchar.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\chrono.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\fmt.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fmt\ostr.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\formatter.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\fwd.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\logger-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\logger.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\pattern_formatter-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\pattern_formatter.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\android_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\ansicolor_sink-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\ansicolor_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\base_sink-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\base_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\basic_file_sink-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\basic_file_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\daily_file_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\dist_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\dup_filter_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\hourly_file_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\msvc_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\null_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\ostream_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\ringbuffer_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\rotating_file_sink-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\rotating_file_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\sink-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\stdout_color_sinks-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\stdout_color_sinks.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\stdout_sinks-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\stdout_sinks.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\syslog_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\systemd_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\tcp_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\win_eventlog_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\wincolor_sink-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\sinks\wincolor_sink.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\spdlog-inl.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\spdlog.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\stopwatch.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\tweakme.h" />
+    <ClInclude Include="vendor\spdlog\spdlog\version.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Hooks.cpp" />
-    <ClCompile Include="ImGui\imgui.cpp" />
-    <ClCompile Include="ImGui\imgui_demo.cpp" />
-    <ClCompile Include="ImGui\imgui_draw.cpp" />
-    <ClCompile Include="ImGui\imgui_impl_dx11.cpp" />
-    <ClCompile Include="ImGui\imgui_impl_win32.cpp" />
-    <ClCompile Include="ImGui\imgui_tables.cpp" />
-    <ClCompile Include="ImGui\imgui_widgets.cpp" />
-    <ClCompile Include="LoaderUI.cpp" />
-    <ClCompile Include="ModStack.cpp" />
-    <ClCompile Include="PakLoader.cpp" />
-    <ClCompile Include="UE4\Basic.cpp" />
-    <ClCompile Include="UE4\CoreUObject_functions.cpp" />
-    <ClCompile Include="UnrealEngineModLoader\GameInfo\GameInfo.cpp" />
-    <ClCompile Include="UnrealEngineModLoader\Memory\CoreModLoader.cpp" />
-    <ClCompile Include="UnrealEngineModLoader\Memory\mem.cpp" />
-    <ClCompile Include="UnrealEngineModLoader\Mod\Mod.cpp" />
-    <ClCompile Include="UnrealEngineModLoader\Utilities\Dumper.cpp" />
-    <ClCompile Include="UnrealEngineModLoader\Utilities\EngineDefFinder.cpp" />
-    <ClCompile Include="UnrealEngineModLoader\Utilities\Globals.cpp" />
-    <ClCompile Include="UnrealEngineModLoader\Utilities\Logger.cpp" />
-    <ClCompile Include="UnrealEngineModLoader\dllmain.cpp" />
+    <ClCompile Include="src\Core.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\Globals.cpp" />
+    <ClCompile Include="src\MDML.cpp" />
+    <ClCompile Include="src\Mod\Mod.cpp" />
+    <ClCompile Include="src\Mod\ModLoader.cpp" />
+    <ClCompile Include="src\Mod\ModStack.cpp" />
+    <ClCompile Include="src\UE4\Engine\UserDefinedEnum.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\World.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\UE4\GameFramework\Actor.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Kismet\GameplayStatics.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UObject\Class.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UObject\CoreTypes.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UObject\Object.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UObject\UnrealType.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\UI\LoaderUI.cpp" />
+    <ClCompile Include="src\Utilities\Dumper.cpp" />
+    <ClCompile Include="src\Utilities\EngineDefFinder.cpp" />
+    <ClCompile Include="src\Utilities\HooksManager.cpp" />
+    <ClCompile Include="src\Utilities\Logger.cpp" />
+    <ClCompile Include="src\Utilities\Memory.cpp" />
+    <ClCompile Include="src\Utilities\NameValidator.cpp" />
+    <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="vendor\ImGui\imgui\imgui.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\ImGui\imgui\imgui_demo.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\ImGui\imgui\imgui_draw.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\ImGui\imgui\imgui_impl_dx11.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\ImGui\imgui\imgui_impl_win32.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\ImGui\imgui\imgui_stdlib.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\ImGui\imgui\imgui_tables.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\ImGui\imgui\imgui_widgets.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="vendor\glm\glm\detail\glm.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

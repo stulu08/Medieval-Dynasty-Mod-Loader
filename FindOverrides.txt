@@ -1,0 +1,61 @@
+This sounds weird but use chat gpt to help you it can tell you which functions are accessing variables
+
+IsNonPakFilenameAllowed:
+	search text: 
+		aFileopenlog 
+		text "UTF-16LE", 'FileOpenLog',0
+
+		xref +1E^ is: ?InitializeNewAsyncIO@FPakPlatformFile@@UEAAXXZ_0
+	go to FPakPlatformFile::InitializeNewAsyncIO
+	
+	Scroll down to 
+		var_28          = qword ptr -28h
+		arg_0           = qword ptr  8
+		arg_8           = qword ptr  10h
+		arg_10          = qword ptr  18h
+		arg_18          = qword ptr  20h
+
+	we found:
+		?IsNonPakFilenameAllowed@FPakPlatformFile@@AEAA_NAEBVFString@@@Z
+---------------------------------------------------------------
+FindFileInPakFiles:
+	search text:
+		aSkipOptionalPakFiles
+		text "UTF-16LE", 'SkipOptionalPakFiles',0
+
+	xref +60^ is: 
+		?FindAllPakFiles@FPakPlatformFile@@CAXPEAVIPlatformFile@@AEBV?$TArray@VFString@@V?$TSizedDefaultAllocator@$0CA@@@@@AEBVFString@@AEAV3@@Z
+	go to FPakPlatformFile::FindAllPakFiles
+	
+	Scroll down to
+		var_48          = qword ptr -48h
+		var_40          = qword ptr -40h
+		arg_8           = qword ptr  10h
+		arg_10          = qword ptr  18h
+
+	This is FindFileInPakFiles but the wrong one
+	rename to ?FindFileInPakFiles@FPakPlatformFile@@QEAA_NPEB_WPEAV?$TRefCountPtr@VFPakFile@@@@PEAUFPakEntry@@@Z
+	
+	scroll down to find 
+		call    cs:__imp_LeaveCriticalSection#
+	in the next block there should be
+		mov rdx, [rsp+68h+arg_8]
+		lea rcx, [rsp+68h+var_48]
+		mov r9, r12
+		mov r8, r13
+		call <this here is FindFileInPakFiles>
+	we found:
+		?FindFileInPakFiles@FPakPlatformFile@@SA_NAEAV?$TArray@UFPakListEntry@FPakPlatformFile@@V?$TSizedDefaultAllocator@$0CA@@@@@PEB_WPEAV?$TRefCountPtr@VFPakFile@@@@PEAUFPakEntry@@@Z
+------------------------------------------------------------
+CreateDefaultObject:
+	search text
+		aScriptCoreuobj
+		text "UTF-16LE", '/Script/CoreUObject',0
+	x ref and select 159
+	rename:
+		?GetPrivateStaticClass@UObject@@CAPEAVUClass@@XZ
+
+	x ref and select 117
+	rename ?CreateDefaultObject@UClass@@MEAAPEAVUObject@@XZ
+
+	first xref is ?CreateDefaultObject@UDynamicClass@@UEAAPEAVUObject@@XZ

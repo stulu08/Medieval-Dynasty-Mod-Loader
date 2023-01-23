@@ -7,7 +7,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{ACD937DA-925A-4640-9AD0-39A381D323EA}</ProjectGuid>
+    <ProjectGuid>{33873803-1F6B-F958-88CB-F3AB74CEE3DA}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>LoaderAutoInjector</RootNamespace>
