@@ -29,6 +29,7 @@ Medieval Dynasty Mod Loader (MDML) is a fork of the [Unreal Engine Mod Loader](h
 - Core mods are DLL's which will get loaded with the mod loader automatically, they are used to adding features for the mod loader and do stuff that you can't do with Logic mods
 - Logic mods are Unreal Engine actor files, the actor file will get loaded by mdml using StaticLoadObject if setup correctly, you can create a mod inside UE4 and use most of the features from UE4
 - Overwrite mods, they overwrite the game files. On startup the mod loader will generate hard links from the mod files to the game files and on application exit or next start they will get removed. It's basically the same as Vortex
+- [Here](Modding.md) is very simple tutorial on how to create mods
 
 # Unreal Engine Mod Loader
 A tool used to load Blueprint and basic SDK based C++ Mods for Unreal Engine 4 games
