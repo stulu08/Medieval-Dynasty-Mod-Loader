@@ -1,4 +1,5 @@
 #pragma once
+#include "Containers/Pointers.h"
 #include "Object.h"
 
 namespace UE4 {
@@ -96,6 +97,21 @@ namespace UE4 {
 
 		static UClass* LoadClassFromString(const wchar_t* InName, bool bAllowObjectReconciliation);
 
+	};
+	template<class TClass>
+	class TSubclassOf
+	{
+	public:
+		TSubclassOf(UClass* Class) {
+			this->Class = Class;
+		}
+
+		inline UClass* GetClass()
+		{
+			return Class;
+		}
+	private:
+		UClass* Class;
 	};
 	class UFunction : public UStruct
 	{

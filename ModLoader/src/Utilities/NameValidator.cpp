@@ -3,7 +3,7 @@
 
 #include <cctype>
 #include <Ue4.hpp>
-
+#define FAST_CHECK 1
 std::string NameValidator::MakeValidName(std::string&& name) {
 	std::string valid(name);
 
@@ -55,10 +55,12 @@ std::string NameValidator::SimplifyEnumName(std::string&& name) {
 template<typename T>
 std::string MakeUniqueCppNameImpl(const T* t) {
 	std::string name;
+#if !FAST_CHECK
 	if (UE4::UObject::CountObjectByTypeAndName<T>(t->GetName()) > 1)
 	{
 		name += NameValidator::MakeValidName(t->GetOuter()->GetName()) + "_";
 	}
+#endif // NO_CHECK
 	return name + NameValidator::MakeValidName(t->GetName());
 }
 std::string NameValidator::MakeUniqueCppName(const UE4::UEnum* e)
@@ -73,9 +75,11 @@ std::string NameValidator::MakeUniqueCppName(const UE4::UEnum* e)
 std::string NameValidator::MakeUniqueCppName(const UE4::UStruct* ss)
 {
 	std::string name;
+#if !FAST_CHECK
 	if (UE4::UObject::CountObjectByTypeAndName<UE4::UStruct>(ss->GetName()) > 1)
 	{
 		name += MakeValidName(ss->GetOuter()->GetCPPName()) + "_";
 	}
+#endif
 	return name + MakeValidName(ss->GetCPPName());
 }

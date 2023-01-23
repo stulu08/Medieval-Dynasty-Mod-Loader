@@ -109,7 +109,9 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClInclude Include="src\UE4\Math\Vector4.h" />
     <ClInclude Include="src\UE4\UObject\Class.h" />
     <ClInclude Include="src\UE4\UObject\CoreTypes.h" />
+    <ClInclude Include="src\UE4\UObject\NamePool.h" />
     <ClInclude Include="src\UE4\UObject\Object.h" />
+    <ClInclude Include="src\UE4\UObject\ObjectsArray.h" />
     <ClInclude Include="src\UE4\UObject\Stack.h" />
     <ClInclude Include="src\UE4\UObject\UnrealType.h" />
     <ClInclude Include="src\UE4\Ue4.hpp" />

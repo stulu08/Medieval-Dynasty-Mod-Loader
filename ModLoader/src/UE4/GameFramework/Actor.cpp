@@ -74,7 +74,7 @@ namespace UE4 {
 		static auto fn = UObject::FindObject<UFunction>("Function Engine.Actor.SetActorScale3D");
 		struct
 		{
-			FRotator NewScale3D;
+			FVector NewScale3D;
 		}params;
 		params.NewScale3D = NewScale3D;
 		UObject::ProcessEvent(fn, &params);

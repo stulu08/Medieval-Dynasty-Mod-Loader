@@ -31,6 +31,13 @@ struct ModInfo
 	bool WasInitialized = 0;
 	std::vector<std::string> ModButtons;
 };
+struct OverwriteMod {
+	std::string Name;
+	std::string Author;
+	std::string Description;
+
+	std::vector<std::string> Files;
+};
 typedef std::pair<std::string, void*> BPFunctionWrapper;
 class LOADER_API Global {
 public:
@@ -39,6 +46,7 @@ public:
 	bool bIsMenuOpen;
 	ModStack CoreMods;
 	std::unordered_map<std::string, void*> BPFunctionWrappers;
+	std::vector<OverwriteMod> OverwriteMods;
 
 	static Global* GetGlobals();
 

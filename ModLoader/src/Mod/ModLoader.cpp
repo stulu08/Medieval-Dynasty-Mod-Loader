@@ -77,7 +77,12 @@ namespace ModLoader
 		std::transform(actorName.begin(), actorName.end(), CurrentMod.ActorName.begin(), [](char c) -> wchar_t { return (wchar_t)c; });
 
 		CurrentMod.ActorPath = std::wstring(Path.length(), 0);
-		std::transform(Path.begin(), Path.end(), CurrentMod.ActorPath.begin(), [](char c) -> wchar_t { return (wchar_t)c; });
+		std::transform(Path.begin(), Path.end(), CurrentMod.ActorPath.begin(), [](char c) -> wchar_t {
+			//when we are here we can also repair the path
+			if (c == '\\')
+				return L'/';
+			return (wchar_t)c; 
+			});
 
 		CurrentMod.IsEnabled = true;
 
@@ -195,6 +200,11 @@ namespace ModLoader
 
 					if (LoaderInfo.select("Overrides")) {
 						std::string enabled = LoaderInfo.get("Enable", "False");
+						OverwriteMod oMod;
+						oMod.Name = LoaderInfo.get("Name", "Uknown");
+						oMod.Author = LoaderInfo.get("Author", "Uknown");
+						oMod.Description = LoaderInfo.get("Description", "Uknown");
+
 						std::transform(enabled.begin(), enabled.end(), enabled.begin(), [](char c)->char { return std::tolower(c); });
 						if (enabled == "true" || enabled._Starts_with("1")) {
 							std::string folderStr = dirPath + "/" + LoaderInfo.get("Folder", "");
@@ -225,7 +235,9 @@ namespace ModLoader
 								//formating this doesnt work cause it inserts the mod folder, and i dont know why
 								Log::Trace_MDML("Created link to {0}", target.string());
 								paths.push_back(target.string());
+								oMod.Files.push_back(target.string());
 							}
+							Global::GetGlobals()->OverwriteMods.push_back(oMod);
 						}
 					}
 				}

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ObjectsArray.h"
+#include "NamePool.h"
 #include "CoreTypes.h"
 
 namespace UE4 {
@@ -17,7 +19,7 @@ namespace UE4 {
 		std::string GetCPPName() const;
 		UPackage* GetPackage() const;
 
-		static inline bool IsChunkedArray() { return MDML::SelectedGameProfile.IsUsingFChunkedFixedUObjectArray; }
+		static inline bool IsChunkedArray() { return FUObjectArray::IsChunkedArray(); }
 		template<typename T>
 		static T* FindObject(const std::string& name)
 		{

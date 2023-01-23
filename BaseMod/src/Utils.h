@@ -195,8 +195,9 @@ namespace MDMLBase {
 				std::string name;
 				UE4::EPropertyFlags flags;
 				UE4::FField* field;
+				bool isOut = false;
 			};
-			inline std::string ParamsStruct(const std::string& name, std::vector<PInfo>& parms) {
+			inline std::string ParamsStruct(const std::string& name, std::vector<PInfo>& parms, PInfo* returnValue) {
 				std::string result;
 				result += "/////////////////////////////////////////////\n";
 				result += "// " + name + "\n";
@@ -206,6 +207,8 @@ namespace MDMLBase {
 
 					result += "	" + p.cppType + " " + p.name + ";			//Offset: " + std::to_string(p.field->GetAsProperty()->GetOffset()) + " | ElementSize: " + std::to_string(p.field->GetAsProperty()->GetElementSize()) + "\n";
 				}
+				if(returnValue)
+					result += "	" + returnValue->cppType + " " + returnValue->name + ";			//Offset: " + std::to_string(returnValue->field->GetAsProperty()->GetOffset()) + " | ElementSize: " + std::to_string(returnValue->field->GetAsProperty()->GetElementSize()) + "\n";
 				result += "};\n";
 				return result;
 			}
@@ -361,7 +364,7 @@ namespace MDMLBase {
 								hasReturnValue = true;
 							}
 							else {
-								parms.push_back({ cppType, child->GetName(), prop->GetPropertyFlags(), child });
+								parms.push_back({ cppType, child->GetName(), prop->GetPropertyFlags(), child, false });
 							}
 							if (type == FunctionType::Defenition) {
 								head += "// Name: " + child->GetName() + "	Type: " + cppType + "	Flags: " + UE4::StringifyFlags(child->GetAsProperty()->GetPropertyFlags()) + "\n";
@@ -394,20 +397,22 @@ namespace MDMLBase {
 				head += name;
 				head += "(";
 				for (size_t i = 0; i < parms.size(); i++) {
-					PInfo info = parms[i];
-					bool Const = false;
-					bool Out = false;
+					PInfo& info = parms[i];
+
+					if (info.flags & UE4::EPropertyFlags::OutParm) {
+						if (info.flags & UE4::EPropertyFlags::ConstParm)
+							info.isOut = false;
+						else
+							info.isOut = true;
+					}
+
+					bool Const = info.flags & UE4::EPropertyFlags::ConstParm;
 					bool Ref = false;
 
-					if (info.flags & UE4::EPropertyFlags::OutParm)
-						Out = true;
-					else {
+					if(!info.isOut) {
 						if (info.flags & UE4::EPropertyFlags::ReferenceParm) {
 							Ref = true;
-							Const = true;
 						}
-						if (info.flags & UE4::EPropertyFlags::ConstParm)
-							Const = true;
 					}
 					
 					
@@ -418,7 +423,7 @@ namespace MDMLBase {
 
 					head += info.cppType;
 
-					if (Out)
+					if (info.isOut)
 						head += "*";
 					if (Ref)
 						head += "&";
@@ -433,13 +438,13 @@ namespace MDMLBase {
 					return head + "\n\n";
 				}
 				if (type != FunctionType::Declaration)
-					parmsContent += ParamsStruct(paramStructName, parms);
+					parmsContent += ParamsStruct(paramStructName, parms, hasReturnValue ? &returnInfo : nullptr);
 				std::string body = "";
 				body += "	static auto fn = UObject::FindObject<UFunction>(\"" + func->GetFullName() + "\");\n\n";
 
 				body += "	" + paramStructName + " params;\n";
 				for (auto p : parms) {
-					if (!(p.flags & UE4::EPropertyFlags::OutParm))
+					if (!p.isOut)
 						body += "	params." + p.name + " = " + p.name + ";\n";
 				}
 
@@ -458,7 +463,7 @@ namespace MDMLBase {
 				}
 				body += "	fn->SetFunctionFlags((EFunctionFlags)flags);\n\n";
 				for (auto p : parms) {
-					if (p.flags & UE4::EPropertyFlags::OutParm) {
+					if (p.isOut) {
 						body += "	if (" + p.name + " != nullptr)\n";
 						body += "		*" + p.name + " = params." + p.name + ";\n";
 					}
@@ -489,6 +494,11 @@ namespace MDMLBase {
 					header += "#include \"GameFramework/Actor.h\"\n";
 				if (Class->IsA(UE4::UBlueprintFunctionLibrary::StaticClass()))
 					header += "#include \"Kismet/BlueprintFunctionLibrary.h\"\n";
+				if (Super) {
+					UE4::UPackage* pack = Super->GetPackage();
+					if(pack && pack->GetName() != "CoreUObject")
+						header += "#include \"" + pack->GetName() + "/" + Super->GetName() + ".h\"\n";
+				}
 				header += "/////////////////////////////////////////////\n";
 				header += "// " + Class->GetFullName() + "\n";
 				if (Super)
@@ -647,7 +657,7 @@ namespace MDMLBase {
 				result += "// Structs: " + std::to_string(structs.size()) + "\n";
 				result += "// Objects: " + std::to_string(packageObjects.size()) + "\n";
 				result += "/////////////////////////////////////////////\n\n\n";
-				result += "#include \"" + EnumStructsFile + "\"\n";
+				result += "#include \"Structs.h\"\n";
 				result += "\n\n";
 				for (auto& file : classFiles) {
 					result += "#include \"" + file + "\"\n";

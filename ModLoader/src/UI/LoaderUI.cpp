@@ -236,7 +236,30 @@ void ShowCoreMods()
 		}
 	}
 }
+void ShowOverrideMods() {
+	if (!ImGui::CollapsingHeader("Overwrite Mods"))
+		return;
 
+	for (size_t i = 0; i < Global::GetGlobals()->OverwriteMods.size(); i++) {
+		auto Mod = Global::GetGlobals()->OverwriteMods[i];
+		std::string ModLabel = Mod.Name + "##cm" + std::to_string(i);
+		if (ImGui::TreeNode(ModLabel.c_str())) {
+			std::string Author = "Created By: " + Mod.Author;
+			ImGui::Text(Author.c_str());
+			ImGui::Separator();
+			std::string Description = "Description: " + Mod.Description;
+			ImGui::Text(Description.c_str());
+			ImGui::Separator();
+			if (ImGui::TreeNode("Files overwritten")) {
+				for (auto file : Mod.Files) {
+					ImGui::Text(file.c_str());
+				}
+				ImGui::TreePop();
+			}
+			ImGui::TreePop();
+		}
+	}
+}
 void ShowTools()
 {
 	if (!ImGui::CollapsingHeader("Tools"))
@@ -278,6 +301,7 @@ void DrawImGui()
 		ImGui::Text("Unreal Mod Loader Version: %s", MODLOADER_VERSION);
 		ShowLogicMods();
 		ShowCoreMods();
+		ShowOverrideMods();
 		ShowTools();
 	}
 	ImGui::End();

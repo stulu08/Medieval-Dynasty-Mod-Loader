@@ -216,7 +216,13 @@
     <ClInclude Include="src\UE4\UObject\CoreTypes.h">
       <Filter>src\UE4\UObject</Filter>
     </ClInclude>
+    <ClInclude Include="src\UE4\UObject\NamePool.h">
+      <Filter>src\UE4\UObject</Filter>
+    </ClInclude>
     <ClInclude Include="src\UE4\UObject\Object.h">
+      <Filter>src\UE4\UObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UObject\ObjectsArray.h">
       <Filter>src\UE4\UObject</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\UObject\Stack.h">
