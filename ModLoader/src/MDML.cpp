@@ -265,8 +265,8 @@ bool SetupProfile(const std::string& Path) {
 		freopen_s(&newstdin, "CONIN$", "r", stdin);
 		freopen_s(&newstdout, "CONOUT$", "w", stdout);
 		freopen_s(&newstderr, "CONOUT$", "w", stderr);
-		Log::Init(MDML::SelectedGameProfile.LogDir);
 	}
+	Log::Init(MDML::SelectedGameProfile.LogDir);
 	Log::Info_UML("Loader Created by ~Russell.J Release V {0}", MODLOADER_VERSION);
 	Log::Info_MDML("Optmized and edited for Medieval Dynasty by Stulu");
 	Log::Info_MDML("Medieval Version {0}", MEDIEVAL_VERSION);
