@@ -19,17 +19,16 @@ Medieval Dynasty Mod Loader (MDML) is a fork of the [Unreal Engine Mod Loader](h
 # Bugs
 - When you get a DirectX error you may have started in DirectX12 Rendering Mode, switch it to DirectX11 in ```Settings>Graphics>Rendering Mode```
 - Dont start using the ```Medieval_Dynasty-Win64-Shipping.exe``` executable, use steam
-- .Pak mods doesn't work since the game uses signed paks!
 
-# Installing Logic Mods
-- ```pak``` or Logic Mods are placed inside ```[SteamLibraryFolder]/common/Medieval Dynasty/Medieval_Dynasty/Content/Paks/LogicMods```
-- Here is a [guide](https://youtu.be/i-hp3NS6heQ?list=PL-dFOLrGFgdwbzcHmZ2ghuN3LXxlazbZP) to creating Logic Mods, this does not work since the game uses signed pak files, but I am working on a fix.
+# Installing Mods
+- Mods are place inside the Mods folder ```[SteamLibraryFolder]/common/Medieval Dynasty/Medieval_Dynasty/Content/Mods```
+- To install a mod, put the folder of the mod inside the mods folder and make sure the mod has a ```mod.ini```
 
-# Installing Core Mods
-- ```dll``` or Core Mods are placed inside ```[SteamLibraryFolder]/common/Medieval Dynasty/Medieval_Dynasty/Content/Mods```
-- You can put either a DLL directly inside the folder or you can put a folder with a ```mod.ini``` file, which tells MDML where the mod is, inside it
-- Here is a [guide](https://youtu.be/i-hp3NS6heQ?list=PL-dFOLrGFgdwbzcHmZ2ghuN3LXxlazbZP) to creating Core Mods 
-- An example CoreMod can be downloaded in the [Release Tab](https://github.com/stulu08/Medieval-Dynasty-Mod-Loader/releases/latest) as SampleModProject.zip
+# About Mods
+- There are 3 types of mods: Core, Logic, Overwrite
+- Core mods are DLL's which will get loaded with the mod loader automatically, they are used to adding features for the mod loader and do stuff that you can't do with Logic mods
+- Logic mods are Unreal Engine actor files, the actor file will get loaded by mdml using StaticLoadObject if setup correctly, you can create a mod inside UE4 and use most of the features from UE4
+- Overwrite mods, they overwrite the game files. On startup the mod loader will generate hard links from the mod files to the game files and on application exit or next start they will get removed. It's basically the same as Vortex
 
 # Unreal Engine Mod Loader
 A tool used to load Blueprint and basic SDK based C++ Mods for Unreal Engine 4 games
@@ -39,7 +38,7 @@ This software is provided by the author "as is". In no event shall the author be
 theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage.
 
 # Unreal Engine Mod Loader Discord
-If you have any problems, or just want to provide feedback click [here](https://discord.gg/xmXUSNvypY)
+If you have any problems, or just want to provide feedback, click [here](https://discord.gg/xmXUSNvypY)
 
 # Unreal Engine Mod Loader Docs
 All video documentation and guides can be found [here](https://www.youtube.com/playlist?list=PL-dFOLrGFgdwbzcHmZ2ghuN3LXxlazbZP).
@@ -52,3 +51,5 @@ All video documentation and guides can be found [here](https://www.youtube.com/p
   * [feather-ini-parser](https://github.com/Turbine1991/cpp-feather-ini-parser)
   * [Minhook](https://github.com/TsudaKageyu/minhook)
   * [ImGui](https://github.com/ocornut/imgui)
+  * [GLM](https://github.com/g-truc/glm)
+  * [spdlog](https://github.com/gabime/spdlog)
