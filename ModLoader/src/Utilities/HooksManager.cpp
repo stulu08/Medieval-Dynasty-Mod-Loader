@@ -35,7 +35,11 @@ namespace HooksManager
 			PVOID ret = nullptr;
 			if (!MDML::GameStateClassInitNotRan)
 			{
-				if (Frame->Node->GetName() == "PrintToModLoader")
+				const std::string NodeName = Frame->Node->GetName();
+				if(NodeName.empty())
+					return origProcessFunction(obj, Frame, Result);
+
+				if (NodeName == "PrintToModLoader")
 				{
 					auto msg = Frame->GetInputParams<PrintStringParams>()->Message;
 					if (msg.IsValid())
@@ -43,7 +47,7 @@ namespace HooksManager
 						Log::Trace_UML("{0}", msg.ToString());
 					}
 				}
-				if (Frame->Node->GetName() == "GetPersistentObject")
+				else if (NodeName == "GetPersistentObject")
 				{
 					auto ModName = Frame->GetInputParams<GetPersistentObject>()->ModName;
 					for (size_t i = 0; i < Global::GetGlobals()->ModInfoList.size(); i++)
@@ -58,13 +62,9 @@ namespace HooksManager
 						}
 					}
 				}
-				for (size_t i = 0; i < Global::GetGlobals()->GetBPFunctionWrappers().size(); i++)
-				{
-					if (Frame->Node->GetName() == Global::GetGlobals()->GetBPFunctionWrappers()[i].FunctionName)
-					{
-						reinterpret_cast<void(*)(UE4::UObject*, UE4::FFrame*, void*)> (Global::GetGlobals()->GetBPFunctionWrappers()[i].FuncPtr) (obj, Frame, (void*)Result);
-						return nullptr;
-					}
+				else if (void* funcPtr = Global::GetGlobals()->FindBPfunctionWrapper(NodeName)) {
+					reinterpret_cast<void(*)(UE4::UObject*, UE4::FFrame*, void*)> (funcPtr)(obj, Frame, (void*)Result);
+					return nullptr;
 				}
 			}
 			return origProcessFunction(obj, Frame, Result);

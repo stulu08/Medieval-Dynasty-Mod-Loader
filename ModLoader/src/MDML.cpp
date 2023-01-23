@@ -168,8 +168,7 @@ void MDML::CreateMod(ModInfo& mod) {
 										Global::GetGlobals()->ModInfoList[i].ModVersion = Version.ToString();
 									}
 								}
-								const std::wstring ModInstancePath = L"/Game/Mods/" + CurrentMod + L"/ModInstanceObject.ModInstanceObject_C";
-								UE4::UClass* ModObjectInstanceClass = UE4::UClass::LoadClassFromString(ModInstancePath.c_str(), false);
+								UE4::UClass* ModObjectInstanceClass = UE4::UClass::LoadClassFromString(mod.PersistentObjectPath.c_str(), false);
 								if (ModObjectInstanceClass)	// Check if ModInstanceObject Exists
 								{
 									Global::GetGlobals()->ModInfoList[i].PersistentObject = UE4::UObject::StaticConstructObject_Internal(ModObjectInstanceClass, (UE4::UObject*)UE4::UGameplayStatics::GetGameInstance(), "", 0, UE4::EInternalObjectFlags::GarbageCollectionKeepFlags, nullptr, false, nullptr, false);

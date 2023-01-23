@@ -19,6 +19,8 @@ struct ModInfo
 	std::wstring ActorName;
 	// /Game/Mods/BaseMod/ModActor.ModActor_C
 	std::wstring ActorPath;
+	// /Game/Mods/BaseMod/ModInstanceObject.ModInstanceObject
+	std::wstring PersistentObjectPath;
 	std::string ModAuthor = "Unknown Author";
 	std::string ModDescription = "No Description";
 	std::string ModVersion = "Unknown Version";
@@ -29,28 +31,22 @@ struct ModInfo
 	bool WasInitialized = 0;
 	std::vector<std::string> ModButtons;
 };
-
+typedef std::pair<std::string, void*> BPFunctionWrapper;
 class LOADER_API Global {
 public:
-	struct BPFunctionWrapper
-	{
-		std::string FunctionName;
-		void* FuncPtr;
-	};
 	std::vector<ModInfo> ModInfoList;
 	std::string GameName;
 	bool bIsMenuOpen;
 	ModStack CoreMods;
-	std::vector<BPFunctionWrapper> BPFunctionWrappers;
+	std::unordered_map<std::string, void*> BPFunctionWrappers;
 
 	static Global* GetGlobals();
 
-	void AddBPFunctionWrapper(std::string FunctionName, void* FuncPtr)
-	{
+	void AddBPFunctionWrapper(std::string FunctionName, void* FuncPtr) {
 		BPFunctionWrapper FunctionWrap;
-		FunctionWrap.FunctionName = FunctionName;
-		FunctionWrap.FuncPtr = FuncPtr;
-		BPFunctionWrappers.push_back(FunctionWrap);
+		FunctionWrap.first = FunctionName;
+		FunctionWrap.second = FuncPtr;
+		BPFunctionWrappers.insert(FunctionWrap);
 	}
 
 	void AddToCoreMods(Mod* mod)
@@ -58,8 +54,15 @@ public:
 		CoreMods.push_back(mod);
 	}
 
-	std::vector<BPFunctionWrapper> GetBPFunctionWrappers()
-	{
+	void* FindBPfunctionWrapper(const std::string& funcName) {
+		auto it = BPFunctionWrappers.find(funcName);
+		if (it != BPFunctionWrappers.end()) {
+			return (*it).second;
+		}
+		return nullptr;
+	}
+
+	std::unordered_map<std::string, void*> GetBPFunctionWrappers() {
 		return BPFunctionWrappers;
 	}
 
