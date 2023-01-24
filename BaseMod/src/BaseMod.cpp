@@ -2,11 +2,15 @@
 #include "Utilities/MinHook.h"
 #include "Utils.h"
 
+#include "UI/ImGuiColorTextEdit/TextEditor.h"
+
 #include "UE4/Kismet/BlueprintFunctionLibrary.h"
+#include "UE4/Engine/BlueprintGeneratedClass.h"
 
 #include <filesystem>
 
 namespace MDMLBase {
+	static bool needObjectReload = true;
 	namespace BaseModHooks {
 		static UE4::UFunction* IsDevelopmentBuild;
 		static UE4::UFunction* IsShippingBuild;
@@ -50,8 +54,7 @@ namespace MDMLBase {
 #endif
 		}
 	}
-	Mod::~Mod() {
-	}
+	Mod::~Mod() { }
 	void Mod::InitializeMod() {
 		UE4::InitSDK();
 		SetupHooks();
@@ -60,6 +63,7 @@ namespace MDMLBase {
 	void Mod::InitGameState() {
 		PlayerActor = nullptr;
 		PlayerControler = nullptr;
+		needObjectReload = true;
 	}
 	void Mod::BeginPlay(UE4::AActor* Actor) {
 		if (Actor == nullptr)
@@ -86,23 +90,24 @@ namespace MDMLBase {
 		}
 
 	}
-	void Mod::DX11Present(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, ID3D11RenderTargetView* pRenderTargetView) {
+	void Mod::SetupImGui(ImGuiIO& io) {
+		io.ConfigWindowsMoveFromTitleBarOnly = true;
 	}
-
-	void Mod::DX11ResizeBuffers(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, UINT Width, UINT Height, DXGI_FORMAT NewFormat, UINT SwapChainFlags) {
-
-	}
-
-	void Mod::OnModMenuButtonPressed() {
-
-	}
-
 	void Mod::DrawImGui() {
 		Utils::Export::CheckFinished();
-
-		
-
-		if (ImGui::Begin("MDML Debug Menu")) {
+		if (ImGui::Begin("Base Mod Debug Menu", nullptr, ImGuiWindowFlags_MenuBar)) {
+			if (ImGui::BeginMenuBar()) {
+				if (ImGui::BeginMenu("Views")) {
+					if (ImGui::MenuItem("Show Object Browser", "", m_showObjectBrowser)) {
+						m_showObjectBrowser = !m_showObjectBrowser;
+					}
+					if (ImGui::MenuItem("Show INI Browser", "", m_showIniBrowser)) {
+						m_showIniBrowser = !m_showIniBrowser;
+					}
+					ImGui::EndMenu();
+				}
+				ImGui::EndMenuBar();
+			}
 
 			if (ImGui::CollapsingHeader("Cheat Menu")) {
 				bool isDev, isShip;
@@ -138,7 +143,6 @@ namespace MDMLBase {
 				ImGui::Separator();
 			}
 			
-
 			if (PlayerActor != nullptr) {
 				ImGui::Text("Player Actor: %s", PlayerActor->GetName().c_str());
 				if (ImGui::Button("Cheat Menu")) {
@@ -164,24 +168,38 @@ namespace MDMLBase {
 		}
 		ImGui::End();
 
-		if (ImGui::Begin("World actors")) {
-			static bool init = false;
+		if (m_showObjectBrowser)
+			ShowObjectBrowser(&m_showObjectBrowser);
+		if (m_showIniBrowser)
+			ShowINIBrowser(&m_showIniBrowser);
+	}
+
+	void Mod::ShowObjectBrowser(bool* enabled) {
+		if (ImGui::Begin("Object Browser", enabled)) {
+			static bool init = true;
 			static std::vector<UE4::UObject*> actors;
 			static std::vector<UE4::UObject*> classes;
 			static std::vector<UE4::UObject*> blueprints;
 			static std::vector<UE4::UObject*> packages;
+			if (needObjectReload) {
+				actors.clear();
+				classes.clear();
+				blueprints.clear();
+				packages.clear();
+				needObjectReload = false;
+			}
 			size_t index = 0;
 			if (ImGui::Button("Update")) {
 				init = false;
 			}
 			ImGui::Separator();
 			if ((ImGui::TreeNodeEx("ACTORLIST", DEFAULT_TREE_NODE_FLAGS | ImGuiTreeNodeFlags_CollapsingHeader, "%d Actors", actors.size()))) {
-				static std::unordered_map<UE4::UObject*, bool> result;
-				Utils::Gui::SearchBar("SearchActors", actors, result);
+				static std::string search;
+				ImGui::InputText("##SearchClasses_SEARCHBAR", &search);
 				for (UE4::UObject* object : actors) {
 					if (!object)
 						continue;
-					if (!result.empty() && !result[object])
+					if (!Utils::Gui::SearchBar(object, search))
 						continue;
 					UE4::AActor* actor = static_cast<UE4::AActor*>(object);
 					if (ImGui::TreeNodeEx(("Actors_" + std::to_string(index++)).c_str(), DEFAULT_TREE_NODE_FLAGS, actor->GetName().c_str())) {
@@ -195,12 +213,12 @@ namespace MDMLBase {
 			}
 			index = 0;
 			if (ImGui::CollapsingHeader(std::string(std::to_string(classes.size()) + " Classes").c_str())) {
-				static std::unordered_map<UE4::UObject*, bool> result;
-				Utils::Gui::SearchBar("SearchClasses", classes, result);
+				static std::string search;
+				ImGui::InputText("##SearchClasses_SEARCHBAR", &search);
 				for (auto object : classes) {
 					if (!object)
 						continue;
-					if (!result.empty() && !result[object])
+					if (!Utils::Gui::SearchBar(object, search))
 						continue;
 					UE4::UClass* clas = static_cast<UE4::UClass*>(object);
 					if (ImGui::TreeNodeEx(("Classes_" + std::to_string(index++)).c_str(), DEFAULT_TREE_NODE_FLAGS, clas->GetName().c_str())) {
@@ -211,12 +229,12 @@ namespace MDMLBase {
 			}
 			index = 0;
 			if (ImGui::CollapsingHeader(std::string(std::to_string(blueprints.size()) + " Blueprints").c_str())) {
-				static std::unordered_map<UE4::UObject*, bool> result;
-				Utils::Gui::SearchBar("SearchBlueprints", blueprints, result);
+				static std::string search;
+				ImGui::InputText("##SearchBlueprints_SEARCHBAR", &search);
 				for (auto object : blueprints) {
 					if (!object)
 						continue;
-					if (!result.empty() && !result[object])
+					if (!Utils::Gui::SearchBar(object, search))
 						continue;
 					UE4::UClass* clas = static_cast<UE4::UClass*>(object);
 					if (ImGui::TreeNodeEx(("Blueprints_" + std::to_string(index++)).c_str(), DEFAULT_TREE_NODE_FLAGS, clas->GetName().c_str())) {
@@ -227,12 +245,12 @@ namespace MDMLBase {
 			}
 			index = 0;
 			if (ImGui::CollapsingHeader(std::string(std::to_string(packages.size()) + " Packages").c_str())) {
-				static std::unordered_map<UE4::UObject*, bool> result;
-				Utils::Gui::SearchBar("SearchPackages", packages, result);
+				static std::string search;
+				ImGui::InputText("##SearchPackages_SEARCHBAR", &search);
 				for (auto object : packages) {
 					if (!object)
 						continue;
-					if (!result.empty() && !result[object])
+					if (!Utils::Gui::SearchBar(object, search))
 						continue;
 					if (ImGui::TreeNodeEx(("Packages_" + std::to_string(index++)).c_str(), DEFAULT_TREE_NODE_FLAGS, object->GetName().c_str())) {
 						static std::unordered_map<UE4::UObject*, int32_t> counts;
@@ -261,13 +279,16 @@ namespace MDMLBase {
 						if (object == nullptr) {
 							continue;
 						}
-						else if (object->GetFullName()._Starts_with("BlueprintGeneratedClass ")) {
+						if (object->GetName().find("Default__") != std::string::npos) {
+							continue;
+						}
+						else if (object->IsA(UE4::UBlueprintGeneratedClass::StaticClass())) {
 							blueprints.push_back(object);
 						}
-						else if (object->GetFullName()._Starts_with("Class ")) {
+						else if (object->IsA(UE4::UClass::StaticClass())) {
 							classes.push_back(object);
 						}
-						else if (object->GetFullName()._Starts_with("Package ")) {
+						else if (object->IsA(UE4::UPackage::StaticClass())) {
 							packages.push_back(object);
 						}
 					}
@@ -278,13 +299,16 @@ namespace MDMLBase {
 						if (object == nullptr) {
 							continue;
 						}
-						else if (object->GetFullName()._Starts_with("Class ")) {
-							classes.push_back(object);
+						if (object->GetName().find("Default__") != std::string::npos) {
+							continue;
 						}
-						else if (object->GetFullName()._Starts_with("BlueprintGeneratedClass ")) {
+						else if (object->IsA(UE4::UBlueprintGeneratedClass::StaticClass())) {
 							blueprints.push_back(object);
 						}
-						else if (object->GetFullName()._Starts_with("Package ")) {
+						else if (object->IsA(UE4::UClass::StaticClass())) {
+							classes.push_back(object);
+						}
+						else if (object->IsA(UE4::UPackage::StaticClass())) {
 							packages.push_back(object);
 						}
 					}
@@ -293,18 +317,103 @@ namespace MDMLBase {
 		}
 		ImGui::End();
 	}
+	void Mod::ShowINIBrowser(bool* enabled) {
+		static TextEditor editor = TextEditor();
+		{
+			static bool created = false;
+			if (!created) {
+				editor.SetLanguageDefinition(TextEditor::LanguageDefinition::INI());
+				editor.SetImGuiChildIgnored(true);
+				editor.SetShowWhitespaces(false);
+				TextEditor::Palette p = { {
+					0xff253df5,	// Key
+					0xffd69c56,
+					0xffbababa,	// Value
+					0xff7070e0,
+					0xff70a0e0,
+					0xfff73636, // Equal
+					0xff408080,
+					0xffb216f5, // Section
+					0xff9bc64d,
+					0xffc040a0,
+					0xff206020, // Comment
+					0xff406020, // Comment (multi line)
+					0xff101010, // Background
+					0xffe0e0e0, // Cursor
+					0x80a06020, // Selection
+					0x800020ff, // ErrorMarker
+					0x40f08000, // Breakpoint
+					0xff707000, // Line number
+					0x40000000, // Current line fill
+					0x40808080, // Current line fill (inactive)
+					0x40a0a0a0, // Current line edge
+			} };
+				editor.SetPalette(p);
+				created = true;
+			}
 
-	void Mod::SetupImGui(ImGuiIO& io) {
+		}
+		static std::filesystem::path currentPath = "";
+		static bool saveOnExit = true;
+		static auto OpenFile = [&](const std::filesystem::path& path) {
+			if (!std::filesystem::exists(path))
+				return;
+			if (saveOnExit) {
+				Utils::SaveString(editor.GetText(), currentPath.string());
+			}
+			currentPath = path;
+			std::ifstream t(path.string());
+			std::stringstream buffer;
+			buffer << t.rdbuf();
+			editor.SetText(buffer.str());
 
-	}
-	std::string Mod::getLevelName() const {
-		return UE4::UWorld::GetWorld()->GetFullName();
-	}
+		};
 
-	UE4::AActor* Mod::getPlayer() const {
-		return PlayerActor;
-	}
-	UE4::AActor* Mod::getPlayerController() const {
-		return PlayerControler;
+		if (ImGui::Begin("INI Browser", enabled, ImGuiWindowFlags_MenuBar)) {
+			if (ImGui::TreeNodeEx("Mods", DEFAULT_TREE_NODE_FLAGS)) {
+				for (auto dirEntry : std::filesystem::recursive_directory_iterator(GetModsFolder())) {
+					if (dirEntry.path().extension().string() != ".ini")
+						continue;
+					if (ImGui::Button(MDML::FormatPath(dirEntry.path()).c_str()))
+						OpenFile(dirEntry.path());
+				}
+				ImGui::TreePop();
+			}
+			if (ImGui::TreeNodeEx("WindowsNoEditor", DEFAULT_TREE_NODE_FLAGS)) {
+				for (auto dirEntry : std::filesystem::directory_iterator(MDML::GetDataFolder() + "Config\\WindowsNoEditor")) {
+					if (dirEntry.path().extension().string() != ".ini")
+						continue;
+					if (ImGui::Button(dirEntry.path().string().c_str()))
+						OpenFile(dirEntry.path());
+				}
+				ImGui::TreePop();
+			}
+			if (ImGui::TreeNodeEx("MDML", DEFAULT_TREE_NODE_FLAGS)) {
+				for (auto dirEntry : std::filesystem::directory_iterator(std::filesystem::path(MDML::SelectedGameProfile.ImGuiFile).parent_path())) {
+					if (dirEntry.path().extension().string() != ".ini")
+						continue;
+					if (ImGui::Button(MDML::FormatPath(dirEntry.path()).c_str()))
+						OpenFile(dirEntry.path());
+				}
+				ImGui::TreePop();
+			}
+			ImGui::Text("File: %s", currentPath.string().c_str());
+			if (ImGui::Button("Save")) {
+				bool befor = saveOnExit;
+				saveOnExit = true;
+				OpenFile(currentPath);
+				saveOnExit = befor;
+			}
+			ImGui::SameLine();
+			ImGui::Checkbox("Save when opening a new file", &saveOnExit);
+			ImGui::EndMenuBar();
+		}
+		ImGui::End();
+		if (ImGui::Begin("INI Editor", enabled)) {
+			ImVec2 size = ImGui::GetContentRegionAvail();
+			size.y = glm::max(size.y, 250.0f);
+			editor.Render("Editor", size, true);
+		}
+		ImGui::End();
 	}
 }

@@ -101,7 +101,7 @@ public:
 	std::string ImGuiFile;
 	std::string NoOverwriteFile;
 	std::string HardLinksFile;
-	bool bEnableGUI = true;
+	bool bEnableGUI = false;
 
 	int UsesFNamePool = 0;
 	std::string BeginPlayOverwrite = "Class Engine.PlayerController";

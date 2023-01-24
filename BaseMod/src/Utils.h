@@ -800,26 +800,17 @@ namespace MDMLBase {
 			/// </summary>
 			/// <param name="objects"></param>
 			/// <returns></returns>
-			inline bool SearchBar(const std::string& header, std::vector<UE4::UObject*>& objects, std::unordered_map<UE4::UObject*, bool>& outObjects) {
-				static std::unordered_map<std::string, std::string> searches;
-				std::string& search = searches[header];
-				bool searched = false;
-				ImGui::InputText(("##" + header + "_SEARCHBAR").c_str(), &search); ImGui::SameLine();
-				ImGui::PushID(("##" + header).c_str());
-				if (ImGui::Button("Search")) {
-					outObjects.clear();
-					FilterListByName(objects, search, outObjects);
-					searched = true;
+			inline bool SearchBar(UE4::UObject* object, const std::string& search) {
+				if (!object)
+					return false;
+				if (search.empty())
+					return true;
+				std::string name = object->GetName();
+				if (name.find(search) != name.npos) {
+					return true;
 				}
-				ImGui::SameLine();
-				if (ImGui::Button("Clear")) {
-					search.clear();
-					outObjects.clear();
-					FilterListByName(objects, search, outObjects);
-					searched = true;
-				}
-				ImGui::PopID();
-				return searched;
+
+				return false;
 			}
 		}
 	}

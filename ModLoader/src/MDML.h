@@ -23,6 +23,8 @@ public:
 	static void ShutDown();
 
 	static std::string FormatPath(const std::filesystem::path& path);
+	//%LocalAppData%/Medieval_Dynasty/Saved
+	static std::string GetDataFolder();
 
 	static GameProfile SelectedGameProfile;
 	static inline bool bIsProcessInternalsHooked = false;

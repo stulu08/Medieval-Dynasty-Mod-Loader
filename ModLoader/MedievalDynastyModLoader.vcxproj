@@ -115,6 +115,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClInclude Include="src\UE4\UObject\Stack.h" />
     <ClInclude Include="src\UE4\UObject\UnrealType.h" />
     <ClInclude Include="src\UE4\Ue4.hpp" />
+    <ClInclude Include="src\UI\ImGuiColorTextEdit\TextEditor.h" />
     <ClInclude Include="src\UI\LoaderUI.h" />
     <ClInclude Include="src\Utilities\Dumper.h" />
     <ClInclude Include="src\Utilities\EngineDefFinder.h" />
@@ -547,6 +548,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClCompile Include="src\UE4\UObject\UnrealType.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\UI\ImGuiColorTextEdit\TextEditor.cpp" />
     <ClCompile Include="src\UI\LoaderUI.cpp" />
     <ClCompile Include="src\Utilities\Dumper.cpp" />
     <ClCompile Include="src\Utilities\EngineDefFinder.cpp" />

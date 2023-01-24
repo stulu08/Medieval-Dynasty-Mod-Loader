@@ -31,6 +31,9 @@
     <Filter Include="src\UI">
       <UniqueIdentifier>{3A4B661C-26ED-90F2-0FA8-A446FBE81743}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\UI\ImGuiColorTextEdit">
+      <UniqueIdentifier>{CE2C1FEC-3AEF-5276-839F-E102EFA02B54}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Utilities">
       <UniqueIdentifier>{D86B3A83-442C-B6B9-0D67-FF3679E6FA95}</UniqueIdentifier>
     </Filter>
@@ -233,6 +236,9 @@
     </ClInclude>
     <ClInclude Include="src\UE4\Ue4.hpp">
       <Filter>src\UE4</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UI\ImGuiColorTextEdit\TextEditor.h">
+      <Filter>src\UI\ImGuiColorTextEdit</Filter>
     </ClInclude>
     <ClInclude Include="src\UI\LoaderUI.h">
       <Filter>src\UI</Filter>
@@ -1471,6 +1477,9 @@
     </ClCompile>
     <ClCompile Include="src\UE4\UObject\UnrealType.cpp">
       <Filter>src\UE4\UObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UI\ImGuiColorTextEdit\TextEditor.cpp">
+      <Filter>src\UI\ImGuiColorTextEdit</Filter>
     </ClCompile>
     <ClCompile Include="src\UI\LoaderUI.cpp">
       <Filter>src\UI</Filter>

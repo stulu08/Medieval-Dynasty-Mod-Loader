@@ -1,8 +1,10 @@
 #pragma once
 
-//Easy To Manage, keeping it in one place.
-#define MODLOADER_VERSION "2.2.1"
+//The version of unreal mod loader
+#define UML_VERSION "2.2.1"
 //The version of the medieval dynasty mod loader
+#define MODLOADER_VERSION "1.2.2"
+//The version of medieval dynasty
 #define MEDIEVAL_VERSION "1.5.0.4"
 
 #define ModLoaderConfigFile "Config/ModLoaderInfo.ini"
@@ -20,8 +22,12 @@
 #define REGISTER_FUNCTION(Function) Global::GetGlobals()->AddBPFunctionWrapper(#Function, Function);
 #define REGISTER_FUNCTION_NAMED(Function, StringName) Global::GetGlobals()->AddBPFunctionWrapper(StringName, Function);
 
+#define NOMINMAX
+
 #include <set>
+#include <map>
 #include <any>
+#include <regex>
 #include <xhash>
 #include <array>
 #include <vector>
@@ -45,7 +51,6 @@
 #include <filesystem>
 #include <unordered_map>
 #include <unordered_set>
-
 #include <windows.h>
 
 #include <psapi.h>

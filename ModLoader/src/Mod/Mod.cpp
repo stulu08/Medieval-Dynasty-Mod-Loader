@@ -1,6 +1,7 @@
 #include "Core.h"
 #include "Mod.h"
 #include "Utilities/MinHook.h"
+#include "Utilities/Logger.h"
 
 Mod* Mod::ModRef;
 
@@ -114,7 +115,7 @@ std::string Mod::GetFolder() {
 		GetModuleFileNameA(hModule, path_c, MAX_PATH);
 		return std::filesystem::path(std::string(path_c)).parent_path().string();
 	}
-	return GetModsFolder();;
+	return GetModsFolder();
 }
 
 void Mod::InitializeMod()
