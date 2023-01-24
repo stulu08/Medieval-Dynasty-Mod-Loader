@@ -17,6 +17,21 @@ DWORD StringToDWord(std::string str);
 std::string GetModuleFilePath(HMODULE hModule);
 bool SetupProfile(const std::string& Path);
 
+bool IsDirectX11() {
+	PWSTR wpath = NULL;
+	HRESULT hr = SHGetKnownFolderPath(FOLDERID_LocalAppData, 0, NULL, &wpath);
+	std::filesystem::path path = (std::wstring(wpath) + L"\\Medieval_Dynasty\\Saved\\Config\\WindowsNoEditor");
+	if (SUCCEEDED(hr) && std::filesystem::exists(path)) {
+		INI::PARSE_FLAGS = INI::PARSE_COMMENTS_ALL | INI::PARSE_COMMENTS_SLASH | INI::PARSE_COMMENTS_HASH;
+		INI config(path.string(), true);
+		if (config.select("D3DRHIPreference")) {
+			auto v = config.get("bUseD3D12InGame", "True");
+			return (v == "False" || v == "false" || v == "0");
+		}
+	}
+	return false;
+}
+
 void MDML::InitGameState(void* Return) {
 	Log::Info_UML("GameStateHook");
 
@@ -266,10 +281,15 @@ bool SetupProfile(const std::string& Path) {
 		freopen_s(&newstdout, "CONOUT$", "w", stdout);
 		freopen_s(&newstderr, "CONOUT$", "w", stderr);
 	}
+
 	Log::Init(MDML::SelectedGameProfile.LogDir);
 	Log::Info_UML("Loader Created by ~Russell.J Release V {0}", MODLOADER_VERSION);
 	Log::Info_MDML("Optmized and edited for Medieval Dynasty by Stulu");
 	Log::Info_MDML("Medieval Version {0}", MEDIEVAL_VERSION);
+
+	MDML::SelectedGameProfile.bEnableGUI = IsDirectX11();
+	if (!MDML::SelectedGameProfile.bEnableGUI)
+		Log::Warn_MDML("Gui was disabled, switch rendering mode to directx11 to enable");
 
 	//generate and load NoOverwrite File
 	MDML::SelectedGameProfile.rootGameDir = std::filesystem::current_path().string();

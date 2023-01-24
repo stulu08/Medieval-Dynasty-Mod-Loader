@@ -501,6 +501,12 @@ DWORD __stdcall InitDX11Hook(LPVOID)
 
 void LoaderUI::HookDX()
 {
+	static bool ShowMSG = false;
+	if (!MDML::SelectedGameProfile.bEnableGUI) {
+		Log::SetupMessage("Cant enable MDML UI", "To enable MDML Debug UI, switch rendering mode to DirectX11 in Medieval Dynasty Settings");
+		ShowMSG = true;
+		return;
+	}
 	if (!LoaderUI::GetUI()->IsDXHooked)
 	{
 		CreateThread(NULL, 0, InitDX11Hook, NULL, 0, NULL);
