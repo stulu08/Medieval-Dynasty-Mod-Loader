@@ -21,8 +21,6 @@ project "BaseMod"
 		"src/**.h",
 		"src/**.cpp",
 		"src/**.hpp",
-		"%{IncludeDir.UE4}/**.hpp",
-		"%{IncludeDir.UE4}/**.cpp",
 	}
 
 	includedirs
@@ -35,6 +33,8 @@ project "BaseMod"
 		"%{IncludeDir.BaseMod}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.UE4}",
+		"%{IncludeDir.SDK}",
+		"%{IncludeDir.MedievalDynasty}",
 	}
 	postbuildcommands {
 		"{COPYDIR} \"%{ProjectDir.BaseMod}/Config\" \"%{wks.location}/bin/" .. outputdir .. "/BaseMod\"",
@@ -42,6 +42,8 @@ project "BaseMod"
 	links
 	{
 		"MedievalDynastyModLoader",
+		"SDK",
+		"LoaderAutoInjector",
 		"%{IncludeDir.MinHook}/lib/libMinHook-x64-v141-mtd.lib"
 	}
 	filter "system:windows"

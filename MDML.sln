@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LoaderAutoInjector", "Loade
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MedievalDynastyModLoader", "ModLoader\MedievalDynastyModLoader.vcxproj", "{0F4A9865-FB6E-E7E5-24BA-CC75103EE603}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SDK", "SDK\SDK.vcxproj", "{071D880B-7326-887C-FCA1-9E7C68AA937C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|x64 = Release|x64
@@ -38,6 +40,8 @@ Global
 		{33873803-1F6B-F958-88CB-F3AB74CEE3DA}.Release|x64.Build.0 = Release|x64
 		{0F4A9865-FB6E-E7E5-24BA-CC75103EE603}.Release|x64.ActiveCfg = Release|x64
 		{0F4A9865-FB6E-E7E5-24BA-CC75103EE603}.Release|x64.Build.0 = Release|x64
+		{071D880B-7326-887C-FCA1-9E7C68AA937C}.Release|x64.ActiveCfg = Release|x64
+		{071D880B-7326-887C-FCA1-9E7C68AA937C}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +50,6 @@ Global
 		{A066E1C6-0C46-6062-155E-EB3881BCC6C3} = {1660C85D-0218-0AAB-6B1F-E30657F6A49B}
 		{33873803-1F6B-F958-88CB-F3AB74CEE3DA} = {1660C85D-0218-0AAB-6B1F-E30657F6A49B}
 		{0F4A9865-FB6E-E7E5-24BA-CC75103EE603} = {1660C85D-0218-0AAB-6B1F-E30657F6A49B}
+		{071D880B-7326-887C-FCA1-9E7C68AA937C} = {1660C85D-0218-0AAB-6B1F-E30657F6A49B}
 	EndGlobalSection
 EndGlobal

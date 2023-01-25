@@ -1,6 +1,5 @@
 #pragma once
-#include "Utilities/Memory.h"
-#include "Utilities/NameValidator.h"
+#include "Core.h"
 
 struct Offsets {
 	struct {
@@ -94,7 +93,7 @@ struct Offsets {
 	} EnumProperty;
 #pragma endregion
 };
-class LOADER_API GameProfile
+class GameProfile
 {
 public:
 	std::string LogDir;
@@ -161,4 +160,12 @@ public:
 	std::unordered_map<std::string, bool> disableOverwriteFiles;
 	//where the Engine and Game folder is located with the Manifest_NonUFSFiles_Win64.txt
 	std::string rootGameDir = "";
+};
+#ifdef DEFINE_SDK_PROFILE_EXPORT
+class __declspec(dllexport) SDK {
+#else
+class __declspec(dllimport) SDK {
+#endif
+public:
+	static GameProfile SelectedGameProfile;
 };

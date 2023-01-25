@@ -1,7 +1,4 @@
 #pragma once
-#include <Windows.h>
-#include <inttypes.h>
-#include <string>
 #include <d3d11.h>
 #include <D3D11Shader.h>
 #include <D3Dcompiler.h>
@@ -10,7 +7,7 @@
 #include <imgui/imgui_impl_dx11.h>
 #include <imgui/imgui_impl_win32.h>
 #include <imgui/imgui_stdlib.h>
-#include "UE4/Ue4.hpp"
+#include "UE4.h"
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "D3dcompiler.lib")

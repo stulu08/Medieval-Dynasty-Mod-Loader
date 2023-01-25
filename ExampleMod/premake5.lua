@@ -20,8 +20,6 @@ project "ExampleMod"
 		"**.h",
 		"**.cpp",
 		"**.hpp",
-		"%{IncludeDir.UE4}/**.hpp",
-		"%{IncludeDir.UE4}/**.cpp",
 	}
 
 	includedirs
@@ -34,6 +32,8 @@ project "ExampleMod"
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.BaseMod}",
 		"%{IncludeDir.UE4}",
+		"%{IncludeDir.SDK}",
+		"%{IncludeDir.MedievalDynasty}",
 	}
 	postbuildcommands {
 		"{COPYDIR} \"%{ProjectDir.ExampleMod}/Config\" \"%{wks.location}/bin/" .. outputdir .. "/ExampleMod\"",
@@ -41,6 +41,8 @@ project "ExampleMod"
 	links
 	{
 		"BaseMod",
+		"SDK",
+		"LoaderAutoInjector",
 		"MedievalDynastyModLoader",
 		"%{IncludeDir.MinHook}/lib/libMinHook-x64-v141-mtd.lib"
 	}

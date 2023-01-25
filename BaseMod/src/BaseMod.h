@@ -44,8 +44,9 @@ namespace MDMLBase {
 
 		bool m_showObjectBrowser = false;
 		bool m_showIniBrowser = false;
-		void ShowObjectBrowser(bool* enabled);
-		void ShowINIBrowser(bool* enabled);
+		bool m_showIniEditor = false;
+		void ShowObjectBrowser();
+		void ShowINIBrowser();
 
 		static Mod* s_instance;
 		friend class DLLHandler;

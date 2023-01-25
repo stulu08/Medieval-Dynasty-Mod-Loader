@@ -39,6 +39,8 @@
 #include <variant>
 #include <numeric>
 #include <cstring>
+#include <ostream>
+#include <fstream>
 #include <cstdlib>
 #include <stdio.h>
 #include <utility>
@@ -46,12 +48,15 @@
 #include <optional>
 #include <iostream>
 #include <stdlib.h>
+#include <execution>
 #include <algorithm>
 #include <functional>
 #include <filesystem>
 #include <unordered_map>
 #include <unordered_set>
 #include <windows.h>
+
+
 
 #include <psapi.h>
 #include <tchar.h>

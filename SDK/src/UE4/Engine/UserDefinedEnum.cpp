@@ -1,0 +1,22 @@
+#include "Core.h"
+#include "UserDefinedEnum.h"
+#include "UE4.h"
+
+namespace UE4 {
+	TMap<FName, FText> UE4::UUserDefinedEnum::GetDispalyNames() const {
+		return Read<TMap<FName, FText>>((byte*)this + SDK::SelectedGameProfile.defs.UEnum.UserDefDisplayNameMap);
+	}
+	FText UUserDefinedEnum::GetDisplayNameTextByIndex(int32_t InIndex) const {
+		static DWORD64 fn = 0;
+		if (fn == 0) {
+			fn = (DWORD64)Pattern::Find("48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC 30 48 8B FA 41 8B E8 48 8D 54 24 ? 48 8B F1 E8 ? ? ? ? 83 78 08 00 74 05 48 8B 10 EB 07");
+		}
+		//return reinterpret_cast<FText(__fastcall*)(class UUserDefinedEnum*, int32_t)>(fn)((UUserDefinedEnum*)this, InIndex);
+		// __int64 __fastcall UUserDefinedEnum::GetDisplayNameTextByIndex(__int64 a1, __int64 a2, unsigned int a3)
+		// in ida the function returns always a2 and nothing else while also seting a2 to the required value
+		FText out = FText();
+		out = *reinterpret_cast<FText*(__fastcall*)(__int64, __int64, int32_t)>(fn)((__int64)this, (__int64)(&out), InIndex);
+		return out;
+	}
+}
+

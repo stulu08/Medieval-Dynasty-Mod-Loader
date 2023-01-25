@@ -1,13 +1,9 @@
 #include "BaseMod.h"
-#include "Utilities/MinHook.h"
-#include "Utils.h"
 
 #include "UI/ImGuiColorTextEdit/TextEditor.h"
 
-#include "UE4/Kismet/BlueprintFunctionLibrary.h"
-#include "UE4/Engine/BlueprintGeneratedClass.h"
-
-#include <filesystem>
+#include "Utilities/MinHook.h"
+#include "Utils.h"
 
 namespace MDMLBase {
 	static bool needObjectReload = true;
@@ -104,6 +100,9 @@ namespace MDMLBase {
 					if (ImGui::MenuItem("Show INI Browser", "", m_showIniBrowser)) {
 						m_showIniBrowser = !m_showIniBrowser;
 					}
+					if (ImGui::MenuItem("Show INI Editor", "", m_showIniEditor)) {
+						m_showIniEditor = !m_showIniEditor;
+					}
 					ImGui::EndMenu();
 				}
 				ImGui::EndMenuBar();
@@ -168,14 +167,12 @@ namespace MDMLBase {
 		}
 		ImGui::End();
 
-		if (m_showObjectBrowser)
-			ShowObjectBrowser(&m_showObjectBrowser);
-		if (m_showIniBrowser)
-			ShowINIBrowser(&m_showIniBrowser);
+		ShowObjectBrowser();
+		ShowINIBrowser();
 	}
 
-	void Mod::ShowObjectBrowser(bool* enabled) {
-		if (ImGui::Begin("Object Browser", enabled)) {
+	void Mod::ShowObjectBrowser() {
+		if (m_showObjectBrowser && ImGui::Begin("Object Browser", &m_showObjectBrowser)) {
 			static bool init = true;
 			static std::vector<UE4::UObject*> actors;
 			static std::vector<UE4::UObject*> classes;
@@ -244,15 +241,40 @@ namespace MDMLBase {
 				}
 			}
 			index = 0;
+			static std::vector<UE4::UPackage*> exportList;
 			if (ImGui::CollapsingHeader(std::string(std::to_string(packages.size()) + " Packages").c_str())) {
+				bool selectAll = false;
+				bool deselectAll = false;
 				static std::string search;
 				ImGui::InputText("##SearchPackages_SEARCHBAR", &search);
+				if (ImGui::Button("Export selected")) {
+					if (exportList.size() == 1) {
+						Utils::Export::StartThreadPackage(exportList[0], "Export");
+					}
+					else if (exportList.size() > 1) {
+						Utils::Export::StartThreadPackages(exportList, "Export");
+					}
+					exportList.clear();
+				}
+				ImGui::SameLine();
+				if (ImGui::Button("Select All")) {
+					selectAll = true;
+				}
+				ImGui::SameLine();
+				if (ImGui::Button("Deselect All")) {
+					deselectAll = true;
+				}
+				ImGui::SameLine();
+				if (ImGui::Button("Clear")) {
+					exportList.clear();
+				}
 				for (auto object : packages) {
 					if (!object)
 						continue;
 					if (!Utils::Gui::SearchBar(object, search))
 						continue;
-					if (ImGui::TreeNodeEx(("Packages_" + std::to_string(index++)).c_str(), DEFAULT_TREE_NODE_FLAGS, object->GetName().c_str())) {
+					float x = ImGui::GetContentRegionAvail().x;
+					if (ImGui::TreeNodeEx(("Packages_" + std::to_string(index++)).c_str(), ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick, object->GetName().c_str())) {
 						static std::unordered_map<UE4::UObject*, int32_t> counts;
 						if (counts.find(object) != counts.end()) {
 							ImGui::Text("Found %d objects", counts[object]);
@@ -264,6 +286,25 @@ namespace MDMLBase {
 							Utils::Export::StartThreadPackage((UE4::UPackage*)object, "Export");
 						}
 						ImGui::TreePop();
+					}
+					ImGui::SameLine();
+					auto exportListLoc = std::find(exportList.begin(), exportList.end(), (UE4::UPackage*)object);
+					if (selectAll && exportListLoc == exportList.end()) {
+						exportList.push_back((UE4::UPackage*)object);
+					}
+					if (deselectAll && exportListLoc != exportList.end()) {
+						exportList.erase(exportListLoc);
+					}
+					bool isInExportList = exportListLoc != exportList.end();
+					
+					ImGui::SetCursorPosX(x - 75.0f);
+					if (ImGui::Checkbox(("##ExportCheckBox" + std::to_string(index++)).c_str(), &isInExportList)) {
+						if (isInExportList && exportListLoc == exportList.end()) {
+							exportList.push_back((UE4::UPackage*)object);
+						}
+						else {
+							exportList.erase(exportListLoc);
+						}
 					}
 				}
 			}
@@ -317,7 +358,7 @@ namespace MDMLBase {
 		}
 		ImGui::End();
 	}
-	void Mod::ShowINIBrowser(bool* enabled) {
+	void Mod::ShowINIBrowser() {
 		static TextEditor editor = TextEditor();
 		{
 			static bool created = false;
@@ -369,7 +410,7 @@ namespace MDMLBase {
 
 		};
 
-		if (ImGui::Begin("INI Browser", enabled, ImGuiWindowFlags_MenuBar)) {
+		if (m_showIniBrowser && ImGui::Begin("INI Browser", &m_showIniBrowser)) {
 			if (ImGui::TreeNodeEx("Mods", DEFAULT_TREE_NODE_FLAGS)) {
 				for (auto dirEntry : std::filesystem::recursive_directory_iterator(GetModsFolder())) {
 					if (dirEntry.path().extension().string() != ".ini")
@@ -389,7 +430,7 @@ namespace MDMLBase {
 				ImGui::TreePop();
 			}
 			if (ImGui::TreeNodeEx("MDML", DEFAULT_TREE_NODE_FLAGS)) {
-				for (auto dirEntry : std::filesystem::directory_iterator(std::filesystem::path(MDML::SelectedGameProfile.ImGuiFile).parent_path())) {
+				for (auto dirEntry : std::filesystem::directory_iterator(std::filesystem::path(SDK::SelectedGameProfile.ImGuiFile).parent_path())) {
 					if (dirEntry.path().extension().string() != ".ini")
 						continue;
 					if (ImGui::Button(MDML::FormatPath(dirEntry.path()).c_str()))
@@ -409,7 +450,7 @@ namespace MDMLBase {
 			ImGui::EndMenuBar();
 		}
 		ImGui::End();
-		if (ImGui::Begin("INI Editor", enabled)) {
+		if (m_showIniEditor && ImGui::Begin("INI Editor", &m_showIniEditor)) {
 			ImVec2 size = ImGui::GetContentRegionAvail();
 			size.y = glm::max(size.y, 250.0f);
 			editor.Render("Editor", size, true);

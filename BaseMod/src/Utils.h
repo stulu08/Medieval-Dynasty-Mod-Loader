@@ -1,12 +1,7 @@
 #pragma once
-#include "UE4/Ue4.hpp"
-#include <algorithm>
-#include <filesystem>
+#include "UE4.h"
 #include <Mod/Mod.h>
-#include <fstream>
-#include <future>
-#include "Kismet/BlueprintFunctionLibrary.h"
-#include <Engine/UserDefinedEnum.h>
+
 namespace MDMLBase {
 	namespace Utils {
 		void ReplaceString(std::string& originalString, const std::string& stringToReplace, const std::string& replacementString) {
@@ -78,7 +73,9 @@ namespace MDMLBase {
 					if (!fn->GetOuter())
 						continue;
 					if (fn->GetOuter() == clas) {
-						classFunctions[clas].push_back(static_cast<UE4::UFunction*>(fn));
+						UE4::UFunction* f = static_cast<UE4::UFunction*>(fn);
+						if(!f->GetName()._Starts_with("SimpleConstructionScript"))
+							classFunctions[clas].push_back(f);
 					}
 				}
 			}
@@ -90,7 +87,9 @@ namespace MDMLBase {
 					if (!fn->GetOuter())
 						continue;
 					if (fn->GetOuter() == clas) {
-						classFunctions[clas].push_back(static_cast<UE4::UFunction*>(fn));
+						UE4::UFunction* f = static_cast<UE4::UFunction*>(fn);
+						if (!f->GetName()._Starts_with("SimpleConstructionScript"))
+							classFunctions[clas].push_back(f);
 					}
 				}
 			}
@@ -199,17 +198,14 @@ namespace MDMLBase {
 			};
 			inline std::string ParamsStruct(const std::string& name, std::vector<PInfo>& parms, PInfo* returnValue) {
 				std::string result;
-				result += "/////////////////////////////////////////////\n";
-				result += "// " + name + "\n";
-				result += "/////////////////////////////////////////////\n";
-				result += "struct " + name + " {\n";
+				result += "	struct " + name + " {\n";
 				for (auto p : parms) {
 
-					result += "	" + p.cppType + " " + p.name + ";			//Offset: " + std::to_string(p.field->GetAsProperty()->GetOffset()) + " | ElementSize: " + std::to_string(p.field->GetAsProperty()->GetElementSize()) + "\n";
+					result += "		" + p.cppType + " " + p.name + ";			//Offset: " + std::to_string(p.field->GetAsProperty()->GetOffset()) + " | ElementSize: " + std::to_string(p.field->GetAsProperty()->GetElementSize()) + "\n";
 				}
 				if(returnValue)
-					result += "	" + returnValue->cppType + " " + returnValue->name + ";			//Offset: " + std::to_string(returnValue->field->GetAsProperty()->GetOffset()) + " | ElementSize: " + std::to_string(returnValue->field->GetAsProperty()->GetElementSize()) + "\n";
-				result += "};\n";
+					result += "		" + returnValue->cppType + " " + returnValue->name + ";			//Offset: " + std::to_string(returnValue->field->GetAsProperty()->GetOffset()) + " | ElementSize: " + std::to_string(returnValue->field->GetAsProperty()->GetElementSize()) + "\n";
+				result += "	};\n";
 				return result;
 			}
 			inline std::string Enum(UE4::UEnum* uenum) {
@@ -237,13 +233,14 @@ namespace MDMLBase {
 						std::transform(wstr.begin(), wstr.end(), vename.begin(), [](wchar_t c) -> char {return (char)c; });
 					}
 					else {
-						vename = NameValidator::MakeValidName(std::move(names[c]));
+						vename = std::move(names[c]);
 					}
+					vename = NameValidator::MakeValidName(std::move(vename));
 					ReplaceString(vename, cppName + "__", "");
 					ReplaceString(vename, cppName + "_", "");
-					result += "	" + vename + " = " + std::to_string(c) + ";\n";
+					result += "	" + vename + " = " + std::to_string(c) + ",\n";
 				}
-				result += "};\n\n";
+				result += "};\n";
 				return result;
 			}
 			inline std::string ScriptStruct(UE4::UScriptStruct* ustruct) {
@@ -317,13 +314,21 @@ namespace MDMLBase {
 							offset = poff + psize * prop->GetArrayDim();
 					}
 				}
-				result += "};\n\n";
+				if (offset < Size) {
+					uint32_t dist = Size - offset;
+					result += "	unsigned char uknownData_" + std::to_string(unknowCounter) + "[" + std::to_string(dist) + "];\t\t//";
+					result += "Offset: " + std::to_string(offset) + "	";
+					result += "Size: " + std::to_string(dist) + "\n";
+					offset += dist;
+					unknowCounter++;
+				}
+				result += "};\n";
 				return result;
 			}
 			enum class FunctionType {
 				Defenition, Declaration, Both
 			};
-			inline std::string Function(const std::string& ClassName, const std::string& paramStructName, UE4::UFunction* func, FunctionType type, std::string& parmsContent) {
+			inline std::string Function(const std::string& ClassName, const std::string& paramStructName, UE4::UFunction* func, FunctionType type) {
 				if (func->GetName() == "StaticClass") {
 					return "";
 				}
@@ -332,9 +337,13 @@ namespace MDMLBase {
 				std::string name = NameValidator::MakeValidName(func->GetName());
 				if (name.find("_GEN_VARIABLE") != name.npos)//these functions crash everything and i dont know why
 					return "";
+				if ((uint32_t)func->GetFunctionFlags() == 0xFFFFFFFF || (uint32_t)func->GetFunctionFlags() == 0)
+					return "";//no flags or all flags are kinda sus
 				bool isNativ = func->GetFunctionFlags() & UE4::EFunctionFlags::Native;
 				bool isStatic = func->GetFunctionFlags() & UE4::EFunctionFlags::Static;
 				bool isConst = func->GetFunctionFlags() & UE4::EFunctionFlags::Const;
+				if (isStatic)
+					isConst = false;
 				bool hasReturnValue = false;
 				PInfo returnInfo;
 				//Get parms
@@ -359,15 +368,16 @@ namespace MDMLBase {
 								continue;
 							if (prop->GetArrayDim() > 1)
 								cppType += "*";
+							std::string name = NameValidator::MakeValidName(child->GetName());
 							if (prop->GetPropertyFlags() & UE4::EPropertyFlags::ReturnParm) {
-								returnInfo = { cppType, child->GetName(), prop->GetPropertyFlags(), child };
+								returnInfo = { cppType, name, prop->GetPropertyFlags(), child };
 								hasReturnValue = true;
 							}
 							else {
-								parms.push_back({ cppType, child->GetName(), prop->GetPropertyFlags(), child, false });
+								parms.push_back({ cppType, name, prop->GetPropertyFlags(), child, false });
 							}
 							if (type == FunctionType::Defenition) {
-								head += "// Name: " + child->GetName() + "	Type: " + cppType + "	Flags: " + UE4::StringifyFlags(child->GetAsProperty()->GetPropertyFlags()) + "\n";
+								head += "// Name: " + name + "	Type: " + cppType + "	Flags: " + UE4::StringifyFlags(child->GetAsProperty()->GetPropertyFlags()) + "\n";
 							}
 							i++;
 						}
@@ -437,11 +447,11 @@ namespace MDMLBase {
 					head += ";";
 					return head + "\n\n";
 				}
-				if (type != FunctionType::Declaration)
-					parmsContent += ParamsStruct(paramStructName, parms, hasReturnValue ? &returnInfo : nullptr);
 				std::string body = "";
 				body += "	static auto fn = UObject::FindObject<UFunction>(\"" + func->GetFullName() + "\");\n\n";
 
+				if (type != FunctionType::Declaration)
+					body += ParamsStruct(paramStructName, parms, hasReturnValue ? &returnInfo : nullptr);
 				body += "	" + paramStructName + " params;\n";
 				for (auto p : parms) {
 					if (!p.isOut)
@@ -479,25 +489,16 @@ namespace MDMLBase {
 				std::string ClassName = NameValidator::MakeValidName(Class->GetCPPName());
 				UE4::UStruct* Super = Class->GetSuperField();
 				std::string header;
-				std::string fileWithOutEnding = Class->GetName();
+				std::string fileWithOutEnding = NameValidator::MakeValidName(Class->GetName());
 				std::string headerFile = fileWithOutEnding + ".h";
 				std::string functionsFile = fileWithOutEnding + ".cpp";
-				std::string parametersFile = fileWithOutEnding + "_Parameters.h";
 				Log::Info_MDML("Exporting Class {0} to {1}", Class->GetName(), folder + "/" + headerFile);
 				//head
 				header += "#pragma once\n";
 				header += "#include \"Structs.h\"\n";
-				header += "#include \"UObject/Object.h\"\n";
-				header += "#include \"UObject/Class.h\"\n";
-				header += "#include \"UObject/UnrealType.h\"\n";
-				if(Class->IsA(UE4::AActor::StaticClass()))
-					header += "#include \"GameFramework/Actor.h\"\n";
-				if (Class->IsA(UE4::UBlueprintFunctionLibrary::StaticClass()))
-					header += "#include \"Kismet/BlueprintFunctionLibrary.h\"\n";
+				header += "#include \"UE4/SDK.h\"\n";
 				if (Super) {
-					UE4::UPackage* pack = Super->GetPackage();
-					if(pack && pack->GetName() != "CoreUObject")
-						header += "#include \"" + pack->GetName() + "/" + Super->GetName() + ".h\"\n";
+					header += "#include \"" + NameValidator::MakeValidName(Super->GetPackage()->GetName()) + "/" + NameValidator::MakeValidName(Super->GetName()) + ".h\"\n";
 				}
 				header += "/////////////////////////////////////////////\n";
 				header += "// " + Class->GetFullName() + "\n";
@@ -508,17 +509,16 @@ namespace MDMLBase {
 					header += "// Size inherited: " + std::to_string(Super->GetPropertySize()) + "\n";
 				header += "/////////////////////////////////////////////\n";
 				header += "namespace UE4 {\n";
-				header += "class " + ClassName + " ";
+				header += "class " + ClassName;
 				if (Super) {
-					header += ": public " + NameValidator::MakeValidName(Super->GetCPPName());
+					header += " : public " + NameValidator::MakeValidName(Super->GetCPPName());
 				}
 				//Members
 				std::string cpp;
 				cpp += "#include \"../SDK.h\"\n";
 				cpp += "#include \"" + headerFile + "\"\n";
-				cpp += "#include \"" + parametersFile + "\"\n\n\n\n";
 				cpp += "namespace UE4 {\n";
-				header += "\npublic:\n";
+				header += " {\npublic:\n";
 				UE4::FField* members = (UE4::FField*)Class->GetChildren();
 				header += "#pragma region Members\n";
 				cpp += "#pragma region Members\n";
@@ -577,27 +577,25 @@ namespace MDMLBase {
 
 				header += "#pragma region Functions\n";
 				//Gen declarations
-				std::string parmsContent = "#pragma once\n";
 				for (UE4::UFunction* func : GetAllClasssFunctions(Class, true)) {
-					std::string FunctionParamsName = ClassName + "_" + func->GetName() + "_Params";
-					header += Function(ClassName, FunctionParamsName, func, FunctionType::Declaration, parmsContent);
+					std::string FunctionParamsName = ClassName + "_" + NameValidator::MakeValidName(func->GetName()) + "_Params";
+					header += Function(ClassName, FunctionParamsName, func, FunctionType::Declaration);
 				}
 				header += "#pragma endregion\n";
-				header += "};\n};\n\n";
+				header += "};\n};";
 				cpp += "#pragma region Functions\n";
 				for (UE4::UFunction* func : GetAllClasssFunctions(Class)) {
-					std::string FunctionParamsName = ClassName + "_" + func->GetName() + "_Params";
-					cpp += Function(ClassName, FunctionParamsName, func, FunctionType::Defenition, parmsContent);
+					std::string FunctionParamsName = ClassName + "_" + NameValidator::MakeValidName(func->GetName()) + "_Params";
+					cpp += Function(ClassName, FunctionParamsName, func, FunctionType::Defenition);
 				}
 				cpp += "#pragma endregion\n";
-				cpp += "}\n";
+				cpp += "}";
 				SaveString(header, folder + "/" + headerFile);
-				SaveString(parmsContent, folder + "/" + parametersFile);
 				SaveString(cpp, folder + "/" + functionsFile);
-
+				
 				return headerFile;
 			}
-			std::string Package(UE4::UPackage* pack, const std::string exportFolder) {
+			std::string Package(UE4::UPackage* pack, const std::string exportFolder, bool appendToPack = true) {
 				if (!pack->GetFullName()._Starts_with("Package "))
 					return "Not a package";
 				//classes
@@ -631,7 +629,7 @@ namespace MDMLBase {
 				{
 					std::string result = "";
 					result += "#pragma once\n";
-					result += "#include \"UObject/CoreTypes.h\"\n\n\n";
+					result += "#include \"CoreUObject/CoreTypes.h\"\n\n\n";
 					result += "namespace UE4 {\n";
 					result += "#pragma region Enums\n";
 					for (auto& str : enums) {
@@ -643,7 +641,7 @@ namespace MDMLBase {
 						result += str;
 					}
 					result += "#pragma endregion\n";
-					result += "}\n";
+					result += "}";
 					SaveString(result, EnumStructsFile);
 				}
 				
@@ -658,15 +656,16 @@ namespace MDMLBase {
 				result += "// Objects: " + std::to_string(packageObjects.size()) + "\n";
 				result += "/////////////////////////////////////////////\n\n\n";
 				result += "#include \"Structs.h\"\n";
-				result += "\n\n";
+				result += "\n";
 				for (auto& file : classFiles) {
 					result += "#include \"" + file + "\"\n";
 				}
-				result += "\n\n";
 				SaveString(result, headerFile);
-				//append to sdk.h
-				AppendStringToFile("#include \"" + packName + "/" + packName + ".h" + "\"\n", exportFolder + "/SDK.h");
 				
+				//append to sdk.h
+				if(appendToPack)
+					AppendStringToFile("#include \"" + headerFile + "\"\n", exportFolder + "/SDK.h");
+
 				Log::Info_MDML("Finished package export");
 				return headerFile;
 			}
@@ -683,7 +682,38 @@ namespace MDMLBase {
 
 				if (!std::filesystem::exists("Export"))
 					std::filesystem::create_directory("Export");
-				workingTasks.push_back(std::async(Utils::Export::Package, pack, exportFolder));
+				workingTasks.push_back(std::async(Utils::Export::Package, pack, exportFolder, true));
+			}
+			void StartThreadPackages(const std::vector<UE4::UPackage*>& exportList, const std::string& exportFolder) {
+				if (!std::filesystem::exists(exportFolder + "/SDK.h")) {
+					std::string content;
+					content += "#pragma once\n";
+					content += "/////////////////////////////////////////////\n";
+					content += "// Medieval Version " + std::string(MEDIEVAL_VERSION) + "\n";
+					content += "/////////////////////////////////////////////\n\n";
+					SaveString(content, exportFolder + "/SDK.h");
+				}
+				
+				if (!std::filesystem::exists("Export"))
+					std::filesystem::create_directory("Export");
+
+				auto func = [=]() -> std::string {
+					size_t c = 0;
+					std::for_each(std::execution::par, exportList.begin(), exportList.end(), [&](UE4::UPackage* pack) {
+						Utils::Export::Package(pack, exportFolder, false);
+						c++;
+					});
+					std::for_each(exportList.begin(), exportList.end(), [&](UE4::UPackage* pack) {
+						if (pack) {
+							std::string packName = NameValidator::MakeValidName(pack->GetName());
+							std::string headerFile = packName + "/" + packName + "_SDK.h";
+							AppendStringToFile("#include \"" + headerFile + "\"\n", exportFolder + "/SDK.h");
+						}
+					});
+					return std::to_string(c) + " Packages to: " + exportFolder;
+				};
+				workingTasks.push_back(std::async(func));
+				
 			}
 			void CheckFinished() {
 				using namespace std::chrono_literals;
@@ -691,7 +721,7 @@ namespace MDMLBase {
 					std::future_status status;
 					status = workingTasks[i].wait_for(1ms);
 					if (status == std::future_status::ready) {
-						Log::SetupMessage("Export Dont", "Finished exporting: " + workingTasks[i].get());
+						Log::SetupMessage("Export done!", "Finished exporting: " + workingTasks[i].get());
 						workingTasks.erase(workingTasks.begin() + i);
 						break;
 					}
@@ -711,11 +741,11 @@ namespace MDMLBase {
 						if (numParms < 1) {
 							ImGui::Text("Num Parms: %d", numParms);
 							ImGui::Text("Params Size: %d", function->GetParamsSize());
-							ImGui::Text("Flags: %s", UE4::StringifyFlags(function->GetFunctionFlags()).c_str());
 						}
 						else {
 							ImGui::Text("No function parameter");
 						}
+						ImGui::Text("Flags: %s", UE4::StringifyFlags(function->GetFunctionFlags()).c_str());
 						if (function->GetReturnValueOffset() != UINT16_MAX)
 							ImGui::Text("Return Value Offset: %d", function->GetReturnValueOffset());
 						else

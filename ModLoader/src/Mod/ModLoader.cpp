@@ -227,7 +227,7 @@ namespace ModLoader
 								}
 								if (!std::filesystem::exists(target.parent_path()))
 									std::filesystem::create_directories(target.parent_path());
-								if (MDML::SelectedGameProfile.UseHardLinks)
+								if (SDK::SelectedGameProfile.UseHardLinks)
 									std::filesystem::create_hard_link(path, target);
 								else
 									std::filesystem::create_symlink(path, target);
@@ -245,23 +245,23 @@ namespace ModLoader
 		}
 		Log::Info_MDML("Created {0} hard links", paths.size());
 		std::ofstream stream;
-		stream.open(MDML::SelectedGameProfile.HardLinksFile, std::ios_base::out);
+		stream.open(SDK::SelectedGameProfile.HardLinksFile, std::ios_base::out);
 		for (auto str : paths) {
 			stream << str << std::endl;
 		}
 		stream.close();
 	}
 	void DeleteSysLinks(bool isOld) {
-		if (!std::filesystem::exists(MDML::SelectedGameProfile.HardLinksFile)) {
+		if (!std::filesystem::exists(SDK::SelectedGameProfile.HardLinksFile)) {
 			if(!isOld)
-				Log::Critical_MDML("Cant find Links File at {0}", MDML::FormatPath(MDML::SelectedGameProfile.HardLinksFile));
+				Log::Critical_MDML("Cant find Links File at {0}", MDML::FormatPath(SDK::SelectedGameProfile.HardLinksFile));
 			return;
 		}
 		if (isOld)
 			Log::Warn_MDML("Old file links found, maybe the application exited unexpected");
 		size_t count = 0, max = 0;
 		std::ifstream stream;
-		stream.open(MDML::SelectedGameProfile.HardLinksFile, std::ios_base::in);
+		stream.open(SDK::SelectedGameProfile.HardLinksFile, std::ios_base::in);
 		for (std::string line; std::getline(stream, line); ) {
 			if (line.empty())
 				continue;
@@ -273,7 +273,7 @@ namespace ModLoader
 					Log::Warn_MDML("Cant delete old file link {0}, link does not exist", MDML::FormatPath(line));
 				continue;
 			}
-			if (!MDML::SelectedGameProfile.UseHardLinks && !std::filesystem::directory_entry(line).is_symlink()) {
+			if (!SDK::SelectedGameProfile.UseHardLinks && !std::filesystem::directory_entry(line).is_symlink()) {
 				if (!isOld)
 					Log::Warn_MDML("Cant delete file link {0}, it is not a link", MDML::FormatPath(line));
 				else
@@ -288,7 +288,7 @@ namespace ModLoader
 			count++;
 		}
 		stream.close();
-		std::filesystem::remove(MDML::SelectedGameProfile.HardLinksFile);
+		std::filesystem::remove(SDK::SelectedGameProfile.HardLinksFile);
 		if (!isOld)
 			Log::Info_MDML("Deleted {0}/{1} file links", count, max);
 		else

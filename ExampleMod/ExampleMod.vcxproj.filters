@@ -1,58 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ModLoader">
-      <UniqueIdentifier>{3C282D37-A892-E1AD-F1D0-92535D7ABF02}</UniqueIdentifier>
+    <Filter Include="SDK">
+      <UniqueIdentifier>{071D880B-7326-887C-FCA1-9E7C68AA937C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ModLoader\src">
-      <UniqueIdentifier>{53A4DADD-BF64-5614-889F-9F91F41E9BF0}</UniqueIdentifier>
+    <Filter Include="SDK\src">
+      <UniqueIdentifier>{9E06E99C-0AE6-6738-13FE-F20E7F5CCE99}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ModLoader\src\UE4">
-      <UniqueIdentifier>{50CE85D8-BCE4-836E-055C-0F9071B154F6}</UniqueIdentifier>
+    <Filter Include="SDK\src\UE4">
+      <UniqueIdentifier>{1B5E4261-8713-BB56-1008-B52D7CBCB15A}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ModLoader\src\UE4\Engine">
-      <UniqueIdentifier>{D57EAA09-C1A3-F989-EAEE-DE19D672F8A7}</UniqueIdentifier>
+    <Filter Include="SDK\src\UE4\Containers">
+      <UniqueIdentifier>{C03950B6-AC33-7908-95A0-0F198139DF74}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ModLoader\src\UE4\GameFramework">
-      <UniqueIdentifier>{8779BB6E-F35C-CAAE-FC5F-F8EA68C290FF}</UniqueIdentifier>
+    <Filter Include="SDK\src\UE4\CoreUObject">
+      <UniqueIdentifier>{1F2236A1-8B59-7E38-9463-E25B001AA531}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ModLoader\src\UE4\Kismet">
-      <UniqueIdentifier>{8C9C5517-78C1-A497-A10C-8A278D90A3B5}</UniqueIdentifier>
+    <Filter Include="SDK\src\UE4\Engine">
+      <UniqueIdentifier>{40FC0305-2CE0-C45A-9540-BFAD8143AFDC}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ModLoader\src\UE4\UObject">
-      <UniqueIdentifier>{CB25F4C5-37E8-2750-8098-B6DCEC99002E}</UniqueIdentifier>
+    <Filter Include="SDK\src\UE4\GameFramework">
+      <UniqueIdentifier>{92506AF0-FE12-9E7A-47C3-2C07B3C47658}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDK\src\UE4\Kismet">
+      <UniqueIdentifier>{F719AF12-E3FD-6F68-4C5E-6ABB38615AEA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDK\src\UE4\Math">
+      <UniqueIdentifier>{D4CBE601-C0C4-0554-E9F6-EAD8D54EE55F}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\ModLoader\src\UE4\Ue4.hpp">
-      <Filter>ModLoader\src\UE4</Filter>
+    <ClInclude Include="..\SDK\src\UE4\Containers\Array.h">
+      <Filter>SDK\src\UE4\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Containers\Pointers.h">
+      <Filter>SDK\src\UE4\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Containers\String.h">
+      <Filter>SDK\src\UE4\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Containers\Templates.h">
+      <Filter>SDK\src\UE4\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Containers\Text.h">
+      <Filter>SDK\src\UE4\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\CoreUObject\Class.h">
+      <Filter>SDK\src\UE4\CoreUObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\CoreUObject\CoreTypes.h">
+      <Filter>SDK\src\UE4\CoreUObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\CoreUObject\NamePool.h">
+      <Filter>SDK\src\UE4\CoreUObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\CoreUObject\Object.h">
+      <Filter>SDK\src\UE4\CoreUObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\CoreUObject\ObjectsArray.h">
+      <Filter>SDK\src\UE4\CoreUObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\CoreUObject\Stack.h">
+      <Filter>SDK\src\UE4\CoreUObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\CoreUObject\UnrealType.h">
+      <Filter>SDK\src\UE4\CoreUObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Engine\BlueprintGeneratedClass.h">
+      <Filter>SDK\src\UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Engine\EngineTypes.h">
+      <Filter>SDK\src\UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Engine\GameInstance.h">
+      <Filter>SDK\src\UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Engine\Level.h">
+      <Filter>SDK\src\UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Engine\UserDefinedEnum.h">
+      <Filter>SDK\src\UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Engine\UserDefinedStruct.h">
+      <Filter>SDK\src\UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Engine\World.h">
+      <Filter>SDK\src\UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\GameFramework\Actor.h">
+      <Filter>SDK\src\UE4\GameFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\GameFramework\GameFrameworkTypes.h">
+      <Filter>SDK\src\UE4\GameFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\GameFramework\GameMode.h">
+      <Filter>SDK\src\UE4\GameFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\GameFramework\GameState.h">
+      <Filter>SDK\src\UE4\GameFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\GameFramework\Pawn.h">
+      <Filter>SDK\src\UE4\GameFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\GameFramework\PlayerController.h">
+      <Filter>SDK\src\UE4\GameFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Kismet\BlueprintFunctionLibrary.h">
+      <Filter>SDK\src\UE4\Kismet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Kismet\GameplayStatics.h">
+      <Filter>SDK\src\UE4\Kismet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Math\Box.h">
+      <Filter>SDK\src\UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Math\Color.h">
+      <Filter>SDK\src\UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Math\InterpCurve.h">
+      <Filter>SDK\src\UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Math\Plane.h">
+      <Filter>SDK\src\UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Math\Quat.h">
+      <Filter>SDK\src\UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Math\Rotator.h">
+      <Filter>SDK\src\UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Math\Transform.h">
+      <Filter>SDK\src\UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Math\UnrealMathUtility.h">
+      <Filter>SDK\src\UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Math\Vector.h">
+      <Filter>SDK\src\UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Math\Vector2.h">
+      <Filter>SDK\src\UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\Math\Vector4.h">
+      <Filter>SDK\src\UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDK\src\UE4\UE4.h">
+      <Filter>SDK\src\UE4</Filter>
     </ClInclude>
     <ClInclude Include="ExampleMod.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\ModLoader\src\UE4\Engine\UserDefinedEnum.cpp">
-      <Filter>ModLoader\src\UE4\Engine</Filter>
+    <ClCompile Include="..\SDK\src\UE4\CoreUObject\Class.cpp">
+      <Filter>SDK\src\UE4\CoreUObject</Filter>
     </ClCompile>
-    <ClCompile Include="..\ModLoader\src\UE4\Engine\World.cpp">
-      <Filter>ModLoader\src\UE4\Engine</Filter>
+    <ClCompile Include="..\SDK\src\UE4\CoreUObject\CoreTypes.cpp">
+      <Filter>SDK\src\UE4\CoreUObject</Filter>
     </ClCompile>
-    <ClCompile Include="..\ModLoader\src\UE4\GameFramework\Actor.cpp">
-      <Filter>ModLoader\src\UE4\GameFramework</Filter>
+    <ClCompile Include="..\SDK\src\UE4\CoreUObject\Object.cpp">
+      <Filter>SDK\src\UE4\CoreUObject</Filter>
     </ClCompile>
-    <ClCompile Include="..\ModLoader\src\UE4\Kismet\GameplayStatics.cpp">
-      <Filter>ModLoader\src\UE4\Kismet</Filter>
+    <ClCompile Include="..\SDK\src\UE4\CoreUObject\UnrealType.cpp">
+      <Filter>SDK\src\UE4\CoreUObject</Filter>
     </ClCompile>
-    <ClCompile Include="..\ModLoader\src\UE4\UObject\Class.cpp">
-      <Filter>ModLoader\src\UE4\UObject</Filter>
+    <ClCompile Include="..\SDK\src\UE4\Engine\UserDefinedEnum.cpp">
+      <Filter>SDK\src\UE4\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="..\ModLoader\src\UE4\UObject\CoreTypes.cpp">
-      <Filter>ModLoader\src\UE4\UObject</Filter>
+    <ClCompile Include="..\SDK\src\UE4\Engine\World.cpp">
+      <Filter>SDK\src\UE4\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="..\ModLoader\src\UE4\UObject\Object.cpp">
-      <Filter>ModLoader\src\UE4\UObject</Filter>
+    <ClCompile Include="..\SDK\src\UE4\GameFramework\Actor.cpp">
+      <Filter>SDK\src\UE4\GameFramework</Filter>
     </ClCompile>
-    <ClCompile Include="..\ModLoader\src\UE4\UObject\UnrealType.cpp">
-      <Filter>ModLoader\src\UE4\UObject</Filter>
+    <ClCompile Include="..\SDK\src\UE4\Kismet\GameplayStatics.cpp">
+      <Filter>SDK\src\UE4\Kismet</Filter>
     </ClCompile>
     <ClCompile Include="ExampleMod.cpp" />
     <ClCompile Include="dllmain.cpp" />

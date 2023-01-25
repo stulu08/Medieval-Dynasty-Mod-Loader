@@ -1,17 +1,13 @@
 #include "Core.h"
 #include "MDML.h"
 
-#include <INI.h>
-#include <Utilities/HooksManager.h>
+#include "Utilities/HooksManager.h"
+#include "Globals.h"
 
-#include <Ue4.hpp>
-#include <Globals.h>
+#include "INI.h"
 
-#include <Kismet/GameplayStatics.h>
-#include <UObject/Stack.h>
-#include <GameFramework/Actor.h>
+#include "UE4.h"
 
-GameProfile MDML::SelectedGameProfile;
 
 DWORD StringToDWord(std::string str);
 std::string GetModuleFilePath(HMODULE hModule);
@@ -40,7 +36,7 @@ void MDML::InitGameState(void* Return) {
 
 	CleanUpMods();
 
-	if (MDML::SelectedGameProfile.StaticLoadObject) {
+	if (SDK::SelectedGameProfile.StaticLoadObject) {
 		for (int i = 0; i < Global::GetGlobals()->ModInfoList.size(); i++) {
 			CreateMod(Global::GetGlobals()->ModInfoList[i]);
 		}
@@ -55,7 +51,7 @@ void MDML::BeginPlay(UE4::AActor* Actor) {
 	if (GameStateClassInitNotRan) {
 		return;
 	}
-	if (Actor->IsA(UE4::ACustomClass::StaticClass(MDML::SelectedGameProfile.BeginPlayOverwrite)))
+	if (Actor->IsA(UE4::ACustomClass::StaticClass(SDK::SelectedGameProfile.BeginPlayOverwrite)))
 	{
 		Log::Info_UML("Beginplay Called");
 		for (int i = 0; i < Global::GetGlobals()->ModInfoList.size(); i++)
@@ -102,7 +98,7 @@ void MDML::InitCoreMods() {
 			}
 		}
 	}
-	if (MDML::SelectedGameProfile.StaticLoadObject)
+	if (SDK::SelectedGameProfile.StaticLoadObject)
 	{
 		Log::Info_UML("StaticLoadObject Found");
 	}
@@ -116,7 +112,7 @@ void MDML::CreateMod(ModInfo& mod) {
 	{
 		std::wstring CurrentMod;
 		CurrentMod = mod.ModName;
-		if (MDML::SelectedGameProfile.StaticLoadObject)
+		if (SDK::SelectedGameProfile.StaticLoadObject)
 		{
 			std::string str(CurrentMod.length(), 0);
 			std::transform(CurrentMod.begin(), CurrentMod.end(), str.begin(), [](wchar_t c) { return (char)c; });
@@ -128,22 +124,22 @@ void MDML::CreateMod(ModInfo& mod) {
 				{
 					if (!bIsProcessInternalsHooked)
 					{
-						if (!MDML::SelectedGameProfile.ProcessInternals)
+						if (!SDK::SelectedGameProfile.ProcessInternals)
 						{
-							if (!MDML::SelectedGameProfile.UsesFNamePool || !MDML::SelectedGameProfile.IsUsing4_22)
+							if (!SDK::SelectedGameProfile.UsesFNamePool || !SDK::SelectedGameProfile.IsUsing4_22)
 							{
 								if (ModActor->DoesObjectContainFunction("PostBeginPlay"))
 								{
-									MDML::SelectedGameProfile.ProcessInternals = (DWORD64)ModActor->GetFunction("PostBeginPlay")->GetFunction();
+									SDK::SelectedGameProfile.ProcessInternals = (DWORD64)ModActor->GetFunction("PostBeginPlay")->GetFunction();
 								}
 								else if (ModActor->DoesObjectContainFunction("ModMenuButtonPressed"))
 								{
-									MDML::SelectedGameProfile.ProcessInternals = (DWORD64)ModActor->GetFunction("ModMenuButtonPressed")->GetFunction();
+									SDK::SelectedGameProfile.ProcessInternals = (DWORD64)ModActor->GetFunction("ModMenuButtonPressed")->GetFunction();
 								}
 							}
 						}
 						bIsProcessInternalsHooked = true;
-						if (MDML::SelectedGameProfile.ProcessInternals)
+						if (SDK::SelectedGameProfile.ProcessInternals)
 							HooksManager::AddProcessInternalHook();
 						else
 							Log::Warn_UML("ProcessBlueprintFunctions could not be located! Mod Loader Functionality Will be Limited!");
@@ -219,7 +215,7 @@ void MDML::CleanUpMods() {
 }
 
 UE4::AActor* MDML::SpawnActor(UE4::UClass* Class, const UE4::FTransform& transform, UE4::FActorSpawnParameters spawnParams) {
-	if (!MDML::SelectedGameProfile.IsUsingDeferedSpawn) {
+	if (!SDK::SelectedGameProfile.IsUsingDeferedSpawn) {
 		return UE4::UWorld::GetWorld()->SpawnActor(Class, &transform, &spawnParams);
 	}
 	else {
@@ -239,11 +235,11 @@ void MDML::ShutDown() {
 	HooksManager::ShutDown();
 	bIsProcessInternalsHooked = false;
 	GameStateClassInitNotRan = true;
-	//MDML::SelectedGameProfile = GameProfile();
+	//SDK::SelectedGameProfile = GameProfile();
 	//fcloseall();
 }
 std::string MDML::FormatPath(const std::filesystem::path& path) {
-	return std::filesystem::relative(path, SelectedGameProfile.rootGameDir).string();
+	return std::filesystem::relative(path, SDK::SelectedGameProfile.rootGameDir).string();
 }
 std::string MDML::GetDataFolder() {
 	static std::filesystem::path path = L"";
@@ -255,9 +251,9 @@ std::string MDML::GetDataFolder() {
 	return path.string();
 }
 bool SetupProfile(const std::string& Path) {
-	MDML::SelectedGameProfile.ImGuiFile = Path + "/Config/WindowConfig.ini";
-	MDML::SelectedGameProfile.NoOverwriteFile = Path + "/Config/NoOverwrite.ini";
-	MDML::SelectedGameProfile.HardLinksFile = Path + "/Config/ModLinks.bin";
+	SDK::SelectedGameProfile.ImGuiFile = Path + "/Config/WindowConfig.ini";
+	SDK::SelectedGameProfile.NoOverwriteFile = Path + "/Config/NoOverwrite.ini";
+	SDK::SelectedGameProfile.HardLinksFile = Path + "/Config/ModLinks.bin";
 
 	INI::PARSE_FLAGS = INI::PARSE_COMMENTS_ALL | INI::PARSE_COMMENTS_SLASH | INI::PARSE_COMMENTS_HASH;
 	INI LoaderInfo(Path + "/" + ModLoaderConfigFile, true);
@@ -272,7 +268,7 @@ bool SetupProfile(const std::string& Path) {
 		if (!std::filesystem::exists(logFileDir))
 			std::filesystem::create_directories(logFileDir);
 
-		MDML::SelectedGameProfile.LogDir = logFileDir.string();
+		SDK::SelectedGameProfile.LogDir = logFileDir.string();
 	}
 	//Output File Initialization
 	LoaderInfo.select("DEBUG");
@@ -288,24 +284,24 @@ bool SetupProfile(const std::string& Path) {
 		freopen_s(&newstdout, "CONOUT$", "w", stdout);
 		freopen_s(&newstderr, "CONOUT$", "w", stderr);
 	}
-	Log::Init(MDML::SelectedGameProfile.LogDir);
+	Log::Init(SDK::SelectedGameProfile.LogDir);
 	Log::Info_UML("Loader Created by ~Russell.J Release V {0}", UML_VERSION);
 	Log::Info_MDML("Optmized and edited for Medieval Dynasty by Stulu");
 	Log::Info_MDML("Medieval Dynasty Mod Loader Version {0}", MODLOADER_VERSION);
 	Log::Info_MDML("Medieval Dynasty Version {0}", MEDIEVAL_VERSION);
 
 	if (LoaderInfo.getAs<int>("DEBUG", "UseDebugUI", 0) == 1) {
-		MDML::SelectedGameProfile.bEnableGUI = IsDirectX11();
-		if (!MDML::SelectedGameProfile.bEnableGUI)
+		SDK::SelectedGameProfile.bEnableGUI = IsDirectX11();
+		if (!SDK::SelectedGameProfile.bEnableGUI)
 			Log::Warn_MDML("Gui was disabled, maybe switch rendering mode to directx11 to enable");
 	}
 
 
 	//generate and load NoOverwrite File
-	MDML::SelectedGameProfile.rootGameDir = std::filesystem::current_path().string();
-	if (!std::filesystem::exists(MDML::SelectedGameProfile.NoOverwriteFile)) {
+	SDK::SelectedGameProfile.rootGameDir = std::filesystem::current_path().string();
+	if (!std::filesystem::exists(SDK::SelectedGameProfile.NoOverwriteFile)) {
 		Log::Warn_MDML("No NoOverwrite file loaded, generating one...");
-		if (FILE* file = fopen(MDML::SelectedGameProfile.NoOverwriteFile.c_str(), "w")) {
+		if (FILE* file = fopen(SDK::SelectedGameProfile.NoOverwriteFile.c_str(), "w")) {
 			//dir, files
 			std::unordered_map<std::string, std::vector<std::string>> paths;
 			for (auto path : std::filesystem::recursive_directory_iterator(std::filesystem::current_path().string() + "/Medieval_Dynasty/Content")) {
@@ -335,11 +331,11 @@ bool SetupProfile(const std::string& Path) {
 			}
 			fclose(file);
 		}
-		Log::Warn_MDML("NoOverwrite file generated to {0}, if you have mods installed remove them from the list or change to false", MDML::SelectedGameProfile.NoOverwriteFile);
+		Log::Warn_MDML("NoOverwrite file generated to {0}, if you have mods installed remove them from the list or change to false", SDK::SelectedGameProfile.NoOverwriteFile);
 	}
-	if (std::filesystem::exists(MDML::SelectedGameProfile.NoOverwriteFile)) {
+	if (std::filesystem::exists(SDK::SelectedGameProfile.NoOverwriteFile)) {
 		std::ifstream stream;
-		stream.open(MDML::SelectedGameProfile.NoOverwriteFile);
+		stream.open(SDK::SelectedGameProfile.NoOverwriteFile);
 		std::string line;
 		while (std::getline(stream, line)) {
 			if (line._Starts_with(";") || line._Starts_with("["))
@@ -349,13 +345,13 @@ bool SetupProfile(const std::string& Path) {
 			std::string value = line.substr(seperatorPos + 1, line.npos);
 			std::transform(value.begin(), value.end(), value.begin(), [](char c) -> char { return std::tolower(c); }); // to lowercase
 			if (value == "true" || value == "1")
-				MDML::SelectedGameProfile.disableOverwriteFiles[fileName] = true;
+				SDK::SelectedGameProfile.disableOverwriteFiles[fileName] = true;
 			else if (value == "false" || value == "0")
-				MDML::SelectedGameProfile.disableOverwriteFiles[fileName] = false;
+				SDK::SelectedGameProfile.disableOverwriteFiles[fileName] = false;
 		}
 	}
 	else {
-		Log::Error_MDML("Error {0} could not be opened", MDML::SelectedGameProfile.NoOverwriteFile);
+		Log::Error_MDML("Error {0} could not be opened", SDK::SelectedGameProfile.NoOverwriteFile);
 	}
 
 	//profile detection
@@ -373,24 +369,24 @@ bool SetupProfile(const std::string& Path) {
 
 		INI GameInfo(Profile, true);
 		GameInfo.select("Overrides");
-		MDML::SelectedGameProfile.ModOverridesEnabled = GameInfo.getAs<int>("Overrides", "Enabled", 0);
-		MDML::SelectedGameProfile.UseHardLinks = GameInfo.getAs<int>("Overrides", "UseHardLinks", 0);
+		SDK::SelectedGameProfile.ModOverridesEnabled = GameInfo.getAs<int>("Overrides", "Enabled", 0);
+		SDK::SelectedGameProfile.UseHardLinks = GameInfo.getAs<int>("Overrides", "UseHardLinks", 0);
 
-		if (MDML::SelectedGameProfile.ModOverridesEnabled) {
-			Log::Info_MDML("Enabled Mod Overrides using {0} links", MDML::SelectedGameProfile.UseHardLinks ? "Hard" : "Sym");
+		if (SDK::SelectedGameProfile.ModOverridesEnabled) {
+			Log::Info_MDML("Enabled Mod Overrides using {0} links", SDK::SelectedGameProfile.UseHardLinks ? "Hard" : "Sym");
 		}
 
 		GameInfo.select("GameInfo");
-		MDML::SelectedGameProfile.IsUsingFChunkedFixedUObjectArray = GameInfo.getAs<int>("GameInfo", "IsUsingFChunkedFixedUObjectArray", 0);
-		MDML::SelectedGameProfile.UsesFNamePool = GameInfo.getAs<int>("GameInfo", "UsesFNamePool", 0);
-		MDML::SelectedGameProfile.IsUsingDeferedSpawn = GameInfo.getAs<int>("GameInfo", "IsUsingDeferedSpawn", 0);
-		MDML::SelectedGameProfile.IsUsing4_22 = GameInfo.getAs<int>("GameInfo", "IsUsing4_22", 0);
-		MDML::SelectedGameProfile.bIsDefaultObjectArrayed = GameInfo.getAs<int>("GameInfo", "IsDefaultObjectArrayed", 0);
-		MDML::SelectedGameProfile.bDelayGUISpawn = GameInfo.getAs<int>("GameInfo", "DelayGUISpawn", 0);
+		SDK::SelectedGameProfile.IsUsingFChunkedFixedUObjectArray = GameInfo.getAs<int>("GameInfo", "IsUsingFChunkedFixedUObjectArray", 0);
+		SDK::SelectedGameProfile.UsesFNamePool = GameInfo.getAs<int>("GameInfo", "UsesFNamePool", 0);
+		SDK::SelectedGameProfile.IsUsingDeferedSpawn = GameInfo.getAs<int>("GameInfo", "IsUsingDeferedSpawn", 0);
+		SDK::SelectedGameProfile.IsUsing4_22 = GameInfo.getAs<int>("GameInfo", "IsUsing4_22", 0);
+		SDK::SelectedGameProfile.bIsDefaultObjectArrayed = GameInfo.getAs<int>("GameInfo", "IsDefaultObjectArrayed", 0);
+		SDK::SelectedGameProfile.bDelayGUISpawn = GameInfo.getAs<int>("GameInfo", "DelayGUISpawn", 0);
 
 		if (GameInfo.get("GameInfo", "BeginPlayOverwrite", "") != "")
 		{
-			MDML::SelectedGameProfile.BeginPlayOverwrite = GameInfo.get("GameInfo", "BeginPlayOverwrite", "");
+			SDK::SelectedGameProfile.BeginPlayOverwrite = GameInfo.get("GameInfo", "BeginPlayOverwrite", "");
 		}
 
 		if (GameInfo.select("GInfo"))
@@ -399,37 +395,37 @@ bool SetupProfile(const std::string& Path) {
 			{
 				auto GName = (DWORD64)Pattern::Find(GameInfo.get("GInfo", "GName", "").c_str());
 				auto GNamesOffset = *reinterpret_cast<uint32_t*>(GName + GameInfo.getAs<int>("GInfo", "GNameFirstOpCodes", 0));
-				MDML::SelectedGameProfile.GName = (GName + GameInfo.getAs<int>("GInfo", "GNameTotalByteInstruction", 0) + GNamesOffset);
+				SDK::SelectedGameProfile.GName = (GName + GameInfo.getAs<int>("GInfo", "GNameTotalByteInstruction", 0) + GNamesOffset);
 
 
 				auto GObject = (DWORD64)Pattern::Find(GameInfo.get("GInfo", "GObject", "").c_str());
 				auto GObjectOffset = *reinterpret_cast<uint32_t*>(GObject + GameInfo.getAs<int>("GInfo", "GObjectFirstOpCodes", 0));
-				MDML::SelectedGameProfile.GObject = (GObject + GameInfo.getAs<int>("GInfo", "GObjectTotalByteInstruction", 0) + GObjectOffset);
+				SDK::SelectedGameProfile.GObject = (GObject + GameInfo.getAs<int>("GInfo", "GObjectTotalByteInstruction", 0) + GObjectOffset);
 
 				auto GWorld = (DWORD64)Pattern::Find(GameInfo.get("GInfo", "GWorld", "").c_str());
 				auto GWorldOffset = *reinterpret_cast<uint32_t*>(GWorld + GameInfo.getAs<int>("GInfo", "GWorldFirstOpCodes", 0));
-				MDML::SelectedGameProfile.GWorld = (GWorld + GameInfo.getAs<int>("GInfo", "GWorldTotalByteInstruction", 0) + GWorldOffset);
+				SDK::SelectedGameProfile.GWorld = (GWorld + GameInfo.getAs<int>("GInfo", "GWorldTotalByteInstruction", 0) + GWorldOffset);
 
 				Log::Info_UML("GSTuff Patterns Loaded");
 			}
 			else
 			{
-				MDML::SelectedGameProfile.GName = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("GInfo", "GName", ""));
-				MDML::SelectedGameProfile.GObject = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("GInfo", "GObject", ""));
-				MDML::SelectedGameProfile.GWorld = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("GInfo", "GWorld", ""));
+				SDK::SelectedGameProfile.GName = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("GInfo", "GName", ""));
+				SDK::SelectedGameProfile.GObject = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("GInfo", "GObject", ""));
+				SDK::SelectedGameProfile.GWorld = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("GInfo", "GWorld", ""));
 				Log::Info_UML("GSTuff Offset Loaded");
 			}
 		}
 		else
 		{
-			if (MDML::SelectedGameProfile.UsesFNamePool)
+			if (SDK::SelectedGameProfile.UsesFNamePool)
 			{
 				auto FPoolPat = Pattern::Find("74 09 48 8D 15 ? ? ? ? EB 16");
 				if (FPoolPat != nullptr)
 				{
 					auto FPoolPatoffset = *reinterpret_cast<uint32_t*>(FPoolPat + 5);
-					MDML::SelectedGameProfile.GName = (DWORD64)(FPoolPat + 9 + FPoolPatoffset);
-					Log::Info_UML("FoundNamePool: 0x{0:x}", MDML::SelectedGameProfile.GName);
+					SDK::SelectedGameProfile.GName = (DWORD64)(FPoolPat + 9 + FPoolPatoffset);
+					Log::Info_UML("FoundNamePool: 0x{0:x}", SDK::SelectedGameProfile.GName);
 				}
 				else
 				{
@@ -442,8 +438,8 @@ bool SetupProfile(const std::string& Path) {
 				if (GNamePat != nullptr)
 				{
 					auto GNamesAddress = *reinterpret_cast<uint32_t*>(GNamePat + 11);
-					MDML::SelectedGameProfile.GName = (DWORD64)(GNamePat + 15 + GNamesAddress);
-					Log::Info_UML("GName: 0x{0:x}", MDML::SelectedGameProfile.GName);
+					SDK::SelectedGameProfile.GName = (DWORD64)(GNamePat + 15 + GNamesAddress);
+					Log::Info_UML("GName: 0x{0:x}", SDK::SelectedGameProfile.GName);
 				}
 				else
 				{
@@ -455,8 +451,8 @@ bool SetupProfile(const std::string& Path) {
 			if (GObjectPat != nullptr)
 			{
 				auto GObjectOffset = *reinterpret_cast<uint32_t*>(GObjectPat + 14);
-				MDML::SelectedGameProfile.GObject = (DWORD64)(GObjectPat + 18 + GObjectOffset);
-				Log::Info_UML("GObject: 0x{0:x}", MDML::SelectedGameProfile.GObject);
+				SDK::SelectedGameProfile.GObject = (DWORD64)(GObjectPat + 18 + GObjectOffset);
+				Log::Info_UML("GObject: 0x{0:x}", SDK::SelectedGameProfile.GObject);
 			}
 			else
 			{
@@ -467,8 +463,8 @@ bool SetupProfile(const std::string& Path) {
 			if (GWorldPat != nullptr)
 			{
 				auto GWorldAddress = *reinterpret_cast<uint32_t*>(GWorldPat + 8);
-				MDML::SelectedGameProfile.GWorld = (DWORD64)(GWorldPat + 12 + GWorldAddress);
-				Log::Info_UML("GWorld: 0x{0:x}", MDML::SelectedGameProfile.GWorld);
+				SDK::SelectedGameProfile.GWorld = (DWORD64)(GWorldPat + 12 + GWorldAddress);
+				Log::Info_UML("GWorld: 0x{0:x}", SDK::SelectedGameProfile.GWorld);
 			}
 			else
 			{
@@ -480,116 +476,116 @@ bool SetupProfile(const std::string& Path) {
 
 		if (GameInfo.select("UObjectDef"))
 		{
-			MDML::SelectedGameProfile.IsUObjectMissing = false;
-			MDML::SelectedGameProfile.defs.UObject.Index = (uint16_t)StringToDWord(GameInfo.get("UObjectDef", "Index", ""));
-			MDML::SelectedGameProfile.defs.UObject.Class = (uint16_t)StringToDWord(GameInfo.get("UObjectDef", "Class", ""));
-			MDML::SelectedGameProfile.defs.UObject.Name = (uint16_t)StringToDWord(GameInfo.get("UObjectDef", "Name", ""));
-			MDML::SelectedGameProfile.defs.UObject.Outer = (uint16_t)StringToDWord(GameInfo.get("UObjectDef", "Outer", ""));
+			SDK::SelectedGameProfile.IsUObjectMissing = false;
+			SDK::SelectedGameProfile.defs.UObject.Index = (uint16_t)StringToDWord(GameInfo.get("UObjectDef", "Index", ""));
+			SDK::SelectedGameProfile.defs.UObject.Class = (uint16_t)StringToDWord(GameInfo.get("UObjectDef", "Class", ""));
+			SDK::SelectedGameProfile.defs.UObject.Name = (uint16_t)StringToDWord(GameInfo.get("UObjectDef", "Name", ""));
+			SDK::SelectedGameProfile.defs.UObject.Outer = (uint16_t)StringToDWord(GameInfo.get("UObjectDef", "Outer", ""));
 		}
 
 		if (GameInfo.select("UFieldDef"))
 		{
-			MDML::SelectedGameProfile.IsUFieldMissing = false;
+			SDK::SelectedGameProfile.IsUFieldMissing = false;
 
 			GameInfo.select("UFieldDef");
-			MDML::SelectedGameProfile.defs.UField.Next = (uint16_t)StringToDWord(GameInfo.get("UFieldDef", "Next", ""));
+			SDK::SelectedGameProfile.defs.UField.Next = (uint16_t)StringToDWord(GameInfo.get("UFieldDef", "Next", ""));
 		}
 		if (GameInfo.select("UStructDef"))
 		{
-			MDML::SelectedGameProfile.IsUStructMissing = false;
+			SDK::SelectedGameProfile.IsUStructMissing = false;
 			GameInfo.select("UStructDef");
-			MDML::SelectedGameProfile.defs.UStruct.SuperStruct = (uint16_t)StringToDWord(GameInfo.get("UStructDef", "SuperStruct", ""));
-			MDML::SelectedGameProfile.defs.UStruct.Children = (uint16_t)StringToDWord(GameInfo.get("UStructDef", "Children", ""));
-			MDML::SelectedGameProfile.defs.UStruct.PropertiesSize = (uint16_t)StringToDWord(GameInfo.get("UStructDef", "PropertiesSize", ""));
+			SDK::SelectedGameProfile.defs.UStruct.SuperStruct = (uint16_t)StringToDWord(GameInfo.get("UStructDef", "SuperStruct", ""));
+			SDK::SelectedGameProfile.defs.UStruct.Children = (uint16_t)StringToDWord(GameInfo.get("UStructDef", "Children", ""));
+			SDK::SelectedGameProfile.defs.UStruct.PropertiesSize = (uint16_t)StringToDWord(GameInfo.get("UStructDef", "PropertiesSize", ""));
 		}
 		if (GameInfo.select("UEnumDef")) {
-			MDML::SelectedGameProfile.IsUEnumMissing = false;
+			SDK::SelectedGameProfile.IsUEnumMissing = false;
 			GameInfo.select("UEnumDef");
-			MDML::SelectedGameProfile.defs.UEnum.CppType = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "CppType", ""));
-			MDML::SelectedGameProfile.defs.UEnum.Names = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "Names", ""));
-			MDML::SelectedGameProfile.defs.UEnum.CppForm = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "CppForm", ""));
-			MDML::SelectedGameProfile.defs.UEnum.Flags = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "Flags", ""));
-			MDML::SelectedGameProfile.defs.UEnum.DisplayNameFn = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "DisplayNameFn", ""));
-			MDML::SelectedGameProfile.defs.UEnum.UserDefDisplayNameMap = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "UserDefDisplayNameMap", ""));
+			SDK::SelectedGameProfile.defs.UEnum.CppType = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "CppType", ""));
+			SDK::SelectedGameProfile.defs.UEnum.Names = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "Names", ""));
+			SDK::SelectedGameProfile.defs.UEnum.CppForm = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "CppForm", ""));
+			SDK::SelectedGameProfile.defs.UEnum.Flags = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "Flags", ""));
+			SDK::SelectedGameProfile.defs.UEnum.DisplayNameFn = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "DisplayNameFn", ""));
+			SDK::SelectedGameProfile.defs.UEnum.UserDefDisplayNameMap = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "UserDefDisplayNameMap", ""));
 		}
 		if (GameInfo.select("UFunctionDef"))
 		{
-			MDML::SelectedGameProfile.IsUFunctionMissing = false;
+			SDK::SelectedGameProfile.IsUFunctionMissing = false;
 			GameInfo.select("UFunctionDef");
-			MDML::SelectedGameProfile.defs.UFunction.FunctionFlags = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "FunctionFlags", ""));
-			MDML::SelectedGameProfile.defs.UFunction.NumParams = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "NumParams", ""));
-			MDML::SelectedGameProfile.defs.UFunction.ParamsSize = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "ParamsSize", ""));
-			MDML::SelectedGameProfile.defs.UFunction.ReturnValueOffset = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "ReturnValueOffset", ""));
-			MDML::SelectedGameProfile.defs.UFunction.Func = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "Func", ""));
+			SDK::SelectedGameProfile.defs.UFunction.FunctionFlags = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "FunctionFlags", ""));
+			SDK::SelectedGameProfile.defs.UFunction.NumParams = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "NumParams", ""));
+			SDK::SelectedGameProfile.defs.UFunction.ParamsSize = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "ParamsSize", ""));
+			SDK::SelectedGameProfile.defs.UFunction.ReturnValueOffset = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "ReturnValueOffset", ""));
+			SDK::SelectedGameProfile.defs.UFunction.Func = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "Func", ""));
 		}
 
 		if (GameInfo.select("Property"))
 		{
-			MDML::SelectedGameProfile.bIsFProperty = GameInfo.getAs<int>("Property", "IsFProperty", 0);
-			MDML::SelectedGameProfile.defs.Property.ArrayDim = (uint16_t)StringToDWord(GameInfo.get("Property", "ArrayDim", ""));
-			MDML::SelectedGameProfile.defs.Property.ElementSize = (uint16_t)StringToDWord(GameInfo.get("Property", "ElementSize", ""));
-			MDML::SelectedGameProfile.defs.Property.Offset = (uint16_t)StringToDWord(GameInfo.get("Property", "Offset", ""));
-			MDML::SelectedGameProfile.defs.Property.Flags = (uint16_t)StringToDWord(GameInfo.get("Property", "Flags", ""));
-			if (MDML::SelectedGameProfile.bIsFProperty)
+			SDK::SelectedGameProfile.bIsFProperty = GameInfo.getAs<int>("Property", "IsFProperty", 0);
+			SDK::SelectedGameProfile.defs.Property.ArrayDim = (uint16_t)StringToDWord(GameInfo.get("Property", "ArrayDim", ""));
+			SDK::SelectedGameProfile.defs.Property.ElementSize = (uint16_t)StringToDWord(GameInfo.get("Property", "ElementSize", ""));
+			SDK::SelectedGameProfile.defs.Property.Offset = (uint16_t)StringToDWord(GameInfo.get("Property", "Offset", ""));
+			SDK::SelectedGameProfile.defs.Property.Flags = (uint16_t)StringToDWord(GameInfo.get("Property", "Flags", ""));
+			if (SDK::SelectedGameProfile.bIsFProperty)
 			{
 				GameInfo.select("FField");
-				MDML::SelectedGameProfile.defs.FField.Name = (uint16_t)StringToDWord(GameInfo.get("FField", "Name", ""));
-				MDML::SelectedGameProfile.defs.FField.Next = (uint16_t)StringToDWord(GameInfo.get("FField", "Next", ""));
-				MDML::SelectedGameProfile.defs.FField.ClassPrivate = (uint16_t)StringToDWord(GameInfo.get("FField", "Next", ""));
+				SDK::SelectedGameProfile.defs.FField.Name = (uint16_t)StringToDWord(GameInfo.get("FField", "Name", ""));
+				SDK::SelectedGameProfile.defs.FField.Next = (uint16_t)StringToDWord(GameInfo.get("FField", "Next", ""));
+				SDK::SelectedGameProfile.defs.FField.ClassPrivate = (uint16_t)StringToDWord(GameInfo.get("FField", "Next", ""));
 
 				if (GameInfo.select("FFieldClass")) {
-					MDML::SelectedGameProfile.defs.FFieldClass.Name = (uint16_t)StringToDWord(GameInfo.get("FFieldClass", "Name", ""));
-					MDML::SelectedGameProfile.defs.FFieldClass.ID = (uint16_t)StringToDWord(GameInfo.get("FFieldClass", "ID", ""));
-					MDML::SelectedGameProfile.defs.FFieldClass.CastFlags = (uint16_t)StringToDWord(GameInfo.get("FFieldClass", "CastFlags", ""));
-					MDML::SelectedGameProfile.defs.FFieldClass.SuperClass = (uint16_t)StringToDWord(GameInfo.get("FFieldClass", "SuperClass", ""));
+					SDK::SelectedGameProfile.defs.FFieldClass.Name = (uint16_t)StringToDWord(GameInfo.get("FFieldClass", "Name", ""));
+					SDK::SelectedGameProfile.defs.FFieldClass.ID = (uint16_t)StringToDWord(GameInfo.get("FFieldClass", "ID", ""));
+					SDK::SelectedGameProfile.defs.FFieldClass.CastFlags = (uint16_t)StringToDWord(GameInfo.get("FFieldClass", "CastFlags", ""));
+					SDK::SelectedGameProfile.defs.FFieldClass.SuperClass = (uint16_t)StringToDWord(GameInfo.get("FFieldClass", "SuperClass", ""));
 				}
 			}
 		}
 		else
 		{
-			MDML::SelectedGameProfile.IsPropertyMissing = true;
+			SDK::SelectedGameProfile.IsPropertyMissing = true;
 		}
 
 		if (GameInfo.select("FunctionInfo"))
 		{
 			if (GameInfo.getAs<int>("FunctionInfo", "IsFunctionPatterns", 0) == 0)
 			{
-				MDML::SelectedGameProfile.GameStateInit = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "GameStateInit", ""));
-				MDML::SelectedGameProfile.BeginPlay = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "BeginPlay", ""));
-				MDML::SelectedGameProfile.StaticLoadObject = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "StaticLoadObject", ""));
-				MDML::SelectedGameProfile.StaticFindObject = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "StaticFindObject", ""));
-				MDML::SelectedGameProfile.SpawnActorFTrans = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "SpawnActorFTrans", ""));
-				MDML::SelectedGameProfile.CallFunctionByNameWithArguments = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "CallFunctionByNameWithArguments", ""));
-				MDML::SelectedGameProfile.ProcessEvent = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "ProcessEvent", ""));
-				MDML::SelectedGameProfile.CreateDefaultObject = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "CreateDefaultObject", ""));
+				SDK::SelectedGameProfile.GameStateInit = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "GameStateInit", ""));
+				SDK::SelectedGameProfile.BeginPlay = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "BeginPlay", ""));
+				SDK::SelectedGameProfile.StaticLoadObject = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "StaticLoadObject", ""));
+				SDK::SelectedGameProfile.StaticFindObject = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "StaticFindObject", ""));
+				SDK::SelectedGameProfile.SpawnActorFTrans = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "SpawnActorFTrans", ""));
+				SDK::SelectedGameProfile.CallFunctionByNameWithArguments = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "CallFunctionByNameWithArguments", ""));
+				SDK::SelectedGameProfile.ProcessEvent = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "ProcessEvent", ""));
+				SDK::SelectedGameProfile.CreateDefaultObject = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "CreateDefaultObject", ""));
 				Log::Info_UML("Function Offsets Set!");
 			}
 			else
 			{
-				MDML::SelectedGameProfile.GameStateInit = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "GameStateInit", "").c_str());
-				MDML::SelectedGameProfile.BeginPlay = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "BeginPlay", "").c_str());
-				MDML::SelectedGameProfile.StaticLoadObject = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "StaticLoadObject", "").c_str());
-				MDML::SelectedGameProfile.StaticFindObject = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "StaticFindObject", "").c_str());
-				MDML::SelectedGameProfile.SpawnActorFTrans = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "SpawnActorFTrans", "").c_str());
-				MDML::SelectedGameProfile.CallFunctionByNameWithArguments = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "CallFunctionByNameWithArguments", "").c_str());
-				MDML::SelectedGameProfile.ProcessEvent = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "ProcessEvent", "").c_str());
-				MDML::SelectedGameProfile.CreateDefaultObject = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "CreateDefaultObject", "").c_str());
-				Log::Info_MDML("GameStateInit: 0x{0:x}", MDML::SelectedGameProfile.GameStateInit);
-				Log::Info_MDML("BeginPlay: 0x{0:x}", MDML::SelectedGameProfile.BeginPlay);
-				Log::Info_MDML("StaticLoadObject: 0x{0:x}", MDML::SelectedGameProfile.StaticLoadObject);
-				Log::Info_MDML("StaticFindObject: 0x{0:x}", MDML::SelectedGameProfile.StaticFindObject);
-				Log::Info_MDML("SpawnActorFTrans: 0x{0:x}", MDML::SelectedGameProfile.SpawnActorFTrans);
-				Log::Info_MDML("CallFunctionByNameWithArguments: 0x{0:x}", MDML::SelectedGameProfile.CallFunctionByNameWithArguments);
-				Log::Info_MDML("ProcessEvent: 0x{0:x}", MDML::SelectedGameProfile.ProcessEvent);
-				Log::Info_MDML("CreateDefaultObject: 0x{0:x}", MDML::SelectedGameProfile.CreateDefaultObject);
+				SDK::SelectedGameProfile.GameStateInit = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "GameStateInit", "").c_str());
+				SDK::SelectedGameProfile.BeginPlay = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "BeginPlay", "").c_str());
+				SDK::SelectedGameProfile.StaticLoadObject = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "StaticLoadObject", "").c_str());
+				SDK::SelectedGameProfile.StaticFindObject = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "StaticFindObject", "").c_str());
+				SDK::SelectedGameProfile.SpawnActorFTrans = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "SpawnActorFTrans", "").c_str());
+				SDK::SelectedGameProfile.CallFunctionByNameWithArguments = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "CallFunctionByNameWithArguments", "").c_str());
+				SDK::SelectedGameProfile.ProcessEvent = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "ProcessEvent", "").c_str());
+				SDK::SelectedGameProfile.CreateDefaultObject = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "CreateDefaultObject", "").c_str());
+				Log::Info_MDML("GameStateInit: 0x{0:x}", SDK::SelectedGameProfile.GameStateInit);
+				Log::Info_MDML("BeginPlay: 0x{0:x}", SDK::SelectedGameProfile.BeginPlay);
+				Log::Info_MDML("StaticLoadObject: 0x{0:x}", SDK::SelectedGameProfile.StaticLoadObject);
+				Log::Info_MDML("StaticFindObject: 0x{0:x}", SDK::SelectedGameProfile.StaticFindObject);
+				Log::Info_MDML("SpawnActorFTrans: 0x{0:x}", SDK::SelectedGameProfile.SpawnActorFTrans);
+				Log::Info_MDML("CallFunctionByNameWithArguments: 0x{0:x}", SDK::SelectedGameProfile.CallFunctionByNameWithArguments);
+				Log::Info_MDML("ProcessEvent: 0x{0:x}", SDK::SelectedGameProfile.ProcessEvent);
+				Log::Info_MDML("CreateDefaultObject: 0x{0:x}", SDK::SelectedGameProfile.CreateDefaultObject);
 				Log::Info_MDML("Function Patterns Set!");
 			}
 		}
 		else
 		{
-			MDML::SelectedGameProfile.GameStateInit = (DWORD64)Pattern::Find("40 53 48 83 EC 20 48 8B 41 10 48 8B D9 48 8B 91");
-			Log::Info_UML("GameStateInit: 0x{0:x}", MDML::SelectedGameProfile.GameStateInit);
-			if (!MDML::SelectedGameProfile.GameStateInit)
+			SDK::SelectedGameProfile.GameStateInit = (DWORD64)Pattern::Find("40 53 48 83 EC 20 48 8B 41 10 48 8B D9 48 8B 91");
+			Log::Info_UML("GameStateInit: 0x{0:x}", SDK::SelectedGameProfile.GameStateInit);
+			if (!SDK::SelectedGameProfile.GameStateInit)
 			{
 				Log::Error_UML("GameStateInit NOT FOUND!");
 			}
@@ -598,8 +594,8 @@ bool SetupProfile(const std::string& Path) {
 			BeginPlay += 0x3;
 			if (BeginPlay != nullptr)
 			{
-				MDML::SelectedGameProfile.BeginPlay = (DWORD64)MEM::GetAddressPTR(BeginPlay, 0x1, 0x5);
-				Log::Info_UML("AActor::BeginPlay: 0x{0:x}", MDML::SelectedGameProfile.BeginPlay);
+				SDK::SelectedGameProfile.BeginPlay = (DWORD64)MEM::GetAddressPTR(BeginPlay, 0x1, 0x5);
+				Log::Info_UML("AActor::BeginPlay: 0x{0:x}", SDK::SelectedGameProfile.BeginPlay);
 			}
 			else
 			{
@@ -638,8 +634,8 @@ bool SetupProfile(const std::string& Path) {
 					}
 				}
 			}
-			MDML::SelectedGameProfile.StaticLoadObject = (DWORD64)MEM::GetAddressPTR(StaticLoadObject, 0x1, 0x5);
-			Log::Info_UML("StaticLoadObject: 0x{0:x}", (void*)MDML::SelectedGameProfile.StaticLoadObject);
+			SDK::SelectedGameProfile.StaticLoadObject = (DWORD64)MEM::GetAddressPTR(StaticLoadObject, 0x1, 0x5);
+			Log::Info_UML("StaticLoadObject: 0x{0:x}", (void*)SDK::SelectedGameProfile.StaticLoadObject);
 
 
 			auto SpawnActorFTrans = Pattern::Find("4C 8B C6 48 8B C8 48 8B D3 E8 ? ? ? ? 48 8B 5C 24 ? 48 8B 74 24");
@@ -660,14 +656,14 @@ bool SetupProfile(const std::string& Path) {
 				}
 			}
 
-			MDML::SelectedGameProfile.SpawnActorFTrans = (DWORD64)MEM::GetAddressPTR(SpawnActorFTrans, 0x1, 0x5);
-			Log::Info_UML("UWorld::SpawnActor: 0x{0:x}", (void*)MDML::SelectedGameProfile.SpawnActorFTrans);
+			SDK::SelectedGameProfile.SpawnActorFTrans = (DWORD64)MEM::GetAddressPTR(SpawnActorFTrans, 0x1, 0x5);
+			Log::Info_UML("UWorld::SpawnActor: 0x{0:x}", (void*)SDK::SelectedGameProfile.SpawnActorFTrans);
 
 			auto CallFunctionByNameWithArguments = Pattern::Find("8B ? E8 ? ? ? ? ? 0A ? FF ? EB 9E ? 8B");
 			if (CallFunctionByNameWithArguments != nullptr)
 			{
 				CallFunctionByNameWithArguments += 0x2;
-				MDML::SelectedGameProfile.CallFunctionByNameWithArguments = (DWORD64)MEM::GetAddressPTR(CallFunctionByNameWithArguments, 0x1, 0x5);
+				SDK::SelectedGameProfile.CallFunctionByNameWithArguments = (DWORD64)MEM::GetAddressPTR(CallFunctionByNameWithArguments, 0x1, 0x5);
 			}
 			else
 			{
@@ -675,75 +671,75 @@ bool SetupProfile(const std::string& Path) {
 				if (CallFunctionByNameWithArguments != nullptr)
 				{
 					CallFunctionByNameWithArguments += 0x3;
-					MDML::SelectedGameProfile.CallFunctionByNameWithArguments = (DWORD64)MEM::GetAddressPTR(CallFunctionByNameWithArguments, 0x1, 0x5);
+					SDK::SelectedGameProfile.CallFunctionByNameWithArguments = (DWORD64)MEM::GetAddressPTR(CallFunctionByNameWithArguments, 0x1, 0x5);
 				}
 				else
 				{
 					Log::Error_UML("CallFunctionByNameWithArguments NOT FOUND!");
 				}
 			}
-			Log::Info_UML("CallFunctionByNameWithArguments: 0x{0:x}", (void*)MDML::SelectedGameProfile.CallFunctionByNameWithArguments);
+			Log::Info_UML("CallFunctionByNameWithArguments: 0x{0:x}", (void*)SDK::SelectedGameProfile.CallFunctionByNameWithArguments);
 
 			auto ProcessEvent = Pattern::Find("75 0E ? ? ? 48 ? ? 48 ? ? E8 ? ? ? ? 48 8B ? 24 ? 48 8B ? 24 38 48 8B ? 24 40");
 			ProcessEvent += 0xB;
 			if (ProcessEvent != nullptr)
 			{
-				MDML::SelectedGameProfile.ProcessEvent = (DWORD64)MEM::GetAddressPTR(ProcessEvent, 0x1, 0x5);
-				Log::Info_UML("UObject::ProcessEvent: 0x{0:x}", (void*)MDML::SelectedGameProfile.ProcessEvent);
+				SDK::SelectedGameProfile.ProcessEvent = (DWORD64)MEM::GetAddressPTR(ProcessEvent, 0x1, 0x5);
+				Log::Info_UML("UObject::ProcessEvent: 0x{0:x}", (void*)SDK::SelectedGameProfile.ProcessEvent);
 			}
 			else
 			{
 				Log::Error_UML("ProcessEvent NOT FOUND!");
 			}
 
-			MDML::SelectedGameProfile.CreateDefaultObject = (DWORD64)Pattern::Find("4C 8B DC 57 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 84 24 ? ? ? ? 48 83 B9 ? ? ? ? ? 48 8B F9");
-			if (!MDML::SelectedGameProfile.CreateDefaultObject)
+			SDK::SelectedGameProfile.CreateDefaultObject = (DWORD64)Pattern::Find("4C 8B DC 57 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 84 24 ? ? ? ? 48 83 B9 ? ? ? ? ? 48 8B F9");
+			if (!SDK::SelectedGameProfile.CreateDefaultObject)
 			{
 				//FallBack 1
-				MDML::SelectedGameProfile.CreateDefaultObject = (DWORD64)Pattern::Find("4C 8B DC 55 53 49 8D AB ? ? ? ? 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 85 ? ? ? ? 48 83 B9 ? ? ? ? ? 48 8B D9 0F 85");
-				if (!MDML::SelectedGameProfile.CreateDefaultObject)
+				SDK::SelectedGameProfile.CreateDefaultObject = (DWORD64)Pattern::Find("4C 8B DC 55 53 49 8D AB ? ? ? ? 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 85 ? ? ? ? 48 83 B9 ? ? ? ? ? 48 8B D9 0F 85");
+				if (!SDK::SelectedGameProfile.CreateDefaultObject)
 				{
 					//FallBack 2
-					MDML::SelectedGameProfile.CreateDefaultObject = (DWORD64)Pattern::Find("4C 8B DC 53 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 84 24 ? ? ? ? 48 83 B9");
-					if (!MDML::SelectedGameProfile.CreateDefaultObject)
+					SDK::SelectedGameProfile.CreateDefaultObject = (DWORD64)Pattern::Find("4C 8B DC 53 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 84 24 ? ? ? ? 48 83 B9");
+					if (!SDK::SelectedGameProfile.CreateDefaultObject)
 					{
 						//Final FallBack
-						MDML::SelectedGameProfile.CreateDefaultObject = (DWORD64)Pattern::Find("4C 8B DC ?? ?? ?? ?? ?? ? ? ? ? ?? ?? ?? ? ? ? ? ?? ?? ?? ? ? ? ? ?? ?? ?? 48 ?? ?? ? ? ? ? ?? ?? ?? ? ? ? ? ? ?? ?? ?? ?? ?? ? ? ? ? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ? ? ? ? ?? 8B ?? ? ? ? ? ?? ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? ?? ? ? ? ? ?? ?? ?? ? ? ? ? ?? ?? ?? ?? ?? ?? ? ? ? ? ?? ?? ?? ?? ?? ? ? ? ? ?? ?? ? ? ? ? ?? ?? ?? 48");
-						if (!MDML::SelectedGameProfile.CreateDefaultObject)
+						SDK::SelectedGameProfile.CreateDefaultObject = (DWORD64)Pattern::Find("4C 8B DC ?? ?? ?? ?? ?? ? ? ? ? ?? ?? ?? ? ? ? ? ?? ?? ?? ? ? ? ? ?? ?? ?? 48 ?? ?? ? ? ? ? ?? ?? ?? ? ? ? ? ? ?? ?? ?? ?? ?? ? ? ? ? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ? ? ? ? ?? 8B ?? ? ? ? ? ?? ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? ?? ?? ? ? ? ? ?? ?? ?? ? ? ? ? ?? ?? ?? ?? ?? ?? ? ? ? ? ?? ?? ?? ?? ?? ? ? ? ? ?? ?? ? ? ? ? ?? ?? ?? 48");
+						if (!SDK::SelectedGameProfile.CreateDefaultObject)
 						{
-							MDML::SelectedGameProfile.bIsDefaultObjectArrayed = true;
+							SDK::SelectedGameProfile.bIsDefaultObjectArrayed = true;
 							Log::Warn_UML("CreateDefualtObject NOT FOUND!, Will Use Object Array Instead!");
 						}
 					}
 				}
 			}
-			Log::Info_UML("UClass::CreateDefualtObject: 0x{0:x}", (void*)MDML::SelectedGameProfile.CreateDefaultObject);
+			Log::Info_UML("UClass::CreateDefualtObject: 0x{0:x}", (void*)SDK::SelectedGameProfile.CreateDefaultObject);
 
-			MDML::SelectedGameProfile.StaticFindObject = (DWORD64)Pattern::Find("48 89 5C 24 ? 48 89 74 24 ? 55 57 41 54 41 56 41 57 48 8B EC 48 83 EC 70 80 3D ? ? ? ? ? 45 0F B6 F1 49 8B F8 48 8B DA 4C 8B F9 74 1D 4C 8D 05 ? ? ? ? BA ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? E8 ? ? ? ?");
-			Log::Info_UML("StaticFindObject: 0x{0:x}", (void*)MDML::SelectedGameProfile.StaticFindObject);
+			SDK::SelectedGameProfile.StaticFindObject = (DWORD64)Pattern::Find("48 89 5C 24 ? 48 89 74 24 ? 55 57 41 54 41 56 41 57 48 8B EC 48 83 EC 70 80 3D ? ? ? ? ? 45 0F B6 F1 49 8B F8 48 8B DA 4C 8B F9 74 1D 4C 8D 05 ? ? ? ? BA ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? E8 ? ? ? ?");
+			Log::Info_UML("StaticFindObject: 0x{0:x}", (void*)SDK::SelectedGameProfile.StaticFindObject);
 		}
 		if (GameInfo.select("ProcessInternalFunction"))
 		{
-			MDML::SelectedGameProfile.ProcessInternals = (DWORD64)Pattern::Find(GameInfo.get("ProcessInternalFunction", "ProcessInternal", "").c_str());
-			Log::Info_UML("ProcessInternalFunction: 0x{0:x}", MDML::SelectedGameProfile.ProcessInternals);
+			SDK::SelectedGameProfile.ProcessInternals = (DWORD64)Pattern::Find(GameInfo.get("ProcessInternalFunction", "ProcessInternal", "").c_str());
+			Log::Info_UML("ProcessInternalFunction: 0x{0:x}", SDK::SelectedGameProfile.ProcessInternals);
 		}
 		else
 		{
-			if (MDML::SelectedGameProfile.UsesFNamePool || MDML::SelectedGameProfile.IsUsing4_22)
+			if (SDK::SelectedGameProfile.UsesFNamePool || SDK::SelectedGameProfile.IsUsing4_22)
 			{
 				DWORD64 ProcessAddy = (DWORD64)Pattern::Find("41 F6 C7 02 74 ? 4C 8B C7 48 8B ? ? 8B ? E8");
 				if (ProcessAddy)
 				{
 					auto ProcessAddyOffset = *reinterpret_cast<uint32_t*>(ProcessAddy + 16);
-					MDML::SelectedGameProfile.ProcessInternals = (ProcessAddy + 20 + ProcessAddyOffset);
-					Log::Info_UML("ProcessInternalFunction: 0x{0:x}", MDML::SelectedGameProfile.ProcessInternals);
+					SDK::SelectedGameProfile.ProcessInternals = (ProcessAddy + 20 + ProcessAddyOffset);
+					Log::Info_UML("ProcessInternalFunction: 0x{0:x}", SDK::SelectedGameProfile.ProcessInternals);
 				}
 			}
 		}
 		if (GameInfo.select("StaticConstructObejct_InternalInfo"))
 		{
-			MDML::SelectedGameProfile.IsUsingUpdatedStaticConstruct = GameInfo.getAs<int>("StaticConstructObejct_InternalInfo", "IsUsingUpdatedStaticConstruct", 0);
-			MDML::SelectedGameProfile.StaticConstructObject_Internal = (DWORD64)Pattern::Find(GameInfo.get("StaticConstructObejct_InternalInfo", "StaticConstructObject_InternalFunction", "").c_str());
+			SDK::SelectedGameProfile.IsUsingUpdatedStaticConstruct = GameInfo.getAs<int>("StaticConstructObejct_InternalInfo", "IsUsingUpdatedStaticConstruct", 0);
+			SDK::SelectedGameProfile.StaticConstructObject_Internal = (DWORD64)Pattern::Find(GameInfo.get("StaticConstructObejct_InternalInfo", "StaticConstructObject_InternalFunction", "").c_str());
 		}
 		else
 		{
@@ -761,7 +757,7 @@ bool SetupProfile(const std::string& Path) {
 				}
 				else
 				{
-					MDML::SelectedGameProfile.IsUsingUpdatedStaticConstruct = true;
+					SDK::SelectedGameProfile.IsUsingUpdatedStaticConstruct = true;
 					StaticConstructObject_Internal = Pattern::Find("E8 ? ? ? ? 45 8B 47 70");
 					if (!StaticConstructObject_Internal)
 					{
@@ -777,37 +773,37 @@ bool SetupProfile(const std::string& Path) {
 					}
 				}
 			}
-			MDML::SelectedGameProfile.StaticConstructObject_Internal = (DWORD64)MEM::GetAddressPTR(StaticConstructObject_Internal, 0x1, 0x5);
-			Log::Info_UML("StaticConstructObject_Internal 0x{0:x}", MDML::SelectedGameProfile.StaticConstructObject_Internal);
+			SDK::SelectedGameProfile.StaticConstructObject_Internal = (DWORD64)MEM::GetAddressPTR(StaticConstructObject_Internal, 0x1, 0x5);
+			Log::Info_UML("StaticConstructObject_Internal 0x{0:x}", SDK::SelectedGameProfile.StaticConstructObject_Internal);
 		}
 		if (GameInfo.select("PakOverride")) {
-			MDML::SelectedGameProfile.bPakOverride = GameInfo.getAs<int>("PakOverride", "bPakOverride", 0);
-			if (MDML::SelectedGameProfile.bPakOverride) {
+			SDK::SelectedGameProfile.bPakOverride = GameInfo.getAs<int>("PakOverride", "bPakOverride", 0);
+			if (SDK::SelectedGameProfile.bPakOverride) {
 				if (GameInfo.getAs<int>("PakOverride", "IsFunctionPatterns", 0) == 0)
 				{
-					MDML::SelectedGameProfile.IsNonPakFilenameAllowed = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("PakOverride", "IsNonPakFilenameAllowed", ""));
-					MDML::SelectedGameProfile.FindFileInPakFiles = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("PakOverride", "FindFileInPakFiles", ""));
+					SDK::SelectedGameProfile.IsNonPakFilenameAllowed = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("PakOverride", "IsNonPakFilenameAllowed", ""));
+					SDK::SelectedGameProfile.FindFileInPakFiles = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("PakOverride", "FindFileInPakFiles", ""));
 					Log::Info_MDML("PakOverride Offsets Set!");
 				}
 				else
 				{
-					MDML::SelectedGameProfile.IsNonPakFilenameAllowed = (DWORD64)Pattern::Find(GameInfo.get("PakOverride", "IsNonPakFilenameAllowed", "").c_str());
-					MDML::SelectedGameProfile.FindFileInPakFiles = (DWORD64)Pattern::Find(GameInfo.get("PakOverride", "FindFileInPakFiles", "").c_str());
+					SDK::SelectedGameProfile.IsNonPakFilenameAllowed = (DWORD64)Pattern::Find(GameInfo.get("PakOverride", "IsNonPakFilenameAllowed", "").c_str());
+					SDK::SelectedGameProfile.FindFileInPakFiles = (DWORD64)Pattern::Find(GameInfo.get("PakOverride", "FindFileInPakFiles", "").c_str());
 					Log::Info_MDML("PakOverride Patterns Set!");
 				}
 			}
 			else {
-				MDML::SelectedGameProfile.IsNonPakFilenameAllowed = (DWORD64)Pattern::Find("48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC 30 48 8B F1 45 33 C0 48 8D 4C 24 ? 4C 8B F2 E8 ? ? ? ? 48 8D 2D ? ? ? ? 83 78 08 00 74 05 48 8B 10 EB 03");
-				MDML::SelectedGameProfile.FindFileInPakFiles = (DWORD64)Pattern::Find("48 8B C4 53 48 83 EC 50 48 89 68 10 48 89 70 18 33 F6 48 89 78 20 48 8B FA 4C 89 60 F0 8B D6 4C 89 68 E8 4D 8B E9 4C 89 78 D8 4C 8B F9 48 89 70 C8 8B CE 89 48 D4 4D 8B E0 89 50 D0 48 8D 6E FF 48 85 FF 74 56 66 39 0F 74 51 48 8B DD 0F 1F 00");
+				SDK::SelectedGameProfile.IsNonPakFilenameAllowed = (DWORD64)Pattern::Find("48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC 30 48 8B F1 45 33 C0 48 8D 4C 24 ? 4C 8B F2 E8 ? ? ? ? 48 8D 2D ? ? ? ? 83 78 08 00 74 05 48 8B 10 EB 03");
+				SDK::SelectedGameProfile.FindFileInPakFiles = (DWORD64)Pattern::Find("48 8B C4 53 48 83 EC 50 48 89 68 10 48 89 70 18 33 F6 48 89 78 20 48 8B FA 4C 89 60 F0 8B D6 4C 89 68 E8 4D 8B E9 4C 89 78 D8 4C 8B F9 48 89 70 C8 8B CE 89 48 D4 4D 8B E0 89 50 D0 48 8D 6E FF 48 85 FF 74 56 66 39 0F 74 51 48 8B DD 0F 1F 00");
 				Log::Info_MDML("PakOverride Patterns automaticly detected!");
 			}
-			Log::Info_MDML("IsNonPakFilenameAllowed: 0x{0:x}", MDML::SelectedGameProfile.IsNonPakFilenameAllowed);
-			if (!MDML::SelectedGameProfile.IsNonPakFilenameAllowed)
+			Log::Info_MDML("IsNonPakFilenameAllowed: 0x{0:x}", SDK::SelectedGameProfile.IsNonPakFilenameAllowed);
+			if (!SDK::SelectedGameProfile.IsNonPakFilenameAllowed)
 			{
 				Log::Error_MDML("IsNonPakFilenameAllowed NOT FOUND!");
 			}
-			Log::Info_MDML("FindFileInPakFiles: 0x{0:x}", MDML::SelectedGameProfile.FindFileInPakFiles);
-			if (!MDML::SelectedGameProfile.FindFileInPakFiles)
+			Log::Info_MDML("FindFileInPakFiles: 0x{0:x}", SDK::SelectedGameProfile.FindFileInPakFiles);
+			if (!SDK::SelectedGameProfile.FindFileInPakFiles)
 			{
 				Log::Error_MDML("FindFileInPakFiles NOT FOUND!");
 			}

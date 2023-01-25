@@ -1,8 +1,4 @@
 #pragma once
-#include <Windows.h>
-#include <vector>
-#include <string>
-#include <memory>
 #include "Core.h"
 
 #include <spdlog/spdlog.h>

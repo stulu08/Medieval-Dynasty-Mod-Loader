@@ -7,27 +7,6 @@
     <Filter Include="src\Mod">
       <UniqueIdentifier>{BC952FA9-2875-AE44-318D-391B9DEB14A6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\UE4">
-      <UniqueIdentifier>{2AB22FA9-9691-AE44-9FA9-391B0B0815A6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\UE4\Containers">
-      <UniqueIdentifier>{6F8603C9-5B6A-C41E-C4CA-BE71B0CDAEA0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\UE4\Engine">
-      <UniqueIdentifier>{6F4906F2-5B17-FAF7-44AB-6A1E3018D65C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\UE4\GameFramework">
-      <UniqueIdentifier>{E1124A14-4D7F-050F-1673-9D6C829E2777}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\UE4\Kismet">
-      <UniqueIdentifier>{2667B1FF-1235-A505-FBC8-152CE735816A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\UE4\Math">
-      <UniqueIdentifier>{4301465A-2F64-D5FE-D8E9-0DB5C42BA181}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\UE4\UObject">
-      <UniqueIdentifier>{A543C9B9-11CF-367E-1AE0-B97286EA927E}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\UI">
       <UniqueIdentifier>{3A4B661C-26ED-90F2-0FA8-A446FBE81743}</UniqueIdentifier>
     </Filter>
@@ -120,123 +99,6 @@
     <ClInclude Include="src\Mod\ModStack.h">
       <Filter>src\Mod</Filter>
     </ClInclude>
-    <ClInclude Include="src\UE4\Containers\Array.h">
-      <Filter>src\UE4\Containers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Containers\Pointers.h">
-      <Filter>src\UE4\Containers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Containers\String.h">
-      <Filter>src\UE4\Containers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Containers\Templates.h">
-      <Filter>src\UE4\Containers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Containers\Text.h">
-      <Filter>src\UE4\Containers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Engine\BlueprintGeneratedClass.h">
-      <Filter>src\UE4\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Engine\EngineTypes.h">
-      <Filter>src\UE4\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Engine\GameInstance.h">
-      <Filter>src\UE4\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Engine\Level.h">
-      <Filter>src\UE4\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Engine\UserDefinedEnum.h">
-      <Filter>src\UE4\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Engine\UserDefinedStruct.h">
-      <Filter>src\UE4\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Engine\World.h">
-      <Filter>src\UE4\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\GameFramework\Actor.h">
-      <Filter>src\UE4\GameFramework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\GameFramework\GameFrameworkTypes.h">
-      <Filter>src\UE4\GameFramework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\GameFramework\GameMode.h">
-      <Filter>src\UE4\GameFramework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\GameFramework\GameState.h">
-      <Filter>src\UE4\GameFramework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\GameFramework\Pawn.h">
-      <Filter>src\UE4\GameFramework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\GameFramework\PlayerController.h">
-      <Filter>src\UE4\GameFramework</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Kismet\BlueprintFunctionLibrary.h">
-      <Filter>src\UE4\Kismet</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Kismet\GameplayStatics.h">
-      <Filter>src\UE4\Kismet</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Math\Box.h">
-      <Filter>src\UE4\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Math\Color.h">
-      <Filter>src\UE4\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Math\InterpCurve.h">
-      <Filter>src\UE4\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Math\Plane.h">
-      <Filter>src\UE4\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Math\Quat.h">
-      <Filter>src\UE4\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Math\Rotator.h">
-      <Filter>src\UE4\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Math\Transform.h">
-      <Filter>src\UE4\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Math\UnrealMathUtility.h">
-      <Filter>src\UE4\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Math\Vector.h">
-      <Filter>src\UE4\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Math\Vector2.h">
-      <Filter>src\UE4\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Math\Vector4.h">
-      <Filter>src\UE4\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\UObject\Class.h">
-      <Filter>src\UE4\UObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\UObject\CoreTypes.h">
-      <Filter>src\UE4\UObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\UObject\NamePool.h">
-      <Filter>src\UE4\UObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\UObject\Object.h">
-      <Filter>src\UE4\UObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\UObject\ObjectsArray.h">
-      <Filter>src\UE4\UObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\UObject\Stack.h">
-      <Filter>src\UE4\UObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\UObject\UnrealType.h">
-      <Filter>src\UE4\UObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Ue4.hpp">
-      <Filter>src\UE4</Filter>
-    </ClInclude>
     <ClInclude Include="src\UI\ImGuiColorTextEdit\TextEditor.h">
       <Filter>src\UI\ImGuiColorTextEdit</Filter>
     </ClInclude>
@@ -262,9 +124,6 @@
       <Filter>src\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="src\Utilities\MinHook.h">
-      <Filter>src\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Utilities\NameValidator.h">
       <Filter>src\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="src\Utilities\Pattern.h">
@@ -1454,30 +1313,6 @@
     <ClCompile Include="src\Mod\ModStack.cpp">
       <Filter>src\Mod</Filter>
     </ClCompile>
-    <ClCompile Include="src\UE4\Engine\UserDefinedEnum.cpp">
-      <Filter>src\UE4\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\Engine\World.cpp">
-      <Filter>src\UE4\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\GameFramework\Actor.cpp">
-      <Filter>src\UE4\GameFramework</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\Kismet\GameplayStatics.cpp">
-      <Filter>src\UE4\Kismet</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\UObject\Class.cpp">
-      <Filter>src\UE4\UObject</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\UObject\CoreTypes.cpp">
-      <Filter>src\UE4\UObject</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\UObject\Object.cpp">
-      <Filter>src\UE4\UObject</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\UObject\UnrealType.cpp">
-      <Filter>src\UE4\UObject</Filter>
-    </ClCompile>
     <ClCompile Include="src\UI\ImGuiColorTextEdit\TextEditor.cpp">
       <Filter>src\UI\ImGuiColorTextEdit</Filter>
     </ClCompile>
@@ -1494,12 +1329,6 @@
       <Filter>src\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="src\Utilities\Logger.cpp">
-      <Filter>src\Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utilities\Memory.cpp">
-      <Filter>src\Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utilities\NameValidator.cpp">
       <Filter>src\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="src\dllmain.cpp">

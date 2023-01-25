@@ -41,7 +41,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>NDEBUG;EXAMPLEMOD_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ModLoader\vendor\spdlog;..\ModLoader\vendor\MinHook;..\ModLoader\src;..\ModLoader\vendor\INI;..\ModLoader\vendor\glm;..\ModLoader\vendor\ImGui;..\BaseMod\src;..\ModLoader\src\UE4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ModLoader\vendor\spdlog;..\ModLoader\vendor\MinHook;..\ModLoader\src;..\ModLoader\vendor\INI;..\ModLoader\vendor\glm;..\ModLoader\vendor\ImGui;..\BaseMod\src;..\SDK\src\UE4;..\SDK\src;..\SDK\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -67,24 +67,21 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\ModLoader\src\UE4\Ue4.hpp" />
     <ClInclude Include="ExampleMod.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\ModLoader\src\UE4\Engine\UserDefinedEnum.cpp" />
-    <ClCompile Include="..\ModLoader\src\UE4\Engine\World.cpp" />
-    <ClCompile Include="..\ModLoader\src\UE4\GameFramework\Actor.cpp" />
-    <ClCompile Include="..\ModLoader\src\UE4\Kismet\GameplayStatics.cpp" />
-    <ClCompile Include="..\ModLoader\src\UE4\UObject\Class.cpp" />
-    <ClCompile Include="..\ModLoader\src\UE4\UObject\CoreTypes.cpp" />
-    <ClCompile Include="..\ModLoader\src\UE4\UObject\Object.cpp" />
-    <ClCompile Include="..\ModLoader\src\UE4\UObject\UnrealType.cpp" />
     <ClCompile Include="ExampleMod.cpp" />
     <ClCompile Include="dllmain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaseMod\BaseMod.vcxproj">
       <Project>{A066E1C6-0C46-6062-155E-EB3881BCC6C3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\SDK\SDK.vcxproj">
+      <Project>{071D880B-7326-887C-FCA1-9E7C68AA937C}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\LoaderAutoInjector\LoaderAutoInjector.vcxproj">
+      <Project>{33873803-1F6B-F958-88CB-F3AB74CEE3DA}</Project>
     </ProjectReference>
     <ProjectReference Include="..\ModLoader\MedievalDynastyModLoader.vcxproj">
       <Project>{0F4A9865-FB6E-E7E5-24BA-CC75103EE603}</Project>

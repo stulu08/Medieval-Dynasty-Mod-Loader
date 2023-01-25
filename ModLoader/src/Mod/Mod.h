@@ -1,13 +1,12 @@
 #pragma once
 #include "Utilities/Logger.h"
 #include "Utilities/Math.h"
-
 #include "UI/LoaderUI.h"
-
-#include "UE4/Ue4.hpp"
-
+#include "MDML.h"
 #include "GameInfo.h"
 #include "Globals.h"
+
+#include "UE4.h"
 
 class LOADER_API Mod
 {

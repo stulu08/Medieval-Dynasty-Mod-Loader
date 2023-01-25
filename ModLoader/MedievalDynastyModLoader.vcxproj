@@ -42,7 +42,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>NDEBUG;UNREALENGINEMODLOADER_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog;vendor\MinHook;src;vendor\INI;vendor\glm;vendor\ImGui;src\UE4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog;vendor\MinHook;src;vendor\INI;vendor\glm;vendor\ImGui;..\SDK\src\UE4;..\SDK\src;..\SDK\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -76,45 +76,6 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClInclude Include="src\Mod\Mod.h" />
     <ClInclude Include="src\Mod\ModLoader.h" />
     <ClInclude Include="src\Mod\ModStack.h" />
-    <ClInclude Include="src\UE4\Containers\Array.h" />
-    <ClInclude Include="src\UE4\Containers\Pointers.h" />
-    <ClInclude Include="src\UE4\Containers\String.h" />
-    <ClInclude Include="src\UE4\Containers\Templates.h" />
-    <ClInclude Include="src\UE4\Containers\Text.h" />
-    <ClInclude Include="src\UE4\Engine\BlueprintGeneratedClass.h" />
-    <ClInclude Include="src\UE4\Engine\EngineTypes.h" />
-    <ClInclude Include="src\UE4\Engine\GameInstance.h" />
-    <ClInclude Include="src\UE4\Engine\Level.h" />
-    <ClInclude Include="src\UE4\Engine\UserDefinedEnum.h" />
-    <ClInclude Include="src\UE4\Engine\UserDefinedStruct.h" />
-    <ClInclude Include="src\UE4\Engine\World.h" />
-    <ClInclude Include="src\UE4\GameFramework\Actor.h" />
-    <ClInclude Include="src\UE4\GameFramework\GameFrameworkTypes.h" />
-    <ClInclude Include="src\UE4\GameFramework\GameMode.h" />
-    <ClInclude Include="src\UE4\GameFramework\GameState.h" />
-    <ClInclude Include="src\UE4\GameFramework\Pawn.h" />
-    <ClInclude Include="src\UE4\GameFramework\PlayerController.h" />
-    <ClInclude Include="src\UE4\Kismet\BlueprintFunctionLibrary.h" />
-    <ClInclude Include="src\UE4\Kismet\GameplayStatics.h" />
-    <ClInclude Include="src\UE4\Math\Box.h" />
-    <ClInclude Include="src\UE4\Math\Color.h" />
-    <ClInclude Include="src\UE4\Math\InterpCurve.h" />
-    <ClInclude Include="src\UE4\Math\Plane.h" />
-    <ClInclude Include="src\UE4\Math\Quat.h" />
-    <ClInclude Include="src\UE4\Math\Rotator.h" />
-    <ClInclude Include="src\UE4\Math\Transform.h" />
-    <ClInclude Include="src\UE4\Math\UnrealMathUtility.h" />
-    <ClInclude Include="src\UE4\Math\Vector.h" />
-    <ClInclude Include="src\UE4\Math\Vector2.h" />
-    <ClInclude Include="src\UE4\Math\Vector4.h" />
-    <ClInclude Include="src\UE4\UObject\Class.h" />
-    <ClInclude Include="src\UE4\UObject\CoreTypes.h" />
-    <ClInclude Include="src\UE4\UObject\NamePool.h" />
-    <ClInclude Include="src\UE4\UObject\Object.h" />
-    <ClInclude Include="src\UE4\UObject\ObjectsArray.h" />
-    <ClInclude Include="src\UE4\UObject\Stack.h" />
-    <ClInclude Include="src\UE4\UObject\UnrealType.h" />
-    <ClInclude Include="src\UE4\Ue4.hpp" />
     <ClInclude Include="src\UI\ImGuiColorTextEdit\TextEditor.h" />
     <ClInclude Include="src\UI\LoaderUI.h" />
     <ClInclude Include="src\Utilities\Dumper.h" />
@@ -124,7 +85,6 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClInclude Include="src\Utilities\Math.h" />
     <ClInclude Include="src\Utilities\Memory.h" />
     <ClInclude Include="src\Utilities\MinHook.h" />
-    <ClInclude Include="src\Utilities\NameValidator.h" />
     <ClInclude Include="src\Utilities\Pattern.h" />
     <ClInclude Include="vendor\INI\INI.h" />
     <ClInclude Include="vendor\ImGui\imgui\imconfig.h" />
@@ -524,38 +484,12 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClCompile Include="src\Mod\Mod.cpp" />
     <ClCompile Include="src\Mod\ModLoader.cpp" />
     <ClCompile Include="src\Mod\ModStack.cpp" />
-    <ClCompile Include="src\UE4\Engine\UserDefinedEnum.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\UE4\Engine\World.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\UE4\GameFramework\Actor.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\UE4\Kismet\GameplayStatics.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\UE4\UObject\Class.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\UE4\UObject\CoreTypes.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\UE4\UObject\Object.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\UE4\UObject\UnrealType.cpp">
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
     <ClCompile Include="src\UI\ImGuiColorTextEdit\TextEditor.cpp" />
     <ClCompile Include="src\UI\LoaderUI.cpp" />
     <ClCompile Include="src\Utilities\Dumper.cpp" />
     <ClCompile Include="src\Utilities\EngineDefFinder.cpp" />
     <ClCompile Include="src\Utilities\HooksManager.cpp" />
     <ClCompile Include="src\Utilities\Logger.cpp" />
-    <ClCompile Include="src\Utilities\Memory.cpp" />
-    <ClCompile Include="src\Utilities\NameValidator.cpp" />
     <ClCompile Include="src\dllmain.cpp" />
     <ClCompile Include="vendor\ImGui\imgui\imgui.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -584,6 +518,14 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClCompile Include="vendor\glm\glm\detail\glm.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SDK\SDK.vcxproj">
+      <Project>{071D880B-7326-887C-FCA1-9E7C68AA937C}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\LoaderAutoInjector\LoaderAutoInjector.vcxproj">
+      <Project>{33873803-1F6B-F958-88CB-F3AB74CEE3DA}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

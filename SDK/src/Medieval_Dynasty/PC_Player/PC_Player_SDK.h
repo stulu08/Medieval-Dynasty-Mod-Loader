@@ -1,0 +1,13 @@
+#pragma once
+/////////////////////////////////////////////
+// Package PC_Player
+// Classes: 1
+// Enums: 0
+// Structs: 0
+// Objects: 220
+/////////////////////////////////////////////
+
+
+#include "Structs.h"
+
+#include "PC_Player_C.h"
