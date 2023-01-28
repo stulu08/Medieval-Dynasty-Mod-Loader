@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/PropertyBinding.h"
 /////////////////////////////////////////////
 // Class UMG.TextBinding
@@ -21,9 +20,9 @@ public:
 	}
 
 #pragma region Functions
-	struct FString GetStringValue() const;
+	struct FString GetStringValue()/* const*/;
 
-	struct FText GetTextValue() const;
+	struct FText GetTextValue()/* const*/;
 
 #pragma endregion
 };

@@ -118,6 +118,7 @@ public:
 	DWORD64 CreateDefaultObject = 0x0;
 	DWORD64 GameStateInit = 0x0;
 	DWORD64 BeginPlay = 0x0;
+	DWORD64 Tick = 0x0;
 	DWORD64 StaticLoadObject = 0x0;
 	DWORD64 StaticFindObject = 0x0;
 	DWORD64 SpawnActorFTrans = 0x0;

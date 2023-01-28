@@ -1,5 +1,5 @@
 #pragma once
-#include "Containers/Pointers.h"
+#include "CoreTypes.h"
 #include "Object.h"
 
 namespace UE4 {
@@ -95,7 +95,7 @@ namespace UE4 {
 			}
 		}
 
-		static UClass* LoadClassFromString(const wchar_t* InName, bool bAllowObjectReconciliation);
+		static UClass* LoadClassFromString(const wchar_t* InName, bool bAllowObjectReconciliation = false);
 
 	};
 	template<class TClass>
@@ -113,6 +113,14 @@ namespace UE4 {
 	private:
 		UClass* Class;
 	};
+	class FScriptInterface {
+		UObject* ObjectPointer;
+		void* InterfacePointer;
+	};
+	template<class InterfaceType> 
+	class TScriptInterface : public FScriptInterface
+	{ };
+
 	class UFunction : public UStruct
 	{
 	public:

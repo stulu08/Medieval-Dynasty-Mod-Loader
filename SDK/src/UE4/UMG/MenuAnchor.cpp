@@ -145,7 +145,7 @@ void UMenuAnchor::FitInWindow(bool bFit) {
 // Params:
 // Name: ReturnValue	Type: struct FVector2D	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FVector2D UMenuAnchor::GetMenuPosition() const {
+struct FVector2D UMenuAnchor::GetMenuPosition()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.MenuAnchor.GetMenuPosition");
 
 	struct UMenuAnchor_GetMenuPosition_Params {
@@ -191,7 +191,7 @@ class UUserWidget* UMenuAnchor::GetUserWidget__DelegateSignature() {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UMenuAnchor::HasOpenSubMenus() const {
+bool UMenuAnchor::HasOpenSubMenus()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.MenuAnchor.HasOpenSubMenus");
 
 	struct UMenuAnchor_HasOpenSubMenus_Params {
@@ -216,7 +216,7 @@ bool UMenuAnchor::HasOpenSubMenus() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UMenuAnchor::IsOpen() const {
+bool UMenuAnchor::IsOpen()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.MenuAnchor.IsOpen");
 
 	struct UMenuAnchor_IsOpen_Params {
@@ -291,7 +291,7 @@ void UMenuAnchor::SetPlacement(TEnumAsByte<EMenuPlacement> InPlacement) {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UMenuAnchor::ShouldOpenDueToClick() const {
+bool UMenuAnchor::ShouldOpenDueToClick()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.MenuAnchor.ShouldOpenDueToClick");
 
 	struct UMenuAnchor_ShouldOpenDueToClick_Params {

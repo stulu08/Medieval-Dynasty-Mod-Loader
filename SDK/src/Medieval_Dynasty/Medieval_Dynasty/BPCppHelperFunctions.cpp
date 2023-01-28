@@ -13,7 +13,7 @@ namespace UE4 {
 // Name: PlaceRotation	Type: struct FRotator	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UBPCppHelperFunctions::AdjustTeleportLocation(const class AActor* TestActor, struct FVector* PlaceLocation, struct FRotator PlaceRotation) {
+bool UBPCppHelperFunctions::AdjustTeleportLocation(class AActor* TestActor, struct FVector* PlaceLocation, struct FRotator PlaceRotation) {
 	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppHelperFunctions.AdjustTeleportLocation");
 
 	struct UBPCppHelperFunctions_AdjustTeleportLocation_Params {
@@ -49,7 +49,7 @@ bool UBPCppHelperFunctions::AdjustTeleportLocation(const class AActor* TestActor
 // Name: Actor	Type: class AActor*	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float UBPCppHelperFunctions::AngleBetweenCameraAndActor(const class APlayerCameraManager* PlayerCameraMan, class AActor* Actor) {
+float UBPCppHelperFunctions::AngleBetweenCameraAndActor(class APlayerCameraManager* PlayerCameraMan, class AActor* Actor) {
 	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppHelperFunctions.AngleBetweenCameraAndActor");
 
 	struct UBPCppHelperFunctions_AngleBetweenCameraAndActor_Params {
@@ -794,7 +794,7 @@ void UBPCppHelperFunctions::SetAnimalRotation(class UCharacterMovementComponent*
 // Name: Mesh	Type: class USkinnedMeshComponent*	Flags: Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: LodToSkipSettings	Type: TMap<int32_t, int32_t>	Flags: ConstParm, Parm, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UBPCppHelperFunctions::SetAnimUpdateRateParams(class USkinnedMeshComponent* Mesh, const TMap<int32_t, int32_t> LodToSkipSettings) {
+void UBPCppHelperFunctions::SetAnimUpdateRateParams(class USkinnedMeshComponent* Mesh, TMap<int32_t, int32_t> LodToSkipSettings) {
 	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppHelperFunctions.SetAnimUpdateRateParams");
 
 	struct UBPCppHelperFunctions_SetAnimUpdateRateParams_Params {
@@ -824,7 +824,7 @@ void UBPCppHelperFunctions::SetAnimUpdateRateParams(class USkinnedMeshComponent*
 // Name: Mesh	Type: class USkinnedMeshComponent*	Flags: Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ScreenSizes	Type: TArray<float>	Flags: ConstParm, Parm, ZeroConstructor, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UBPCppHelperFunctions::SetAnimUpdateRateParamsScreenSize(class USkinnedMeshComponent* Mesh, const TArray<float> ScreenSizes) {
+void UBPCppHelperFunctions::SetAnimUpdateRateParamsScreenSize(class USkinnedMeshComponent* Mesh, TArray<float> ScreenSizes) {
 	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppHelperFunctions.SetAnimUpdateRateParamsScreenSize");
 
 	struct UBPCppHelperFunctions_SetAnimUpdateRateParamsScreenSize_Params {
@@ -904,7 +904,7 @@ void UBPCppHelperFunctions::SetCharacterRotation(class UCharacterMovementCompone
 // Name: Controller	Type: class APlayerController*	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ConstraintMode	Type: TEnumAsByte<EAspectRatioAxisConstraint>	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UBPCppHelperFunctions::SetCurrentAspectRatioConstraint(class APlayerController* Controller, const TEnumAsByte<EAspectRatioAxisConstraint> ConstraintMode) {
+void UBPCppHelperFunctions::SetCurrentAspectRatioConstraint(class APlayerController* Controller, TEnumAsByte<EAspectRatioAxisConstraint> ConstraintMode) {
 	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppHelperFunctions.SetCurrentAspectRatioConstraint");
 
 	struct UBPCppHelperFunctions_SetCurrentAspectRatioConstraint_Params {
@@ -935,7 +935,7 @@ void UBPCppHelperFunctions::SetCurrentAspectRatioConstraint(class APlayerControl
 // Name: PerPlatformMinLods	Type: TMap<struct FName, int32_t>	Flags: ConstParm, Parm, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UBPCppHelperFunctions::SetMinimumLODForPlatforms(class UStaticMesh* Mesh, const TMap<struct FName, int32_t> PerPlatformMinLods) {
+bool UBPCppHelperFunctions::SetMinimumLODForPlatforms(class UStaticMesh* Mesh, TMap<struct FName, int32_t> PerPlatformMinLods) {
 	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppHelperFunctions.SetMinimumLODForPlatforms");
 
 	struct UBPCppHelperFunctions_SetMinimumLODForPlatforms_Params {
@@ -968,7 +968,7 @@ bool UBPCppHelperFunctions::SetMinimumLODForPlatforms(class UStaticMesh* Mesh, c
 // Name: PerPlatformMinLods	Type: TMap<struct FName, int32_t>	Flags: ConstParm, Parm, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UBPCppHelperFunctions::SetMinimumLODForPlatformsForSkeletals(class USkeletalMesh* Mesh, const TMap<struct FName, int32_t> PerPlatformMinLods) {
+bool UBPCppHelperFunctions::SetMinimumLODForPlatformsForSkeletals(class USkeletalMesh* Mesh, TMap<struct FName, int32_t> PerPlatformMinLods) {
 	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppHelperFunctions.SetMinimumLODForPlatformsForSkeletals");
 
 	struct UBPCppHelperFunctions_SetMinimumLODForPlatformsForSkeletals_Params {

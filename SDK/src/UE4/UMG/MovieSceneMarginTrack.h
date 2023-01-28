@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "MovieSceneTracks/MovieScenePropertyTrack.h"
 /////////////////////////////////////////////
 // Class UMG.MovieSceneMarginTrack

@@ -1,11 +1,46 @@
 #pragma once
 #include "ObjectsArray.h"
 #include "NamePool.h"
-#include "CoreTypes.h"
 
 namespace UE4 {
 	class UPackage;
 	class UClass;
+	enum class ELoadFlags : uint32_t
+	{
+		None = 0x00000000,
+		Async = 0x00000001,
+		NoWarn = 0x00000002,
+		EditorOnly = 0x00000004,
+		ResolvingDeferredExports = 0x00000008,
+		Verify = 0x00000010,
+		AllowDll = 0x00000020,
+		NoVerify = 0x00000080,
+		IsVerifying = 0x00000100,
+		DisableDependencyPreloading = 0x00001000,
+		Quiet = 0x00002000,
+		FindIfFail = 0x00004000,
+		MemoryReader = 0x00008000,
+		NoRedirects = 0x00010000,
+		ForDiff = 0x00020000,
+		PackageForPIE = 0x00080000,
+		DeferDependencyLoads = 0x00100000,
+		ForFileDiff = 0x00200000,
+		DisableCompileOnLoad = 0x00400000,
+	};
+	enum class EInternalObjectFlags
+	{
+		None = 0,
+		ReachableInCluster = 1 << 23,
+		ClusterRoot = 1 << 24,
+		Native = 1 << 25,
+		Async = 1 << 26,
+		AsyncLoading = 1 << 27,
+		Unreachable = 1 << 28,
+		PendingKill = 1 << 29,
+		RootSet = 1 << 30,
+		GarbageCollectionKeepFlags = Native | Async | AsyncLoading,
+		AllFlags = ReachableInCluster | ClusterRoot | Native | Async | AsyncLoading | Unreachable | PendingKill | RootSet,
+	};
 	class UObject
 	{
 	public:
@@ -218,6 +253,7 @@ namespace UE4 {
 		static UClass* FindClass(const std::string& name);
 
 		bool IsA(UClass* cmp) const;
+		bool IsAByName(const std::string& fullName) const;
 
 		static UClass* StaticClass()
 		{
@@ -307,5 +343,4 @@ namespace UE4 {
 			return ptr;
 		}
 	};
-
 }

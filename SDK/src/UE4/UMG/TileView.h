@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/ListView.h"
 /////////////////////////////////////////////
 // Class UMG.TileView
@@ -41,9 +40,9 @@ public:
 	}
 
 #pragma region Functions
-	float GetEntryHeight() const;
+	float GetEntryHeight()/* const*/;
 
-	float GetEntryWidth() const;
+	float GetEntryWidth()/* const*/;
 
 	void SetEntryHeight(float NewHeight);
 

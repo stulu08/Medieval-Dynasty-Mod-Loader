@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/Widget.h"
 /////////////////////////////////////////////
 // Class UMG.UserWidget
@@ -154,31 +153,31 @@ public:
 
 	void FlushAnimations();
 
-	struct FVector2D GetAlignmentInViewport() const;
+	struct FVector2D GetAlignmentInViewport()/* const*/;
 
-	struct FAnchors GetAnchorsInViewport() const;
+	struct FAnchors GetAnchorsInViewport()/* const*/;
 
-	float GetAnimationCurrentTime(const class UWidgetAnimation* InAnimation) const;
+	float GetAnimationCurrentTime(class UWidgetAnimation* InAnimation)/* const*/;
 
-	bool GetIsVisible() const;
+	bool GetIsVisible()/* const*/;
 
-	class APlayerCameraManager* GetOwningPlayerCameraManager() const;
+	class APlayerCameraManager* GetOwningPlayerCameraManager()/* const*/;
 
-	class APawn* GetOwningPlayerPawn() const;
+	class APawn* GetOwningPlayerPawn()/* const*/;
 
-	bool IsAnimationPlaying(const class UWidgetAnimation* InAnimation) const;
+	bool IsAnimationPlaying(class UWidgetAnimation* InAnimation)/* const*/;
 
-	bool IsAnimationPlayingForward(const class UWidgetAnimation* InAnimation);
+	bool IsAnimationPlayingForward(class UWidgetAnimation* InAnimation);
 
-	bool IsAnyAnimationPlaying() const;
+	bool IsAnyAnimationPlaying()/* const*/;
 
-	bool IsInteractable() const;
+	bool IsInteractable()/* const*/;
 
-	bool IsInViewport() const;
+	bool IsInViewport()/* const*/;
 
-	bool IsListeningForInputAction(struct FName ActionName) const;
+	bool IsListeningForInputAction(struct FName ActionName)/* const*/;
 
-	bool IsPlayingAnimation() const;
+	bool IsPlayingAnimation()/* const*/;
 
 	void ListenForInputAction(struct FName ActionName, TEnumAsByte<EInputEvent> EventType, bool bConsume, struct FScriptDelegate Callback);
 
@@ -186,9 +185,9 @@ public:
 
 	struct FEventReply OnAnalogValueChanged(struct FGeometry MyGeometry, struct FAnalogInputEvent InAnalogInputEvent);
 
-	void OnAnimationFinished(const class UWidgetAnimation* Animation);
+	void OnAnimationFinished(class UWidgetAnimation* Animation);
 
-	void OnAnimationStarted(const class UWidgetAnimation* Animation);
+	void OnAnimationStarted(class UWidgetAnimation* Animation);
 
 	void OnDragCancelled(const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation);
 
@@ -232,7 +231,7 @@ public:
 
 	struct FEventReply OnMouseWheel(struct FGeometry MyGeometry, const struct FPointerEvent& MouseEvent);
 
-	void OnPaint(struct FPaintContext* Context) const;
+	void OnPaint(struct FPaintContext* Context)/* const*/;
 
 	struct FEventReply OnPreviewKeyDown(struct FGeometry MyGeometry, struct FKeyEvent InKeyEvent);
 
@@ -250,7 +249,7 @@ public:
 
 	struct FEventReply OnTouchStarted(struct FGeometry MyGeometry, const struct FPointerEvent& InTouchEvent);
 
-	float PauseAnimation(const class UWidgetAnimation* InAnimation);
+	float PauseAnimation(class UWidgetAnimation* InAnimation);
 
 	class UUMGSequencePlayer* PlayAnimation(class UWidgetAnimation* InAnimation, float StartAtTime, int32_t NumLoopsToPlay, TEnumAsByte<EUMGSequencePlayMode> PlayMode, float PlaybackSpeed, bool bRestoreState);
 
@@ -268,13 +267,13 @@ public:
 
 	void RemoveFromViewport();
 
-	void ReverseAnimation(const class UWidgetAnimation* InAnimation);
+	void ReverseAnimation(class UWidgetAnimation* InAnimation);
 
 	void SetAlignmentInViewport(struct FVector2D Alignment);
 
 	void SetAnchorsInViewport(struct FAnchors Anchors);
 
-	void SetAnimationCurrentTime(const class UWidgetAnimation* InAnimation, float InTime);
+	void SetAnimationCurrentTime(class UWidgetAnimation* InAnimation, float InTime);
 
 	void SetColorAndOpacity(struct FLinearColor InColorAndOpacity);
 
@@ -286,19 +285,19 @@ public:
 
 	void SetInputActionPriority(int32_t NewPriority);
 
-	void SetNumLoopsToPlay(const class UWidgetAnimation* InAnimation, int32_t NumLoopsToPlay);
+	void SetNumLoopsToPlay(class UWidgetAnimation* InAnimation, int32_t NumLoopsToPlay);
 
 	void SetOwningPlayer(class APlayerController* LocalPlayerController);
 
 	void SetPadding(struct FMargin InPadding);
 
-	void SetPlaybackSpeed(const class UWidgetAnimation* InAnimation, float PlaybackSpeed);
+	void SetPlaybackSpeed(class UWidgetAnimation* InAnimation, float PlaybackSpeed);
 
 	void SetPositionInViewport(struct FVector2D Position, bool bRemoveDPIScale);
 
 	void StopAllAnimations();
 
-	void StopAnimation(const class UWidgetAnimation* InAnimation);
+	void StopAnimation(class UWidgetAnimation* InAnimation);
 
 	void StopAnimationsAndLatentActions();
 

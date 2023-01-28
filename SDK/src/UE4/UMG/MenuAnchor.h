@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/ContentWidget.h"
 /////////////////////////////////////////////
 // Class UMG.MenuAnchor
@@ -65,19 +64,19 @@ public:
 
 	void FitInWindow(bool bFit);
 
-	struct FVector2D GetMenuPosition() const;
+	struct FVector2D GetMenuPosition()/* const*/;
 
 	class UUserWidget* GetUserWidget__DelegateSignature();
 
-	bool HasOpenSubMenus() const;
+	bool HasOpenSubMenus()/* const*/;
 
-	bool IsOpen() const;
+	bool IsOpen()/* const*/;
 
 	void Open(bool bFocusMenu);
 
 	void SetPlacement(TEnumAsByte<EMenuPlacement> InPlacement);
 
-	bool ShouldOpenDueToClick() const;
+	bool ShouldOpenDueToClick()/* const*/;
 
 	void ToggleOpen(bool bFocusOnOpen);
 

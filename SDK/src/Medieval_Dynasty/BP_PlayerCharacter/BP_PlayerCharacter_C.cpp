@@ -5088,62 +5088,8 @@ void ABP_PlayerCharacter_C::GetCameraViewDirection_BPI(struct FVector* Forward) 
 }
 
 /////////////////////////////////////////////
-// ComponentDelegateBinding BP_PlayerCharacter.BP_PlayerCharacter_C.ComponentDelegateBinding_1
-// Flags: 
-// Params:
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::ComponentDelegateBinding_1() {
-	static auto fn = UObject::FindObject<UFunction>("ComponentDelegateBinding BP_PlayerCharacter.BP_PlayerCharacter_C.ComponentDelegateBinding_1");
-
-	struct ABP_PlayerCharacter_C_ComponentDelegateBinding_1_Params {
-	};
-	ABP_PlayerCharacter_C_ComponentDelegateBinding_1_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// CurveFloat BP_PlayerCharacter.BP_PlayerCharacter_C.CurveFloat_1
-// Flags: 
-// Params:
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::CurveFloat_1() {
-	static auto fn = UObject::FindObject<UFunction>("CurveFloat BP_PlayerCharacter.BP_PlayerCharacter_C.CurveFloat_1");
-
-	struct ABP_PlayerCharacter_C_CurveFloat_1_Params {
-	};
-	ABP_PlayerCharacter_C_CurveFloat_1_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// CurveFloat BP_PlayerCharacter.BP_PlayerCharacter_C.CurveFloat_1_3
-// Flags: 
-// Params:
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::CurveFloat_1_3() {
-	static auto fn = UObject::FindObject<UFunction>("CurveFloat BP_PlayerCharacter.BP_PlayerCharacter_C.CurveFloat_1_3");
-
-	struct ABP_PlayerCharacter_C_CurveFloat_1_3_Params {
-	};
-	ABP_PlayerCharacter_C_CurveFloat_1_3_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
 // InheritableComponentHandler BP_PlayerCharacter.BP_PlayerCharacter_C.InheritableComponentHandler
-// Flags: Final, RequiredAPI, BlueprintAuthorityOnly, BlueprintCosmetic
+// Flags: Final, RequiredAPI, BlueprintAuthorityOnly, BlueprintCosmetic, Net, NetReliable, NetRequest, Exec, Native, Event, NetResponse, Static, NetMulticast, MulticastDelegate, Public, Private, Protected, Delegate, NetServer, HasOutParms
 // Params:
 /////////////////////////////////////////////
 void ABP_PlayerCharacter_C::InheritableComponentHandler() {
@@ -5154,61 +5100,13 @@ void ABP_PlayerCharacter_C::InheritableComponentHandler() {
 	ABP_PlayerCharacter_C_InheritableComponentHandler_Params params;
 
 	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
 
-}
+	static auto Obj = StaticClass()->CreateDefaultObject();
+	Obj->ProcessEvent(fn, &params);
 
-/////////////////////////////////////////////
-// InputKeyDelegateBinding BP_PlayerCharacter.BP_PlayerCharacter_C.InputKeyDelegateBinding_1
-// Flags: 
-// Params:
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::InputKeyDelegateBinding_1() {
-	static auto fn = UObject::FindObject<UFunction>("InputKeyDelegateBinding BP_PlayerCharacter.BP_PlayerCharacter_C.InputKeyDelegateBinding_1");
-
-	struct ABP_PlayerCharacter_C_InputKeyDelegateBinding_1_Params {
-	};
-	ABP_PlayerCharacter_C_InputKeyDelegateBinding_1_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// TimelineTemplate BP_PlayerCharacter.BP_PlayerCharacter_C.CameraLerp_Template
-// Flags: 
-// Params:
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::CameraLerp_Template() {
-	static auto fn = UObject::FindObject<UFunction>("TimelineTemplate BP_PlayerCharacter.BP_PlayerCharacter_C.CameraLerp_Template");
-
-	struct ABP_PlayerCharacter_C_CameraLerp_Template_Params {
-	};
-	ABP_PlayerCharacter_C_CameraLerp_Template_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// TimelineTemplate BP_PlayerCharacter.BP_PlayerCharacter_C.FOV_Template
-// Flags: 
-// Params:
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::FOV_Template() {
-	static auto fn = UObject::FindObject<UFunction>("TimelineTemplate BP_PlayerCharacter.BP_PlayerCharacter_C.FOV_Template");
-
-	struct ABP_PlayerCharacter_C_FOV_Template_Params {
-	};
-	ABP_PlayerCharacter_C_FOV_Template_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
 	fn->SetFunctionFlags((EFunctionFlags)flags);
 
 }
@@ -5708,7 +5606,7 @@ void ABP_PlayerCharacter_C::ChangePlayerInput(bool DisablePlayerInput) {
 // Name: InstigatedBy	Type: class AController*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: DamageCauser	Type: class AActor*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_PlayerCharacter_C::ReceiveAnyDamage(float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, class AActor* DamageCauser) {
+void ABP_PlayerCharacter_C::ReceiveAnyDamage(float Damage, class UDamageType* DamageType, class AController* InstigatedBy, class AActor* DamageCauser) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.ReceiveAnyDamage");
 
 	struct ABP_PlayerCharacter_C_ReceiveAnyDamage_Params {

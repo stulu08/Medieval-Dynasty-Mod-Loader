@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "CoreUObject/Object.h"
 /////////////////////////////////////////////
 // Class UMG.UMGSequencePlayer
@@ -31,7 +30,7 @@ public:
 	}
 
 #pragma region Functions
-	struct FName GetUserTag() const;
+	struct FName GetUserTag()/* const*/;
 
 	void SetUserTag(struct FName InUserTag);
 

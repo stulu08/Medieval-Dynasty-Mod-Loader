@@ -14,6 +14,5 @@
 #include "BPCppHelperFunctions.h"
 #include "BPCppMathOperations.h"
 #include "GI_MedievalDynastyBase.h"
-#include "MaterialPlatformSwitch.h"
 #include "MD_PlayerState.h"
 #include "MD_SpringArmComponent.h"

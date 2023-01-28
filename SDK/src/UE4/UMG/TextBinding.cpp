@@ -10,7 +10,7 @@ namespace UE4 {
 // Params:
 // Name: ReturnValue	Type: struct FString	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FString UTextBinding::GetStringValue() const {
+struct FString UTextBinding::GetStringValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.TextBinding.GetStringValue");
 
 	struct UTextBinding_GetStringValue_Params {
@@ -35,7 +35,7 @@ struct FString UTextBinding::GetStringValue() const {
 // Params:
 // Name: ReturnValue	Type: struct FText	Flags: Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FText UTextBinding::GetTextValue() const {
+struct FText UTextBinding::GetTextValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.TextBinding.GetTextValue");
 
 	struct UTextBinding_GetTextValue_Params {

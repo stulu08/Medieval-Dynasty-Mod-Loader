@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/Widget.h"
 /////////////////////////////////////////////
 // Class UMG.ListViewBase
@@ -61,7 +60,7 @@ public:
 	}
 
 #pragma region Functions
-	TArray<class UUserWidget*> GetDisplayedEntryWidgets() const;
+	TArray<class UUserWidget*> GetDisplayedEntryWidgets()/* const*/;
 
 	void RegenerateAllEntries();
 
@@ -73,7 +72,7 @@ public:
 
 	void SetScrollbarVisibility(ESlateVisibility InVisibility);
 
-	void SetScrollOffset(const float InScrollOffset);
+	void SetScrollOffset(float InScrollOffset);
 
 	void SetWheelScrollMultiplier(float NewWheelScrollMultiplier);
 

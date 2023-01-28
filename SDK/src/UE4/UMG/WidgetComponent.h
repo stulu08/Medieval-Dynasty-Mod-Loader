@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "Engine/MeshComponent.h"
 /////////////////////////////////////////////
 // Class UMG.WidgetComponent
@@ -211,51 +210,51 @@ public:
 	}
 
 #pragma region Functions
-	struct FVector2D GetCurrentDrawSize() const;
+	struct FVector2D GetCurrentDrawSize()/* const*/;
 
-	float GetCylinderArcAngle() const;
+	float GetCylinderArcAngle()/* const*/;
 
-	bool GetDrawAtDesiredSize() const;
+	bool GetDrawAtDesiredSize()/* const*/;
 
-	struct FVector2D GetDrawSize() const;
+	struct FVector2D GetDrawSize()/* const*/;
 
-	EWidgetGeometryMode GetGeometryMode() const;
+	EWidgetGeometryMode GetGeometryMode()/* const*/;
 
-	bool GetManuallyRedraw() const;
+	bool GetManuallyRedraw()/* const*/;
 
-	class UMaterialInstanceDynamic* GetMaterialInstance() const;
+	class UMaterialInstanceDynamic* GetMaterialInstance()/* const*/;
 
-	class ULocalPlayer* GetOwnerPlayer() const;
+	class ULocalPlayer* GetOwnerPlayer()/* const*/;
 
-	struct FVector2D GetPivot() const;
+	struct FVector2D GetPivot()/* const*/;
 
-	float GetRedrawTime() const;
+	float GetRedrawTime()/* const*/;
 
-	class UTextureRenderTarget2D* GetRenderTarget() const;
+	class UTextureRenderTarget2D* GetRenderTarget()/* const*/;
 
-	bool GetTickWhenOffscreen() const;
+	bool GetTickWhenOffscreen()/* const*/;
 
-	bool GetTwoSided() const;
+	bool GetTwoSided()/* const*/;
 
-	class UUserWidget* GetUserWidgetObject() const;
+	class UUserWidget* GetUserWidgetObject()/* const*/;
 
-	class UUserWidget* GetWidget() const;
+	class UUserWidget* GetWidget()/* const*/;
 
-	EWidgetSpace GetWidgetSpace() const;
+	EWidgetSpace GetWidgetSpace()/* const*/;
 
-	bool GetWindowFocusable() const;
+	bool GetWindowFocusable()/* const*/;
 
-	EWindowVisibility GetWindowVisiblility() const;
+	EWindowVisibility GetWindowVisiblility()/* const*/;
 
-	bool IsWidgetVisible() const;
+	bool IsWidgetVisible()/* const*/;
 
 	void RequestRedraw();
 
 	void RequestRenderUpdate();
 
-	void SetBackgroundColor(const struct FLinearColor NewBackgroundColor);
+	void SetBackgroundColor(struct FLinearColor NewBackgroundColor);
 
-	void SetCylinderArcAngle(const float InCylinderArcAngle);
+	void SetCylinderArcAngle(float InCylinderArcAngle);
 
 	void SetDrawAtDesiredSize(bool bInDrawAtDesiredSize);
 
@@ -273,11 +272,11 @@ public:
 
 	void SetTickMode(ETickMode InTickMode);
 
-	void SetTickWhenOffscreen(const bool bWantTickWhenOffscreen);
+	void SetTickWhenOffscreen(bool bWantTickWhenOffscreen);
 
-	void SetTintColorAndOpacity(const struct FLinearColor NewTintColorAndOpacity);
+	void SetTintColorAndOpacity(struct FLinearColor NewTintColorAndOpacity);
 
-	void SetTwoSided(const bool bWantTwoSided);
+	void SetTwoSided(bool bWantTwoSided);
 
 	void SetWidget(class UUserWidget* Widget);
 

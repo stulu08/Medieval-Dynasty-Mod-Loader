@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/ContentWidget.h"
 /////////////////////////////////////////////
 // Class UMG.InvalidationBox
@@ -31,7 +30,7 @@ public:
 	}
 
 #pragma region Functions
-	bool GetCanCache() const;
+	bool GetCanCache()/* const*/;
 
 	void InvalidateCache();
 

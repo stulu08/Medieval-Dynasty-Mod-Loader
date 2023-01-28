@@ -340,7 +340,7 @@ void UEditableTextBox::ClearError() {
 // Params:
 // Name: ReturnValue	Type: struct FText	Flags: Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FText UEditableTextBox::GetText() const {
+struct FText UEditableTextBox::GetText()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.GetText");
 
 	struct UEditableTextBox_GetText_Params {
@@ -365,7 +365,7 @@ struct FText UEditableTextBox::GetText() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UEditableTextBox::HasError() const {
+bool UEditableTextBox::HasError()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.HasError");
 
 	struct UEditableTextBox_HasError_Params {

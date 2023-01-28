@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/Widget.h"
 /////////////////////////////////////////////
 // Class UMG.InputKeySelector
@@ -86,7 +85,7 @@ public:
 	}
 
 #pragma region Functions
-	bool GetIsSelectingKey() const;
+	bool GetIsSelectingKey()/* const*/;
 
 	void OnIsSelectingKeyChanged__DelegateSignature();
 
@@ -104,7 +103,7 @@ public:
 
 	void SetSelectedKey(const struct FInputChord& InSelectedKey);
 
-	void SetTextBlockVisibility(const ESlateVisibility InVisibility);
+	void SetTextBlockVisibility(ESlateVisibility InVisibility);
 
 #pragma endregion
 };

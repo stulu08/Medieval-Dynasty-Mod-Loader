@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "Medieval_Dynasty/GI_MedievalDynastyBase.h"
 /////////////////////////////////////////////
 // BlueprintGeneratedClass GI_MedievalDynasty.GI_MedievalDynasty_C

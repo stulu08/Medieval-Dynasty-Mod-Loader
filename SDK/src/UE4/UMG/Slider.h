@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/Widget.h"
 /////////////////////////////////////////////
 // Class UMG.Slider
@@ -116,9 +115,9 @@ public:
 	}
 
 #pragma region Functions
-	float GetNormalizedValue() const;
+	float GetNormalizedValue()/* const*/;
 
-	float GetValue() const;
+	float GetValue()/* const*/;
 
 	void SetIndentHandle(bool InValue);
 

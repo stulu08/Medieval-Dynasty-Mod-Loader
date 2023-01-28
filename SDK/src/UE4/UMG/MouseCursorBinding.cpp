@@ -10,7 +10,7 @@ namespace UE4 {
 // Params:
 // Name: ReturnValue	Type: TEnumAsByte<EMouseCursor>	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-TEnumAsByte<EMouseCursor> UMouseCursorBinding::GetValue() const {
+TEnumAsByte<EMouseCursor> UMouseCursorBinding::GetValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.MouseCursorBinding.GetValue");
 
 	struct UMouseCursorBinding_GetValue_Params {

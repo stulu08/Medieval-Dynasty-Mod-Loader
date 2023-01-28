@@ -43,7 +43,7 @@ void UCanvasPanelSlot::M_SetZOrder(const int32_t& value) {
 // Params:
 // Name: ReturnValue	Type: struct FVector2D	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FVector2D UCanvasPanelSlot::GetAlignment() const {
+struct FVector2D UCanvasPanelSlot::GetAlignment()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.CanvasPanelSlot.GetAlignment");
 
 	struct UCanvasPanelSlot_GetAlignment_Params {
@@ -68,7 +68,7 @@ struct FVector2D UCanvasPanelSlot::GetAlignment() const {
 // Params:
 // Name: ReturnValue	Type: struct FAnchors	Flags: Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FAnchors UCanvasPanelSlot::GetAnchors() const {
+struct FAnchors UCanvasPanelSlot::GetAnchors()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.CanvasPanelSlot.GetAnchors");
 
 	struct UCanvasPanelSlot_GetAnchors_Params {
@@ -93,7 +93,7 @@ struct FAnchors UCanvasPanelSlot::GetAnchors() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UCanvasPanelSlot::GetAutoSize() const {
+bool UCanvasPanelSlot::GetAutoSize()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.CanvasPanelSlot.GetAutoSize");
 
 	struct UCanvasPanelSlot_GetAutoSize_Params {
@@ -118,7 +118,7 @@ bool UCanvasPanelSlot::GetAutoSize() const {
 // Params:
 // Name: ReturnValue	Type: struct FAnchorData	Flags: Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FAnchorData UCanvasPanelSlot::GetLayout() const {
+struct FAnchorData UCanvasPanelSlot::GetLayout()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.CanvasPanelSlot.GetLayout");
 
 	struct UCanvasPanelSlot_GetLayout_Params {
@@ -143,7 +143,7 @@ struct FAnchorData UCanvasPanelSlot::GetLayout() const {
 // Params:
 // Name: ReturnValue	Type: struct FMargin	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FMargin UCanvasPanelSlot::GetOffsets() const {
+struct FMargin UCanvasPanelSlot::GetOffsets()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.CanvasPanelSlot.GetOffsets");
 
 	struct UCanvasPanelSlot_GetOffsets_Params {
@@ -168,7 +168,7 @@ struct FMargin UCanvasPanelSlot::GetOffsets() const {
 // Params:
 // Name: ReturnValue	Type: struct FVector2D	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FVector2D UCanvasPanelSlot::GetPosition() const {
+struct FVector2D UCanvasPanelSlot::GetPosition()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.CanvasPanelSlot.GetPosition");
 
 	struct UCanvasPanelSlot_GetPosition_Params {
@@ -193,7 +193,7 @@ struct FVector2D UCanvasPanelSlot::GetPosition() const {
 // Params:
 // Name: ReturnValue	Type: struct FVector2D	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FVector2D UCanvasPanelSlot::GetSize() const {
+struct FVector2D UCanvasPanelSlot::GetSize()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.CanvasPanelSlot.GetSize");
 
 	struct UCanvasPanelSlot_GetSize_Params {
@@ -218,7 +218,7 @@ struct FVector2D UCanvasPanelSlot::GetSize() const {
 // Params:
 // Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-int32_t UCanvasPanelSlot::GetZOrder() const {
+int32_t UCanvasPanelSlot::GetZOrder()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.CanvasPanelSlot.GetZOrder");
 
 	struct UCanvasPanelSlot_GetZOrder_Params {

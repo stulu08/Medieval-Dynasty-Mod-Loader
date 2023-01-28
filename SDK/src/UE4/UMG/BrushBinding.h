@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/PropertyBinding.h"
 /////////////////////////////////////////////
 // Class UMG.BrushBinding
@@ -21,7 +20,7 @@ public:
 	}
 
 #pragma region Functions
-	struct FSlateBrush GetValue() const;
+	struct FSlateBrush GetValue()/* const*/;
 
 #pragma endregion
 };

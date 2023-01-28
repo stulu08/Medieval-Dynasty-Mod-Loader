@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/ContentWidget.h"
 /////////////////////////////////////////////
 // Class UMG.Button
@@ -86,7 +85,7 @@ public:
 	}
 
 #pragma region Functions
-	bool IsPressed() const;
+	bool IsPressed()/* const*/;
 
 	void SetBackgroundColor(struct FLinearColor InBackgroundColor);
 

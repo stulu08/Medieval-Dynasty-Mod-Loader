@@ -98,7 +98,7 @@ void UListViewBase::M_SetEntryWidgetPool(const struct FUserWidgetPool& value) {
 // Params:
 // Name: ReturnValue	Type: TArray<class UUserWidget*>	Flags: ConstParm, ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-TArray<class UUserWidget*> UListViewBase::GetDisplayedEntryWidgets() const {
+TArray<class UUserWidget*> UListViewBase::GetDisplayedEntryWidgets()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListViewBase.GetDisplayedEntryWidgets");
 
 	struct UListViewBase_GetDisplayedEntryWidgets_Params {
@@ -236,7 +236,7 @@ void UListViewBase::SetScrollbarVisibility(ESlateVisibility InVisibility) {
 // Params:
 // Name: InScrollOffset	Type: float	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UListViewBase::SetScrollOffset(const float InScrollOffset) {
+void UListViewBase::SetScrollOffset(float InScrollOffset) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListViewBase.SetScrollOffset");
 
 	struct UListViewBase_SetScrollOffset_Params {

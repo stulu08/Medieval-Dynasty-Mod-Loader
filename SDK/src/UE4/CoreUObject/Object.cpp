@@ -119,6 +119,19 @@ namespace UE4 {
 		return false;
 	}
 
+	bool UObject::IsAByName(const std::string& fullName) const
+	{
+		for (auto super = GetClass(); super; super = static_cast<UClass*>(super->GetSuperField()))
+		{
+			if (super->GetFullName() == fullName)
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	void UObject::ExecuteUbergraph(int EntryPoint)
 	{
 		static auto fn = UObject::FindObject<UFunction>("Function CoreUObject.Object.ExecuteUbergraph");
@@ -245,6 +258,19 @@ namespace UE4 {
 		{
 			if (SDK::SelectedGameProfile.IsUsingUpdatedStaticConstruct)
 			{
+				struct FStaticConstructObjectParameters
+				{
+					const UClass* Class;
+					UObject* Outer;
+					FName Name;
+					unsigned int SetFlags = 0x00000000;
+					EInternalObjectFlags InternalSetFlags = EInternalObjectFlags::None;
+					bool bCopyTransientsFromClassDefaults = false;
+					bool bAssumeTemplateIsArchetype = false;
+					UObject* Template = nullptr;
+					void* InstanceGraph = nullptr;
+					void* ExternalPackage = nullptr;
+				};
 				FStaticConstructObjectParameters StaticConstructObjectParameters;
 				StaticConstructObjectParameters.Class = Class;
 				StaticConstructObjectParameters.Outer = InOuter;

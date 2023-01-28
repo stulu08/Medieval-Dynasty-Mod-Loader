@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/PropertyBinding.h"
 /////////////////////////////////////////////
 // Class UMG.Int32Binding
@@ -21,7 +20,7 @@ public:
 	}
 
 #pragma region Functions
-	int32_t GetValue() const;
+	int32_t GetValue()/* const*/;
 
 #pragma endregion
 };

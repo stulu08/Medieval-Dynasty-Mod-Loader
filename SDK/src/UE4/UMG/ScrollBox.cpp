@@ -241,7 +241,7 @@ void UScrollBox::EndInertialScrolling() {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float UScrollBox::GetScrollOffset() const {
+float UScrollBox::GetScrollOffset()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ScrollBox.GetScrollOffset");
 
 	struct UScrollBox_GetScrollOffset_Params {
@@ -266,7 +266,7 @@ float UScrollBox::GetScrollOffset() const {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float UScrollBox::GetScrollOffsetOfEnd() const {
+float UScrollBox::GetScrollOffsetOfEnd()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ScrollBox.GetScrollOffsetOfEnd");
 
 	struct UScrollBox_GetScrollOffsetOfEnd_Params {
@@ -291,7 +291,7 @@ float UScrollBox::GetScrollOffsetOfEnd() const {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float UScrollBox::GetViewOffsetFraction() const {
+float UScrollBox::GetViewOffsetFraction()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ScrollBox.GetViewOffsetFraction");
 
 	struct UScrollBox_GetViewOffsetFraction_Params {

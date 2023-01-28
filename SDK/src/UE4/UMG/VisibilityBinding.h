@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/PropertyBinding.h"
 /////////////////////////////////////////////
 // Class UMG.VisibilityBinding
@@ -21,7 +20,7 @@ public:
 	}
 
 #pragma region Functions
-	ESlateVisibility GetValue() const;
+	ESlateVisibility GetValue()/* const*/;
 
 #pragma endregion
 };

@@ -54,7 +54,7 @@ void UTileView::M_SetbWrapHorizontalNavigation(const bool& value) {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float UTileView::GetEntryHeight() const {
+float UTileView::GetEntryHeight()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.TileView.GetEntryHeight");
 
 	struct UTileView_GetEntryHeight_Params {
@@ -79,7 +79,7 @@ float UTileView::GetEntryHeight() const {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float UTileView::GetEntryWidth() const {
+float UTileView::GetEntryWidth()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.TileView.GetEntryWidth");
 
 	struct UTileView_GetEntryWidth_Params {

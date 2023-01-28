@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "MovieScene/MovieSceneSequence.h"
 /////////////////////////////////////////////
 // Class UMG.WidgetAnimation
@@ -45,9 +44,9 @@ public:
 
 	void BindToAnimationStarted(class UUserWidget* Widget, struct FScriptDelegate Delegate);
 
-	float GetEndTime() const;
+	float GetEndTime()/* const*/;
 
-	float GetStartTime() const;
+	float GetStartTime()/* const*/;
 
 	void UnbindAllFromAnimationFinished(class UUserWidget* Widget);
 

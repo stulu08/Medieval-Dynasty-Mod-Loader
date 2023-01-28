@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/ContentWidget.h"
 /////////////////////////////////////////////
 // Class UMG.Viewport
@@ -26,11 +25,11 @@ public:
 	}
 
 #pragma region Functions
-	struct FVector GetViewLocation() const;
+	struct FVector GetViewLocation()/* const*/;
 
-	class UWorld* GetViewportWorld() const;
+	class UWorld* GetViewportWorld()/* const*/;
 
-	struct FRotator GetViewRotation() const;
+	struct FRotator GetViewRotation()/* const*/;
 
 	void SetViewLocation(struct FVector Location);
 

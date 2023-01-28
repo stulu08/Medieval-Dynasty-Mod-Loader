@@ -159,7 +159,7 @@ class URichTextBlockDecorator* URichTextBlock::GetDecoratorByClass(class URichTe
 // Params:
 // Name: ReturnValue	Type: struct FText	Flags: Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FText URichTextBlock::GetText() const {
+struct FText URichTextBlock::GetText()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.RichTextBlock.GetText");
 
 	struct URichTextBlock_GetText_Params {

@@ -10,7 +10,7 @@ namespace UE4 {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UBoolBinding::GetValue() const {
+bool UBoolBinding::GetValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.BoolBinding.GetValue");
 
 	struct UBoolBinding_GetValue_Params {

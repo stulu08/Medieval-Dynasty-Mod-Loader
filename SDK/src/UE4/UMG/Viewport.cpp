@@ -21,7 +21,7 @@ void UViewport::M_SetBackgroundColor(const struct FLinearColor& value) {
 // Params:
 // Name: ReturnValue	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FVector UViewport::GetViewLocation() const {
+struct FVector UViewport::GetViewLocation()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Viewport.GetViewLocation");
 
 	struct UViewport_GetViewLocation_Params {
@@ -46,7 +46,7 @@ struct FVector UViewport::GetViewLocation() const {
 // Params:
 // Name: ReturnValue	Type: class UWorld*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UWorld* UViewport::GetViewportWorld() const {
+class UWorld* UViewport::GetViewportWorld()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Viewport.GetViewportWorld");
 
 	struct UViewport_GetViewportWorld_Params {
@@ -71,7 +71,7 @@ class UWorld* UViewport::GetViewportWorld() const {
 // Params:
 // Name: ReturnValue	Type: struct FRotator	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FRotator UViewport::GetViewRotation() const {
+struct FRotator UViewport::GetViewRotation()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Viewport.GetViewRotation");
 
 	struct UViewport_GetViewRotation_Params {

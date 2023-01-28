@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/Widget.h"
 /////////////////////////////////////////////
 // Class UMG.ComboBoxString
@@ -97,17 +96,17 @@ public:
 
 	void ClearSelection();
 
-	int32_t FindOptionIndex(struct FString Option) const;
+	int32_t FindOptionIndex(struct FString Option)/* const*/;
 
-	struct FString GetOptionAtIndex(int32_t Index) const;
+	struct FString GetOptionAtIndex(int32_t Index)/* const*/;
 
-	int32_t GetOptionCount() const;
+	int32_t GetOptionCount()/* const*/;
 
-	int32_t GetSelectedIndex() const;
+	int32_t GetSelectedIndex()/* const*/;
 
-	struct FString GetSelectedOption() const;
+	struct FString GetSelectedOption()/* const*/;
 
-	bool IsOpen() const;
+	bool IsOpen()/* const*/;
 
 	void OnOpeningEvent__DelegateSignature();
 
@@ -117,7 +116,7 @@ public:
 
 	bool RemoveOption(struct FString Option);
 
-	void SetSelectedIndex(const int32_t Index);
+	void SetSelectedIndex(int32_t Index);
 
 	void SetSelectedOption(struct FString Option);
 

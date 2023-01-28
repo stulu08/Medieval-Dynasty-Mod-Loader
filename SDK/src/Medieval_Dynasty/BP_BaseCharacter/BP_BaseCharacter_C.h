@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "Engine/Character.h"
 /////////////////////////////////////////////
 // BlueprintGeneratedClass BP_BaseCharacter.BP_BaseCharacter_C
@@ -1644,7 +1643,7 @@ public:
 
 	void SetIsInWater(bool InWater, float Intensity);
 
-	void ChangeMontageNextSection(struct FName SectionNameToChange, struct FName NextSection, const class UAnimMontage* Montage);
+	void ChangeMontageNextSection(struct FName SectionNameToChange, struct FName NextSection, class UAnimMontage* Montage);
 
 	void ShowInspectorUI();
 
@@ -1652,7 +1651,7 @@ public:
 
 	void SetMontageSettings(TMap<TEnumAsByte<E_AnimInteractionTypes>, struct FST_MontagesSettingsArray> MontagesSettings);
 
-	void ReceiveAnyDamage(float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, class AActor* DamageCauser);
+	void ReceiveAnyDamage(float Damage, class UDamageType* DamageType, class AController* InstigatedBy, class AActor* DamageCauser);
 
 	void SetMontageType(TEnumAsByte<E_AnimInteractionTypes> Montage_Type);
 
@@ -1924,7 +1923,7 @@ public:
 
 	void DespawnAnimHoldable(TEnumAsByte<E_HandsForHolstering> HoldablesToDespawn);
 
-	bool IsMontagePlaying(const class UAnimMontage* Montage);
+	bool IsMontagePlaying(class UAnimMontage* Montage);
 
 	void SetOldness(float Value);
 
@@ -1968,7 +1967,7 @@ public:
 
 	void UpdateCharacterSpeedByCharacterType();
 
-	void VisibilityCheck(const struct FVector StartVector, float Radius, const TArray<TEnumAsByte<EObjectTypeQuery>>& ObjectTypes, class AActor* ActorToIgnore, bool* Observed);
+	void VisibilityCheck(struct FVector StartVector, float Radius, const TArray<TEnumAsByte<EObjectTypeQuery>>& ObjectTypes, class AActor* ActorToIgnore, bool* Observed);
 
 	void SetEarMorph(float Value);
 
@@ -1998,9 +1997,9 @@ public:
 
 	void GetCurrentCameraFOV(float* FieldOfView);
 
-	void SetMeshesFromPreset(const TEnumAsByte<E_Profession> Profession, class UObject* NewClass, bool UpdateOnly, bool LoadGame);
+	void SetMeshesFromPreset(TEnumAsByte<E_Profession> Profession, class UObject* NewClass, bool UpdateOnly, bool LoadGame);
 
-	void GetPresetForProfession(const TEnumAsByte<E_Profession> Profession, struct FST_NPCsPresets* Preset);
+	void GetPresetForProfession(TEnumAsByte<E_Profession> Profession, struct FST_NPCsPresets* Preset);
 
 	void CombinePresets(TEnumAsByte<E_Profession> Profession, struct FST_NPCsPresets BasePreset, struct FName* PresetID, struct FST_NPCsMeshesDyes* Meshes);
 
@@ -2020,7 +2019,7 @@ public:
 
 	void UpdateDefaultFov(float InFieldOfView);
 
-	void SnapToSlot(int32_t SlotIndex, class AActor* InteractedActor, struct FVector LocationOffset, const bool IsFinalTransform, bool* Success);
+	void SnapToSlot(int32_t SlotIndex, class AActor* InteractedActor, struct FVector LocationOffset, bool IsFinalTransform, bool* Success);
 
 	bool IsWearingCorrectPreset(bool CheckProfession);
 
@@ -2208,17 +2207,17 @@ public:
 
 	bool MoveToMountingLocation(const struct FVector& Location, const struct FRotator& Orientation);
 
-	bool IsSeatedOnMount() const;
+	bool IsSeatedOnMount()/* const*/;
 
-	bool IsDriver() const;
+	bool IsDriver()/* const*/;
 
-	int32_t GetSeatId() const;
+	int32_t GetSeatId()/* const*/;
 
-	class UMeshComponent* GetRiderMesh() const;
+	class UMeshComponent* GetRiderMesh()/* const*/;
 
-	class UMountRiderComponent* GetMountRiderComponent() const;
+	class UMountRiderComponent* GetMountRiderComponent()/* const*/;
 
-	TArray<class USkeletalMeshComponent*> GetAllRiderSkeletalMeshes() const;
+	TArray<class USkeletalMeshComponent*> GetAllRiderSkeletalMeshes()/* const*/;
 
 	bool StartPawnMountingToSeat(class AActor* newMountActor, class AActor* linkedActor, int32_t seatId, struct FMountActionResponse* mountingResponse);
 
@@ -2226,35 +2225,19 @@ public:
 
 	bool PrepareToDismount(class AActor* mountOrRider, struct FMountActionResponse* Response);
 
-	bool IsMounted() const;
+	bool IsMounted()/* const*/;
 
-	class APawn* GetCharacterPawn() const;
+	class APawn* GetCharacterPawn()/* const*/;
 
-	class AActor* GetCharacterMount() const;
+	class AActor* GetCharacterMount()/* const*/;
 
-	class AController* GetCharacterController() const;
+	class AController* GetCharacterController()/* const*/;
 
 	void IsInCombat_BPI(bool* InCombat);
 
 	void GetDistance(float* Distance);
 
 	void GetOptimalizationStage(int32_t* Stage);
-
-	void ComponentDelegateBinding_1();
-
-	void CurveFloat_3();
-
-	void CurveFloat_4();
-
-	void CurveFloat_3_5();
-
-	void InputAxisDelegateBinding_1();
-
-	void Blinking_Template();
-
-	void EyesStateTL_Template();
-
-	void FistFightingTimeline_Template();
 
 #pragma endregion
 };

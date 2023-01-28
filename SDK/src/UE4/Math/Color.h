@@ -2,18 +2,6 @@
 
 namespace UE4 {
 	// 0x0004
-	struct FPackedRGB10A2N
-	{
-		int                                                Packed;                                                   // 0x0000(0x0004) (Edit, ZeroConstructor, SaveGame, IsPlainOldData)
-	};
-
-	// 0x0008
-	struct FPackedRGBA16N
-	{
-		int                                                XY;                                                       // 0x0000(0x0004) (Edit, ZeroConstructor, SaveGame, IsPlainOldData)
-		int                                                ZW;                                                       // 0x0004(0x0004) (Edit, ZeroConstructor, SaveGame, IsPlainOldData)
-	};
-	// 0x0004
 	struct FColor
 	{
 		unsigned char                                      B;                                                        // 0x0000(0x0001) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)

@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/Widget.h"
 /////////////////////////////////////////////
 // Class UMG.DynamicEntryBoxBase
@@ -66,9 +65,9 @@ public:
 	}
 
 #pragma region Functions
-	TArray<class UUserWidget*> GetAllEntries() const;
+	TArray<class UUserWidget*> GetAllEntries()/* const*/;
 
-	int32_t GetNumEntries() const;
+	int32_t GetNumEntries()/* const*/;
 
 	void SetEntrySpacing(const struct FVector2D& InEntrySpacing);
 

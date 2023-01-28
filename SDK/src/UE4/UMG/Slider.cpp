@@ -219,7 +219,7 @@ void USlider::M_SetOnValueChanged(const TAssetPtr<class FOnFloatValueChangedEven
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float USlider::GetNormalizedValue() const {
+float USlider::GetNormalizedValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Slider.GetNormalizedValue");
 
 	struct USlider_GetNormalizedValue_Params {
@@ -244,7 +244,7 @@ float USlider::GetNormalizedValue() const {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float USlider::GetValue() const {
+float USlider::GetValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Slider.GetValue");
 
 	struct USlider_GetValue_Params {

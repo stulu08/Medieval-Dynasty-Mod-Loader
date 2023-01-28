@@ -71,7 +71,7 @@ void UPanelWidget::ClearChildren() {
 // Params:
 // Name: ReturnValue	Type: TArray<class UWidget*>	Flags: ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ContainsInstancedReference, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-TArray<class UWidget*> UPanelWidget::GetAllChildren() const {
+TArray<class UWidget*> UPanelWidget::GetAllChildren()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.PanelWidget.GetAllChildren");
 
 	struct UPanelWidget_GetAllChildren_Params {
@@ -97,7 +97,7 @@ TArray<class UWidget*> UPanelWidget::GetAllChildren() const {
 // Name: Index	Type: int32_t	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: class UWidget*	Flags: ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UWidget* UPanelWidget::GetChildAt(int32_t Index) const {
+class UWidget* UPanelWidget::GetChildAt(int32_t Index)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.PanelWidget.GetChildAt");
 
 	struct UPanelWidget_GetChildAt_Params {
@@ -125,7 +125,7 @@ class UWidget* UPanelWidget::GetChildAt(int32_t Index) const {
 // Name: Content	Type: class UWidget*	Flags: ConstParm, Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-int32_t UPanelWidget::GetChildIndex(const class UWidget* Content) const {
+int32_t UPanelWidget::GetChildIndex(class UWidget* Content)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.PanelWidget.GetChildIndex");
 
 	struct UPanelWidget_GetChildIndex_Params {
@@ -152,7 +152,7 @@ int32_t UPanelWidget::GetChildIndex(const class UWidget* Content) const {
 // Params:
 // Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-int32_t UPanelWidget::GetChildrenCount() const {
+int32_t UPanelWidget::GetChildrenCount()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.PanelWidget.GetChildrenCount");
 
 	struct UPanelWidget_GetChildrenCount_Params {
@@ -177,7 +177,7 @@ int32_t UPanelWidget::GetChildrenCount() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UPanelWidget::HasAnyChildren() const {
+bool UPanelWidget::HasAnyChildren()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.PanelWidget.HasAnyChildren");
 
 	struct UPanelWidget_HasAnyChildren_Params {
@@ -203,7 +203,7 @@ bool UPanelWidget::HasAnyChildren() const {
 // Name: Content	Type: class UWidget*	Flags: Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UPanelWidget::HasChild(class UWidget* Content) const {
+bool UPanelWidget::HasChild(class UWidget* Content)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.PanelWidget.HasChild");
 
 	struct UPanelWidget_HasChild_Params {

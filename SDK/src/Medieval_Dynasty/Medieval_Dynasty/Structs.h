@@ -84,6 +84,7 @@ enum class EMD_GameState : uint8_t {
 #pragma endregion
 
 #pragma region Structs
+struct FLagContraint;
 /////////////////////////////////////////////
 // ScriptStruct Medieval_Dynasty.LagContraint
 // Size 3

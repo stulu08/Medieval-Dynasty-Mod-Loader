@@ -5,79 +5,43 @@
 
 Mod* Mod::ModRef;
 
-namespace CallBackHandler
-{
-	void CallBackBeginPlay(UE4::AActor* Actor)
-	{
-		Mod::ModRef->BeginPlay(Actor);
+namespace CallBackHandler {
+	bool CallBackBeginPlay(UE4::AActor* Actor) {
+		return Mod::ModRef->BeginPlay(Actor);
 	}
-
-	void CallBackInitGameState()
-	{
-		Mod::ModRef->InitGameState();
+	bool CallBackInitGameState() {
+		return Mod::ModRef->InitGameState();
 	}
-
-	void CallBackDrawImGui()
-	{
-		Mod::ModRef->DrawImGui();
+	bool CallBackDrawImGui() {
+		return Mod::ModRef->DrawImGui();
 	}
-
-	void CallBackSetupImGui(ImGuiIO& io) {
-		Mod::ModRef->SetupImGui(io);
+	bool CallBackTick(UE4::ELevelTick tick, float DelatTime) {
+		return Mod::ModRef->Tick(tick, DelatTime);
 	}
-
-	void CallBackPostBeginPlay(std::wstring ModActorName, UE4::AActor* Actor)
-	{
-		Mod::ModRef->PostBeginPlay(ModActorName, Actor);
+	bool CallBackSetupImGui(ImGuiIO& io) {
+		return Mod::ModRef->SetupImGui(io);
 	}
-
-	void CallBackDX11Present(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, ID3D11RenderTargetView* pRenderTargetView)
-	{
-		Mod::ModRef->DX11Present(pDevice, pContext, pRenderTargetView);
+	bool CallBackPostBeginPlay(std::wstring ModActorName, UE4::AActor* Actor) {
+		return Mod::ModRef->PostBeginPlay(ModActorName, Actor);
 	}
-
-	void CallBackDX11ResizeBuffers(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, UINT Width, UINT Height, DXGI_FORMAT NewFormat, UINT SwapChainFlags) {
-		Mod::ModRef->DX11ResizeBuffers(pDevice, pContext, Width, Height, NewFormat, SwapChainFlags);
+	bool CallBackDX11Present(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, ID3D11RenderTargetView* pRenderTargetView) {
+		return Mod::ModRef->DX11Present(pDevice, pContext, pRenderTargetView);
 	}
-	
+	bool CallBackDX11ResizeBuffers(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, UINT Width, UINT Height, DXGI_FORMAT NewFormat, UINT SwapChainFlags) {
+		return Mod::ModRef->DX11ResizeBuffers(pDevice, pContext, Width, Height, NewFormat, SwapChainFlags);
+	}
 }
 
-void Mod::InitGameState()
-{
+#define REGISTER_EVENT(name, ...)\
+if(events.name) {\
+	Global::GetGlobals()->CoreMods.clearModEvents(#name, this); \
+	Global::GetGlobals()->CoreMods.registerEvent(new ModEvent<__VA_ARGS__>(this, #name, &CallBackHandler::CallBack##name)); \
 }
-
-void Mod::OnModMenuButtonPressed()
-{
-}
-
-void Mod::BeginPlay(UE4::AActor* Actor)
-{
-}
-
-void Mod::PostBeginPlay(std::wstring ModActorName, UE4::AActor* Actor)
-{
-}
-
-void Mod::DX11Present(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, ID3D11RenderTargetView* pRenderTargetView)
-{
-}
-
-void Mod::DX11ResizeBuffers(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, UINT Width, UINT Height, DXGI_FORMAT NewFormat, UINT SwapChainFlags)
-{
-}
-
-void Mod::DrawImGui()
-{
-}
-
-void Mod::SetupImGui(ImGuiIO& io)
-{
-}
-#define REGISTER_EVENT(name, ...) Global::GetGlobals()->CoreMods.registerEvent(new ModEvent<__VA_ARGS__>(this, #name, &CallBackHandler::CallBack##name));
-void Mod::SetupHooks() {
+void Mod::SetupHooks(const EventsEnabled::EnabledEvents& events) {
 	REGISTER_EVENT(BeginPlay, UE4::AActor*);
 	REGISTER_EVENT(InitGameState);
 	REGISTER_EVENT(PostBeginPlay, std::wstring, UE4::AActor*);
+	REGISTER_EVENT(Tick, UE4::ELevelTick, float);
 	REGISTER_EVENT(DrawImGui);
 	REGISTER_EVENT(SetupImGui, ImGuiIO&);
 	REGISTER_EVENT(DX11Present, ID3D11Device*, ID3D11DeviceContext*, ID3D11RenderTargetView*);
@@ -116,9 +80,4 @@ std::string Mod::GetFolder() {
 		return std::filesystem::path(std::string(path_c)).parent_path().string();
 	}
 	return GetModsFolder();
-}
-
-void Mod::InitializeMod()
-{
-
 }

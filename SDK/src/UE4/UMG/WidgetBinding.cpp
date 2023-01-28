@@ -10,7 +10,7 @@ namespace UE4 {
 // Params:
 // Name: ReturnValue	Type: class UWidget*	Flags: ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UWidget* UWidgetBinding::GetValue() const {
+class UWidget* UWidgetBinding::GetValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetBinding.GetValue");
 
 	struct UWidgetBinding_GetValue_Params {

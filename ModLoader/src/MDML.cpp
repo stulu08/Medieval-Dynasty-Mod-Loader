@@ -79,14 +79,20 @@ void MDML::BeginPlay(UE4::AActor* Actor) {
 	Global::GetGlobals()->CoreMods.callEvent("BeginPlay", Actor);
 }
 
+void MDML::Tick(UE4::ELevelTick tick, float deltaTime) {
+	Global::GetGlobals()->CoreMods.callEvent("Tick", tick, deltaTime);
+}
+
 void MDML::InitCoreMods() {
 	UE4::InitSDK();
 	Log::Info_UML("Engine Classes Loaded");
-	if (Global::GetGlobals()->CoreMods.size() > 0)
+	auto& CoreMods = Global::GetGlobals()->CoreMods;
+
+	if (CoreMods.size() > 0)
 	{
-		for (size_t i = 0; i < Global::GetGlobals()->CoreMods.size(); i++)
+		for (size_t i = 0; i < CoreMods.size(); i++)
 		{
-			auto CurrentCoreMod = Global::GetGlobals()->CoreMods[i];
+			auto CurrentCoreMod = CoreMods[i];
 			if (CurrentCoreMod->IsFinishedCreating)
 			{
 				Log::Info_UML("InitializeMod Called For {0}", CurrentCoreMod->ModName.c_str());
@@ -122,7 +128,7 @@ void MDML::CreateMod(ModInfo& mod) {
 				UE4::AActor* ModActor = SpawnActor(ModObject, UE4::FTransform(UE4::FVector(0,0,0)), UE4::FActorSpawnParameters());
 				if (ModActor)
 				{
-					if (!bIsProcessInternalsHooked)
+					if (!IsProcessInternalsHooked)
 					{
 						if (!SDK::SelectedGameProfile.ProcessInternals)
 						{
@@ -138,7 +144,7 @@ void MDML::CreateMod(ModInfo& mod) {
 								}
 							}
 						}
-						bIsProcessInternalsHooked = true;
+						IsProcessInternalsHooked = true;
 						if (SDK::SelectedGameProfile.ProcessInternals)
 							HooksManager::AddProcessInternalHook();
 						else
@@ -233,7 +239,7 @@ void MDML::Start() {
 void MDML::ShutDown() {
 	Log::Info_MDML("Shutting down");
 	HooksManager::ShutDown();
-	bIsProcessInternalsHooked = false;
+	IsProcessInternalsHooked = false;
 	GameStateClassInitNotRan = true;
 	//SDK::SelectedGameProfile = GameProfile();
 	//fcloseall();
@@ -552,6 +558,7 @@ bool SetupProfile(const std::string& Path) {
 			{
 				SDK::SelectedGameProfile.GameStateInit = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "GameStateInit", ""));
 				SDK::SelectedGameProfile.BeginPlay = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "BeginPlay", ""));
+				SDK::SelectedGameProfile.Tick = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "Tick", ""));
 				SDK::SelectedGameProfile.StaticLoadObject = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "StaticLoadObject", ""));
 				SDK::SelectedGameProfile.StaticFindObject = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "StaticFindObject", ""));
 				SDK::SelectedGameProfile.SpawnActorFTrans = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "SpawnActorFTrans", ""));
@@ -564,6 +571,7 @@ bool SetupProfile(const std::string& Path) {
 			{
 				SDK::SelectedGameProfile.GameStateInit = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "GameStateInit", "").c_str());
 				SDK::SelectedGameProfile.BeginPlay = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "BeginPlay", "").c_str());
+				SDK::SelectedGameProfile.Tick = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "Tick", "").c_str());
 				SDK::SelectedGameProfile.StaticLoadObject = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "StaticLoadObject", "").c_str());
 				SDK::SelectedGameProfile.StaticFindObject = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "StaticFindObject", "").c_str());
 				SDK::SelectedGameProfile.SpawnActorFTrans = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "SpawnActorFTrans", "").c_str());
@@ -572,6 +580,7 @@ bool SetupProfile(const std::string& Path) {
 				SDK::SelectedGameProfile.CreateDefaultObject = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "CreateDefaultObject", "").c_str());
 				Log::Info_MDML("GameStateInit: 0x{0:x}", SDK::SelectedGameProfile.GameStateInit);
 				Log::Info_MDML("BeginPlay: 0x{0:x}", SDK::SelectedGameProfile.BeginPlay);
+				Log::Info_MDML("Tick: 0x{0:x}", SDK::SelectedGameProfile.Tick);
 				Log::Info_MDML("StaticLoadObject: 0x{0:x}", SDK::SelectedGameProfile.StaticLoadObject);
 				Log::Info_MDML("StaticFindObject: 0x{0:x}", SDK::SelectedGameProfile.StaticFindObject);
 				Log::Info_MDML("SpawnActorFTrans: 0x{0:x}", SDK::SelectedGameProfile.SpawnActorFTrans);
@@ -600,6 +609,13 @@ bool SetupProfile(const std::string& Path) {
 			else
 			{
 				Log::Error_UML("AActor::BeginPlay NOT FOUND!");
+			}
+
+			SDK::SelectedGameProfile.Tick = (DWORD64)Pattern::Find("48 8B C4 55 53 56 57 41 54 41 55 41 56 41 57 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? 0F 29 70 A8 48 8B F9 48 8D 0D ? ? ? ? 0F 29 78 98 0F 28 F2 44 8B F2 E8 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? B9 ? ? ? ? E8 ? ? ? ? 48 8B D8 48 89 45 C8 E8 ? ? ? ? 41 BD ? ? ? ? 84 C0 74 0A E8 ? ? ? ? E9 ? ? ? ? 80 3D ? ? ? ? ?");
+			Log::Info_UML("Tick: 0x{0:x}", SDK::SelectedGameProfile.Tick);
+			if (!SDK::SelectedGameProfile.Tick)
+			{
+				Log::Error_UML("Tick NOT FOUND!");
 			}
 
 			auto StaticLoadObject = Pattern::Find("89 64 24 ? 48 8B C8 E8 ? ? ? ? 41 BE ? ? ? ? EB 05 E8"); // Sig 1

@@ -110,7 +110,7 @@ void UWidgetAnimation::BindToAnimationStarted(class UUserWidget* Widget, struct 
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float UWidgetAnimation::GetEndTime() const {
+float UWidgetAnimation::GetEndTime()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetAnimation.GetEndTime");
 
 	struct UWidgetAnimation_GetEndTime_Params {
@@ -135,7 +135,7 @@ float UWidgetAnimation::GetEndTime() const {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float UWidgetAnimation::GetStartTime() const {
+float UWidgetAnimation::GetStartTime()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetAnimation.GetStartTime");
 
 	struct UWidgetAnimation_GetStartTime_Params {

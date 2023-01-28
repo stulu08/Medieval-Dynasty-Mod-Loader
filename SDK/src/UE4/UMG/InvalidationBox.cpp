@@ -32,7 +32,7 @@ void UInvalidationBox::M_SetCacheRelativeTransforms(const bool& value) {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UInvalidationBox::GetCanCache() const {
+bool UInvalidationBox::GetCanCache()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.InvalidationBox.GetCanCache");
 
 	struct UInvalidationBox_GetCanCache_Params {

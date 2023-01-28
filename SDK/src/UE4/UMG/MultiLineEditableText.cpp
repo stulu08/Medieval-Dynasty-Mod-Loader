@@ -175,7 +175,7 @@ void UMultiLineEditableText::M_SetOnTextCommitted(const TAssetPtr<class FOnMulti
 // Params:
 // Name: ReturnValue	Type: struct FText	Flags: Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FText UMultiLineEditableText::GetHintText() const {
+struct FText UMultiLineEditableText::GetHintText()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.MultiLineEditableText.GetHintText");
 
 	struct UMultiLineEditableText_GetHintText_Params {
@@ -200,7 +200,7 @@ struct FText UMultiLineEditableText::GetHintText() const {
 // Params:
 // Name: ReturnValue	Type: struct FText	Flags: Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FText UMultiLineEditableText::GetText() const {
+struct FText UMultiLineEditableText::GetText()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.MultiLineEditableText.GetText");
 
 	struct UMultiLineEditableText_GetText_Params {

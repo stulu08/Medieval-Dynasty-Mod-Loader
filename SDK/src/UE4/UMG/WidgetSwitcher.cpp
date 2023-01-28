@@ -21,7 +21,7 @@ void UWidgetSwitcher::M_SetActiveWidgetIndex(const int32_t& value) {
 // Params:
 // Name: ReturnValue	Type: class UWidget*	Flags: ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UWidget* UWidgetSwitcher::GetActiveWidget() const {
+class UWidget* UWidgetSwitcher::GetActiveWidget()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetSwitcher.GetActiveWidget");
 
 	struct UWidgetSwitcher_GetActiveWidget_Params {
@@ -46,7 +46,7 @@ class UWidget* UWidgetSwitcher::GetActiveWidget() const {
 // Params:
 // Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-int32_t UWidgetSwitcher::GetActiveWidgetIndex() const {
+int32_t UWidgetSwitcher::GetActiveWidgetIndex()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetSwitcher.GetActiveWidgetIndex");
 
 	struct UWidgetSwitcher_GetActiveWidgetIndex_Params {
@@ -71,7 +71,7 @@ int32_t UWidgetSwitcher::GetActiveWidgetIndex() const {
 // Params:
 // Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-int32_t UWidgetSwitcher::GetNumWidgets() const {
+int32_t UWidgetSwitcher::GetNumWidgets()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetSwitcher.GetNumWidgets");
 
 	struct UWidgetSwitcher_GetNumWidgets_Params {
@@ -97,7 +97,7 @@ int32_t UWidgetSwitcher::GetNumWidgets() const {
 // Name: Index	Type: int32_t	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: class UWidget*	Flags: ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UWidget* UWidgetSwitcher::GetWidgetAtIndex(int32_t Index) const {
+class UWidget* UWidgetSwitcher::GetWidgetAtIndex(int32_t Index)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetSwitcher.GetWidgetAtIndex");
 
 	struct UWidgetSwitcher_GetWidgetAtIndex_Params {

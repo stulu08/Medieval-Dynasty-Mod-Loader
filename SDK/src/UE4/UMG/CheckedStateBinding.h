@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/PropertyBinding.h"
 /////////////////////////////////////////////
 // Class UMG.CheckedStateBinding
@@ -21,7 +20,7 @@ public:
 	}
 
 #pragma region Functions
-	ECheckBoxState GetValue() const;
+	ECheckBoxState GetValue()/* const*/;
 
 #pragma endregion
 };

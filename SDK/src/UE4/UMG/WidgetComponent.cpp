@@ -428,7 +428,7 @@ void UWidgetComponent::M_SetWidget(const class UUserWidget*& value) {
 // Params:
 // Name: ReturnValue	Type: struct FVector2D	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FVector2D UWidgetComponent::GetCurrentDrawSize() const {
+struct FVector2D UWidgetComponent::GetCurrentDrawSize()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetCurrentDrawSize");
 
 	struct UWidgetComponent_GetCurrentDrawSize_Params {
@@ -453,7 +453,7 @@ struct FVector2D UWidgetComponent::GetCurrentDrawSize() const {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float UWidgetComponent::GetCylinderArcAngle() const {
+float UWidgetComponent::GetCylinderArcAngle()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetCylinderArcAngle");
 
 	struct UWidgetComponent_GetCylinderArcAngle_Params {
@@ -478,7 +478,7 @@ float UWidgetComponent::GetCylinderArcAngle() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidgetComponent::GetDrawAtDesiredSize() const {
+bool UWidgetComponent::GetDrawAtDesiredSize()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetDrawAtDesiredSize");
 
 	struct UWidgetComponent_GetDrawAtDesiredSize_Params {
@@ -503,7 +503,7 @@ bool UWidgetComponent::GetDrawAtDesiredSize() const {
 // Params:
 // Name: ReturnValue	Type: struct FVector2D	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FVector2D UWidgetComponent::GetDrawSize() const {
+struct FVector2D UWidgetComponent::GetDrawSize()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetDrawSize");
 
 	struct UWidgetComponent_GetDrawSize_Params {
@@ -528,7 +528,7 @@ struct FVector2D UWidgetComponent::GetDrawSize() const {
 // Params:
 // Name: ReturnValue	Type: EWidgetGeometryMode	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-EWidgetGeometryMode UWidgetComponent::GetGeometryMode() const {
+EWidgetGeometryMode UWidgetComponent::GetGeometryMode()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetGeometryMode");
 
 	struct UWidgetComponent_GetGeometryMode_Params {
@@ -553,7 +553,7 @@ EWidgetGeometryMode UWidgetComponent::GetGeometryMode() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidgetComponent::GetManuallyRedraw() const {
+bool UWidgetComponent::GetManuallyRedraw()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetManuallyRedraw");
 
 	struct UWidgetComponent_GetManuallyRedraw_Params {
@@ -578,7 +578,7 @@ bool UWidgetComponent::GetManuallyRedraw() const {
 // Params:
 // Name: ReturnValue	Type: class UMaterialInstanceDynamic*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UMaterialInstanceDynamic* UWidgetComponent::GetMaterialInstance() const {
+class UMaterialInstanceDynamic* UWidgetComponent::GetMaterialInstance()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetMaterialInstance");
 
 	struct UWidgetComponent_GetMaterialInstance_Params {
@@ -603,7 +603,7 @@ class UMaterialInstanceDynamic* UWidgetComponent::GetMaterialInstance() const {
 // Params:
 // Name: ReturnValue	Type: class ULocalPlayer*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class ULocalPlayer* UWidgetComponent::GetOwnerPlayer() const {
+class ULocalPlayer* UWidgetComponent::GetOwnerPlayer()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetOwnerPlayer");
 
 	struct UWidgetComponent_GetOwnerPlayer_Params {
@@ -628,7 +628,7 @@ class ULocalPlayer* UWidgetComponent::GetOwnerPlayer() const {
 // Params:
 // Name: ReturnValue	Type: struct FVector2D	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FVector2D UWidgetComponent::GetPivot() const {
+struct FVector2D UWidgetComponent::GetPivot()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetPivot");
 
 	struct UWidgetComponent_GetPivot_Params {
@@ -653,7 +653,7 @@ struct FVector2D UWidgetComponent::GetPivot() const {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float UWidgetComponent::GetRedrawTime() const {
+float UWidgetComponent::GetRedrawTime()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetRedrawTime");
 
 	struct UWidgetComponent_GetRedrawTime_Params {
@@ -678,7 +678,7 @@ float UWidgetComponent::GetRedrawTime() const {
 // Params:
 // Name: ReturnValue	Type: class UTextureRenderTarget2D*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UTextureRenderTarget2D* UWidgetComponent::GetRenderTarget() const {
+class UTextureRenderTarget2D* UWidgetComponent::GetRenderTarget()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetRenderTarget");
 
 	struct UWidgetComponent_GetRenderTarget_Params {
@@ -703,7 +703,7 @@ class UTextureRenderTarget2D* UWidgetComponent::GetRenderTarget() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidgetComponent::GetTickWhenOffscreen() const {
+bool UWidgetComponent::GetTickWhenOffscreen()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetTickWhenOffscreen");
 
 	struct UWidgetComponent_GetTickWhenOffscreen_Params {
@@ -728,7 +728,7 @@ bool UWidgetComponent::GetTickWhenOffscreen() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidgetComponent::GetTwoSided() const {
+bool UWidgetComponent::GetTwoSided()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetTwoSided");
 
 	struct UWidgetComponent_GetTwoSided_Params {
@@ -753,7 +753,7 @@ bool UWidgetComponent::GetTwoSided() const {
 // Params:
 // Name: ReturnValue	Type: class UUserWidget*	Flags: ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UUserWidget* UWidgetComponent::GetUserWidgetObject() const {
+class UUserWidget* UWidgetComponent::GetUserWidgetObject()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetUserWidgetObject");
 
 	struct UWidgetComponent_GetUserWidgetObject_Params {
@@ -778,7 +778,7 @@ class UUserWidget* UWidgetComponent::GetUserWidgetObject() const {
 // Params:
 // Name: ReturnValue	Type: class UUserWidget*	Flags: ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UUserWidget* UWidgetComponent::GetWidget() const {
+class UUserWidget* UWidgetComponent::GetWidget()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetWidget");
 
 	struct UWidgetComponent_GetWidget_Params {
@@ -803,7 +803,7 @@ class UUserWidget* UWidgetComponent::GetWidget() const {
 // Params:
 // Name: ReturnValue	Type: EWidgetSpace	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-EWidgetSpace UWidgetComponent::GetWidgetSpace() const {
+EWidgetSpace UWidgetComponent::GetWidgetSpace()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetWidgetSpace");
 
 	struct UWidgetComponent_GetWidgetSpace_Params {
@@ -828,7 +828,7 @@ EWidgetSpace UWidgetComponent::GetWidgetSpace() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidgetComponent::GetWindowFocusable() const {
+bool UWidgetComponent::GetWindowFocusable()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetWindowFocusable");
 
 	struct UWidgetComponent_GetWindowFocusable_Params {
@@ -853,7 +853,7 @@ bool UWidgetComponent::GetWindowFocusable() const {
 // Params:
 // Name: ReturnValue	Type: EWindowVisibility	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-EWindowVisibility UWidgetComponent::GetWindowVisiblility() const {
+EWindowVisibility UWidgetComponent::GetWindowVisiblility()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.GetWindowVisiblility");
 
 	struct UWidgetComponent_GetWindowVisiblility_Params {
@@ -878,7 +878,7 @@ EWindowVisibility UWidgetComponent::GetWindowVisiblility() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidgetComponent::IsWidgetVisible() const {
+bool UWidgetComponent::IsWidgetVisible()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.IsWidgetVisible");
 
 	struct UWidgetComponent_IsWidgetVisible_Params {
@@ -947,7 +947,7 @@ void UWidgetComponent::RequestRenderUpdate() {
 // Params:
 // Name: NewBackgroundColor	Type: struct FLinearColor	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UWidgetComponent::SetBackgroundColor(const struct FLinearColor NewBackgroundColor) {
+void UWidgetComponent::SetBackgroundColor(struct FLinearColor NewBackgroundColor) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.SetBackgroundColor");
 
 	struct UWidgetComponent_SetBackgroundColor_Params {
@@ -972,7 +972,7 @@ void UWidgetComponent::SetBackgroundColor(const struct FLinearColor NewBackgroun
 // Params:
 // Name: InCylinderArcAngle	Type: float	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UWidgetComponent::SetCylinderArcAngle(const float InCylinderArcAngle) {
+void UWidgetComponent::SetCylinderArcAngle(float InCylinderArcAngle) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.SetCylinderArcAngle");
 
 	struct UWidgetComponent_SetCylinderArcAngle_Params {
@@ -1197,7 +1197,7 @@ void UWidgetComponent::SetTickMode(ETickMode InTickMode) {
 // Params:
 // Name: bWantTickWhenOffscreen	Type: bool	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UWidgetComponent::SetTickWhenOffscreen(const bool bWantTickWhenOffscreen) {
+void UWidgetComponent::SetTickWhenOffscreen(bool bWantTickWhenOffscreen) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.SetTickWhenOffscreen");
 
 	struct UWidgetComponent_SetTickWhenOffscreen_Params {
@@ -1222,7 +1222,7 @@ void UWidgetComponent::SetTickWhenOffscreen(const bool bWantTickWhenOffscreen) {
 // Params:
 // Name: NewTintColorAndOpacity	Type: struct FLinearColor	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UWidgetComponent::SetTintColorAndOpacity(const struct FLinearColor NewTintColorAndOpacity) {
+void UWidgetComponent::SetTintColorAndOpacity(struct FLinearColor NewTintColorAndOpacity) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.SetTintColorAndOpacity");
 
 	struct UWidgetComponent_SetTintColorAndOpacity_Params {
@@ -1247,7 +1247,7 @@ void UWidgetComponent::SetTintColorAndOpacity(const struct FLinearColor NewTintC
 // Params:
 // Name: bWantTwoSided	Type: bool	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UWidgetComponent::SetTwoSided(const bool bWantTwoSided) {
+void UWidgetComponent::SetTwoSided(bool bWantTwoSided) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetComponent.SetTwoSided");
 
 	struct UWidgetComponent_SetTwoSided_Params {

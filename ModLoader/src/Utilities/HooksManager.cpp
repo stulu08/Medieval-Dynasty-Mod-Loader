@@ -85,6 +85,14 @@ namespace HooksManager
 			MDML::BeginPlay(Actor);
 			return origBeginPlay(Actor);
 		}
+
+		PVOID(*origTick)(__int64, UE4::ELevelTick, float);
+		PVOID hookTick(__int64 thisPtr, UE4::ELevelTick tick, float delta)
+		{
+			MDML::Tick(tick, delta);
+			return origTick(thisPtr, tick, delta);
+		}
+
 		//returns true if we can overwrite the file
 		bool isPakOverridePathValid(const std::filesystem::path& path) {
 			if (!std::filesystem::exists(path))
@@ -157,6 +165,7 @@ namespace HooksManager
 
 		MinHook::Add(SDK::SelectedGameProfile.GameStateInit, &HookedFunctions::hookInitGameState, &HookedFunctions::origInitGameState, "AGameModeBase::InitGameState");
 		MinHook::Add(SDK::SelectedGameProfile.BeginPlay, &HookedFunctions::hookBeginPlay, &HookedFunctions::origBeginPlay, "AActor::BeginPlay");
+		MinHook::Add(SDK::SelectedGameProfile.Tick, &HookedFunctions::hookTick, &HookedFunctions::origTick, "UWorld::Tick");
 
 		LoaderUI::GetUI()->CreateUILogicThread();
 		if (!SDK::SelectedGameProfile.bDelayGUISpawn)

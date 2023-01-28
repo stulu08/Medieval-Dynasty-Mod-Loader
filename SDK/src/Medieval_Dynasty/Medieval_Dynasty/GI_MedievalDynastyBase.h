@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "Engine/GameInstance.h"
 /////////////////////////////////////////////
 // Class Medieval_Dynasty.GI_MedievalDynastyBase
@@ -67,7 +66,7 @@ public:
 
 	TArray<struct FString> GetAccountInfo();
 
-	E_GraphicsRHI GetCurrentRHI(const bool GetFromFile);
+	E_GraphicsRHI GetCurrentRHI(bool GetFromFile);
 
 	int32_t GetCurrentUserIndex();
 
@@ -79,7 +78,7 @@ public:
 
 	void PrintDebugUser(class APlayerController* LocalPlayer);
 
-	bool ReSetController(const int32_t ControllerIndex);
+	bool ReSetController(int32_t ControllerIndex);
 
 	bool SetCurrentPlayer(class ULocalPlayer* LocalPlayer);
 

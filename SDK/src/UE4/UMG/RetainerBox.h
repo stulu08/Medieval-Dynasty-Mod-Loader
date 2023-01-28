@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/ContentWidget.h"
 /////////////////////////////////////////////
 // Class UMG.RetainerBox
@@ -56,7 +55,7 @@ public:
 	}
 
 #pragma region Functions
-	class UMaterialInstanceDynamic* GetEffectMaterial() const;
+	class UMaterialInstanceDynamic* GetEffectMaterial()/* const*/;
 
 	void RequestRender();
 

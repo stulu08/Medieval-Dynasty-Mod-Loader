@@ -10,7 +10,7 @@ namespace UE4 {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float UFloatBinding::GetValue() const {
+float UFloatBinding::GetValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.FloatBinding.GetValue");
 
 	struct UFloatBinding_GetValue_Params {

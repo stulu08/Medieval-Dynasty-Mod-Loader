@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/ContentWidget.h"
 /////////////////////////////////////////////
 // Class UMG.CheckBox
@@ -126,11 +125,11 @@ public:
 	}
 
 #pragma region Functions
-	ECheckBoxState GetCheckedState() const;
+	ECheckBoxState GetCheckedState()/* const*/;
 
-	bool IsChecked() const;
+	bool IsChecked()/* const*/;
 
-	bool IsPressed() const;
+	bool IsPressed()/* const*/;
 
 	void SetCheckedState(ECheckBoxState InCheckedState);
 

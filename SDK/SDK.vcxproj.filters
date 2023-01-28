@@ -10,455 +10,14 @@
     <Filter Include="Medieval_Dynasty\BP_BaseCharacter">
       <UniqueIdentifier>{9F78CB4E-0BE7-20CE-54D0-DBCDC07D166A}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Medieval_Dynasty\BP_PlayerBuildingComponent">
+      <UniqueIdentifier>{8503D761-F168-6AE8-7A41-0CC1E6A55F57}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Medieval_Dynasty\BP_PlayerCharacter">
       <UniqueIdentifier>{71F3C106-DDAC-2CB1-660C-478BD2C4E220}</UniqueIdentifier>
     </Filter>
     <Filter Include="Medieval_Dynasty\BP_PlayerManager">
       <UniqueIdentifier>{7F689039-EBD6-E5B8-34C0-A0B8A06DDB54}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_ActorType">
-      <UniqueIdentifier>{E527C200-D1E2-B1AC-7A9A-2AF76634FC3C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_AfterIdlePose">
-      <UniqueIdentifier>{F1009C4D-DD51-878F-06B6-7551F2651AF9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Ammo">
-      <UniqueIdentifier>{149817D3-80CF-5F6A-89D9-C38DF58F8663}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_AnimBreakType">
-      <UniqueIdentifier>{96FF856D-8250-71AF-ABB4-5F7197640419}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_AnimDirection">
-      <UniqueIdentifier>{F0A1B8F9-DCF2-A33B-0557-92FDF10637A5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_AnimInteractionTypes">
-      <UniqueIdentifier>{042FD393-70BE-947E-79BA-7596E5C8CF8A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_AnimMovement">
-      <UniqueIdentifier>{DA40110E-4624-204E-4F27-4E8ABB89E69E}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_AnimalAgeStage">
-      <UniqueIdentifier>{DD522A67-49C1-7FE6-92AA-3AE6FE577582}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_AnimalType">
-      <UniqueIdentifier>{DED78D33-4AF0-745D-139D-04F77F7409F7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_BagMode">
-      <UniqueIdentifier>{59929A13-45A2-46E4-AE5B-AB029A8A357D}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_BanditNames">
-      <UniqueIdentifier>{F0453B68-DC6B-05CF-C5B1-8A9AB1762A9B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_BanditType">
-      <UniqueIdentifier>{9EBAFD48-0AD3-E472-D37F-740C3F57790C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_BaseInteractionStages">
-      <UniqueIdentifier>{ECC66776-D843-5BB9-01C1-5BCDED9CF74C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_BirdMovementMode">
-      <UniqueIdentifier>{BBEE006B-27A8-6B15-B007-86EF1CC02185}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_BlinkParameters">
-      <UniqueIdentifier>{AEA3C02C-9ADF-C396-03F2-DB8DEF4C6CB1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_BodyParts">
-      <UniqueIdentifier>{4220A4CD-2EDB-9379-D792-0CC4C32CDE09}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_BuildingCategories">
-      <UniqueIdentifier>{3E75167F-AA39-156F-739F-4539DF22B1A4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_BuildingModifications">
-      <UniqueIdentifier>{4157B65E-2DD4-A9A1-5651-AAB5422D4635}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_BuildingSlotType">
-      <UniqueIdentifier>{1C0CE7A4-88C5-514F-1125-6C297DDD07BF}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_BuildingStatus">
-      <UniqueIdentifier>{7C1A3257-E888-87D6-3172-42D69D1F7D72}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_BuildingWarningType">
-      <UniqueIdentifier>{70F447C9-5C46-1FB9-4565-5CC9315638A2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Buildings">
-      <UniqueIdentifier>{8B772DBB-7732-1D67-20EA-95B10C8467F7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_BuildingsSortingType">
-      <UniqueIdentifier>{13A22D7F-7F31-EF69-882D-D081F43B2A76}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_CardinalDirection">
-      <UniqueIdentifier>{49FB05C1-35E2-C7B8-DE32-2ED6CAF8401F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_ChallengeState">
-      <UniqueIdentifier>{6E7F1879-DAED-6DF8-23D7-28F88F846394}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Challenge_PunishmentType">
-      <UniqueIdentifier>{59F55E9B-C55A-F221-4E33-94FABA97E790}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Challenge_Type">
-      <UniqueIdentifier>{EE7EE079-5AED-35F9-A3D6-F0F80F842B95}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_CharacterType">
-      <UniqueIdentifier>{3921929F-2572-7DE1-4ED6-6BA33A86104B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_ChoiceSegments">
-      <UniqueIdentifier>{9B3F85F3-07AE-DA72-5097-9572BC44D00E}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_ChunkStates">
-      <UniqueIdentifier>{975885C3-837E-4F2A-6CC4-D4F5588974F6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Combat">
-      <UniqueIdentifier>{00452CFC-6C07-6086-B5B7-EE1221B93864}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_CompassMarkerType">
-      <UniqueIdentifier>{241621C6-10FD-E2BD-B94D-49DBA5135C24}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_CraftingRecipeType">
-      <UniqueIdentifier>{9229A0D9-FEED-9EC9-C753-CF9333D73AFF}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Cutscenes">
-      <UniqueIdentifier>{F756AA8E-E311-9A3A-8CC9-12857863E4CA}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_DailyCycle">
-      <UniqueIdentifier>{CD5F8B3D-3978-7267-0225-02016EFC0601}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_DamageType">
-      <UniqueIdentifier>{EB902878-57A9-0FA2-2056-9F3B8C2DA43B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_DeathType">
-      <UniqueIdentifier>{72781D8B-5E33-0D37-07EB-8581F38457C7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_DecorationCategories">
-      <UniqueIdentifier>{389D135C-A42C-D546-AD28-B65E19371053}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_DecorationSlotType">
-      <UniqueIdentifier>{96EDA516-02B2-A406-CB17-D5D0379B403C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_DevelopmentStages">
-      <UniqueIdentifier>{94921053-8079-D24A-29CA-386815904BB1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Directions">
-      <UniqueIdentifier>{9E5A04E5-0A73-EB0E-D31F-7BA83FF77FA8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Effects">
-      <UniqueIdentifier>{6AF32D06-5603-DAD6-BFBC-3EF5ABEBC86F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_EquipmentCategories">
-      <UniqueIdentifier>{08EEAE2D-F43F-861D-DD5E-C32DC94F9F06}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_EventButtonRestrictions">
-      <UniqueIdentifier>{918802B7-7DF0-C884-E65B-DD9AD2E2DF70}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_EventDifficulty">
-      <UniqueIdentifier>{1F2D99B1-0B69-9C1B-747B-B41260D64436}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_EventEffectRelevance">
-      <UniqueIdentifier>{0E050DCE-7A94-CEB8-8390-AFD0EF9E09C5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_EventEffectType">
-      <UniqueIdentifier>{7BF956FE-6735-5A68-D047-725FBCA20283}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_EventEffect_NPCType">
-      <UniqueIdentifier>{5BFCCCC7-474E-A4B7-306D-E1C71C5EBDA0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_EventEffect_PlayerType">
-      <UniqueIdentifier>{A75EB635-1379-19D7-5C9B-296BC8F440DE}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_EventEffect_VillageType">
-      <UniqueIdentifier>{FE971DB6-EAFF-E383-536B-F8993FF2FA6F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_EventRestictions_Buildings">
-      <UniqueIdentifier>{83E282D7-EF52-8550-B871-FFD824A1BD51}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_EventRestrictions">
-      <UniqueIdentifier>{F570889A-E157-4A92-8AA8-B0AF766EC3F8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_FieldActivities">
-      <UniqueIdentifier>{23A828C5-0FE4-2B2F-78F6-43266451D449}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_FieldCategories">
-      <UniqueIdentifier>{340ECA8D-204A-CDF7-895C-E5EE75B77512}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_FieldPlantStages">
-      <UniqueIdentifier>{94D7CD89-0091-3834-89F0-520EF5A8EEA3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_FieldPlantType">
-      <UniqueIdentifier>{AF365D00-1BA5-B27F-648E-6D7FD03BA81B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_FieldsSortingType">
-      <UniqueIdentifier>{89502B09-7537-ED00-1E88-531E0A4E6667}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_FishPoolType">
-      <UniqueIdentifier>{50ADE0FE-BC90-EF3E-C593-1D7B31F6B58F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Fluids">
-      <UniqueIdentifier>{91F6F902-FDB8-2D8D-4669-BC19B26A066B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_FoliageSpecies">
-      <UniqueIdentifier>{8D025E66-F970-B3E5-425A-6EE5AE07A981}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_FurnitureCategories">
-      <UniqueIdentifier>{14F67A2C-0048-521C-E966-8F2CD5576B05}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_FurnitureSlotType">
-      <UniqueIdentifier>{725F6968-5E46-2B60-0797-917DF35CA4C6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_FurnitureType">
-      <UniqueIdentifier>{D079AD93-BCCA-98D5-E52E-8797D1DE2B3F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Gait">
-      <UniqueIdentifier>{CFAE1AD3-3BE6-626A-44F0-C68DB0A68963}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_GamepadControlType">
-      <UniqueIdentifier>{BCE5199F-28AA-188F-F10F-49595D93B4C4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_GamepadType">
-      <UniqueIdentifier>{FB07DD6A-E72D-A7D1-D073-2C9DBC38CC9D}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_GoalState">
-      <UniqueIdentifier>{2EFB100F-1AB6-00BB-C36D-7905AF074B4B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_GoalTypes">
-      <UniqueIdentifier>{820F260F-6ECA-15BB-1782-8E05031C604B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Goal_BuildTypes">
-      <UniqueIdentifier>{F1D014BD-DD0C-1827-461F-301E327AC041}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Goal_VillageParametersTypes">
-      <UniqueIdentifier>{19C42440-0542-75D9-EE39-3371DA56B701}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_HandsForHolstering">
-      <UniqueIdentifier>{BEEF59AC-2AB4-589C-F319-89665F9DF4D1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_HoldableTraceBehavior">
-      <UniqueIdentifier>{8404789F-7081-6BE2-99FE-6BF685DA0776}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Husbandry_Action">
-      <UniqueIdentifier>{975077C2-030A-E26C-8C69-FC46F82198DC}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_IdleEntryState">
-      <UniqueIdentifier>{BB64C095-27D3-1515-70BC-D014DC690BB1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_IdleStates">
-      <UniqueIdentifier>{FC24E903-683D-D02D-31EA-5FC79DC164C7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_InhabitantsSortingType">
-      <UniqueIdentifier>{E7C3E433-53DE-47D5-9C00-5869085A6FDC}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_InputMode">
-      <UniqueIdentifier>{9F04B0A5-8BBF-9F51-3477-189C2011EAE1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_InventoryMainTab">
-      <UniqueIdentifier>{943508A2-00EF-724C-894E-8D26F50629BC}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_InventoryOwnerType">
-      <UniqueIdentifier>{E5088AE9-51CD-88D9-1A33-B9A386B6240F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_InventorySortingType">
-      <UniqueIdentifier>{20ADA099-8C3C-6284-9538-439C01479D90}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_ItemCategories">
-      <UniqueIdentifier>{3FFECF5C-AB6C-25DC-F455-E0DB60031B78}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_ItemEquipOptions">
-      <UniqueIdentifier>{29BD9E09-9576-09B4-1ED6-238E8A8EBF23}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_ItemSubCategories">
-      <UniqueIdentifier>{A9F896BE-95DF-58B6-3E30-BFD32AF6D11C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_KingAlignment">
-      <UniqueIdentifier>{72D12F59-5E22-1B9B-8786-095D7336AE04}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_KingdomStatus">
-      <UniqueIdentifier>{D7C8A010-C319-8C52-EC7D-7A14D82D1FBC}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Kingdoms">
-      <UniqueIdentifier>{0601344F-720E-6235-FBF4-5D2067012EEC}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_LookAtOptions">
-      <UniqueIdentifier>{207AD709-0CCB-C24B-352F-B10D21DF55B5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_MapFilters">
-      <UniqueIdentifier>{81F52248-ED0D-0A72-B6BA-990B22929E0B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_MaterialType">
-      <UniqueIdentifier>{9B6F7043-0753-7F83-1056-ADBF7CB845D4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_ModuleType">
-      <UniqueIdentifier>{72E73BBC-DEFF-22E6-A7AC-B27F1384B77F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_MountAnimType">
-      <UniqueIdentifier>{24CB9EEA-101C-8A2C-3980-78EE25301D96}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_MovementDirection">
-      <UniqueIdentifier>{366DC65B-2254-8853-CBA4-EE70B76A01BA}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_MovementMode">
-      <UniqueIdentifier>{7A3145E4-E614-5424-EF17-82605B7A1A75}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_NPCBehavior">
-      <UniqueIdentifier>{FB4BB723-E771-818A-D0B7-0656BC7CA656}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_NPCPersonality">
-      <UniqueIdentifier>{25A8632A-9116-B9A9-DAFF-73A946ADAE45}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_NPCPresetTypes">
-      <UniqueIdentifier>{33DCEF7F-9F4A-45FF-E833-00FF54E13A9B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_NPCStatus">
-      <UniqueIdentifier>{0F432665-FBFD-1511-A4B5-8E5B904F60A1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_NPC_Bandit_BlackboardBoolean">
-      <UniqueIdentifier>{00555B94-6C90-BB57-7585-38E7E13F4088}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_NPC_BlackboardBoolean">
-      <UniqueIdentifier>{0F923336-FB0E-2779-248C-278D1068C30C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_NPC_BlackboardInt">
-      <UniqueIdentifier>{BACCA7DA-A6B3-69D2-4F04-D0EF3BCAE238}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_NPC_BlackboardObject">
-      <UniqueIdentifier>{4657ACAA-B2E6-6D95-BBE2-4EAD27F1A8A1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_NPC_BlackboardVector">
-      <UniqueIdentifier>{E22733BB-4EB7-F4A5-57B3-D5BDC3C12FB2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Notifications">
-      <UniqueIdentifier>{448207CB-30D3-F20C-5937-E1CE45E78576}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_NotifyObject">
-      <UniqueIdentifier>{5A354F23-C618-5E63-CF1B-8C9F3B7E24B4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_ObjectiveState">
-      <UniqueIdentifier>{6639320B-D2A7-878A-1B91-428A873E7D26}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_OutsideNPCTypes">
-      <UniqueIdentifier>{3DD07B49-290C-7FB3-921E-97AA7E7927CE}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Ownership">
-      <UniqueIdentifier>{49AB94EF-3566-849B-DE1D-FDE5CAB7CE2B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_POI_Type">
-      <UniqueIdentifier>{53BF2AC4-BFCC-58AA-48B3-5495B4BF2461}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_PeopleDemandSortingType">
-      <UniqueIdentifier>{A0DF44FE-8C47-0BCC-F5B2-1FE2E13922B8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Production_AnimalAge">
-      <UniqueIdentifier>{6F89D1C6-DB18-93B1-E414-74C95023CEBD}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Production_AnimalSex">
-      <UniqueIdentifier>{D2D5D1C6-3E65-93B1-4761-74C9B36FCEBD}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Production_SourcePlaces">
-      <UniqueIdentifier>{396DF73A-25D5-BD08-8E40-D21E7AC7D4F4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Production_StoragePlaces">
-      <UniqueIdentifier>{9DE4006E-094A-94F4-9222-36CDFE868963}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Profession">
-      <UniqueIdentifier>{727AB5BA-DE92-9CE4-A73F-2C7E1317317E}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_QuestCategories">
-      <UniqueIdentifier>{C25A5105-AE96-546F-17A9-6C660304FD89}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_QuestState">
-      <UniqueIdentifier>{DDDF12EB-49F8-F914-12A5-89AE7E7C8EAE}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_ResourceState">
-      <UniqueIdentifier>{331685DA-1F67-701C-48CB-5EDE347B0386}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Resources">
-      <UniqueIdentifier>{E573D548-D12E-C5F4-7AE6-3D3F66800F85}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_RotationMode">
-      <UniqueIdentifier>{DF789DAA-4B5C-ACEA-545F-DA26C0C1723B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Seasons">
-      <UniqueIdentifier>{66823539-5292-E109-BB4B-4628A77AD0A2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Seeds">
-      <UniqueIdentifier>{9ECD4B37-8AF2-9AB7-B33D-80479FC199D5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Segments">
-      <UniqueIdentifier>{B0B4726D-1CC2-A053-A5A8-9C3E11B56C0A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Sex">
-      <UniqueIdentifier>{9A020173-86FC-29C5-6F69-C0D55B029031}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_ShopType">
-      <UniqueIdentifier>{46D53767-B2E2-654D-3BC9-6138A7D53104}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_SitDownPosition">
-      <UniqueIdentifier>{67787F34-53B4-829E-BCC6-9A95A8212BB9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_SittingType">
-      <UniqueIdentifier>{AE507ED6-9A76-483D-83BC-CD086F816D09}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Skills">
-      <UniqueIdentifier>{7C673421-E829-68AB-31DA-F6379DDB4089}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_SleepMenuSegments">
-      <UniqueIdentifier>{BEF5197A-AADC-DB71-532D-428F3FF354D8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_SleepingDirection">
-      <UniqueIdentifier>{2231E54D-0E18-A745-B768-0D63A32E20AC}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_SortingUIType">
-      <UniqueIdentifier>{B0933189-9CE4-1CCB-C548-0B8DB1F8AF34}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Stance">
-      <UniqueIdentifier>{48E8D221-B4AA-06AC-FD5A-9538695CDF89}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_TalentTrance">
-      <UniqueIdentifier>{4F309DF9-BB13-AC39-C416-DA753079728A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Talk">
-      <UniqueIdentifier>{16D021D3-8207-6A6A-8B11-CE8DF7C79063}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_TalkToGoalRestriction_RelationToQuestGiver">
-      <UniqueIdentifier>{213DE558-8D05-B3DC-5696-BBEEC21DE317}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_TaskState">
-      <UniqueIdentifier>{DE300C75-CAEB-FB20-73A3-746B5F3D46B1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Tasks">
-      <UniqueIdentifier>{10F15B37-FC15-ABB7-2561-904711E5A9D5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_TechnologyTypes">
-      <UniqueIdentifier>{3B0CB239-2748-B5A3-905A-CD9A7CB55DBE}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_TimeOfDay">
-      <UniqueIdentifier>{8CEAEDFA-78A5-DDA6-215D-56F10DF72737}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_TimeToSave">
-      <UniqueIdentifier>{6B1D0065-D735-E78E-A0E2-76280CBA7B28}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Tools">
-      <UniqueIdentifier>{7B8D6337-67B2-B2B7-90FD-97477C81B1D5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Tools_Activity">
-      <UniqueIdentifier>{A75BB50B-13CA-0A8B-5CB3-C58AC8600027}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Tutorials">
-      <UniqueIdentifier>{31A0AA42-1D5B-9AEE-C612-1339B2ACE47E}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_UISliderType">
-      <UniqueIdentifier>{2D48F22E-992B-016F-A22E-2FAB0E91C7BF}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Vendor">
-      <UniqueIdentifier>{98EAC927-04AD-FDB1-4D5D-8C3EB95ED68F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_ViewMode">
-      <UniqueIdentifier>{2AA31E62-96B0-4C48-1F97-48338BA318FF}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Wealth">
-      <UniqueIdentifier>{EF14182A-5BD7-4BB4-A487-DA4010892492}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_WeaponDamageType">
-      <UniqueIdentifier>{750A1BC1-E1C3-856B-6A23-A045D6DB3BDB}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\E_Workbenches">
-      <UniqueIdentifier>{25B3979D-11D9-6104-FA1E-E7CFE6E386D0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Medieval_Dynasty\F_Medieval">
       <UniqueIdentifier>{328CAAE0-9E99-D8C6-2780-D4B1938CA47D}</UniqueIdentifier>
@@ -469,17 +28,26 @@
     <Filter Include="Medieval_Dynasty\GM_MedievalDynasty">
       <UniqueIdentifier>{0C969E0B-784F-09B6-01AF-23906D67BF25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Medieval_Dynasty\GS_GameState">
+      <UniqueIdentifier>{BA9BF6B4-26B4-DDDE-EF60-6D785B387278}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Medieval_Dynasty\Medieval_Dynasty">
       <UniqueIdentifier>{F8F8E76F-6467-3DEF-AD50-F8EE19FE328B}</UniqueIdentifier>
     </Filter>
     <Filter Include="Medieval_Dynasty\PC_Player">
       <UniqueIdentifier>{C5F0D6CE-B100-839F-1ABA-E7BD06E97138}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Medieval_Dynasty\UI_MainMenu">
-      <UniqueIdentifier>{DDF1B391-C9AC-A33D-7264-1C885EFEEDCD}</UniqueIdentifier>
-    </Filter>
     <Filter Include="UE4">
       <UniqueIdentifier>{9325880B-FF2E-887C-88AA-9E7CF4B2937C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\AIModule">
+      <UniqueIdentifier>{92E82C6C-7E4B-BC10-27D1-F4C613138893}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\AdsMountingSystem">
+      <UniqueIdentifier>{30B2C025-9C1E-7C20-6512-147ED13D9E88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\Chaos">
+      <UniqueIdentifier>{F0599A62-5CC4-4ED9-A502-007F11AC2C2E}</UniqueIdentifier>
     </Filter>
     <Filter Include="UE4\Containers">
       <UniqueIdentifier>{38661F6B-2434-1371-0DC8-8397F934EFD5}</UniqueIdentifier>
@@ -487,11 +55,32 @@
     <Filter Include="UE4\CoreUObject">
       <UniqueIdentifier>{97DDEAEF-0369-58B4-0C7A-DBA87884B4B4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UE4\DeveloperSettings">
+      <UniqueIdentifier>{3904BDFC-A570-78F7-6E64-1055DA8F9A5F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="UE4\Engine">
       <UniqueIdentifier>{B8ACFFBA-A464-4108-0D6C-1A64F942DCF8}</UniqueIdentifier>
     </Filter>
     <Filter Include="UE4\Math">
       <UniqueIdentifier>{4CFECB29-38CB-2635-61E4-14DD4D105CC3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\MovieScene">
+      <UniqueIdentifier>{F09A97AE-DC68-8BB4-C5FC-FBDAB1696719}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\MovieSceneTracks">
+      <UniqueIdentifier>{58313383-44C0-BC4C-EDDE-D047D94CCDF2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\PhysicsCore">
+      <UniqueIdentifier>{2E2BA9E7-9AB6-16AC-A3C7-99A00FD272AC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\PropertyPath">
+      <UniqueIdentifier>{14F14564-00EA-64B6-291C-4A3B157444C2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\Slate">
+      <UniqueIdentifier>{1B14BE63-877E-72DA-D0BC-23803C66502F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\SlateCore">
+      <UniqueIdentifier>{444EB77E-B00E-33B5-7949-7C32E5C87791}</UniqueIdentifier>
     </Filter>
     <Filter Include="UE4\UMG">
       <UniqueIdentifier>{ABF09137-17D0-10D3-20E8-9BA98C467734}</UniqueIdentifier>
@@ -516,6 +105,18 @@
     <ClInclude Include="src\Medieval_Dynasty\BP_BaseCharacter\Structs.h">
       <Filter>Medieval_Dynasty\BP_BaseCharacter</Filter>
     </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_Enums.h">
+      <Filter>Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_PlayerBuildingComponent\BP_PlayerBuildingComponent_C.h">
+      <Filter>Medieval_Dynasty\BP_PlayerBuildingComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_PlayerBuildingComponent\BP_PlayerBuildingComponent_SDK.h">
+      <Filter>Medieval_Dynasty\BP_PlayerBuildingComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_PlayerBuildingComponent\Structs.h">
+      <Filter>Medieval_Dynasty\BP_PlayerBuildingComponent</Filter>
+    </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\BP_PlayerCharacter\BP_PlayerCharacter_C.h">
       <Filter>Medieval_Dynasty\BP_PlayerCharacter</Filter>
     </ClInclude>
@@ -534,893 +135,8 @@
     <ClInclude Include="src\Medieval_Dynasty\BP_PlayerManager\Structs.h">
       <Filter>Medieval_Dynasty\BP_PlayerManager</Filter>
     </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ActorType\E_ActorType_SDK.h">
-      <Filter>Medieval_Dynasty\E_ActorType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ActorType\Structs.h">
-      <Filter>Medieval_Dynasty\E_ActorType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_AfterIdlePose\E_AfterIdlePose_SDK.h">
-      <Filter>Medieval_Dynasty\E_AfterIdlePose</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_AfterIdlePose\Structs.h">
-      <Filter>Medieval_Dynasty\E_AfterIdlePose</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Ammo\E_Ammo_SDK.h">
-      <Filter>Medieval_Dynasty\E_Ammo</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Ammo\Structs.h">
-      <Filter>Medieval_Dynasty\E_Ammo</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_AnimBreakType\E_AnimBreakType_SDK.h">
-      <Filter>Medieval_Dynasty\E_AnimBreakType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_AnimBreakType\Structs.h">
-      <Filter>Medieval_Dynasty\E_AnimBreakType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_AnimDirection\E_AnimDirection_SDK.h">
-      <Filter>Medieval_Dynasty\E_AnimDirection</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_AnimDirection\Structs.h">
-      <Filter>Medieval_Dynasty\E_AnimDirection</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_AnimInteractionTypes\E_AnimInteractionTypes_SDK.h">
-      <Filter>Medieval_Dynasty\E_AnimInteractionTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_AnimInteractionTypes\Structs.h">
-      <Filter>Medieval_Dynasty\E_AnimInteractionTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_AnimMovement\E_AnimMovement_SDK.h">
-      <Filter>Medieval_Dynasty\E_AnimMovement</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_AnimMovement\Structs.h">
-      <Filter>Medieval_Dynasty\E_AnimMovement</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_AnimalAgeStage\E_AnimalAgeStage_SDK.h">
-      <Filter>Medieval_Dynasty\E_AnimalAgeStage</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_AnimalAgeStage\Structs.h">
-      <Filter>Medieval_Dynasty\E_AnimalAgeStage</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_AnimalType\E_AnimalType_SDK.h">
-      <Filter>Medieval_Dynasty\E_AnimalType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_AnimalType\Structs.h">
-      <Filter>Medieval_Dynasty\E_AnimalType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BagMode\E_BagMode_SDK.h">
-      <Filter>Medieval_Dynasty\E_BagMode</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BagMode\Structs.h">
-      <Filter>Medieval_Dynasty\E_BagMode</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BanditNames\E_BanditNames_SDK.h">
-      <Filter>Medieval_Dynasty\E_BanditNames</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BanditNames\Structs.h">
-      <Filter>Medieval_Dynasty\E_BanditNames</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BanditType\E_BanditType_SDK.h">
-      <Filter>Medieval_Dynasty\E_BanditType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BanditType\Structs.h">
-      <Filter>Medieval_Dynasty\E_BanditType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BaseInteractionStages\E_BaseInteractionStages_SDK.h">
-      <Filter>Medieval_Dynasty\E_BaseInteractionStages</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BaseInteractionStages\Structs.h">
-      <Filter>Medieval_Dynasty\E_BaseInteractionStages</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BirdMovementMode\E_BirdMovementMode_SDK.h">
-      <Filter>Medieval_Dynasty\E_BirdMovementMode</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BirdMovementMode\Structs.h">
-      <Filter>Medieval_Dynasty\E_BirdMovementMode</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BlinkParameters\E_BlinkParameters_SDK.h">
-      <Filter>Medieval_Dynasty\E_BlinkParameters</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BlinkParameters\Structs.h">
-      <Filter>Medieval_Dynasty\E_BlinkParameters</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BodyParts\E_BodyParts_SDK.h">
-      <Filter>Medieval_Dynasty\E_BodyParts</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BodyParts\Structs.h">
-      <Filter>Medieval_Dynasty\E_BodyParts</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BuildingCategories\E_BuildingCategories_SDK.h">
-      <Filter>Medieval_Dynasty\E_BuildingCategories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BuildingCategories\Structs.h">
-      <Filter>Medieval_Dynasty\E_BuildingCategories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BuildingModifications\E_BuildingModifications_SDK.h">
-      <Filter>Medieval_Dynasty\E_BuildingModifications</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BuildingModifications\Structs.h">
-      <Filter>Medieval_Dynasty\E_BuildingModifications</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BuildingSlotType\E_BuildingSlotType_SDK.h">
-      <Filter>Medieval_Dynasty\E_BuildingSlotType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BuildingSlotType\Structs.h">
-      <Filter>Medieval_Dynasty\E_BuildingSlotType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BuildingStatus\E_BuildingStatus_SDK.h">
-      <Filter>Medieval_Dynasty\E_BuildingStatus</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BuildingStatus\Structs.h">
-      <Filter>Medieval_Dynasty\E_BuildingStatus</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BuildingWarningType\E_BuildingWarningType_SDK.h">
-      <Filter>Medieval_Dynasty\E_BuildingWarningType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BuildingWarningType\Structs.h">
-      <Filter>Medieval_Dynasty\E_BuildingWarningType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Buildings\E_Buildings_SDK.h">
-      <Filter>Medieval_Dynasty\E_Buildings</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Buildings\Structs.h">
-      <Filter>Medieval_Dynasty\E_Buildings</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BuildingsSortingType\E_BuildingsSortingType_SDK.h">
-      <Filter>Medieval_Dynasty\E_BuildingsSortingType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_BuildingsSortingType\Structs.h">
-      <Filter>Medieval_Dynasty\E_BuildingsSortingType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_CardinalDirection\E_CardinalDirection_SDK.h">
-      <Filter>Medieval_Dynasty\E_CardinalDirection</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_CardinalDirection\Structs.h">
-      <Filter>Medieval_Dynasty\E_CardinalDirection</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ChallengeState\E_ChallengeState_SDK.h">
-      <Filter>Medieval_Dynasty\E_ChallengeState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ChallengeState\Structs.h">
-      <Filter>Medieval_Dynasty\E_ChallengeState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Challenge_PunishmentType\E_Challenge_PunishmentType_SDK.h">
-      <Filter>Medieval_Dynasty\E_Challenge_PunishmentType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Challenge_PunishmentType\Structs.h">
-      <Filter>Medieval_Dynasty\E_Challenge_PunishmentType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Challenge_Type\E_Challenge_Type_SDK.h">
-      <Filter>Medieval_Dynasty\E_Challenge_Type</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Challenge_Type\Structs.h">
-      <Filter>Medieval_Dynasty\E_Challenge_Type</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_CharacterType\E_CharacterType_SDK.h">
-      <Filter>Medieval_Dynasty\E_CharacterType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_CharacterType\Structs.h">
-      <Filter>Medieval_Dynasty\E_CharacterType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ChoiceSegments\E_ChoiceSegments_SDK.h">
-      <Filter>Medieval_Dynasty\E_ChoiceSegments</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ChoiceSegments\Structs.h">
-      <Filter>Medieval_Dynasty\E_ChoiceSegments</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ChunkStates\E_ChunkStates_SDK.h">
-      <Filter>Medieval_Dynasty\E_ChunkStates</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ChunkStates\Structs.h">
-      <Filter>Medieval_Dynasty\E_ChunkStates</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Combat\E_Combat_SDK.h">
-      <Filter>Medieval_Dynasty\E_Combat</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Combat\Structs.h">
-      <Filter>Medieval_Dynasty\E_Combat</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_CompassMarkerType\E_CompassMarkerType_SDK.h">
-      <Filter>Medieval_Dynasty\E_CompassMarkerType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_CompassMarkerType\Structs.h">
-      <Filter>Medieval_Dynasty\E_CompassMarkerType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_CraftingRecipeType\E_CraftingRecipeType_SDK.h">
-      <Filter>Medieval_Dynasty\E_CraftingRecipeType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_CraftingRecipeType\Structs.h">
-      <Filter>Medieval_Dynasty\E_CraftingRecipeType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Cutscenes\E_Cutscenes_SDK.h">
-      <Filter>Medieval_Dynasty\E_Cutscenes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Cutscenes\Structs.h">
-      <Filter>Medieval_Dynasty\E_Cutscenes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_DailyCycle\E_DailyCycle_SDK.h">
-      <Filter>Medieval_Dynasty\E_DailyCycle</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_DailyCycle\Structs.h">
-      <Filter>Medieval_Dynasty\E_DailyCycle</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_DamageType\E_DamageType_SDK.h">
-      <Filter>Medieval_Dynasty\E_DamageType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_DamageType\Structs.h">
-      <Filter>Medieval_Dynasty\E_DamageType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_DeathType\E_DeathType_SDK.h">
-      <Filter>Medieval_Dynasty\E_DeathType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_DeathType\Structs.h">
-      <Filter>Medieval_Dynasty\E_DeathType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_DecorationCategories\E_DecorationCategories_SDK.h">
-      <Filter>Medieval_Dynasty\E_DecorationCategories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_DecorationCategories\Structs.h">
-      <Filter>Medieval_Dynasty\E_DecorationCategories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_DecorationSlotType\E_DecorationSlotType_SDK.h">
-      <Filter>Medieval_Dynasty\E_DecorationSlotType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_DecorationSlotType\Structs.h">
-      <Filter>Medieval_Dynasty\E_DecorationSlotType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_DevelopmentStages\E_DevelopmentStages_SDK.h">
-      <Filter>Medieval_Dynasty\E_DevelopmentStages</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_DevelopmentStages\Structs.h">
-      <Filter>Medieval_Dynasty\E_DevelopmentStages</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Directions\E_Directions_SDK.h">
-      <Filter>Medieval_Dynasty\E_Directions</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Directions\Structs.h">
-      <Filter>Medieval_Dynasty\E_Directions</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Effects\E_Effects_SDK.h">
-      <Filter>Medieval_Dynasty\E_Effects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Effects\Structs.h">
-      <Filter>Medieval_Dynasty\E_Effects</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EquipmentCategories\E_EquipmentCategories_SDK.h">
-      <Filter>Medieval_Dynasty\E_EquipmentCategories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EquipmentCategories\Structs.h">
-      <Filter>Medieval_Dynasty\E_EquipmentCategories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventButtonRestrictions\E_EventButtonRestrictions_SDK.h">
-      <Filter>Medieval_Dynasty\E_EventButtonRestrictions</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventButtonRestrictions\Structs.h">
-      <Filter>Medieval_Dynasty\E_EventButtonRestrictions</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventDifficulty\E_EventDifficulty_SDK.h">
-      <Filter>Medieval_Dynasty\E_EventDifficulty</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventDifficulty\Structs.h">
-      <Filter>Medieval_Dynasty\E_EventDifficulty</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventEffectRelevance\E_EventEffectRelevance_SDK.h">
-      <Filter>Medieval_Dynasty\E_EventEffectRelevance</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventEffectRelevance\Structs.h">
-      <Filter>Medieval_Dynasty\E_EventEffectRelevance</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventEffectType\E_EventEffectType_SDK.h">
-      <Filter>Medieval_Dynasty\E_EventEffectType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventEffectType\Structs.h">
-      <Filter>Medieval_Dynasty\E_EventEffectType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventEffect_NPCType\E_EventEffect_NPCType_SDK.h">
-      <Filter>Medieval_Dynasty\E_EventEffect_NPCType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventEffect_NPCType\Structs.h">
-      <Filter>Medieval_Dynasty\E_EventEffect_NPCType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventEffect_PlayerType\E_EventEffect_PlayerType_SDK.h">
-      <Filter>Medieval_Dynasty\E_EventEffect_PlayerType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventEffect_PlayerType\Structs.h">
-      <Filter>Medieval_Dynasty\E_EventEffect_PlayerType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventEffect_VillageType\E_EventEffect_VillageType_SDK.h">
-      <Filter>Medieval_Dynasty\E_EventEffect_VillageType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventEffect_VillageType\Structs.h">
-      <Filter>Medieval_Dynasty\E_EventEffect_VillageType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventRestictions_Buildings\E_EventRestictions_Buildings_SDK.h">
-      <Filter>Medieval_Dynasty\E_EventRestictions_Buildings</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventRestictions_Buildings\Structs.h">
-      <Filter>Medieval_Dynasty\E_EventRestictions_Buildings</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventRestrictions\E_EventRestrictions_SDK.h">
-      <Filter>Medieval_Dynasty\E_EventRestrictions</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_EventRestrictions\Structs.h">
-      <Filter>Medieval_Dynasty\E_EventRestrictions</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FieldActivities\E_FieldActivities_SDK.h">
-      <Filter>Medieval_Dynasty\E_FieldActivities</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FieldActivities\Structs.h">
-      <Filter>Medieval_Dynasty\E_FieldActivities</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FieldCategories\E_FieldCategories_SDK.h">
-      <Filter>Medieval_Dynasty\E_FieldCategories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FieldCategories\Structs.h">
-      <Filter>Medieval_Dynasty\E_FieldCategories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FieldPlantStages\E_FieldPlantStages_SDK.h">
-      <Filter>Medieval_Dynasty\E_FieldPlantStages</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FieldPlantStages\Structs.h">
-      <Filter>Medieval_Dynasty\E_FieldPlantStages</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FieldPlantType\E_FieldPlantType_SDK.h">
-      <Filter>Medieval_Dynasty\E_FieldPlantType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FieldPlantType\Structs.h">
-      <Filter>Medieval_Dynasty\E_FieldPlantType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FieldsSortingType\E_FieldsSortingType_SDK.h">
-      <Filter>Medieval_Dynasty\E_FieldsSortingType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FieldsSortingType\Structs.h">
-      <Filter>Medieval_Dynasty\E_FieldsSortingType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FishPoolType\E_FishPoolType_SDK.h">
-      <Filter>Medieval_Dynasty\E_FishPoolType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FishPoolType\Structs.h">
-      <Filter>Medieval_Dynasty\E_FishPoolType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Fluids\E_Fluids_SDK.h">
-      <Filter>Medieval_Dynasty\E_Fluids</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Fluids\Structs.h">
-      <Filter>Medieval_Dynasty\E_Fluids</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FoliageSpecies\E_FoliageSpecies_SDK.h">
-      <Filter>Medieval_Dynasty\E_FoliageSpecies</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FoliageSpecies\Structs.h">
-      <Filter>Medieval_Dynasty\E_FoliageSpecies</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FurnitureCategories\E_FurnitureCategories_SDK.h">
-      <Filter>Medieval_Dynasty\E_FurnitureCategories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FurnitureCategories\Structs.h">
-      <Filter>Medieval_Dynasty\E_FurnitureCategories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FurnitureSlotType\E_FurnitureSlotType_SDK.h">
-      <Filter>Medieval_Dynasty\E_FurnitureSlotType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FurnitureSlotType\Structs.h">
-      <Filter>Medieval_Dynasty\E_FurnitureSlotType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FurnitureType\E_FurnitureType_SDK.h">
-      <Filter>Medieval_Dynasty\E_FurnitureType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_FurnitureType\Structs.h">
-      <Filter>Medieval_Dynasty\E_FurnitureType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Gait\E_Gait_SDK.h">
-      <Filter>Medieval_Dynasty\E_Gait</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Gait\Structs.h">
-      <Filter>Medieval_Dynasty\E_Gait</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_GamepadControlType\E_GamepadControlType_SDK.h">
-      <Filter>Medieval_Dynasty\E_GamepadControlType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_GamepadControlType\Structs.h">
-      <Filter>Medieval_Dynasty\E_GamepadControlType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_GamepadType\E_GamepadType_SDK.h">
-      <Filter>Medieval_Dynasty\E_GamepadType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_GamepadType\Structs.h">
-      <Filter>Medieval_Dynasty\E_GamepadType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_GoalState\E_GoalState_SDK.h">
-      <Filter>Medieval_Dynasty\E_GoalState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_GoalState\Structs.h">
-      <Filter>Medieval_Dynasty\E_GoalState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_GoalTypes\E_GoalTypes_SDK.h">
-      <Filter>Medieval_Dynasty\E_GoalTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_GoalTypes\Structs.h">
-      <Filter>Medieval_Dynasty\E_GoalTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Goal_BuildTypes\E_Goal_BuildTypes_SDK.h">
-      <Filter>Medieval_Dynasty\E_Goal_BuildTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Goal_BuildTypes\Structs.h">
-      <Filter>Medieval_Dynasty\E_Goal_BuildTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Goal_VillageParametersTypes\E_Goal_VillageParametersTypes_SDK.h">
-      <Filter>Medieval_Dynasty\E_Goal_VillageParametersTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Goal_VillageParametersTypes\Structs.h">
-      <Filter>Medieval_Dynasty\E_Goal_VillageParametersTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_HandsForHolstering\E_HandsForHolstering_SDK.h">
-      <Filter>Medieval_Dynasty\E_HandsForHolstering</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_HandsForHolstering\Structs.h">
-      <Filter>Medieval_Dynasty\E_HandsForHolstering</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_HoldableTraceBehavior\E_HoldableTraceBehavior_SDK.h">
-      <Filter>Medieval_Dynasty\E_HoldableTraceBehavior</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_HoldableTraceBehavior\Structs.h">
-      <Filter>Medieval_Dynasty\E_HoldableTraceBehavior</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Husbandry_Action\E_Husbandry_Action_SDK.h">
-      <Filter>Medieval_Dynasty\E_Husbandry_Action</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Husbandry_Action\Structs.h">
-      <Filter>Medieval_Dynasty\E_Husbandry_Action</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_IdleEntryState\E_IdleEntryState_SDK.h">
-      <Filter>Medieval_Dynasty\E_IdleEntryState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_IdleEntryState\Structs.h">
-      <Filter>Medieval_Dynasty\E_IdleEntryState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_IdleStates\E_IdleStates_SDK.h">
-      <Filter>Medieval_Dynasty\E_IdleStates</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_IdleStates\Structs.h">
-      <Filter>Medieval_Dynasty\E_IdleStates</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_InhabitantsSortingType\E_InhabitantsSortingType_SDK.h">
-      <Filter>Medieval_Dynasty\E_InhabitantsSortingType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_InhabitantsSortingType\Structs.h">
-      <Filter>Medieval_Dynasty\E_InhabitantsSortingType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_InputMode\E_InputMode_SDK.h">
-      <Filter>Medieval_Dynasty\E_InputMode</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_InputMode\Structs.h">
-      <Filter>Medieval_Dynasty\E_InputMode</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_InventoryMainTab\E_InventoryMainTab_SDK.h">
-      <Filter>Medieval_Dynasty\E_InventoryMainTab</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_InventoryMainTab\Structs.h">
-      <Filter>Medieval_Dynasty\E_InventoryMainTab</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_InventoryOwnerType\E_InventoryOwnerType_SDK.h">
-      <Filter>Medieval_Dynasty\E_InventoryOwnerType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_InventoryOwnerType\Structs.h">
-      <Filter>Medieval_Dynasty\E_InventoryOwnerType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_InventorySortingType\E_InventorySortingType_SDK.h">
-      <Filter>Medieval_Dynasty\E_InventorySortingType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_InventorySortingType\Structs.h">
-      <Filter>Medieval_Dynasty\E_InventorySortingType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ItemCategories\E_ItemCategories_SDK.h">
-      <Filter>Medieval_Dynasty\E_ItemCategories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ItemCategories\Structs.h">
-      <Filter>Medieval_Dynasty\E_ItemCategories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ItemEquipOptions\E_ItemEquipOptions_SDK.h">
-      <Filter>Medieval_Dynasty\E_ItemEquipOptions</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ItemEquipOptions\Structs.h">
-      <Filter>Medieval_Dynasty\E_ItemEquipOptions</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ItemSubCategories\E_ItemSubCategories_SDK.h">
-      <Filter>Medieval_Dynasty\E_ItemSubCategories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ItemSubCategories\Structs.h">
-      <Filter>Medieval_Dynasty\E_ItemSubCategories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_KingAlignment\E_KingAlignment_SDK.h">
-      <Filter>Medieval_Dynasty\E_KingAlignment</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_KingAlignment\Structs.h">
-      <Filter>Medieval_Dynasty\E_KingAlignment</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_KingdomStatus\E_KingdomStatus_SDK.h">
-      <Filter>Medieval_Dynasty\E_KingdomStatus</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_KingdomStatus\Structs.h">
-      <Filter>Medieval_Dynasty\E_KingdomStatus</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Kingdoms\E_Kingdoms_SDK.h">
-      <Filter>Medieval_Dynasty\E_Kingdoms</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Kingdoms\Structs.h">
-      <Filter>Medieval_Dynasty\E_Kingdoms</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_LookAtOptions\E_LookAtOptions_SDK.h">
-      <Filter>Medieval_Dynasty\E_LookAtOptions</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_LookAtOptions\Structs.h">
-      <Filter>Medieval_Dynasty\E_LookAtOptions</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_MapFilters\E_MapFilters_SDK.h">
-      <Filter>Medieval_Dynasty\E_MapFilters</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_MapFilters\Structs.h">
-      <Filter>Medieval_Dynasty\E_MapFilters</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_MaterialType\E_MaterialType_SDK.h">
-      <Filter>Medieval_Dynasty\E_MaterialType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_MaterialType\Structs.h">
-      <Filter>Medieval_Dynasty\E_MaterialType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ModuleType\E_ModuleType_SDK.h">
-      <Filter>Medieval_Dynasty\E_ModuleType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ModuleType\Structs.h">
-      <Filter>Medieval_Dynasty\E_ModuleType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_MountAnimType\E_MountAnimType_SDK.h">
-      <Filter>Medieval_Dynasty\E_MountAnimType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_MountAnimType\Structs.h">
-      <Filter>Medieval_Dynasty\E_MountAnimType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_MovementDirection\E_MovementDirection_SDK.h">
-      <Filter>Medieval_Dynasty\E_MovementDirection</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_MovementDirection\Structs.h">
-      <Filter>Medieval_Dynasty\E_MovementDirection</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_MovementMode\E_MovementMode_SDK.h">
-      <Filter>Medieval_Dynasty\E_MovementMode</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_MovementMode\Structs.h">
-      <Filter>Medieval_Dynasty\E_MovementMode</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPCBehavior\E_NPCBehavior_SDK.h">
-      <Filter>Medieval_Dynasty\E_NPCBehavior</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPCBehavior\Structs.h">
-      <Filter>Medieval_Dynasty\E_NPCBehavior</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPCPersonality\E_NPCPersonality_SDK.h">
-      <Filter>Medieval_Dynasty\E_NPCPersonality</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPCPersonality\Structs.h">
-      <Filter>Medieval_Dynasty\E_NPCPersonality</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPCPresetTypes\E_NPCPresetTypes_SDK.h">
-      <Filter>Medieval_Dynasty\E_NPCPresetTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPCPresetTypes\Structs.h">
-      <Filter>Medieval_Dynasty\E_NPCPresetTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPCStatus\E_NPCStatus_SDK.h">
-      <Filter>Medieval_Dynasty\E_NPCStatus</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPCStatus\Structs.h">
-      <Filter>Medieval_Dynasty\E_NPCStatus</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPC_Bandit_BlackboardBoolean\E_NPC_Bandit_BlackboardBoolean_SDK.h">
-      <Filter>Medieval_Dynasty\E_NPC_Bandit_BlackboardBoolean</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPC_Bandit_BlackboardBoolean\Structs.h">
-      <Filter>Medieval_Dynasty\E_NPC_Bandit_BlackboardBoolean</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPC_BlackboardBoolean\E_NPC_BlackboardBoolean_SDK.h">
-      <Filter>Medieval_Dynasty\E_NPC_BlackboardBoolean</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPC_BlackboardBoolean\Structs.h">
-      <Filter>Medieval_Dynasty\E_NPC_BlackboardBoolean</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPC_BlackboardInt\E_NPC_BlackboardInt_SDK.h">
-      <Filter>Medieval_Dynasty\E_NPC_BlackboardInt</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPC_BlackboardInt\Structs.h">
-      <Filter>Medieval_Dynasty\E_NPC_BlackboardInt</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPC_BlackboardObject\E_NPC_BlackboardObject_SDK.h">
-      <Filter>Medieval_Dynasty\E_NPC_BlackboardObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPC_BlackboardObject\Structs.h">
-      <Filter>Medieval_Dynasty\E_NPC_BlackboardObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPC_BlackboardVector\E_NPC_BlackboardVector_SDK.h">
-      <Filter>Medieval_Dynasty\E_NPC_BlackboardVector</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NPC_BlackboardVector\Structs.h">
-      <Filter>Medieval_Dynasty\E_NPC_BlackboardVector</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Notifications\E_Notifications_SDK.h">
-      <Filter>Medieval_Dynasty\E_Notifications</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Notifications\Structs.h">
-      <Filter>Medieval_Dynasty\E_Notifications</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NotifyObject\E_NotifyObject_SDK.h">
-      <Filter>Medieval_Dynasty\E_NotifyObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_NotifyObject\Structs.h">
-      <Filter>Medieval_Dynasty\E_NotifyObject</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ObjectiveState\E_ObjectiveState_SDK.h">
-      <Filter>Medieval_Dynasty\E_ObjectiveState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ObjectiveState\Structs.h">
-      <Filter>Medieval_Dynasty\E_ObjectiveState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_OutsideNPCTypes\E_OutsideNPCTypes_SDK.h">
-      <Filter>Medieval_Dynasty\E_OutsideNPCTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_OutsideNPCTypes\Structs.h">
-      <Filter>Medieval_Dynasty\E_OutsideNPCTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Ownership\E_Ownership_SDK.h">
-      <Filter>Medieval_Dynasty\E_Ownership</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Ownership\Structs.h">
-      <Filter>Medieval_Dynasty\E_Ownership</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_POI_Type\E_POI_Type_SDK.h">
-      <Filter>Medieval_Dynasty\E_POI_Type</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_POI_Type\Structs.h">
-      <Filter>Medieval_Dynasty\E_POI_Type</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_PeopleDemandSortingType\E_PeopleDemandSortingType_SDK.h">
-      <Filter>Medieval_Dynasty\E_PeopleDemandSortingType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_PeopleDemandSortingType\Structs.h">
-      <Filter>Medieval_Dynasty\E_PeopleDemandSortingType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Production_AnimalAge\E_Production_AnimalAge_SDK.h">
-      <Filter>Medieval_Dynasty\E_Production_AnimalAge</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Production_AnimalAge\Structs.h">
-      <Filter>Medieval_Dynasty\E_Production_AnimalAge</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Production_AnimalSex\E_Production_AnimalSex_SDK.h">
-      <Filter>Medieval_Dynasty\E_Production_AnimalSex</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Production_AnimalSex\Structs.h">
-      <Filter>Medieval_Dynasty\E_Production_AnimalSex</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Production_SourcePlaces\E_Production_SourcePlaces_SDK.h">
-      <Filter>Medieval_Dynasty\E_Production_SourcePlaces</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Production_SourcePlaces\Structs.h">
-      <Filter>Medieval_Dynasty\E_Production_SourcePlaces</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Production_StoragePlaces\E_Production_StoragePlaces_SDK.h">
-      <Filter>Medieval_Dynasty\E_Production_StoragePlaces</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Production_StoragePlaces\Structs.h">
-      <Filter>Medieval_Dynasty\E_Production_StoragePlaces</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Profession\E_Profession_SDK.h">
-      <Filter>Medieval_Dynasty\E_Profession</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Profession\Structs.h">
-      <Filter>Medieval_Dynasty\E_Profession</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_QuestCategories\E_QuestCategories_SDK.h">
-      <Filter>Medieval_Dynasty\E_QuestCategories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_QuestCategories\Structs.h">
-      <Filter>Medieval_Dynasty\E_QuestCategories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_QuestState\E_QuestState_SDK.h">
-      <Filter>Medieval_Dynasty\E_QuestState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_QuestState\Structs.h">
-      <Filter>Medieval_Dynasty\E_QuestState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ResourceState\E_ResourceState_SDK.h">
-      <Filter>Medieval_Dynasty\E_ResourceState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ResourceState\Structs.h">
-      <Filter>Medieval_Dynasty\E_ResourceState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Resources\E_Resources_SDK.h">
-      <Filter>Medieval_Dynasty\E_Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Resources\Structs.h">
-      <Filter>Medieval_Dynasty\E_Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_RotationMode\E_RotationMode_SDK.h">
-      <Filter>Medieval_Dynasty\E_RotationMode</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_RotationMode\Structs.h">
-      <Filter>Medieval_Dynasty\E_RotationMode</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Seasons\E_Seasons_SDK.h">
-      <Filter>Medieval_Dynasty\E_Seasons</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Seasons\Structs.h">
-      <Filter>Medieval_Dynasty\E_Seasons</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Seeds\E_Seeds_SDK.h">
-      <Filter>Medieval_Dynasty\E_Seeds</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Seeds\Structs.h">
-      <Filter>Medieval_Dynasty\E_Seeds</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Segments\E_Segments_SDK.h">
-      <Filter>Medieval_Dynasty\E_Segments</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Segments\Structs.h">
-      <Filter>Medieval_Dynasty\E_Segments</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Sex\E_Sex_SDK.h">
-      <Filter>Medieval_Dynasty\E_Sex</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Sex\Structs.h">
-      <Filter>Medieval_Dynasty\E_Sex</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ShopType\E_ShopType_SDK.h">
-      <Filter>Medieval_Dynasty\E_ShopType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ShopType\Structs.h">
-      <Filter>Medieval_Dynasty\E_ShopType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_SitDownPosition\E_SitDownPosition_SDK.h">
-      <Filter>Medieval_Dynasty\E_SitDownPosition</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_SitDownPosition\Structs.h">
-      <Filter>Medieval_Dynasty\E_SitDownPosition</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_SittingType\E_SittingType_SDK.h">
-      <Filter>Medieval_Dynasty\E_SittingType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_SittingType\Structs.h">
-      <Filter>Medieval_Dynasty\E_SittingType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Skills\E_Skills_SDK.h">
-      <Filter>Medieval_Dynasty\E_Skills</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Skills\Structs.h">
-      <Filter>Medieval_Dynasty\E_Skills</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_SleepMenuSegments\E_SleepMenuSegments_SDK.h">
-      <Filter>Medieval_Dynasty\E_SleepMenuSegments</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_SleepMenuSegments\Structs.h">
-      <Filter>Medieval_Dynasty\E_SleepMenuSegments</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_SleepingDirection\E_SleepingDirection_SDK.h">
-      <Filter>Medieval_Dynasty\E_SleepingDirection</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_SleepingDirection\Structs.h">
-      <Filter>Medieval_Dynasty\E_SleepingDirection</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_SortingUIType\E_SortingUIType_SDK.h">
-      <Filter>Medieval_Dynasty\E_SortingUIType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_SortingUIType\Structs.h">
-      <Filter>Medieval_Dynasty\E_SortingUIType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Stance\E_Stance_SDK.h">
-      <Filter>Medieval_Dynasty\E_Stance</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Stance\Structs.h">
-      <Filter>Medieval_Dynasty\E_Stance</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_TalentTrance\E_TalentTrance_SDK.h">
-      <Filter>Medieval_Dynasty\E_TalentTrance</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_TalentTrance\Structs.h">
-      <Filter>Medieval_Dynasty\E_TalentTrance</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Talk\E_Talk_SDK.h">
-      <Filter>Medieval_Dynasty\E_Talk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Talk\Structs.h">
-      <Filter>Medieval_Dynasty\E_Talk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_TalkToGoalRestriction_RelationToQuestGiver\E_TalkToGoalRestriction_RelationToQuestGiver_SDK.h">
-      <Filter>Medieval_Dynasty\E_TalkToGoalRestriction_RelationToQuestGiver</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_TalkToGoalRestriction_RelationToQuestGiver\Structs.h">
-      <Filter>Medieval_Dynasty\E_TalkToGoalRestriction_RelationToQuestGiver</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_TaskState\E_TaskState_SDK.h">
-      <Filter>Medieval_Dynasty\E_TaskState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_TaskState\Structs.h">
-      <Filter>Medieval_Dynasty\E_TaskState</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Tasks\E_Tasks_SDK.h">
-      <Filter>Medieval_Dynasty\E_Tasks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Tasks\Structs.h">
-      <Filter>Medieval_Dynasty\E_Tasks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_TechnologyTypes\E_TechnologyTypes_SDK.h">
-      <Filter>Medieval_Dynasty\E_TechnologyTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_TechnologyTypes\Structs.h">
-      <Filter>Medieval_Dynasty\E_TechnologyTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_TimeOfDay\E_TimeOfDay_SDK.h">
-      <Filter>Medieval_Dynasty\E_TimeOfDay</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_TimeOfDay\Structs.h">
-      <Filter>Medieval_Dynasty\E_TimeOfDay</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_TimeToSave\E_TimeToSave_SDK.h">
-      <Filter>Medieval_Dynasty\E_TimeToSave</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_TimeToSave\Structs.h">
-      <Filter>Medieval_Dynasty\E_TimeToSave</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Tools\E_Tools_SDK.h">
-      <Filter>Medieval_Dynasty\E_Tools</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Tools\Structs.h">
-      <Filter>Medieval_Dynasty\E_Tools</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Tools_Activity\E_Tools_Activity_SDK.h">
-      <Filter>Medieval_Dynasty\E_Tools_Activity</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Tools_Activity\Structs.h">
-      <Filter>Medieval_Dynasty\E_Tools_Activity</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Tutorials\E_Tutorials_SDK.h">
-      <Filter>Medieval_Dynasty\E_Tutorials</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Tutorials\Structs.h">
-      <Filter>Medieval_Dynasty\E_Tutorials</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_UISliderType\E_UISliderType_SDK.h">
-      <Filter>Medieval_Dynasty\E_UISliderType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_UISliderType\Structs.h">
-      <Filter>Medieval_Dynasty\E_UISliderType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Vendor\E_Vendor_SDK.h">
-      <Filter>Medieval_Dynasty\E_Vendor</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Vendor\Structs.h">
-      <Filter>Medieval_Dynasty\E_Vendor</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ViewMode\E_ViewMode_SDK.h">
-      <Filter>Medieval_Dynasty\E_ViewMode</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_ViewMode\Structs.h">
-      <Filter>Medieval_Dynasty\E_ViewMode</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Wealth\E_Wealth_SDK.h">
-      <Filter>Medieval_Dynasty\E_Wealth</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Wealth\Structs.h">
-      <Filter>Medieval_Dynasty\E_Wealth</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_WeaponDamageType\E_WeaponDamageType_SDK.h">
-      <Filter>Medieval_Dynasty\E_WeaponDamageType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_WeaponDamageType\Structs.h">
-      <Filter>Medieval_Dynasty\E_WeaponDamageType</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Workbenches\E_Workbenches_SDK.h">
-      <Filter>Medieval_Dynasty\E_Workbenches</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\E_Workbenches\Structs.h">
-      <Filter>Medieval_Dynasty\E_Workbenches</Filter>
+    <ClInclude Include="src\Medieval_Dynasty\BP_Structs.h">
+      <Filter>Medieval_Dynasty</Filter>
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\F_Medieval\F_Medieval_SDK.h">
       <Filter>Medieval_Dynasty\F_Medieval</Filter>
@@ -1446,6 +162,15 @@
     <ClInclude Include="src\Medieval_Dynasty\GM_MedievalDynasty\Structs.h">
       <Filter>Medieval_Dynasty\GM_MedievalDynasty</Filter>
     </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\GS_GameState\GS_GameState_C.h">
+      <Filter>Medieval_Dynasty\GS_GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\GS_GameState\GS_GameState_SDK.h">
+      <Filter>Medieval_Dynasty\GS_GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\GS_GameState\Structs.h">
+      <Filter>Medieval_Dynasty\GS_GameState</Filter>
+    </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppActivity.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
@@ -1462,9 +187,6 @@
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\MD_SpringArmComponent.h">
-      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\MaterialPlatformSwitch.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\Medieval_Dynasty_SDK.h">
@@ -1485,17 +207,56 @@
     <ClInclude Include="src\Medieval_Dynasty\SDK.h">
       <Filter>Medieval_Dynasty</Filter>
     </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\UI_MainMenu\Structs.h">
-      <Filter>Medieval_Dynasty\UI_MainMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\UI_MainMenu\UI_MainMenu_C.h">
-      <Filter>Medieval_Dynasty\UI_MainMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\UI_MainMenu\UI_MainMenu_SDK.h">
-      <Filter>Medieval_Dynasty\UI_MainMenu</Filter>
-    </ClInclude>
     <ClInclude Include="src\NameValidator.h" />
     <ClInclude Include="src\UE4.h" />
+    <ClInclude Include="src\UE4\AIModule\Structs.h">
+      <Filter>UE4\AIModule</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\ADMUnifiedControllerPawn.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\AdsMountingSystemLibrary.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\AdsMountingSystem_SDK.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\LinkedMountActor.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\LinkedMountActorOwner.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\MountRiderComponent.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\MountRiderInterface.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\MountablePawnComponent.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\MountablePawnInterface.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\MountingSystemDebugInterface.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\RiderControllerComponent.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\RiderControllerInterface.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\Structs.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Chaos\Chaos_SDK.h">
+      <Filter>UE4\Chaos</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Chaos\Structs.h">
+      <Filter>UE4\Chaos</Filter>
+    </ClInclude>
     <ClInclude Include="src\UE4\Containers\Array.h">
       <Filter>UE4\Containers</Filter>
     </ClInclude>
@@ -1535,13 +296,34 @@
     <ClInclude Include="src\UE4\CoreUObject\UnrealType.h">
       <Filter>UE4\CoreUObject</Filter>
     </ClInclude>
+    <ClInclude Include="src\UE4\DeveloperSettings\DeveloperSettings.h">
+      <Filter>UE4\DeveloperSettings</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\DeveloperSettings\DeveloperSettings_SDK.h">
+      <Filter>UE4\DeveloperSettings</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\DeveloperSettings\Structs.h">
+      <Filter>UE4\DeveloperSettings</Filter>
+    </ClInclude>
     <ClInclude Include="src\UE4\Engine\Actor.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\ActorComponent.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\BlueprintAsyncActionBase.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Engine\BlueprintFunctionLibrary.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Engine\BlueprintGeneratedClass.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\Character.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\DynamicBlueprintBinding.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Engine\GameInstance.h">
@@ -1556,13 +338,37 @@
     <ClInclude Include="src\UE4\Engine\GameState.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="src\UE4\Engine\GameStateBase.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\Info.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
     <ClInclude Include="src\UE4\Engine\Level.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\MeshComponent.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Engine\Pawn.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Engine\PlayerController.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\PlayerState.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\PrimitiveComponent.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\Scene.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\SceneComponent.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\SpringArmComponent.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Engine\Structs.h">
@@ -1581,9 +387,6 @@
       <Filter>UE4\Math</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Math\Color.h">
-      <Filter>UE4\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\Math\InterpCurve.h">
       <Filter>UE4\Math</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Math\Plane.h">
@@ -1610,8 +413,617 @@
     <ClInclude Include="src\UE4\Math\Vector4.h">
       <Filter>UE4\Math</Filter>
     </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieScene.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneBindingOverrides.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneBindingOwnerInterface.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneBlenderSystem.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneBoolSection.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneBoundSceneComponentInstantiator.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneBuiltInEasingFunction.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneCachePreAnimatedStateSystem.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneCompiledData.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneCompiledDataManager.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneCustomClockSource.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneDeterminismSource.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneEasingExternalCurve.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneEasingFunction.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneEntityInstantiatorSystem.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneEntityProvider.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneEntitySystem.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneEntitySystemLinker.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneEvalTimeSystem.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneEvaluationHook.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneEvaluationHookSystem.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneFloatDecomposer.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneFolder.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneGenericBoundObjectInstantiator.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneHookSection.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneKeyProxy.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneMasterInstantiatorSystem.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneNameableTrack.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneNodeGroup.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneNodeGroupCollection.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieScenePlaybackClient.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieScenePreAnimatedStateSystemInterface.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneRestorePreAnimatedStateSystem.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneSceneComponentImpersonator.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneSection.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneSequence.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneSequenceActor.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneSequencePlayer.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneSequenceTickManager.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneSignedObject.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneSpawnSection.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneSpawnTrack.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneSpawnablesSystem.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneSubSection.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneSubTrack.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneTrack.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneTrackInstance.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneTrackInstanceInstantiator.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneTrackInstanceSystem.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneTrackTemplateProducer.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieScene_SDK.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\NodeAndChannelMappings.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\Structs.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\TestMovieSceneEvalHookSection.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\TestMovieSceneEvalHookTrack.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\TestMovieSceneSection.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\TestMovieSceneSequence.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\TestMovieSceneSubSection.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\TestMovieSceneSubTrack.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\TestMovieSceneTrack.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\ByteChannelEvaluatorSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\FloatChannelEvaluatorSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\IntegerChannelEvaluatorSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DAttachSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DAttachTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DConstraintSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DConstraintTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DPathSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DPathTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DTransformPropertySystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DTransformSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DTransformTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneActorReferenceSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneActorReferenceTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneAudioSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneAudioTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneBaseValueEvaluatorSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneBoolPropertySystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneBoolTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneBytePropertySystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneByteSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneByteTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraAnimSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraAnimTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraCutSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraCutTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraCutTrackInstance.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeEvaluator.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSourceShakeSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSourceShakeTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSourceTriggerSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSourceTriggerTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCinematicShotSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCinematicShotTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneColorPropertySystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneColorSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneColorTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneComponentAttachmentInvalidatorSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneComponentAttachmentSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneComponentMaterialTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneComponentMobilitySystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneComponentTransformSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneDeferredComponentMovementSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEnumPropertySystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEnumSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEnumTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEulerTransformPropertySystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEulerTransformTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEventRepeaterSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEventSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEventSectionBase.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEventSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEventTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEventTriggerSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneFadeSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneFadeTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneFloatPropertySystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneFloatSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneFloatTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneHierarchicalBiasSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneHierarchicalEasingInstantiatorSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneInitialValueSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneIntegerPropertySystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneIntegerSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneIntegerTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneInterrogatedPropertyInstantiatorSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneLevelVisibilitySection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneLevelVisibilitySystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneLevelVisibilityTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneMaterialParameterCollectionTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneMaterialTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneMotionVectorSimulationSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneObjectPropertySection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneObjectPropertyTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneParameterSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneParticleParameterTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneParticleSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneParticleTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseBoolBlenderSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseByteBlenderSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseEnumBlenderSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseFloatBlenderSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseIntegerBlenderSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePostEvalEventSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePostSpawnEventSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePreSpawnEventSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePrimitiveMaterialSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePrimitiveMaterialTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePropertyInstantiatorSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePropertySystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePropertyTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneQuaternionInterpolationRotationSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneSkeletalAnimationSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneSkeletalAnimationTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneSlomoSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneSlomoTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneStringSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneStringTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneTracks_SDK.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneTransformOrigin.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneTransformOriginSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneTransformTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneVectorPropertySystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneVectorSection.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneVectorTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneVisibilityTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\Structs.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\WeightAndEasingEvaluatorSystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PhysicsCore\BodySetupCore.h">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PhysicsCore\ChaosPhysicalMaterial.h">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PhysicsCore\PhysicalMaterial.h">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PhysicsCore\PhysicalMaterialPropertyBase.h">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PhysicsCore\PhysicsCore_SDK.h">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PhysicsCore\PhysicsSettingsCore.h">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PhysicsCore\Structs.h">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PropertyPath\PropertyPath_SDK.h">
+      <Filter>UE4\PropertyPath</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PropertyPath\Structs.h">
+      <Filter>UE4\PropertyPath</Filter>
+    </ClInclude>
     <ClInclude Include="src\UE4\SDK.h">
       <Filter>UE4</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\ButtonWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\CheckBoxWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\ComboBoxWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\ComboButtonWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\EditableTextBoxWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\EditableTextWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\ProgressWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\ScrollBarWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\ScrollBoxWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\SlateSettings.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\Slate_SDK.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\SpinBoxWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\Structs.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\TextBlockWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\ToolMenuBase.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\FontBulkData.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\FontFaceInterface.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\FontProviderInterface.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\SlateCore_SDK.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\SlateTypes.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\SlateWidgetStyleAsset.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\SlateWidgetStyleContainerBase.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\SlateWidgetStyleContainerInterface.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\Structs.h">
+      <Filter>UE4\SlateCore</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\UMG\AsyncTaskDownloadImage.h">
       <Filter>UE4\UMG</Filter>
@@ -1966,6 +1378,9 @@
     <ClCompile Include="src\Medieval_Dynasty\BP_BaseCharacter\BP_BaseCharacter_C.cpp">
       <Filter>Medieval_Dynasty\BP_BaseCharacter</Filter>
     </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\BP_PlayerBuildingComponent\BP_PlayerBuildingComponent_C.cpp">
+      <Filter>Medieval_Dynasty\BP_PlayerBuildingComponent</Filter>
+    </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\BP_PlayerCharacter\BP_PlayerCharacter_C.cpp">
       <Filter>Medieval_Dynasty\BP_PlayerCharacter</Filter>
     </ClCompile>
@@ -1977,6 +1392,9 @@
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\GM_MedievalDynasty\GM_MedievalDynasty_C.cpp">
       <Filter>Medieval_Dynasty\GM_MedievalDynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\GS_GameState\GS_GameState_C.cpp">
+      <Filter>Medieval_Dynasty\GS_GameState</Filter>
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppActivity.cpp">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
@@ -1996,16 +1414,43 @@
     <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\MD_SpringArmComponent.cpp">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClCompile>
-    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\MaterialPlatformSwitch.cpp">
-      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
-    </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\PC_Player\PC_Player_C.cpp">
       <Filter>Medieval_Dynasty\PC_Player</Filter>
     </ClCompile>
-    <ClCompile Include="src\Medieval_Dynasty\UI_MainMenu\UI_MainMenu_C.cpp">
-      <Filter>Medieval_Dynasty\UI_MainMenu</Filter>
-    </ClCompile>
     <ClCompile Include="src\NameValidator.cpp" />
+    <ClCompile Include="src\UE4\AdsMountingSystem\ADMUnifiedControllerPawn.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\AdsMountingSystemLibrary.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\LinkedMountActor.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\LinkedMountActorOwner.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\MountRiderComponent.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\MountRiderInterface.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\MountablePawnComponent.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\MountablePawnInterface.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\MountingSystemDebugInterface.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\RiderControllerComponent.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\RiderControllerInterface.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
     <ClCompile Include="src\UE4\CoreUObject\Class.cpp">
       <Filter>UE4\CoreUObject</Filter>
     </ClCompile>
@@ -2018,10 +1463,46 @@
     <ClCompile Include="src\UE4\CoreUObject\UnrealType.cpp">
       <Filter>UE4\CoreUObject</Filter>
     </ClCompile>
+    <ClCompile Include="src\UE4\DeveloperSettings\DeveloperSettings.cpp">
+      <Filter>UE4\DeveloperSettings</Filter>
+    </ClCompile>
     <ClCompile Include="src\UE4\Engine\Actor.cpp">
       <Filter>UE4\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\UE4\Engine\ActorComponent.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\BlueprintAsyncActionBase.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\Character.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="src\UE4\Engine\GamePlayStatics.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\GameStateBase.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\Info.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\MeshComponent.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\Pawn.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\PlayerState.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\PrimitiveComponent.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\SceneComponent.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\SpringArmComponent.cpp">
       <Filter>UE4\Engine</Filter>
     </ClCompile>
     <ClCompile Include="src\UE4\Engine\UserDefinedEnum.cpp">
@@ -2029,6 +1510,579 @@
     </ClCompile>
     <ClCompile Include="src\UE4\Engine\World.cpp">
       <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieScene.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneBindingOverrides.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneBindingOwnerInterface.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneBlenderSystem.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneBoolSection.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneBoundSceneComponentInstantiator.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneBuiltInEasingFunction.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneCachePreAnimatedStateSystem.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneCompiledData.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneCompiledDataManager.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneCustomClockSource.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneDeterminismSource.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneEasingExternalCurve.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneEasingFunction.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneEntityInstantiatorSystem.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneEntityProvider.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneEntitySystem.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneEntitySystemLinker.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneEvalTimeSystem.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneEvaluationHook.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneEvaluationHookSystem.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneFloatDecomposer.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneFolder.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneGenericBoundObjectInstantiator.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneHookSection.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneKeyProxy.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneMasterInstantiatorSystem.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneNameableTrack.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneNodeGroup.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneNodeGroupCollection.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieScenePlaybackClient.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieScenePreAnimatedStateSystemInterface.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneRestorePreAnimatedStateSystem.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneSceneComponentImpersonator.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneSection.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneSequence.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneSequenceActor.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneSequencePlayer.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneSequenceTickManager.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneSignedObject.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneSpawnSection.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneSpawnTrack.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneSpawnablesSystem.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneSubSection.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneSubTrack.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneTrack.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneTrackInstance.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneTrackInstanceInstantiator.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneTrackInstanceSystem.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneTrackTemplateProducer.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\NodeAndChannelMappings.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\TestMovieSceneEvalHookSection.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\TestMovieSceneEvalHookTrack.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\TestMovieSceneSection.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\TestMovieSceneSequence.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\TestMovieSceneSubSection.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\TestMovieSceneSubTrack.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\TestMovieSceneTrack.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\ByteChannelEvaluatorSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\FloatChannelEvaluatorSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\IntegerChannelEvaluatorSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DAttachSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DAttachTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DConstraintSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DConstraintTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DPathSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DPathTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DTransformPropertySystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DTransformSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DTransformTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneActorReferenceSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneActorReferenceTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneAudioSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneAudioTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneBaseValueEvaluatorSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneBoolPropertySystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneBoolTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneBytePropertySystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneByteSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneByteTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraAnimSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraAnimTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraCutSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraCutTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraCutTrackInstance.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeEvaluator.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSourceShakeSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSourceShakeTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSourceTriggerSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSourceTriggerTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCinematicShotSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCinematicShotTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneColorPropertySystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneColorSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneColorTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneComponentAttachmentInvalidatorSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneComponentAttachmentSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneComponentMaterialTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneComponentMobilitySystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneComponentTransformSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneDeferredComponentMovementSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEnumPropertySystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEnumSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEnumTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEulerTransformPropertySystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEulerTransformTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEventRepeaterSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEventSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEventSectionBase.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEventSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEventTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEventTriggerSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneFadeSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneFadeTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneFloatPropertySystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneFloatSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneFloatTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneHierarchicalBiasSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneHierarchicalEasingInstantiatorSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneInitialValueSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneIntegerPropertySystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneIntegerSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneIntegerTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneInterrogatedPropertyInstantiatorSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneLevelVisibilitySection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneLevelVisibilitySystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneLevelVisibilityTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneMaterialParameterCollectionTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneMaterialTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneMotionVectorSimulationSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneObjectPropertySection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneObjectPropertyTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneParameterSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneParticleParameterTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneParticleSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneParticleTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseBoolBlenderSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseByteBlenderSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseEnumBlenderSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseFloatBlenderSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseIntegerBlenderSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePostEvalEventSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePostSpawnEventSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePreSpawnEventSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePrimitiveMaterialSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePrimitiveMaterialTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePropertyInstantiatorSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePropertySystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePropertyTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneQuaternionInterpolationRotationSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneSkeletalAnimationSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneSkeletalAnimationTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneSlomoSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneSlomoTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneStringSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneStringTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneTransformOrigin.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneTransformOriginSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneTransformTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneVectorPropertySystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneVectorSection.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneVectorTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneVisibilityTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\WeightAndEasingEvaluatorSystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\PhysicsCore\BodySetupCore.cpp">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\PhysicsCore\ChaosPhysicalMaterial.cpp">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\PhysicsCore\PhysicalMaterial.cpp">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\PhysicsCore\PhysicalMaterialPropertyBase.cpp">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\PhysicsCore\PhysicsSettingsCore.cpp">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\ButtonWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\CheckBoxWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\ComboBoxWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\ComboButtonWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\EditableTextBoxWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\EditableTextWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\ProgressWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\ScrollBarWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\ScrollBoxWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\SlateSettings.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\SpinBoxWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\TextBlockWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\ToolMenuBase.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\SlateCore\FontBulkData.cpp">
+      <Filter>UE4\SlateCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\SlateCore\FontFaceInterface.cpp">
+      <Filter>UE4\SlateCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\SlateCore\FontProviderInterface.cpp">
+      <Filter>UE4\SlateCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\SlateCore\SlateTypes.cpp">
+      <Filter>UE4\SlateCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\SlateCore\SlateWidgetStyleAsset.cpp">
+      <Filter>UE4\SlateCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\SlateCore\SlateWidgetStyleContainerBase.cpp">
+      <Filter>UE4\SlateCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\SlateCore\SlateWidgetStyleContainerInterface.cpp">
+      <Filter>UE4\SlateCore</Filter>
     </ClCompile>
     <ClCompile Include="src\UE4\UMG\AsyncTaskDownloadImage.cpp">
       <Filter>UE4\UMG</Filter>

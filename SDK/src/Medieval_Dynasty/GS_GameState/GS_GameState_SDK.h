@@ -1,0 +1,13 @@
+#pragma once
+/////////////////////////////////////////////
+// Package GS_GameState
+// Classes: 1
+// Enums: 0
+// Structs: 0
+// Objects: 7
+/////////////////////////////////////////////
+
+
+#include "Structs.h"
+
+#include "GS_GameState_C.h"

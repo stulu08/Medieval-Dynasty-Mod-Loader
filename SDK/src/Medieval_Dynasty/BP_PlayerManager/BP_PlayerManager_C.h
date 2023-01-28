@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "Engine/Actor.h"
 /////////////////////////////////////////////
 // BlueprintGeneratedClass BP_PlayerManager.BP_PlayerManager_C
@@ -266,14 +265,6 @@ public:
 	void GetMapBorderPoints();
 
 	void ComponentDelegateBinding_1();
-
-	void CurveFloat_1();
-
-	void CurveFloat_0_2();
-
-	void InspectorIntensity_Template();
-
-	void NightVisionIntensity_Template();
 
 #pragma endregion
 };

@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/PanelSlot.h"
 /////////////////////////////////////////////
 // Class UMG.CanvasPanelSlot
@@ -36,21 +35,21 @@ public:
 	}
 
 #pragma region Functions
-	struct FVector2D GetAlignment() const;
+	struct FVector2D GetAlignment()/* const*/;
 
-	struct FAnchors GetAnchors() const;
+	struct FAnchors GetAnchors()/* const*/;
 
-	bool GetAutoSize() const;
+	bool GetAutoSize()/* const*/;
 
-	struct FAnchorData GetLayout() const;
+	struct FAnchorData GetLayout()/* const*/;
 
-	struct FMargin GetOffsets() const;
+	struct FMargin GetOffsets()/* const*/;
 
-	struct FVector2D GetPosition() const;
+	struct FVector2D GetPosition()/* const*/;
 
-	struct FVector2D GetSize() const;
+	struct FVector2D GetSize()/* const*/;
 
-	int32_t GetZOrder() const;
+	int32_t GetZOrder()/* const*/;
 
 	void SetAlignment(struct FVector2D InAlignment);
 

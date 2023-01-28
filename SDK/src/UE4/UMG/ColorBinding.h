@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/PropertyBinding.h"
 /////////////////////////////////////////////
 // Class UMG.ColorBinding
@@ -21,9 +20,9 @@ public:
 	}
 
 #pragma region Functions
-	struct FLinearColor GetLinearValue() const;
+	struct FLinearColor GetLinearValue()/* const*/;
 
-	struct FSlateColor GetSlateValue() const;
+	struct FSlateColor GetSlateValue()/* const*/;
 
 #pragma endregion
 };

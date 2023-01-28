@@ -905,14 +905,14 @@ void AGM_MedievalDynasty_C::M_SetCutsceneSound(const class UAudioComponent*& val
 	Write((byte*)this + 1288, value);
 }
 // Member Getter and Setter of AlreadyWrittenAchievements
-// Declaration: TAssetPtr<class FNone_564> AlreadyWrittenAchievements
-TAssetPtr<class FNone_564> AGM_MedievalDynasty_C::M_GetAlreadyWrittenAchievements() const {
-	return Read<TAssetPtr<class FNone_564>>((byte*)this + 1296);
+// Declaration: TAssetPtr<class FNone_323> AlreadyWrittenAchievements
+TAssetPtr<class FNone_323> AGM_MedievalDynasty_C::M_GetAlreadyWrittenAchievements() const {
+	return Read<TAssetPtr<class FNone_323>>((byte*)this + 1296);
 }
-TAssetPtr<class FNone_564>* AGM_MedievalDynasty_C::M_PtrGetAlreadyWrittenAchievements() {
-	return reinterpret_cast<TAssetPtr<class FNone_564>*>((byte*)this + 1296);
+TAssetPtr<class FNone_323>* AGM_MedievalDynasty_C::M_PtrGetAlreadyWrittenAchievements() {
+	return reinterpret_cast<TAssetPtr<class FNone_323>*>((byte*)this + 1296);
 }
-void AGM_MedievalDynasty_C::M_SetAlreadyWrittenAchievements(const TAssetPtr<class FNone_564>& value) {
+void AGM_MedievalDynasty_C::M_SetAlreadyWrittenAchievements(const TAssetPtr<class FNone_323>& value) {
 	Write((byte*)this + 1296, value);
 }
 // Member Getter and Setter of SaveDataExistsTemp
@@ -1163,39 +1163,39 @@ void AGM_MedievalDynasty_C::ExecuteUbergraph_GM_MedievalDynasty(int32_t EntryPoi
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
 /////////////////////////////////////////////
-void AGM_MedievalDynasty_C::TryToAddAchievement() {
-	static auto fn = UObject::FindObject<UFunction>("Function GM_MedievalDynasty.GM_MedievalDynasty_C.TryToAddAchievement");
-
-	struct AGM_MedievalDynasty_C_TryToAddAchievement_Params {
-	};
-	AGM_MedievalDynasty_C_TryToAddAchievement_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// Function GM_MedievalDynasty.GM_MedievalDynasty_C.GiveAchievement
-// Flags: HasOutParms, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: AchID	Type: struct FName	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void AGM_MedievalDynasty_C::GiveAchievement(const struct FName& AchID) {
-	static auto fn = UObject::FindObject<UFunction>("Function GM_MedievalDynasty.GM_MedievalDynasty_C.GiveAchievement");
-
-	struct AGM_MedievalDynasty_C_GiveAchievement_Params {
-		struct FName AchID;			//Offset: 0 | ElementSize: 8
-	};
-	AGM_MedievalDynasty_C_GiveAchievement_Params params;
-	params.AchID = AchID;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
+//void AGM_MedievalDynasty_C::TryToAddAchievement() {
+//	static auto fn = UObject::FindObject<UFunction>("Function GM_MedievalDynasty.GM_MedievalDynasty_C.TryToAddAchievement");
+//
+//	struct AGM_MedievalDynasty_C_TryToAddAchievement_Params {
+//	};
+//	AGM_MedievalDynasty_C_TryToAddAchievement_Params params;
+//
+//	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+//	UObject::ProcessEvent(fn, &params);
+//	fn->SetFunctionFlags((EFunctionFlags)flags);
+//
+//}
+// If you see this fuck you, achievements are something you earn and you are not supposed to just cheat them
+///////////////////////////////////////////////
+//// Function GM_MedievalDynasty.GM_MedievalDynasty_C.GiveAchievement
+//// Flags: HasOutParms, BlueprintCallable, BlueprintEvent
+//// Params:
+//// Name: AchID	Type: struct FName	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+///////////////////////////////////////////////
+//void AGM_MedievalDynasty_C::GiveAchievement(const struct FName& AchID) {
+//	static auto fn = UObject::FindObject<UFunction>("Function GM_MedievalDynasty.GM_MedievalDynasty_C.GiveAchievement");
+//
+//	struct AGM_MedievalDynasty_C_GiveAchievement_Params {
+//		struct FName AchID;			//Offset: 0 | ElementSize: 8
+//	};
+//	AGM_MedievalDynasty_C_GiveAchievement_Params params;
+//	params.AchID = AchID;
+//
+//	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+//	UObject::ProcessEvent(fn, &params);
+//	fn->SetFunctionFlags((EFunctionFlags)flags);
+//
+//}
 
 /////////////////////////////////////////////
 // Function GM_MedievalDynasty.GM_MedievalDynasty_C.BPI_OnQuitGame

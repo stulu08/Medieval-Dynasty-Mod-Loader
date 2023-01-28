@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/TextLayoutWidget.h"
 /////////////////////////////////////////////
 // Class UMG.MultiLineEditableText
@@ -96,9 +95,9 @@ public:
 	}
 
 #pragma region Functions
-	struct FText GetHintText() const;
+	struct FText GetHintText()/* const*/;
 
-	struct FText GetText() const;
+	struct FText GetText()/* const*/;
 
 	void OnMultiLineEditableTextChangedEvent__DelegateSignature(const struct FText& Text);
 

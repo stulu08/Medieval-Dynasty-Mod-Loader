@@ -10,7 +10,7 @@ namespace UE4 {
 // Params:
 // Name: ReturnValue	Type: struct FLinearColor	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FLinearColor UColorBinding::GetLinearValue() const {
+struct FLinearColor UColorBinding::GetLinearValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ColorBinding.GetLinearValue");
 
 	struct UColorBinding_GetLinearValue_Params {
@@ -35,7 +35,7 @@ struct FLinearColor UColorBinding::GetLinearValue() const {
 // Params:
 // Name: ReturnValue	Type: struct FSlateColor	Flags: Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FSlateColor UColorBinding::GetSlateValue() const {
+struct FSlateColor UColorBinding::GetSlateValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ColorBinding.GetSlateValue");
 
 	struct UColorBinding_GetSlateValue_Params {

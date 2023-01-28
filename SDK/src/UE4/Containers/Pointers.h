@@ -2,6 +2,22 @@
 #include "CoreUObject/Object.h"
 
 namespace UE4 {
+	struct FGuid {
+		int32_t	A;		//Offset: 0	Size: 4	Flags: Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	B;		//Offset: 4	Size: 4	Flags: Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	C;		//Offset: 8	Size: 4	Flags: Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	D;		//Offset: 12	Size: 4	Flags: Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	struct FUniqueObjectGuid {
+		FGuid Guid;
+	};
+	struct FSoftObjectPath {
+		struct FName	AssetPathName;		//Offset: 0	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FString	SubPathString;		//Offset: 8	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	struct FSoftClassPath : public FSoftObjectPath {
+	};
+
 	template<class T, class TBASE>
 	class TAutoPointer : public TBASE
 	{
@@ -60,10 +76,7 @@ namespace UE4 {
 			return dynamic_cast<T*>(FWeakObjectPtr::Get());
 		}
 	};
-	struct FSoftObjectPath {
-		FName AssetPathName;
-		FString SubPathString;
-	};
+	
 	template<typename TObjectID>
 	class TPersistentObjectPtr
 	{
@@ -77,7 +90,7 @@ namespace UE4 {
 		int32_t TagAtLastTest;
 		TObjectID ObjectID;
 	};
-
+	
 	struct FSoftObjectPtr : public TPersistentObjectPtr<FSoftObjectPath>
 	{
 	public:
@@ -90,13 +103,7 @@ namespace UE4 {
 			return dynamic_cast<T*>(SoftObjectPtr.Get());
 		}
 	};
-
-	template<class T = class UObject>
-	using TAssetPtr = TSoftObjectPtr<T>;
-
-	struct FUniqueObjectGuid {
-		FGuid Guid;
-	};
+	
 	struct FLazyObjectPtr : public TPersistentObjectPtr<FUniqueObjectGuid> {
 	};
 	template<class T = UObject>
@@ -109,4 +116,48 @@ namespace UE4 {
 			return dynamic_cast<T*>(TPersistentObjectPtr::Get());
 		}
 	};
+
+	template <typename TWeakPtr = FWeakObjectPtr>
+	struct TScriptDelegate {
+		UObject* GetUObject()
+		{
+			// Downcast UObjectBase to UObject
+			return static_cast<UObject*>(Object.Get());
+		}
+		const UObject* GetUObject() const
+		{
+			// Downcast UObjectBase to UObject
+			return static_cast<const UObject*>(Object.Get());
+		}
+
+		TWeakPtr Object;
+		FName FunctionName;
+	};
+	struct FScriptDelegate {
+		UObject* GetUObject()
+		{
+			// Downcast UObjectBase to UObject
+			return static_cast<UObject*>(Object.Get());
+		}
+		const UObject* GetUObject() const
+		{
+			// Downcast UObjectBase to UObject
+			return static_cast<const UObject*>(Object.Get());
+		}
+
+		FWeakObjectPtr Object;
+		FName FunctionName;
+	};
+	template <typename TWeakPtr = FWeakObjectPtr>
+	struct TMulticastScriptDelegate
+	{
+		typedef TArray<TScriptDelegate<TWeakPtr>> FInvocationList;
+		mutable FInvocationList InvocationList;		// Mutable so that we can housekeep list even with 'const' broadcasts
+	};
+
+	template<class T = class UObject>
+	using TAssetPtr = TSoftObjectPtr<T>;
+
+	//typedef TScriptDelegate<FWeakObjectPtr> FScriptDelegate;
+	typedef TMulticastScriptDelegate<> FMulticastScriptDelegate;
 }

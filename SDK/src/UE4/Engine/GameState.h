@@ -1,7 +1,8 @@
 #pragma once
+#include "GameStateBase.h"
 
 namespace UE4 {
-	class AGameState : public AActor
+	class AGameState : public AGameStateBase
 	{
 	public:
 		static UClass* StaticClass()

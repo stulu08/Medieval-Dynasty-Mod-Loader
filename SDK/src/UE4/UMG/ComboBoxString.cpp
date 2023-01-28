@@ -234,7 +234,7 @@ void UComboBoxString::ClearSelection() {
 // Name: Option	Type: struct FString	Flags: Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-int32_t UComboBoxString::FindOptionIndex(struct FString Option) const {
+int32_t UComboBoxString::FindOptionIndex(struct FString Option)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ComboBoxString.FindOptionIndex");
 
 	struct UComboBoxString_FindOptionIndex_Params {
@@ -262,7 +262,7 @@ int32_t UComboBoxString::FindOptionIndex(struct FString Option) const {
 // Name: Index	Type: int32_t	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: struct FString	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FString UComboBoxString::GetOptionAtIndex(int32_t Index) const {
+struct FString UComboBoxString::GetOptionAtIndex(int32_t Index)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ComboBoxString.GetOptionAtIndex");
 
 	struct UComboBoxString_GetOptionAtIndex_Params {
@@ -289,7 +289,7 @@ struct FString UComboBoxString::GetOptionAtIndex(int32_t Index) const {
 // Params:
 // Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-int32_t UComboBoxString::GetOptionCount() const {
+int32_t UComboBoxString::GetOptionCount()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ComboBoxString.GetOptionCount");
 
 	struct UComboBoxString_GetOptionCount_Params {
@@ -314,7 +314,7 @@ int32_t UComboBoxString::GetOptionCount() const {
 // Params:
 // Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-int32_t UComboBoxString::GetSelectedIndex() const {
+int32_t UComboBoxString::GetSelectedIndex()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ComboBoxString.GetSelectedIndex");
 
 	struct UComboBoxString_GetSelectedIndex_Params {
@@ -339,7 +339,7 @@ int32_t UComboBoxString::GetSelectedIndex() const {
 // Params:
 // Name: ReturnValue	Type: struct FString	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FString UComboBoxString::GetSelectedOption() const {
+struct FString UComboBoxString::GetSelectedOption()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ComboBoxString.GetSelectedOption");
 
 	struct UComboBoxString_GetSelectedOption_Params {
@@ -364,7 +364,7 @@ struct FString UComboBoxString::GetSelectedOption() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UComboBoxString::IsOpen() const {
+bool UComboBoxString::IsOpen()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ComboBoxString.IsOpen");
 
 	struct UComboBoxString_IsOpen_Params {
@@ -481,7 +481,7 @@ bool UComboBoxString::RemoveOption(struct FString Option) {
 // Params:
 // Name: Index	Type: int32_t	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UComboBoxString::SetSelectedIndex(const int32_t Index) {
+void UComboBoxString::SetSelectedIndex(int32_t Index) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ComboBoxString.SetSelectedIndex");
 
 	struct UComboBoxString_SetSelectedIndex_Params {

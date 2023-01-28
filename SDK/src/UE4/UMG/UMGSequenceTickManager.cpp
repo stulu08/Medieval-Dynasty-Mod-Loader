@@ -3,14 +3,14 @@
 namespace UE4 {
 #pragma region Members
 // Member Getter and Setter of WeakUserWidgets
-// Declaration: TAssetPtr<class FNone_32759> WeakUserWidgets
-TAssetPtr<class FNone_32759> UUMGSequenceTickManager::M_GetWeakUserWidgets() const {
-	return Read<TAssetPtr<class FNone_32759>>((byte*)this + 40);
+// Declaration: TAssetPtr<class FNone_32758> WeakUserWidgets
+TAssetPtr<class FNone_32758> UUMGSequenceTickManager::M_GetWeakUserWidgets() const {
+	return Read<TAssetPtr<class FNone_32758>>((byte*)this + 40);
 }
-TAssetPtr<class FNone_32759>* UUMGSequenceTickManager::M_PtrGetWeakUserWidgets() {
-	return reinterpret_cast<TAssetPtr<class FNone_32759>*>((byte*)this + 40);
+TAssetPtr<class FNone_32758>* UUMGSequenceTickManager::M_PtrGetWeakUserWidgets() {
+	return reinterpret_cast<TAssetPtr<class FNone_32758>*>((byte*)this + 40);
 }
-void UUMGSequenceTickManager::M_SetWeakUserWidgets(const TAssetPtr<class FNone_32759>& value) {
+void UUMGSequenceTickManager::M_SetWeakUserWidgets(const TAssetPtr<class FNone_32758>& value) {
 	Write((byte*)this + 40, value);
 }
 // Member Getter and Setter of Linker

@@ -10,7 +10,7 @@ namespace UE4 {
 // Params:
 // Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-int32_t UInt32Binding::GetValue() const {
+int32_t UInt32Binding::GetValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Int32Binding.GetValue");
 
 	struct UInt32Binding_GetValue_Params {

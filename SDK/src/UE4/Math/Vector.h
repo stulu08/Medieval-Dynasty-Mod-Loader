@@ -32,23 +32,27 @@ namespace UE4 {
 			this->Y = vec.y;
 			this->Z = vec.z;
 		}
-	};
-
-	// 0x0018
-	struct FTwoVectors
-	{
-		struct FVector                                     v1;                                                       // 0x0000(0x000C) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
-		struct FVector                                     v2;                                                       // 0x000C(0x000C) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
-	};
-	// 0x000C
-	struct FIntVector
-	{
-		int                                                X;                                                        // 0x0000(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
-		int                                                Y;                                                        // 0x0004(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
-		int                                                Z;                                                        // 0x0008(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
-	};
-	struct FIntPoint {
-		int32 X;
-		int32 Y;
+		void operator+=(const glm::vec3& vec) {
+			this->X += vec.x;
+			this->Y += vec.y;
+			this->Z += vec.z;
+		}
+		void operator*=(const glm::vec3& vec) {
+			this->X *= vec.x;
+			this->Y *= vec.y;
+			this->Z *= vec.z;
+		}
+		void operator*=(const float value) {
+			this->X *= value;
+			this->Y *= value;
+			this->Z *= value;
+		}
+		friend FVector operator*(const FVector left, const float& right) {
+			FVector re = left;
+			re.X *= right;
+			re.Y *= right;
+			re.Z *= right;
+			return re;
+		}
 	};
 }

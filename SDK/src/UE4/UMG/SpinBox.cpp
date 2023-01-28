@@ -395,7 +395,7 @@ void USpinBox::ClearMinValue() {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool USpinBox::GetAlwaysUsesDeltaSnap() const {
+bool USpinBox::GetAlwaysUsesDeltaSnap()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.SpinBox.GetAlwaysUsesDeltaSnap");
 
 	struct USpinBox_GetAlwaysUsesDeltaSnap_Params {
@@ -420,7 +420,7 @@ bool USpinBox::GetAlwaysUsesDeltaSnap() const {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float USpinBox::GetDelta() const {
+float USpinBox::GetDelta()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.SpinBox.GetDelta");
 
 	struct USpinBox_GetDelta_Params {
@@ -445,7 +445,7 @@ float USpinBox::GetDelta() const {
 // Params:
 // Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-int32_t USpinBox::GetMaxFractionalDigits() const {
+int32_t USpinBox::GetMaxFractionalDigits()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.SpinBox.GetMaxFractionalDigits");
 
 	struct USpinBox_GetMaxFractionalDigits_Params {
@@ -470,7 +470,7 @@ int32_t USpinBox::GetMaxFractionalDigits() const {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float USpinBox::GetMaxSliderValue() const {
+float USpinBox::GetMaxSliderValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.SpinBox.GetMaxSliderValue");
 
 	struct USpinBox_GetMaxSliderValue_Params {
@@ -495,7 +495,7 @@ float USpinBox::GetMaxSliderValue() const {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float USpinBox::GetMaxValue() const {
+float USpinBox::GetMaxValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.SpinBox.GetMaxValue");
 
 	struct USpinBox_GetMaxValue_Params {
@@ -520,7 +520,7 @@ float USpinBox::GetMaxValue() const {
 // Params:
 // Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-int32_t USpinBox::GetMinFractionalDigits() const {
+int32_t USpinBox::GetMinFractionalDigits()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.SpinBox.GetMinFractionalDigits");
 
 	struct USpinBox_GetMinFractionalDigits_Params {
@@ -545,7 +545,7 @@ int32_t USpinBox::GetMinFractionalDigits() const {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float USpinBox::GetMinSliderValue() const {
+float USpinBox::GetMinSliderValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.SpinBox.GetMinSliderValue");
 
 	struct USpinBox_GetMinSliderValue_Params {
@@ -570,7 +570,7 @@ float USpinBox::GetMinSliderValue() const {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float USpinBox::GetMinValue() const {
+float USpinBox::GetMinValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.SpinBox.GetMinValue");
 
 	struct USpinBox_GetMinValue_Params {
@@ -595,7 +595,7 @@ float USpinBox::GetMinValue() const {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float USpinBox::GetValue() const {
+float USpinBox::GetValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.SpinBox.GetValue");
 
 	struct USpinBox_GetValue_Params {

@@ -214,7 +214,7 @@ class UMaterialInstanceDynamic* UTextBlock::GetDynamicOutlineMaterial() {
 // Params:
 // Name: ReturnValue	Type: struct FText	Flags: Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FText UTextBlock::GetText() const {
+struct FText UTextBlock::GetText()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.TextBlock.GetText");
 
 	struct UTextBlock_GetText_Params {

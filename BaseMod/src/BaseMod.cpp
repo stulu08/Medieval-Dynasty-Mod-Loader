@@ -50,46 +50,33 @@ namespace MDMLBase {
 #endif
 		}
 	}
-	Mod::~Mod() { }
-	void Mod::InitializeMod() {
-		UE4::InitSDK();
-		SetupHooks();
+	void Mod::OnModInitilize() {
 		BaseModHooks::CreateHooks();
+		//move base mod to front to handle events
+		if (Global::GetGlobals()->CoreMods.size() > 0) {
+			if (Global::GetGlobals()->CoreMods[0] != this) {
+				auto baseModIt = std::find(Global::GetGlobals()->CoreMods.begin(), Global::GetGlobals()->CoreMods.end(), this);
+				if (baseModIt != Global::GetGlobals()->CoreMods.end()) {
+					std::rotate(Global::GetGlobals()->CoreMods.begin(), baseModIt, baseModIt + 1);
+				}
+			}
+		}
 	}
-	void Mod::InitGameState() {
-		PlayerActor = nullptr;
-		PlayerControler = nullptr;
+	bool Mod::InitGameState() {
 		needObjectReload = true;
+		return GameMod::InitGameState();
 	}
-	void Mod::BeginPlay(UE4::AActor* Actor) {
-		if (Actor == nullptr)
-			return;
-		if (Utils::FilterByBPClass("BlueprintGeneratedClass PC_Player.PC_Player_C", Actor)) {
-			logger->Info("Player loaded {0}", Actor->GetName());
-			PlayerActor = Actor;
-			
-		}
-		if (Utils::FilterByBPClass("BlueprintGeneratedClass BP_PlayerCharacter.BP_PlayerCharacter_C", Actor)) {
-			PlayerControler = Actor;
-			logger->Info("PlayerControler found");
-		}
-
-
+	static UE4::UClass* wellBuilding;
+	bool Mod::GameInit() {
+		
+		return false;
 	}
-	void Mod::PostBeginPlay(std::wstring ModActorName, UE4::AActor* Actor)
-	{
-		// Filters Out All Mod Actors Not Related To Your Mod
-		std::wstring TmpModName(ModName.begin(), ModName.end());
-		if (ModActorName == TmpModName) {
-			//Sets ModActor Ref
-			ModActor = Actor;
-		}
 
-	}
-	void Mod::SetupImGui(ImGuiIO& io) {
+	bool Mod::SetupImGui(ImGuiIO& io) {
 		io.ConfigWindowsMoveFromTitleBarOnly = true;
+		return false;
 	}
-	void Mod::DrawImGui() {
+	bool Mod::DrawImGui() {
 		Utils::Export::CheckFinished();
 		if (ImGui::Begin("Base Mod Debug Menu", nullptr, ImGuiWindowFlags_MenuBar)) {
 			if (ImGui::BeginMenuBar()) {
@@ -108,7 +95,7 @@ namespace MDMLBase {
 				ImGui::EndMenuBar();
 			}
 
-			if (ImGui::CollapsingHeader("Cheat Menu")) {
+			if (ImGui::CollapsingHeader("Hooks")) {
 				bool isDev, isShip;
 				{
 					class TD_Blueprint_Library : public UE4::UBlueprintFunctionLibrary {
@@ -142,33 +129,22 @@ namespace MDMLBase {
 				ImGui::Separator();
 			}
 			
-			if (PlayerActor != nullptr) {
-				ImGui::Text("Player Actor: %s", PlayerActor->GetName().c_str());
-				if (ImGui::Button("Cheat Menu")) {
-					PlayerActor->CallFunctionByNameWithArguments(TEXT("CheatMenu"), nullptr, NULL, true);
-				}
-			}
-			else
-				ImGui::Text("Player Actor: not found");
-
-			if (PlayerControler != nullptr) {
-				ImGui::Text("Player Controller Actor: %s", PlayerControler->GetName().c_str());
-				if (ImGui::Button("Unstuck")) {
-					PlayerControler->CallFunctionByNameWithArguments(TEXT("Unstuck"), nullptr, NULL, true);
-				}
+			ImGui::Text("Game Instance: %s", MedievalDynastyGameInstance ? MedievalDynastyGameInstance->GetName().c_str() : "not found");
+			ImGui::Text("Game Mode: %s", MedievalDynastyGameMode ? MedievalDynastyGameMode->GetName().c_str() : "not found");
+			ImGui::Text("Game State: %s", MedievalDynastyGameState ? MedievalDynastyGameState->GetName().c_str() : "not found");
+			ImGui::Text("Player Actor: %s", PlayerActor ? PlayerActor->GetName().c_str() : "not found");
+			ImGui::Text("Player Character: %s", PlayerCharacter ? PlayerCharacter->GetName().c_str() : "not found");
+			if (PlayerCharacter != nullptr) {
 				if (ImGui::CollapsingHeader("Player Controller Transform")) {
-					Utils::Gui::UE4ActorTransformEdit(PlayerControler);
+					Utils::Gui::UE4ActorTransformEdit(PlayerCharacter);
 				}
 			}
-			else
-				ImGui::Text("Player Controller Actor not found");
-
-
 		}
 		ImGui::End();
 
 		ShowObjectBrowser();
 		ShowINIBrowser();
+		return false;
 	}
 
 	void Mod::ShowObjectBrowser() {
@@ -268,13 +244,21 @@ namespace MDMLBase {
 				if (ImGui::Button("Clear")) {
 					exportList.clear();
 				}
+				ImGui::SameLine();
+				if (ImGui::Button("Export BP Structs")) {
+					Utils::Export::StartThreadBPStructs("Export");
+				}
+				ImGui::SameLine();
+				if (ImGui::Button("Export BP Enums")) {
+					Utils::Export::StartThreadBPEnums("Export");
+				}
 				for (auto object : packages) {
 					if (!object)
 						continue;
 					if (!Utils::Gui::SearchBar(object, search))
 						continue;
 					float x = ImGui::GetContentRegionAvail().x;
-					if (ImGui::TreeNodeEx(("Packages_" + std::to_string(index++)).c_str(), ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick, object->GetName().c_str())) {
+					if (ImGui::TreeNodeEx(("Packages_" + std::to_string(index++)).c_str(), ImGuiTreeNodeFlags_OpenOnArrow, object->GetName().c_str())) {
 						static std::unordered_map<UE4::UObject*, int32_t> counts;
 						if (counts.find(object) != counts.end()) {
 							ImGui::Text("Found %d objects", counts[object]);
@@ -287,7 +271,7 @@ namespace MDMLBase {
 						}
 						ImGui::TreePop();
 					}
-					ImGui::SameLine();
+					
 					auto exportListLoc = std::find(exportList.begin(), exportList.end(), (UE4::UPackage*)object);
 					if (selectAll && exportListLoc == exportList.end()) {
 						exportList.push_back((UE4::UPackage*)object);
@@ -297,7 +281,18 @@ namespace MDMLBase {
 					}
 					bool isInExportList = exportListLoc != exportList.end();
 					
+					if (ImGui::IsItemClicked(ImGuiMouseButton_Left) && ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left)) {
+						if (!isInExportList) {
+							exportList.push_back((UE4::UPackage*)object);
+						}
+						else {
+							exportList.erase(exportListLoc);
+						}
+					}
+
+					ImGui::SameLine();
 					ImGui::SetCursorPosX(x - 75.0f);
+					ImGui::SetCursorPosY(ImGui::GetCursorPosY() - 3.0f);
 					if (ImGui::Checkbox(("##ExportCheckBox" + std::to_string(index++)).c_str(), &isInExportList)) {
 						if (isInExportList && exportListLoc == exportList.end()) {
 							exportList.push_back((UE4::UPackage*)object);

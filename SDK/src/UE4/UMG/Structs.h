@@ -180,6 +180,27 @@ enum class EWidgetInteractionSource : uint8_t {
 #pragma endregion
 
 #pragma region Structs
+struct FEventReply;
+struct FWidgetTransform;
+struct FPaintContext;
+struct FShapedTextOptions;
+struct FAnchorData;
+struct FDynamicPropertyPath;
+struct FMovieScene2DTransformMask;
+struct FMovieSceneWidgetMaterialSectionTemplate;
+struct FRadialBoxSettings;
+struct FRichTextStyleRow;
+struct FRichImageRow;
+struct FSlateMeshVertex;
+struct FSlateChildSize;
+struct FNamedSlotBinding;
+struct FAnimationEventBinding;
+struct FUserWidgetPool;
+struct FWidgetAnimationBinding;
+struct FBlueprintWidgetAnimationDelegateBinding;
+struct FDelegateRuntimeBinding;
+struct FWidgetComponentInstanceData;
+struct FWidgetNavigationData;
 /////////////////////////////////////////////
 // ScriptStruct UMG.EventReply
 // Size 184

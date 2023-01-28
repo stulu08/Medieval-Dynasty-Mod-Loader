@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/Visual.h"
 /////////////////////////////////////////////
 // Class UMG.Widget
@@ -154,43 +153,43 @@ public:
 
 	class UWidget* GenerateWidgetForString__DelegateSignature(struct FString Item);
 
-	struct FText GetAccessibleSummaryText() const;
+	struct FText GetAccessibleSummaryText()/* const*/;
 
-	struct FText GetAccessibleText() const;
+	struct FText GetAccessibleText()/* const*/;
 
 	bool GetBool__DelegateSignature();
 
-	struct FGeometry GetCachedGeometry() const;
+	struct FGeometry GetCachedGeometry()/* const*/;
 
 	ECheckBoxState GetCheckBoxState__DelegateSignature();
 
-	EWidgetClipping GetClipping() const;
+	EWidgetClipping GetClipping()/* const*/;
 
-	struct FVector2D GetDesiredSize() const;
+	struct FVector2D GetDesiredSize()/* const*/;
 
 	float GetFloat__DelegateSignature();
 
-	class UGameInstance* GetGameInstance() const;
+	class UGameInstance* GetGameInstance()/* const*/;
 
 	int32_t GetInt32__DelegateSignature();
 
-	bool GetIsEnabled() const;
+	bool GetIsEnabled()/* const*/;
 
 	struct FLinearColor GetLinearColor__DelegateSignature();
 
 	TEnumAsByte<EMouseCursor> GetMouseCursor__DelegateSignature();
 
-	class ULocalPlayer* GetOwningLocalPlayer() const;
+	class ULocalPlayer* GetOwningLocalPlayer()/* const*/;
 
-	class APlayerController* GetOwningPlayer() const;
+	class APlayerController* GetOwningPlayer()/* const*/;
 
-	struct FGeometry GetPaintSpaceGeometry() const;
+	struct FGeometry GetPaintSpaceGeometry()/* const*/;
 
-	class UPanelWidget* GetParent() const;
+	class UPanelWidget* GetParent()/* const*/;
 
-	float GetRenderOpacity() const;
+	float GetRenderOpacity()/* const*/;
 
-	float GetRenderTransformAngle() const;
+	float GetRenderTransformAngle()/* const*/;
 
 	struct FSlateBrush GetSlateBrush__DelegateSignature();
 
@@ -200,31 +199,31 @@ public:
 
 	struct FText GetText__DelegateSignature();
 
-	struct FGeometry GetTickSpaceGeometry() const;
+	struct FGeometry GetTickSpaceGeometry()/* const*/;
 
-	ESlateVisibility GetVisibility() const;
+	ESlateVisibility GetVisibility()/* const*/;
 
 	class UWidget* GetWidget__DelegateSignature();
 
-	bool HasAnyUserFocus() const;
+	bool HasAnyUserFocus()/* const*/;
 
-	bool HasFocusedDescendants() const;
+	bool HasFocusedDescendants()/* const*/;
 
-	bool HasKeyboardFocus() const;
+	bool HasKeyboardFocus()/* const*/;
 
-	bool HasMouseCapture() const;
+	bool HasMouseCapture()/* const*/;
 
-	bool HasMouseCaptureByUser(int32_t UserIndex, int32_t PointerIndex) const;
+	bool HasMouseCaptureByUser(int32_t UserIndex, int32_t PointerIndex)/* const*/;
 
-	bool HasUserFocus(class APlayerController* PlayerController) const;
+	bool HasUserFocus(class APlayerController* PlayerController)/* const*/;
 
-	bool HasUserFocusedDescendants(class APlayerController* PlayerController) const;
+	bool HasUserFocusedDescendants(class APlayerController* PlayerController)/* const*/;
 
 	void InvalidateLayoutAndVolatility();
 
-	bool IsHovered() const;
+	bool IsHovered()/* const*/;
 
-	bool IsVisible() const;
+	bool IsVisible()/* const*/;
 
 	struct FEventReply OnPointerEvent__DelegateSignature(struct FGeometry MyGeometry, const struct FPointerEvent& MouseEvent);
 

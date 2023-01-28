@@ -69,11 +69,13 @@
   <ItemGroup>
     <ClInclude Include="src\BaseMod.h" />
     <ClInclude Include="src\Defs.h" />
+    <ClInclude Include="src\GameMod.h" />
     <ClInclude Include="src\Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="src\BaseMod.cpp" />
+    <ClCompile Include="src\GameMod.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ModLoader\MedievalDynastyModLoader.vcxproj">

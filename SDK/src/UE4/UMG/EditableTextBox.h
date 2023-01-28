@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/Widget.h"
 /////////////////////////////////////////////
 // Class UMG.EditableTextBox
@@ -163,9 +162,9 @@ public:
 #pragma region Functions
 	void ClearError();
 
-	struct FText GetText() const;
+	struct FText GetText()/* const*/;
 
-	bool HasError() const;
+	bool HasError()/* const*/;
 
 	void OnEditableTextBoxChangedEvent__DelegateSignature(const struct FText& Text);
 

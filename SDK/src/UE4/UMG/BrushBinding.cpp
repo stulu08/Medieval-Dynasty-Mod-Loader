@@ -10,7 +10,7 @@ namespace UE4 {
 // Params:
 // Name: ReturnValue	Type: struct FSlateBrush	Flags: Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FSlateBrush UBrushBinding::GetValue() const {
+struct FSlateBrush UBrushBinding::GetValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.BrushBinding.GetValue");
 
 	struct UBrushBinding_GetValue_Params {

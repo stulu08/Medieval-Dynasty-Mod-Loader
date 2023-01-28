@@ -453,7 +453,7 @@ void UUserWidget::FlushAnimations() {
 // Params:
 // Name: ReturnValue	Type: struct FVector2D	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FVector2D UUserWidget::GetAlignmentInViewport() const {
+struct FVector2D UUserWidget::GetAlignmentInViewport()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.GetAlignmentInViewport");
 
 	struct UUserWidget_GetAlignmentInViewport_Params {
@@ -478,7 +478,7 @@ struct FVector2D UUserWidget::GetAlignmentInViewport() const {
 // Params:
 // Name: ReturnValue	Type: struct FAnchors	Flags: Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FAnchors UUserWidget::GetAnchorsInViewport() const {
+struct FAnchors UUserWidget::GetAnchorsInViewport()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.GetAnchorsInViewport");
 
 	struct UUserWidget_GetAnchorsInViewport_Params {
@@ -504,7 +504,7 @@ struct FAnchors UUserWidget::GetAnchorsInViewport() const {
 // Name: InAnimation	Type: class UWidgetAnimation*	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float UUserWidget::GetAnimationCurrentTime(const class UWidgetAnimation* InAnimation) const {
+float UUserWidget::GetAnimationCurrentTime(class UWidgetAnimation* InAnimation)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.GetAnimationCurrentTime");
 
 	struct UUserWidget_GetAnimationCurrentTime_Params {
@@ -531,7 +531,7 @@ float UUserWidget::GetAnimationCurrentTime(const class UWidgetAnimation* InAnima
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UUserWidget::GetIsVisible() const {
+bool UUserWidget::GetIsVisible()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.GetIsVisible");
 
 	struct UUserWidget_GetIsVisible_Params {
@@ -556,7 +556,7 @@ bool UUserWidget::GetIsVisible() const {
 // Params:
 // Name: ReturnValue	Type: class APlayerCameraManager*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class APlayerCameraManager* UUserWidget::GetOwningPlayerCameraManager() const {
+class APlayerCameraManager* UUserWidget::GetOwningPlayerCameraManager()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.GetOwningPlayerCameraManager");
 
 	struct UUserWidget_GetOwningPlayerCameraManager_Params {
@@ -581,7 +581,7 @@ class APlayerCameraManager* UUserWidget::GetOwningPlayerCameraManager() const {
 // Params:
 // Name: ReturnValue	Type: class APawn*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class APawn* UUserWidget::GetOwningPlayerPawn() const {
+class APawn* UUserWidget::GetOwningPlayerPawn()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.GetOwningPlayerPawn");
 
 	struct UUserWidget_GetOwningPlayerPawn_Params {
@@ -607,7 +607,7 @@ class APawn* UUserWidget::GetOwningPlayerPawn() const {
 // Name: InAnimation	Type: class UWidgetAnimation*	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UUserWidget::IsAnimationPlaying(const class UWidgetAnimation* InAnimation) const {
+bool UUserWidget::IsAnimationPlaying(class UWidgetAnimation* InAnimation)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.IsAnimationPlaying");
 
 	struct UUserWidget_IsAnimationPlaying_Params {
@@ -635,7 +635,7 @@ bool UUserWidget::IsAnimationPlaying(const class UWidgetAnimation* InAnimation) 
 // Name: InAnimation	Type: class UWidgetAnimation*	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UUserWidget::IsAnimationPlayingForward(const class UWidgetAnimation* InAnimation) {
+bool UUserWidget::IsAnimationPlayingForward(class UWidgetAnimation* InAnimation) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.IsAnimationPlayingForward");
 
 	struct UUserWidget_IsAnimationPlayingForward_Params {
@@ -662,7 +662,7 @@ bool UUserWidget::IsAnimationPlayingForward(const class UWidgetAnimation* InAnim
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UUserWidget::IsAnyAnimationPlaying() const {
+bool UUserWidget::IsAnyAnimationPlaying()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.IsAnyAnimationPlaying");
 
 	struct UUserWidget_IsAnyAnimationPlaying_Params {
@@ -687,7 +687,7 @@ bool UUserWidget::IsAnyAnimationPlaying() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UUserWidget::IsInteractable() const {
+bool UUserWidget::IsInteractable()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.IsInteractable");
 
 	struct UUserWidget_IsInteractable_Params {
@@ -708,7 +708,7 @@ bool UUserWidget::IsInteractable() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UUserWidget::IsInViewport() const {
+bool UUserWidget::IsInViewport()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.IsInViewport");
 
 	struct UUserWidget_IsInViewport_Params {
@@ -734,7 +734,7 @@ bool UUserWidget::IsInViewport() const {
 // Name: ActionName	Type: struct FName	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UUserWidget::IsListeningForInputAction(struct FName ActionName) const {
+bool UUserWidget::IsListeningForInputAction(struct FName ActionName)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.IsListeningForInputAction");
 
 	struct UUserWidget_IsListeningForInputAction_Params {
@@ -761,7 +761,7 @@ bool UUserWidget::IsListeningForInputAction(struct FName ActionName) const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UUserWidget::IsPlayingAnimation() const {
+bool UUserWidget::IsPlayingAnimation()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.IsPlayingAnimation");
 
 	struct UUserWidget_IsPlayingAnimation_Params {
@@ -868,7 +868,7 @@ struct FEventReply UUserWidget::OnAnalogValueChanged(struct FGeometry MyGeometry
 // Params:
 // Name: Animation	Type: class UWidgetAnimation*	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UUserWidget::OnAnimationFinished(const class UWidgetAnimation* Animation) {
+void UUserWidget::OnAnimationFinished(class UWidgetAnimation* Animation) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.OnAnimationFinished");
 
 	struct UUserWidget_OnAnimationFinished_Params {
@@ -893,7 +893,7 @@ void UUserWidget::OnAnimationFinished(const class UWidgetAnimation* Animation) {
 // Params:
 // Name: Animation	Type: class UWidgetAnimation*	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UUserWidget::OnAnimationStarted(const class UWidgetAnimation* Animation) {
+void UUserWidget::OnAnimationStarted(class UWidgetAnimation* Animation) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.OnAnimationStarted");
 
 	struct UUserWidget_OnAnimationStarted_Params {
@@ -1453,7 +1453,7 @@ struct FEventReply UUserWidget::OnMouseWheel(struct FGeometry MyGeometry, const 
 // Params:
 // Name: Context	Type: struct FPaintContext	Flags: Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UUserWidget::OnPaint(struct FPaintContext* Context) const {
+void UUserWidget::OnPaint(struct FPaintContext* Context)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.OnPaint");
 
 	struct UUserWidget_OnPaint_Params {
@@ -1686,7 +1686,7 @@ struct FEventReply UUserWidget::OnTouchStarted(struct FGeometry MyGeometry, cons
 // Name: InAnimation	Type: class UWidgetAnimation*	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float UUserWidget::PauseAnimation(const class UWidgetAnimation* InAnimation) {
+float UUserWidget::PauseAnimation(class UWidgetAnimation* InAnimation) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.PauseAnimation");
 
 	struct UUserWidget_PauseAnimation_Params {
@@ -1960,7 +1960,7 @@ void UUserWidget::RemoveFromViewport() {
 // Params:
 // Name: InAnimation	Type: class UWidgetAnimation*	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UUserWidget::ReverseAnimation(const class UWidgetAnimation* InAnimation) {
+void UUserWidget::ReverseAnimation(class UWidgetAnimation* InAnimation) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.ReverseAnimation");
 
 	struct UUserWidget_ReverseAnimation_Params {
@@ -2036,7 +2036,7 @@ void UUserWidget::SetAnchorsInViewport(struct FAnchors Anchors) {
 // Name: InAnimation	Type: class UWidgetAnimation*	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: InTime	Type: float	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UUserWidget::SetAnimationCurrentTime(const class UWidgetAnimation* InAnimation, float InTime) {
+void UUserWidget::SetAnimationCurrentTime(class UWidgetAnimation* InAnimation, float InTime) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.SetAnimationCurrentTime");
 
 	struct UUserWidget_SetAnimationCurrentTime_Params {
@@ -2189,7 +2189,7 @@ void UUserWidget::SetInputActionPriority(int32_t NewPriority) {
 // Name: InAnimation	Type: class UWidgetAnimation*	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: NumLoopsToPlay	Type: int32_t	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UUserWidget::SetNumLoopsToPlay(const class UWidgetAnimation* InAnimation, int32_t NumLoopsToPlay) {
+void UUserWidget::SetNumLoopsToPlay(class UWidgetAnimation* InAnimation, int32_t NumLoopsToPlay) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.SetNumLoopsToPlay");
 
 	struct UUserWidget_SetNumLoopsToPlay_Params {
@@ -2267,7 +2267,7 @@ void UUserWidget::SetPadding(struct FMargin InPadding) {
 // Name: InAnimation	Type: class UWidgetAnimation*	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: PlaybackSpeed	Type: float	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UUserWidget::SetPlaybackSpeed(const class UWidgetAnimation* InAnimation, float PlaybackSpeed) {
+void UUserWidget::SetPlaybackSpeed(class UWidgetAnimation* InAnimation, float PlaybackSpeed) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.SetPlaybackSpeed");
 
 	struct UUserWidget_SetPlaybackSpeed_Params {
@@ -2344,7 +2344,7 @@ void UUserWidget::StopAllAnimations() {
 // Params:
 // Name: InAnimation	Type: class UWidgetAnimation*	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UUserWidget::StopAnimation(const class UWidgetAnimation* InAnimation) {
+void UUserWidget::StopAnimation(class UWidgetAnimation* InAnimation) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserWidget.StopAnimation");
 
 	struct UUserWidget_StopAnimation_Params {

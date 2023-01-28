@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "CoreUObject/Interface.h"
 /////////////////////////////////////////////
 // BlueprintGeneratedClass BPI_PC_Player.BPI_PC_Player_C

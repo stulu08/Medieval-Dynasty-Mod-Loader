@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/TextLayoutWidget.h"
 /////////////////////////////////////////////
 // Class UMG.RichTextBlock
@@ -70,7 +69,7 @@ public:
 
 	class URichTextBlockDecorator* GetDecoratorByClass(class URichTextBlockDecorator* DecoratorClass);
 
-	struct FText GetText() const;
+	struct FText GetText()/* const*/;
 
 	void SetAutoWrapText(bool InAutoTextWrap);
 

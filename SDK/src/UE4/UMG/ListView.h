@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/ListViewBase.h"
 /////////////////////////////////////////////
 // Class UMG.ListView
@@ -97,13 +96,13 @@ public:
 
 	void BP_ClearSelection();
 
-	int32_t BP_GetNumItemsSelected() const;
+	int32_t BP_GetNumItemsSelected()/* const*/;
 
-	class UObject* BP_GetSelectedItem() const;
+	class UObject* BP_GetSelectedItem()/* const*/;
 
-	bool BP_GetSelectedItems(TArray<class UObject*>* Items) const;
+	bool BP_GetSelectedItems(TArray<class UObject*>* Items)/* const*/;
 
-	bool BP_IsItemVisible(class UObject* Item) const;
+	bool BP_IsItemVisible(class UObject* Item)/* const*/;
 
 	void BP_NavigateToItem(class UObject* Item);
 
@@ -117,15 +116,15 @@ public:
 
 	void ClearListItems();
 
-	int32_t GetIndexForItem(class UObject* Item) const;
+	int32_t GetIndexForItem(class UObject* Item)/* const*/;
 
-	class UObject* GetItemAt(int32_t Index) const;
+	class UObject* GetItemAt(int32_t Index)/* const*/;
 
-	TArray<class UObject*> GetListItems() const;
+	TArray<class UObject*> GetListItems()/* const*/;
 
-	int32_t GetNumItems() const;
+	int32_t GetNumItems()/* const*/;
 
-	bool IsRefreshPending() const;
+	bool IsRefreshPending()/* const*/;
 
 	void NavigateToIndex(int32_t Index);
 

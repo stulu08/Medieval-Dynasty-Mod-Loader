@@ -32,7 +32,7 @@ void UUMGSequencePlayer::M_SetRootTemplateInstance(const struct FMovieSceneRootE
 // Params:
 // Name: ReturnValue	Type: struct FName	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FName UUMGSequencePlayer::GetUserTag() const {
+struct FName UUMGSequencePlayer::GetUserTag()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.UMGSequencePlayer.GetUserTag");
 
 	struct UUMGSequencePlayer_GetUserTag_Params {

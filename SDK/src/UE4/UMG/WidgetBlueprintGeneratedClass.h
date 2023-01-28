@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "Engine/BlueprintGeneratedClass.h"
 /////////////////////////////////////////////
 // Class UMG.WidgetBlueprintGeneratedClass

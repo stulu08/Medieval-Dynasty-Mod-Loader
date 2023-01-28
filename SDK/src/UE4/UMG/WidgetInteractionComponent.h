@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "Engine/SceneComponent.h"
 /////////////////////////////////////////////
 // Class UMG.WidgetInteractionComponent
@@ -116,17 +115,17 @@ public:
 	}
 
 #pragma region Functions
-	struct FVector2D Get2DHitLocation() const;
+	struct FVector2D Get2DHitLocation()/* const*/;
 
-	class UWidgetComponent* GetHoveredWidgetComponent() const;
+	class UWidgetComponent* GetHoveredWidgetComponent()/* const*/;
 
-	struct FHitResult GetLastHitResult() const;
+	struct FHitResult GetLastHitResult()/* const*/;
 
-	bool IsOverFocusableWidget() const;
+	bool IsOverFocusableWidget()/* const*/;
 
-	bool IsOverHitTestVisibleWidget() const;
+	bool IsOverHitTestVisibleWidget()/* const*/;
 
-	bool IsOverInteractableWidget() const;
+	bool IsOverInteractableWidget()/* const*/;
 
 	bool PressAndReleaseKey(struct FKey Key);
 

@@ -87,7 +87,7 @@ void URetainerBox::M_SetTextureParameter(const struct FName& value) {
 // Params:
 // Name: ReturnValue	Type: class UMaterialInstanceDynamic*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UMaterialInstanceDynamic* URetainerBox::GetEffectMaterial() const {
+class UMaterialInstanceDynamic* URetainerBox::GetEffectMaterial()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.RetainerBox.GetEffectMaterial");
 
 	struct URetainerBox_GetEffectMaterial_Params {

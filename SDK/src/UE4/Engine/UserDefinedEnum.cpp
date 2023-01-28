@@ -18,5 +18,18 @@ namespace UE4 {
 		out = *reinterpret_cast<FText*(__fastcall*)(__int64, __int64, int32_t)>(fn)((__int64)this, (__int64)(&out), InIndex);
 		return out;
 	}
+	std::vector<std::string> UUserDefinedEnum::GetDisplayNamesParsed() const {
+		std::vector<std::string> buffer = UEnum::GetNamesParsed();
+		for (int i = 0; i < buffer.size(); i++) {
+			FText wdisplayText = GetDisplayNameTextByIndex(i);
+			if (wdisplayText.Get()) {
+				std::wstring wText = std::wstring(wdisplayText.Get());
+				std::string Text = std::string(wText.length(), 0);
+				std::transform(wText.begin(), wText.end(), Text.begin(), [](wchar_t c) -> char {return (char)c; });
+				buffer[i] = Text;
+			}
+		}
+		return buffer;
+	}
 }
 

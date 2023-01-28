@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "BP_BaseCharacter/BP_BaseCharacter_C.h"
 /////////////////////////////////////////////
 // BlueprintGeneratedClass BP_PlayerCharacter.BP_PlayerCharacter_C
@@ -1132,19 +1131,7 @@ public:
 
 	void GetCameraViewDirection_BPI(struct FVector* Forward);
 
-	void ComponentDelegateBinding_1();
-
-	void CurveFloat_1();
-
-	void CurveFloat_1_3();
-
-	void InheritableComponentHandler();
-
-	void InputKeyDelegateBinding_1();
-
-	void CameraLerp_Template();
-
-	void FOV_Template();
+	static void InheritableComponentHandler();
 
 	void FOVLerpUpdateSettings(class UCurveFloat* FloatCurve, float NewRate, float TargetFOV);
 
@@ -1194,7 +1181,7 @@ public:
 
 	void ChangePlayerInput(bool DisablePlayerInput);
 
-	void ReceiveAnyDamage(float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, class AActor* DamageCauser);
+	void ReceiveAnyDamage(float Damage, class UDamageType* DamageType, class AController* InstigatedBy, class AActor* DamageCauser);
 
 	void SetupStageInteraction(class AActor* InteractedActor, TMap<TEnumAsByte<E_BaseInteractionStages>, struct FName> SectionsToPlay, class UAnimMontage* MontageToPlay, float PlayRate, float StartingPosition, bool AutomaticPlay, int32_t NumberOfAutomaticLoops, bool SwapItemsOnInteraction);
 

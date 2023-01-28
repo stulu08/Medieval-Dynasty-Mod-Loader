@@ -168,7 +168,7 @@ TArray<struct FString> UGI_MedievalDynastyBase::GetAccountInfo() {
 // Name: GetFromFile	Type: bool	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: E_GraphicsRHI	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-E_GraphicsRHI UGI_MedievalDynastyBase::GetCurrentRHI(const bool GetFromFile) {
+E_GraphicsRHI UGI_MedievalDynastyBase::GetCurrentRHI(bool GetFromFile) {
 	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.GI_MedievalDynastyBase.GetCurrentRHI");
 
 	struct UGI_MedievalDynastyBase_GetCurrentRHI_Params {
@@ -315,7 +315,7 @@ void UGI_MedievalDynastyBase::PrintDebugUser(class APlayerController* LocalPlaye
 // Name: ControllerIndex	Type: int32_t	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UGI_MedievalDynastyBase::ReSetController(const int32_t ControllerIndex) {
+bool UGI_MedievalDynastyBase::ReSetController(int32_t ControllerIndex) {
 	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.GI_MedievalDynastyBase.ReSetController");
 
 	struct UGI_MedievalDynastyBase_ReSetController_Params {

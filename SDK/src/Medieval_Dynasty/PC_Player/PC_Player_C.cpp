@@ -1472,27 +1472,6 @@ void APC_Player_C::Right_K2Node_InputAxisEvent_7(float AxisValue) {
 }
 
 /////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.Down_K2Node_InputAxisEvent_4
-// Flags: BlueprintEvent
-// Params:
-// Name: AxisValue	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void APC_Player_C::Down_K2Node_InputAxisEvent_4(float AxisValue) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.Down_K2Node_InputAxisEvent_4");
-
-	struct APC_Player_C_Down_K2Node_InputAxisEvent_4_Params {
-		float AxisValue;			//Offset: 0 | ElementSize: 4
-	};
-	APC_Player_C_Down_K2Node_InputAxisEvent_4_Params params;
-	params.AxisValue = AxisValue;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
 // Function PC_Player.PC_Player_C.CheatMenu
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
@@ -1928,27 +1907,6 @@ void APC_Player_C::InpAxisKeyEvt_MouseWheelAxis_K2Node_InputAxisKeyEvent_1(float
 		float AxisValue;			//Offset: 0 | ElementSize: 4
 	};
 	APC_Player_C_InpAxisKeyEvt_MouseWheelAxis_K2Node_InputAxisKeyEvent_1_Params params;
-	params.AxisValue = AxisValue;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.Right_K2Node_InputAxisEvent_7
-// Flags: BlueprintEvent
-// Params:
-// Name: AxisValue	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void APC_Player_C::Right_K2Node_InputAxisEvent_7(float AxisValue) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.Right_K2Node_InputAxisEvent_7");
-
-	struct APC_Player_C_Right_K2Node_InputAxisEvent_7_Params {
-		float AxisValue;			//Offset: 0 | ElementSize: 4
-	};
-	APC_Player_C_Right_K2Node_InputAxisEvent_7_Params params;
 	params.AxisValue = AxisValue;
 
 	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
@@ -4897,7 +4855,7 @@ bool APC_Player_C::PrepareToDismount(class AActor* mountOrRider, struct FMountAc
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-bool APC_Player_C::IsMounted() const {
+bool APC_Player_C::IsMounted()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.IsMounted");
 
 	struct APC_Player_C_IsMounted_Params {
@@ -4918,7 +4876,7 @@ bool APC_Player_C::IsMounted() const {
 // Params:
 // Name: ReturnValue	Type: class APawn*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-class APawn* APC_Player_C::GetCharacterPawn() const {
+class APawn* APC_Player_C::GetCharacterPawn()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.GetCharacterPawn");
 
 	struct APC_Player_C_GetCharacterPawn_Params {
@@ -4939,7 +4897,7 @@ class APawn* APC_Player_C::GetCharacterPawn() const {
 // Params:
 // Name: ReturnValue	Type: class AActor*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-class AActor* APC_Player_C::GetCharacterMount() const {
+class AActor* APC_Player_C::GetCharacterMount()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.GetCharacterMount");
 
 	struct APC_Player_C_GetCharacterMount_Params {
@@ -4960,7 +4918,7 @@ class AActor* APC_Player_C::GetCharacterMount() const {
 // Params:
 // Name: ReturnValue	Type: class AController*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-class AController* APC_Player_C::GetCharacterController() const {
+class AController* APC_Player_C::GetCharacterController()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.GetCharacterController");
 
 	struct APC_Player_C_GetCharacterController_Params {
@@ -5170,7 +5128,7 @@ bool APC_Player_C::OnChangeSeatActionFailed(struct FMountActionResponse Response
 // Params:
 // Name: ReturnValue	Type: class URiderControllerComponent*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-class URiderControllerComponent* APC_Player_C::GetRiderControllerComponent() const {
+class URiderControllerComponent* APC_Player_C::GetRiderControllerComponent()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.GetRiderControllerComponent");
 
 	struct APC_Player_C_GetRiderControllerComponent_Params {
@@ -5374,16 +5332,16 @@ void APC_Player_C::BPI_RefreshSetSteering() {
 }
 
 /////////////////////////////////////////////
-// InputActionDelegateBinding PC_Player.PC_Player_C.InputActionDelegateBinding_1
-// Flags: 
+// InputAxisDelegateBinding PC_Player.PC_Player_C.InputAxisDelegateBinding_1
+// Flags: Final, Public, Private, Delegate, BlueprintCallable
 // Params:
 /////////////////////////////////////////////
-void APC_Player_C::InputActionDelegateBinding_1() {
-	static auto fn = UObject::FindObject<UFunction>("InputActionDelegateBinding PC_Player.PC_Player_C.InputActionDelegateBinding_1");
+void APC_Player_C::InputAxisDelegateBinding_1() {
+	static auto fn = UObject::FindObject<UFunction>("InputAxisDelegateBinding PC_Player.PC_Player_C.InputAxisDelegateBinding_1");
 
-	struct APC_Player_C_InputActionDelegateBinding_1_Params {
+	struct APC_Player_C_InputAxisDelegateBinding_1_Params {
 	};
-	APC_Player_C_InputActionDelegateBinding_1_Params params;
+	APC_Player_C_InputAxisDelegateBinding_1_Params params;
 
 	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
@@ -5402,24 +5360,6 @@ void APC_Player_C::InputAxisKeyDelegateBinding_1() {
 	struct APC_Player_C_InputAxisKeyDelegateBinding_1_Params {
 	};
 	APC_Player_C_InputAxisKeyDelegateBinding_1_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// InputKeyDelegateBinding PC_Player.PC_Player_C.InputKeyDelegateBinding_1
-// Flags: 
-// Params:
-/////////////////////////////////////////////
-void APC_Player_C::InputKeyDelegateBinding_1() {
-	static auto fn = UObject::FindObject<UFunction>("InputKeyDelegateBinding PC_Player.PC_Player_C.InputKeyDelegateBinding_1");
-
-	struct APC_Player_C_InputKeyDelegateBinding_1_Params {
-	};
-	APC_Player_C_InputKeyDelegateBinding_1_Params params;
 
 	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);

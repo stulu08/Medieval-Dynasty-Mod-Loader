@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/PanelWidget.h"
 /////////////////////////////////////////////
 // Class UMG.ScrollBox
@@ -118,11 +117,11 @@ public:
 #pragma region Functions
 	void EndInertialScrolling();
 
-	float GetScrollOffset() const;
+	float GetScrollOffset()/* const*/;
 
-	float GetScrollOffsetOfEnd() const;
+	float GetScrollOffsetOfEnd()/* const*/;
 
-	float GetViewOffsetFraction() const;
+	float GetViewOffsetFraction()/* const*/;
 
 	void ScrollToEnd();
 

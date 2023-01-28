@@ -7,12 +7,25 @@ namespace UE4 {
 	class UClass;
 	struct FTransform;
 	struct FActorSpawnParameters;
+
+	enum class ELevelTick
+	{
+		/** Update the level time only. */
+		TimeOnly = 0,
+		/** Update time and viewports. */
+		ViewportsOnly = 1,
+		/** Update all. */
+		All = 2,
+		/** Delta time is zero, we are paused. Components don't tick. */
+		PauseTick = 3,
+	};
 }
 struct ModInfo;
 class LOADER_API MDML {
 public:
 	static void InitGameState(void* Return);
 	static void BeginPlay(class UE4::AActor* Actor);
+	static void Tick(UE4::ELevelTick tick, float deltaTime);
 
 	static void InitCoreMods();
 	static void CreateMod(struct ModInfo& mod);
@@ -27,7 +40,7 @@ public:
 	//%LocalAppData%/Medieval_Dynasty/Saved
 	static std::string GetDataFolder();
 
-	static inline bool bIsProcessInternalsHooked = false;
+	static inline bool IsProcessInternalsHooked = false;
 	static inline bool GameStateClassInitNotRan = true;
 };
 

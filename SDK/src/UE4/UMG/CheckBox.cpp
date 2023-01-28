@@ -241,7 +241,7 @@ void UCheckBox::M_SetOnCheckStateChanged(const TAssetPtr<class FOnCheckBoxCompon
 // Params:
 // Name: ReturnValue	Type: ECheckBoxState	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-ECheckBoxState UCheckBox::GetCheckedState() const {
+ECheckBoxState UCheckBox::GetCheckedState()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.CheckBox.GetCheckedState");
 
 	struct UCheckBox_GetCheckedState_Params {
@@ -266,7 +266,7 @@ ECheckBoxState UCheckBox::GetCheckedState() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UCheckBox::IsChecked() const {
+bool UCheckBox::IsChecked()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.CheckBox.IsChecked");
 
 	struct UCheckBox_IsChecked_Params {
@@ -291,7 +291,7 @@ bool UCheckBox::IsChecked() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UCheckBox::IsPressed() const {
+bool UCheckBox::IsPressed()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.CheckBox.IsPressed");
 
 	struct UCheckBox_IsPressed_Params {

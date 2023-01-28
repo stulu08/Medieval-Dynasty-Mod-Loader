@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/TextLayoutWidget.h"
 /////////////////////////////////////////////
 // Class UMG.TextBlock
@@ -95,7 +94,7 @@ public:
 
 	class UMaterialInstanceDynamic* GetDynamicOutlineMaterial();
 
-	struct FText GetText() const;
+	struct FText GetText()/* const*/;
 
 	void SetAutoWrapText(bool InAutoTextWrap);
 

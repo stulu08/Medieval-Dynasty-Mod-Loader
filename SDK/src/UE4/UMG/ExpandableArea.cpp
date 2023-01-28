@@ -120,7 +120,7 @@ void UExpandableArea::M_SetBodyContent(const class UWidget*& value) {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UExpandableArea::GetIsExpanded() const {
+bool UExpandableArea::GetIsExpanded()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ExpandableArea.GetIsExpanded");
 
 	struct UExpandableArea_GetIsExpanded_Params {

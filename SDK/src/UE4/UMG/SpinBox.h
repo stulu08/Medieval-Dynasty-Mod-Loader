@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/Widget.h"
 /////////////////////////////////////////////
 // Class UMG.SpinBox
@@ -176,23 +175,23 @@ public:
 
 	void ClearMinValue();
 
-	bool GetAlwaysUsesDeltaSnap() const;
+	bool GetAlwaysUsesDeltaSnap()/* const*/;
 
-	float GetDelta() const;
+	float GetDelta()/* const*/;
 
-	int32_t GetMaxFractionalDigits() const;
+	int32_t GetMaxFractionalDigits()/* const*/;
 
-	float GetMaxSliderValue() const;
+	float GetMaxSliderValue()/* const*/;
 
-	float GetMaxValue() const;
+	float GetMaxValue()/* const*/;
 
-	int32_t GetMinFractionalDigits() const;
+	int32_t GetMinFractionalDigits()/* const*/;
 
-	float GetMinSliderValue() const;
+	float GetMinSliderValue()/* const*/;
 
-	float GetMinValue() const;
+	float GetMinValue()/* const*/;
 
-	float GetValue() const;
+	float GetValue()/* const*/;
 
 	void OnSpinBoxBeginSliderMovement__DelegateSignature();
 

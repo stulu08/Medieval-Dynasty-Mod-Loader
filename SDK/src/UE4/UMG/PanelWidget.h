@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/Widget.h"
 /////////////////////////////////////////////
 // Class UMG.PanelWidget
@@ -30,17 +29,17 @@ public:
 
 	void ClearChildren();
 
-	TArray<class UWidget*> GetAllChildren() const;
+	TArray<class UWidget*> GetAllChildren()/* const*/;
 
-	class UWidget* GetChildAt(int32_t Index) const;
+	class UWidget* GetChildAt(int32_t Index)/* const*/;
 
-	int32_t GetChildIndex(const class UWidget* Content) const;
+	int32_t GetChildIndex(class UWidget* Content)/* const*/;
 
-	int32_t GetChildrenCount() const;
+	int32_t GetChildrenCount()/* const*/;
 
-	bool HasAnyChildren() const;
+	bool HasAnyChildren()/* const*/;
 
-	bool HasChild(class UWidget* Content) const;
+	bool HasChild(class UWidget* Content)/* const*/;
 
 	bool RemoveChild(class UWidget* Content);
 

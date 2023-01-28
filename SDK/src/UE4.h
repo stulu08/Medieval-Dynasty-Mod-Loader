@@ -5,5 +5,5 @@
 #include "NameValidator.h"
 #include "GameInfo.h"
 
-//#include "Medieval_Dynasty/SDK.h"
 #include "UE4/SDK.h"
+#include "Medieval_Dynasty/SDK.h"

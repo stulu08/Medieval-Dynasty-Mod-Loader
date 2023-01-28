@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "Engine/PlayerController.h"
 /////////////////////////////////////////////
 // BlueprintGeneratedClass PC_Player.PC_Player_C
@@ -424,7 +423,6 @@ public:
 		static auto ptr = UObject::FindClass("BlueprintGeneratedClass PC_Player.PC_Player_C");
 		return ptr;
 	}
-
 #pragma region Functions
 	void ChangeSteeringType__DelegateSignature(bool Gamepad);
 
@@ -471,10 +469,6 @@ public:
 	void ReceiveTick(float DeltaSeconds);
 
 	void InputHoldAction_UI_Drop();
-
-	void Down_K2Node_InputAxisEvent_4(float AxisValue);
-
-	void Right_K2Node_InputAxisEvent_7(float AxisValue);
 
 	void Down_K2Node_InputAxisEvent_4(float AxisValue);
 
@@ -806,13 +800,13 @@ public:
 
 	bool PrepareToDismount(class AActor* mountOrRider, struct FMountActionResponse* Response);
 
-	bool IsMounted() const;
+	bool IsMounted()/* const*/;
 
-	class APawn* GetCharacterPawn() const;
+	class APawn* GetCharacterPawn()/* const*/;
 
-	class AActor* GetCharacterMount() const;
+	class AActor* GetCharacterMount()/* const*/;
 
-	class AController* GetCharacterController() const;
+	class AController* GetCharacterController()/* const*/;
 
 	bool PossessCharacter(class APawn* characterToPossess);
 
@@ -828,7 +822,7 @@ public:
 
 	bool OnChangeSeatActionFailed(struct FMountActionResponse Response);
 
-	class URiderControllerComponent* GetRiderControllerComponent() const;
+	class URiderControllerComponent* GetRiderControllerComponent()/* const*/;
 
 	bool PNMS_PossessPawn(class APawn* pawnToPossess);
 
@@ -844,11 +838,9 @@ public:
 
 	void BPI_RefreshSetSteering();
 
-	void InputActionDelegateBinding_1();
+	void InputAxisDelegateBinding_1();
 
 	void InputAxisKeyDelegateBinding_1();
-
-	void InputKeyDelegateBinding_1();
 
 #pragma endregion
 };

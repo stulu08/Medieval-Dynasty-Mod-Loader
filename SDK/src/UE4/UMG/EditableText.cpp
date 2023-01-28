@@ -318,7 +318,7 @@ void UEditableText::M_SetOnTextCommitted(const TAssetPtr<class FOnEditableTextCo
 // Params:
 // Name: ReturnValue	Type: struct FText	Flags: Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FText UEditableText::GetText() const {
+struct FText UEditableText::GetText()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableText.GetText");
 
 	struct UEditableText_GetText_Params {

@@ -153,7 +153,7 @@ void UInputKeySelector::M_SetOnIsSelectingKeyChanged(const TAssetPtr<class FOnIs
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UInputKeySelector::GetIsSelectingKey() const {
+bool UInputKeySelector::GetIsSelectingKey()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.InputKeySelector.GetIsSelectingKey");
 
 	struct UInputKeySelector_GetIsSelectingKey_Params {
@@ -367,7 +367,7 @@ void UInputKeySelector::SetSelectedKey(const struct FInputChord& InSelectedKey) 
 // Params:
 // Name: InVisibility	Type: ESlateVisibility	Flags: ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-void UInputKeySelector::SetTextBlockVisibility(const ESlateVisibility InVisibility) {
+void UInputKeySelector::SetTextBlockVisibility(ESlateVisibility InVisibility) {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.InputKeySelector.SetTextBlockVisibility");
 
 	struct UInputKeySelector_SetTextBlockVisibility_Params {

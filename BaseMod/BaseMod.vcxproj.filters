@@ -15,10 +15,16 @@
     <ClInclude Include="src\Utils.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\GameMod.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="src\BaseMod.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameMod.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

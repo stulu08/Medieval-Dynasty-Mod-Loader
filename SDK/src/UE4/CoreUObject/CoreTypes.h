@@ -1,15 +1,24 @@
 #pragma once
-#include "Containers/Templates.h"
+#include "Math/Color.h"
+#include "Math/Vector.h"
+#include "Math/Box.h"
+#include "Math/Quat.h"
+#include "Math/Transform.h"
+#include "Math/Plane.h"
 #include "NamePool.h"
 #include "ObjectsArray.h"
+#include "Object.h"
+#include "Containers/Templates.h"
+#include "Containers/Pointers.h"
 
 namespace UE4 {
 	class UObject;
 	class UPackage;
 	class UClass;
-	//---------------------------------------------------------------------------
-	//Enums
-	//---------------------------------------------------------------------------
+	enum class EEnumFlags {
+		None,
+		Flags = 0x00000001 // Whether the UEnum represents a set of flags
+	};
 	enum class EFunctionFlags : uint32_t
 	{
 		// Function flags.
@@ -144,65 +153,64 @@ namespace UE4 {
 		WillBeLoaded = 0x08000000,	///< This object was constructed during load and will be loaded shortly
 		HasExternalPackage = 0x10000000,	///< This object has an external package assigned and should look it up when getting the outermost package
 	};
-	enum class ELoadFlags : uint32_t
-	{
-		None = 0x00000000,
-		Async = 0x00000001,
-		NoWarn = 0x00000002,
-		EditorOnly = 0x00000004,
-		ResolvingDeferredExports = 0x00000008,
-		Verify = 0x00000010,
-		AllowDll = 0x00000020,
-		NoVerify = 0x00000080,
-		IsVerifying = 0x00000100,
-		DisableDependencyPreloading = 0x00001000,
-		Quiet = 0x00002000,
-		FindIfFail = 0x00004000,
-		MemoryReader = 0x00008000,
-		NoRedirects = 0x00010000,
-		ForDiff = 0x00020000,
-		PackageForPIE = 0x00080000,
-		DeferDependencyLoads = 0x00100000,
-		ForFileDiff = 0x00200000,
-		DisableCompileOnLoad = 0x00400000,
+
+	inline bool operator&(EFunctionFlags lhs, EFunctionFlags rhs) {
+		return (static_cast<std::underlying_type_t<EFunctionFlags>>(lhs) & static_cast<std::underlying_type_t<EFunctionFlags>>(rhs)) == static_cast<std::underlying_type_t<EFunctionFlags>>(rhs);
+	}
+	inline bool operator&(EPropertyFlags lhs, EPropertyFlags rhs) {
+		return (static_cast<std::underlying_type_t<EPropertyFlags>>(lhs) & static_cast<std::underlying_type_t<EPropertyFlags>>(rhs)) == static_cast<std::underlying_type_t<EPropertyFlags>>(rhs);
+	}
+	inline bool operator&(EObjectFlags lhs, EObjectFlags rhs) {
+		return (static_cast<std::underlying_type_t<EObjectFlags>>(lhs) & static_cast<std::underlying_type_t<EObjectFlags>>(rhs)) == static_cast<std::underlying_type_t<EObjectFlags>>(rhs);
+	}
+	std::string StringifyFlags(const EFunctionFlags flags);
+	std::string StringifyFlags(const EPropertyFlags flags);
+	std::string StringifyFlags(const EObjectFlags flags);
+
+#pragma region Enums
+	/////////////////////////////////////////////
+	// Enum CoreUObject.EInterpCurveMode
+	/////////////////////////////////////////////
+	enum class EInterpCurveMode : uint8_t {
+		CIM_Linear = 0,
+		CIM_CurveAuto = 1,
+		CIM_Constant = 2,
+		CIM_CurveUser = 3,
+		CIM_CurveBreak = 4,
+		CIM_CurveAutoClamped = 5,
+		CIM_MAX = 6,
 	};
-	enum class EInternalObjectFlags
-	{
-		None = 0,
-		ReachableInCluster = 1 << 23,
-		ClusterRoot = 1 << 24,
-		Native = 1 << 25,
-		Async = 1 << 26,
-		AsyncLoading = 1 << 27,
-		Unreachable = 1 << 28,
-		PendingKill = 1 << 29,
-		RootSet = 1 << 30,
-		GarbageCollectionKeepFlags = Native | Async | AsyncLoading,
-		AllFlags = ReachableInCluster | ClusterRoot | Native | Async | AsyncLoading | Unreachable | PendingKill | RootSet,
-	};
-	enum class ERangeBoundTypes : uint8_t
-	{
+	/////////////////////////////////////////////
+	// Enum CoreUObject.ERangeBoundTypes
+	/////////////////////////////////////////////
+	enum class ERangeBoundTypes : uint8_t {
 		Exclusive = 0,
 		Inclusive = 1,
 		Open = 2,
-		ERangeBoundTypes_MAX = 3
+		MAX = 3,
 	};
-	enum class ELocalizedTextSourceCategory : uint8_t
-	{
+	/////////////////////////////////////////////
+	// Enum CoreUObject.ELocalizedTextSourceCategory
+	/////////////////////////////////////////////
+	enum class ELocalizedTextSourceCategory : uint8_t {
 		Game = 0,
 		Engine = 1,
 		Editor = 2,
-		ELocalizedTextSourceCategory_MAX = 3
+		MAX = 3,
 	};
-	enum class EAutomationEventType : uint8_t
-	{
+	/////////////////////////////////////////////
+	// Enum CoreUObject.EAutomationEventType
+	/////////////////////////////////////////////
+	enum class EAutomationEventType : uint8_t {
 		Info = 0,
 		Warning = 1,
 		Error = 2,
-		EAutomationEventType_MAX = 3
+		MAX = 3,
 	};
-	enum class ELifetimeCondition : uint8_t
-	{
+	/////////////////////////////////////////////
+	// Enum CoreUObject.ELifetimeCondition
+	/////////////////////////////////////////////
+	enum class ELifetimeCondition : uint8_t {
 		COND_None = 0,
 		COND_InitialOnly = 1,
 		COND_OwnerOnly = 2,
@@ -217,10 +225,59 @@ namespace UE4 {
 		COND_SimulatedOnlyNoReplay = 11,
 		COND_SimulatedOrPhysicsNoReplay = 12,
 		COND_SkipReplay = 13,
-		COND_Max = 14
+		COND_Never = 14,
+		COND_Max = 15,
 	};
-	enum class EUnit : uint8_t
-	{
+	/////////////////////////////////////////////
+	// Enum CoreUObject.EDataValidationResult
+	/////////////////////////////////////////////
+	enum class EDataValidationResult : uint8_t {
+		Invalid = 0,
+		Valid = 1,
+		NotValidated = 2,
+		MAX = 3,
+	};
+	/////////////////////////////////////////////
+	// Enum CoreUObject.EAppMsgType
+	/////////////////////////////////////////////
+	enum class EAppMsgType : uint8_t {
+		Ok = 0,
+		YesNo = 1,
+		OkCancel = 2,
+		YesNoCancel = 3,
+		CancelRetryContinue = 4,
+		YesNoYesAllNoAll = 5,
+		YesNoYesAllNoAllCancel = 6,
+		YesNoYesAll = 7,
+		MAX = 8,
+	};
+	/////////////////////////////////////////////
+	// Enum CoreUObject.EAppReturnType
+	/////////////////////////////////////////////
+	enum class EAppReturnType : uint8_t {
+		No = 0,
+		Yes = 1,
+		YesAll = 2,
+		NoAll = 3,
+		Cancel = 4,
+		Ok = 5,
+		Retry = 6,
+		Continue = 7,
+		MAX = 8,
+	};
+	/////////////////////////////////////////////
+	// Enum CoreUObject.EPropertyAccessChangeNotifyMode
+	/////////////////////////////////////////////
+	enum class EPropertyAccessChangeNotifyMode : uint8_t {
+		Default = 0,
+		Never = 1,
+		Always = 2,
+		MAX = 3,
+	};
+	/////////////////////////////////////////////
+	// Enum CoreUObject.EUnit
+	/////////////////////////////////////////////
+	enum class EUnit : uint8_t {
 		Micrometers = 0,
 		Millimeters = 1,
 		Centimeters = 2,
@@ -271,10 +328,12 @@ namespace UE4 {
 		Multiplier = 47,
 		Percentage = 48,
 		Unspecified = 49,
-		EUnit_MAX = 50
+		MAX = 50,
 	};
-	enum class EMouseCursor : uint8_t
-	{
+	/////////////////////////////////////////////
+	// Enum CoreUObject.EMouseCursor
+	/////////////////////////////////////////////
+	enum class EMouseCursor : uint8_t {
 		None = 0,
 		Default = 1,
 		TextEditBeam = 2,
@@ -289,10 +348,12 @@ namespace UE4 {
 		GrabHandClosed = 11,
 		SlashedCircle = 12,
 		EyeDropper = 13,
-		EMouseCursor_MAX = 14
+		MAX = 14,
 	};
-	enum class EPixelFormat : uint8_t
-	{
+	/////////////////////////////////////////////
+	// Enum CoreUObject.EPixelFormat
+	/////////////////////////////////////////////
+	enum class EPixelFormat : uint8_t {
 		PF_Unknown = 0,
 		PF_A32B32G32R32F = 1,
 		PF_B8G8R8A8 = 2,
@@ -357,260 +418,574 @@ namespace UE4 {
 		PF_R8G8B8A8_SNORM = 61,
 		PF_R16G16B16A16_UNORM = 62,
 		PF_R16G16B16A16_SNORM = 63,
-		//	PF_MAX                         = 64
+		PF_PLATFORM_HDR_1 = 64,
+		PF_PLATFORM_HDR_2 = 65,
+		PF_PLATFORM_HDR_3 = 66,
+		PF_NV12 = 67,
+		PF_R32G32_UINT = 68,
+		PF_ETC2_R11_EAC = 69,
+		PF_ETC2_RG11_EAC = 70,
+		MAX = 71,
 	};
-	enum class EAxis : uint8_t
-	{
+	/////////////////////////////////////////////
+	// Enum CoreUObject.EAxis
+	/////////////////////////////////////////////
+	enum class EAxis : uint8_t {
 		None = 0,
 		X = 1,
 		Y = 2,
 		Z = 3,
-		EAxis_MAX = 4
+		MAX = 4,
 	};
-	enum class ELogTimes : uint8_t
-	{
+	/////////////////////////////////////////////
+	// Enum CoreUObject.ELogTimes
+	/////////////////////////////////////////////
+	enum class ELogTimes : uint8_t {
 		None = 0,
 		UTC = 1,
 		SinceGStartTime = 2,
 		Local = 3,
-		ELogTimes_MAX = 4
+		MAX = 4,
 	};
-	enum class ESearchDir : uint8_t
-	{
+	/////////////////////////////////////////////
+	// Enum CoreUObject.ESearchDir
+	/////////////////////////////////////////////
+	enum class ESearchDir : uint8_t {
 		FromStart = 0,
 		FromEnd = 1,
-		ESearchDir_MAX = 2
+		MAX = 2,
 	};
-	enum class ESearchCase : uint8_t
-	{
+	/////////////////////////////////////////////
+	// Enum CoreUObject.ESearchCase
+	/////////////////////////////////////////////
+	enum class ESearchCase : uint8_t {
 		CaseSensitive = 0,
 		IgnoreCase = 1,
-		ESearchCase_MAX = 2
+		MAX = 2,
 	};
-	enum class EEnumFlags
-	{
-		None,
-
-		Flags = 0x00000001 // Whether the UEnum represents a set of flags
-	};
-	//---------------------------------------------------------------------------
-	//Structs
-	//---------------------------------------------------------------------------
-	struct FScriptDelegate {
-		unsigned char uknownData_0[16];
-	};
-	struct FStaticConstructObjectParameters
-	{
-		const UClass* Class;
-		UObject* Outer;
-		FName Name;
-		unsigned int SetFlags = 0x00000000;
-		EInternalObjectFlags InternalSetFlags = EInternalObjectFlags::None;
-		bool bCopyTransientsFromClassDefaults = false;
-		bool bAssumeTemplateIsArchetype = false;
-		UObject* Template = nullptr;
-		void* InstanceGraph = nullptr;
-		void* ExternalPackage = nullptr;
-	};
+#pragma endregion
+#pragma region Structs
+	struct FJoinabilitySettings;
+	struct FUniqueNetIdWrapper;
+	struct FGuid;
+	struct FVector;
+	struct FVector4;
+	struct FVector2D;
+	struct FTwoVectors;
+	struct FPlane;
+	struct FRotator;
+	struct FQuat;
+	struct FPackedNormal;
+	struct FPackedRGB10A2N;
+	struct FPackedRGBA16N;
+	struct FIntPoint;
+	struct FIntVector;
+	struct FColor;
+	struct FLinearColor;
+	struct FBox;
+	struct FBox2D;
+	struct FBoxSphereBounds;
+	struct FOrientedBox;
+	struct FMatrix;
+	struct FInterpCurvePointFloat;
+	struct FInterpCurveFloat;
+	struct FInterpCurvePointVector2D;
+	struct FInterpCurveVector2D;
+	struct FInterpCurvePointVector;
+	struct FInterpCurveVector;
+	struct FInterpCurvePointQuat;
+	struct FInterpCurveQuat;
+	struct FInterpCurvePointTwoVectors;
+	struct FInterpCurveTwoVectors;
+	struct FInterpCurvePointLinearColor;
+	struct FInterpCurveLinearColor;
+	struct FTransform;
+	struct FRandomStream;
+	struct FDateTime;
+	struct FFrameNumber;
+	struct FFrameRate;
+	struct FFrameTime;
+	struct FQualifiedFrameTime;
+	struct FTimecode;
+	struct FTimespan;
+	struct FSoftObjectPath;
+	struct FSoftClassPath;
+	struct FPrimaryAssetType;
+	struct FPrimaryAssetId;
+	struct FFallbackStruct;
+	struct FFloatRangeBound;
+	struct FFloatRange;
+	struct FInt32RangeBound;
+	struct FInt32Range;
+	struct FFrameNumberRangeBound;
+	struct FFrameNumberRange;
+	struct FFloatInterval;
+	struct FInt32Interval;
+	struct FPolyglotTextData;
+	struct FAutomationEvent;
+	struct FAutomationExecutionEntry;
+	struct FARFilter;
+	struct FAssetBundleEntry;
+	struct FAssetBundleData;
+	struct FAssetData;
+	struct FTestUninitializedScriptStructMembersTest;
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.JoinabilitySettings
-	// 0x0018
-	struct FJoinabilitySettings
-	{
-		class FName                                       SessionName;                                              // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
-		bool                                               bPublicSearchable;                                        // 0x0008(0x0001) (ZeroConstructor, IsPlainOldData)
-		bool                                               bAllowInvites;                                            // 0x0009(0x0001) (ZeroConstructor, IsPlainOldData)
-		bool                                               bJoinViaPresence;                                         // 0x000A(0x0001) (ZeroConstructor, IsPlainOldData)
-		bool                                               bJoinViaPresenceFriendsOnly;                              // 0x000B(0x0001) (ZeroConstructor, IsPlainOldData)
-		int                                                MaxPlayers;                                               // 0x000C(0x0004) (ZeroConstructor, IsPlainOldData)
-		int                                                MaxPartySize;                                             // 0x0010(0x0004) (ZeroConstructor, IsPlainOldData)
-		unsigned char                                      UnknownData00[0x4];                                       // 0x0014(0x0004) MISSED OFFSET
+	// Size 20
+	/////////////////////////////////////////////
+	struct FJoinabilitySettings {
+		struct FName	SessionName;		//Offset: 0	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bPublicSearchable;		//Offset: 8	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bAllowInvites;		//Offset: 9	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bJoinViaPresence;		//Offset: 10	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bJoinViaPresenceFriendsOnly;		//Offset: 11	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	MaxPlayers;		//Offset: 12	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	MaxPartySize;		//Offset: 16	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.UniqueNetIdWrapper
-	// 0x0001
-	struct FUniqueNetIdWrapper
-	{
-		unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
+	// Size 1
+	/////////////////////////////////////////////
+	struct FUniqueNetIdWrapper {
+		unsigned char uknownData_0[1];		//Offset: 0	Size: 1
 	};
-	// ScriptStruct CoreUObject.Guid
-	// 0x0010
-	struct FGuid
-	{
-		int                                                A;                                                        // 0x0000(0x0004) (Edit, ZeroConstructor, SaveGame, IsPlainOldData)
-		int                                                B;                                                        // 0x0004(0x0004) (Edit, ZeroConstructor, SaveGame, IsPlainOldData)
-		int                                                C;                                                        // 0x0008(0x0004) (Edit, ZeroConstructor, SaveGame, IsPlainOldData)
-		int                                                D;                                                        // 0x000C(0x0004) (Edit, ZeroConstructor, SaveGame, IsPlainOldData)
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.TwoVectors
+	// Size 24
+	/////////////////////////////////////////////
+	struct FTwoVectors {
+		struct FVector	v1;		//Offset: 0	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector	v2;		//Offset: 12	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.PackedNormal
+	// Size 4
+	/////////////////////////////////////////////
+	struct FPackedNormal {
+		unsigned char	X;		//Offset: 0	Size: 1	Flags: Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char	Y;		//Offset: 1	Size: 1	Flags: Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char	Z;		//Offset: 2	Size: 1	Flags: Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char	W;		//Offset: 3	Size: 1	Flags: Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.PackedRGB10A2N
+	// Size 4
+	/////////////////////////////////////////////
+	struct FPackedRGB10A2N {
+		int32_t	Packed;		//Offset: 0	Size: 4	Flags: Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.PackedRGBA16N
+	// Size 8
+	/////////////////////////////////////////////
+	struct FPackedRGBA16N {
+		int32_t	XY;		//Offset: 0	Size: 4	Flags: Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	ZW;		//Offset: 4	Size: 4	Flags: Edit, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.IntPoint
+	// Size 8
+	/////////////////////////////////////////////
+	struct FIntPoint {
+		int32_t	X;		//Offset: 0	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	Y;		//Offset: 4	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.IntVector
+	// Size 12
+	/////////////////////////////////////////////
+	struct FIntVector {
+		int32_t	X;		//Offset: 0	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	Y;		//Offset: 4	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	Z;		//Offset: 8	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.Matrix
+	// Size 64
+	/////////////////////////////////////////////
+	struct FMatrix {
+		struct FPlane	XPlane;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FPlane	YPlane;		//Offset: 16	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FPlane	ZPlane;		//Offset: 32	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FPlane	WPlane;		//Offset: 48	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.InterpCurvePointFloat
+	// Size 20
+	/////////////////////////////////////////////
+	struct FInterpCurvePointFloat {
+		float	InVal;		//Offset: 0	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	OutVal;		//Offset: 4	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	ArriveTangent;		//Offset: 8	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	LeaveTangent;		//Offset: 12	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<EInterpCurveMode>	InterpMode;		//Offset: 16	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 17	Size: 3
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.InterpCurveFloat
+	// Size 24
+	/////////////////////////////////////////////
+	struct FInterpCurveFloat {
+		TArray<struct FInterpCurvePointFloat>	Points;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
+		bool	bIsLooped;		//Offset: 16	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 17	Size: 3
+		float	LoopKeyOffset;		//Offset: 20	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.InterpCurvePointVector2D
+	// Size 32
+	/////////////////////////////////////////////
+	struct FInterpCurvePointVector2D {
+		float	InVal;		//Offset: 0	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector2D	OutVal;		//Offset: 4	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector2D	ArriveTangent;		//Offset: 12	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector2D	LeaveTangent;		//Offset: 20	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<EInterpCurveMode>	InterpMode;		//Offset: 28	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 29	Size: 3
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.InterpCurveVector2D
+	// Size 24
+	/////////////////////////////////////////////
+	struct FInterpCurveVector2D {
+		TArray<struct FInterpCurvePointVector2D>	Points;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
+		bool	bIsLooped;		//Offset: 16	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 17	Size: 3
+		float	LoopKeyOffset;		//Offset: 20	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.InterpCurvePointVector
+	// Size 44
+	/////////////////////////////////////////////
+	struct FInterpCurvePointVector {
+		float	InVal;		//Offset: 0	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector	OutVal;		//Offset: 4	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector	ArriveTangent;		//Offset: 16	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector	LeaveTangent;		//Offset: 28	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<EInterpCurveMode>	InterpMode;		//Offset: 40	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 41	Size: 3
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.InterpCurveVector
+	// Size 24
+	/////////////////////////////////////////////
+	struct FInterpCurveVector {
+		TArray<struct FInterpCurvePointVector>	Points;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
+		bool	bIsLooped;		//Offset: 16	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 17	Size: 3
+		float	LoopKeyOffset;		//Offset: 20	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.InterpCurvePointQuat
+	// Size 80
+	/////////////////////////////////////////////
+	struct FInterpCurvePointQuat {
+		float	InVal;		//Offset: 0	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[12];		//Offset: 4	Size: 12
+		struct FQuat	OutVal;		//Offset: 16	Size: 16	Flags: Edit, BlueprintVisible, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+		struct FQuat	ArriveTangent;		//Offset: 32	Size: 16	Flags: Edit, BlueprintVisible, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+		struct FQuat	LeaveTangent;		//Offset: 48	Size: 16	Flags: Edit, BlueprintVisible, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+		TEnumAsByte<EInterpCurveMode>	InterpMode;		//Offset: 64	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_1[15];		//Offset: 65	Size: 15
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.InterpCurveQuat
+	// Size 24
+	/////////////////////////////////////////////
+	struct FInterpCurveQuat {
+		TArray<struct FInterpCurvePointQuat>	Points;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
+		bool	bIsLooped;		//Offset: 16	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 17	Size: 3
+		float	LoopKeyOffset;		//Offset: 20	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.InterpCurvePointTwoVectors
+	// Size 80
+	/////////////////////////////////////////////
+	struct FInterpCurvePointTwoVectors {
+		float	InVal;		//Offset: 0	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FTwoVectors	OutVal;		//Offset: 4	Size: 24	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+		struct FTwoVectors	ArriveTangent;		//Offset: 28	Size: 24	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+		struct FTwoVectors	LeaveTangent;		//Offset: 52	Size: 24	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+		TEnumAsByte<EInterpCurveMode>	InterpMode;		//Offset: 76	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 77	Size: 3
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.InterpCurveTwoVectors
+	// Size 24
+	/////////////////////////////////////////////
+	struct FInterpCurveTwoVectors {
+		TArray<struct FInterpCurvePointTwoVectors>	Points;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
+		bool	bIsLooped;		//Offset: 16	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 17	Size: 3
+		float	LoopKeyOffset;		//Offset: 20	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.InterpCurvePointLinearColor
+	// Size 56
+	/////////////////////////////////////////////
+	struct FInterpCurvePointLinearColor {
+		float	InVal;		//Offset: 0	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FLinearColor	OutVal;		//Offset: 4	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FLinearColor	ArriveTangent;		//Offset: 20	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FLinearColor	LeaveTangent;		//Offset: 36	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<EInterpCurveMode>	InterpMode;		//Offset: 52	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 53	Size: 3
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.InterpCurveLinearColor
+	// Size 24
+	/////////////////////////////////////////////
+	struct FInterpCurveLinearColor {
+		TArray<struct FInterpCurvePointLinearColor>	Points;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
+		bool	bIsLooped;		//Offset: 16	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 17	Size: 3
+		float	LoopKeyOffset;		//Offset: 20	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.RandomStream
-	// 0x0008
-	struct FRandomStream
-	{
-		int                                                InitialSeed;                                              // 0x0000(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
-		int                                                Seed;                                                     // 0x0004(0x0004) (ZeroConstructor, IsPlainOldData)
+	// Size 8
+	/////////////////////////////////////////////
+	struct FRandomStream {
+		int32_t	InitialSeed;		//Offset: 0	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	Seed;		//Offset: 4	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.DateTime
-	// 0x0008
-	struct FDateTime
-	{
-		unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
+	// Size 8
+	/////////////////////////////////////////////
+	struct FDateTime {
+		unsigned char uknownData_0[8];		//Offset: 0	Size: 8
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.FrameNumber
-	// 0x0004
-	struct FFrameNumber
-	{
-		int                                                Value;                                                    // 0x0000(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	// Size 4
+	/////////////////////////////////////////////
+	struct FFrameNumber {
+		int32_t	Value;		//Offset: 0	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.FrameRate
-	// 0x0008
-	struct FFrameRate
-	{
-		int                                                Numerator;                                                // 0x0000(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-		int                                                Denominator;                                              // 0x0004(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	// Size 8
+	/////////////////////////////////////////////
+	struct FFrameRate {
+		int32_t	Numerator;		//Offset: 0	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	Denominator;		//Offset: 4	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.FrameTime
-	// 0x0008
-	struct FFrameTime
-	{
-		struct FFrameNumber                                FrameNumber;                                              // 0x0000(0x0004) (BlueprintVisible)
-		float                                              SubFrame;                                                 // 0x0004(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	// Size 8
+	/////////////////////////////////////////////
+	struct FFrameTime {
+		struct FFrameNumber	FrameNumber;		//Offset: 0	Size: 4	Flags: BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	SubFrame;		//Offset: 4	Size: 4	Flags: BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.QualifiedFrameTime
-	// 0x0010
-	struct FQualifiedFrameTime
-	{
-		struct FFrameTime                                  Time;                                                     // 0x0000(0x0008) (BlueprintVisible)
-		struct FFrameRate                                  Rate;                                                     // 0x0008(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	// Size 16
+	/////////////////////////////////////////////
+	struct FQualifiedFrameTime {
+		struct FFrameTime	Time;		//Offset: 0	Size: 8	Flags: BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FFrameRate	Rate;		//Offset: 8	Size: 8	Flags: BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.Timecode
-	// 0x0014
-	struct FTimecode
-	{
-		int                                                Hours;                                                    // 0x0000(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-		int                                                Minutes;                                                  // 0x0004(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-		int                                                Seconds;                                                  // 0x0008(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-		int                                                Frames;                                                   // 0x000C(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-		bool                                               bDropFrameFormat;                                         // 0x0010(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-		unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
+	// Size 20
+	/////////////////////////////////////////////
+	struct FTimecode {
+		int32_t	Hours;		//Offset: 0	Size: 4	Flags: BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	Minutes;		//Offset: 4	Size: 4	Flags: BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	Seconds;		//Offset: 8	Size: 4	Flags: BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	Frames;		//Offset: 12	Size: 4	Flags: BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bDropFrameFormat;		//Offset: 16	Size: 1	Flags: BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 17	Size: 3
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.Timespan
-	// 0x0008
-	struct FTimespan
-	{
-		unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
+	// Size 8
+	/////////////////////////////////////////////
+	struct FTimespan {
+		unsigned char uknownData_0[8];		//Offset: 0	Size: 8
 	};
-	// ScriptStruct CoreUObject.SoftClassPath
-	// 0x0000 (0x0018 - 0x0018)
-	struct FSoftClassPath //: public FSoftObjectPath
-	{
-
-	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.PrimaryAssetType
-	// 0x0008
-	struct FPrimaryAssetType
-	{
-		class FName                                       Name;                                                     // 0x0000(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	// Size 8
+	/////////////////////////////////////////////
+	struct FPrimaryAssetType {
+		struct FName	Name;		//Offset: 0	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.PrimaryAssetId
-	// 0x0010
-	struct FPrimaryAssetId
-	{
-		struct FPrimaryAssetType                           PrimaryAssetType;                                         // 0x0000(0x0008) (Edit, BlueprintVisible, ZeroConstructor)
-		class FName                                       PrimaryAssetName;                                         // 0x0008(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	// Size 16
+	/////////////////////////////////////////////
+	struct FPrimaryAssetId {
+		struct FPrimaryAssetType	PrimaryAssetType;		//Offset: 0	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, SaveGame, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FName	PrimaryAssetName;		//Offset: 8	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.FallbackStruct
-	// 0x0001
-	struct FFallbackStruct
-	{
-		unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
+	// Size 1
+	/////////////////////////////////////////////
+	struct FFallbackStruct {
+		unsigned char uknownData_0[1];		//Offset: 0	Size: 1
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.FloatRangeBound
-	// 0x0008
-	struct FFloatRangeBound
-	{
-		TEnumAsByte<ERangeBoundTypes>                      Type;                                                     // 0x0000(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-		unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-		float                                              Value;                                                    // 0x0004(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	// Size 8
+	/////////////////////////////////////////////
+	struct FFloatRangeBound {
+		TEnumAsByte<ERangeBoundTypes>	Type;		//Offset: 0	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+		unsigned char uknownData_0[3];		//Offset: 1	Size: 3
+		float	Value;		//Offset: 4	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.FloatRange
-	// 0x0010
-	struct FFloatRange
-	{
-		struct FFloatRangeBound                            LowerBound;                                               // 0x0000(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-		struct FFloatRangeBound                            UpperBound;                                               // 0x0008(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	// Size 16
+	/////////////////////////////////////////////
+	struct FFloatRange {
+		struct FFloatRangeBound	LowerBound;		//Offset: 0	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+		struct FFloatRangeBound	UpperBound;		//Offset: 8	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.Int32RangeBound
-	// 0x0008
-	struct FInt32RangeBound
-	{
-		TEnumAsByte<ERangeBoundTypes>                      Type;                                                     // 0x0000(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-		unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-		int                                                Value;                                                    // 0x0004(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	// Size 8
+	/////////////////////////////////////////////
+	struct FInt32RangeBound {
+		TEnumAsByte<ERangeBoundTypes>	Type;		//Offset: 0	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+		unsigned char uknownData_0[3];		//Offset: 1	Size: 3
+		int32_t	Value;		//Offset: 4	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.Int32Range
-	// 0x0010
-	struct FInt32Range
-	{
-		struct FInt32RangeBound                            LowerBound;                                               // 0x0000(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-		struct FInt32RangeBound                            UpperBound;                                               // 0x0008(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	// Size 16
+	/////////////////////////////////////////////
+	struct FInt32Range {
+		struct FInt32RangeBound	LowerBound;		//Offset: 0	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+		struct FInt32RangeBound	UpperBound;		//Offset: 8	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
 	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.FrameNumberRangeBound
+	// Size 8
+	/////////////////////////////////////////////
+	struct FFrameNumberRangeBound {
+		TEnumAsByte<ERangeBoundTypes>	Type;		//Offset: 0	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+		unsigned char uknownData_0[3];		//Offset: 1	Size: 3
+		struct FFrameNumber	Value;		//Offset: 4	Size: 4	Flags: Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.FrameNumberRange
+	// Size 16
+	/////////////////////////////////////////////
+	struct FFrameNumberRange {
+		struct FFrameNumberRangeBound	LowerBound;		//Offset: 0	Size: 8	Flags: Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+		struct FFrameNumberRangeBound	UpperBound;		//Offset: 8	Size: 8	Flags: Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.FloatInterval
-	// 0x0008
-	struct FFloatInterval
-	{
-		float                                              Min;                                                      // 0x0000(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-		float                                              Max;                                                      // 0x0004(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	// Size 8
+	/////////////////////////////////////////////
+	struct FFloatInterval {
+		float	Min;		//Offset: 0	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	Max;		//Offset: 4	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.Int32Interval
-	// 0x0008
-	struct FInt32Interval
-	{
-		int                                                Min;                                                      // 0x0000(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-		int                                                Max;                                                      // 0x0004(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	// Size 8
+	/////////////////////////////////////////////
+	struct FInt32Interval {
+		int32_t	Min;		//Offset: 0	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	Max;		//Offset: 4	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.PolyglotTextData
-	// 0x00B0
-	struct FPolyglotTextData
-	{
-		ELocalizedTextSourceCategory                       Category;                                                 // 0x0000(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-		unsigned char                                      UnknownData00[0x7];                                       // 0x0001(0x0007) MISSED OFFSET
-		class FString                                      NativeCulture;                                            // 0x0008(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-		class FString                                      Namespace;                                                // 0x0018(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-		class FString                                      Key;                                                      // 0x0028(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-		class FString                                      NativeString;                                             // 0x0038(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-		TMap<class FString, class FString>                 LocalizedStrings;                                         // 0x0048(0x0050) (Edit, BlueprintVisible, ZeroConstructor)
-		struct FText                                       CachedText;                                               // 0x0098(0x0028) (Transient)
+	// Size 184
+	/////////////////////////////////////////////
+	struct FPolyglotTextData {
+		ELocalizedTextSourceCategory	Category;		//Offset: 0	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[7];		//Offset: 1	Size: 7
+		struct FString	NativeCulture;		//Offset: 8	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FString	Namespace;		//Offset: 24	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FString	Key;		//Offset: 40	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FString	NativeString;		//Offset: 56	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TMap<struct FString, struct FString>	LocalizedStrings;		//Offset: 72	Size: 80	Flags: Edit, BlueprintVisible, NativeAccessSpecifierPublic
+		bool	bIsMinimalPatch;		//Offset: 152	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_1[7];		//Offset: 153	Size: 7
+		struct FText	CachedText;		//Offset: 160	Size: 24	Flags: Transient, NativeAccessSpecifierPublic
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.AutomationEvent
-	// 0x0038
-	struct FAutomationEvent
-	{
-		EAutomationEventType                               Type;                                                     // 0x0000(0x0001) (ZeroConstructor, IsPlainOldData)
-		unsigned char                                      UnknownData00[0x7];                                       // 0x0001(0x0007) MISSED OFFSET
-		class FString                                      Message;                                                  // 0x0008(0x0010) (ZeroConstructor)
-		class FString                                      Context;                                                  // 0x0018(0x0010) (ZeroConstructor)
-		struct FGuid                                       Artifact;                                                 // 0x0028(0x0010) (ZeroConstructor, IsPlainOldData)
+	// Size 56
+	/////////////////////////////////////////////
+	struct FAutomationEvent {
+		EAutomationEventType	Type;		//Offset: 0	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[7];		//Offset: 1	Size: 7
+		struct FString	Message;		//Offset: 8	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FString	Context;		//Offset: 24	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FGuid	Artifact;		//Offset: 40	Size: 16	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
+	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.AutomationExecutionEntry
-	// 0x0058
-	struct FAutomationExecutionEntry
-	{
-		struct FAutomationEvent                            Event;                                                    // 0x0000(0x0038) (ZeroConstructor)
-		class FString                                      Filename;                                                 // 0x0038(0x0010) (ZeroConstructor)
-		int                                                LineNumber;                                               // 0x0048(0x0004) (ZeroConstructor, IsPlainOldData)
-		unsigned char                                      UnknownData00[0x4];                                       // 0x004C(0x0004) MISSED OFFSET
-		struct FDateTime                                   Timestamp;                                                // 0x0050(0x0008) (ZeroConstructor)
+	// Size 88
+	/////////////////////////////////////////////
+	struct FAutomationExecutionEntry {
+		struct FAutomationEvent	Event;		//Offset: 0	Size: 56	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FString	Filename;		//Offset: 56	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	LineNumber;		//Offset: 72	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[4];		//Offset: 76	Size: 4
+		struct FDateTime	Timestamp;		//Offset: 80	Size: 8	Flags: ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
-	
-
-	inline bool operator&(EFunctionFlags lhs, EFunctionFlags rhs) {
-		return (static_cast<std::underlying_type_t<EFunctionFlags>>(lhs) & static_cast<std::underlying_type_t<EFunctionFlags>>(rhs)) == static_cast<std::underlying_type_t<EFunctionFlags>>(rhs);
-	}
-	inline bool operator&(EPropertyFlags lhs, EPropertyFlags rhs) {
-		return (static_cast<std::underlying_type_t<EPropertyFlags>>(lhs) & static_cast<std::underlying_type_t<EPropertyFlags>>(rhs)) == static_cast<std::underlying_type_t<EPropertyFlags>>(rhs);
-	}
-	inline bool operator&(EObjectFlags lhs, EObjectFlags rhs) {
-		return (static_cast<std::underlying_type_t<EObjectFlags>>(lhs) & static_cast<std::underlying_type_t<EObjectFlags>>(rhs)) == static_cast<std::underlying_type_t<EObjectFlags>>(rhs);
-	}
-	std::string StringifyFlags(const EFunctionFlags flags);
-	std::string StringifyFlags(const EPropertyFlags flags);
-	std::string StringifyFlags(const EObjectFlags flags);
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.ARFilter
+	// Size 240
+	/////////////////////////////////////////////
+	struct FARFilter {
+		TArray<struct FName>	PackageNames;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic
+		TArray<struct FName>	PackagePaths;		//Offset: 16	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic
+		TArray<struct FName>	ObjectPaths;		//Offset: 32	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic
+		TArray<struct FName>	ClassNames;		//Offset: 48	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[80];		//Offset: 64	Size: 80
+		unsigned char uknownData_1[80];		//Offset: 144	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnInstance, NativeAccessSpecifierPublic
+		bool	bRecursivePaths;		//Offset: 224	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bRecursiveClasses;		//Offset: 225	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bIncludeOnlyOnDiskAssets;		//Offset: 226	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_2[13];		//Offset: 227	Size: 13
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.AssetBundleEntry
+	// Size 24
+	/////////////////////////////////////////////
+	struct FAssetBundleEntry {
+		struct FName	BundleName;		//Offset: 0	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TArray<struct FSoftObjectPath>	BundleAssets;		//Offset: 8	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.AssetBundleData
+	// Size 16
+	/////////////////////////////////////////////
+	struct FAssetBundleData {
+		TArray<struct FAssetBundleEntry>	Bundles;		//Offset: 0	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.AssetData
+	// Size 96
+	/////////////////////////////////////////////
+	struct FAssetData {
+		struct FName	ObjectPath;		//Offset: 0	Size: 8	Flags: BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FName	PackageName;		//Offset: 8	Size: 8	Flags: BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FName	PackagePath;		//Offset: 16	Size: 8	Flags: BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FName	AssetName;		//Offset: 24	Size: 8	Flags: BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FName	AssetClass;		//Offset: 32	Size: 8	Flags: BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[56];		//Offset: 40	Size: 56
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct CoreUObject.TestUninitializedScriptStructMembersTest
+	// Size 24
+	/////////////////////////////////////////////
+	struct FTestUninitializedScriptStructMembersTest {
+		class UObject* UninitializedObjectReference;		//Offset: 0	Size: 8	Flags: ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		class UObject* InitializedObjectReference;		//Offset: 8	Size: 8	Flags: ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	UnusedValue;		//Offset: 16	Size: 4	Flags: ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[4];		//Offset: 20	Size: 4
+	};
+#pragma endregion
 }

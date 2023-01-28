@@ -347,7 +347,7 @@ class UWidget* UWidget::GenerateWidgetForString__DelegateSignature(struct FStrin
 // Params:
 // Name: ReturnValue	Type: struct FText	Flags: Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FText UWidget::GetAccessibleSummaryText() const {
+struct FText UWidget::GetAccessibleSummaryText()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.GetAccessibleSummaryText");
 
 	struct UWidget_GetAccessibleSummaryText_Params {
@@ -372,7 +372,7 @@ struct FText UWidget::GetAccessibleSummaryText() const {
 // Params:
 // Name: ReturnValue	Type: struct FText	Flags: Parm, OutParm, ReturnParm, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FText UWidget::GetAccessibleText() const {
+struct FText UWidget::GetAccessibleText()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.GetAccessibleText");
 
 	struct UWidget_GetAccessibleText_Params {
@@ -418,7 +418,7 @@ bool UWidget::GetBool__DelegateSignature() {
 // Params:
 // Name: ReturnValue	Type: struct FGeometry	Flags: ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FGeometry UWidget::GetCachedGeometry() const {
+struct FGeometry UWidget::GetCachedGeometry()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.GetCachedGeometry");
 
 	struct UWidget_GetCachedGeometry_Params {
@@ -464,7 +464,7 @@ ECheckBoxState UWidget::GetCheckBoxState__DelegateSignature() {
 // Params:
 // Name: ReturnValue	Type: EWidgetClipping	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-EWidgetClipping UWidget::GetClipping() const {
+EWidgetClipping UWidget::GetClipping()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.GetClipping");
 
 	struct UWidget_GetClipping_Params {
@@ -489,7 +489,7 @@ EWidgetClipping UWidget::GetClipping() const {
 // Params:
 // Name: ReturnValue	Type: struct FVector2D	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FVector2D UWidget::GetDesiredSize() const {
+struct FVector2D UWidget::GetDesiredSize()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.GetDesiredSize");
 
 	struct UWidget_GetDesiredSize_Params {
@@ -535,7 +535,7 @@ float UWidget::GetFloat__DelegateSignature() {
 // Params:
 // Name: ReturnValue	Type: class UGameInstance*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UGameInstance* UWidget::GetGameInstance() const {
+class UGameInstance* UWidget::GetGameInstance()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.GetGameInstance");
 
 	struct UWidget_GetGameInstance_Params {
@@ -581,7 +581,7 @@ int32_t UWidget::GetInt32__DelegateSignature() {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidget::GetIsEnabled() const {
+bool UWidget::GetIsEnabled()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.GetIsEnabled");
 
 	struct UWidget_GetIsEnabled_Params {
@@ -648,7 +648,7 @@ TEnumAsByte<EMouseCursor> UWidget::GetMouseCursor__DelegateSignature() {
 // Params:
 // Name: ReturnValue	Type: class ULocalPlayer*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class ULocalPlayer* UWidget::GetOwningLocalPlayer() const {
+class ULocalPlayer* UWidget::GetOwningLocalPlayer()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.GetOwningLocalPlayer");
 
 	struct UWidget_GetOwningLocalPlayer_Params {
@@ -673,7 +673,7 @@ class ULocalPlayer* UWidget::GetOwningLocalPlayer() const {
 // Params:
 // Name: ReturnValue	Type: class APlayerController*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class APlayerController* UWidget::GetOwningPlayer() const {
+class APlayerController* UWidget::GetOwningPlayer()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.GetOwningPlayer");
 
 	struct UWidget_GetOwningPlayer_Params {
@@ -698,7 +698,7 @@ class APlayerController* UWidget::GetOwningPlayer() const {
 // Params:
 // Name: ReturnValue	Type: struct FGeometry	Flags: ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FGeometry UWidget::GetPaintSpaceGeometry() const {
+struct FGeometry UWidget::GetPaintSpaceGeometry()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.GetPaintSpaceGeometry");
 
 	struct UWidget_GetPaintSpaceGeometry_Params {
@@ -723,7 +723,7 @@ struct FGeometry UWidget::GetPaintSpaceGeometry() const {
 // Params:
 // Name: ReturnValue	Type: class UPanelWidget*	Flags: ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UPanelWidget* UWidget::GetParent() const {
+class UPanelWidget* UWidget::GetParent()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.GetParent");
 
 	struct UWidget_GetParent_Params {
@@ -748,7 +748,7 @@ class UPanelWidget* UWidget::GetParent() const {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float UWidget::GetRenderOpacity() const {
+float UWidget::GetRenderOpacity()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.GetRenderOpacity");
 
 	struct UWidget_GetRenderOpacity_Params {
@@ -773,7 +773,7 @@ float UWidget::GetRenderOpacity() const {
 // Params:
 // Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-float UWidget::GetRenderTransformAngle() const {
+float UWidget::GetRenderTransformAngle()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.GetRenderTransformAngle");
 
 	struct UWidget_GetRenderTransformAngle_Params {
@@ -882,7 +882,7 @@ struct FText UWidget::GetText__DelegateSignature() {
 // Params:
 // Name: ReturnValue	Type: struct FGeometry	Flags: ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FGeometry UWidget::GetTickSpaceGeometry() const {
+struct FGeometry UWidget::GetTickSpaceGeometry()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.GetTickSpaceGeometry");
 
 	struct UWidget_GetTickSpaceGeometry_Params {
@@ -907,7 +907,7 @@ struct FGeometry UWidget::GetTickSpaceGeometry() const {
 // Params:
 // Name: ReturnValue	Type: ESlateVisibility	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-ESlateVisibility UWidget::GetVisibility() const {
+ESlateVisibility UWidget::GetVisibility()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.GetVisibility");
 
 	struct UWidget_GetVisibility_Params {
@@ -953,7 +953,7 @@ class UWidget* UWidget::GetWidget__DelegateSignature() {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidget::HasAnyUserFocus() const {
+bool UWidget::HasAnyUserFocus()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.HasAnyUserFocus");
 
 	struct UWidget_HasAnyUserFocus_Params {
@@ -978,7 +978,7 @@ bool UWidget::HasAnyUserFocus() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidget::HasFocusedDescendants() const {
+bool UWidget::HasFocusedDescendants()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.HasFocusedDescendants");
 
 	struct UWidget_HasFocusedDescendants_Params {
@@ -1003,7 +1003,7 @@ bool UWidget::HasFocusedDescendants() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidget::HasKeyboardFocus() const {
+bool UWidget::HasKeyboardFocus()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.HasKeyboardFocus");
 
 	struct UWidget_HasKeyboardFocus_Params {
@@ -1028,7 +1028,7 @@ bool UWidget::HasKeyboardFocus() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidget::HasMouseCapture() const {
+bool UWidget::HasMouseCapture()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.HasMouseCapture");
 
 	struct UWidget_HasMouseCapture_Params {
@@ -1055,7 +1055,7 @@ bool UWidget::HasMouseCapture() const {
 // Name: PointerIndex	Type: int32_t	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidget::HasMouseCaptureByUser(int32_t UserIndex, int32_t PointerIndex) const {
+bool UWidget::HasMouseCaptureByUser(int32_t UserIndex, int32_t PointerIndex)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.HasMouseCaptureByUser");
 
 	struct UWidget_HasMouseCaptureByUser_Params {
@@ -1085,7 +1085,7 @@ bool UWidget::HasMouseCaptureByUser(int32_t UserIndex, int32_t PointerIndex) con
 // Name: PlayerController	Type: class APlayerController*	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidget::HasUserFocus(class APlayerController* PlayerController) const {
+bool UWidget::HasUserFocus(class APlayerController* PlayerController)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.HasUserFocus");
 
 	struct UWidget_HasUserFocus_Params {
@@ -1113,7 +1113,7 @@ bool UWidget::HasUserFocus(class APlayerController* PlayerController) const {
 // Name: PlayerController	Type: class APlayerController*	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidget::HasUserFocusedDescendants(class APlayerController* PlayerController) const {
+bool UWidget::HasUserFocusedDescendants(class APlayerController* PlayerController)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.HasUserFocusedDescendants");
 
 	struct UWidget_HasUserFocusedDescendants_Params {
@@ -1162,7 +1162,7 @@ void UWidget::InvalidateLayoutAndVolatility() {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidget::IsHovered() const {
+bool UWidget::IsHovered()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.IsHovered");
 
 	struct UWidget_IsHovered_Params {
@@ -1187,7 +1187,7 @@ bool UWidget::IsHovered() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidget::IsVisible() const {
+bool UWidget::IsVisible()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Widget.IsVisible");
 
 	struct UWidget_IsVisible_Params {

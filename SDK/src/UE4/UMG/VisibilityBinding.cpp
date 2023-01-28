@@ -10,7 +10,7 @@ namespace UE4 {
 // Params:
 // Name: ReturnValue	Type: ESlateVisibility	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-ESlateVisibility UVisibilityBinding::GetValue() const {
+ESlateVisibility UVisibilityBinding::GetValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.VisibilityBinding.GetValue");
 
 	struct UVisibilityBinding_GetValue_Params {

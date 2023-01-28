@@ -233,7 +233,7 @@ void UListView::BP_ClearSelection() {
 // Params:
 // Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-int32_t UListView::BP_GetNumItemsSelected() const {
+int32_t UListView::BP_GetNumItemsSelected()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_GetNumItemsSelected");
 
 	struct UListView_BP_GetNumItemsSelected_Params {
@@ -258,7 +258,7 @@ int32_t UListView::BP_GetNumItemsSelected() const {
 // Params:
 // Name: ReturnValue	Type: class UObject*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UObject* UListView::BP_GetSelectedItem() const {
+class UObject* UListView::BP_GetSelectedItem()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_GetSelectedItem");
 
 	struct UListView_BP_GetSelectedItem_Params {
@@ -284,7 +284,7 @@ class UObject* UListView::BP_GetSelectedItem() const {
 // Name: Items	Type: TArray<class UObject*>	Flags: Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UListView::BP_GetSelectedItems(TArray<class UObject*>* Items) const {
+bool UListView::BP_GetSelectedItems(TArray<class UObject*>* Items)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_GetSelectedItems");
 
 	struct UListView_BP_GetSelectedItems_Params {
@@ -313,7 +313,7 @@ bool UListView::BP_GetSelectedItems(TArray<class UObject*>* Items) const {
 // Name: Item	Type: class UObject*	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UListView::BP_IsItemVisible(class UObject* Item) const {
+bool UListView::BP_IsItemVisible(class UObject* Item)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_IsItemVisible");
 
 	struct UListView_BP_IsItemVisible_Params {
@@ -491,7 +491,7 @@ void UListView::ClearListItems() {
 // Name: Item	Type: class UObject*	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-int32_t UListView::GetIndexForItem(class UObject* Item) const {
+int32_t UListView::GetIndexForItem(class UObject* Item)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.GetIndexForItem");
 
 	struct UListView_GetIndexForItem_Params {
@@ -519,7 +519,7 @@ int32_t UListView::GetIndexForItem(class UObject* Item) const {
 // Name: Index	Type: int32_t	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 // Name: ReturnValue	Type: class UObject*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UObject* UListView::GetItemAt(int32_t Index) const {
+class UObject* UListView::GetItemAt(int32_t Index)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.GetItemAt");
 
 	struct UListView_GetItemAt_Params {
@@ -546,7 +546,7 @@ class UObject* UListView::GetItemAt(int32_t Index) const {
 // Params:
 // Name: ReturnValue	Type: TArray<class UObject*>	Flags: ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-TArray<class UObject*> UListView::GetListItems() const {
+TArray<class UObject*> UListView::GetListItems()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.GetListItems");
 
 	struct UListView_GetListItems_Params {
@@ -571,7 +571,7 @@ TArray<class UObject*> UListView::GetListItems() const {
 // Params:
 // Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-int32_t UListView::GetNumItems() const {
+int32_t UListView::GetNumItems()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.GetNumItems");
 
 	struct UListView_GetNumItems_Params {
@@ -596,7 +596,7 @@ int32_t UListView::GetNumItems() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UListView::IsRefreshPending() const {
+bool UListView::IsRefreshPending()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.IsRefreshPending");
 
 	struct UListView_IsRefreshPending_Params {

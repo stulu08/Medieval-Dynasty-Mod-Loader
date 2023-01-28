@@ -1,12 +1,75 @@
 #pragma once
-#include "Math/Vector.h"
-#include "CoreUObject/CoreTypes.h"
+#include "CoreUObject/Class.h"
 #include "Containers/Pointers.h"
+#include "PhysicsCore/Structs.h"
+#include "Chaos/Structs.h"
+#include "Slate/Structs.h"
 
-#pragma once
-#include "CoreUObject/CoreTypes.h"
-
-
+namespace UE4 {
+	struct FActorSpawnParameters
+	{
+		FActorSpawnParameters()
+			: Name("")
+			, Template(0)
+			, Owner(0)
+			, Instigator(0)
+			, OverrideLevel(0)
+			, bNoCollisionFail(false)
+			, bRemoteOwned(false)
+			, bNoFail(false)
+			, bDeferConstruction(false)
+			, bAllowDuringConstructionScript(false)
+			, ObjectFlags(0x00000008)
+		{}
+		FName Name;
+		class AActor* Template;
+		class AActor* Owner;
+		class AActor* Instigator;
+		class	ULevel* OverrideLevel;
+		int	bNoCollisionFail : 1;
+		int	bRemoteOwned : 1;
+		int	bNoFail : 1;
+		int	bDeferConstruction : 1;
+		int	bAllowDuringConstructionScript : 1;
+		int ObjectFlags;
+	};
+	//struct FHitResult {
+	//	int32_t FaceIndex;																							 //offset: 0   | size: 4
+	//	float Time;																									 //offset: 4   | size: 4
+	//	float Distance;																								 //offset: 8   | size: 4
+	//	FVector Location;																							 //offset: 12  | size: 12
+	//	FVector ImpactPoint;																						 //offset: 24  | size: 12
+	//	FVector Normal;																								 //offset: 36  | size: 12
+	//	FVector ImpactNormal;																						 //offset: 48  | size: 12
+	//	FVector TraceStart;																							 //offset: 60  | size: 12
+	//	FVector TraceEnd;																							 //offset: 72  | size: 12
+	//	float PenetrationDepth;																						 //offset: 84  | size: 4
+	//	int32_t Item;																								 //offset: 88  | size: 4
+	//	uint8_t ElementIndex;																						 //offset: 92  | size: 1
+	//	uint8_t bBlockingHit : 1;																					 //offset:     | size:
+	//	uint8_t bStartPenetrating : 1;																				 //offset:     | size:
+	//	TWeakObjectPtr<class UPhysicalMaterial> PhysMaterial;														 //offset: 96  | size: 8
+	//	TWeakObjectPtr<class AActor> Actor;																			 //offset: 104 | size: 8
+	//	TWeakObjectPtr<class UPrimitiveComponent> Component;														 //offset: 112 | size: 8
+	//	FName BoneName;																								 //offset: 120 | size: 8
+	//	FName MyBoneName;																							 //offset: 128 | size: 8
+	//};
+	//enum class ETeleportType
+	//{
+	//	None = 0,
+	//	TeleportPhysics = 1,
+	//	ResetPhysics = 2,
+	//};
+	//enum class ESpawnActorCollisionHandlingMethod : uint8_t
+	//{
+	//	Undefined = 0,
+	//	AlwaysSpawn = 1,
+	//	AdjustIfPossibleButAlwaysSpawn = 2,
+	//	AdjustIfPossibleButDontSpawnIfColliding = 3,
+	//	DontSpawnIfColliding = 4,
+	//	ESpawnActorCollisionHandlingMethod_MAX = 5
+	//};
+}
 namespace UE4 {
 #pragma region Enums
 	/////////////////////////////////////////////
@@ -3134,15 +3197,15 @@ namespace UE4 {
 	/////////////////////////////////////////////
 	enum class ERendererStencilMask : uint8_t {
 		ERSM_Default = 0,
-		ERSM = 1,
-		ERSM = 2,
-		ERSM = 3,
-		ERSM = 4,
-		ERSM = 5,
-		ERSM = 6,
-		ERSM = 7,
-		ERSM = 8,
-		ERSM = 9,
+		ERSM_1 = 1,
+		ERSM_2 = 2,
+		ERSM_3 = 3,
+		ERSM_4 = 4,
+		ERSM_5 = 5,
+		ERSM_6 = 6,
+		ERSM_7 = 7,
+		ERSM_8 = 8,
+		ERSM_9 = 9,
 		ERSM_MAX = 10,
 	};
 	/////////////////////////////////////////////
@@ -4619,38 +4682,711 @@ namespace UE4 {
 		VIS_MostAggressive = 2,
 		VIS_Max = 3,
 	};
-	/////////////////////////////////////////////
-	// Enum Engine.EAngularConstraintMotion
-	/////////////////////////////////////////////
-	enum class EAngularConstraintMotion
-	{
-		ACM_Free,
-		ACM_Limited,
-		ACM_Locked,
-		ACM_MAX,
-	};
-	/////////////////////////////////////////////
-	// Enum Engine.ELinearConstraintMotion
-	/////////////////////////////////////////////
-	enum class ELinearConstraintMotion
-	{
-		LCM_Free,
-		LCM_Limited,
-		LCM_Locked,
-		LCM_MAX,
-	};
-	/////////////////////////////////////////////
-	// Enum Engine.ESleepFamily
-	/////////////////////////////////////////////
-	enum class ESleepFamily
-	{
-		Normal,
-		Sensitive,
-		Custom,
-	};
 #pragma endregion
 
 #pragma region Structs
+	struct FDistributionLookupTable;
+	struct FRawDistribution;
+	struct FFloatDistribution;
+	struct FVectorDistribution;
+	struct FVector4Distribution;
+	struct FFloatRK4SpringInterpolator;
+	struct FVectorRK4SpringInterpolator;
+	struct FFormatArgumentData;
+	struct FExpressionInput;
+	struct FMaterialAttributesInput;
+	struct FExpressionOutput;
+	struct FMaterialInput;
+	struct FColorMaterialInput;
+	struct FScalarMaterialInput;
+	struct FShadingModelMaterialInput;
+	struct FVectorMaterialInput;
+	struct FVector2MaterialInput;
+	struct FVector_NetQuantize;
+	struct FVector_NetQuantizeNormal;
+	struct FHitResult;
+	struct FBranchingPointNotifyPayload;
+	struct FSimpleMemberReference;
+	struct FTickFunction;
+	struct FActorComponentTickFunction;
+	struct FSubtitleCue;
+	struct FInterpControlPoint;
+	struct FPlatformInterfaceData;
+	struct FPlatformInterfaceDelegateResult;
+	struct FDebugFloatHistory;
+	struct FLatentActionInfo;
+	struct FTimerHandle;
+	struct FCollisionProfileName;
+	struct FGenericStruct;
+	struct FUserActivity;
+	struct FWalkableSlopeOverride;
+	struct FCollisionResponseContainer;
+	struct FCollisionResponse;
+	struct FBodyInstance;
+	struct FResponseChannel;
+	struct FCustomPrimitiveData;
+	struct FLightingChannels;
+	struct FUniqueNetIdRepl;
+	struct FAnimNode_Base;
+	struct FInputRange;
+	struct FInputScaleBiasClamp;
+	struct FAlphaBlend;
+	struct FInputAlphaBoolBlend;
+	struct FInputScaleBias;
+	struct FPoseLinkBase;
+	struct FComponentSpacePoseLink;
+	struct FKeyHandleMap;
+	struct FIndexedCurve;
+	struct FRealCurve;
+	struct FRichCurve;
+	struct FRuntimeFloatCurve;
+	struct FRichCurveKey;
+	struct FBoneReference;
+	struct FSingleAnimationPlayData;
+	struct FAnimNode_AssetPlayerBase;
+	struct FKeyHandleLookupTable;
+	struct FPerPlatformFloat;
+	struct FPerPlatformInt;
+	struct FPerPlatformBool;
+	struct FAnimInstanceProxy;
+	struct FTableRowBase;
+	struct FSoundModulationDestinationSettings;
+	struct FPoseLink;
+	struct FPerBoneBlendWeight;
+	struct FInputBlendPose;
+	struct FBranchFilter;
+	struct FPoseSnapshot;
+	struct FAnimNode_Root;
+	struct FAnimCurveParam;
+	struct FActorComponentDuplicatedObjectData;
+	struct FActorComponentInstanceData;
+	struct FSceneComponentInstanceData;
+	struct FVector_NetQuantize100;
+	struct FRepAttachment;
+	struct FRepMovement;
+	struct FActorTickFunction;
+	struct FDirectoryPath;
+	struct FKAggregateGeom;
+	struct FKShapeElem;
+	struct FKTaperedCapsuleElem;
+	struct FKConvexElem;
+	struct FKSphylElem;
+	struct FKBoxElem;
+	struct FKSphereElem;
+	struct FAnimationGroupReference;
+	struct FRootMotionMovementParams;
+	struct FAnimGroupInstance;
+	struct FAnimTickRecord;
+	struct FMarkerSyncAnimPosition;
+	struct FBlendFilter;
+	struct FBlendSampleData;
+	struct FAnimationRecordingSettings;
+	struct FComponentSpacePose;
+	struct FLocalSpacePose;
+	struct FNamedTransform;
+	struct FNamedColor;
+	struct FNamedVector;
+	struct FNamedFloat;
+	struct FAnimParentNodeAssetOverride;
+	struct FAnimGroupInfo;
+	struct FAnimBlueprintDebugData;
+	struct FAnimationFrameSnapshot;
+	struct FStateMachineDebugData;
+	struct FStateMachineStateDebugData;
+	struct FAnimBlueprintFunctionData;
+	struct FAnimGraphBlendOptions;
+	struct FGraphAssetPlayerInformation;
+	struct FCachedPoseIndices;
+	struct FAnimBlueprintFunction;
+	struct FAnimTrack;
+	struct FAnimSegment;
+	struct FRootMotionExtractionStep;
+	struct FAnimationErrorStats;
+	struct FRawCurveTracks;
+	struct FSmartName;
+	struct FAnimCurveBase;
+	struct FFloatCurve;
+	struct FVectorCurve;
+	struct FTransformCurve;
+	struct FSlotEvaluationPose;
+	struct FA2Pose;
+	struct FA2CSPose;
+	struct FQueuedDrawDebugItem;
+	struct FAnimInstanceSubsystemData;
+	struct FAnimLinkableElement;
+	struct FAnimMontageInstance;
+	struct FAnimNotifyEvent;
+	struct FBranchingPointMarker;
+	struct FBranchingPoint;
+	struct FSlotAnimationTrack;
+	struct FCompositeSection;
+	struct FAnimNode_ApplyMeshSpaceAdditive;
+	struct FAnimNode_CustomProperty;
+	struct FAnimNode_Inertialization;
+	struct FInertializationPoseDiff;
+	struct FInertializationCurveDiff;
+	struct FInertializationBoneDiff;
+	struct FInertializationPose;
+	struct FAnimNode_LinkedAnimGraph;
+	struct FAnimNode_LinkedAnimLayer;
+	struct FAnimNode_LinkedInputPose;
+	struct FAnimNode_SaveCachedPose;
+	struct FAnimNode_SequencePlayer;
+	struct FAnimNode_StateMachine;
+	struct FAnimationPotentialTransition;
+	struct FAnimationActiveTransitionEntry;
+	struct FAnimNode_TransitionPoseEvaluator;
+	struct FAnimNode_TransitionResult;
+	struct FAnimNode_UseCachedPose;
+	struct FExposedValueHandler;
+	struct FExposedValueCopyRecord;
+	struct FAnimNode_ConvertLocalToComponentSpace;
+	struct FAnimNode_ConvertComponentToLocalSpace;
+	struct FAnimNotifyQueue;
+	struct FAnimNotifyArray;
+	struct FAnimNotifyEventReference;
+	struct FCompressedTrack;
+	struct FCurveTrack;
+	struct FScaleTrack;
+	struct FRotationTrack;
+	struct FTranslationTrack;
+	struct FAnimSequenceTrackContainer;
+	struct FRawAnimSequenceTrack;
+	struct FAnimSetMeshLinkup;
+	struct FAnimSingleNodeInstanceProxy;
+	struct FAnimNode_SingleNode;
+	struct FBakedAnimationStateMachine;
+	struct FAnimationStateBase;
+	struct FAnimationTransitionBetweenStates;
+	struct FBakedAnimationState;
+	struct FBakedStateExitTransition;
+	struct FAnimationState;
+	struct FAnimationTransitionRule;
+	struct FTrackToSkeletonMap;
+	struct FMarkerSyncData;
+	struct FAnimSyncMarker;
+	struct FAnimNotifyTrack;
+	struct FPerBoneBlendWeights;
+	struct FAssetImportInfo;
+	struct FPrimaryAssetRules;
+	struct FPrimaryAssetRulesCustomOverride;
+	struct FPrimaryAssetRulesOverride;
+	struct FAssetManagerRedirect;
+	struct FAssetManagerSearchRules;
+	struct FPrimaryAssetTypeInfo;
+	struct FAssetMapping;
+	struct FAtmospherePrecomputeInstanceData;
+	struct FAtmospherePrecomputeParameters;
+	struct FBaseAttenuationSettings;
+	struct FAudioComponentParam;
+	struct FAudioEffectParameters;
+	struct FAudioReverbEffect;
+	struct FDefaultAudioBusSettings;
+	struct FSoundDebugEntry;
+	struct FAudioQualitySettings;
+	struct FInteriorSettings;
+	struct FAudioVolumeSubmixOverrideSettings;
+	struct FAudioVolumeSubmixSendSettings;
+	struct FSoundSubmixSendInfo;
+	struct FFilePath;
+	struct FLaunchOnTestSettings;
+	struct FEditorMapPerformanceTestDefinition;
+	struct FEditorImportWorkflowDefinition;
+	struct FBuildPromotionImportWorkflowSettings;
+	struct FBuildPromotionOpenAssetSettings;
+	struct FBuildPromotionNewProjectSettings;
+	struct FBuildPromotionTestSettings;
+	struct FImportFactorySettingValues;
+	struct FBlueprintEditorPromotionSettings;
+	struct FParticleEditorPromotionSettings;
+	struct FMaterialEditorPromotionSettings;
+	struct FEditorImportExportTestDefinition;
+	struct FExternalToolDefinition;
+	struct FNavAvoidanceData;
+	struct FBandwidthTestGenerator;
+	struct FBandwidthTestItem;
+	struct FBlendProfileBoneEntry;
+	struct FPerBoneInterpolation;
+	struct FEditorElement;
+	struct FGridBlendSample;
+	struct FBlendSample;
+	struct FBlendParameter;
+	struct FInterpolationParameter;
+	struct FBPEditorBookmarkNode;
+	struct FEditedDocumentInfo;
+	struct FBPInterfaceDescription;
+	struct FEdGraphTerminalType;
+	struct FEdGraphPinType;
+	struct FBPVariableDescription;
+	struct FBPVariableMetaDataEntry;
+	struct FBlueprintMacroCosmeticInfo;
+	struct FCompilerNativizationOptions;
+	struct FBPComponentClassOverride;
+	struct FBlueprintCookedComponentInstancingData;
+	struct FBlueprintComponentChangedPropertyInfo;
+	struct FEventGraphFastCallPair;
+	struct FBlueprintDebugData;
+	struct FPointerToUberGraphFrame;
+	struct FDebuggingInfoForSingleFunction;
+	struct FNodeToCodeAssociation;
+	struct FAnimCurveType;
+	struct FBookmarkBaseJumpToSettings;
+	struct FBookmarkJumpToSettings;
+	struct FBookmark2DJumpToSettings;
+	struct FGeomSelection;
+	struct FBuilderPoly;
+	struct FCachedAnimTransitionData;
+	struct FCachedAnimRelevancyData;
+	struct FCachedAnimAssetPlayerData;
+	struct FCachedAnimStateArray;
+	struct FCachedAnimStateData;
+	struct FActiveCameraShakeInfo;
+	struct FPooledCameraShakes;
+	struct FCameraShakeDuration;
+	struct FCameraShakeInfo;
+	struct FCameraShakeStopParams;
+	struct FCameraShakeUpdateResult;
+	struct FWeightedBlendables;
+	struct FPostProcessSettings;
+	struct FMinimalViewInfo;
+	struct FCameraShakeScrubParams;
+	struct FWeightedBlendable;
+	struct FCameraShakeUpdateParams;
+	struct FCameraShakeStartParams;
+	struct FDummySpacerCameraTypes;
+	struct FCanvasIcon;
+	struct FWrappedStringElement;
+	struct FTextSizingParameters;
+	struct FBasedMovementInfo;
+	struct FRootMotionSourceSettings;
+	struct FVector_NetQuantize10;
+	struct FRootMotionSourceGroup;
+	struct FRepRootMotionMontage;
+	struct FSimulatedRootMotionReplicatedMove;
+	struct FCharacterMovementComponentPostPhysicsTickFunction;
+	struct FFindFloorResult;
+	struct FCharacterNetworkSerializationPackedBits;
+	struct FCharacterMoveResponsePackedBits;
+	struct FCharacterServerMovePackedBits;
+	struct FChildActorComponentInstanceData;
+	struct FChildActorAttachedActorInfo;
+	struct FCustomProfile;
+	struct FCustomChannelSetup;
+	struct FCollisionResponseTemplate;
+	struct FBlueprintComponentDelegateBinding;
+	struct FMeshUVChannelInfo;
+	struct FAutoCompleteNode;
+	struct FConstraintDrive;
+	struct FAngularDriveConstraint;
+	struct FLinearDriveConstraint;
+	struct FConstraintInstanceBase;
+	struct FConstraintBaseParams;
+	struct FLinearConstraint;
+	struct FConeConstraint;
+	struct FTwistConstraint;
+	struct FConstraintProfileProperties;
+	struct FConstraintInstance;
+	struct FCullDistanceSizePair;
+	struct FRuntimeCurveLinearColor;
+	struct FCurveAtlasColorAdjustments;
+	struct FNamedCurveValue;
+	struct FCurveTableRowHandle;
+	struct FBakedCustomAttributePerBoneData;
+	struct FSimpleCurve;
+	struct FBakedFloatCustomAttribute;
+	struct FSimpleCurveKey;
+	struct FIntegralCurve;
+	struct FBakedIntegerCustomAttribute;
+	struct FIntegralKey;
+	struct FStringCurve;
+	struct FBakedStringCustomAttribute;
+	struct FStringCurveKey;
+	struct FCustomAttributePerBoneData;
+	struct FCustomAttribute;
+	struct FCustomAttributeSetting;
+	struct FDataDrivenConsoleVariable;
+	struct FDataTableCategoryHandle;
+	struct FDataTableRowHandle;
+	struct FDebugCameraControllerSettingsViewModeIndex;
+	struct FDebugDisplayProperty;
+	struct FDebugTextInfo;
+	struct FMulticastRecordOptions;
+	struct FRollbackNetStartupActorInfo;
+	struct FDialogueContext;
+	struct FDialogueWaveParameter;
+	struct FDialogueContextMapping;
+	struct FRawDistributionFloat;
+	struct FRawDistributionVector;
+	struct FGraphReference;
+	struct FEdGraphPinReference;
+	struct FEdGraphSchemaAction;
+	struct FEdGraphSchemaAction_NewNode;
+	struct FPluginRedirect;
+	struct FStructRedirect;
+	struct FClassRedirect;
+	struct FGameNameRedirect;
+	struct FScreenMessageString;
+	struct FDropNoteInfo;
+	struct FStatColorMapping;
+	struct FStatColorMapEntry;
+	struct FURL;
+	struct FWorldContext;
+	struct FNamedNetDriver;
+	struct FLevelStreamingStatus;
+	struct FFullyLoadedPackagesInfo;
+	struct FNetDriverDefinition;
+	struct FExposureSettings;
+	struct FTickPrerequisite;
+	struct FCanvasUVTri;
+	struct FDepthFieldGlowInfo;
+	struct FFontRenderInfo;
+	struct FRedirector;
+	struct FCollectionReference;
+	struct FComponentReference;
+	struct FConstrainComponentPropName;
+	struct FDamageEvent;
+	struct FRadialDamageParams;
+	struct FRadialDamageEvent;
+	struct FPointDamageEvent;
+	struct FSkeletalMeshBuildSettings;
+	struct FMeshBuildSettings;
+	struct FPOV;
+	struct FAnimUpdateRateParameters;
+	struct FAnimSlotDesc;
+	struct FAnimSlotInfo;
+	struct FMTDResult;
+	struct FOverlapResult;
+	struct FPrimitiveMaterialRef;
+	struct FSwarmDebugOptions;
+	struct FLightmassDebugOptions;
+	struct FLightmassPrimitiveSettings;
+	struct FLightmassLightSettings;
+	struct FLightmassDirectionalLightSettings;
+	struct FLightmassPointLightSettings;
+	struct FBasedPosition;
+	struct FFractureEffect;
+	struct FCollisionImpactData;
+	struct FRigidBodyContactInfo;
+	struct FRigidBodyErrorCorrection;
+	struct FRigidBodyState;
+	struct FMaterialShadingModelField;
+	struct FExponentialHeightFogData;
+	struct FFontCharacter;
+	struct FFontImportOptionsData;
+	struct FForceFeedbackAttenuationSettings;
+	struct FActiveForceFeedbackEffect;
+	struct FForceFeedbackParameters;
+	struct FForceFeedbackChannelDetails;
+	struct FPredictProjectilePathPointData;
+	struct FPredictProjectilePathResult;
+	struct FPredictProjectilePathParams;
+	struct FActiveHapticFeedbackEffect;
+	struct FHapticFeedbackDetails_Curve;
+	struct FClusterNode;
+	struct FClusterNode_DEPRECATED;
+	struct FHLODISMComponentDesc;
+	struct FHLODProxyMesh;
+	struct FImportanceTexture;
+	struct FComponentKey;
+	struct FComponentOverrideRecord;
+	struct FBlueprintInputDelegateBinding;
+	struct FBlueprintInputActionDelegateBinding;
+	struct FBlueprintInputAxisDelegateBinding;
+	struct FBlueprintInputAxisKeyDelegateBinding;
+	struct FCachedKeyToActionInfo;
+	struct FBlueprintInputKeyDelegateBinding;
+	struct FBlueprintInputTouchDelegateBinding;
+	struct FInstancedStaticMeshLightMapInstanceData;
+	struct FInstancedStaticMeshComponentInstanceData;
+	struct FInstancedStaticMeshInstanceData;
+	struct FInstancedStaticMeshMappingInfo;
+	struct FCurveEdTab;
+	struct FCurveEdEntry;
+	struct FInterpEdSelKey;
+	struct FCameraPreviewInfo;
+	struct FSubTrackGroup;
+	struct FSupportedSubTrackInfo;
+	struct FAnimControlTrackKey;
+	struct FBoolTrackKey;
+	struct FDirectorTrackCut;
+	struct FEventTrackKey;
+	struct FInterpLookupTrack;
+	struct FInterpLookupPoint;
+	struct FParticleReplayTrackKey;
+	struct FSoundTrackKey;
+	struct FToggleTrackKey;
+	struct FVisibilityTrackKey;
+	struct FVectorSpringState;
+	struct FFloatSpringState;
+	struct FDrawToRenderTargetContext;
+	struct FLatentActionManager;
+	struct FLayerActorStats;
+	struct FReplicatedStaticActorDestructionInfo;
+	struct FMaterialProxySettings;
+	struct FLevelSimplificationDetails;
+	struct FStreamableTextureInstance;
+	struct FDynamicTextureInstance;
+	struct FPrecomputedLightInstanceData;
+	struct FBatchedPoint;
+	struct FBatchedLine;
+	struct FClientReceiveData;
+	struct FHLODInstancingKey;
+	struct FComponentSync;
+	struct FLODMappingData;
+	struct FParameterGroupData;
+	struct FMaterialSpriteElement;
+	struct FMaterialCachedParameterEntry;
+	struct FMaterialCachedParameters;
+	struct FMaterialCachedExpressionData;
+	struct FMaterialParameterCollectionInfo;
+	struct FMaterialFunctionInfo;
+	struct FMaterialParameterInfo;
+	struct FStaticComponentMaskValue;
+	struct FParameterChannelNames;
+	struct FCustomDefine;
+	struct FCustomOutput;
+	struct FCustomInput;
+	struct FFunctionExpressionOutput;
+	struct FFunctionExpressionInput;
+	struct FFontParameterValue;
+	struct FRuntimeVirtualTextureParameterValue;
+	struct FTextureParameterValue;
+	struct FVectorParameterValue;
+	struct FScalarParameterValue;
+	struct FScalarParameterAtlasInstanceData;
+	struct FMaterialInstanceBasePropertyOverrides;
+	struct FMaterialTextureInfo;
+	struct FLightmassMaterialInterfaceSettings;
+	struct FMaterialLayersFunctions;
+	struct FCollectionParameterBase;
+	struct FCollectionVectorParameter;
+	struct FCollectionScalarParameter;
+	struct FInterpGroupActorInfo;
+	struct FCameraCutInfo;
+	struct FMemberReference;
+	struct FMeshInstancingSettings;
+	struct FMeshMergingSettings;
+	struct FMeshProxySettings;
+	struct FMeshReductionSettings;
+	struct FPurchaseInfo;
+	struct FNameCurve;
+	struct FNameCurveKey;
+	struct FNavAvoidanceMask;
+	struct FMovementProperties;
+	struct FNavAgentProperties;
+	struct FNavDataConfig;
+	struct FNavAgentSelector;
+	struct FNavigationLinkBase;
+	struct FNavigationSegmentLink;
+	struct FNavigationLink;
+	struct FChannelDefinition;
+	struct FPacketSimulationSettings;
+	struct FFastArraySerializer;
+	struct FFastArraySerializerItem;
+	struct FNetworkEmulationProfileDescription;
+	struct FNodeItem;
+	struct FParticleBurst;
+	struct FParticleRandomSeedInfo;
+	struct FParticleCurvePair;
+	struct FBeamModifierOptions;
+	struct FParticleEvent_GenerateInfo;
+	struct FLocationBoneSocketInfo;
+	struct FOrbitOptions;
+	struct FEmitterDynamicParameter;
+	struct FBeamTargetData;
+	struct FGPUSpriteResourceData;
+	struct FGPUSpriteLocalVectorFieldInfo;
+	struct FGPUSpriteEmitterInfo;
+	struct FNamedEmitterMaterial;
+	struct FLODSoloTrack;
+	struct FParticleSystemLOD;
+	struct FParticleSysParam;
+	struct FParticleSystemWorldManagerTickFunction;
+	struct FParticleSystemReplayFrame;
+	struct FParticleEmitterReplayFrame;
+	struct FFreezablePerPlatformInt;
+	struct FPhysicalAnimationData;
+	struct FPhysicalAnimationProfile;
+	struct FSolverIterations;
+	struct FPhysicsConstraintProfileHandle;
+	struct FChaosPhysicsSettings;
+	struct FPhysicalSurfaceName;
+	struct FDelegateArray;
+	struct FViewTargetTransitionParams;
+	struct FTViewTarget;
+	struct FCameraCacheEntry;
+	struct FUpdateLevelStreamingLevelStatus;
+	struct FInputActionSpeechMapping;
+	struct FInputAxisKeyMapping;
+	struct FInputActionKeyMapping;
+	struct FInputAxisProperties;
+	struct FInputAxisConfigEntry;
+	struct FKeyBind;
+	struct FPlayerMuteList;
+	struct FPoseDataContainer;
+	struct FPoseData;
+	struct FPreviewAssetAttachContainer;
+	struct FPreviewAttachedObjectPair;
+	struct FPreviewMeshCollectionEntry;
+	struct FPrimitiveComponentInstanceData;
+	struct FSpriteCategoryInfo;
+	struct FQuartzTimeSignature;
+	struct FQuartzClockSettings;
+	struct FQuartzPulseOverrideStep;
+	struct FQuartzQuantizationBoundary;
+	struct FQuartzTransportTimeStamp;
+	struct FLevelNameAndTime;
+	struct FReverbSettings;
+	struct FCompressedRichCurve;
+	struct FTransformBaseConstraint;
+	struct FTransformBase;
+	struct FRigTransformConstraint;
+	struct FNode;
+	struct FRootMotionSourceStatus;
+	struct FRootMotionFinishVelocitySettings;
+	struct FRootMotionSource;
+	struct FRootMotionSource_JumpForce;
+	struct FRootMotionSource_MoveToDynamicForce;
+	struct FRootMotionSource_MoveToForce;
+	struct FRootMotionSource_RadialForce;
+	struct FRootMotionSource_ConstantForce;
+	struct FCameraExposureSettings;
+	struct FGaussianSumBloomSettings;
+	struct FConvolutionBloomSettings;
+	struct FLensBloomSettings;
+	struct FLensImperfectionSettings;
+	struct FLensSettings;
+	struct FFilmStockSettings;
+	struct FColorGradePerRangeSettings;
+	struct FColorGradingSettings;
+	struct FEngineShowFlagsSetting;
+	struct FSceneViewExtensionIsActiveFunctor;
+	struct FSkeletalMaterial;
+	struct FClothPhysicsProperties_Legacy;
+	struct FClothingAssetData_Legacy;
+	struct FSkeletalMeshOptimizationSettings;
+	struct FSkeletalMeshLODInfo;
+	struct FSkeletalMeshClothBuildParams;
+	struct FBoneMirrorExport;
+	struct FBoneMirrorInfo;
+	struct FSkeletalMeshComponentClothTickFunction;
+	struct FSkeletalMeshComponentEndPhysicsTickFunction;
+	struct FSkeletalMeshLODGroupSettings;
+	struct FBoneFilter;
+	struct FSkeletalMeshSamplingBuiltData;
+	struct FSkeletalMeshSamplingInfo;
+	struct FSkeletalMeshSamplingRegionBuiltData;
+	struct FSkeletalMeshSamplingLODBuiltData;
+	struct FSkeletalMeshSamplingRegion;
+	struct FSkeletalMeshSamplingRegionBoneFilter;
+	struct FSkeletalMeshSamplingRegionMaterialFilter;
+	struct FVirtualBone;
+	struct FAnimSlotGroup;
+	struct FRigConfiguration;
+	struct FNameMapping;
+	struct FBoneReductionSetting;
+	struct FReferencePose;
+	struct FBoneNode;
+	struct FSkeletonToMeshLinkup;
+	struct FVertexOffsetUsage;
+	struct FSkelMeshComponentLODInfo;
+	struct FSkelMeshSkinWeightInfo;
+	struct FSkinWeightProfileInfo;
+	struct FSkinWeightProfileManagerTickFunction;
+	struct FTentDistribution;
+	struct FPrecomputedSkyLightInstanceData;
+	struct FSmartNameContainer;
+	struct FSmartNameMapping;
+	struct FCurveMetaData;
+	struct FSoundAttenuationPluginSettings;
+	struct FSoundAttenuationSettings;
+	struct FAttenuationSubmixSendSettings;
+	struct FPassiveSoundMixModifier;
+	struct FSoundModulationDefaultSettings;
+	struct FSoundClassProperties;
+	struct FSoundClassEditorData;
+	struct FSoundConcurrencySettings;
+	struct FSoundNodeEditorData;
+	struct FSourceEffectChainEntry;
+	struct FSoundGroup;
+	struct FSoundClassAdjuster;
+	struct FAudioEQEffect;
+	struct FSoundModulationDefaultRoutingSettings;
+	struct FDistanceDatum;
+	struct FModulatorContinuousParams;
+	struct FSoundSourceBusSendInfo;
+	struct FSoundSubmixSpectralAnalysisBandSettings;
+	struct FSoundWaveEnvelopeTimeData;
+	struct FSoundWaveSpectralTimeData;
+	struct FSoundWaveSpectralDataEntry;
+	struct FSoundWaveEnvelopeDataPerSound;
+	struct FSoundWaveSpectralDataPerSound;
+	struct FSoundWaveSpectralData;
+	struct FStreamedAudioPlatformData;
+	struct FSplineCurves;
+	struct FSplineInstanceData;
+	struct FSplinePoint;
+	struct FSplineMeshInstanceData;
+	struct FSplineMeshParams;
+	struct FMaterialRemapIndex;
+	struct FStaticMaterial;
+	struct FAssetEditorOrbitCameraPosition;
+	struct FMeshSectionInfoMap;
+	struct FMeshSectionInfo;
+	struct FStaticMeshSourceModel;
+	struct FStaticMeshOptimizationSettings;
+	struct FStaticMeshComponentInstanceData;
+	struct FStreamingTextureBuildInfo;
+	struct FStaticMeshVertexColorLODData;
+	struct FPaintedVertex;
+	struct FStaticMeshComponentLODInfo;
+	struct FStaticParameterSet;
+	struct FStaticParameterBase;
+	struct FStaticMaterialLayersParameter;
+	struct FStaticTerrainLayerWeightParameter;
+	struct FStaticComponentMaskParameter;
+	struct FStaticSwitchParameter;
+	struct FEquirectProps;
+	struct FSubsurfaceProfileStruct;
+	struct FTextureFormatSettings;
+	struct FTexturePlatformData;
+	struct FTextureSource;
+	struct FTextureSourceBlock;
+	struct FTextureLODGroup;
+	struct FStreamingRenderAssetPrimitiveInfo;
+	struct FTimeline;
+	struct FTimelineLinearColorTrack;
+	struct FTimelineFloatTrack;
+	struct FTimelineVectorTrack;
+	struct FTimelineEventEntry;
+	struct FTTTrackBase;
+	struct FTTPropertyTrack;
+	struct FTTLinearColorTrack;
+	struct FTTVectorTrack;
+	struct FTTFloatTrack;
+	struct FTTEventTrack;
+	struct FTTTrackId;
+	struct FTimeStretchCurveInstance;
+	struct FTimeStretchCurve;
+	struct FTimeStretchCurveMarker;
+	struct FTouchInputControl;
+	struct FUpdateLevelVisibilityLevelInfo;
+	struct FHardwareCursorReference;
+	struct FVirtualTextureBuildSettings;
+	struct FVirtualTextureSpacePoolConfig;
+	struct FVoiceSettings;
+	struct FStreamingLevelsToConsider;
+	struct FLevelCollection;
+	struct FEndPhysicsTickFunction;
+	struct FStartPhysicsTickFunction;
+	struct FLevelViewportInfo;
+	struct FWorldPSCPool;
+	struct FPSCPool;
+	struct FPSCPoolElem;
+	struct FBroadphaseSettings;
+	struct FHierarchicalSimplification;
+	struct FNetViewer;
+	struct FLightmassWorldInfoSettings;
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.DistributionLookupTable
 	// Size 32
@@ -4799,6 +5535,22 @@ namespace UE4 {
 	struct FVector2MaterialInput : public FMaterialInput {
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.Vector_NetQuantize
+	// Super ScriptStruct CoreUObject.Vector
+	// Size 12
+	// Size inherited 12
+	/////////////////////////////////////////////
+	struct FVector_NetQuantize : public FVector {
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.Vector_NetQuantizeNormal
+	// Super ScriptStruct CoreUObject.Vector
+	// Size 12
+	// Size inherited 12
+	/////////////////////////////////////////////
+	struct FVector_NetQuantizeNormal : public FVector {
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.HitResult
 	// Size 136
 	/////////////////////////////////////////////
@@ -4825,22 +5577,6 @@ namespace UE4 {
 		TWeakObjectPtr<class UPrimitiveComponent>	Component;		//Offset: 112	Size: 8	Flags: ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FName	BoneName;		//Offset: 120	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FName	MyBoneName;		//Offset: 128	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.Vector_NetQuantize
-	// Super ScriptStruct CoreUObject.Vector
-	// Size 12
-	// Size inherited 12
-	/////////////////////////////////////////////
-	struct FVector_NetQuantize : public FVector {
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.Vector_NetQuantizeNormal
-	// Super ScriptStruct CoreUObject.Vector
-	// Size 12
-	// Size inherited 12
-	/////////////////////////////////////////////
-	struct FVector_NetQuantizeNormal : public FVector {
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.BranchingPointNotifyPayload
@@ -4906,15 +5642,6 @@ namespace UE4 {
 		unsigned char uknownData_0[15];		//Offset: 13	Size: 15
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.PlatformInterfaceDelegateResult
-	// Size 56
-	/////////////////////////////////////////////
-	struct FPlatformInterfaceDelegateResult {
-		bool	bSuccessful;		//Offset: 0	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[7];		//Offset: 1	Size: 7
-		struct FPlatformInterfaceData	Data;		//Offset: 8	Size: 48	Flags: NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.PlatformInterfaceData
 	// Size 48
 	/////////////////////////////////////////////
@@ -4927,6 +5654,15 @@ namespace UE4 {
 		unsigned char uknownData_1[4];		//Offset: 20	Size: 4
 		struct FString	StringValue;		//Offset: 24	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		class UObject* ObjectValue;		//Offset: 40	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.PlatformInterfaceDelegateResult
+	// Size 56
+	/////////////////////////////////////////////
+	struct FPlatformInterfaceDelegateResult {
+		bool	bSuccessful;		//Offset: 0	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[7];		//Offset: 1	Size: 7
+		struct FPlatformInterfaceData	Data;		//Offset: 8	Size: 48	Flags: NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.DebugFloatHistory
@@ -4990,13 +5726,58 @@ namespace UE4 {
 		unsigned char uknownData_1[8];		//Offset: 8	Size: 8
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.CollisionResponseContainer
+	// Size 32
+	/////////////////////////////////////////////
+	struct FCollisionResponseContainer {
+		TEnumAsByte<ECollisionResponse>	WorldStatic;		//Offset: 0	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	WorldDynamic;		//Offset: 1	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	Pawn;		//Offset: 2	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	Visibility;		//Offset: 3	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	Camera;		//Offset: 4	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	PhysicsBody;		//Offset: 5	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	Vehicle;		//Offset: 6	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	Destructible;		//Offset: 7	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	EngineTraceChannel1;		//Offset: 8	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	EngineTraceChannel2;		//Offset: 9	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	EngineTraceChannel3;		//Offset: 10	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	EngineTraceChannel4;		//Offset: 11	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	EngineTraceChannel5;		//Offset: 12	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	EngineTraceChannel6;		//Offset: 13	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel1;		//Offset: 14	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel2;		//Offset: 15	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel3;		//Offset: 16	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel4;		//Offset: 17	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel5;		//Offset: 18	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel6;		//Offset: 19	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel7;		//Offset: 20	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel8;		//Offset: 21	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel9;		//Offset: 22	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel10;		//Offset: 23	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel11;		//Offset: 24	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel12;		//Offset: 25	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel13;		//Offset: 26	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel14;		//Offset: 27	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel15;		//Offset: 28	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel16;		//Offset: 29	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel17;		//Offset: 30	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ECollisionResponse>	GameTraceChannel18;		//Offset: 31	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.CollisionResponse
+	// Size 48
+	/////////////////////////////////////////////
+	struct FCollisionResponse {
+		struct FCollisionResponseContainer	ResponseToChannels;		//Offset: 0	Size: 32	Flags: Transient, NoDestructor, NativeAccessSpecifierPrivate
+		TArray<struct FResponseChannel>	ResponseArray;		//Offset: 32	Size: 16	Flags: Edit, ZeroConstructor, NativeAccessSpecifierPrivate
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.BodyInstance
 	// Super ScriptStruct PhysicsCore.BodyInstanceCore
 	// Size 344
 	// Size inherited 24
 	/////////////////////////////////////////////
-	struct FBodyInstance /* : public FBodyInstanceCore*/ {
-		unsigned char inheritedSize[24];
+	struct FBodyInstance : public FBodyInstanceCore {
 		unsigned char uknownData_0[6];		//Offset: 24	Size: 6
 		TEnumAsByte<ECollisionChannel>	ObjectType;		//Offset: 30	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
 		unsigned char uknownData_1[1];		//Offset: 31	Size: 1
@@ -5061,14 +5842,6 @@ namespace UE4 {
 		unsigned char uknownData_9[56];		//Offset: 288	Size: 56
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.CollisionResponse
-	// Size 48
-	/////////////////////////////////////////////
-	struct FCollisionResponse {
-		struct FCollisionResponseContainer	ResponseToChannels;		//Offset: 0	Size: 32	Flags: Transient, NoDestructor, NativeAccessSpecifierPrivate
-		TArray<struct FResponseChannel>	ResponseArray;		//Offset: 32	Size: 16	Flags: Edit, ZeroConstructor, NativeAccessSpecifierPrivate
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.ResponseChannel
 	// Size 12
 	/////////////////////////////////////////////
@@ -5076,44 +5849,6 @@ namespace UE4 {
 		struct FName	Channel;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		TEnumAsByte<ECollisionResponse>	Response;		//Offset: 8	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		unsigned char uknownData_0[3];		//Offset: 9	Size: 3
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.CollisionResponseContainer
-	// Size 32
-	/////////////////////////////////////////////
-	struct FCollisionResponseContainer {
-		TEnumAsByte<ECollisionResponse>	WorldStatic;		//Offset: 0	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	WorldDynamic;		//Offset: 1	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	Pawn;		//Offset: 2	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	Visibility;		//Offset: 3	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	Camera;		//Offset: 4	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	PhysicsBody;		//Offset: 5	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	Vehicle;		//Offset: 6	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	Destructible;		//Offset: 7	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	EngineTraceChannel1;		//Offset: 8	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	EngineTraceChannel2;		//Offset: 9	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	EngineTraceChannel3;		//Offset: 10	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	EngineTraceChannel4;		//Offset: 11	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	EngineTraceChannel5;		//Offset: 12	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	EngineTraceChannel6;		//Offset: 13	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel1;		//Offset: 14	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel2;		//Offset: 15	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel3;		//Offset: 16	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel4;		//Offset: 17	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel5;		//Offset: 18	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel6;		//Offset: 19	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel7;		//Offset: 20	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel8;		//Offset: 21	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel9;		//Offset: 22	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel10;		//Offset: 23	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel11;		//Offset: 24	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel12;		//Offset: 25	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel13;		//Offset: 26	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel14;		//Offset: 27	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel15;		//Offset: 28	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel16;		//Offset: 29	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel17;		//Offset: 30	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ECollisionResponse>	GameTraceChannel18;		//Offset: 31	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.CustomPrimitiveData
@@ -5153,6 +5888,14 @@ namespace UE4 {
 		unsigned char uknownData_0[16];		//Offset: 0	Size: 16
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.InputRange
+	// Size 8
+	/////////////////////////////////////////////
+	struct FInputRange {
+		float	Min;		//Offset: 0	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	Max;		//Offset: 4	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.InputScaleBiasClamp
 	// Size 48
 	/////////////////////////////////////////////
@@ -5172,12 +5915,15 @@ namespace UE4 {
 		unsigned char uknownData_1[4];		//Offset: 44	Size: 4
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.InputRange
-	// Size 8
+	// ScriptStruct Engine.AlphaBlend
+	// Size 48
 	/////////////////////////////////////////////
-	struct FInputRange {
-		float	Min;		//Offset: 0	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	Max;		//Offset: 4	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	struct FAlphaBlend {
+		class UCurveFloat* CustomCurve;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+		float	BlendTime;		//Offset: 8	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+		unsigned char uknownData_0[24];		//Offset: 12	Size: 24
+		EAlphaBlendOption	BlendOption;		//Offset: 36	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+		unsigned char uknownData_1[11];		//Offset: 37	Size: 11
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.InputAlphaBoolBlend
@@ -5191,17 +5937,6 @@ namespace UE4 {
 		unsigned char uknownData_0[6];		//Offset: 10	Size: 6
 		class UCurveFloat* CustomCurve;		//Offset: 16	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FAlphaBlend	AlphaBlend;		//Offset: 24	Size: 48	Flags: Transient, NoDestructor, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.AlphaBlend
-	// Size 48
-	/////////////////////////////////////////////
-	struct FAlphaBlend {
-		class UCurveFloat* CustomCurve;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
-		float	BlendTime;		//Offset: 8	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
-		unsigned char uknownData_0[24];		//Offset: 12	Size: 24
-		EAlphaBlendOption	BlendOption;		//Offset: 36	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
-		unsigned char uknownData_1[11];		//Offset: 37	Size: 11
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.InputScaleBias
@@ -5228,12 +5963,11 @@ namespace UE4 {
 	struct FComponentSpacePoseLink : public FPoseLinkBase {
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.RuntimeFloatCurve
-	// Size 136
+	// ScriptStruct Engine.KeyHandleMap
+	// Size 96
 	/////////////////////////////////////////////
-	struct FRuntimeFloatCurve {
-		struct FRichCurve	EditorCurveData;		//Offset: 0	Size: 128	Flags: NativeAccessSpecifierPublic
-		class UCurveFloat* ExternalCurve;		//Offset: 128	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	struct FKeyHandleMap {
+		unsigned char uknownData_0[96];		//Offset: 0	Size: 96
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.IndexedCurve
@@ -5242,13 +5976,6 @@ namespace UE4 {
 	struct FIndexedCurve {
 		unsigned char uknownData_0[8];		//Offset: 0	Size: 8
 		struct FKeyHandleMap	KeyHandlesToIndices;		//Offset: 8	Size: 96	Flags: Transient, Protected, NativeAccessSpecifierProtected
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.KeyHandleMap
-	// Size 96
-	/////////////////////////////////////////////
-	struct FKeyHandleMap {
-		unsigned char uknownData_0[96];		//Offset: 0	Size: 96
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.RealCurve
@@ -5270,6 +5997,14 @@ namespace UE4 {
 	/////////////////////////////////////////////
 	struct FRichCurve : public FRealCurve {
 		TArray<struct FRichCurveKey>	Keys;		//Offset: 112	Size: 16	Flags: Edit, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.RuntimeFloatCurve
+	// Size 136
+	/////////////////////////////////////////////
+	struct FRuntimeFloatCurve {
+		struct FRichCurve	EditorCurveData;		//Offset: 0	Size: 128	Flags: NativeAccessSpecifierPublic
+		class UCurveFloat* ExternalCurve;		//Offset: 128	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.RichCurveKey
@@ -5440,6 +6175,13 @@ namespace UE4 {
 		unsigned char uknownData_0[4];		//Offset: 8	Size: 4
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.ActorComponentDuplicatedObjectData
+	// Size 16
+	/////////////////////////////////////////////
+	struct FActorComponentDuplicatedObjectData {
+		unsigned char uknownData_0[16];		//Offset: 0	Size: 16
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.ActorComponentInstanceData
 	// Size 104
 	/////////////////////////////////////////////
@@ -5456,13 +6198,6 @@ namespace UE4 {
 		TArray<struct FName>	ReferencedNames;		//Offset: 88	Size: 16	Flags: ZeroConstructor, Protected, NativeAccessSpecifierProtected
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.ActorComponentDuplicatedObjectData
-	// Size 16
-	/////////////////////////////////////////////
-	struct FActorComponentDuplicatedObjectData {
-		unsigned char uknownData_0[16];		//Offset: 0	Size: 16
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.SceneComponentInstanceData
 	// Super ScriptStruct Engine.ActorComponentInstanceData
 	// Size 184
@@ -5470,6 +6205,14 @@ namespace UE4 {
 	/////////////////////////////////////////////
 	struct FSceneComponentInstanceData : public FActorComponentInstanceData {
 		TMap<class USceneComponent*, struct FTransform>	AttachedInstanceComponents;		//Offset: 104	Size: 80	Flags: ContainsInstancedReference, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.Vector_NetQuantize100
+	// Super ScriptStruct CoreUObject.Vector
+	// Size 12
+	// Size inherited 12
+	/////////////////////////////////////////////
+	struct FVector_NetQuantize100 : public FVector {
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.RepAttachment
@@ -5483,14 +6226,6 @@ namespace UE4 {
 		struct FName	AttachSocket;		//Offset: 44	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		unsigned char uknownData_0[4];		//Offset: 52	Size: 4
 		class USceneComponent* AttachComponent;		//Offset: 56	Size: 8	Flags: ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.Vector_NetQuantize100
-	// Super ScriptStruct CoreUObject.Vector
-	// Size 12
-	// Size inherited 12
-	/////////////////////////////////////////////
-	struct FVector_NetQuantize100 : public FVector {
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.RepMovement
@@ -5884,6 +6619,14 @@ namespace UE4 {
 		TArray<struct FFloatCurve>	FloatCurves;		//Offset: 0	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.SmartName
+	// Size 12
+	/////////////////////////////////////////////
+	struct FSmartName {
+		struct FName	DisplayName;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[4];		//Offset: 8	Size: 4
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.AnimCurveBase
 	// Size 24
 	/////////////////////////////////////////////
@@ -5891,14 +6634,6 @@ namespace UE4 {
 		struct FName	LastObservedName;		//Offset: 0	Size: 8	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FSmartName	Name;		//Offset: 8	Size: 12	Flags: NoDestructor, NativeAccessSpecifierPublic
 		int32_t	CurveTypeFlags;		//Offset: 20	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.SmartName
-	// Size 12
-	/////////////////////////////////////////////
-	struct FSmartName {
-		struct FName	DisplayName;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[4];		//Offset: 8	Size: 4
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.FloatCurve
@@ -5910,6 +6645,15 @@ namespace UE4 {
 		struct FRichCurve	FloatCurve;		//Offset: 24	Size: 128	Flags: NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.VectorCurve
+	// Super ScriptStruct Engine.AnimCurveBase
+	// Size 408
+	// Size inherited 24
+	/////////////////////////////////////////////
+	struct FVectorCurve : public FAnimCurveBase {
+		struct FRichCurve	FloatCurves[3];		//Offset: 24	Size: 128	Flags: NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.TransformCurve
 	// Super ScriptStruct Engine.AnimCurveBase
 	// Size 1248
@@ -5919,15 +6663,6 @@ namespace UE4 {
 		struct FVectorCurve	TranslationCurve;		//Offset: 24	Size: 408	Flags: NativeAccessSpecifierPublic
 		struct FVectorCurve	RotationCurve;		//Offset: 432	Size: 408	Flags: NativeAccessSpecifierPublic
 		struct FVectorCurve	ScaleCurve;		//Offset: 840	Size: 408	Flags: NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.VectorCurve
-	// Super ScriptStruct Engine.AnimCurveBase
-	// Size 408
-	// Size inherited 24
-	/////////////////////////////////////////////
-	struct FVectorCurve : public FAnimCurveBase {
-		struct FRichCurve	FloatCurves[3];		//Offset: 24	Size: 128	Flags: NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.SlotEvaluationPose
@@ -6584,17 +7319,6 @@ namespace UE4 {
 		unsigned char uknownData_0[1];		//Offset: 0	Size: 1
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.PrimaryAssetRulesCustomOverride
-	// Size 56
-	/////////////////////////////////////////////
-	struct FPrimaryAssetRulesCustomOverride {
-		struct FPrimaryAssetType	PrimaryAssetType;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FDirectoryPath	FilterDirectory;		//Offset: 8	Size: 16	Flags: Edit, NativeAccessSpecifierPublic
-		struct FString	FilterString;		//Offset: 24	Size: 16	Flags: Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FPrimaryAssetRules	Rules;		//Offset: 40	Size: 12	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[4];		//Offset: 52	Size: 4
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.PrimaryAssetRules
 	// Size 12
 	/////////////////////////////////////////////
@@ -6604,6 +7328,17 @@ namespace UE4 {
 		bool	bApplyRecursively;		//Offset: 8	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		EPrimaryAssetCookRule	CookRule;		//Offset: 9	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		unsigned char uknownData_0[2];		//Offset: 10	Size: 2
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.PrimaryAssetRulesCustomOverride
+	// Size 56
+	/////////////////////////////////////////////
+	struct FPrimaryAssetRulesCustomOverride {
+		struct FPrimaryAssetType	PrimaryAssetType;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FDirectoryPath	FilterDirectory;		//Offset: 8	Size: 16	Flags: Edit, NativeAccessSpecifierPublic
+		struct FString	FilterString;		//Offset: 24	Size: 16	Flags: Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FPrimaryAssetRules	Rules;		//Offset: 40	Size: 12	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[4];		//Offset: 52	Size: 4
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.PrimaryAssetRulesOverride
@@ -6814,19 +7549,19 @@ namespace UE4 {
 		struct FRuntimeFloatCurve	CustomSendLevelCurve;		//Offset: 40	Size: 136	Flags: Edit, BlueprintVisible, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.FilePath
+	// Size 16
+	/////////////////////////////////////////////
+	struct FFilePath {
+		struct FString	FilePath;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.LaunchOnTestSettings
 	// Size 32
 	/////////////////////////////////////////////
 	struct FLaunchOnTestSettings {
 		struct FFilePath	LaunchOnTestmap;		//Offset: 0	Size: 16	Flags: Edit, Config, NativeAccessSpecifierPublic
 		struct FString	DeviceID;		//Offset: 16	Size: 16	Flags: Edit, ZeroConstructor, Config, HasGetValueTypeHash, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.FilePath
-	// Size 16
-	/////////////////////////////////////////////
-	struct FFilePath {
-		struct FString	FilePath;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.EditorMapPerformanceTestDefinition
@@ -6838,35 +7573,12 @@ namespace UE4 {
 		unsigned char uknownData_0[4];		//Offset: 28	Size: 4
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.BuildPromotionTestSettings
-	// Size 496
-	/////////////////////////////////////////////
-	struct FBuildPromotionTestSettings {
-		struct FFilePath	DefaultStaticMeshAsset;		//Offset: 0	Size: 16	Flags: Edit, NativeAccessSpecifierPublic
-		struct FBuildPromotionImportWorkflowSettings	ImportWorkflow;		//Offset: 16	Size: 336	Flags: Edit, NativeAccessSpecifierPublic
-		struct FBuildPromotionOpenAssetSettings	OpenAssets;		//Offset: 352	Size: 96	Flags: Edit, NativeAccessSpecifierPublic
-		struct FBuildPromotionNewProjectSettings	NewProjectSettings;		//Offset: 448	Size: 32	Flags: Edit, NativeAccessSpecifierPublic
-		struct FFilePath	SourceControlMaterial;		//Offset: 480	Size: 16	Flags: Edit, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.BuildPromotionNewProjectSettings
+	// ScriptStruct Engine.EditorImportWorkflowDefinition
 	// Size 32
 	/////////////////////////////////////////////
-	struct FBuildPromotionNewProjectSettings {
-		struct FDirectoryPath	NewProjectFolderOverride;		//Offset: 0	Size: 16	Flags: Edit, NativeAccessSpecifierPublic
-		struct FString	NewProjectNameOverride;		//Offset: 16	Size: 16	Flags: Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.BuildPromotionOpenAssetSettings
-	// Size 96
-	/////////////////////////////////////////////
-	struct FBuildPromotionOpenAssetSettings {
-		struct FFilePath	BlueprintAsset;		//Offset: 0	Size: 16	Flags: Edit, Config, NativeAccessSpecifierPublic
-		struct FFilePath	MaterialAsset;		//Offset: 16	Size: 16	Flags: Edit, Config, NativeAccessSpecifierPublic
-		struct FFilePath	ParticleSystemAsset;		//Offset: 32	Size: 16	Flags: Edit, Config, NativeAccessSpecifierPublic
-		struct FFilePath	SkeletalMeshAsset;		//Offset: 48	Size: 16	Flags: Edit, Config, NativeAccessSpecifierPublic
-		struct FFilePath	StaticMeshAsset;		//Offset: 64	Size: 16	Flags: Edit, Config, NativeAccessSpecifierPublic
-		struct FFilePath	TextureAsset;		//Offset: 80	Size: 16	Flags: Edit, Config, NativeAccessSpecifierPublic
+	struct FEditorImportWorkflowDefinition {
+		struct FFilePath	ImportFilePath;		//Offset: 0	Size: 16	Flags: Edit, Config, NativeAccessSpecifierPublic
+		TArray<struct FImportFactorySettingValues>	FactorySettings;		//Offset: 16	Size: 16	Flags: Edit, ZeroConstructor, Config, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.BuildPromotionImportWorkflowSettings
@@ -6886,12 +7598,35 @@ namespace UE4 {
 		TArray<struct FEditorImportWorkflowDefinition>	OtherAssetsToImport;		//Offset: 320	Size: 16	Flags: Edit, ZeroConstructor, Config, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.EditorImportWorkflowDefinition
+	// ScriptStruct Engine.BuildPromotionOpenAssetSettings
+	// Size 96
+	/////////////////////////////////////////////
+	struct FBuildPromotionOpenAssetSettings {
+		struct FFilePath	BlueprintAsset;		//Offset: 0	Size: 16	Flags: Edit, Config, NativeAccessSpecifierPublic
+		struct FFilePath	MaterialAsset;		//Offset: 16	Size: 16	Flags: Edit, Config, NativeAccessSpecifierPublic
+		struct FFilePath	ParticleSystemAsset;		//Offset: 32	Size: 16	Flags: Edit, Config, NativeAccessSpecifierPublic
+		struct FFilePath	SkeletalMeshAsset;		//Offset: 48	Size: 16	Flags: Edit, Config, NativeAccessSpecifierPublic
+		struct FFilePath	StaticMeshAsset;		//Offset: 64	Size: 16	Flags: Edit, Config, NativeAccessSpecifierPublic
+		struct FFilePath	TextureAsset;		//Offset: 80	Size: 16	Flags: Edit, Config, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.BuildPromotionNewProjectSettings
 	// Size 32
 	/////////////////////////////////////////////
-	struct FEditorImportWorkflowDefinition {
-		struct FFilePath	ImportFilePath;		//Offset: 0	Size: 16	Flags: Edit, Config, NativeAccessSpecifierPublic
-		TArray<struct FImportFactorySettingValues>	FactorySettings;		//Offset: 16	Size: 16	Flags: Edit, ZeroConstructor, Config, NativeAccessSpecifierPublic
+	struct FBuildPromotionNewProjectSettings {
+		struct FDirectoryPath	NewProjectFolderOverride;		//Offset: 0	Size: 16	Flags: Edit, NativeAccessSpecifierPublic
+		struct FString	NewProjectNameOverride;		//Offset: 16	Size: 16	Flags: Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.BuildPromotionTestSettings
+	// Size 496
+	/////////////////////////////////////////////
+	struct FBuildPromotionTestSettings {
+		struct FFilePath	DefaultStaticMeshAsset;		//Offset: 0	Size: 16	Flags: Edit, NativeAccessSpecifierPublic
+		struct FBuildPromotionImportWorkflowSettings	ImportWorkflow;		//Offset: 16	Size: 336	Flags: Edit, NativeAccessSpecifierPublic
+		struct FBuildPromotionOpenAssetSettings	OpenAssets;		//Offset: 352	Size: 96	Flags: Edit, NativeAccessSpecifierPublic
+		struct FBuildPromotionNewProjectSettings	NewProjectSettings;		//Offset: 448	Size: 32	Flags: Edit, NativeAccessSpecifierPublic
+		struct FFilePath	SourceControlMaterial;		//Offset: 480	Size: 16	Flags: Edit, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.ImportFactorySettingValues
@@ -6988,20 +7723,20 @@ namespace UE4 {
 		float	InterpolationSpeedPerSec;		//Offset: 16	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.GridBlendSample
-	// Size 28
-	/////////////////////////////////////////////
-	struct FGridBlendSample {
-		struct FEditorElement	GridElement;		//Offset: 0	Size: 24	Flags: NoDestructor, NativeAccessSpecifierPublic
-		float	BlendWeight;		//Offset: 24	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.EditorElement
 	// Size 24
 	/////////////////////////////////////////////
 	struct FEditorElement {
 		int32_t	Indices[3];		//Offset: 0	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		float	Weights[3];		//Offset: 12	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.GridBlendSample
+	// Size 28
+	/////////////////////////////////////////////
+	struct FGridBlendSample {
+		struct FEditorElement	GridElement;		//Offset: 0	Size: 24	Flags: NoDestructor, NativeAccessSpecifierPublic
+		float	BlendWeight;		//Offset: 24	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.BlendSample
@@ -7061,29 +7796,17 @@ namespace UE4 {
 		TArray<class UEdGraph*>	Graphs;		//Offset: 8	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.BPVariableDescription
-	// Size 208
+	// ScriptStruct Engine.EdGraphTerminalType
+	// Size 28
 	/////////////////////////////////////////////
-	struct FBPVariableDescription {
-		struct FName	VarName;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FGuid	VarGuid;		//Offset: 8	Size: 16	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FEdGraphPinType	VarType;		//Offset: 24	Size: 88	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
-		struct FString	FriendlyName;		//Offset: 112	Size: 16	Flags: Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FText	Category;		//Offset: 128	Size: 24	Flags: Edit, NativeAccessSpecifierPublic
-		uint64_t	PropertyFlags;		//Offset: 152	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FName	RepNotifyFunc;		//Offset: 160	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ELifetimeCondition>	ReplicationCondition;		//Offset: 168	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[7];		//Offset: 169	Size: 7
-		TArray<struct FBPVariableMetaDataEntry>	MetaDataArray;		//Offset: 176	Size: 16	Flags: Edit, ZeroConstructor, NativeAccessSpecifierPublic
-		struct FString	DefaultValue;		//Offset: 192	Size: 16	Flags: Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.BPVariableMetaDataEntry
-	// Size 24
-	/////////////////////////////////////////////
-	struct FBPVariableMetaDataEntry {
-		struct FName	DataKey;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FString	DataValue;		//Offset: 8	Size: 16	Flags: Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	struct FEdGraphTerminalType {
+		struct FName	TerminalCategory;		//Offset: 0	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FName	TerminalSubCategory;		//Offset: 8	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TWeakObjectPtr<class UObject>	TerminalSubCategoryObject;		//Offset: 16	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bTerminalIsConst;		//Offset: 24	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bTerminalIsWeakPointer;		//Offset: 25	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bTerminalIsUObjectWrapper;		//Offset: 26	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[1];		//Offset: 27	Size: 1
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.EdGraphPinType
@@ -7109,17 +7832,29 @@ namespace UE4 {
 		unsigned char uknownData_0[3];		//Offset: 85	Size: 3
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.EdGraphTerminalType
-	// Size 28
+	// ScriptStruct Engine.BPVariableDescription
+	// Size 208
 	/////////////////////////////////////////////
-	struct FEdGraphTerminalType {
-		struct FName	TerminalCategory;		//Offset: 0	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FName	TerminalSubCategory;		//Offset: 8	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TWeakObjectPtr<class UObject>	TerminalSubCategoryObject;		//Offset: 16	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		bool	bTerminalIsConst;		//Offset: 24	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		bool	bTerminalIsWeakPointer;		//Offset: 25	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		bool	bTerminalIsUObjectWrapper;		//Offset: 26	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[1];		//Offset: 27	Size: 1
+	struct FBPVariableDescription {
+		struct FName	VarName;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FGuid	VarGuid;		//Offset: 8	Size: 16	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FEdGraphPinType	VarType;		//Offset: 24	Size: 88	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
+		struct FString	FriendlyName;		//Offset: 112	Size: 16	Flags: Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FText	Category;		//Offset: 128	Size: 24	Flags: Edit, NativeAccessSpecifierPublic
+		uint64_t	PropertyFlags;		//Offset: 152	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FName	RepNotifyFunc;		//Offset: 160	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ELifetimeCondition>	ReplicationCondition;		//Offset: 168	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[7];		//Offset: 169	Size: 7
+		TArray<struct FBPVariableMetaDataEntry>	MetaDataArray;		//Offset: 176	Size: 16	Flags: Edit, ZeroConstructor, NativeAccessSpecifierPublic
+		struct FString	DefaultValue;		//Offset: 192	Size: 16	Flags: Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.BPVariableMetaDataEntry
+	// Size 24
+	/////////////////////////////////////////////
+	struct FBPVariableMetaDataEntry {
+		struct FName	DataKey;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FString	DataValue;		//Offset: 8	Size: 16	Flags: Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.BlueprintMacroCosmeticInfo
@@ -7139,7 +7874,7 @@ namespace UE4 {
 		bool	bExcludeMonolithicHeaders;		//Offset: 10	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		unsigned char uknownData_0[5];		//Offset: 11	Size: 5
 		TArray<struct FName>	ExcludedModules;		//Offset: 16	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
-		TAssetPtr<class FNone_564>	ExcludedAssets;		//Offset: 32	Size: 80	Flags: NativeAccessSpecifierPublic
+		TAssetPtr<class FNone_500>	ExcludedAssets;		//Offset: 32	Size: 80	Flags: NativeAccessSpecifierPublic
 		TArray<struct FString>	ExcludedFolderPaths;		//Offset: 112	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
@@ -7318,15 +8053,6 @@ namespace UE4 {
 		TArray<class UCameraShakeBase*>	PooledShakes;		//Offset: 0	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.CameraShakeInfo
-	// Size 16
-	/////////////////////////////////////////////
-	struct FCameraShakeInfo {
-		struct FCameraShakeDuration	Duration;		//Offset: 0	Size: 8	Flags: NoDestructor, NativeAccessSpecifierPublic
-		float	BlendIn;		//Offset: 8	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	BlendOut;		//Offset: 12	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.CameraShakeDuration
 	// Size 8
 	/////////////////////////////////////////////
@@ -7334,6 +8060,15 @@ namespace UE4 {
 		float	Duration;		//Offset: 0	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
 		ECameraShakeDurationType	Type;		//Offset: 4	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
 		unsigned char uknownData_0[3];		//Offset: 5	Size: 3
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.CameraShakeInfo
+	// Size 16
+	/////////////////////////////////////////////
+	struct FCameraShakeInfo {
+		struct FCameraShakeDuration	Duration;		//Offset: 0	Size: 8	Flags: NoDestructor, NativeAccessSpecifierPublic
+		float	BlendIn;		//Offset: 8	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	BlendOut;		//Offset: 12	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.CameraShakeStopParams
@@ -7350,41 +8085,11 @@ namespace UE4 {
 		unsigned char uknownData_0[1424];		//Offset: 0	Size: 1424
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.CameraShakeScrubParams
-	// Size 1536
+	// ScriptStruct Engine.WeightedBlendables
+	// Size 16
 	/////////////////////////////////////////////
-	struct FCameraShakeScrubParams {
-		float	AbsoluteTime;		//Offset: 0	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	ShakeScale;		//Offset: 4	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	DynamicScale;		//Offset: 8	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	BlendingWeight;		//Offset: 12	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FMinimalViewInfo	POV;		//Offset: 16	Size: 1520	Flags: Edit, BlueprintVisible, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.MinimalViewInfo
-	// Size 1520
-	/////////////////////////////////////////////
-	struct FMinimalViewInfo {
-		struct FVector	Location;		//Offset: 0	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FRotator	Rotation;		//Offset: 12	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
-		float	FOV;		//Offset: 24	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	DesiredFOV;		//Offset: 28	Size: 4	Flags: ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	OrthoWidth;		//Offset: 32	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	OrthoNearClipPlane;		//Offset: 36	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	OrthoFarClipPlane;		//Offset: 40	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	AspectRatio;		//Offset: 44	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		//Bitfields are not supported, but you can try uncommenting them
-		//unsigned char	bConstrainAspectRatio : 1;		//Offset: 48	Size: 1	Flags: Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		//Bitfields are not supported, but you can try uncommenting them
-		//unsigned char	bUseFieldOfViewForLOD : 1;		//Offset: 48	Size: 1	Flags: Edit, BlueprintVisible, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[4];		//Offset: 48	Size: 4
-		TEnumAsByte<ECameraProjectionMode>	ProjectionMode;		//Offset: 52	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_1[3];		//Offset: 53	Size: 3
-		float	PostProcessBlendWeight;		//Offset: 56	Size: 4	Flags: BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_2[4];		//Offset: 60	Size: 4
-		struct FPostProcessSettings	PostProcessSettings;		//Offset: 64	Size: 1376	Flags: BlueprintVisible, NativeAccessSpecifierPublic
-		struct FVector2D	OffCenterProjectionOffset;		//Offset: 1440	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, Transient, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_3[72];		//Offset: 1448	Size: 72
+	struct FWeightedBlendables {
+		TArray<struct FWeightedBlendable>	Array;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.PostProcessSettings
@@ -8002,11 +8707,41 @@ namespace UE4 {
 		struct FWeightedBlendables	WeightedBlendables;		//Offset: 1360	Size: 16	Flags: Edit, BlueprintVisible, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.WeightedBlendables
-	// Size 16
+	// ScriptStruct Engine.MinimalViewInfo
+	// Size 1520
 	/////////////////////////////////////////////
-	struct FWeightedBlendables {
-		TArray<struct FWeightedBlendable>	Array;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
+	struct FMinimalViewInfo {
+		struct FVector	Location;		//Offset: 0	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FRotator	Rotation;		//Offset: 12	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+		float	FOV;		//Offset: 24	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	DesiredFOV;		//Offset: 28	Size: 4	Flags: ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	OrthoWidth;		//Offset: 32	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	OrthoNearClipPlane;		//Offset: 36	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	OrthoFarClipPlane;		//Offset: 40	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	AspectRatio;		//Offset: 44	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		//Bitfields are not supported, but you can try uncommenting them
+		//unsigned char	bConstrainAspectRatio : 1;		//Offset: 48	Size: 1	Flags: Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		//Bitfields are not supported, but you can try uncommenting them
+		//unsigned char	bUseFieldOfViewForLOD : 1;		//Offset: 48	Size: 1	Flags: Edit, BlueprintVisible, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[4];		//Offset: 48	Size: 4
+		TEnumAsByte<ECameraProjectionMode>	ProjectionMode;		//Offset: 52	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_1[3];		//Offset: 53	Size: 3
+		float	PostProcessBlendWeight;		//Offset: 56	Size: 4	Flags: BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_2[4];		//Offset: 60	Size: 4
+		struct FPostProcessSettings	PostProcessSettings;		//Offset: 64	Size: 1376	Flags: BlueprintVisible, NativeAccessSpecifierPublic
+		struct FVector2D	OffCenterProjectionOffset;		//Offset: 1440	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, Transient, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_3[72];		//Offset: 1448	Size: 72
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.CameraShakeScrubParams
+	// Size 1536
+	/////////////////////////////////////////////
+	struct FCameraShakeScrubParams {
+		float	AbsoluteTime;		//Offset: 0	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	ShakeScale;		//Offset: 4	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	DynamicScale;		//Offset: 8	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	BlendingWeight;		//Offset: 12	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FMinimalViewInfo	POV;		//Offset: 16	Size: 1520	Flags: Edit, BlueprintVisible, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.WeightedBlendable
@@ -8089,34 +8824,11 @@ namespace UE4 {
 		unsigned char uknownData_0[5];		//Offset: 43	Size: 5
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.SimulatedRootMotionReplicatedMove
-	// Size 160
+	// ScriptStruct Engine.RootMotionSourceSettings
+	// Size 1
 	/////////////////////////////////////////////
-	struct FSimulatedRootMotionReplicatedMove {
-		float	Time;		//Offset: 0	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[4];		//Offset: 4	Size: 4
-		struct FRepRootMotionMontage	RootMotion;		//Offset: 8	Size: 152	Flags: ContainsInstancedReference, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.RepRootMotionMontage
-	// Size 152
-	/////////////////////////////////////////////
-	struct FRepRootMotionMontage {
-		bool	bIsActive;		//Offset: 0	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[7];		//Offset: 1	Size: 7
-		class UAnimMontage* AnimMontage;		//Offset: 8	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	Position;		//Offset: 16	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FVector_NetQuantize100	Location;		//Offset: 20	Size: 12	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FRotator	Rotation;		//Offset: 32	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
-		unsigned char uknownData_1[4];		//Offset: 44	Size: 4
-		class UPrimitiveComponent* MovementBase;		//Offset: 48	Size: 8	Flags: ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FName	MovementBaseBoneName;		//Offset: 56	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		bool	bRelativePosition;		//Offset: 64	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		bool	bRelativeRotation;		//Offset: 65	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_2[6];		//Offset: 66	Size: 6
-		struct FRootMotionSourceGroup	AuthoritativeRootMotion;		//Offset: 72	Size: 56	Flags: NativeAccessSpecifierPublic
-		struct FVector_NetQuantize10	Acceleration;		//Offset: 128	Size: 12	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FVector_NetQuantize10	LinearVelocity;		//Offset: 140	Size: 12	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	struct FRootMotionSourceSettings {
+		unsigned char	Flags;		//Offset: 0	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.Vector_NetQuantize10
@@ -8146,11 +8858,34 @@ namespace UE4 {
 		struct FVector_NetQuantize10	LastPreAdditiveVelocity;		//Offset: 44	Size: 12	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.RootMotionSourceSettings
-	// Size 1
+	// ScriptStruct Engine.RepRootMotionMontage
+	// Size 152
 	/////////////////////////////////////////////
-	struct FRootMotionSourceSettings {
-		unsigned char	Flags;		//Offset: 0	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	struct FRepRootMotionMontage {
+		bool	bIsActive;		//Offset: 0	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[7];		//Offset: 1	Size: 7
+		class UAnimMontage* AnimMontage;		//Offset: 8	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	Position;		//Offset: 16	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector_NetQuantize100	Location;		//Offset: 20	Size: 12	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FRotator	Rotation;		//Offset: 32	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+		unsigned char uknownData_1[4];		//Offset: 44	Size: 4
+		class UPrimitiveComponent* MovementBase;		//Offset: 48	Size: 8	Flags: ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FName	MovementBaseBoneName;		//Offset: 56	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bRelativePosition;		//Offset: 64	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bRelativeRotation;		//Offset: 65	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_2[6];		//Offset: 66	Size: 6
+		struct FRootMotionSourceGroup	AuthoritativeRootMotion;		//Offset: 72	Size: 56	Flags: NativeAccessSpecifierPublic
+		struct FVector_NetQuantize10	Acceleration;		//Offset: 128	Size: 12	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector_NetQuantize10	LinearVelocity;		//Offset: 140	Size: 12	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.SimulatedRootMotionReplicatedMove
+	// Size 160
+	/////////////////////////////////////////////
+	struct FSimulatedRootMotionReplicatedMove {
+		float	Time;		//Offset: 0	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[4];		//Offset: 4	Size: 4
+		struct FRepRootMotionMontage	RootMotion;		//Offset: 8	Size: 152	Flags: ContainsInstancedReference, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.CharacterMovementComponentPostPhysicsTickFunction
@@ -8167,11 +8902,11 @@ namespace UE4 {
 	/////////////////////////////////////////////
 	struct FFindFloorResult {
 		//Bitfields are not supported, but you can try uncommenting them
+		//unsigned char	bBlockingHit : 1;		//Offset: 0	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnTemplate, EditConst, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		//Bitfields are not supported, but you can try uncommenting them
 		//unsigned char	bWalkableFloor : 1;		//Offset: 0	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnTemplate, EditConst, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		//Bitfields are not supported, but you can try uncommenting them
 		//unsigned char	bLineTrace : 1;		//Offset: 0	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnTemplate, EditConst, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		//Bitfields are not supported, but you can try uncommenting them
-		//unsigned char	bBlockingHit : 1;		//Offset: 0	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnTemplate, EditConst, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		unsigned char uknownData_0[4];		//Offset: 0	Size: 4
 		float	FloorDist;		//Offset: 4	Size: 4	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		float	LineDist;		//Offset: 8	Size: 4	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
@@ -8284,19 +9019,6 @@ namespace UE4 {
 		unsigned char uknownData_1[16];		//Offset: 24	Size: 16
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.AngularDriveConstraint
-	// Size 76
-	/////////////////////////////////////////////
-	struct FAngularDriveConstraint {
-		struct FConstraintDrive	TwistDrive;		//Offset: 0	Size: 16	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
-		struct FConstraintDrive	SwingDrive;		//Offset: 16	Size: 16	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
-		struct FConstraintDrive	SlerpDrive;		//Offset: 32	Size: 16	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
-		struct FRotator	OrientationTarget;		//Offset: 48	Size: 12	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
-		struct FVector	AngularVelocityTarget;		//Offset: 60	Size: 12	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<EAngularDriveMode>	AngularDriveMode;		//Offset: 72	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 73	Size: 3
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.ConstraintDrive
 	// Size 16
 	/////////////////////////////////////////////
@@ -8309,6 +9031,19 @@ namespace UE4 {
 		//Bitfields are not supported, but you can try uncommenting them
 		//unsigned char	bEnableVelocityDrive : 1;		//Offset: 12	Size: 1	Flags: Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		unsigned char uknownData_0[4];		//Offset: 12	Size: 4
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.AngularDriveConstraint
+	// Size 76
+	/////////////////////////////////////////////
+	struct FAngularDriveConstraint {
+		struct FConstraintDrive	TwistDrive;		//Offset: 0	Size: 16	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
+		struct FConstraintDrive	SwingDrive;		//Offset: 16	Size: 16	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
+		struct FConstraintDrive	SlerpDrive;		//Offset: 32	Size: 16	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
+		struct FRotator	OrientationTarget;		//Offset: 48	Size: 12	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+		struct FVector	AngularVelocityTarget;		//Offset: 60	Size: 12	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<EAngularDriveMode>	AngularDriveMode;		//Offset: 72	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 73	Size: 3
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.LinearDriveConstraint
@@ -8332,27 +9067,54 @@ namespace UE4 {
 		unsigned char uknownData_0[24];		//Offset: 0	Size: 24
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.ConstraintInstance
-	// Super ScriptStruct Engine.ConstraintInstanceBase
-	// Size 456
-	// Size inherited 24
+	// ScriptStruct Engine.ConstraintBaseParams
+	// Size 20
 	/////////////////////////////////////////////
-	struct FConstraintInstance : public FConstraintInstanceBase {
-		struct FName	JointName;		//Offset: 24	Size: 8	Flags: Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FName	ConstraintBone1;		//Offset: 32	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FName	ConstraintBone2;		//Offset: 40	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FVector	Pos1;		//Offset: 48	Size: 12	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FVector	PriAxis1;		//Offset: 60	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FVector	SecAxis1;		//Offset: 72	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FVector	Pos2;		//Offset: 84	Size: 12	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FVector	PriAxis2;		//Offset: 96	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FVector	SecAxis2;		//Offset: 108	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FRotator	AngularRotationOffset;		//Offset: 120	Size: 12	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+	struct FConstraintBaseParams {
+		float	Stiffness;		//Offset: 0	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	Damping;		//Offset: 4	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	Restitution;		//Offset: 8	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	ContactDistance;		//Offset: 12	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		//Bitfields are not supported, but you can try uncommenting them
-		//unsigned char	bScaleLinearLimits : 1;		//Offset: 132	Size: 1	Flags: Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[8];		//Offset: 132	Size: 8
-		struct FConstraintProfileProperties	ProfileInstance;		//Offset: 140	Size: 276	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
-		unsigned char uknownData_1[40];		//Offset: 416	Size: 40
+		//unsigned char	bSoftConstraint : 1;		//Offset: 16	Size: 1	Flags: Edit, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[4];		//Offset: 16	Size: 4
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.LinearConstraint
+	// Super ScriptStruct Engine.ConstraintBaseParams
+	// Size 28
+	// Size inherited 20
+	/////////////////////////////////////////////
+	struct FLinearConstraint : public FConstraintBaseParams {
+		float	Limit;		//Offset: 20	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ELinearConstraintMotion>	XMotion;		//Offset: 24	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ELinearConstraintMotion>	YMotion;		//Offset: 25	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<ELinearConstraintMotion>	ZMotion;		//Offset: 26	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[1];		//Offset: 27	Size: 1
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.ConeConstraint
+	// Super ScriptStruct Engine.ConstraintBaseParams
+	// Size 32
+	// Size inherited 20
+	/////////////////////////////////////////////
+	struct FConeConstraint : public FConstraintBaseParams {
+		float	Swing1LimitDegrees;		//Offset: 20	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	Swing2LimitDegrees;		//Offset: 24	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<EAngularConstraintMotion>	Swing1Motion;		//Offset: 28	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<EAngularConstraintMotion>	Swing2Motion;		//Offset: 29	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[2];		//Offset: 30	Size: 2
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.TwistConstraint
+	// Super ScriptStruct Engine.ConstraintBaseParams
+	// Size 28
+	// Size inherited 20
+	/////////////////////////////////////////////
+	struct FTwistConstraint : public FConstraintBaseParams {
+		float	TwistLimitDegrees;		//Offset: 20	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<EAngularConstraintMotion>	TwistMotion;		//Offset: 24	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 25	Size: 3
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.ConstraintProfileProperties
@@ -8391,54 +9153,27 @@ namespace UE4 {
 		unsigned char uknownData_0[4];		//Offset: 272	Size: 4
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.ConstraintBaseParams
-	// Size 20
+	// ScriptStruct Engine.ConstraintInstance
+	// Super ScriptStruct Engine.ConstraintInstanceBase
+	// Size 456
+	// Size inherited 24
 	/////////////////////////////////////////////
-	struct FConstraintBaseParams {
-		float	Stiffness;		//Offset: 0	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	Damping;		//Offset: 4	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	Restitution;		//Offset: 8	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	ContactDistance;		//Offset: 12	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	struct FConstraintInstance : public FConstraintInstanceBase {
+		struct FName	JointName;		//Offset: 24	Size: 8	Flags: Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FName	ConstraintBone1;		//Offset: 32	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FName	ConstraintBone2;		//Offset: 40	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector	Pos1;		//Offset: 48	Size: 12	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector	PriAxis1;		//Offset: 60	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector	SecAxis1;		//Offset: 72	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector	Pos2;		//Offset: 84	Size: 12	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector	PriAxis2;		//Offset: 96	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector	SecAxis2;		//Offset: 108	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FRotator	AngularRotationOffset;		//Offset: 120	Size: 12	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
 		//Bitfields are not supported, but you can try uncommenting them
-		//unsigned char	bSoftConstraint : 1;		//Offset: 16	Size: 1	Flags: Edit, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[4];		//Offset: 16	Size: 4
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.TwistConstraint
-	// Super ScriptStruct Engine.ConstraintBaseParams
-	// Size 28
-	// Size inherited 20
-	/////////////////////////////////////////////
-	struct FTwistConstraint : public FConstraintBaseParams {
-		float	TwistLimitDegrees;		//Offset: 20	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<EAngularConstraintMotion>	TwistMotion;		//Offset: 24	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 25	Size: 3
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.ConeConstraint
-	// Super ScriptStruct Engine.ConstraintBaseParams
-	// Size 32
-	// Size inherited 20
-	/////////////////////////////////////////////
-	struct FConeConstraint : public FConstraintBaseParams {
-		float	Swing1LimitDegrees;		//Offset: 20	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	Swing2LimitDegrees;		//Offset: 24	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<EAngularConstraintMotion>	Swing1Motion;		//Offset: 28	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<EAngularConstraintMotion>	Swing2Motion;		//Offset: 29	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[2];		//Offset: 30	Size: 2
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.LinearConstraint
-	// Super ScriptStruct Engine.ConstraintBaseParams
-	// Size 28
-	// Size inherited 20
-	/////////////////////////////////////////////
-	struct FLinearConstraint : public FConstraintBaseParams {
-		float	Limit;		//Offset: 20	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ELinearConstraintMotion>	XMotion;		//Offset: 24	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ELinearConstraintMotion>	YMotion;		//Offset: 25	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TEnumAsByte<ELinearConstraintMotion>	ZMotion;		//Offset: 26	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[1];		//Offset: 27	Size: 1
+		//unsigned char	bScaleLinearLimits : 1;		//Offset: 132	Size: 1	Flags: Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[8];		//Offset: 132	Size: 8
+		struct FConstraintProfileProperties	ProfileInstance;		//Offset: 140	Size: 276	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
+		unsigned char uknownData_1[40];		//Offset: 416	Size: 40
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.CullDistanceSizePair
@@ -8501,14 +9236,6 @@ namespace UE4 {
 		TArray<struct FBakedFloatCustomAttribute>	FloatAttributes;		//Offset: 40	Size: 16	Flags: Edit, EditFixedSize, ZeroConstructor, EditConst, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.BakedFloatCustomAttribute
-	// Size 144
-	/////////////////////////////////////////////
-	struct FBakedFloatCustomAttribute {
-		struct FName	AttributeName;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FSimpleCurve	FloatCurve;		//Offset: 8	Size: 136	Flags: Edit, EditConst, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.SimpleCurve
 	// Super ScriptStruct Engine.RealCurve
 	// Size 136
@@ -8520,20 +9247,20 @@ namespace UE4 {
 		TArray<struct FSimpleCurveKey>	Keys;		//Offset: 120	Size: 16	Flags: Edit, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.BakedFloatCustomAttribute
+	// Size 144
+	/////////////////////////////////////////////
+	struct FBakedFloatCustomAttribute {
+		struct FName	AttributeName;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FSimpleCurve	FloatCurve;		//Offset: 8	Size: 136	Flags: Edit, EditConst, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.SimpleCurveKey
 	// Size 8
 	/////////////////////////////////////////////
 	struct FSimpleCurveKey {
 		float	Time;		//Offset: 0	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		float	Value;		//Offset: 4	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.BakedIntegerCustomAttribute
-	// Size 136
-	/////////////////////////////////////////////
-	struct FBakedIntegerCustomAttribute {
-		struct FName	AttributeName;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FIntegralCurve	IntCurve;		//Offset: 8	Size: 128	Flags: Edit, EditConst, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.IntegralCurve
@@ -8548,20 +9275,20 @@ namespace UE4 {
 		unsigned char uknownData_0[3];		//Offset: 125	Size: 3
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.BakedIntegerCustomAttribute
+	// Size 136
+	/////////////////////////////////////////////
+	struct FBakedIntegerCustomAttribute {
+		struct FName	AttributeName;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FIntegralCurve	IntCurve;		//Offset: 8	Size: 128	Flags: Edit, EditConst, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.IntegralKey
 	// Size 8
 	/////////////////////////////////////////////
 	struct FIntegralKey {
 		float	Time;		//Offset: 0	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		int32_t	Value;		//Offset: 4	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.BakedStringCustomAttribute
-	// Size 144
-	/////////////////////////////////////////////
-	struct FBakedStringCustomAttribute {
-		struct FName	AttributeName;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FStringCurve	StringCurve;		//Offset: 8	Size: 136	Flags: Edit, EditConst, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.StringCurve
@@ -8572,6 +9299,14 @@ namespace UE4 {
 	struct FStringCurve : public FIndexedCurve {
 		struct FString	DefaultValue;		//Offset: 104	Size: 16	Flags: Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		TArray<struct FStringCurveKey>	Keys;		//Offset: 120	Size: 16	Flags: Edit, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.BakedStringCustomAttribute
+	// Size 144
+	/////////////////////////////////////////////
+	struct FBakedStringCustomAttribute {
+		struct FName	AttributeName;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FStringCurve	StringCurve;		//Offset: 8	Size: 136	Flags: Edit, EditConst, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.StringCurveKey
@@ -8707,20 +9442,20 @@ namespace UE4 {
 		TArray<class UObject*>	ObjReferences;		//Offset: 160	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.DialogueWaveParameter
-	// Size 32
-	/////////////////////////////////////////////
-	struct FDialogueWaveParameter {
-		class UDialogueWave* DialogueWave;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FDialogueContext	Context;		//Offset: 8	Size: 24	Flags: Edit, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.DialogueContext
 	// Size 24
 	/////////////////////////////////////////////
 	struct FDialogueContext {
 		class UDialogueVoice* Speaker;		//Offset: 0	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		TArray<class UDialogueVoice*>	Targets;		//Offset: 8	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.DialogueWaveParameter
+	// Size 32
+	/////////////////////////////////////////////
+	struct FDialogueWaveParameter {
+		class UDialogueWave* DialogueWave;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FDialogueContext	Context;		//Offset: 8	Size: 24	Flags: Edit, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.DialogueContextMapping
@@ -8885,6 +9620,20 @@ namespace UE4 {
 		struct FColor	Out;		//Offset: 4	Size: 4	Flags: ZeroConstructor, Config, GlobalConfig, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.URL
+	// Size 104
+	/////////////////////////////////////////////
+	struct FURL {
+		struct FString	Protocol;		//Offset: 0	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FString	Host;		//Offset: 16	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	Port;		//Offset: 32	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		int32_t	Valid;		//Offset: 36	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FString	Map;		//Offset: 40	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FString	RedirectURL;		//Offset: 56	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TArray<struct FString>	Op;		//Offset: 72	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
+		struct FString	Portal;		//Offset: 88	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.WorldContext
 	// Size 648
 	/////////////////////////////////////////////
@@ -8937,20 +9686,6 @@ namespace UE4 {
 		TArray<class UObject*>	LoadedObjects;		//Offset: 40	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.URL
-	// Size 104
-	/////////////////////////////////////////////
-	struct FURL {
-		struct FString	Protocol;		//Offset: 0	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FString	Host;		//Offset: 16	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		int32_t	Port;		//Offset: 32	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		int32_t	Valid;		//Offset: 36	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FString	Map;		//Offset: 40	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FString	RedirectURL;		//Offset: 56	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TArray<struct FString>	Op;		//Offset: 72	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
-		struct FString	Portal;		//Offset: 88	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.NetDriverDefinition
 	// Size 24
 	/////////////////////////////////////////////
@@ -8991,18 +9726,6 @@ namespace UE4 {
 		struct FLinearColor	V2_Color;		//Offset: 80	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.FontRenderInfo
-	// Size 40
-	/////////////////////////////////////////////
-	struct FFontRenderInfo {
-		//Bitfields are not supported, but you can try uncommenting them
-		//unsigned char	bClipText : 1;		//Offset: 0	Size: 1	Flags: BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		//Bitfields are not supported, but you can try uncommenting them
-		//unsigned char	bEnableShadow : 1;		//Offset: 0	Size: 1	Flags: BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[4];		//Offset: 0	Size: 4
-		struct FDepthFieldGlowInfo	GlowInfo;		//Offset: 4	Size: 36	Flags: BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.DepthFieldGlowInfo
 	// Size 36
 	/////////////////////////////////////////////
@@ -9013,6 +9736,18 @@ namespace UE4 {
 		struct FLinearColor	GlowColor;		//Offset: 4	Size: 16	Flags: BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FVector2D	GlowOuterRadius;		//Offset: 20	Size: 8	Flags: BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FVector2D	GlowInnerRadius;		//Offset: 28	Size: 8	Flags: BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.FontRenderInfo
+	// Size 40
+	/////////////////////////////////////////////
+	struct FFontRenderInfo {
+		//Bitfields are not supported, but you can try uncommenting them
+		//unsigned char	bClipText : 1;		//Offset: 0	Size: 1	Flags: BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		//Bitfields are not supported, but you can try uncommenting them
+		//unsigned char	bEnableShadow : 1;		//Offset: 0	Size: 1	Flags: BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[4];		//Offset: 0	Size: 4
+		struct FDepthFieldGlowInfo	GlowInfo;		//Offset: 4	Size: 36	Flags: BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.Redirector
@@ -9055,17 +9790,6 @@ namespace UE4 {
 		class UDamageType* DamageTypeClass;		//Offset: 8	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.RadialDamageEvent
-	// Super ScriptStruct Engine.DamageEvent
-	// Size 64
-	// Size inherited 16
-	/////////////////////////////////////////////
-	struct FRadialDamageEvent : public FDamageEvent {
-		struct FRadialDamageParams	Params;		//Offset: 16	Size: 20	Flags: NoDestructor, NativeAccessSpecifierPublic
-		struct FVector	Origin;		//Offset: 36	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TArray<struct FHitResult>	ComponentHits;		//Offset: 48	Size: 16	Flags: ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.RadialDamageParams
 	// Size 20
 	/////////////////////////////////////////////
@@ -9075,6 +9799,17 @@ namespace UE4 {
 		float	InnerRadius;		//Offset: 8	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		float	OuterRadius;		//Offset: 12	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		float	DamageFalloff;		//Offset: 16	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.RadialDamageEvent
+	// Super ScriptStruct Engine.DamageEvent
+	// Size 64
+	// Size inherited 16
+	/////////////////////////////////////////////
+	struct FRadialDamageEvent : public FDamageEvent {
+		struct FRadialDamageParams	Params;		//Offset: 16	Size: 20	Flags: NoDestructor, NativeAccessSpecifierPublic
+		struct FVector	Origin;		//Offset: 36	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TArray<struct FHitResult>	ComponentHits;		//Offset: 48	Size: 16	Flags: ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.PointDamageEvent
@@ -9536,6 +10271,15 @@ namespace UE4 {
 		struct FRuntimeFloatCurve	Curve;		//Offset: 8	Size: 136	Flags: Edit, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.PredictProjectilePathPointData
+	// Size 28
+	/////////////////////////////////////////////
+	struct FPredictProjectilePathPointData {
+		struct FVector	Location;		//Offset: 0	Size: 12	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector	Velocity;		//Offset: 12	Size: 12	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	Time;		//Offset: 24	Size: 4	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.PredictProjectilePathResult
 	// Size 184
 	/////////////////////////////////////////////
@@ -9544,15 +10288,6 @@ namespace UE4 {
 		struct FPredictProjectilePathPointData	LastTraceDestination;		//Offset: 16	Size: 28	Flags: Edit, BlueprintVisible, BlueprintReadOnly, EditConst, NoDestructor, NativeAccessSpecifierPublic
 		struct FHitResult	HitResult;		//Offset: 44	Size: 136	Flags: Edit, BlueprintVisible, BlueprintReadOnly, EditConst, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic
 		unsigned char uknownData_0[4];		//Offset: 180	Size: 4
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.PredictProjectilePathPointData
-	// Size 28
-	/////////////////////////////////////////////
-	struct FPredictProjectilePathPointData {
-		struct FVector	Location;		//Offset: 0	Size: 12	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FVector	Velocity;		//Offset: 12	Size: 12	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	Time;		//Offset: 24	Size: 4	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.PredictProjectilePathParams
@@ -9655,6 +10390,15 @@ namespace UE4 {
 		unsigned char uknownData_1[7];		//Offset: 73	Size: 7
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.ComponentKey
+	// Size 32
+	/////////////////////////////////////////////
+	struct FComponentKey {
+		class UObject* OwnerClass;		//Offset: 0	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+		struct FName	SCSVariableName;		//Offset: 8	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+		struct FGuid	AssociatedGuid;		//Offset: 16	Size: 16	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.ComponentOverrideRecord
 	// Size 120
 	/////////////////////////////////////////////
@@ -9663,15 +10407,6 @@ namespace UE4 {
 		class UActorComponent* ComponentTemplate;		//Offset: 8	Size: 8	Flags: ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FComponentKey	ComponentKey;		//Offset: 16	Size: 32	Flags: NoDestructor, NativeAccessSpecifierPublic
 		struct FBlueprintCookedComponentInstancingData	CookedComponentInstancingData;		//Offset: 48	Size: 72	Flags: NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.ComponentKey
-	// Size 32
-	/////////////////////////////////////////////
-	struct FComponentKey {
-		class UObject* OwnerClass;		//Offset: 0	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
-		struct FName	SCSVariableName;		//Offset: 8	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
-		struct FGuid	AssociatedGuid;		//Offset: 16	Size: 16	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.BlueprintInputDelegateBinding
@@ -9753,6 +10488,14 @@ namespace UE4 {
 		struct FName	FunctionNameToBind;		//Offset: 8	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.InstancedStaticMeshLightMapInstanceData
+	// Size 64
+	/////////////////////////////////////////////
+	struct FInstancedStaticMeshLightMapInstanceData {
+		struct FTransform	Transform;		//Offset: 0	Size: 48	Flags: IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+		TArray<struct FGuid>	MapBuildDataIds;		//Offset: 48	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.InstancedStaticMeshComponentInstanceData
 	// Super ScriptStruct Engine.SceneComponentInstanceData
 	// Size 336
@@ -9773,14 +10516,6 @@ namespace UE4 {
 	/////////////////////////////////////////////
 	struct FInstancedStaticMeshInstanceData {
 		struct FMatrix	Transform;		//Offset: 0	Size: 64	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.InstancedStaticMeshLightMapInstanceData
-	// Size 64
-	/////////////////////////////////////////////
-	struct FInstancedStaticMeshLightMapInstanceData {
-		struct FTransform	Transform;		//Offset: 0	Size: 48	Flags: IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
-		TArray<struct FGuid>	MapBuildDataIds;		//Offset: 48	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.InstancedStaticMeshMappingInfo
@@ -10007,31 +10742,6 @@ namespace UE4 {
 		class UObject* ObjClass;		//Offset: 48	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.LevelSimplificationDetails
-	// Size 300
-	/////////////////////////////////////////////
-	struct FLevelSimplificationDetails {
-		bool	bCreatePackagePerAsset;		//Offset: 0	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 1	Size: 3
-		float	DetailsPercentage;		//Offset: 4	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FMaterialProxySettings	StaticMeshMaterialSettings;		//Offset: 8	Size: 136	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
-		bool	bOverrideLandscapeExportLOD;		//Offset: 144	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_1[3];		//Offset: 145	Size: 3
-		int32_t	LandscapeExportLOD;		//Offset: 148	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FMaterialProxySettings	LandscapeMaterialSettings;		//Offset: 152	Size: 136	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
-		bool	bBakeFoliageToLandscape;		//Offset: 288	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		bool	bBakeGrassToLandscape;		//Offset: 289	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		bool	bGenerateMeshNormalMap;		//Offset: 290	Size: 1	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		bool	bGenerateMeshMetallicMap;		//Offset: 291	Size: 1	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		bool	bGenerateMeshRoughnessMap;		//Offset: 292	Size: 1	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		bool	bGenerateMeshSpecularMap;		//Offset: 293	Size: 1	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		bool	bGenerateLandscapeNormalMap;		//Offset: 294	Size: 1	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		bool	bGenerateLandscapeMetallicMap;		//Offset: 295	Size: 1	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		bool	bGenerateLandscapeRoughnessMap;		//Offset: 296	Size: 1	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		bool	bGenerateLandscapeSpecularMap;		//Offset: 297	Size: 1	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_2[2];		//Offset: 298	Size: 2
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.MaterialProxySettings
 	// Size 136
 	/////////////////////////////////////////////
@@ -10083,6 +10793,31 @@ namespace UE4 {
 		struct FIntPoint	OpacityTextureSize;		//Offset: 112	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FIntPoint	OpacityMaskTextureSize;		//Offset: 120	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FIntPoint	AmbientOcclusionTextureSize;		//Offset: 128	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.LevelSimplificationDetails
+	// Size 300
+	/////////////////////////////////////////////
+	struct FLevelSimplificationDetails {
+		bool	bCreatePackagePerAsset;		//Offset: 0	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 1	Size: 3
+		float	DetailsPercentage;		//Offset: 4	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FMaterialProxySettings	StaticMeshMaterialSettings;		//Offset: 8	Size: 136	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
+		bool	bOverrideLandscapeExportLOD;		//Offset: 144	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_1[3];		//Offset: 145	Size: 3
+		int32_t	LandscapeExportLOD;		//Offset: 148	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FMaterialProxySettings	LandscapeMaterialSettings;		//Offset: 152	Size: 136	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
+		bool	bBakeFoliageToLandscape;		//Offset: 288	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bBakeGrassToLandscape;		//Offset: 289	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bGenerateMeshNormalMap;		//Offset: 290	Size: 1	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bGenerateMeshMetallicMap;		//Offset: 291	Size: 1	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bGenerateMeshRoughnessMap;		//Offset: 292	Size: 1	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bGenerateMeshSpecularMap;		//Offset: 293	Size: 1	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bGenerateLandscapeNormalMap;		//Offset: 294	Size: 1	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bGenerateLandscapeMetallicMap;		//Offset: 295	Size: 1	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bGenerateLandscapeRoughnessMap;		//Offset: 296	Size: 1	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bGenerateLandscapeSpecularMap;		//Offset: 297	Size: 1	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_2[2];		//Offset: 298	Size: 2
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.StreamableTextureInstance
@@ -10151,8 +10886,8 @@ namespace UE4 {
 		int32_t	MessageIndex;		//Offset: 16	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		unsigned char uknownData_0[4];		//Offset: 20	Size: 4
 		struct FString	MessageString;		//Offset: 24	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		class APlayerState* RelatedPlayerState;		//Offset: 40	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		class APlayerState* RelatedPlayerState;		//Offset: 48	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		class APlayerState* RelatedPlayerState_1;		//Offset: 40	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		class APlayerState* RelatedPlayerState_2;		//Offset: 48	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		class UObject* OptionalObject;		//Offset: 56	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
@@ -10205,6 +10940,28 @@ namespace UE4 {
 		class UCurveFloat* DistanceToSizeCurve;		//Offset: 32	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.MaterialCachedParameterEntry
+	// Size 48
+	/////////////////////////////////////////////
+	struct FMaterialCachedParameterEntry {
+		TArray<uint64_t>	NameHashes;		//Offset: 0	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
+		TArray<struct FMaterialParameterInfo>	ParameterInfos;		//Offset: 16	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
+		TArray<struct FGuid>	ExpressionGuids;		//Offset: 32	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.MaterialCachedParameters
+	// Size 336
+	/////////////////////////////////////////////
+	struct FMaterialCachedParameters {
+		struct FMaterialCachedParameterEntry	RuntimeEntries[5];		//Offset: 0	Size: 48	Flags: NativeAccessSpecifierPublic
+		TArray<float>	ScalarValues;		//Offset: 240	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
+		TArray<struct FLinearColor>	VectorValues;		//Offset: 256	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
+		TArray<class UTexture*>	TextureValues;		//Offset: 272	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
+		TArray<class UFont*>	FontValues;		//Offset: 288	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
+		TArray<int32_t>	FontPageValues;		//Offset: 304	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
+		TArray<class URuntimeVirtualTexture*>	RuntimeVirtualTextureValues;		//Offset: 320	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.MaterialCachedExpressionData
 	// Size 472
 	/////////////////////////////////////////////
@@ -10239,28 +10996,6 @@ namespace UE4 {
 	struct FMaterialFunctionInfo {
 		struct FGuid	StateId;		//Offset: 0	Size: 16	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		class UMaterialFunctionInterface* Function;		//Offset: 16	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.MaterialCachedParameters
-	// Size 336
-	/////////////////////////////////////////////
-	struct FMaterialCachedParameters {
-		struct FMaterialCachedParameterEntry	RuntimeEntries[5];		//Offset: 0	Size: 48	Flags: NativeAccessSpecifierPublic
-		TArray<float>	ScalarValues;		//Offset: 240	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
-		TArray<struct FLinearColor>	VectorValues;		//Offset: 256	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
-		TArray<class UTexture*>	TextureValues;		//Offset: 272	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
-		TArray<class UFont*>	FontValues;		//Offset: 288	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
-		TArray<int32_t>	FontPageValues;		//Offset: 304	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
-		TArray<class URuntimeVirtualTexture*>	RuntimeVirtualTextureValues;		//Offset: 320	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.MaterialCachedParameterEntry
-	// Size 48
-	/////////////////////////////////////////////
-	struct FMaterialCachedParameterEntry {
-		TArray<uint64_t>	NameHashes;		//Offset: 0	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
-		TArray<struct FMaterialParameterInfo>	ParameterInfos;		//Offset: 16	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
-		TArray<struct FGuid>	ExpressionGuids;		//Offset: 32	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.MaterialParameterInfo
@@ -11163,6 +11898,31 @@ namespace UE4 {
 		unsigned char uknownData_2[4];		//Offset: 348	Size: 4
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.GPUSpriteLocalVectorFieldInfo
+	// Size 112
+	/////////////////////////////////////////////
+	struct FGPUSpriteLocalVectorFieldInfo {
+		class UVectorField* Field;		//Offset: 0	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[8];		//Offset: 8	Size: 8
+		struct FTransform	Transform;		//Offset: 16	Size: 48	Flags: IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+		struct FRotator	MinInitialRotation;		//Offset: 64	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+		struct FRotator	MaxInitialRotation;		//Offset: 76	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+		struct FRotator	RotationRate;		//Offset: 88	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+		float	Intensity;		//Offset: 100	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	Tightness;		//Offset: 104	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		//Bitfields are not supported, but you can try uncommenting them
+		//unsigned char	bIgnoreComponentTransform : 1;		//Offset: 108	Size: 1	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		//Bitfields are not supported, but you can try uncommenting them
+		//unsigned char	bTileX : 1;		//Offset: 108	Size: 1	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		//Bitfields are not supported, but you can try uncommenting them
+		//unsigned char	bTileY : 1;		//Offset: 108	Size: 1	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		//Bitfields are not supported, but you can try uncommenting them
+		//unsigned char	bTileZ : 1;		//Offset: 108	Size: 1	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		//Bitfields are not supported, but you can try uncommenting them
+		//unsigned char	bUseFixDT : 1;		//Offset: 108	Size: 1	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_1[4];		//Offset: 108	Size: 4
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.GPUSpriteEmitterInfo
 	// Size 640
 	/////////////////////////////////////////////
@@ -11204,31 +11964,6 @@ namespace UE4 {
 		struct FRawDistributionVector	DynamicColorScale;		//Offset: 504	Size: 72	Flags: ContainsInstancedReference, NativeAccessSpecifierPublic
 		struct FRawDistributionFloat	DynamicAlphaScale;		//Offset: 576	Size: 48	Flags: ContainsInstancedReference, NativeAccessSpecifierPublic
 		unsigned char uknownData_5[16];		//Offset: 624	Size: 16
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.GPUSpriteLocalVectorFieldInfo
-	// Size 112
-	/////////////////////////////////////////////
-	struct FGPUSpriteLocalVectorFieldInfo {
-		class UVectorField* Field;		//Offset: 0	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[8];		//Offset: 8	Size: 8
-		struct FTransform	Transform;		//Offset: 16	Size: 48	Flags: IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
-		struct FRotator	MinInitialRotation;		//Offset: 64	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
-		struct FRotator	MaxInitialRotation;		//Offset: 76	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
-		struct FRotator	RotationRate;		//Offset: 88	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
-		float	Intensity;		//Offset: 100	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	Tightness;		//Offset: 104	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		//Bitfields are not supported, but you can try uncommenting them
-		//unsigned char	bIgnoreComponentTransform : 1;		//Offset: 108	Size: 1	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		//Bitfields are not supported, but you can try uncommenting them
-		//unsigned char	bTileX : 1;		//Offset: 108	Size: 1	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		//Bitfields are not supported, but you can try uncommenting them
-		//unsigned char	bTileY : 1;		//Offset: 108	Size: 1	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		//Bitfields are not supported, but you can try uncommenting them
-		//unsigned char	bTileZ : 1;		//Offset: 108	Size: 1	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		//Bitfields are not supported, but you can try uncommenting them
-		//unsigned char	bUseFixDT : 1;		//Offset: 108	Size: 1	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_1[4];		//Offset: 108	Size: 4
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.NamedEmitterMaterial
@@ -11349,17 +12084,16 @@ namespace UE4 {
 	// Size 3
 	/////////////////////////////////////////////
 	struct FChaosPhysicsSettings {
-		unsigned char uknownData_0[3]; 
-		//EChaosThreadingMode	DefaultThreadingModel;		//Offset: 0	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		//EChaosSolverTickMode	DedicatedThreadTickMode;		//Offset: 1	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		//EChaosBufferMode	DedicatedThreadBufferMode;		//Offset: 2	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		EChaosThreadingMode	DefaultThreadingModel;		//Offset: 0	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		EChaosSolverTickMode	DedicatedThreadTickMode;		//Offset: 1	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		EChaosBufferMode	DedicatedThreadBufferMode;		//Offset: 2	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.PhysicalSurfaceName
 	// Size 12
 	/////////////////////////////////////////////
 	struct FPhysicalSurfaceName {
-		unsigned char uknownData_0[1];//TEnumAsByte<EPhysicalSurface>	Type;		//Offset: 0	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TEnumAsByte<EPhysicalSurface>	Type;		//Offset: 0	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		unsigned char uknownData_0[3];		//Offset: 1	Size: 3
 		struct FName	Name;		//Offset: 4	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
@@ -11451,14 +12185,6 @@ namespace UE4 {
 		struct FKey	Key;		//Offset: 16	Size: 24	Flags: Edit, BlueprintVisible, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.InputAxisConfigEntry
-	// Size 24
-	/////////////////////////////////////////////
-	struct FInputAxisConfigEntry {
-		struct FName	AxisKeyName;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FInputAxisProperties	AxisProperties;		//Offset: 8	Size: 16	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.InputAxisProperties
 	// Size 16
 	/////////////////////////////////////////////
@@ -11469,6 +12195,14 @@ namespace UE4 {
 		//Bitfields are not supported, but you can try uncommenting them
 		//unsigned char	bInvert : 1;		//Offset: 12	Size: 1	Flags: Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		unsigned char uknownData_0[4];		//Offset: 12	Size: 4
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.InputAxisConfigEntry
+	// Size 24
+	/////////////////////////////////////////////
+	struct FInputAxisConfigEntry {
+		struct FName	AxisKeyName;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FInputAxisProperties	AxisProperties;		//Offset: 8	Size: 16	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.KeyBind
@@ -11574,15 +12308,6 @@ namespace UE4 {
 		struct FText	Description;		//Offset: 32	Size: 24	Flags: NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.QuartzClockSettings
-	// Size 32
-	/////////////////////////////////////////////
-	struct FQuartzClockSettings {
-		struct FQuartzTimeSignature	TimeSignature;		//Offset: 0	Size: 24	Flags: Edit, BlueprintVisible, NativeAccessSpecifierPublic
-		bool	bIgnoreLevelChange;		//Offset: 24	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[7];		//Offset: 25	Size: 7
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.QuartzTimeSignature
 	// Size 24
 	/////////////////////////////////////////////
@@ -11591,6 +12316,15 @@ namespace UE4 {
 		EQuartzTimeSignatureQuantization	BeatType;		//Offset: 4	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		unsigned char uknownData_0[3];		//Offset: 5	Size: 3
 		TArray<struct FQuartzPulseOverrideStep>	OptionalPulseOverride;		//Offset: 8	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.QuartzClockSettings
+	// Size 32
+	/////////////////////////////////////////////
+	struct FQuartzClockSettings {
+		struct FQuartzTimeSignature	TimeSignature;		//Offset: 0	Size: 24	Flags: Edit, BlueprintVisible, NativeAccessSpecifierPublic
+		bool	bIgnoreLevelChange;		//Offset: 24	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[7];		//Offset: 25	Size: 7
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.QuartzPulseOverrideStep
@@ -11652,19 +12386,19 @@ namespace UE4 {
 		unsigned char uknownData_0[24];		//Offset: 0	Size: 24
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.TransformBaseConstraint
+	// Size 16
+	/////////////////////////////////////////////
+	struct FTransformBaseConstraint {
+		TArray<struct FRigTransformConstraint>	TransformConstraints;		//Offset: 0	Size: 16	Flags: Edit, ZeroConstructor, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.TransformBase
 	// Size 40
 	/////////////////////////////////////////////
 	struct FTransformBase {
 		struct FName	Node;		//Offset: 0	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FTransformBaseConstraint	Constraints[2];		//Offset: 8	Size: 16	Flags: Edit, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.TransformBaseConstraint
-	// Size 16
-	/////////////////////////////////////////////
-	struct FTransformBaseConstraint {
-		TArray<struct FRigTransformConstraint>	TransformConstraints;		//Offset: 0	Size: 16	Flags: Edit, ZeroConstructor, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.RigTransformConstraint
@@ -11689,6 +12423,23 @@ namespace UE4 {
 		unsigned char uknownData_0[15];		//Offset: 81	Size: 15
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.RootMotionSourceStatus
+	// Size 1
+	/////////////////////////////////////////////
+	struct FRootMotionSourceStatus {
+		unsigned char	Flags;		//Offset: 0	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.RootMotionFinishVelocitySettings
+	// Size 20
+	/////////////////////////////////////////////
+	struct FRootMotionFinishVelocitySettings {
+		ERootMotionFinishVelocityMode	Mode;		//Offset: 0	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 1	Size: 3
+		struct FVector	SetVelocity;		//Offset: 4	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	ClampVelocity;		//Offset: 16	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.RootMotionSource
 	// Size 160
 	/////////////////////////////////////////////
@@ -11710,23 +12461,6 @@ namespace UE4 {
 		struct FRootMotionMovementParams	RootMotionParams;		//Offset: 64	Size: 64	Flags: NoDestructor, NativeAccessSpecifierPublic
 		struct FRootMotionFinishVelocitySettings	FinishVelocityParams;		//Offset: 128	Size: 20	Flags: NoDestructor, NativeAccessSpecifierPublic
 		unsigned char uknownData_3[12];		//Offset: 148	Size: 12
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.RootMotionFinishVelocitySettings
-	// Size 20
-	/////////////////////////////////////////////
-	struct FRootMotionFinishVelocitySettings {
-		ERootMotionFinishVelocityMode	Mode;		//Offset: 0	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 1	Size: 3
-		struct FVector	SetVelocity;		//Offset: 4	Size: 12	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	ClampVelocity;		//Offset: 16	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.RootMotionSourceStatus
-	// Size 1
-	/////////////////////////////////////////////
-	struct FRootMotionSourceStatus {
-		unsigned char	Flags;		//Offset: 0	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.RootMotionSource_JumpForce
@@ -11828,51 +12562,6 @@ namespace UE4 {
 		unsigned char uknownData_1[4];		//Offset: 60	Size: 4
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.LensSettings
-	// Size 224
-	/////////////////////////////////////////////
-	struct FLensSettings {
-		struct FLensBloomSettings	Bloom;		//Offset: 0	Size: 184	Flags: Edit, BlueprintVisible, Interp, NoDestructor, NativeAccessSpecifierPublic
-		struct FLensImperfectionSettings	Imperfections;		//Offset: 184	Size: 32	Flags: Edit, BlueprintVisible, Interp, NoDestructor, NativeAccessSpecifierPublic
-		float	ChromaticAberration;		//Offset: 216	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[4];		//Offset: 220	Size: 4
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.LensImperfectionSettings
-	// Size 32
-	/////////////////////////////////////////////
-	struct FLensImperfectionSettings {
-		class UTexture* DirtMask;		//Offset: 0	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	DirtMaskIntensity;		//Offset: 8	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FLinearColor	DirtMaskTint;		//Offset: 12	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[4];		//Offset: 28	Size: 4
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.LensBloomSettings
-	// Size 184
-	/////////////////////////////////////////////
-	struct FLensBloomSettings {
-		struct FGaussianSumBloomSettings	GaussianSum;		//Offset: 0	Size: 132	Flags: Edit, BlueprintVisible, Interp, NoDestructor, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[4];		//Offset: 132	Size: 4
-		struct FConvolutionBloomSettings	Convolution;		//Offset: 136	Size: 40	Flags: Edit, BlueprintVisible, Interp, NoDestructor, NativeAccessSpecifierPublic
-		TEnumAsByte<EBloomMethod>	Method;		//Offset: 176	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_1[7];		//Offset: 177	Size: 7
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.ConvolutionBloomSettings
-	// Size 40
-	/////////////////////////////////////////////
-	struct FConvolutionBloomSettings {
-		class UTexture2D* Texture;		//Offset: 0	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	Size;		//Offset: 8	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FVector2D	CenterUV;		//Offset: 12	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	PreFilterMin;		//Offset: 20	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	PreFilterMax;		//Offset: 24	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	PreFilterMult;		//Offset: 28	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		float	BufferScale;		//Offset: 32	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[4];		//Offset: 36	Size: 4
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.GaussianSumBloomSettings
 	// Size 132
 	/////////////////////////////////////////////
@@ -11894,6 +12583,51 @@ namespace UE4 {
 		struct FLinearColor	Filter6Tint;		//Offset: 116	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.ConvolutionBloomSettings
+	// Size 40
+	/////////////////////////////////////////////
+	struct FConvolutionBloomSettings {
+		class UTexture2D* Texture;		//Offset: 0	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	Size;		//Offset: 8	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector2D	CenterUV;		//Offset: 12	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	PreFilterMin;		//Offset: 20	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	PreFilterMax;		//Offset: 24	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	PreFilterMult;		//Offset: 28	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	BufferScale;		//Offset: 32	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[4];		//Offset: 36	Size: 4
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.LensBloomSettings
+	// Size 184
+	/////////////////////////////////////////////
+	struct FLensBloomSettings {
+		struct FGaussianSumBloomSettings	GaussianSum;		//Offset: 0	Size: 132	Flags: Edit, BlueprintVisible, Interp, NoDestructor, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[4];		//Offset: 132	Size: 4
+		struct FConvolutionBloomSettings	Convolution;		//Offset: 136	Size: 40	Flags: Edit, BlueprintVisible, Interp, NoDestructor, NativeAccessSpecifierPublic
+		TEnumAsByte<EBloomMethod>	Method;		//Offset: 176	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_1[7];		//Offset: 177	Size: 7
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.LensImperfectionSettings
+	// Size 32
+	/////////////////////////////////////////////
+	struct FLensImperfectionSettings {
+		class UTexture* DirtMask;		//Offset: 0	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		float	DirtMaskIntensity;		//Offset: 8	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FLinearColor	DirtMaskTint;		//Offset: 12	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[4];		//Offset: 28	Size: 4
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.LensSettings
+	// Size 224
+	/////////////////////////////////////////////
+	struct FLensSettings {
+		struct FLensBloomSettings	Bloom;		//Offset: 0	Size: 184	Flags: Edit, BlueprintVisible, Interp, NoDestructor, NativeAccessSpecifierPublic
+		struct FLensImperfectionSettings	Imperfections;		//Offset: 184	Size: 32	Flags: Edit, BlueprintVisible, Interp, NoDestructor, NativeAccessSpecifierPublic
+		float	ChromaticAberration;		//Offset: 216	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[4];		//Offset: 220	Size: 4
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.FilmStockSettings
 	// Size 20
 	/////////////////////////////////////////////
@@ -11903,6 +12637,17 @@ namespace UE4 {
 		float	Shoulder;		//Offset: 8	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		float	BlackClip;		//Offset: 12	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		float	WhiteClip;		//Offset: 16	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.ColorGradePerRangeSettings
+	// Size 80
+	/////////////////////////////////////////////
+	struct FColorGradePerRangeSettings {
+		struct FVector4	Saturation;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector4	Contrast;		//Offset: 16	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector4	Gamma;		//Offset: 32	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector4	Gain;		//Offset: 48	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FVector4	Offset;		//Offset: 64	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.ColorGradingSettings
@@ -11916,17 +12661,6 @@ namespace UE4 {
 		float	ShadowsMax;		//Offset: 320	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		float	HighlightsMin;		//Offset: 324	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		unsigned char uknownData_0[8];		//Offset: 328	Size: 8
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.ColorGradePerRangeSettings
-	// Size 80
-	/////////////////////////////////////////////
-	struct FColorGradePerRangeSettings {
-		struct FVector4	Saturation;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FVector4	Contrast;		//Offset: 16	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FVector4	Gamma;		//Offset: 32	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FVector4	Gain;		//Offset: 48	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FVector4	Offset;		//Offset: 64	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, Interp, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.EngineShowFlagsSetting
@@ -11955,18 +12689,6 @@ namespace UE4 {
 		unsigned char uknownData_0[4];		//Offset: 36	Size: 4
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.ClothingAssetData_Legacy
-	// Size 120
-	/////////////////////////////////////////////
-	struct FClothingAssetData_Legacy {
-		struct FName	AssetName;		//Offset: 0	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FString	ApexFileName;		//Offset: 8	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		bool	bClothPropertiesChanged;		//Offset: 24	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 25	Size: 3
-		struct FClothPhysicsProperties_Legacy	PhysicsProperties;		//Offset: 28	Size: 80	Flags: NoDestructor, NativeAccessSpecifierPublic
-		unsigned char uknownData_1[12];		//Offset: 108	Size: 12
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.ClothPhysicsProperties_Legacy
 	// Size 80
 	/////////////////////////////////////////////
@@ -11993,32 +12715,16 @@ namespace UE4 {
 		float	FiberResistance;		//Offset: 76	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.SkeletalMeshLODInfo
-	// Size 184
+	// ScriptStruct Engine.ClothingAssetData_Legacy
+	// Size 120
 	/////////////////////////////////////////////
-	struct FSkeletalMeshLODInfo {
-		struct FPerPlatformFloat	ScreenSize;		//Offset: 0	Size: 4	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
-		float	LODHysteresis;		//Offset: 4	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		TArray<int32_t>	LODMaterialMap;		//Offset: 8	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
-		struct FSkeletalMeshBuildSettings	BuildSettings;		//Offset: 24	Size: 20	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
-		struct FSkeletalMeshOptimizationSettings	ReductionSettings;		//Offset: 44	Size: 60	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
-		TArray<struct FBoneReference>	BonesToRemove;		//Offset: 104	Size: 16	Flags: Edit, ZeroConstructor, NativeAccessSpecifierPublic
-		TArray<struct FBoneReference>	BonesToPrioritize;		//Offset: 120	Size: 16	Flags: Edit, ZeroConstructor, NativeAccessSpecifierPublic
-		float	WeightOfPrioritization;		//Offset: 136	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[4];		//Offset: 140	Size: 4
-		class UAnimSequence* BakePose;		//Offset: 144	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		class UAnimSequence* BakePoseOverride;		//Offset: 152	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		struct FString	SourceImportFilename;		//Offset: 160	Size: 16	Flags: Edit, ZeroConstructor, EditConst, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		ESkinCacheUsage	SkinCacheUsage;		//Offset: 176	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		//Bitfields are not supported, but you can try uncommenting them
-		//unsigned char	bHasBeenSimplified : 1;		//Offset: 177	Size: 1	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		//Bitfields are not supported, but you can try uncommenting them
-		//unsigned char	bHasPerLODVertexColors : 1;		//Offset: 177	Size: 1	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		//Bitfields are not supported, but you can try uncommenting them
-		//unsigned char	bAllowCPUAccess : 1;		//Offset: 177	Size: 1	Flags: Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		//Bitfields are not supported, but you can try uncommenting them
-		//unsigned char	bSupportUniformlyDistributedSampling : 1;		//Offset: 177	Size: 1	Flags: Edit, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_1[7];		//Offset: 177	Size: 7
+	struct FClothingAssetData_Legacy {
+		struct FName	AssetName;		//Offset: 0	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FString	ApexFileName;		//Offset: 8	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		bool	bClothPropertiesChanged;		//Offset: 24	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[3];		//Offset: 25	Size: 3
+		struct FClothPhysicsProperties_Legacy	PhysicsProperties;		//Offset: 28	Size: 80	Flags: NoDestructor, NativeAccessSpecifierPublic
+		unsigned char uknownData_1[12];		//Offset: 108	Size: 12
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.SkeletalMeshOptimizationSettings
@@ -12055,6 +12761,34 @@ namespace UE4 {
 		//unsigned char	bLockColorBounaries : 1;		//Offset: 52	Size: 1	Flags: Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		unsigned char uknownData_3[4];		//Offset: 52	Size: 4
 		int32_t	BaseLOD;		//Offset: 56	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.SkeletalMeshLODInfo
+	// Size 184
+	/////////////////////////////////////////////
+	struct FSkeletalMeshLODInfo {
+		struct FPerPlatformFloat	ScreenSize;		//Offset: 0	Size: 4	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
+		float	LODHysteresis;		//Offset: 4	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		TArray<int32_t>	LODMaterialMap;		//Offset: 8	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
+		struct FSkeletalMeshBuildSettings	BuildSettings;		//Offset: 24	Size: 20	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
+		struct FSkeletalMeshOptimizationSettings	ReductionSettings;		//Offset: 44	Size: 60	Flags: Edit, NoDestructor, NativeAccessSpecifierPublic
+		TArray<struct FBoneReference>	BonesToRemove;		//Offset: 104	Size: 16	Flags: Edit, ZeroConstructor, NativeAccessSpecifierPublic
+		TArray<struct FBoneReference>	BonesToPrioritize;		//Offset: 120	Size: 16	Flags: Edit, ZeroConstructor, NativeAccessSpecifierPublic
+		float	WeightOfPrioritization;		//Offset: 136	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[4];		//Offset: 140	Size: 4
+		class UAnimSequence* BakePose;		//Offset: 144	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		class UAnimSequence* BakePoseOverride;		//Offset: 152	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		struct FString	SourceImportFilename;		//Offset: 160	Size: 16	Flags: Edit, ZeroConstructor, EditConst, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		ESkinCacheUsage	SkinCacheUsage;		//Offset: 176	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		//Bitfields are not supported, but you can try uncommenting them
+		//unsigned char	bHasBeenSimplified : 1;		//Offset: 177	Size: 1	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		//Bitfields are not supported, but you can try uncommenting them
+		//unsigned char	bHasPerLODVertexColors : 1;		//Offset: 177	Size: 1	Flags: NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		//Bitfields are not supported, but you can try uncommenting them
+		//unsigned char	bAllowCPUAccess : 1;		//Offset: 177	Size: 1	Flags: Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		//Bitfields are not supported, but you can try uncommenting them
+		//unsigned char	bSupportUniformlyDistributedSampling : 1;		//Offset: 177	Size: 1	Flags: Edit, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_1[7];		//Offset: 177	Size: 7
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.SkeletalMeshClothBuildParams
@@ -12136,20 +12870,20 @@ namespace UE4 {
 		struct FName	BoneName;		//Offset: 4	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.SkeletalMeshSamplingInfo
-	// Size 48
-	/////////////////////////////////////////////
-	struct FSkeletalMeshSamplingInfo {
-		TArray<struct FSkeletalMeshSamplingRegion>	Regions;		//Offset: 0	Size: 16	Flags: Edit, ZeroConstructor, NativeAccessSpecifierPublic
-		struct FSkeletalMeshSamplingBuiltData	BuiltData;		//Offset: 16	Size: 32	Flags: NativeAccessSpecifierPrivate
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.SkeletalMeshSamplingBuiltData
 	// Size 32
 	/////////////////////////////////////////////
 	struct FSkeletalMeshSamplingBuiltData {
 		TArray<struct FSkeletalMeshSamplingLODBuiltData>	WholeMeshBuiltData;		//Offset: 0	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
 		TArray<struct FSkeletalMeshSamplingRegionBuiltData>	RegionBuiltData;		//Offset: 16	Size: 16	Flags: ZeroConstructor, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.SkeletalMeshSamplingInfo
+	// Size 48
+	/////////////////////////////////////////////
+	struct FSkeletalMeshSamplingInfo {
+		TArray<struct FSkeletalMeshSamplingRegion>	Regions;		//Offset: 0	Size: 16	Flags: Edit, ZeroConstructor, NativeAccessSpecifierPublic
+		struct FSkeletalMeshSamplingBuiltData	BuiltData;		//Offset: 16	Size: 32	Flags: NativeAccessSpecifierPrivate
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.SkeletalMeshSamplingRegionBuiltData
@@ -12347,6 +13081,15 @@ namespace UE4 {
 		unsigned char uknownData_0[24];		//Offset: 0	Size: 24
 	};
 	/////////////////////////////////////////////
+	// ScriptStruct Engine.SoundAttenuationPluginSettings
+	// Size 48
+	/////////////////////////////////////////////
+	struct FSoundAttenuationPluginSettings {
+		TArray<class USpatializationPluginSourceSettingsBase*>	SpatializationPluginSettingsArray;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
+		TArray<class UOcclusionPluginSourceSettingsBase*>	OcclusionPluginSettingsArray;		//Offset: 16	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
+		TArray<class UReverbPluginSourceSettingsBase*>	ReverbPluginSettingsArray;		//Offset: 32	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
 	// ScriptStruct Engine.SoundAttenuationSettings
 	// Super ScriptStruct Engine.BaseAttenuationSettings
 	// Size 928
@@ -12427,15 +13170,6 @@ namespace UE4 {
 		struct FSoundAttenuationPluginSettings	PluginSettings;		//Offset: 880	Size: 48	Flags: Edit, BlueprintVisible, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.SoundAttenuationPluginSettings
-	// Size 48
-	/////////////////////////////////////////////
-	struct FSoundAttenuationPluginSettings {
-		TArray<class USpatializationPluginSourceSettingsBase*>	SpatializationPluginSettingsArray;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
-		TArray<class UOcclusionPluginSourceSettingsBase*>	OcclusionPluginSettingsArray;		//Offset: 16	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
-		TArray<class UReverbPluginSourceSettingsBase*>	ReverbPluginSettingsArray;		//Offset: 32	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.AttenuationSubmixSendSettings
 	// Size 168
 	/////////////////////////////////////////////
@@ -12458,6 +13192,16 @@ namespace UE4 {
 		class USoundMix* SoundMix;		//Offset: 0	Size: 8	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		float	MinVolumeThreshold;		//Offset: 8	Size: 4	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		float	MaxVolumeThreshold;		//Offset: 12	Size: 4	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.SoundModulationDefaultSettings
+	// Size 64
+	/////////////////////////////////////////////
+	struct FSoundModulationDefaultSettings {
+		struct FSoundModulationDestinationSettings	VolumeModulationDestination;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic
+		struct FSoundModulationDestinationSettings	PitchModulationDestination;		//Offset: 16	Size: 16	Flags: Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic
+		struct FSoundModulationDestinationSettings	HighpassModulationDestination;		//Offset: 32	Size: 16	Flags: Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic
+		struct FSoundModulationDestinationSettings	LowpassModulationDestination;		//Offset: 48	Size: 16	Flags: Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.SoundClassProperties
@@ -12493,16 +13237,6 @@ namespace UE4 {
 		ESoundWaveLoadingBehavior	LoadingBehavior;		//Offset: 105	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		unsigned char uknownData_1[6];		//Offset: 106	Size: 6
 		class USoundSubmix* DefaultSubmix;		//Offset: 112	Size: 8	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
-	// ScriptStruct Engine.SoundModulationDefaultSettings
-	// Size 64
-	/////////////////////////////////////////////
-	struct FSoundModulationDefaultSettings {
-		struct FSoundModulationDestinationSettings	VolumeModulationDestination;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic
-		struct FSoundModulationDestinationSettings	PitchModulationDestination;		//Offset: 16	Size: 16	Flags: Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic
-		struct FSoundModulationDestinationSettings	HighpassModulationDestination;		//Offset: 32	Size: 16	Flags: Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic
-		struct FSoundModulationDestinationSettings	LowpassModulationDestination;		//Offset: 48	Size: 16	Flags: Edit, BlueprintVisible, NoDestructor, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.SoundClassEditorData
@@ -12724,18 +13458,6 @@ namespace UE4 {
 		unsigned char uknownData_0[32];		//Offset: 0	Size: 32
 	};
 	/////////////////////////////////////////////
-	// ScriptStruct Engine.SplineInstanceData
-	// Super ScriptStruct Engine.SceneComponentInstanceData
-	// Size 416
-	// Size inherited 184
-	/////////////////////////////////////////////
-	struct FSplineInstanceData : public FSceneComponentInstanceData {
-		bool	bSplineHasBeenEdited;		//Offset: 184	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[7];		//Offset: 185	Size: 7
-		struct FSplineCurves	SplineCurves;		//Offset: 192	Size: 112	Flags: NativeAccessSpecifierPublic
-		struct FSplineCurves	SplineCurvesPreUCS;		//Offset: 304	Size: 112	Flags: NativeAccessSpecifierPublic
-	};
-	/////////////////////////////////////////////
 	// ScriptStruct Engine.SplineCurves
 	// Size 112
 	/////////////////////////////////////////////
@@ -12747,6 +13469,18 @@ namespace UE4 {
 		class USplineMetadata* MetaData;		//Offset: 96	Size: 8	Flags: ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		uint32_t	Version;		//Offset: 104	Size: 4	Flags: ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		unsigned char uknownData_0[4];		//Offset: 108	Size: 4
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct Engine.SplineInstanceData
+	// Super ScriptStruct Engine.SceneComponentInstanceData
+	// Size 416
+	// Size inherited 184
+	/////////////////////////////////////////////
+	struct FSplineInstanceData : public FSceneComponentInstanceData {
+		bool	bSplineHasBeenEdited;		//Offset: 184	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+		unsigned char uknownData_0[7];		//Offset: 185	Size: 7
+		struct FSplineCurves	SplineCurves;		//Offset: 192	Size: 112	Flags: NativeAccessSpecifierPublic
+		struct FSplineCurves	SplineCurvesPreUCS;		//Offset: 304	Size: 112	Flags: NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.SplinePoint
@@ -13350,7 +14084,7 @@ namespace UE4 {
 		class UNetDriver* NetDriver;		//Offset: 16	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
 		class UDemoNetDriver* DemoNetDriver;		//Offset: 24	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
 		class ULevel* PersistentLevel;		//Offset: 32	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
-		TAssetPtr<class FNone_564>	Levels;		//Offset: 40	Size: 80	Flags: NativeAccessSpecifierPrivate
+		TAssetPtr<class FNone_500>	Levels;		//Offset: 40	Size: 80	Flags: NativeAccessSpecifierPrivate
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct Engine.EndPhysicsTickFunction

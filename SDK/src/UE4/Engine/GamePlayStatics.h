@@ -1,17 +1,9 @@
 #pragma once
+#include "Structs.h"
 #include "BlueprintFunctionLibrary.h"
 
 
 namespace UE4 {
-	enum class ESpawnActorCollisionHandlingMethod : uint8_t
-	{
-		Undefined = 0,
-		AlwaysSpawn = 1,
-		AdjustIfPossibleButAlwaysSpawn = 2,
-		AdjustIfPossibleButDontSpawnIfColliding = 3,
-		DontSpawnIfColliding = 4,
-		ESpawnActorCollisionHandlingMethod_MAX = 5
-	};
 	class UGameplayStatics : public UBlueprintFunctionLibrary
 	{
 	public:

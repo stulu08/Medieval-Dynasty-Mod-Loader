@@ -19,7 +19,8 @@ BPFUNCTION(WriteToFile)
 void ExampleMod::InitializeMod()
 {
 	UE4::InitSDK();
-	SetupHooks();
+	//Specify what events you should receive
+	SetupHooks(EventsEnabled::GuiOnly);
 	REGISTER_FUNCTION(WriteToFile);
 	//if you want to name them on your own do this
 	//REGISTER_FUNCTION_NAMED(WriteToFile, "WriteToFile");

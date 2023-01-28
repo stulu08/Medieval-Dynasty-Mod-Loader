@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/PanelWidget.h"
 /////////////////////////////////////////////
 // Class UMG.WidgetSwitcher
@@ -26,13 +25,13 @@ public:
 	}
 
 #pragma region Functions
-	class UWidget* GetActiveWidget() const;
+	class UWidget* GetActiveWidget()/* const*/;
 
-	int32_t GetActiveWidgetIndex() const;
+	int32_t GetActiveWidgetIndex()/* const*/;
 
-	int32_t GetNumWidgets() const;
+	int32_t GetNumWidgets()/* const*/;
 
-	class UWidget* GetWidgetAtIndex(int32_t Index) const;
+	class UWidget* GetWidgetAtIndex(int32_t Index)/* const*/;
 
 	void SetActiveWidget(class UWidget* Widget);
 

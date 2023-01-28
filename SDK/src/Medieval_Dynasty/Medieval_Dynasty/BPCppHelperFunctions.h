@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "Engine/BlueprintFunctionLibrary.h"
 /////////////////////////////////////////////
 // Class Medieval_Dynasty.BPCppHelperFunctions
@@ -21,9 +20,9 @@ public:
 	}
 
 #pragma region Functions
-	static bool AdjustTeleportLocation(const class AActor* TestActor, struct FVector* PlaceLocation, struct FRotator PlaceRotation);
+	static bool AdjustTeleportLocation(class AActor* TestActor, struct FVector* PlaceLocation, struct FRotator PlaceRotation);
 
-	static float AngleBetweenCameraAndActor(const class APlayerCameraManager* PlayerCameraMan, class AActor* Actor);
+	static float AngleBetweenCameraAndActor(class APlayerCameraManager* PlayerCameraMan, class AActor* Actor);
 
 	static bool Array_Empty(const TArray<int32_t>& TargetArray);
 
@@ -65,17 +64,17 @@ public:
 
 	static void SetAnimalRotation(class UCharacterMovementComponent* CharacterMovement, class AController* controllerReference, struct FRotator currentAnimalRotation, struct FRotator TargetRotation, bool interpRotation, float interpSpeed, struct FRotator* animalRotation);
 
-	static void SetAnimUpdateRateParams(class USkinnedMeshComponent* Mesh, const TMap<int32_t, int32_t> LodToSkipSettings);
+	static void SetAnimUpdateRateParams(class USkinnedMeshComponent* Mesh, TMap<int32_t, int32_t> LodToSkipSettings);
 
-	static void SetAnimUpdateRateParamsScreenSize(class USkinnedMeshComponent* Mesh, const TArray<float> ScreenSizes);
+	static void SetAnimUpdateRateParamsScreenSize(class USkinnedMeshComponent* Mesh, TArray<float> ScreenSizes);
 
 	static void SetCharacterRotation(class UCharacterMovementComponent* CharacterMovement, struct FRotator currentCharacterRotation, struct FRotator TargetRotation, bool interpRotation, float interpSpeed, bool useControllerRotationYaw, struct FRotator* characterRotation, float* rotationDifference);
 
-	static void SetCurrentAspectRatioConstraint(class APlayerController* Controller, const TEnumAsByte<EAspectRatioAxisConstraint> ConstraintMode);
+	static void SetCurrentAspectRatioConstraint(class APlayerController* Controller, TEnumAsByte<EAspectRatioAxisConstraint> ConstraintMode);
 
-	static bool SetMinimumLODForPlatforms(class UStaticMesh* Mesh, const TMap<struct FName, int32_t> PerPlatformMinLods);
+	static bool SetMinimumLODForPlatforms(class UStaticMesh* Mesh, TMap<struct FName, int32_t> PerPlatformMinLods);
 
-	static bool SetMinimumLODForPlatformsForSkeletals(class USkeletalMesh* Mesh, const TMap<struct FName, int32_t> PerPlatformMinLods);
+	static bool SetMinimumLODForPlatformsForSkeletals(class USkeletalMesh* Mesh, TMap<struct FName, int32_t> PerPlatformMinLods);
 
 	static void SetUnfocusedVolumeMultiplier(float Multiplier);
 

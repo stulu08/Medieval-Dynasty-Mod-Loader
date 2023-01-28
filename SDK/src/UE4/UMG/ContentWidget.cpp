@@ -10,7 +10,7 @@ namespace UE4 {
 // Params:
 // Name: ReturnValue	Type: class UWidget*	Flags: ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UWidget* UContentWidget::GetContent() const {
+class UWidget* UContentWidget::GetContent()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ContentWidget.GetContent");
 
 	struct UContentWidget_GetContent_Params {
@@ -35,7 +35,7 @@ class UWidget* UContentWidget::GetContent() const {
 // Params:
 // Name: ReturnValue	Type: class UPanelSlot*	Flags: ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UPanelSlot* UContentWidget::GetContentSlot() const {
+class UPanelSlot* UContentWidget::GetContentSlot()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.ContentWidget.GetContentSlot");
 
 	struct UContentWidget_GetContentSlot_Params {

@@ -109,7 +109,7 @@ void UDynamicEntryBoxBase::M_SetEntryWidgetPool(const struct FUserWidgetPool& va
 // Params:
 // Name: ReturnValue	Type: TArray<class UUserWidget*>	Flags: ConstParm, ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm, ContainsInstancedReference, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-TArray<class UUserWidget*> UDynamicEntryBoxBase::GetAllEntries() const {
+TArray<class UUserWidget*> UDynamicEntryBoxBase::GetAllEntries()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBoxBase.GetAllEntries");
 
 	struct UDynamicEntryBoxBase_GetAllEntries_Params {
@@ -134,7 +134,7 @@ TArray<class UUserWidget*> UDynamicEntryBoxBase::GetAllEntries() const {
 // Params:
 // Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-int32_t UDynamicEntryBoxBase::GetNumEntries() const {
+int32_t UDynamicEntryBoxBase::GetNumEntries()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBoxBase.GetNumEntries");
 
 	struct UDynamicEntryBoxBase_GetNumEntries_Params {

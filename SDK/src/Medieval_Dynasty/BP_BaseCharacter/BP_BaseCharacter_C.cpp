@@ -6140,7 +6140,7 @@ void ABP_BaseCharacter_C::SetIsInWater(bool InWater, float Intensity) {
 // Name: NextSection	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Montage	Type: class UAnimMontage*	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::ChangeMontageNextSection(struct FName SectionNameToChange, struct FName NextSection, const class UAnimMontage* Montage) {
+void ABP_BaseCharacter_C::ChangeMontageNextSection(struct FName SectionNameToChange, struct FName NextSection, class UAnimMontage* Montage) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.ChangeMontageNextSection");
 
 	struct ABP_BaseCharacter_C_ChangeMontageNextSection_Params {
@@ -6225,7 +6225,7 @@ void ABP_BaseCharacter_C::SetMontageSettings(TMap<TEnumAsByte<E_AnimInteractionT
 // Name: InstigatedBy	Type: class AController*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: DamageCauser	Type: class AActor*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::ReceiveAnyDamage(float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, class AActor* DamageCauser) {
+void ABP_BaseCharacter_C::ReceiveAnyDamage(float Damage, class UDamageType* DamageType, class AController* InstigatedBy, class AActor* DamageCauser) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.ReceiveAnyDamage");
 
 	struct ABP_BaseCharacter_C_ReceiveAnyDamage_Params {
@@ -9424,7 +9424,7 @@ void ABP_BaseCharacter_C::DespawnAnimHoldable(TEnumAsByte<E_HandsForHolstering> 
 // Name: Montage	Type: class UAnimMontage*	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-bool ABP_BaseCharacter_C::IsMontagePlaying(const class UAnimMontage* Montage) {
+bool ABP_BaseCharacter_C::IsMontagePlaying(class UAnimMontage* Montage) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.IsMontagePlaying");
 
 	struct ABP_BaseCharacter_C_IsMontagePlaying_Params {
@@ -9935,7 +9935,7 @@ void ABP_BaseCharacter_C::UpdateCharacterSpeedByCharacterType() {
 // Name: ActorToIgnore	Type: class AActor*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Observed	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::VisibilityCheck(const struct FVector StartVector, float Radius, const TArray<TEnumAsByte<EObjectTypeQuery>>& ObjectTypes, class AActor* ActorToIgnore, bool* Observed) {
+void ABP_BaseCharacter_C::VisibilityCheck(struct FVector StartVector, float Radius, const TArray<TEnumAsByte<EObjectTypeQuery>>& ObjectTypes, class AActor* ActorToIgnore, bool* Observed) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.VisibilityCheck");
 
 	struct ABP_BaseCharacter_C_VisibilityCheck_Params {
@@ -10321,7 +10321,7 @@ void ABP_BaseCharacter_C::GetCurrentCameraFOV(float* FieldOfView) {
 // Name: UpdateOnly	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: LoadGame	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::SetMeshesFromPreset(const TEnumAsByte<E_Profession> Profession, class UObject* NewClass, bool UpdateOnly, bool LoadGame) {
+void ABP_BaseCharacter_C::SetMeshesFromPreset(TEnumAsByte<E_Profession> Profession, class UObject* NewClass, bool UpdateOnly, bool LoadGame) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.SetMeshesFromPreset");
 
 	struct ABP_BaseCharacter_C_SetMeshesFromPreset_Params {
@@ -10349,7 +10349,7 @@ void ABP_BaseCharacter_C::SetMeshesFromPreset(const TEnumAsByte<E_Profession> Pr
 // Name: Profession	Type: TEnumAsByte<E_Profession>	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Preset	Type: struct FST_NPCsPresets	Flags: Parm, OutParm, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::GetPresetForProfession(const TEnumAsByte<E_Profession> Profession, struct FST_NPCsPresets* Preset) {
+void ABP_BaseCharacter_C::GetPresetForProfession(TEnumAsByte<E_Profession> Profession, struct FST_NPCsPresets* Preset) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.GetPresetForProfession");
 
 	struct ABP_BaseCharacter_C_GetPresetForProfession_Params {
@@ -10598,7 +10598,7 @@ void ABP_BaseCharacter_C::UpdateDefaultFov(float InFieldOfView) {
 // Name: IsFinalTransform	Type: bool	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: Success	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::SnapToSlot(int32_t SlotIndex, class AActor* InteractedActor, struct FVector LocationOffset, const bool IsFinalTransform, bool* Success) {
+void ABP_BaseCharacter_C::SnapToSlot(int32_t SlotIndex, class AActor* InteractedActor, struct FVector LocationOffset, bool IsFinalTransform, bool* Success) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.SnapToSlot");
 
 	struct ABP_BaseCharacter_C_SnapToSlot_Params {
@@ -12986,7 +12986,7 @@ bool ABP_BaseCharacter_C::MoveToMountingLocation(const struct FVector& Location,
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-bool ABP_BaseCharacter_C::IsSeatedOnMount() const {
+bool ABP_BaseCharacter_C::IsSeatedOnMount()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.IsSeatedOnMount");
 
 	struct ABP_BaseCharacter_C_IsSeatedOnMount_Params {
@@ -13007,7 +13007,7 @@ bool ABP_BaseCharacter_C::IsSeatedOnMount() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-bool ABP_BaseCharacter_C::IsDriver() const {
+bool ABP_BaseCharacter_C::IsDriver()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.IsDriver");
 
 	struct ABP_BaseCharacter_C_IsDriver_Params {
@@ -13028,7 +13028,7 @@ bool ABP_BaseCharacter_C::IsDriver() const {
 // Params:
 // Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-int32_t ABP_BaseCharacter_C::GetSeatId() const {
+int32_t ABP_BaseCharacter_C::GetSeatId()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.GetSeatId");
 
 	struct ABP_BaseCharacter_C_GetSeatId_Params {
@@ -13049,7 +13049,7 @@ int32_t ABP_BaseCharacter_C::GetSeatId() const {
 // Params:
 // Name: ReturnValue	Type: class UMeshComponent*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-class UMeshComponent* ABP_BaseCharacter_C::GetRiderMesh() const {
+class UMeshComponent* ABP_BaseCharacter_C::GetRiderMesh()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.GetRiderMesh");
 
 	struct ABP_BaseCharacter_C_GetRiderMesh_Params {
@@ -13070,7 +13070,7 @@ class UMeshComponent* ABP_BaseCharacter_C::GetRiderMesh() const {
 // Params:
 // Name: ReturnValue	Type: class UMountRiderComponent*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-class UMountRiderComponent* ABP_BaseCharacter_C::GetMountRiderComponent() const {
+class UMountRiderComponent* ABP_BaseCharacter_C::GetMountRiderComponent()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.GetMountRiderComponent");
 
 	struct ABP_BaseCharacter_C_GetMountRiderComponent_Params {
@@ -13091,7 +13091,7 @@ class UMountRiderComponent* ABP_BaseCharacter_C::GetMountRiderComponent() const 
 // Params:
 // Name: ReturnValue	Type: TArray<class USkeletalMeshComponent*>	Flags: Parm, OutParm, ReturnParm, ContainsInstancedReference
 /////////////////////////////////////////////
-TArray<class USkeletalMeshComponent*> ABP_BaseCharacter_C::GetAllRiderSkeletalMeshes() const {
+TArray<class USkeletalMeshComponent*> ABP_BaseCharacter_C::GetAllRiderSkeletalMeshes()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.GetAllRiderSkeletalMeshes");
 
 	struct ABP_BaseCharacter_C_GetAllRiderSkeletalMeshes_Params {
@@ -13205,7 +13205,7 @@ bool ABP_BaseCharacter_C::PrepareToDismount(class AActor* mountOrRider, struct F
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-bool ABP_BaseCharacter_C::IsMounted() const {
+bool ABP_BaseCharacter_C::IsMounted()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.IsMounted");
 
 	struct ABP_BaseCharacter_C_IsMounted_Params {
@@ -13226,7 +13226,7 @@ bool ABP_BaseCharacter_C::IsMounted() const {
 // Params:
 // Name: ReturnValue	Type: class APawn*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-class APawn* ABP_BaseCharacter_C::GetCharacterPawn() const {
+class APawn* ABP_BaseCharacter_C::GetCharacterPawn()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.GetCharacterPawn");
 
 	struct ABP_BaseCharacter_C_GetCharacterPawn_Params {
@@ -13247,7 +13247,7 @@ class APawn* ABP_BaseCharacter_C::GetCharacterPawn() const {
 // Params:
 // Name: ReturnValue	Type: class AActor*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-class AActor* ABP_BaseCharacter_C::GetCharacterMount() const {
+class AActor* ABP_BaseCharacter_C::GetCharacterMount()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.GetCharacterMount");
 
 	struct ABP_BaseCharacter_C_GetCharacterMount_Params {
@@ -13268,7 +13268,7 @@ class AActor* ABP_BaseCharacter_C::GetCharacterMount() const {
 // Params:
 // Name: ReturnValue	Type: class AController*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-class AController* ABP_BaseCharacter_C::GetCharacterController() const {
+class AController* ABP_BaseCharacter_C::GetCharacterController()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.GetCharacterController");
 
 	struct ABP_BaseCharacter_C_GetCharacterController_Params {
@@ -13347,154 +13347,6 @@ void ABP_BaseCharacter_C::GetOptimalizationStage(int32_t* Stage) {
 
 	if (Stage != nullptr)
 		*Stage = params.Stage;
-}
-
-/////////////////////////////////////////////
-// ComponentDelegateBinding BP_BaseCharacter.BP_BaseCharacter_C.ComponentDelegateBinding_1
-// Flags: 
-// Params:
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::ComponentDelegateBinding_1() {
-	static auto fn = UObject::FindObject<UFunction>("ComponentDelegateBinding BP_BaseCharacter.BP_BaseCharacter_C.ComponentDelegateBinding_1");
-
-	struct ABP_BaseCharacter_C_ComponentDelegateBinding_1_Params {
-	};
-	ABP_BaseCharacter_C_ComponentDelegateBinding_1_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// CurveFloat BP_BaseCharacter.BP_BaseCharacter_C.CurveFloat_3
-// Flags: 
-// Params:
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::CurveFloat_3() {
-	static auto fn = UObject::FindObject<UFunction>("CurveFloat BP_BaseCharacter.BP_BaseCharacter_C.CurveFloat_3");
-
-	struct ABP_BaseCharacter_C_CurveFloat_3_Params {
-	};
-	ABP_BaseCharacter_C_CurveFloat_3_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// CurveFloat BP_BaseCharacter.BP_BaseCharacter_C.CurveFloat_4
-// Flags: 
-// Params:
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::CurveFloat_4() {
-	static auto fn = UObject::FindObject<UFunction>("CurveFloat BP_BaseCharacter.BP_BaseCharacter_C.CurveFloat_4");
-
-	struct ABP_BaseCharacter_C_CurveFloat_4_Params {
-	};
-	ABP_BaseCharacter_C_CurveFloat_4_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// CurveFloat BP_BaseCharacter.BP_BaseCharacter_C.CurveFloat_3_5
-// Flags: 
-// Params:
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::CurveFloat_3_5() {
-	static auto fn = UObject::FindObject<UFunction>("CurveFloat BP_BaseCharacter.BP_BaseCharacter_C.CurveFloat_3_5");
-
-	struct ABP_BaseCharacter_C_CurveFloat_3_5_Params {
-	};
-	ABP_BaseCharacter_C_CurveFloat_3_5_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// InputAxisDelegateBinding BP_BaseCharacter.BP_BaseCharacter_C.InputAxisDelegateBinding_1
-// Flags: Native, NetResponse, MulticastDelegate, Private, NetClient, DLLImport, BlueprintCallable
-// Params:
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::InputAxisDelegateBinding_1() {
-	static auto fn = UObject::FindObject<UFunction>("InputAxisDelegateBinding BP_BaseCharacter.BP_BaseCharacter_C.InputAxisDelegateBinding_1");
-
-	struct ABP_BaseCharacter_C_InputAxisDelegateBinding_1_Params {
-	};
-	ABP_BaseCharacter_C_InputAxisDelegateBinding_1_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	uint32_t newFlags = flags;
-	newFlags |= 0x00000400;
-	fn->SetFunctionFlags((EFunctionFlags)newFlags);
-
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// TimelineTemplate BP_BaseCharacter.BP_BaseCharacter_C.Blinking_Template
-// Flags: 
-// Params:
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::Blinking_Template() {
-	static auto fn = UObject::FindObject<UFunction>("TimelineTemplate BP_BaseCharacter.BP_BaseCharacter_C.Blinking_Template");
-
-	struct ABP_BaseCharacter_C_Blinking_Template_Params {
-	};
-	ABP_BaseCharacter_C_Blinking_Template_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// TimelineTemplate BP_BaseCharacter.BP_BaseCharacter_C.EyesStateTL_Template
-// Flags: 
-// Params:
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::EyesStateTL_Template() {
-	static auto fn = UObject::FindObject<UFunction>("TimelineTemplate BP_BaseCharacter.BP_BaseCharacter_C.EyesStateTL_Template");
-
-	struct ABP_BaseCharacter_C_EyesStateTL_Template_Params {
-	};
-	ABP_BaseCharacter_C_EyesStateTL_Template_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// TimelineTemplate BP_BaseCharacter.BP_BaseCharacter_C.FistFightingTimeline_Template
-// Flags: 
-// Params:
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::FistFightingTimeline_Template() {
-	static auto fn = UObject::FindObject<UFunction>("TimelineTemplate BP_BaseCharacter.BP_BaseCharacter_C.FistFightingTimeline_Template");
-
-	struct ABP_BaseCharacter_C_FistFightingTimeline_Template_Params {
-	};
-	ABP_BaseCharacter_C_FistFightingTimeline_Template_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 #pragma endregion

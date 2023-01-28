@@ -10,7 +10,7 @@ namespace UE4 {
 // Params:
 // Name: ReturnValue	Type: ECheckBoxState	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-ECheckBoxState UCheckedStateBinding::GetValue() const {
+ECheckBoxState UCheckedStateBinding::GetValue()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.CheckedStateBinding.GetValue");
 
 	struct UCheckedStateBinding_GetValue_Params {

@@ -219,7 +219,7 @@ void UWidgetInteractionComponent::M_SetbIsHoveredWidgetHitTestVisible(const bool
 // Params:
 // Name: ReturnValue	Type: struct FVector2D	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FVector2D UWidgetInteractionComponent::Get2DHitLocation() const {
+struct FVector2D UWidgetInteractionComponent::Get2DHitLocation()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetInteractionComponent.Get2DHitLocation");
 
 	struct UWidgetInteractionComponent_Get2DHitLocation_Params {
@@ -244,7 +244,7 @@ struct FVector2D UWidgetInteractionComponent::Get2DHitLocation() const {
 // Params:
 // Name: ReturnValue	Type: class UWidgetComponent*	Flags: ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-class UWidgetComponent* UWidgetInteractionComponent::GetHoveredWidgetComponent() const {
+class UWidgetComponent* UWidgetInteractionComponent::GetHoveredWidgetComponent()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetInteractionComponent.GetHoveredWidgetComponent");
 
 	struct UWidgetInteractionComponent_GetHoveredWidgetComponent_Params {
@@ -269,7 +269,7 @@ class UWidgetComponent* UWidgetInteractionComponent::GetHoveredWidgetComponent()
 // Params:
 // Name: ReturnValue	Type: struct FHitResult	Flags: ConstParm, Parm, OutParm, ReturnParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-struct FHitResult UWidgetInteractionComponent::GetLastHitResult() const {
+struct FHitResult UWidgetInteractionComponent::GetLastHitResult()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetInteractionComponent.GetLastHitResult");
 
 	struct UWidgetInteractionComponent_GetLastHitResult_Params {
@@ -294,7 +294,7 @@ struct FHitResult UWidgetInteractionComponent::GetLastHitResult() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidgetInteractionComponent::IsOverFocusableWidget() const {
+bool UWidgetInteractionComponent::IsOverFocusableWidget()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetInteractionComponent.IsOverFocusableWidget");
 
 	struct UWidgetInteractionComponent_IsOverFocusableWidget_Params {
@@ -319,7 +319,7 @@ bool UWidgetInteractionComponent::IsOverFocusableWidget() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidgetInteractionComponent::IsOverHitTestVisibleWidget() const {
+bool UWidgetInteractionComponent::IsOverHitTestVisibleWidget()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetInteractionComponent.IsOverHitTestVisibleWidget");
 
 	struct UWidgetInteractionComponent_IsOverHitTestVisibleWidget_Params {
@@ -344,7 +344,7 @@ bool UWidgetInteractionComponent::IsOverHitTestVisibleWidget() const {
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UWidgetInteractionComponent::IsOverInteractableWidget() const {
+bool UWidgetInteractionComponent::IsOverInteractableWidget()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetInteractionComponent.IsOverInteractableWidget");
 
 	struct UWidgetInteractionComponent_IsOverInteractableWidget_Params {

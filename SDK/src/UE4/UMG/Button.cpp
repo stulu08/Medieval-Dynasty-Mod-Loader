@@ -153,7 +153,7 @@ void UButton::M_SetOnUnhovered(const TAssetPtr<class FOnButtonHoverEvent__Delega
 // Params:
 // Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 /////////////////////////////////////////////
-bool UButton::IsPressed() const {
+bool UButton::IsPressed()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Button.IsPressed");
 
 	struct UButton_IsPressed_Params {

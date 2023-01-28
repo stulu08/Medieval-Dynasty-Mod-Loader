@@ -1,6 +1,5 @@
 #pragma once
 #include "Structs.h"
-#include "UE4/SDK.h"
 #include "UMG/PropertyBinding.h"
 /////////////////////////////////////////////
 // Class UMG.MouseCursorBinding
@@ -21,7 +20,7 @@ public:
 	}
 
 #pragma region Functions
-	TEnumAsByte<EMouseCursor> GetValue() const;
+	TEnumAsByte<EMouseCursor> GetValue()/* const*/;
 
 #pragma endregion
 };
