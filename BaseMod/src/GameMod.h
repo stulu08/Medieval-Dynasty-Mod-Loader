@@ -14,7 +14,7 @@ public:
 		hModule = handle;
 	}
 
-	//When your mod get initlized
+	//When your mod gets initlized
 	virtual void OnModInitilize() {};
 
 	//Called for every Actor in Menu

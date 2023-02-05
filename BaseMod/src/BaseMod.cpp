@@ -62,13 +62,27 @@ namespace MDMLBase {
 			}
 		}
 	}
+	
+
 	bool Mod::InitGameState() {
+		static int count = 0;
 		needObjectReload = true;
 		return GameMod::InitGameState();
 	}
-	static UE4::UClass* wellBuilding;
 	bool Mod::GameInit() {
-		
+		return false;
+	}
+	
+	bool loadItems = false;
+	UE4::NativeTMap<struct UE4::FName, struct UE4::FST_InventoryItemsArray> items;
+	bool Mod::GameTick(float delta) {
+		if (PlayerActor) {
+			UE4::UInventoryComponent_C* inv =  PlayerCharacter->M_GetInventoryComponent();
+			if (inv && loadItems) {
+				inv->GetInventoryItems_BPI(items);
+				loadItems = false;
+			}
+		}
 		return false;
 	}
 
@@ -137,8 +151,53 @@ namespace MDMLBase {
 			if (PlayerCharacter != nullptr) {
 				if (ImGui::CollapsingHeader("Player Controller Transform")) {
 					Utils::Gui::UE4ActorTransformEdit(PlayerCharacter);
+					ImGui::Separator();
+				}
+				if (ImGui::Button("Load Items"))
+					loadItems = true;
+				static int COIN_ID = 0;
+				if (ImGui::CollapsingHeader("Items")) {
+					for (int i = 0; i < items.Num(); i++) {
+						UE4::TPair<UE4::FName, UE4::FST_InventoryItemsArray> pair = items.GetPair(i);
+						if (pair.Value.Items[0].ID.GetName() == "Coin" && COIN_ID == 0) {
+							COIN_ID = pair.Value.Items[0].ID.ComparisonIndex;
+						}
+						if (ImGui::TreeNodeEx(pair.Key.GetName().c_str(), DEFAULT_TREE_NODE_FLAGS)) {
+							UE4::FST_ItemInventorys item = pair.Value.Items[0];
+							ImGui::Text("ID: %s", item.ID.GetName().c_str());
+							ImGui::Text("Count: %d", item.Count);
+							ImGui::Text("Index: %d", item.Index);
+							ImGui::Text("IsAssignedToQuickSlot: %s", item.IsAssignedToQuickSlot ? "true" : "false");
+							ImGui::Text("IsEquipped: %s", item.IsEquipped ? "true" : "false");
+							ImGui::Text("QuickSlotIndex: %d", item.QuickSlotIndex);
+							ImGui::Text("Condition: %f", item.Condition);
+							ImGui::Text("Freshness: %f", item.Freshness);
+							ImGui::Text("Capacity: %d", item.Capacity);
+							ImGui::Text("HP: %f", item.HP);
+							ImGui::Text("MaxHP: %f", item.MaxHP);
+							ImGui::Text("Ownership: %d", item.Ownership.value);
+							ImGui::TreePop();
+						}
+					}
+				}
+				if (ImGui::CollapsingHeader("Add Coins")) {
+					static int32_t count = 10000;
+					ImGui::MDML_Int("Coin ID", COIN_ID); ImGui::SameLine();
+					ImGui::MDML_HelpMarker("Put a coin in your inventory, press Load Items and open the items tab to search for the coin id");
+					ImGui::MDML_Int("Ammount", count);
+					if (ImGui::Button("Add")) {
+						PlayerCharacter->M_GetInventoryComponent()->AddItemToInventory(COIN_ID, count, true, 100.0f, 100.0f, 0, 1.0, UE4::E_Ownership::Player, true, true, true, 0.1f, nullptr);
+					}
 				}
 			}
+			if (ImGui::CollapsingHeader("Debug")) {
+				static UE4::UUserDefinedEnum* obj = (UE4::UUserDefinedEnum*)UE4::UObject::FindObject("UserDefinedEnum E_EventButtonRestrictions.E_EventButtonRestrictions");
+				UE4::NativeTMap<UE4::FName, UE4::FText> map = obj->GetDispalyNames();
+				for (int i = 0; i < map.Num(); i++) {
+					ImGui::Text("%d: %s -> %s", i, map.GetKey(i).GetName().c_str(), Utils::WStringToString(map.GetValue(i).Data->Name).c_str());
+				}
+			}
+				
 		}
 		ImGui::End();
 

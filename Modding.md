@@ -23,12 +23,19 @@ DLLPath=ExampleMod.dll
 ### Here is the mod.ini structure for your mod
 ```
 [LogicMod]
-;The name you mod has, make it the same as in your core mod, if you have one
+;The name you mod has, make it the same as in your dll, if you have one
 ModName=ExampleMod
-;The file name of your actor as a relative path from you mod folder
+
+;The file name of your actor as a relative path from your mod folder
 ActorFile=Content/ModActor.uasset
-;ActorPath will be build automaticly but you can set you own here, this will need to be same as in your project
+;ActorPath will be build automaticly but you can set your own here
 ;ActorPath=/Game/Mods/ExampleMod/Content/ModActor.ModActor_C
+
+;PersistentObject is not needed
+;The file name of your persistent object as a relative path from your mod folder
+;PeristentObjectFile=Content/ModInstanceObject.uasset
+;PersistentObjectPath will be build automaticly but you can set your own here
+;PersistentObjectPath=/Game/Mods/ExampleMod/Content/ModInstanceObject.ModInstanceObject_C
 ```
 
 # Overwrite Mods
@@ -39,15 +46,15 @@ ActorFile=Content/ModActor.uasset
 - You want to replace all files off the assets that were also exported(.uasset, .uexp, .ubulk) otherwise it wont work,
 - To generate the files package your uproject and copy the files, if unreal engine wont generate .ubulk files try turning searching for a streaming options for the asset and turn it on
 - Once you have your files packaged it is time to create the mod
-- Create a folder with a mod.ini file then create a seperate folder (name it whatevery you want here it is OverrideContent) and then put your files inside
-- You must always keep the same as in the game, when you want to override a file in ```GFX/Characters/Female/Mature/Materials/BodyMesh.uasset``` you will need to put my asset in ```OverrideContent/GFX/Characters/Female/Mature/Materials/BodyMesh.uasset```
+- Create a folder with a mod.ini file then create a seperate folder (name it whatevery you want here it is OverwriteContent) and then put your files inside
+- You must always keep the same as in the game, when you want to Overwrite a file in ```GFX/Characters/Female/Mature/Materials/BodyMesh.uasset``` you will need to put my asset in ```OverrideContent/GFX/Characters/Female/Mature/Materials/BodyMesh.uasset```
 - Once everything is done copy ```[SteamLibraryFolder]/common/Medieval Dynasty/Medieval_Dynasty/Content/Mods```
 ### Here is the mod.ini structure for your mod to 
 ```
-[Overrides]
+[Overwrites]
 Enable=True
 ;The folder where your stuff is located, mdml will recursivly iterate over it and create links for every file and delete if after closing
-Folder=OverrideContent
+Folder=OverwriteContent
 ```
 
 # Other
@@ -58,16 +65,23 @@ Folder=OverrideContent
 ;The file name of your dll as a relative path from you mod folder
 DLLPath=ExampleMod.dll
 
-;[LogicMod]
-;The name you mod has, make it the same as in your core mod, if you have one
+[LogicMod]
+;The name you mod has, make it the same as in your dll, if you have one
 ModName=ExampleMod
-;The file name of your actor as a relative path from you mod folder
+
+;The file name of your actor as a relative path from your mod folder
 ActorFile=Content/ModActor.uasset
-;ActorPath will be build automaticly but you can set you own here, this will need to be same as in your project
+;ActorPath will be build automaticly but you can set your own here
 ;ActorPath=/Game/Mods/ExampleMod/Content/ModActor.ModActor_C
 
-[Overrides]
+;PersistentObject is not needed
+;The file name of your persistent object as a relative path from your mod folder
+;PeristentObjectFile=Content/ModInstanceObject.uasset
+;PersistentObjectPath will be build automaticly but you can set your own here
+;PersistentObjectPath=/Game/Mods/ExampleMod/Content/ModInstanceObject.ModInstanceObject_C
+
+[Overwrites]
 Enable=True
 ;The folder where your stuff is located, mdml will recursivly iterate over it and create links for every file and delete if after closing
-Folder=OverrideContent
+Folder=OverwriteContent
 ```

@@ -28,7 +28,10 @@ inline T Write(void* address, T buffer)
 	Write(address, &buffer, sizeof(T));
 	return buffer;
 }
-
+template<typename T, typename U> 
+inline constexpr size_t OffsetOfClass(U T::* member) {
+	return (char*)&((T*)nullptr->*member) - (char*)nullptr;
+}
 namespace MEM
 {
 	inline HWND FindWindow(DWORD pid, wchar_t const* className) {

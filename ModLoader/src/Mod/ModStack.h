@@ -60,11 +60,11 @@ public:
         {
             if (ModEvent<_args...>* event = dynamic_cast<ModEvent<_args...>*>(eventIt)) {
                 if (!setCurrentMod(event->getMod()))
-                    return;
+                    continue;
                 
                 try {
                     if (event->dispatch(a...))
-                        return;//event was handled if returned true
+                        break;//event was handled if returned true
                 }
                 catch (std::exception& ex) {
                     Log::Error_MDML("Exception thrown in {0} from mod {1}: {2}", event->getName(), event->getMod()->ModName, ex.what());
@@ -99,7 +99,7 @@ public:
             m_eventList[event->getName()].push_back(event);
     }
     void clearModEvents(const std::string& eventName, Mod* mod);
-    //always sets the Mod::ModRef, if the mod is not found inside m_mods it will return false but event then the modref will be set
+    //always sets the Mod::ModRef, if the mod is not found inside m_mods it will return false but Mod::ModRef will still be set 
     bool setCurrentMod(Mod* mod);
 
     std::vector<Mod*>::iterator begin() { return m_mods.begin(); }

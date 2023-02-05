@@ -2,6 +2,7 @@
 
 #include "Class.h"
 #include "GameInfo.h"
+#include "SDK.h"
 
 
 namespace UE4 {
@@ -236,10 +237,41 @@ namespace UE4 {
 		}
 		return nullptr;
 	}
-
+#ifndef ALWAYS_PROCESS_EVENT_SAVE
 	void UObject::ProcessEvent(class UFunction* function, void* parms) {
 		if (function)
 			return reinterpret_cast<void(*)(UObject*, class UFunction*, void*)>(SDK::SelectedGameProfile.ProcessEvent)(this, function, parms);
+		UE_LOG(LogTemp, Warn, "UObject::ProcessEvent function was nullptr");
+	}
+#endif
+	void UObject::ProcessEvent_Save_impl(UFunction* function, void* parms, bool checkClass, bool checkParamSize, size_t parmsSize) {
+		if (!function) {
+			UE_LOG(LogTemp, Warn, "UObject::ProcessEvent_Save function was nullptr");
+			return;
+		}
+		if (checkClass) {
+			UObject* fOuter = function->GetOuter();
+			if (fOuter == nullptr) {
+				UE_LOG(LogTemp, Warn, "UObject::ProcessEvent_Save {0}.Outer is nullptr", function->GetName());
+				return;
+			}
+			if (!fOuter->IsA(UClass::StaticClass())) {
+				UE_LOG(LogTemp, Warn, "UObject::ProcessEvent_Save {0}.Outer is not a UClass", function->GetName());
+				return;
+			}
+			if (fOuter != this->GetClass()) {
+				UE_LOG(LogTemp, Warn, "UObject::ProcessEvent_Save UClasses did not match\n	This.Class: {0}\n	{2}.Outer: {1}", this->GetClass()->GetName(), fOuter->GetName(), function->GetName());
+				return;
+			}
+		}
+		if (checkParamSize) {
+			if (function->GetParamsSize() != parmsSize) {
+				UE_LOG(LogTemp, Warn, "UObject::ProcessEvent_Save params size did not match of function {0}\n	Expected: {1}\n	Got: {2}", function->GetName(), function->GetParamsSize(), parmsSize);
+				return;
+			}
+		}
+		return reinterpret_cast<void(*)(UObject*, class UFunction*, void*)>(SDK::SelectedGameProfile.ProcessEvent)(this, function, parms);
+
 	}
 
 	UObject* UObject::StaticLoadObject(class UClass* uclass, UObject* InOuter, const wchar_t* InName, const wchar_t* Filename, ELoadFlags LoadFlags, void* Sandbox, bool bAllowObjectReconciliation, const void* InstancingContext)
@@ -290,7 +322,7 @@ namespace UE4 {
 		}
 		else
 		{
-			std::cerr << "StaticConstructObject_Internal Called But Not Found!\n";
+			UE_LOG(LogTemp, Warn, "StaticConstructObject_Internal Called But Not Found!");
 		}
 		return nullptr;
 	}

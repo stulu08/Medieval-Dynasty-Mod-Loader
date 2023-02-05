@@ -6,22 +6,6 @@
 #include <spdlog/fmt/ostr.h>
 #include <spdlog/sinks/basic_file_sink.h>
 
-template<typename T>
-using Ref = std::shared_ptr<T>;
-template<typename T, typename ... Args>
-constexpr Ref<T> createRef(Args&& ... args)
-{
-	return std::make_shared<T>(std::forward<Args>(args)...);
-}
-
-enum class LogLevel {
-	Trace = 0,
-	Info = 2,
-	Warn = 3,
-	Error = 4,
-	Critical = 5,
-};
-
 class LOADER_API Mod;
 class LOADER_API Logger {
 public:

@@ -12,10 +12,10 @@
     <ClInclude Include="src\Defs.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Utils.h">
+    <ClInclude Include="src\GameMod.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\GameMod.h">
+    <ClInclude Include="src\Utils.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

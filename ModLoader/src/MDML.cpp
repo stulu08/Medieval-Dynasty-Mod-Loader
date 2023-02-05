@@ -28,12 +28,12 @@ bool IsDirectX11() {
 
 void MDML::InitGameState(void* Return) {
 	Log::Info_UML("GameStateHook");
+	Global::GetGlobals()->bIsMenuOpen = false;
 
 	if (GameStateClassInitNotRan) {
 		InitCoreMods();
 		GameStateClassInitNotRan = false;
 	}
-
 	CleanUpMods();
 
 	if (SDK::SelectedGameProfile.StaticLoadObject) {
@@ -241,8 +241,8 @@ void MDML::ShutDown() {
 	HooksManager::ShutDown();
 	IsProcessInternalsHooked = false;
 	GameStateClassInitNotRan = true;
-	//SDK::SelectedGameProfile = GameProfile();
-	//fcloseall();
+	SDK::SelectedGameProfile = GameProfile();
+	_fcloseall();
 }
 std::string MDML::FormatPath(const std::filesystem::path& path) {
 	return std::filesystem::relative(path, SDK::SelectedGameProfile.rootGameDir).string();
@@ -292,9 +292,12 @@ bool SetupProfile(const std::string& Path) {
 	}
 	Log::Init(SDK::SelectedGameProfile.LogDir);
 	Log::Info_UML("Loader Created by ~Russell.J Release V {0}", UML_VERSION);
-	Log::Info_MDML("Optmized and edited for Medieval Dynasty by Stulu");
+	Log::Info_MDML("Optimized and edited for Medieval Dynasty by Stulu");
 	Log::Info_MDML("Medieval Dynasty Mod Loader Version {0}", MODLOADER_VERSION);
 	Log::Info_MDML("Medieval Dynasty Version {0}", MEDIEVAL_VERSION);
+
+	MDML::UnrealEngineLoggerInstance = Logger::Create("UE_LOG", Log::getLogFile("UE_LOG-log.txt"));
+	SDK::SelectedGameProfile.UnrealLogger = MDML::UnrealEngineLoggerInstance->getLogger();
 
 	if (LoaderInfo.getAs<int>("DEBUG", "UseDebugUI", 0) == 1) {
 		SDK::SelectedGameProfile.bEnableGUI = IsDirectX11();
@@ -319,7 +322,7 @@ bool SetupProfile(const std::string& Path) {
 
 			}
 			fprintf(file, "; This file stores if the mod loader should disbale file overwriting for specific files\n");
-			fprintf(file, "; The Mod Loader overrides the ue4 file detection(its the simplest way of saying it even if its wrong)\n");
+			fprintf(file, "; The Mod Loader overwrites the ue4 file detection(its the simplest way of saying it even if its wrong)\n");
 			fprintf(file, "; But for loose files the game ships with we want to use the default ue4 way of loading files insted of our own, otherwise the game might crash\n");
 			fprintf(file, "; \n");
 			fprintf(file, "; To enable file overwriding change value to false and to disbale overloading change to true\n");
@@ -374,12 +377,18 @@ bool SetupProfile(const std::string& Path) {
 		std::ifstream file("Profile");
 
 		INI GameInfo(Profile, true);
-		GameInfo.select("Overrides");
-		SDK::SelectedGameProfile.ModOverridesEnabled = GameInfo.getAs<int>("Overrides", "Enabled", 0);
-		SDK::SelectedGameProfile.UseHardLinks = GameInfo.getAs<int>("Overrides", "UseHardLinks", 0);
+		if (GameInfo.select("Overwrites")) {
+			SDK::SelectedGameProfile.ModOverwritesEnabled = GameInfo.getAs<int>("Overwrites", "Enabled", 0);
+			SDK::SelectedGameProfile.UseHardLinks = GameInfo.getAs<int>("Overwrites", "UseHardLinks", 0);
+		}
+		else if (GameInfo.select("Overrides")) {
+			SDK::SelectedGameProfile.ModOverwritesEnabled = GameInfo.getAs<int>("Overrides", "Enabled", 0);
+			SDK::SelectedGameProfile.UseHardLinks = GameInfo.getAs<int>("Overrides", "UseHardLinks", 0);
+		}
+		
 
-		if (SDK::SelectedGameProfile.ModOverridesEnabled) {
-			Log::Info_MDML("Enabled Mod Overrides using {0} links", SDK::SelectedGameProfile.UseHardLinks ? "Hard" : "Sym");
+		if (SDK::SelectedGameProfile.ModOverwritesEnabled) {
+			Log::Info_MDML("Enabled Mod overwrites using {0} links", SDK::SelectedGameProfile.UseHardLinks ? "Hard" : "Sym");
 		}
 
 		GameInfo.select("GameInfo");
@@ -792,26 +801,26 @@ bool SetupProfile(const std::string& Path) {
 			SDK::SelectedGameProfile.StaticConstructObject_Internal = (DWORD64)MEM::GetAddressPTR(StaticConstructObject_Internal, 0x1, 0x5);
 			Log::Info_UML("StaticConstructObject_Internal 0x{0:x}", SDK::SelectedGameProfile.StaticConstructObject_Internal);
 		}
-		if (GameInfo.select("PakOverride")) {
-			SDK::SelectedGameProfile.bPakOverride = GameInfo.getAs<int>("PakOverride", "bPakOverride", 0);
+		if (GameInfo.select("PakOverwrite")) {
+			SDK::SelectedGameProfile.bPakOverride = GameInfo.getAs<int>("PakOverwrite", "bPakOverwrite", 0);
 			if (SDK::SelectedGameProfile.bPakOverride) {
-				if (GameInfo.getAs<int>("PakOverride", "IsFunctionPatterns", 0) == 0)
+				if (GameInfo.getAs<int>("PakOverwrite", "IsFunctionPatterns", 0) == 0)
 				{
-					SDK::SelectedGameProfile.IsNonPakFilenameAllowed = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("PakOverride", "IsNonPakFilenameAllowed", ""));
-					SDK::SelectedGameProfile.FindFileInPakFiles = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("PakOverride", "FindFileInPakFiles", ""));
-					Log::Info_MDML("PakOverride Offsets Set!");
+					SDK::SelectedGameProfile.IsNonPakFilenameAllowed = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("PakOverwrite", "IsNonPakFilenameAllowed", ""));
+					SDK::SelectedGameProfile.FindFileInPakFiles = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("PakOverwrite", "FindFileInPakFiles", ""));
+					Log::Info_MDML("PakOverwrite Offsets Set!");
 				}
 				else
 				{
-					SDK::SelectedGameProfile.IsNonPakFilenameAllowed = (DWORD64)Pattern::Find(GameInfo.get("PakOverride", "IsNonPakFilenameAllowed", "").c_str());
-					SDK::SelectedGameProfile.FindFileInPakFiles = (DWORD64)Pattern::Find(GameInfo.get("PakOverride", "FindFileInPakFiles", "").c_str());
-					Log::Info_MDML("PakOverride Patterns Set!");
+					SDK::SelectedGameProfile.IsNonPakFilenameAllowed = (DWORD64)Pattern::Find(GameInfo.get("PakOverwrite", "IsNonPakFilenameAllowed", "").c_str());
+					SDK::SelectedGameProfile.FindFileInPakFiles = (DWORD64)Pattern::Find(GameInfo.get("PakOverwrite", "FindFileInPakFiles", "").c_str());
+					Log::Info_MDML("PakOverwrite Patterns Set!");
 				}
 			}
 			else {
 				SDK::SelectedGameProfile.IsNonPakFilenameAllowed = (DWORD64)Pattern::Find("48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC 30 48 8B F1 45 33 C0 48 8D 4C 24 ? 4C 8B F2 E8 ? ? ? ? 48 8D 2D ? ? ? ? 83 78 08 00 74 05 48 8B 10 EB 03");
 				SDK::SelectedGameProfile.FindFileInPakFiles = (DWORD64)Pattern::Find("48 8B C4 53 48 83 EC 50 48 89 68 10 48 89 70 18 33 F6 48 89 78 20 48 8B FA 4C 89 60 F0 8B D6 4C 89 68 E8 4D 8B E9 4C 89 78 D8 4C 8B F9 48 89 70 C8 8B CE 89 48 D4 4D 8B E0 89 50 D0 48 8D 6E FF 48 85 FF 74 56 66 39 0F 74 51 48 8B DD 0F 1F 00");
-				Log::Info_MDML("PakOverride Patterns automaticly detected!");
+				Log::Info_MDML("PakOverwrite Patterns automaticly detected!");
 			}
 			Log::Info_MDML("IsNonPakFilenameAllowed: 0x{0:x}", SDK::SelectedGameProfile.IsNonPakFilenameAllowed);
 			if (!SDK::SelectedGameProfile.IsNonPakFilenameAllowed)

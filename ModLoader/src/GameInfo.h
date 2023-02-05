@@ -1,6 +1,8 @@
 #pragma once
 #include "Core.h"
-
+namespace spdlog {
+	class logger;
+}
 struct Offsets {
 	struct {
 		uint16_t Index = 0x0;
@@ -127,7 +129,7 @@ public:
 	DWORD64 StaticConstructObject_Internal = 0x0;
 	bool IsUsingUpdatedStaticConstruct = false;
 
-	bool ModOverridesEnabled = false;
+	bool ModOverwritesEnabled = false;
 	bool UseHardLinks = false;
 
 	DWORD64 CallFunctionByNameWithArguments = 0x0;
@@ -161,6 +163,8 @@ public:
 	std::unordered_map<std::string, bool> disableOverwriteFiles;
 	//where the Engine and Game folder is located with the Manifest_NonUFSFiles_Win64.txt
 	std::string rootGameDir = "";
+
+	Ref<class spdlog::logger> UnrealLogger = nullptr;
 };
 #ifdef DEFINE_SDK_PROFILE_EXPORT
 class __declspec(dllexport) SDK {

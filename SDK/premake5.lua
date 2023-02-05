@@ -16,9 +16,9 @@ project "SDK"
 	}
 	files
 	{
-		"**.h",
-		"**.cpp",
-		"**.hpp",
+		"src/**.h",
+		"src/**.cpp",
+		"src/**.hpp",
 	}
 
 	includedirs
@@ -27,6 +27,7 @@ project "SDK"
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.UE4}",
 		"%{IncludeDir.SDK}",
+		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.MedievalDynasty}",
 	}
 	filter "system:windows"

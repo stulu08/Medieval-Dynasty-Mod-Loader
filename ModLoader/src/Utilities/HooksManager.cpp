@@ -150,7 +150,7 @@ namespace HooksManager
 		Log::Info_UML("MinHook Setup");
 		Log::Info_UML("Loading Mods");
 
-		if(SDK::SelectedGameProfile.ModOverridesEnabled)
+		if(SDK::SelectedGameProfile.ModOverwritesEnabled)
 			ModLoader::CreateSysLinks();
 		else
 			ModLoader::DeleteSysLinks(true);//if there are old files delete them
@@ -158,7 +158,7 @@ namespace HooksManager
 		if (SDK::SelectedGameProfile.bPakOverride) {
 			MinHook::Add(SDK::SelectedGameProfile.FindFileInPakFiles, &HookedFunctions::hookFindFileInPakFiles, &HookedFunctions::origFindFileInPakFiles, "FPakPlatformFile::FindFileInPakFiles");
 			MinHook::Add(SDK::SelectedGameProfile.IsNonPakFilenameAllowed, &HookedFunctions::hookIsNonPakFilenameAllowed, &HookedFunctions::origIsNonPakFilenameAllowed, "FPakPlatformFile::IsNonPakFilenameAllowed");
-			Log::Info_MDML("Pak Overrides loaded");
+			Log::Info_MDML("Pak overwrites loaded");
 		}
 
 		ModLoader::LoadMods();
@@ -184,7 +184,7 @@ namespace HooksManager
 		MinHook::Add(SDK::SelectedGameProfile.ProcessInternals, &HookedFunctions::hookProcessFunction, &HookedFunctions::origProcessFunction, "ProcessBlueprintFunctions");
 	}
 	void ShutDown() {
-		if (SDK::SelectedGameProfile.ModOverridesEnabled)
+		if (SDK::SelectedGameProfile.ModOverwritesEnabled)
 			ModLoader::DeleteSysLinks();
 		MH_DisableHook(MH_ALL_HOOKS);
 		MH_Uninitialize();

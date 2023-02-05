@@ -11,7 +11,8 @@ namespace MDMLBase {
 			ModVersion = "1.0.0";
 			ModDescription = "Base Mod of MDML";
 			ModAuthors = "Stulu";
-			EnabledModEvents = EventsEnabled::All;
+			//enable only InitGameState,BeginPlay and imgui
+			EnabledModEvents = EventsEnabled::EnabledEvents(true, true, false, true, true, true, false, false);
 			CompleteModCreation();
 		}
 		virtual void OnModInitilize() override;
@@ -20,7 +21,7 @@ namespace MDMLBase {
 
 		virtual bool InitGameState() override;
 		virtual bool GameInit() override;
-		virtual bool MenuTick(float deltaTime) override;
+		virtual bool GameTick(float delta) override;
 	public:
 		inline static Mod& Get() { return *s_instance; }
 	private:

@@ -18,3 +18,5 @@
 #include "PC_Player/PC_Player_SDK.h"
 #include "BP_BaseCharacter/BP_BaseCharacter_SDK.h"
 #include "GS_GameState/GS_GameState_SDK.h"
+#include "InventoryComponent/InventoryComponent_SDK.h"
+#include "BPI_Inventory/BPI_Inventory_SDK.h"

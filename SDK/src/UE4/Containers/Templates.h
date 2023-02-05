@@ -1,5 +1,5 @@
 #pragma once
-#include <memory>
+#include "AlignedBytes.h"
 
 namespace UE4 {
 	template<typename KeyType, typename ValueType>
@@ -45,11 +45,5 @@ namespace UE4 {
 
 	public:
 		uint8_t value;
-	};
-
-	template<typename KeyType, typename ValueType>
-	class TMap
-	{
-		//char UnknownData[0x50];
 	};
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include "Templates.h"
 
 namespace UE4 {
 	template<class T>
@@ -44,5 +45,38 @@ namespace UE4 {
 		T* Data;
 		int Count;
 		int Max;
+	};
+
+	struct FSparseArrayAllocationInfo
+	{
+		int32_t Index;
+		void* Pointer;
+	};
+	template<typename ElementType>
+	union TSparseArrayElementOrFreeListLink
+	{
+		ElementType ElementData;
+		struct
+		{
+			int32_t PrevFreeIndex;
+			int32_t NextFreeIndex;
+		};
+	};
+
+	template<typename InElementType>
+	class TSparseArray
+	{
+	public:
+		using ElementType = InElementType;
+		typedef TSparseArrayElementOrFreeListLink<TAlignedBytes<sizeof(ElementType), alignof(ElementType)>> FElementOrFreeListLink;
+		typedef TArray<FElementOrFreeListLink> DataType;
+		//typedef TBitArray<typename Allocator::BitArrayAllocator> AllocationBitArrayType;
+		DataType Data = DataType();
+		//AllocationBitArrayType AllocationFlags;
+		unsigned char AllocationFlags[32] = "";
+		int32_t FirstFreeIndex = -1;
+		int32_t NumFreeIndices = 0;
+
+		int32 Num() const { return Data.Num() - NumFreeIndices; }
 	};
 }

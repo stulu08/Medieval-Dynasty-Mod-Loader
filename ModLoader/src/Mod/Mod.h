@@ -33,9 +33,9 @@ namespace EventsEnabled {
 		bool DX11ResizeBuffers = true;
 
 	};
+	static inline EnabledEvents Default = EnabledEvents();
 	static inline EnabledEvents None = EnabledEvents(false, false, false, false, false, false, false, false);
 	static inline EnabledEvents All = EnabledEvents(true, true, true, true, true, true, true, true);
-	static inline EnabledEvents Default = EnabledEvents();
 	static inline EnabledEvents EngineOnly = EnabledEvents(true, true, true, true, false, false, false, false);
 	static inline EnabledEvents GuiOnly = EnabledEvents(false, false, false, false, true, true, false, false);
 	static inline EnabledEvents DXOnly = EnabledEvents(false, false, false, false, false, false, true, true);

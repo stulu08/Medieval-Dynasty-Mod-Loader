@@ -2,7 +2,7 @@
 #include "CoreUObject/Class.h"
 
 namespace UE4 {
-	class UUserDefinedStruct : public UStruct
+	class UUserDefinedStruct : public UScriptStruct
 	{
 	public:
 		static UClass* StaticClass()

@@ -56,18 +56,22 @@ namespace ModLoader
 			CloseHandle(hProc);
 		}
 	}
-	void LoadLogicMod(std::string modName, const std::filesystem::path& Actor, const std::string& ActorPath) {
+	void LoadLogicMod(std::string modName, const std::filesystem::path& Actor, const std::string& ActorPath, const std::filesystem::path& PeristentObject, const std::string& PersintentObjectPath) {
 		if (!std::filesystem::exists(Actor)) {
 			Log::Warn_MDML("Could not find: {0}", Actor.string());
 			return;
 		}
+		
 		std::string actorFileName = Actor.filename().string();
 		std::string actorName = actorFileName.substr(0, actorFileName.find_last_of("."));
-		std::string Path = ActorPath;
+		std::string APath = ActorPath;
 		if (ActorPath.empty()) {
 			std::filesystem::path relpath = std::filesystem::relative(Actor.parent_path(), Mod::GetModsFolder());
-			Path = "/Game/Mods/" + relpath.string() + "/" + actorName + "." + actorName + "_C";
+			APath = "/Game/Mods/" + relpath.string() + "/" + actorName + "." + actorName + "_C";
 		}
+		
+
+
 		ModInfo CurrentMod = ModInfo();
 
 		CurrentMod.ModName = std::wstring(modName.length(), 0);
@@ -76,17 +80,44 @@ namespace ModLoader
 		CurrentMod.ActorName = std::wstring(actorName.length(), 0);
 		std::transform(actorName.begin(), actorName.end(), CurrentMod.ActorName.begin(), [](char c) -> wchar_t { return (wchar_t)c; });
 
-		CurrentMod.ActorPath = std::wstring(Path.length(), 0);
-		std::transform(Path.begin(), Path.end(), CurrentMod.ActorPath.begin(), [](char c) -> wchar_t {
+		CurrentMod.ActorPath = std::wstring(APath.length(), 0);
+		std::transform(APath.begin(), APath.end(), CurrentMod.ActorPath.begin(), [](char c) -> wchar_t {
 			//when we are here we can also repair the path
 			if (c == '\\')
 				return L'/';
 			return (wchar_t)c; 
 			});
+		Log::Info_MDML("Registered Mod Actor {1} for {0}", modName, APath);
+
+		if (!PeristentObject.string().empty()) {
+			if (!std::filesystem::exists(PeristentObject)) {
+				Log::Warn_MDML("Could not find: {0}", PeristentObject.string());
+				return;
+			}
+			std::string persistentFileName = PeristentObject.filename().string();
+			std::string persistentName = persistentFileName.substr(0, persistentFileName.find_last_of("."));
+			std::string PPath = PersintentObjectPath;
+			if (PersintentObjectPath.empty()) {
+				std::filesystem::path relpath = std::filesystem::relative(PeristentObject.parent_path(), Mod::GetModsFolder());
+				PPath = "/Game/Mods/" + relpath.string() + "/" + persistentName + "." + persistentName + "_C";
+			}
+
+			CurrentMod.PersistentObjectName = std::wstring(persistentName.length(), 0);
+			std::transform(persistentName.begin(), persistentName.end(), CurrentMod.PersistentObjectName.begin(), [](char c) -> wchar_t { return (wchar_t)c; });
+
+			CurrentMod.PersistentObjectPath = std::wstring(PPath.length(), 0);
+			std::transform(PPath.begin(), PPath.end(), CurrentMod.PersistentObjectPath.begin(), [](char c) -> wchar_t {
+				//when we are here we can also repair the path
+				if (c == '\\')
+				return L'/';
+			return (wchar_t)c;
+				});
+			Log::Info_MDML("Registered Persistent Mod Object {1} for {0}", modName, PPath);
+		}
+		
 
 		CurrentMod.IsEnabled = true;
 
-		Log::Info_MDML("Registered Mod Actor {1} for {0}", modName, Path);
 		Global::GetGlobals()->ModInfoList.push_back(CurrentMod);
 	}
 	void LoadMods()
@@ -164,12 +195,14 @@ namespace ModLoader
 					
 					if (LoaderInfo.select("LogicMod")) {
 
-						auto actorFile = dirPath + "/" + LoaderInfo.get("ActorFile", "");
 						auto modName = LoaderInfo.get("ModName", dirName);
+						auto actorFile = dirPath + "/" + LoaderInfo.get("ActorFile", "");
 						auto actorPath = LoaderInfo.get("ActorPath", "");
+						auto PeristentObjectFile = dirPath + "/" + LoaderInfo.get("PeristentObjectFile", "");
+						auto PersistentObjectPath = LoaderInfo.get("PersistentObjectPath", "");
 
 						if (!actorFile.empty()) {
-							LoadLogicMod(modName, actorFile, actorPath);
+							LoadLogicMod(modName, actorFile, actorPath, PeristentObjectFile, PersistentObjectPath);
 						}
 						else
 							Log::Info_MDML("No actor found for {0}", modName);
@@ -198,7 +231,7 @@ namespace ModLoader
 					INI::PARSE_FLAGS = INI::PARSE_COMMENTS_ALL | INI::PARSE_COMMENTS_SLASH | INI::PARSE_COMMENTS_HASH;
 					INI LoaderInfo(iniPath.string(), true);
 
-					if (LoaderInfo.select("Overrides")) {
+					if (LoaderInfo.select("Overwrites") || LoaderInfo.select("Overrides")) {
 						std::string enabled = LoaderInfo.get("Enable", "False");
 						OverwriteMod oMod;
 						oMod.Name = LoaderInfo.get("Name", "Uknown");
@@ -222,16 +255,16 @@ namespace ModLoader
 								auto relPath = std::filesystem::relative(path, folderPath);
 								auto target = std::filesystem::path(Mod::GetContentFolder() + "\\" + relPath.string());
 								if(std::filesystem::exists(target)) {
-									Log::Warn_MDML("Skipping file linking {0}, target exists already", MDML::FormatPath(path));
-									continue;
+									Log::Warn_MDML("Deleting existing file {0}", MDML::FormatPath(path));
+									std::filesystem::remove(target);
 								}
 								if (!std::filesystem::exists(target.parent_path()))
 									std::filesystem::create_directories(target.parent_path());
+
 								if (SDK::SelectedGameProfile.UseHardLinks)
 									std::filesystem::create_hard_link(path, target);
 								else
 									std::filesystem::create_symlink(path, target);
-
 								//formating this doesnt work cause it inserts the mod folder, and i dont know why
 								Log::Trace_MDML("Created link to {0}", target.string());
 								paths.push_back(target.string());
@@ -269,23 +302,28 @@ namespace ModLoader
 			if (!std::filesystem::exists(line)) {
 				if (!isOld)
 					Log::Warn_MDML("Cant delete file link {0}, link does not exist", MDML::FormatPath(line));
-				else
-					Log::Warn_MDML("Cant delete old file link {0}, link does not exist", MDML::FormatPath(line));
 				continue;
 			}
-			if (!SDK::SelectedGameProfile.UseHardLinks && !std::filesystem::directory_entry(line).is_symlink()) {
+			if (!isOld) {
+				if (!SDK::SelectedGameProfile.UseHardLinks && !std::filesystem::directory_entry(line).is_symlink()) {
+					Log::Warn_MDML("Cant delete file link {0}, it is not a symlink", MDML::FormatPath(line));
+					continue;
+				}
+			}
+			if (std::filesystem::remove(line)) {
 				if (!isOld)
-					Log::Warn_MDML("Cant delete file link {0}, it is not a link", MDML::FormatPath(line));
+					Log::Trace_MDML("Deleted file link {0}", MDML::FormatPath(line));
 				else
-					Log::Warn_MDML("Cant delete old file link {0}, it is not a link", MDML::FormatPath(line));
-				continue;
+					Log::Warn_MDML("Deleted old file link {0}", MDML::FormatPath(line));
+				count++;
 			}
-			std::filesystem::remove(line);
-			if (!isOld)
-				Log::Trace_MDML("Deleted file link {0}", MDML::FormatPath(line));
-			else
-				Log::Warn_MDML("Deleted old file link {0}", MDML::FormatPath(line));
-			count++;
+			else {
+				if (!isOld)
+					Log::Error_MDML("Could not deleted file link {0}", MDML::FormatPath(line));
+				else
+					Log::Error_MDML("Could not deleted old file link {0}", MDML::FormatPath(line));
+			}
+			
 		}
 		stream.close();
 		std::filesystem::remove(SDK::SelectedGameProfile.HardLinksFile);

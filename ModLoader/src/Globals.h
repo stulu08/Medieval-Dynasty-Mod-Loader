@@ -8,12 +8,17 @@ struct ModInfo
 {
 	// BaseMod
 	std::wstring ModName;
+
 	// ModActor
 	std::wstring ActorName;
 	// /Game/Mods/BaseMod/ModActor.ModActor_C
 	std::wstring ActorPath;
+
+	// ModInstanceObject
+	std::wstring PersistentObjectName;
 	// /Game/Mods/BaseMod/ModInstanceObject.ModInstanceObject
 	std::wstring PersistentObjectPath;
+
 	std::string ModAuthor = "Unknown Author";
 	std::string ModDescription = "No Description";
 	std::string ModVersion = "Unknown Version";

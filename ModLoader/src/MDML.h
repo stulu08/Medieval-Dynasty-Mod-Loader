@@ -42,6 +42,7 @@ public:
 
 	static inline bool IsProcessInternalsHooked = false;
 	static inline bool GameStateClassInitNotRan = true;
+	static inline Ref<Logger> UnrealEngineLoggerInstance = nullptr;
 };
 
 namespace UE4 {

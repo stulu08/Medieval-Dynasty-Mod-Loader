@@ -1163,18 +1163,20 @@ void AGM_MedievalDynasty_C::ExecuteUbergraph_GM_MedievalDynasty(int32_t EntryPoi
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
 /////////////////////////////////////////////
-//void AGM_MedievalDynasty_C::TryToAddAchievement() {
-//	static auto fn = UObject::FindObject<UFunction>("Function GM_MedievalDynasty.GM_MedievalDynasty_C.TryToAddAchievement");
-//
-//	struct AGM_MedievalDynasty_C_TryToAddAchievement_Params {
-//	};
-//	AGM_MedievalDynasty_C_TryToAddAchievement_Params params;
-//
-//	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-//	UObject::ProcessEvent(fn, &params);
-//	fn->SetFunctionFlags((EFunctionFlags)flags);
-//
-//}
+void AGM_MedievalDynasty_C::TryToAddAchievement() {
+	static auto fn = UObject::FindObject<UFunction>("Function GM_MedievalDynasty.GM_MedievalDynasty_C.TryToAddAchievement");
+	while (true) {
+		UE_LOG(TempLog, Critical, "Look what's there, a loser trying to unlock achievements using cheats")
+	}
+	struct AGM_MedievalDynasty_C_TryToAddAchievement_Params {
+	};
+	AGM_MedievalDynasty_C_TryToAddAchievement_Params params;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	UObject::ProcessEvent(fn, &params);
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+}
 // If you see this fuck you, achievements are something you earn and you are not supposed to just cheat them
 ///////////////////////////////////////////////
 //// Function GM_MedievalDynasty.GM_MedievalDynasty_C.GiveAchievement
@@ -1182,20 +1184,22 @@ void AGM_MedievalDynasty_C::ExecuteUbergraph_GM_MedievalDynasty(int32_t EntryPoi
 //// Params:
 //// Name: AchID	Type: struct FName	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 ///////////////////////////////////////////////
-//void AGM_MedievalDynasty_C::GiveAchievement(const struct FName& AchID) {
-//	static auto fn = UObject::FindObject<UFunction>("Function GM_MedievalDynasty.GM_MedievalDynasty_C.GiveAchievement");
-//
-//	struct AGM_MedievalDynasty_C_GiveAchievement_Params {
-//		struct FName AchID;			//Offset: 0 | ElementSize: 8
-//	};
-//	AGM_MedievalDynasty_C_GiveAchievement_Params params;
-//	params.AchID = AchID;
-//
-//	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-//	UObject::ProcessEvent(fn, &params);
-//	fn->SetFunctionFlags((EFunctionFlags)flags);
-//
-//}
+void AGM_MedievalDynasty_C::GiveAchievement(const struct FName& AchID) {
+	static auto fn = UObject::FindObject<UFunction>("Function GM_MedievalDynasty.GM_MedievalDynasty_C.GiveAchievement");
+	while (true) {
+		UE_LOG(TempLog, Critical, "Look what's there, a loser trying to unlock achievements using cheats")
+	}
+	struct AGM_MedievalDynasty_C_GiveAchievement_Params {
+		struct FName AchID;			//Offset: 0 | ElementSize: 8
+	};
+	AGM_MedievalDynasty_C_GiveAchievement_Params params;
+	params.AchID = AchID;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	UObject::ProcessEvent(fn, &params);
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+}
 
 /////////////////////////////////////////////
 // Function GM_MedievalDynasty.GM_MedievalDynasty_C.BPI_OnQuitGame
@@ -1319,7 +1323,9 @@ void AGM_MedievalDynasty_C::AddStatProgress(struct FName StatName, int32_t StatV
 /////////////////////////////////////////////
 void AGM_MedievalDynasty_C::UnlockAchievement(struct FName AchievementID) {
 	static auto fn = UObject::FindObject<UFunction>("Function GM_MedievalDynasty.GM_MedievalDynasty_C.UnlockAchievement");
-
+	while (true) {
+		UE_LOG(TempLog, Critical, "Look what's there, a loser trying to unlock achievements using cheats")
+	}
 	struct AGM_MedievalDynasty_C_UnlockAchievement_Params {
 		struct FName AchievementID;			//Offset: 0 | ElementSize: 8
 	};

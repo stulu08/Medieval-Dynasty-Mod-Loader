@@ -15,65 +15,63 @@ BPFUNCTION(WriteToFile)
 	stack->SetOutput<bool>("ReturnValue", true);
 }
 
-// Only Called Once, if you need to hook stuff, declare some global non changing values
-void ExampleMod::InitializeMod()
-{
-	UE4::InitSDK();
-	//Specify what events you should receive
-	SetupHooks(EventsEnabled::GuiOnly);
+void ExampleMod::OnModInitilize() {
 	REGISTER_FUNCTION(WriteToFile);
 	//if you want to name them on your own do this
 	//REGISTER_FUNCTION_NAMED(WriteToFile, "WriteToFile");
 
 	//MinHook::Init(); //Uncomment if you plan to do hooks
-
-	UseMenuButton = true; // Allows Mod Loader To Show Button
+	UseMenuButton = true; // Allows Mod Loader To Show a Button, if pressed OnModMenuButtonPressed will be called
 }
 
-void ExampleMod::InitGameState() {
-	//Log::Info_MDML("Mod path is: {0}", GetFolder());
-}
-
-void ExampleMod::BeginPlay(UE4::AActor* Actor) {
-	
-}
-
-void ExampleMod::PostBeginPlay(std::wstring ModActorName, UE4::AActor* Actor)
+bool ExampleMod::MenuBeginPlay(UE4::AActor* Actor)
 {
-	// Filters Out All Mod Actors Not Related To Your Mod
-	std::wstring TmpModName(ModName.begin(), ModName.end());
-	if (ModActorName == TmpModName)
-	{
-		//Sets ModActor Ref
-		ModActor = Actor;
-	}
-	
-
+	return false;
 }
 
-void ExampleMod::DX11Present(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, ID3D11RenderTargetView* pRenderTargetView) {
-	
+bool ExampleMod::GameLoadingBeginPlay(UE4::AActor* Actor)
+{
+	return false;
 }
 
-void ExampleMod::DX11ResizeBuffers(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, UINT Width, UINT Height, DXGI_FORMAT NewFormat, UINT SwapChainFlags){
+bool ExampleMod::GameBeginPlay(UE4::AActor* Actor)
+{
+	return false;
 }
 
+bool ExampleMod::MenuTick(float deltaTime)
+{
+	return false;
+}
+
+bool ExampleMod::GameTick(float deltaTime)
+{
+	return false;
+}
+
+bool ExampleMod::MenuInit()
+{
+	return false;
+}
+
+bool ExampleMod::GameInit()
+{
+	return false;
+}
+
+static bool showWindow = true;
 void ExampleMod::OnModMenuButtonPressed() {
-	m_showWindow = !m_showWindow;
+	showWindow = !showWindow;
 }
 
-void ExampleMod::DrawImGui() {
-	if (m_showWindow) {
-		if (ImGui::Begin("Theme Changed", &m_showWindow)) {
+bool ExampleMod::DrawImGui() {
+	if (showWindow) {
+		if (ImGui::Begin("Theme Changed", &showWindow)) {
 			static int currentTheme = 0;
 			if (ImGui::MDML_Combo("Color Theme", currentTheme, {"PhotoshopDark", "Dark", "AmoledDark", "OceanDark", "ImGuiClassic", "ImGuiDark", "ImGuiLight"}))
 				LoaderUI::setColorTheme((ImGuiColorTheme)currentTheme);
 		}
 		ImGui::End();
 	}
-	
-}
-
-void ExampleMod::SetupImGui(ImGuiIO& io) {
-
+	return false;
 }

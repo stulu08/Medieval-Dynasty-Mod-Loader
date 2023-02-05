@@ -4,6 +4,9 @@
     <Filter Include="Medieval_Dynasty">
       <UniqueIdentifier>{77AE6B3E-63A7-8A90-8CD9-6F1578316A9C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Medieval_Dynasty\BPI_Inventory">
+      <UniqueIdentifier>{CEB8EA65-BADE-B4CC-A324-3A988FE9D998}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Medieval_Dynasty\BPI_PC_Player">
       <UniqueIdentifier>{1FD09CCA-0BF6-6631-F43B-ECFCE0008CFD}</UniqueIdentifier>
     </Filter>
@@ -30,6 +33,9 @@
     </Filter>
     <Filter Include="Medieval_Dynasty\GS_GameState">
       <UniqueIdentifier>{BA9BF6B4-26B4-DDDE-EF60-6D785B387278}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medieval_Dynasty\InventoryComponent">
+      <UniqueIdentifier>{47EF739D-B3A8-DE47-3C08-F921A8C094B7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Medieval_Dynasty\Medieval_Dynasty">
       <UniqueIdentifier>{F8F8E76F-6467-3DEF-AD50-F8EE19FE328B}</UniqueIdentifier>
@@ -87,6 +93,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Medieval_Dynasty\BPI_Inventory\BPI_Inventory_C.h">
+      <Filter>Medieval_Dynasty\BPI_Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BPI_Inventory\BPI_Inventory_SDK.h">
+      <Filter>Medieval_Dynasty\BPI_Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BPI_Inventory\Structs.h">
+      <Filter>Medieval_Dynasty\BPI_Inventory</Filter>
+    </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\BPI_PC_Player\BPI_PC_Player_C.h">
       <Filter>Medieval_Dynasty\BPI_PC_Player</Filter>
     </ClInclude>
@@ -170,6 +185,15 @@
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\GS_GameState\Structs.h">
       <Filter>Medieval_Dynasty\GS_GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\InventoryComponent\InventoryComponent_C.h">
+      <Filter>Medieval_Dynasty\InventoryComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\InventoryComponent\InventoryComponent_SDK.h">
+      <Filter>Medieval_Dynasty\InventoryComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\InventoryComponent\Structs.h">
+      <Filter>Medieval_Dynasty\InventoryComponent</Filter>
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppActivity.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
@@ -257,10 +281,19 @@
     <ClInclude Include="src\UE4\Chaos\Structs.h">
       <Filter>UE4\Chaos</Filter>
     </ClInclude>
+    <ClInclude Include="src\UE4\Containers\AlignedBytes.h">
+      <Filter>UE4\Containers</Filter>
+    </ClInclude>
     <ClInclude Include="src\UE4\Containers\Array.h">
       <Filter>UE4\Containers</Filter>
     </ClInclude>
+    <ClInclude Include="src\UE4\Containers\Map.h">
+      <Filter>UE4\Containers</Filter>
+    </ClInclude>
     <ClInclude Include="src\UE4\Containers\Pointers.h">
+      <Filter>UE4\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Containers\Set.h">
       <Filter>UE4\Containers</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Containers\String.h">
@@ -416,103 +449,10 @@
     <ClInclude Include="src\UE4\MovieScene\MovieScene.h">
       <Filter>UE4\MovieScene</Filter>
     </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneBindingOverrides.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneBindingOwnerInterface.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneBlenderSystem.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneBoolSection.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneBoundSceneComponentInstantiator.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneBuiltInEasingFunction.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneCachePreAnimatedStateSystem.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneCompiledData.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneCompiledDataManager.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneCustomClockSource.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneDeterminismSource.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneEasingExternalCurve.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneEasingFunction.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneEntityInstantiatorSystem.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneEntityProvider.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
     <ClInclude Include="src\UE4\MovieScene\MovieSceneEntitySystem.h">
       <Filter>UE4\MovieScene</Filter>
     </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneEntitySystemLinker.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneEvalTimeSystem.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneEvaluationHook.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneEvaluationHookSystem.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneFloatDecomposer.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneFolder.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneGenericBoundObjectInstantiator.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneHookSection.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneKeyProxy.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneMasterInstantiatorSystem.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
     <ClInclude Include="src\UE4\MovieScene\MovieSceneNameableTrack.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneNodeGroup.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneNodeGroupCollection.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieScenePlaybackClient.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieScenePreAnimatedStateSystemInterface.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneRestorePreAnimatedStateSystem.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneSceneComponentImpersonator.h">
       <Filter>UE4\MovieScene</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\MovieScene\MovieSceneSection.h">
@@ -521,349 +461,19 @@
     <ClInclude Include="src\UE4\MovieScene\MovieSceneSequence.h">
       <Filter>UE4\MovieScene</Filter>
     </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneSequenceActor.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneSequencePlayer.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneSequenceTickManager.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
     <ClInclude Include="src\UE4\MovieScene\MovieSceneSignedObject.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneSpawnSection.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneSpawnTrack.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneSpawnablesSystem.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneSubSection.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneSubTrack.h">
       <Filter>UE4\MovieScene</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\MovieScene\MovieSceneTrack.h">
       <Filter>UE4\MovieScene</Filter>
     </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneTrackInstance.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneTrackInstanceInstantiator.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneTrackInstanceSystem.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\MovieSceneTrackTemplateProducer.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
     <ClInclude Include="src\UE4\MovieScene\MovieScene_SDK.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\NodeAndChannelMappings.h">
       <Filter>UE4\MovieScene</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\MovieScene\Structs.h">
       <Filter>UE4\MovieScene</Filter>
     </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\TestMovieSceneEvalHookSection.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\TestMovieSceneEvalHookTrack.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\TestMovieSceneSection.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\TestMovieSceneSequence.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\TestMovieSceneSubSection.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\TestMovieSceneSubTrack.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieScene\TestMovieSceneTrack.h">
-      <Filter>UE4\MovieScene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\ByteChannelEvaluatorSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\FloatChannelEvaluatorSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\IntegerChannelEvaluatorSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DAttachSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DAttachTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DConstraintSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DConstraintTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DPathSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DPathTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DTransformPropertySystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DTransformSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScene3DTransformTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneActorReferenceSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneActorReferenceTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneAudioSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneAudioTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneBaseValueEvaluatorSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneBoolPropertySystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneBoolTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneBytePropertySystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneByteSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneByteTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraAnimSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraAnimTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraCutSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraCutTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraCutTrackInstance.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeEvaluator.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSourceShakeSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSourceShakeTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSourceTriggerSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSourceTriggerTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCinematicShotSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneCinematicShotTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneColorPropertySystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneColorSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneColorTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneComponentAttachmentInvalidatorSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneComponentAttachmentSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneComponentMaterialTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneComponentMobilitySystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneComponentTransformSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneDeferredComponentMovementSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEnumPropertySystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEnumSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEnumTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEulerTransformPropertySystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEulerTransformTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEventRepeaterSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEventSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEventSectionBase.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEventSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEventTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneEventTriggerSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneFadeSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneFadeTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneFloatPropertySystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneFloatSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneFloatTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneHierarchicalBiasSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneHierarchicalEasingInstantiatorSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneInitialValueSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneIntegerPropertySystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneIntegerSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneIntegerTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneInterrogatedPropertyInstantiatorSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneLevelVisibilitySection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneLevelVisibilitySystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneLevelVisibilityTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneMaterialParameterCollectionTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
     <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneMaterialTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneMotionVectorSimulationSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneObjectPropertySection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneObjectPropertyTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneParameterSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneParticleParameterTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneParticleSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneParticleTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseBoolBlenderSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseByteBlenderSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseEnumBlenderSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseFloatBlenderSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseIntegerBlenderSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePostEvalEventSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePostSpawnEventSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePreSpawnEventSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePrimitiveMaterialSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePrimitiveMaterialTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePropertyInstantiatorSystem.h">
       <Filter>UE4\MovieSceneTracks</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePropertySystem.h">
@@ -872,55 +482,10 @@
     <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePropertyTrack.h">
       <Filter>UE4\MovieSceneTracks</Filter>
     </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneQuaternionInterpolationRotationSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneSkeletalAnimationSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneSkeletalAnimationTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneSlomoSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneSlomoTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneStringSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneStringTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
     <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneTracks_SDK.h">
       <Filter>UE4\MovieSceneTracks</Filter>
     </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneTransformOrigin.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneTransformOriginSystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneTransformTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneVectorPropertySystem.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneVectorSection.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneVectorTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneVisibilityTrack.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
     <ClInclude Include="src\UE4\MovieSceneTracks\Structs.h">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UE4\MovieSceneTracks\WeightAndEasingEvaluatorSystem.h">
       <Filter>UE4\MovieSceneTracks</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\PhysicsCore\BodySetupCore.h">
@@ -1370,8 +935,14 @@
     <ClInclude Include="src\UE4\UMG\WrapBoxSlot.h">
       <Filter>UE4\UMG</Filter>
     </ClInclude>
+    <ClInclude Include="src\UE4\UE_LOG.h">
+      <Filter>UE4</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Medieval_Dynasty\BPI_Inventory\BPI_Inventory_C.cpp">
+      <Filter>Medieval_Dynasty\BPI_Inventory</Filter>
+    </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\BPI_PC_Player\BPI_PC_Player_C.cpp">
       <Filter>Medieval_Dynasty\BPI_PC_Player</Filter>
     </ClCompile>
@@ -1395,6 +966,9 @@
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\GS_GameState\GS_GameState_C.cpp">
       <Filter>Medieval_Dynasty\GS_GameState</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\InventoryComponent\InventoryComponent_C.cpp">
+      <Filter>Medieval_Dynasty\InventoryComponent</Filter>
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppActivity.cpp">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
@@ -1514,103 +1088,10 @@
     <ClCompile Include="src\UE4\MovieScene\MovieScene.cpp">
       <Filter>UE4\MovieScene</Filter>
     </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneBindingOverrides.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneBindingOwnerInterface.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneBlenderSystem.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneBoolSection.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneBoundSceneComponentInstantiator.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneBuiltInEasingFunction.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneCachePreAnimatedStateSystem.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneCompiledData.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneCompiledDataManager.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneCustomClockSource.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneDeterminismSource.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneEasingExternalCurve.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneEasingFunction.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneEntityInstantiatorSystem.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneEntityProvider.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
     <ClCompile Include="src\UE4\MovieScene\MovieSceneEntitySystem.cpp">
       <Filter>UE4\MovieScene</Filter>
     </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneEntitySystemLinker.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneEvalTimeSystem.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneEvaluationHook.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneEvaluationHookSystem.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneFloatDecomposer.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneFolder.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneGenericBoundObjectInstantiator.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneHookSection.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneKeyProxy.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneMasterInstantiatorSystem.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
     <ClCompile Include="src\UE4\MovieScene\MovieSceneNameableTrack.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneNodeGroup.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneNodeGroupCollection.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieScenePlaybackClient.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieScenePreAnimatedStateSystemInterface.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneRestorePreAnimatedStateSystem.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneSceneComponentImpersonator.cpp">
       <Filter>UE4\MovieScene</Filter>
     </ClCompile>
     <ClCompile Include="src\UE4\MovieScene\MovieSceneSection.cpp">
@@ -1619,394 +1100,19 @@
     <ClCompile Include="src\UE4\MovieScene\MovieSceneSequence.cpp">
       <Filter>UE4\MovieScene</Filter>
     </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneSequenceActor.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneSequencePlayer.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneSequenceTickManager.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
     <ClCompile Include="src\UE4\MovieScene\MovieSceneSignedObject.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneSpawnSection.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneSpawnTrack.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneSpawnablesSystem.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneSubSection.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneSubTrack.cpp">
       <Filter>UE4\MovieScene</Filter>
     </ClCompile>
     <ClCompile Include="src\UE4\MovieScene\MovieSceneTrack.cpp">
       <Filter>UE4\MovieScene</Filter>
     </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneTrackInstance.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneTrackInstanceInstantiator.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneTrackInstanceSystem.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\MovieSceneTrackTemplateProducer.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\NodeAndChannelMappings.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\TestMovieSceneEvalHookSection.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\TestMovieSceneEvalHookTrack.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\TestMovieSceneSection.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\TestMovieSceneSequence.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\TestMovieSceneSubSection.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\TestMovieSceneSubTrack.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieScene\TestMovieSceneTrack.cpp">
-      <Filter>UE4\MovieScene</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\ByteChannelEvaluatorSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\FloatChannelEvaluatorSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\IntegerChannelEvaluatorSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DAttachSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DAttachTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DConstraintSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DConstraintTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DPathSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DPathTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DTransformPropertySystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DTransformSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScene3DTransformTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneActorReferenceSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneActorReferenceTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneAudioSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneAudioTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneBaseValueEvaluatorSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneBoolPropertySystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneBoolTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneBytePropertySystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneByteSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneByteTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraAnimSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraAnimTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraCutSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraCutTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraCutTrackInstance.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeEvaluator.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSourceShakeSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSourceShakeTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSourceTriggerSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeSourceTriggerTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCameraShakeTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCinematicShotSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneCinematicShotTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneColorPropertySystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneColorSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneColorTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneComponentAttachmentInvalidatorSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneComponentAttachmentSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneComponentMaterialTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneComponentMobilitySystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneComponentTransformSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneDeferredComponentMovementSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEnumPropertySystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEnumSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEnumTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEulerTransformPropertySystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEulerTransformTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEventRepeaterSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEventSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEventSectionBase.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEventSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEventTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneEventTriggerSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneFadeSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneFadeTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneFloatPropertySystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneFloatSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneFloatTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneHierarchicalBiasSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneHierarchicalEasingInstantiatorSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneInitialValueSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneIntegerPropertySystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneIntegerSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneIntegerTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneInterrogatedPropertyInstantiatorSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneLevelVisibilitySection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneLevelVisibilitySystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneLevelVisibilityTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneMaterialParameterCollectionTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
     <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneMaterialTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneMotionVectorSimulationSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneObjectPropertySection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneObjectPropertyTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneParameterSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneParticleParameterTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneParticleSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneParticleTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseBoolBlenderSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseByteBlenderSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseEnumBlenderSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseFloatBlenderSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePiecewiseIntegerBlenderSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePostEvalEventSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePostSpawnEventSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePreSpawnEventSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePrimitiveMaterialSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePrimitiveMaterialTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePropertyInstantiatorSystem.cpp">
       <Filter>UE4\MovieSceneTracks</Filter>
     </ClCompile>
     <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePropertySystem.cpp">
       <Filter>UE4\MovieSceneTracks</Filter>
     </ClCompile>
     <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePropertyTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneQuaternionInterpolationRotationSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneSkeletalAnimationSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneSkeletalAnimationTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneSlomoSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneSlomoTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneStringSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneStringTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneTransformOrigin.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneTransformOriginSystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneTransformTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneVectorPropertySystem.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneVectorSection.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneVectorTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneVisibilityTrack.cpp">
-      <Filter>UE4\MovieSceneTracks</Filter>
-    </ClCompile>
-    <ClCompile Include="src\UE4\MovieSceneTracks\WeightAndEasingEvaluatorSystem.cpp">
       <Filter>UE4\MovieSceneTracks</Filter>
     </ClCompile>
     <ClCompile Include="src\UE4\PhysicsCore\BodySetupCore.cpp">

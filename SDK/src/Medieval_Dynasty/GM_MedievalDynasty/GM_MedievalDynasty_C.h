@@ -537,9 +537,9 @@ public:
 #pragma region Functions
 	void ExecuteUbergraph_GM_MedievalDynasty(int32_t EntryPoint);
 	
-	//void TryToAddAchievement();
-	//
-	//void GiveAchievement(const struct FName& AchID);
+	void TryToAddAchievement();
+	
+	void GiveAchievement(const struct FName& AchID);
 
 	void BPI_OnQuitGame();
 

@@ -3,6 +3,10 @@
 #include <Mod/Mod.h>
 
 namespace Utils {
+	template<typename T, typename U> constexpr size_t offsetOfClass(U T::* member) {
+		return (char*)&((T*)nullptr->*member) - (char*)nullptr;
+	}
+
 	inline void ReplaceString(std::string& originalString, const std::string& stringToReplace, const std::string& replacementString) {
 			size_t index = 0;
 			while ((index = originalString.find(stringToReplace, index)) != std::string::npos)
@@ -316,6 +320,21 @@ namespace Utils {
 				std::string cppType = prop->GetCppTypeName();
 				std::string name = NameValidator::MakeValidName(prop->GetName());
 
+				//remove the id stuff at end
+				//Name_63_2D0C87BC4552A1931DB5CB8F9E366663
+				if (ustruct->IsA(UE4::UUserDefinedStruct::StaticClass()) && std::count(name.begin(), name.end(), '_') >= 2) {
+					size_t last = name.find_last_of('_');
+					if ((name.size() - (last + 1)) == 32) {
+						//remove _2D0C87BC4552A1931DB5CB8F9E366663
+						name = name.erase(last);
+						//remove the remaining _63
+						last = name.find_last_of('_');
+						if (last != name.npos) {
+							name = name.erase(last);
+						}
+					}
+				}
+
 				counter[name]++;
 				if (counter[name] > 1) {
 					name += "_" + std::to_string(counter[name]);
@@ -506,8 +525,9 @@ namespace Utils {
 					body += "	params." + p.name + " = " + p.name + ";\n";
 			}
 
-			body += "\n	uint32_t flags = (uint32_t)fn->GetFunctionFlags();\n";
+			body += "\n";
 			if (isNativ) {
+				body += "	uint32_t flags = (uint32_t)fn->GetFunctionFlags();\n";
 				body += "	uint32_t newFlags = flags;\n";
 				body += "	newFlags |= 0x00000400;\n";
 				body += "	fn->SetFunctionFlags((EFunctionFlags)newFlags);\n\n";
@@ -519,7 +539,9 @@ namespace Utils {
 				body += "	static auto Obj = StaticClass()->CreateDefaultObject();\n";
 				body += "	Obj->ProcessEvent(fn, &params);\n\n";
 			}
-			body += "	fn->SetFunctionFlags((EFunctionFlags)flags);\n\n";
+			if (isNativ) {
+				body += "	fn->SetFunctionFlags((EFunctionFlags)flags);\n\n";
+			}
 			for (auto p : parms) {
 				if (p.isOut) {
 					body += "	if (" + p.name + " != nullptr)\n";

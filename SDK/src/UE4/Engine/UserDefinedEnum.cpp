@@ -9,7 +9,9 @@ namespace UE4 {
 	FText UUserDefinedEnum::GetDisplayNameTextByIndex(int32_t InIndex) const {
 		static DWORD64 fn = 0;
 		if (fn == 0) {
+			std::cout << fn << std::endl;
 			fn = (DWORD64)Pattern::Find("48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC 30 48 8B FA 41 8B E8 48 8D 54 24 ? 48 8B F1 E8 ? ? ? ? 83 78 08 00 74 05 48 8B 10 EB 07");
+			UE_LOG(LogTemp, Trace, "Found UUserDefinedEnum::GetDisplayNameTextByIndex at 0x{0:x}", fn);
 		}
 		//return reinterpret_cast<FText(__fastcall*)(class UUserDefinedEnum*, int32_t)>(fn)((UUserDefinedEnum*)this, InIndex);
 		// __int64 __fastcall UUserDefinedEnum::GetDisplayNameTextByIndex(__int64 a1, __int64 a2, unsigned int a3)

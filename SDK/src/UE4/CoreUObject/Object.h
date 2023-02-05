@@ -265,7 +265,24 @@ namespace UE4 {
 
 		class UFunction* GetFunction(std::string Function);
 
+#ifdef ALWAYS_PROCESS_EVENT_SAVE
+		template<typename Params>
+		FORCEINLINE void ProcessEvent(class UFunction* function, Params* parms) {
+			if (sizeof(Params) == sizeof(void*))//dont check pointers
+				return ProcessEvent_Save_impl(function, parms, true, false, sizeof(Params));
+			else
+				return ProcessEvent_Save_impl(function, parms, true, true, sizeof(Params));
+		}
+#else 
 		void ProcessEvent(class UFunction* function, void* parms);
+#endif
+
+		template<typename Params>
+		FORCEINLINE void ProcessEvent_Save(class UFunction* function, Params* parms, bool checkClass = true, bool checkParamSize = true) {
+			return ProcessEvent_Save_impl(function, parms, checkClass, checkParamSize, sizeof(Params));
+		}
+
+		void ProcessEvent_Save_impl(class UFunction* function, void* parms, bool checkClass = true, bool checkParamSize = true, size_t parmsSize = 0);
 
 		static UObject* StaticLoadObject(class UClass* uclass, UObject* InOuter, const wchar_t* InName, const wchar_t* Filename = nullptr, ELoadFlags LoadFlags = ELoadFlags::None, void* Sandbox = nullptr, bool bAllowObjectReconciliation = true, const void* InstancingContext = nullptr);
 

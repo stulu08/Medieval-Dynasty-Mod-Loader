@@ -3,6 +3,8 @@
 // Medieval Version 1.5.0.4
 /////////////////////////////////////////////
 
+#include "UE_LOG.h"
+
 #include "Math/Vector.h"
 #include "Math/Color.h"
 #include "Math/Transform.h"

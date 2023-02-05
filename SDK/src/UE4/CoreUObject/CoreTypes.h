@@ -8,7 +8,7 @@
 #include "NamePool.h"
 #include "ObjectsArray.h"
 #include "Object.h"
-#include "Containers/Templates.h"
+#include "Containers/Map.h"
 #include "Containers/Pointers.h"
 
 namespace UE4 {
