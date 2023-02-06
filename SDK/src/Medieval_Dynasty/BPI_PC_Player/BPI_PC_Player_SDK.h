@@ -1,0 +1,13 @@
+#pragma once
+/////////////////////////////////////////////
+// Package BPI_PC_Player
+// Classes: 1
+// Enums: 0
+// Structs: 0
+// Objects: 6
+/////////////////////////////////////////////
+
+
+#include "Structs.h"
+
+#include "BPI_PC_Player_C.h"

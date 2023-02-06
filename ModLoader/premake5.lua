@@ -38,6 +38,8 @@ project "MedievalDynastyModLoader"
 		"%{IncludeDir.ImGui}",
 		
 		"%{IncludeDir.UE4}",
+		"%{IncludeDir.SDK}",
+		"%{IncludeDir.MedievalDynasty}",
 		
 	}
 	postbuildcommands {
@@ -46,7 +48,9 @@ project "MedievalDynastyModLoader"
 	}
 	links
 	{
-		"%{IncludeDir.MinHook}/lib/libMinHook-x64-v141-mtd.lib"
+		"%{IncludeDir.MinHook}/lib/libMinHook-x64-v141-mtd.lib",
+		"SDK",
+		"LoaderAutoInjector",
 	}
 	filter "files:vendor/**.cpp or files:src/UE4/**.cpp"
 		flags {"NoPCH"}

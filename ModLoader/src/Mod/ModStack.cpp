@@ -15,6 +15,18 @@ void ModStack::popMod(Mod* mod) {
         m_insertIndex--;
     }
 }
+void ModStack::clearModEvents(const std::string& eventName, Mod* mod) {
+    if (mod == nullptr || eventName.empty())
+        return;
+    if (m_eventList.find(eventName) == m_eventList.end())
+        return;
+    std::vector<Event*>& events = m_eventList[eventName];
+    for (Event* e : events) {
+        if (e->getData() == mod) {
+            events.erase(std::find(events.begin(), events.end(), e));
+        }
+    }
+}
 bool ModStack::setCurrentMod(Mod* mod) {
     Mod::ModRef = mod;
     auto it = std::find(m_mods.begin(), m_mods.begin() + m_insertIndex, mod);

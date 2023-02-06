@@ -1,7 +1,8 @@
 #pragma once
-#include "Utilities/Memory.h"
-#include "Utilities/NameValidator.h"
-
+#include "Core.h"
+namespace spdlog {
+	class logger;
+}
 struct Offsets {
 	struct {
 		uint16_t Index = 0x0;
@@ -94,13 +95,14 @@ struct Offsets {
 	} EnumProperty;
 #pragma endregion
 };
-class LOADER_API GameProfile
+class GameProfile
 {
 public:
 	std::string LogDir;
 	std::string ImGuiFile;
 	std::string NoOverwriteFile;
 	std::string HardLinksFile;
+	bool bEnableGUI = false;
 
 	int UsesFNamePool = 0;
 	std::string BeginPlayOverwrite = "Class Engine.PlayerController";
@@ -118,6 +120,7 @@ public:
 	DWORD64 CreateDefaultObject = 0x0;
 	DWORD64 GameStateInit = 0x0;
 	DWORD64 BeginPlay = 0x0;
+	DWORD64 Tick = 0x0;
 	DWORD64 StaticLoadObject = 0x0;
 	DWORD64 StaticFindObject = 0x0;
 	DWORD64 SpawnActorFTrans = 0x0;
@@ -126,7 +129,7 @@ public:
 	DWORD64 StaticConstructObject_Internal = 0x0;
 	bool IsUsingUpdatedStaticConstruct = false;
 
-	bool ModOverridesEnabled = false;
+	bool ModOverwritesEnabled = false;
 	bool UseHardLinks = false;
 
 	DWORD64 CallFunctionByNameWithArguments = 0x0;
@@ -160,4 +163,14 @@ public:
 	std::unordered_map<std::string, bool> disableOverwriteFiles;
 	//where the Engine and Game folder is located with the Manifest_NonUFSFiles_Win64.txt
 	std::string rootGameDir = "";
+
+	Ref<class spdlog::logger> UnrealLogger = nullptr;
+};
+#ifdef DEFINE_SDK_PROFILE_EXPORT
+class __declspec(dllexport) SDK {
+#else
+class __declspec(dllimport) SDK {
+#endif
+public:
+	static GameProfile SelectedGameProfile;
 };

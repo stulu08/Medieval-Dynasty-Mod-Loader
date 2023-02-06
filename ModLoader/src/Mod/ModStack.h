@@ -14,20 +14,22 @@ class LOADER_API Mod;
 class Event {
 public:
     virtual const std::string& getName() const = 0;
+    virtual const void* getData() const = 0;
 };
 
 template <typename ...args>
 class ModEvent : public Event
 {
 public:
-    using event_callback = std::function<void(args...)>;
+    using event_callback = std::function<bool(args...)>;
 
     explicit ModEvent(Mod* mod, const std::string& name, const event_callback& cb) : m_name(name), m_mod(mod), m_callback(cb) {}
     ~ModEvent() {}
 
-    void dispatch(args... a) { m_callback(a...); }
+    bool dispatch(args... a) { return m_callback(a...); }
 
     virtual const std::string& getName() const override { return this->m_name; }
+    virtual const void* getData() const override { return this->m_mod; }
     virtual Mod* getMod() { return this->m_mod; }
 private:
     Mod* m_mod;
@@ -58,10 +60,11 @@ public:
         {
             if (ModEvent<_args...>* event = dynamic_cast<ModEvent<_args...>*>(eventIt)) {
                 if (!setCurrentMod(event->getMod()))
-                    return;
+                    continue;
                 
                 try {
-                    event->dispatch(a...);
+                    if (event->dispatch(a...))
+                        break;//event was handled if returned true
                 }
                 catch (std::exception& ex) {
                     Log::Error_MDML("Exception thrown in {0} from mod {1}: {2}", event->getName(), event->getMod()->ModName, ex.what());
@@ -95,8 +98,8 @@ public:
         if (event)
             m_eventList[event->getName()].push_back(event);
     }
-
-    //always sets the Mod::ModRef, if the mod is not found inside m_mods it will return false but event then the modref will be set
+    void clearModEvents(const std::string& eventName, Mod* mod);
+    //always sets the Mod::ModRef, if the mod is not found inside m_mods it will return false but Mod::ModRef will still be set 
     bool setCurrentMod(Mod* mod);
 
     std::vector<Mod*>::iterator begin() { return m_mods.begin(); }

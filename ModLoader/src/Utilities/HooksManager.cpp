@@ -1,13 +1,14 @@
 #include "Core.h"
+#include "MDML.h"
+#include "Dumper.h"
+#include "Memory.h"
+#include "Globals.h"
+#include "MinHook.h"
 #include "HooksManager.h"
-#include "Utilities/MinHook.h"
-#include "Utilities/Dumper.h"
-#include "Utilities/Memory.h"
-#include "UE4/Ue4.hpp"
 #include "Mod/ModLoader.h"
 #include "UI/LoaderUI.h"
-#include "MDML.h"
-#include "Globals.h"
+
+#include "UE4.h"
 
 namespace HooksManager
 {
@@ -84,14 +85,22 @@ namespace HooksManager
 			MDML::BeginPlay(Actor);
 			return origBeginPlay(Actor);
 		}
+
+		PVOID(*origTick)(__int64, UE4::ELevelTick, float);
+		PVOID hookTick(__int64 thisPtr, UE4::ELevelTick tick, float delta)
+		{
+			MDML::Tick(tick, delta);
+			return origTick(thisPtr, tick, delta);
+		}
+
 		//returns true if we can overwrite the file
 		bool isPakOverridePathValid(const std::filesystem::path& path) {
 			if (!std::filesystem::exists(path))
 				return false;
 			auto str = MDML::FormatPath(path.string());
 			if (str.find("\\Content\\") != str.npos) {
-				if (MDML::SelectedGameProfile.disableOverwriteFiles.find(str) != MDML::SelectedGameProfile.disableOverwriteFiles.end()) {
-					return !MDML::SelectedGameProfile.disableOverwriteFiles[str];
+				if (SDK::SelectedGameProfile.disableOverwriteFiles.find(str) != SDK::SelectedGameProfile.disableOverwriteFiles.end()) {
+					return !SDK::SelectedGameProfile.disableOverwriteFiles[str];
 				}
 				return true;
 			}
@@ -141,24 +150,25 @@ namespace HooksManager
 		Log::Info_UML("MinHook Setup");
 		Log::Info_UML("Loading Mods");
 
-		if(MDML::SelectedGameProfile.ModOverridesEnabled)
+		if(SDK::SelectedGameProfile.ModOverwritesEnabled)
 			ModLoader::CreateSysLinks();
 		else
 			ModLoader::DeleteSysLinks(true);//if there are old files delete them
 
-		if (MDML::SelectedGameProfile.bPakOverride) {
-			MinHook::Add(MDML::SelectedGameProfile.FindFileInPakFiles, &HookedFunctions::hookFindFileInPakFiles, &HookedFunctions::origFindFileInPakFiles, "FPakPlatformFile::FindFileInPakFiles");
-			MinHook::Add(MDML::SelectedGameProfile.IsNonPakFilenameAllowed, &HookedFunctions::hookIsNonPakFilenameAllowed, &HookedFunctions::origIsNonPakFilenameAllowed, "FPakPlatformFile::IsNonPakFilenameAllowed");
-			Log::Info_MDML("Pak Overrides loaded");
+		if (SDK::SelectedGameProfile.bPakOverride) {
+			MinHook::Add(SDK::SelectedGameProfile.FindFileInPakFiles, &HookedFunctions::hookFindFileInPakFiles, &HookedFunctions::origFindFileInPakFiles, "FPakPlatformFile::FindFileInPakFiles");
+			MinHook::Add(SDK::SelectedGameProfile.IsNonPakFilenameAllowed, &HookedFunctions::hookIsNonPakFilenameAllowed, &HookedFunctions::origIsNonPakFilenameAllowed, "FPakPlatformFile::IsNonPakFilenameAllowed");
+			Log::Info_MDML("Pak overwrites loaded");
 		}
 
 		ModLoader::LoadMods();
 
-		MinHook::Add(MDML::SelectedGameProfile.GameStateInit, &HookedFunctions::hookInitGameState, &HookedFunctions::origInitGameState, "AGameModeBase::InitGameState");
-		MinHook::Add(MDML::SelectedGameProfile.BeginPlay, &HookedFunctions::hookBeginPlay, &HookedFunctions::origBeginPlay, "AActor::BeginPlay");
+		MinHook::Add(SDK::SelectedGameProfile.GameStateInit, &HookedFunctions::hookInitGameState, &HookedFunctions::origInitGameState, "AGameModeBase::InitGameState");
+		MinHook::Add(SDK::SelectedGameProfile.BeginPlay, &HookedFunctions::hookBeginPlay, &HookedFunctions::origBeginPlay, "AActor::BeginPlay");
+		MinHook::Add(SDK::SelectedGameProfile.Tick, &HookedFunctions::hookTick, &HookedFunctions::origTick, "UWorld::Tick");
 
 		LoaderUI::GetUI()->CreateUILogicThread();
-		if (!MDML::SelectedGameProfile.bDelayGUISpawn)
+		if (!SDK::SelectedGameProfile.bDelayGUISpawn)
 		{
 			LoaderUI::HookDX();
 		}
@@ -171,10 +181,10 @@ namespace HooksManager
 		CreateThread(0, 0, InitHooks, 0, 0, 0);
 	}
 	void AddProcessInternalHook() {
-		MinHook::Add(MDML::SelectedGameProfile.ProcessInternals, &HookedFunctions::hookProcessFunction, &HookedFunctions::origProcessFunction, "ProcessBlueprintFunctions");
+		MinHook::Add(SDK::SelectedGameProfile.ProcessInternals, &HookedFunctions::hookProcessFunction, &HookedFunctions::origProcessFunction, "ProcessBlueprintFunctions");
 	}
 	void ShutDown() {
-		if (MDML::SelectedGameProfile.ModOverridesEnabled)
+		if (SDK::SelectedGameProfile.ModOverwritesEnabled)
 			ModLoader::DeleteSysLinks();
 		MH_DisableHook(MH_ALL_HOOKS);
 		MH_Uninitialize();

@@ -1,14 +1,52 @@
 #pragma once
 #include "Utilities/Logger.h"
 #include "Utilities/Math.h"
-
 #include "UI/LoaderUI.h"
-
-#include "UE4/Ue4.hpp"
-
+#include "MDML.h"
 #include "GameInfo.h"
 #include "Globals.h"
+#include "INI.h"
 
+#include "UE4.h"
+
+
+namespace EventsEnabled {
+	struct EnabledEvents {
+		EnabledEvents() = default;
+		EnabledEvents(bool InitGameState, bool BeginPlay, bool PostBeginPlay, bool Tick, bool SetupImGui, bool DrawImGui, bool DX11Present, bool DX11ResizeBuffers) {
+			this->InitGameState = InitGameState;
+			this->BeginPlay = BeginPlay;
+			this->Tick = Tick;
+			this->SetupImGui = SetupImGui;
+			this->DrawImGui = DrawImGui;
+			this->DX11Present = DX11Present;
+			this->DX11ResizeBuffers = DX11ResizeBuffers;
+		}
+		bool InitGameState = true;
+		bool BeginPlay = true;
+		bool PostBeginPlay = true;
+		bool Tick = false;
+
+		bool SetupImGui = true;
+		bool DrawImGui = true;
+
+		bool DX11Present = true;
+		bool DX11ResizeBuffers = true;
+
+	};
+	static inline EnabledEvents Default = EnabledEvents();
+	static inline EnabledEvents None = EnabledEvents(false, false, false, false, false, false, false, false);
+	static inline EnabledEvents All = EnabledEvents(true, true, true, true, true, true, true, true);
+	static inline EnabledEvents EngineOnly = EnabledEvents(true, true, true, true, false, false, false, false);
+	static inline EnabledEvents GuiOnly = EnabledEvents(false, false, false, false, true, true, false, false);
+	static inline EnabledEvents DXOnly = EnabledEvents(false, false, false, false, false, false, true, true);
+	static inline EnabledEvents EngineAndGui = EnabledEvents(true, true, true, true, true, true, false, false);
+	static inline EnabledEvents EngineAndDX = EnabledEvents(true, true, true, true, false, false, true, true);
+	static inline EnabledEvents GuiAndDX = EnabledEvents(false, false, false, false, true, true, true, true);
+	static inline EnabledEvents EngineNoTick = EnabledEvents(true, true, true, false, false, false, false, false);
+	static inline EnabledEvents EngineAndGuiNoTick = EnabledEvents(true, true, true, false, true, true, false, false);
+	static inline EnabledEvents EngineAndDXNoTick = EnabledEvents(true, true, true, false, false, false, true, true);
+}
 class LOADER_API Mod
 {
 public:
@@ -26,32 +64,35 @@ public:
 	bool IsFinishedCreating = 0;
 
 	//Called after each mod is injected, Looped through via gloabals
-	virtual void InitializeMod();
+	virtual void InitializeMod() {}
 
 	//InitGameState Call
-	virtual void InitGameState();
+	virtual bool InitGameState() { return false; }
 
 	//Call ImGui Here
-	virtual void DrawImGui();
+	virtual bool DrawImGui() { return false; }
 
 	//If you want to load a font or theme
-	virtual void SetupImGui(ImGuiIO& io);
+	virtual bool SetupImGui(ImGuiIO& io) { return false; }
 
 	//Beginplay Hook of Every Actor
-	virtual void BeginPlay(UE4::AActor* Actor);
+	virtual bool BeginPlay(UE4::AActor* Actor) { return false; }
+
+	//Called on UWorld::Tick
+	virtual bool Tick(UE4::ELevelTick tick, float DelatTime) { return false; }
 
 	//PostBeginPlay of EVERY Blueprint ModActor
-	virtual void PostBeginPlay(std::wstring ModActorName, UE4::AActor* Actor);
+	virtual bool PostBeginPlay(std::wstring ModActorName, UE4::AActor* Actor) { return false; }
 
 	//DX11 hook for when an image will be presented to the screen
-	virtual void DX11Present(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, ID3D11RenderTargetView* pRenderTargetView);
+	virtual bool DX11Present(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, ID3D11RenderTargetView* pRenderTargetView) { return false; }
 
-	virtual void DX11ResizeBuffers(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, UINT Width, UINT Height, DXGI_FORMAT NewFormat, UINT SwapChainFlags);
+	virtual bool DX11ResizeBuffers(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, UINT Width, UINT Height, DXGI_FORMAT NewFormat, UINT SwapChainFlags) { return false; }
 
-	virtual void OnModMenuButtonPressed();
+	virtual void OnModMenuButtonPressed() {}
 
 	//Used Internally to setup Hook Event System
-	void SetupHooks();
+	void SetupHooks(const EventsEnabled::EnabledEvents& events = EventsEnabled::Default);
 
 	static Mod* ModRef;
 	// The folder to the Mod Directory

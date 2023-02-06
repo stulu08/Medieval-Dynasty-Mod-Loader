@@ -1,0 +1,1545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Medieval_Dynasty">
+      <UniqueIdentifier>{77AE6B3E-63A7-8A90-8CD9-6F1578316A9C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medieval_Dynasty\BPI_Inventory">
+      <UniqueIdentifier>{CEB8EA65-BADE-B4CC-A324-3A988FE9D998}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medieval_Dynasty\BPI_PC_Player">
+      <UniqueIdentifier>{1FD09CCA-0BF6-6631-F43B-ECFCE0008CFD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medieval_Dynasty\BP_BaseCharacter">
+      <UniqueIdentifier>{9F78CB4E-0BE7-20CE-54D0-DBCDC07D166A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medieval_Dynasty\BP_PlayerBuildingComponent">
+      <UniqueIdentifier>{8503D761-F168-6AE8-7A41-0CC1E6A55F57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medieval_Dynasty\BP_PlayerCharacter">
+      <UniqueIdentifier>{71F3C106-DDAC-2CB1-660C-478BD2C4E220}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medieval_Dynasty\BP_PlayerManager">
+      <UniqueIdentifier>{7F689039-EBD6-E5B8-34C0-A0B8A06DDB54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medieval_Dynasty\F_Medieval">
+      <UniqueIdentifier>{328CAAE0-9E99-D8C6-2780-D4B1938CA47D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medieval_Dynasty\GI_MedievalDynasty">
+      <UniqueIdentifier>{080E37C0-74C7-A16A-FD26-BC4469DF57DA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medieval_Dynasty\GM_MedievalDynasty">
+      <UniqueIdentifier>{0C969E0B-784F-09B6-01AF-23906D67BF25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medieval_Dynasty\GS_GameState">
+      <UniqueIdentifier>{BA9BF6B4-26B4-DDDE-EF60-6D785B387278}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medieval_Dynasty\InventoryComponent">
+      <UniqueIdentifier>{47EF739D-B3A8-DE47-3C08-F921A8C094B7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medieval_Dynasty\Medieval_Dynasty">
+      <UniqueIdentifier>{F8F8E76F-6467-3DEF-AD50-F8EE19FE328B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medieval_Dynasty\PC_Player">
+      <UniqueIdentifier>{C5F0D6CE-B100-839F-1ABA-E7BD06E97138}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4">
+      <UniqueIdentifier>{9325880B-FF2E-887C-88AA-9E7CF4B2937C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\AIModule">
+      <UniqueIdentifier>{92E82C6C-7E4B-BC10-27D1-F4C613138893}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\AdsMountingSystem">
+      <UniqueIdentifier>{30B2C025-9C1E-7C20-6512-147ED13D9E88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\Chaos">
+      <UniqueIdentifier>{F0599A62-5CC4-4ED9-A502-007F11AC2C2E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\Containers">
+      <UniqueIdentifier>{38661F6B-2434-1371-0DC8-8397F934EFD5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\CoreUObject">
+      <UniqueIdentifier>{97DDEAEF-0369-58B4-0C7A-DBA87884B4B4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\DeveloperSettings">
+      <UniqueIdentifier>{3904BDFC-A570-78F7-6E64-1055DA8F9A5F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\Engine">
+      <UniqueIdentifier>{B8ACFFBA-A464-4108-0D6C-1A64F942DCF8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\Math">
+      <UniqueIdentifier>{4CFECB29-38CB-2635-61E4-14DD4D105CC3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\MovieScene">
+      <UniqueIdentifier>{F09A97AE-DC68-8BB4-C5FC-FBDAB1696719}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\MovieSceneTracks">
+      <UniqueIdentifier>{58313383-44C0-BC4C-EDDE-D047D94CCDF2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\PhysicsCore">
+      <UniqueIdentifier>{2E2BA9E7-9AB6-16AC-A3C7-99A00FD272AC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\PropertyPath">
+      <UniqueIdentifier>{14F14564-00EA-64B6-291C-4A3B157444C2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\Slate">
+      <UniqueIdentifier>{1B14BE63-877E-72DA-D0BC-23803C66502F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\SlateCore">
+      <UniqueIdentifier>{444EB77E-B00E-33B5-7949-7C32E5C87791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\UMG">
+      <UniqueIdentifier>{ABF09137-17D0-10D3-20E8-9BA98C467734}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Medieval_Dynasty\BPI_Inventory\BPI_Inventory_C.h">
+      <Filter>Medieval_Dynasty\BPI_Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BPI_Inventory\BPI_Inventory_SDK.h">
+      <Filter>Medieval_Dynasty\BPI_Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BPI_Inventory\Structs.h">
+      <Filter>Medieval_Dynasty\BPI_Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BPI_PC_Player\BPI_PC_Player_C.h">
+      <Filter>Medieval_Dynasty\BPI_PC_Player</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BPI_PC_Player\BPI_PC_Player_SDK.h">
+      <Filter>Medieval_Dynasty\BPI_PC_Player</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BPI_PC_Player\Structs.h">
+      <Filter>Medieval_Dynasty\BPI_PC_Player</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_BaseCharacter\BP_BaseCharacter_C.h">
+      <Filter>Medieval_Dynasty\BP_BaseCharacter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_BaseCharacter\BP_BaseCharacter_SDK.h">
+      <Filter>Medieval_Dynasty\BP_BaseCharacter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_BaseCharacter\Structs.h">
+      <Filter>Medieval_Dynasty\BP_BaseCharacter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_Enums.h">
+      <Filter>Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_PlayerBuildingComponent\BP_PlayerBuildingComponent_C.h">
+      <Filter>Medieval_Dynasty\BP_PlayerBuildingComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_PlayerBuildingComponent\BP_PlayerBuildingComponent_SDK.h">
+      <Filter>Medieval_Dynasty\BP_PlayerBuildingComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_PlayerBuildingComponent\Structs.h">
+      <Filter>Medieval_Dynasty\BP_PlayerBuildingComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_PlayerCharacter\BP_PlayerCharacter_C.h">
+      <Filter>Medieval_Dynasty\BP_PlayerCharacter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_PlayerCharacter\BP_PlayerCharacter_SDK.h">
+      <Filter>Medieval_Dynasty\BP_PlayerCharacter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_PlayerCharacter\Structs.h">
+      <Filter>Medieval_Dynasty\BP_PlayerCharacter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_PlayerManager\BP_PlayerManager_C.h">
+      <Filter>Medieval_Dynasty\BP_PlayerManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_PlayerManager\BP_PlayerManager_SDK.h">
+      <Filter>Medieval_Dynasty\BP_PlayerManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_PlayerManager\Structs.h">
+      <Filter>Medieval_Dynasty\BP_PlayerManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_Structs.h">
+      <Filter>Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\F_Medieval\F_Medieval_SDK.h">
+      <Filter>Medieval_Dynasty\F_Medieval</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\F_Medieval\Structs.h">
+      <Filter>Medieval_Dynasty\F_Medieval</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\GI_MedievalDynasty\GI_MedievalDynasty_C.h">
+      <Filter>Medieval_Dynasty\GI_MedievalDynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\GI_MedievalDynasty\GI_MedievalDynasty_SDK.h">
+      <Filter>Medieval_Dynasty\GI_MedievalDynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\GI_MedievalDynasty\Structs.h">
+      <Filter>Medieval_Dynasty\GI_MedievalDynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\GM_MedievalDynasty\GM_MedievalDynasty_C.h">
+      <Filter>Medieval_Dynasty\GM_MedievalDynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\GM_MedievalDynasty\GM_MedievalDynasty_SDK.h">
+      <Filter>Medieval_Dynasty\GM_MedievalDynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\GM_MedievalDynasty\Structs.h">
+      <Filter>Medieval_Dynasty\GM_MedievalDynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\GS_GameState\GS_GameState_C.h">
+      <Filter>Medieval_Dynasty\GS_GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\GS_GameState\GS_GameState_SDK.h">
+      <Filter>Medieval_Dynasty\GS_GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\GS_GameState\Structs.h">
+      <Filter>Medieval_Dynasty\GS_GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\InventoryComponent\InventoryComponent_C.h">
+      <Filter>Medieval_Dynasty\InventoryComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\InventoryComponent\InventoryComponent_SDK.h">
+      <Filter>Medieval_Dynasty\InventoryComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\InventoryComponent\Structs.h">
+      <Filter>Medieval_Dynasty\InventoryComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppActivity.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppHelperFunctions.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppMathOperations.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\GI_MedievalDynastyBase.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\MD_PlayerState.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\MD_SpringArmComponent.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\Medieval_Dynasty_SDK.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\Structs.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\PC_Player\PC_Player_C.h">
+      <Filter>Medieval_Dynasty\PC_Player</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\PC_Player\PC_Player_SDK.h">
+      <Filter>Medieval_Dynasty\PC_Player</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\PC_Player\Structs.h">
+      <Filter>Medieval_Dynasty\PC_Player</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\SDK.h">
+      <Filter>Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NameValidator.h" />
+    <ClInclude Include="src\UE4.h" />
+    <ClInclude Include="src\UE4\AIModule\Structs.h">
+      <Filter>UE4\AIModule</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\ADMUnifiedControllerPawn.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\AdsMountingSystemLibrary.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\AdsMountingSystem_SDK.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\LinkedMountActor.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\LinkedMountActorOwner.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\MountRiderComponent.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\MountRiderInterface.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\MountablePawnComponent.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\MountablePawnInterface.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\MountingSystemDebugInterface.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\RiderControllerComponent.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\RiderControllerInterface.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AdsMountingSystem\Structs.h">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Chaos\Chaos_SDK.h">
+      <Filter>UE4\Chaos</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Chaos\Structs.h">
+      <Filter>UE4\Chaos</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Containers\AlignedBytes.h">
+      <Filter>UE4\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Containers\Array.h">
+      <Filter>UE4\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Containers\Map.h">
+      <Filter>UE4\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Containers\Pointers.h">
+      <Filter>UE4\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Containers\Set.h">
+      <Filter>UE4\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Containers\String.h">
+      <Filter>UE4\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Containers\Templates.h">
+      <Filter>UE4\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Containers\Text.h">
+      <Filter>UE4\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\CoreUObject\Class.h">
+      <Filter>UE4\CoreUObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\CoreUObject\CoreTypes.h">
+      <Filter>UE4\CoreUObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\CoreUObject\Interface.h">
+      <Filter>UE4\CoreUObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\CoreUObject\NamePool.h">
+      <Filter>UE4\CoreUObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\CoreUObject\Object.h">
+      <Filter>UE4\CoreUObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\CoreUObject\ObjectsArray.h">
+      <Filter>UE4\CoreUObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\CoreUObject\Stack.h">
+      <Filter>UE4\CoreUObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\CoreUObject\UnrealType.h">
+      <Filter>UE4\CoreUObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\DeveloperSettings\DeveloperSettings.h">
+      <Filter>UE4\DeveloperSettings</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\DeveloperSettings\DeveloperSettings_SDK.h">
+      <Filter>UE4\DeveloperSettings</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\DeveloperSettings\Structs.h">
+      <Filter>UE4\DeveloperSettings</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\Actor.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\ActorComponent.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\BlueprintAsyncActionBase.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\BlueprintFunctionLibrary.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\BlueprintGeneratedClass.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\Character.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\DataTable.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\DynamicBlueprintBinding.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\GameInstance.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\GameMode.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\GamePlayStatics.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\GameState.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\GameStateBase.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\Info.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\Level.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\MeshComponent.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\Pawn.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\PlayerController.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\PlayerState.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\PrimitiveComponent.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\Scene.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\SceneComponent.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\SpringArmComponent.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\StringTable.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\Structs.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\UserDefinedEnum.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\UserDefinedStruct.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\World.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Math\Box.h">
+      <Filter>UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Math\Color.h">
+      <Filter>UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Math\Plane.h">
+      <Filter>UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Math\Quat.h">
+      <Filter>UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Math\Rotator.h">
+      <Filter>UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Math\Transform.h">
+      <Filter>UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Math\UnrealMathUtility.h">
+      <Filter>UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Math\Vector.h">
+      <Filter>UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Math\Vector2.h">
+      <Filter>UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Math\Vector4.h">
+      <Filter>UE4\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieScene.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneEntitySystem.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneNameableTrack.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneSection.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneSequence.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneSignedObject.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieSceneTrack.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\MovieScene_SDK.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieScene\Structs.h">
+      <Filter>UE4\MovieScene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneMaterialTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePropertySystem.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieScenePropertyTrack.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\MovieSceneTracks_SDK.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\MovieSceneTracks\Structs.h">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PhysicsCore\BodySetupCore.h">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PhysicsCore\ChaosPhysicalMaterial.h">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PhysicsCore\PhysicalMaterial.h">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PhysicsCore\PhysicalMaterialPropertyBase.h">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PhysicsCore\PhysicsCore_SDK.h">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PhysicsCore\PhysicsSettingsCore.h">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PhysicsCore\Structs.h">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PropertyPath\PropertyPath_SDK.h">
+      <Filter>UE4\PropertyPath</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\PropertyPath\Structs.h">
+      <Filter>UE4\PropertyPath</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SDK.h">
+      <Filter>UE4</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\ButtonWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\CheckBoxWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\ComboBoxWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\ComboButtonWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\EditableTextBoxWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\EditableTextWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\ProgressWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\ScrollBarWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\ScrollBoxWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\SlateSettings.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\Slate_SDK.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\SpinBoxWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\Structs.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\TextBlockWidgetStyle.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Slate\ToolMenuBase.h">
+      <Filter>UE4\Slate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\FontBulkData.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\FontFaceInterface.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\FontProviderInterface.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\SlateCore_SDK.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\SlateTypes.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\SlateWidgetStyleAsset.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\SlateWidgetStyleContainerBase.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\SlateWidgetStyleContainerInterface.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\SlateCore\Structs.h">
+      <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UE_LOG.h">
+      <Filter>UE4</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\AsyncTaskDownloadImage.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\BackgroundBlur.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\BackgroundBlurSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\BoolBinding.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\Border.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\BorderSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\BrushBinding.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\Button.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\ButtonSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\CanvasPanel.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\CanvasPanelSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\CheckBox.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\CheckedStateBinding.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\CircularThrobber.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\ColorBinding.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\ComboBox.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\ComboBoxString.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\ContentWidget.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\DragDropOperation.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\DynamicEntryBox.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\DynamicEntryBoxBase.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\EditableText.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\EditableTextBox.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\ExpandableArea.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\FloatBinding.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\GridPanel.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\GridSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\HorizontalBox.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\HorizontalBoxSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\Image.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\InputKeySelector.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\Int32Binding.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\InvalidationBox.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\ListView.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\ListViewBase.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\ListViewDesignerPreviewItem.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\MenuAnchor.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\MouseCursorBinding.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\MovieScene2DTransformPropertySystem.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\MovieScene2DTransformSection.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\MovieScene2DTransformTrack.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\MovieSceneMarginPropertySystem.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\MovieSceneMarginSection.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\MovieSceneMarginTrack.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\MovieSceneWidgetMaterialTrack.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\MultiLineEditableText.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\MultiLineEditableTextBox.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\NamedSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\NamedSlotInterface.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\NativeWidgetHost.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\Overlay.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\OverlaySlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\PanelSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\PanelWidget.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\ProgressBar.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\PropertyBinding.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\RetainerBox.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\RichTextBlock.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\RichTextBlockDecorator.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\RichTextBlockImageDecorator.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\SafeZone.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\SafeZoneSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\ScaleBox.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\ScaleBoxSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\ScrollBar.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\ScrollBox.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\ScrollBoxSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\SizeBox.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\SizeBoxSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\SlateAccessibleWidgetData.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\SlateBlueprintLibrary.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\SlateVectorArtData.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\Slider.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\Spacer.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\SpinBox.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\Structs.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\TextBinding.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\TextBlock.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\TextLayoutWidget.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\Throbber.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\TileView.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\TreeView.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\UMGSequencePlayer.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\UMGSequenceTickManager.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\UMG_SDK.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\UniformGridPanel.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\UniformGridSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\UserListEntry.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\UserListEntryLibrary.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\UserObjectListEntry.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\UserObjectListEntryLibrary.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\UserWidget.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\VerticalBox.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\VerticalBoxSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\Viewport.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\VisibilityBinding.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\Visual.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\Widget.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WidgetAnimation.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WidgetAnimationDelegateBinding.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WidgetAnimationPlayCallbackProxy.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WidgetBinding.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WidgetBlueprintGeneratedClass.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WidgetBlueprintLibrary.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WidgetComponent.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WidgetInteractionComponent.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WidgetLayoutLibrary.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WidgetNavigation.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WidgetSwitcher.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WidgetSwitcherSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WidgetTree.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WindowTitleBarArea.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WindowTitleBarAreaSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WrapBox.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UMG\WrapBoxSlot.h">
+      <Filter>UE4\UMG</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Medieval_Dynasty\BPI_Inventory\BPI_Inventory_C.cpp">
+      <Filter>Medieval_Dynasty\BPI_Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\BPI_PC_Player\BPI_PC_Player_C.cpp">
+      <Filter>Medieval_Dynasty\BPI_PC_Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\BP_BaseCharacter\BP_BaseCharacter_C.cpp">
+      <Filter>Medieval_Dynasty\BP_BaseCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\BP_PlayerBuildingComponent\BP_PlayerBuildingComponent_C.cpp">
+      <Filter>Medieval_Dynasty\BP_PlayerBuildingComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\BP_PlayerCharacter\BP_PlayerCharacter_C.cpp">
+      <Filter>Medieval_Dynasty\BP_PlayerCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\BP_PlayerManager\BP_PlayerManager_C.cpp">
+      <Filter>Medieval_Dynasty\BP_PlayerManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\GI_MedievalDynasty\GI_MedievalDynasty_C.cpp">
+      <Filter>Medieval_Dynasty\GI_MedievalDynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\GM_MedievalDynasty\GM_MedievalDynasty_C.cpp">
+      <Filter>Medieval_Dynasty\GM_MedievalDynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\GS_GameState\GS_GameState_C.cpp">
+      <Filter>Medieval_Dynasty\GS_GameState</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\InventoryComponent\InventoryComponent_C.cpp">
+      <Filter>Medieval_Dynasty\InventoryComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppActivity.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppHelperFunctions.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppMathOperations.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\GI_MedievalDynastyBase.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\MD_PlayerState.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\MD_SpringArmComponent.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\PC_Player\PC_Player_C.cpp">
+      <Filter>Medieval_Dynasty\PC_Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NameValidator.cpp" />
+    <ClCompile Include="src\UE4\AdsMountingSystem\ADMUnifiedControllerPawn.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\AdsMountingSystemLibrary.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\LinkedMountActor.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\LinkedMountActorOwner.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\MountRiderComponent.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\MountRiderInterface.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\MountablePawnComponent.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\MountablePawnInterface.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\MountingSystemDebugInterface.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\RiderControllerComponent.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AdsMountingSystem\RiderControllerInterface.cpp">
+      <Filter>UE4\AdsMountingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\CoreUObject\Class.cpp">
+      <Filter>UE4\CoreUObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\CoreUObject\CoreTypes.cpp">
+      <Filter>UE4\CoreUObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\CoreUObject\Object.cpp">
+      <Filter>UE4\CoreUObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\CoreUObject\UnrealType.cpp">
+      <Filter>UE4\CoreUObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\DeveloperSettings\DeveloperSettings.cpp">
+      <Filter>UE4\DeveloperSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\Actor.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\ActorComponent.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\BlueprintAsyncActionBase.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\Character.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\DataTable.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\GamePlayStatics.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\GameStateBase.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\Info.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\MeshComponent.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\Pawn.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\PlayerState.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\PrimitiveComponent.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\SceneComponent.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\SpringArmComponent.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\StringTable.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\UserDefinedEnum.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\World.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieScene.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneEntitySystem.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneNameableTrack.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneSection.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneSequence.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneSignedObject.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieScene\MovieSceneTrack.cpp">
+      <Filter>UE4\MovieScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieSceneMaterialTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePropertySystem.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\MovieSceneTracks\MovieScenePropertyTrack.cpp">
+      <Filter>UE4\MovieSceneTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\PhysicsCore\BodySetupCore.cpp">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\PhysicsCore\ChaosPhysicalMaterial.cpp">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\PhysicsCore\PhysicalMaterial.cpp">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\PhysicsCore\PhysicalMaterialPropertyBase.cpp">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\PhysicsCore\PhysicsSettingsCore.cpp">
+      <Filter>UE4\PhysicsCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\ButtonWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\CheckBoxWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\ComboBoxWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\ComboButtonWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\EditableTextBoxWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\EditableTextWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\ProgressWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\ScrollBarWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\ScrollBoxWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\SlateSettings.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\SpinBoxWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\TextBlockWidgetStyle.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Slate\ToolMenuBase.cpp">
+      <Filter>UE4\Slate</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\SlateCore\FontBulkData.cpp">
+      <Filter>UE4\SlateCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\SlateCore\FontFaceInterface.cpp">
+      <Filter>UE4\SlateCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\SlateCore\FontProviderInterface.cpp">
+      <Filter>UE4\SlateCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\SlateCore\SlateTypes.cpp">
+      <Filter>UE4\SlateCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\SlateCore\SlateWidgetStyleAsset.cpp">
+      <Filter>UE4\SlateCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\SlateCore\SlateWidgetStyleContainerBase.cpp">
+      <Filter>UE4\SlateCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\SlateCore\SlateWidgetStyleContainerInterface.cpp">
+      <Filter>UE4\SlateCore</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\AsyncTaskDownloadImage.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\BackgroundBlur.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\BackgroundBlurSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\BoolBinding.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\Border.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\BorderSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\BrushBinding.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\Button.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\ButtonSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\CanvasPanel.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\CanvasPanelSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\CheckBox.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\CheckedStateBinding.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\CircularThrobber.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\ColorBinding.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\ComboBox.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\ComboBoxString.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\ContentWidget.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\DragDropOperation.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\DynamicEntryBox.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\DynamicEntryBoxBase.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\EditableText.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\EditableTextBox.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\ExpandableArea.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\FloatBinding.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\GridPanel.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\GridSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\HorizontalBox.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\HorizontalBoxSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\Image.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\InputKeySelector.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\Int32Binding.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\InvalidationBox.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\ListView.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\ListViewBase.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\ListViewDesignerPreviewItem.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\MenuAnchor.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\MouseCursorBinding.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\MovieScene2DTransformPropertySystem.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\MovieScene2DTransformSection.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\MovieScene2DTransformTrack.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\MovieSceneMarginPropertySystem.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\MovieSceneMarginSection.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\MovieSceneMarginTrack.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\MovieSceneWidgetMaterialTrack.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\MultiLineEditableText.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\MultiLineEditableTextBox.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\NamedSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\NamedSlotInterface.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\NativeWidgetHost.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\Overlay.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\OverlaySlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\PanelSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\PanelWidget.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\ProgressBar.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\PropertyBinding.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\RetainerBox.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\RichTextBlock.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\RichTextBlockDecorator.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\RichTextBlockImageDecorator.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\SafeZone.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\SafeZoneSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\ScaleBox.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\ScaleBoxSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\ScrollBar.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\ScrollBox.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\ScrollBoxSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\SizeBox.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\SizeBoxSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\SlateAccessibleWidgetData.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\SlateBlueprintLibrary.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\SlateVectorArtData.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\Slider.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\Spacer.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\SpinBox.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\TextBinding.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\TextBlock.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\TextLayoutWidget.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\Throbber.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\TileView.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\TreeView.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\UMGSequencePlayer.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\UMGSequenceTickManager.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\UniformGridPanel.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\UniformGridSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\UserListEntry.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\UserListEntryLibrary.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\UserObjectListEntry.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\UserObjectListEntryLibrary.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\UserWidget.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\VerticalBox.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\VerticalBoxSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\Viewport.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\VisibilityBinding.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\Visual.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\Widget.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WidgetAnimation.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WidgetAnimationDelegateBinding.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WidgetAnimationPlayCallbackProxy.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WidgetBinding.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WidgetBlueprintGeneratedClass.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WidgetBlueprintLibrary.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WidgetComponent.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WidgetInteractionComponent.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WidgetLayoutLibrary.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WidgetNavigation.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WidgetSwitcher.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WidgetSwitcherSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WidgetTree.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WindowTitleBarArea.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WindowTitleBarAreaSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WrapBox.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\UMG\WrapBoxSlot.cpp">
+      <Filter>UE4\UMG</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

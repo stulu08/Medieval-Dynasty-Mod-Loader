@@ -1,0 +1,13 @@
+#pragma once
+/////////////////////////////////////////////
+// Package DeveloperSettings
+// Classes: 1
+// Enums: 0
+// Structs: 0
+// Objects: 1
+/////////////////////////////////////////////
+
+
+#include "Structs.h"
+
+#include "DeveloperSettings.h"
