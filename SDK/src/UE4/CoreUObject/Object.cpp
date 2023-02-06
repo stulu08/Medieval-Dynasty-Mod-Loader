@@ -259,14 +259,15 @@ namespace UE4 {
 				UE_LOG(LogTemp, Warn, "UObject::ProcessEvent_Save {0}.Outer is not a UClass", function->GetName());
 				return;
 			}
-			if (fOuter != this->GetClass()) {
+			if (!this->GetClass()->IsA(fOuter->GetClass())) {
 				UE_LOG(LogTemp, Warn, "UObject::ProcessEvent_Save UClasses did not match\n	This.Class: {0}\n	{2}.Outer: {1}", this->GetClass()->GetName(), fOuter->GetName(), function->GetName());
 				return;
 			}
 		}
 		if (checkParamSize) {
-			if (function->GetParamsSize() != parmsSize) {
-				UE_LOG(LogTemp, Warn, "UObject::ProcessEvent_Save params size did not match of function {0}\n	Expected: {1}\n	Got: {2}", function->GetName(), function->GetParamsSize(), parmsSize);
+			uint16_t expectedSize = function->GetParamsSize();
+			if (expectedSize > parmsSize) {
+				UE_LOG(LogTemp, Warn, "UObject::ProcessEvent_Save params size did not match of function {0}\n	Expected at least: {1}\n	Got: {2}", function->GetName(), expectedSize, parmsSize);
 				return;
 			}
 		}

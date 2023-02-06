@@ -160,4 +160,38 @@ namespace UE4 {
 
 	//typedef TScriptDelegate<FWeakObjectPtr> FScriptDelegate;
 	typedef TMulticastScriptDelegate<> FMulticastScriptDelegate;
+
+	enum class ESPMode {
+		NotThreadSafe = 0,
+		//Fast = FORCE_THREADSAFE_SHAREDPTRS ? 1 : 0,
+		Fast = 0 ? 1 : 0,
+		ThreadSafe = 1
+	};
+	template<class ObjectType, ESPMode Mode = ESPMode::Fast> class TSharedRef;
+	template<class ObjectType, ESPMode Mode = ESPMode::Fast> class TSharedPtr;
+	template<class ObjectType, ESPMode Mode = ESPMode::Fast> class TWeakPtr;
+	template<class ObjectType, ESPMode Mode = ESPMode::Fast> class TSharedFromThis;
+	namespace SharedPointerInternals {
+		class FReferenceControllerBase {
+		public:
+			int32 SharedReferenceCount;
+			int32 WeakReferenceCount;
+		};
+		template<ESPMode Mode>
+		class FSharedReferencer {
+			FReferenceControllerBase* ReferenceController;
+		};
+	};
+	template<class ObjectType, ESPMode Mode>
+	class TSharedRef {
+	public:
+		ObjectType* Object;
+		SharedPointerInternals::FSharedReferencer<Mode> SharedReferenceCount;
+	};
+	template<class ObjectType, ESPMode Mode>
+	class TSharedPtr {
+	public:
+		ObjectType* Object;
+		SharedPointerInternals::FSharedReferencer<Mode> SharedReferenceCount;
+	};
 }

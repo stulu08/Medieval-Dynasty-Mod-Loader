@@ -45,6 +45,26 @@ protected:
 	virtual bool InitGameState() override;
 	virtual bool BeginPlay(UE4::AActor* Actor) override;
 	virtual bool Tick(UE4::ELevelTick tick, float deltaTime) override;
+
+	// Gets a value from your mod.ini file
+	template<class T>
+	T GetINIConfig(const std::string& key, const std::string& section = "Config", T nullReturn = T()) {
+		std::string path = GetFolder() + "/mod.ini";
+		if (!std::filesystem::exists(path)) {
+			if (logger) {
+				logger->Warn("Could not locate file: {0}", path);
+			}
+			else {
+				Log::Warn_MDML("Could not locate file: {0}", path);
+			}
+			return nullReturn;
+		}
+		INI ini(path, true);
+		if (ini.select(section)) {
+			return ini.getAs<T>(section, key, nullReturn);
+		}
+		return nullReturn;
+	}
 protected:
 	UE4::APC_Player_C* PlayerActor;
 	UE4::ABP_PlayerCharacter_C* PlayerCharacter;

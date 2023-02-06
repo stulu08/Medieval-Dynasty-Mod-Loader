@@ -118,7 +118,6 @@ namespace UE4 {
 		params.NewLocation = NewLocation;
 		params.bSweep = bSweep;
 		params.bTeleport = bTeleport;
-
 		uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 		uint32_t newFlags = flags;
 		newFlags |= 0x00000400;

@@ -41,6 +41,8 @@
 #include "Engine/UserDefinedEnum.h"
 #include "Engine/UserDefinedStruct.h"
 #include "Engine/World.h"
+#include "Engine/StringTable.h"
+#include "Engine/DataTable.h"
 
 #include "PropertyPath/PropertyPath_SDK.h"
 #include "SlateCore/SlateCore_SDK.h"

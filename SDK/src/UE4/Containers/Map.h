@@ -86,6 +86,11 @@ namespace UE4 {
 		NativeTMap(TMap<KeyType, ValueType> src) {
 			Write((byte*)this, (void*)&src, sizeof(TMap<KeyType, ValueType>));
 		}
+		template<typename NewValueType>
+		NativeTMap(TMap<KeyType, NewValueType> src) {
+			static_assert(sizeof(ValueType) == sizeof(NewValueType), "NativeTMap NewValueType must be same size as ValueType");
+			Write((byte*)this, (void*)&src, sizeof(TMap<KeyType, ValueType>));
+		}
 
 		operator TMap<KeyType, ValueType>*() {
 			return reinterpret_cast<TMap<KeyType, ValueType>*>(this);

@@ -501,7 +501,7 @@ void LoaderUI::HookDX()
 {
 	static bool ShowMSG = false;
 	if (!SDK::SelectedGameProfile.bEnableGUI) {
-		Log::SetupMessage("Cant enable MDML UI", "To enable MDML Debug UI, switch rendering mode to DirectX11 in Medieval Dynasty Settings");
+		Log::SetupMessage("Cant enable MDML UI", "To enable MDML Debug UI, switch rendering mode to DirectX11 in Medieval Dynasty Settings or set UseDebugUI to 1 in  Medieval_Dynasty/Binaries/Win64/Config/ModLoaderInfo.ini");
 		ShowMSG = true;
 		return;
 	}

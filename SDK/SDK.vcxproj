@@ -152,6 +152,7 @@
     <ClInclude Include="src\UE4\Engine\BlueprintFunctionLibrary.h" />
     <ClInclude Include="src\UE4\Engine\BlueprintGeneratedClass.h" />
     <ClInclude Include="src\UE4\Engine\Character.h" />
+    <ClInclude Include="src\UE4\Engine\DataTable.h" />
     <ClInclude Include="src\UE4\Engine\DynamicBlueprintBinding.h" />
     <ClInclude Include="src\UE4\Engine\GameInstance.h" />
     <ClInclude Include="src\UE4\Engine\GameMode.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="src\UE4\Engine\Scene.h" />
     <ClInclude Include="src\UE4\Engine\SceneComponent.h" />
     <ClInclude Include="src\UE4\Engine\SpringArmComponent.h" />
+    <ClInclude Include="src\UE4\Engine\StringTable.h" />
     <ClInclude Include="src\UE4\Engine\Structs.h" />
     <ClInclude Include="src\UE4\Engine\UserDefinedEnum.h" />
     <ClInclude Include="src\UE4\Engine\UserDefinedStruct.h" />
@@ -386,6 +388,7 @@
     <ClCompile Include="src\UE4\Engine\ActorComponent.cpp" />
     <ClCompile Include="src\UE4\Engine\BlueprintAsyncActionBase.cpp" />
     <ClCompile Include="src\UE4\Engine\Character.cpp" />
+    <ClCompile Include="src\UE4\Engine\DataTable.cpp" />
     <ClCompile Include="src\UE4\Engine\GamePlayStatics.cpp" />
     <ClCompile Include="src\UE4\Engine\GameStateBase.cpp" />
     <ClCompile Include="src\UE4\Engine\Info.cpp" />
@@ -395,6 +398,7 @@
     <ClCompile Include="src\UE4\Engine\PrimitiveComponent.cpp" />
     <ClCompile Include="src\UE4\Engine\SceneComponent.cpp" />
     <ClCompile Include="src\UE4\Engine\SpringArmComponent.cpp" />
+    <ClCompile Include="src\UE4\Engine\StringTable.cpp" />
     <ClCompile Include="src\UE4\Engine\UserDefinedEnum.cpp" />
     <ClCompile Include="src\UE4\Engine\World.cpp" />
     <ClCompile Include="src\UE4\MovieScene\MovieScene.cpp" />

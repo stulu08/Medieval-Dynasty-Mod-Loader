@@ -356,6 +356,9 @@
     <ClInclude Include="src\UE4\Engine\Character.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="src\UE4\Engine\DataTable.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
     <ClInclude Include="src\UE4\Engine\DynamicBlueprintBinding.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
@@ -402,6 +405,9 @@
       <Filter>UE4\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Engine\SpringArmComponent.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\StringTable.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Engine\Structs.h">
@@ -589,6 +595,9 @@
     </ClInclude>
     <ClInclude Include="src\UE4\SlateCore\Structs.h">
       <Filter>UE4\SlateCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\UE_LOG.h">
+      <Filter>UE4</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\UMG\AsyncTaskDownloadImage.h">
       <Filter>UE4\UMG</Filter>
@@ -935,9 +944,6 @@
     <ClInclude Include="src\UE4\UMG\WrapBoxSlot.h">
       <Filter>UE4\UMG</Filter>
     </ClInclude>
-    <ClInclude Include="src\UE4\UE_LOG.h">
-      <Filter>UE4</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Medieval_Dynasty\BPI_Inventory\BPI_Inventory_C.cpp">
@@ -1052,6 +1058,9 @@
     <ClCompile Include="src\UE4\Engine\Character.cpp">
       <Filter>UE4\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\UE4\Engine\DataTable.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="src\UE4\Engine\GamePlayStatics.cpp">
       <Filter>UE4\Engine</Filter>
     </ClCompile>
@@ -1077,6 +1086,9 @@
       <Filter>UE4\Engine</Filter>
     </ClCompile>
     <ClCompile Include="src\UE4\Engine\SpringArmComponent.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\StringTable.cpp">
       <Filter>UE4\Engine</Filter>
     </ClCompile>
     <ClCompile Include="src\UE4\Engine\UserDefinedEnum.cpp">

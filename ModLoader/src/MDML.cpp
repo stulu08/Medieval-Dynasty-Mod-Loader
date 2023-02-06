@@ -299,7 +299,9 @@ bool SetupProfile(const std::string& Path) {
 	MDML::UnrealEngineLoggerInstance = Logger::Create("UE_LOG", Log::getLogFile("UE_LOG-log.txt"));
 	SDK::SelectedGameProfile.UnrealLogger = MDML::UnrealEngineLoggerInstance->getLogger();
 
-	if (LoaderInfo.getAs<int>("DEBUG", "UseDebugUI", 0) == 1) {
+	SDK::SelectedGameProfile.bEnableGUI = LoaderInfo.getAs<int>("DEBUG", "UseDebugUI", 0);
+
+	if (SDK::SelectedGameProfile.bEnableGUI) {
 		SDK::SelectedGameProfile.bEnableGUI = IsDirectX11();
 		if (!SDK::SelectedGameProfile.bEnableGUI)
 			Log::Warn_MDML("Gui was disabled, maybe switch rendering mode to directx11 to enable");
