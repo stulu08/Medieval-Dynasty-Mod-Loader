@@ -10,7 +10,7 @@ Medieval Dynasty Mod Loader (MDML) is a fork of the [Unreal Engine Mod Loader](h
 - Unzip the file
 - Copy ```MDML.dll```, ```xinput1_3.dll``` and the ```Config``` folder into your medieval dynasty binaries folder, it is normally located at ```[SteamLibraryFolder]/common/Medieval Dynasty/Medieval_Dynasty/Binaries/Win64``` and there should be a file called ```Medieval_Dynasty-Win64-Shipping.exe```
 - Now start the game, if you did everything correct a GUI will pop up by pressing F1 and you should be able to find a Log folder inside the binaries folder
-- Additionally Install put the BaseMod folder inside ```[SteamLibraryFolder]/common/Medieval Dynasty/Medieval_Dynasty/Content/Mods```, create the folder if it is not there or start the game to automatically create it
+- Additionally put the BaseMod folder inside ```[SteamLibraryFolder]/common/Medieval Dynasty/Medieval_Dynasty/Content/Mods```, create the folder if it is not there or start the game to automatically create it
 
 # Building it
 - There are Visual Studio 17+ project files, but you should use premake to generate the project files
