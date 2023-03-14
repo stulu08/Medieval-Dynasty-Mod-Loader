@@ -318,8 +318,13 @@ namespace UE4 {
 			return ComparisonIndex == other.ComparisonIndex;
 		};
 	};
+	/////////////////////////////////////////////
+	// ScriptStruct InputCore.Key
+	// Size 24
+	/////////////////////////////////////////////
 	struct FKey {
-		FName KeyName;
+		struct FName	KeyName;		//Offset: 0	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+		unsigned char uknownData_0[16];		//Offset: 8	Size: 16
 	};
 }
 #ifdef _MSC_VER

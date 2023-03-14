@@ -48,8 +48,8 @@ IncludeDir["INI"] = "%{wks.location}/ModLoader/vendor/INI"
 IncludeDir["ImGui"] = "%{wks.location}/ModLoader/vendor/ImGui"
 
 IncludeDir["ModLoader"] = "%{wks.location}/ModLoader/src"
-IncludeDir["UE4"] = "%{wks.location}/SDK/src//UE4"
-IncludeDir["MedievalDynasty"] = "%{wks.location}/SDK/Medieval_Dynasty"
+IncludeDir["UE4"] = "%{wks.location}/SDK/src/UE4"
+IncludeDir["MedievalDynasty"] = "%{wks.location}/SDK/src/Medieval_Dynasty"
 IncludeDir["SDK"] = "%{wks.location}/SDK/src"
 IncludeDir["BaseMod"] = "%{wks.location}/BaseMod/src"
 

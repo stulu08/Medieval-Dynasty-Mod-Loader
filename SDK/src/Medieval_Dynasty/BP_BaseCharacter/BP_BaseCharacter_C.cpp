@@ -2909,10 +2909,7 @@ void ABP_BaseCharacter_C::CameraFadeFinished__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_CameraFadeFinished__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2927,10 +2924,7 @@ void ABP_BaseCharacter_C::OnMovementFinished__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnMovementFinished__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2945,10 +2939,7 @@ void ABP_BaseCharacter_C::OnSitIdleEntered__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnSitIdleEntered__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2963,10 +2954,7 @@ void ABP_BaseCharacter_C::OnSleepIdleEntered__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnSleepIdleEntered__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2981,10 +2969,7 @@ void ABP_BaseCharacter_C::OnIdleAnimEntered__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnIdleAnimEntered__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2999,10 +2984,7 @@ void ABP_BaseCharacter_C::OnIdleAnimFinished__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnIdleAnimFinished__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3020,10 +3002,7 @@ void ABP_BaseCharacter_C::OnInteractionFinished__DelegateSignature(class ABP_Bas
 	ABP_BaseCharacter_C_OnInteractionFinished__DelegateSignature_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3038,10 +3017,7 @@ void ABP_BaseCharacter_C::OnSitStarted__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnSitStarted__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3056,10 +3032,7 @@ void ABP_BaseCharacter_C::OnSitFinished__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnSitFinished__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3074,10 +3047,7 @@ void ABP_BaseCharacter_C::OnSleepStarted__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnSleepStarted__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3092,10 +3062,7 @@ void ABP_BaseCharacter_C::OnSleepFinished__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnSleepFinished__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3110,10 +3077,7 @@ void ABP_BaseCharacter_C::OnStartCrafting__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnStartCrafting__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3128,10 +3092,7 @@ void ABP_BaseCharacter_C::OnEndCrafting__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnEndCrafting__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3146,10 +3107,7 @@ void ABP_BaseCharacter_C::OnStoppingCrafting__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnStoppingCrafting__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3164,10 +3122,7 @@ void ABP_BaseCharacter_C::OnCharacterDeactivated__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnCharacterDeactivated__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3182,10 +3137,7 @@ void ABP_BaseCharacter_C::OnCharacterActivated__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnCharacterActivated__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3200,10 +3152,7 @@ void ABP_BaseCharacter_C::OnWaitForCrafting__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnWaitForCrafting__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3218,10 +3167,7 @@ void ABP_BaseCharacter_C::OnCraftingAnimEnd__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnCraftingAnimEnd__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3236,10 +3182,7 @@ void ABP_BaseCharacter_C::OnStartGettingUp__DelegateSignature() {
 	};
 	ABP_BaseCharacter_C_OnStartGettingUp__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3257,10 +3200,7 @@ void ABP_BaseCharacter_C::OnViewmodeChanged__DelegateSignature(TEnumAsByte<E_Vie
 	ABP_BaseCharacter_C_OnViewmodeChanged__DelegateSignature_Params params;
 	params.CurrentViewmode = CurrentViewmode;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3278,10 +3218,7 @@ void ABP_BaseCharacter_C::ExecuteUbergraph_BP_BaseCharacter(int32_t EntryPoint) 
 	ABP_BaseCharacter_C_ExecuteUbergraph_BP_BaseCharacter_Params params;
 	params.EntryPoint = EntryPoint;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3296,10 +3233,7 @@ void ABP_BaseCharacter_C::OnCombatStarted() {
 	};
 	ABP_BaseCharacter_C_OnCombatStarted_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3314,10 +3248,7 @@ void ABP_BaseCharacter_C::OnCombatEnded() {
 	};
 	ABP_BaseCharacter_C_OnCombatEnded_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3332,10 +3263,7 @@ void ABP_BaseCharacter_C::OnCombatCheck() {
 	};
 	ABP_BaseCharacter_C_OnCombatCheck_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3350,10 +3278,7 @@ void ABP_BaseCharacter_C::OnCombatCauserStarted() {
 	};
 	ABP_BaseCharacter_C_OnCombatCauserStarted_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3368,10 +3293,7 @@ void ABP_BaseCharacter_C::OnCombatCauserEnded() {
 	};
 	ABP_BaseCharacter_C_OnCombatCauserEnded_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3389,10 +3311,7 @@ void ABP_BaseCharacter_C::Update_Camera_Event(class UCurveFloat* LerpCurve) {
 	ABP_BaseCharacter_C_Update_Camera_Event_Params params;
 	params.LerpCurve = LerpCurve;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3407,10 +3326,7 @@ void ABP_BaseCharacter_C::StopCameraFOVLerp() {
 	};
 	ABP_BaseCharacter_C_StopCameraFOVLerp_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3425,10 +3341,7 @@ void ABP_BaseCharacter_C::PlayFromStartCameraFOVLerp() {
 	};
 	ABP_BaseCharacter_C_PlayFromStartCameraFOVLerp_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3443,10 +3356,7 @@ void ABP_BaseCharacter_C::PlayCameraFOVLerp() {
 	};
 	ABP_BaseCharacter_C_PlayCameraFOVLerp_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3461,10 +3371,7 @@ void ABP_BaseCharacter_C::ReverseCameraFOVLerp() {
 	};
 	ABP_BaseCharacter_C_ReverseCameraFOVLerp_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3479,10 +3386,7 @@ void ABP_BaseCharacter_C::ReverseFromEndCameraFOVLerp() {
 	};
 	ABP_BaseCharacter_C_ReverseFromEndCameraFOVLerp_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3500,10 +3404,7 @@ void ABP_BaseCharacter_C::SetNewTimeCameraFOVLerp(float NewTime) {
 	ABP_BaseCharacter_C_SetNewTimeCameraFOVLerp_Params params;
 	params.NewTime = NewTime;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3527,10 +3428,7 @@ void ABP_BaseCharacter_C::FOVLerpUpdateSettings(class UCurveFloat* FloatCurve, f
 	params.NewRate = NewRate;
 	params.TargetFOV = TargetFOV;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3545,10 +3443,7 @@ void ABP_BaseCharacter_C::OnGetUp() {
 	};
 	ABP_BaseCharacter_C_OnGetUp_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3563,10 +3458,7 @@ void ABP_BaseCharacter_C::OnSit() {
 	};
 	ABP_BaseCharacter_C_OnSit_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3581,10 +3473,7 @@ void ABP_BaseCharacter_C::OnGoToSleep() {
 	};
 	ABP_BaseCharacter_C_OnGoToSleep_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3599,10 +3488,7 @@ void ABP_BaseCharacter_C::OnWakeUp() {
 	};
 	ABP_BaseCharacter_C_OnWakeUp_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3617,10 +3503,7 @@ void ABP_BaseCharacter_C::OnSitIdle() {
 	};
 	ABP_BaseCharacter_C_OnSitIdle_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3635,10 +3518,7 @@ void ABP_BaseCharacter_C::OnSleepIdle() {
 	};
 	ABP_BaseCharacter_C_OnSleepIdle_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3659,10 +3539,7 @@ void ABP_BaseCharacter_C::StartCrafting(TEnumAsByte<E_Workbenches> WorkbenchType
 	params.WorkbenchType = WorkbenchType;
 	params.CraftingTime = CraftingTime;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3680,10 +3557,7 @@ void ABP_BaseCharacter_C::EndCrafting(bool CancelAnimation) {
 	ABP_BaseCharacter_C_EndCrafting_Params params;
 	params.CancelAnimation = CancelAnimation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3698,10 +3572,7 @@ void ABP_BaseCharacter_C::FistFighting() {
 	};
 	ABP_BaseCharacter_C_FistFighting_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3716,10 +3587,7 @@ void ABP_BaseCharacter_C::StartFistTL() {
 	};
 	ABP_BaseCharacter_C_StartFistTL_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3734,10 +3602,7 @@ void ABP_BaseCharacter_C::ReverseFistTL() {
 	};
 	ABP_BaseCharacter_C_ReverseFistTL_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3752,10 +3617,7 @@ void ABP_BaseCharacter_C::FallingEvent() {
 	};
 	ABP_BaseCharacter_C_FallingEvent_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3770,10 +3632,7 @@ void ABP_BaseCharacter_C::StartFalling() {
 	};
 	ABP_BaseCharacter_C_StartFalling_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3788,10 +3647,7 @@ void ABP_BaseCharacter_C::EndFalling() {
 	};
 	ABP_BaseCharacter_C_EndFalling_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3806,10 +3662,7 @@ void ABP_BaseCharacter_C::OnIdleAnimStart() {
 	};
 	ABP_BaseCharacter_C_OnIdleAnimStart_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3824,10 +3677,7 @@ void ABP_BaseCharacter_C::OnIdleAnimEnd() {
 	};
 	ABP_BaseCharacter_C_OnIdleAnimEnd_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3842,10 +3692,7 @@ void ABP_BaseCharacter_C::Blink() {
 	};
 	ABP_BaseCharacter_C_Blink_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3860,10 +3707,7 @@ void ABP_BaseCharacter_C::StartBlinking() {
 	};
 	ABP_BaseCharacter_C_StartBlinking_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3881,10 +3725,7 @@ void ABP_BaseCharacter_C::BlinkMorph(float Value) {
 	ABP_BaseCharacter_C_BlinkMorph_Params params;
 	params.Value = Value;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3899,10 +3740,7 @@ void ABP_BaseCharacter_C::CloseEyes() {
 	};
 	ABP_BaseCharacter_C_CloseEyes_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3917,10 +3755,7 @@ void ABP_BaseCharacter_C::OpenEyes() {
 	};
 	ABP_BaseCharacter_C_OpenEyes_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3935,10 +3770,7 @@ void ABP_BaseCharacter_C::Stop_Blinking() {
 	};
 	ABP_BaseCharacter_C_Stop_Blinking_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3953,10 +3785,7 @@ void ABP_BaseCharacter_C::WaitCrafting() {
 	};
 	ABP_BaseCharacter_C_WaitCrafting_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3974,10 +3803,7 @@ void ABP_BaseCharacter_C::CraftingClosed(class ABP_BaseCharacter_C* BaseCharacte
 	ABP_BaseCharacter_C_CraftingClosed_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3992,10 +3818,7 @@ void ABP_BaseCharacter_C::OnCraftingAnimEnded() {
 	};
 	ABP_BaseCharacter_C_OnCraftingAnimEnded_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4010,10 +3833,7 @@ void ABP_BaseCharacter_C::ShouldHolster() {
 	};
 	ABP_BaseCharacter_C_ShouldHolster_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4028,10 +3848,7 @@ void ABP_BaseCharacter_C::TPPCombatState() {
 	};
 	ABP_BaseCharacter_C_TPPCombatState_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4046,10 +3863,7 @@ void ABP_BaseCharacter_C::ResetTPPCombatState() {
 	};
 	ABP_BaseCharacter_C_ResetTPPCombatState_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4064,10 +3878,7 @@ void ABP_BaseCharacter_C::OnGettingUp() {
 	};
 	ABP_BaseCharacter_C_OnGettingUp_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4082,10 +3893,7 @@ void ABP_BaseCharacter_C::Drunk() {
 	};
 	ABP_BaseCharacter_C_Drunk_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4103,10 +3911,7 @@ void ABP_BaseCharacter_C::Set_CrouchingSpeed_Event(float crouchingSpeed) {
 	ABP_BaseCharacter_C_Set_CrouchingSpeed_Event_Params params;
 	params.crouchingSpeed = crouchingSpeed;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4124,10 +3929,7 @@ void ABP_BaseCharacter_C::Set_SprintingSpeed_Event(float sprintingSpeed) {
 	ABP_BaseCharacter_C_Set_SprintingSpeed_Event_Params params;
 	params.sprintingSpeed = sprintingSpeed;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4145,10 +3947,7 @@ void ABP_BaseCharacter_C::Set_RunningSpeed_Event(float runningSpeed) {
 	ABP_BaseCharacter_C_Set_RunningSpeed_Event_Params params;
 	params.runningSpeed = runningSpeed;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4166,10 +3965,7 @@ void ABP_BaseCharacter_C::Set_WalkingSpeed_Event(float WalkingSpeed) {
 	ABP_BaseCharacter_C_Set_WalkingSpeed_Event_Params params;
 	params.WalkingSpeed = WalkingSpeed;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4187,10 +3983,7 @@ void ABP_BaseCharacter_C::Set_ALS_ViewMode_Event(TEnumAsByte<E_ViewMode> ALS_Vie
 	ABP_BaseCharacter_C_Set_ALS_ViewMode_Event_Params params;
 	params.ALS_ViewMode = ALS_ViewMode;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4208,10 +4001,7 @@ void ABP_BaseCharacter_C::Set_ALS_Aiming_Event(bool ALS_Aiming) {
 	ABP_BaseCharacter_C_Set_ALS_Aiming_Event_Params params;
 	params.ALS_Aiming = ALS_Aiming;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4229,10 +4019,7 @@ void ABP_BaseCharacter_C::Set_ALS_RotationMode_Event(TEnumAsByte<E_RotationMode>
 	ABP_BaseCharacter_C_Set_ALS_RotationMode_Event_Params params;
 	params.New_ALS_RotationMode = New_ALS_RotationMode;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4250,10 +4037,7 @@ void ABP_BaseCharacter_C::Set_ALS_Stance_Event(TEnumAsByte<E_Stance> New_ALS_Sta
 	ABP_BaseCharacter_C_Set_ALS_Stance_Event_Params params;
 	params.New_ALS_Stance = New_ALS_Stance;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4271,10 +4055,7 @@ void ABP_BaseCharacter_C::Set_ALS_Gait_Event(TEnumAsByte<E_Gait> New_ALS_Gait) {
 	ABP_BaseCharacter_C_Set_ALS_Gait_Event_Params params;
 	params.New_ALS_Gait = New_ALS_Gait;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4295,10 +4076,7 @@ void ABP_BaseCharacter_C::Set_ALS_MovementMode_Event(TEnumAsByte<E_MovementMode>
 	params.New_ALS_MovementMode = New_ALS_MovementMode;
 	params.Force = Force;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4322,10 +4100,7 @@ void ABP_BaseCharacter_C::Set_Sleeping_Event(bool IsSleeping, TEnumAsByte<E_Slee
 	params.SleepingDirection = SleepingDirection;
 	params.UseBedSleepingPose = UseBedSleepingPose;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4349,10 +4124,7 @@ void ABP_BaseCharacter_C::Set_Sitting_Event(bool IsSitting, TEnumAsByte<E_SitDow
 	params.SitDownPosition = SitDownPosition;
 	params.SittingType = SittingType;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4373,10 +4145,7 @@ void ABP_BaseCharacter_C::Set_IdleState_Event(bool IsInIdleState, TEnumAsByte<E_
 	params.IsInIdleState = IsInIdleState;
 	params.IdleState = IdleState;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4406,10 +4175,7 @@ void ABP_BaseCharacter_C::Set_WorkState_Event(bool IsWorking, TEnumAsByte<E_Prof
 	params.Loops = Loops;
 	params.SkipEndAnim = SkipEndAnim;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4442,10 +4208,7 @@ void ABP_BaseCharacter_C::Set_BreakState_Event(bool IsTakingBreak, TEnumAsByte<E
 	params.BreakType = BreakType;
 	params.Loops = Loops;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4460,10 +4223,7 @@ void ABP_BaseCharacter_C::Set_ForceStanding_Event() {
 	};
 	ABP_BaseCharacter_C_Set_ForceStanding_Event_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4487,10 +4247,7 @@ void ABP_BaseCharacter_C::Set_IdlePose_Event(TEnumAsByte<E_IdleStates> Idle_Stat
 	params.PoseID = PoseID;
 	params.DoAfterPose = DoAfterPose;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4508,10 +4265,7 @@ void ABP_BaseCharacter_C::Set_CaughtPrey_Event(bool CaughtPrey) {
 	ABP_BaseCharacter_C_Set_CaughtPrey_Event_Params params;
 	params.CaughtPrey = CaughtPrey;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4529,10 +4283,7 @@ void ABP_BaseCharacter_C::SetEnableIK_Event(bool IK_Enabled) {
 	ABP_BaseCharacter_C_SetEnableIK_Event_Params params;
 	params.IK_Enabled = IK_Enabled;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4550,10 +4301,7 @@ void ABP_BaseCharacter_C::SetToolType_Event(TEnumAsByte<E_Tools> ToolType) {
 	ABP_BaseCharacter_C_SetToolType_Event_Params params;
 	params.ToolType = ToolType;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4571,10 +4319,7 @@ void ABP_BaseCharacter_C::SetBlocking_Event(bool Blocking) {
 	ABP_BaseCharacter_C_SetBlocking_Event_Params params;
 	params.Blocking = Blocking;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4592,10 +4337,7 @@ void ABP_BaseCharacter_C::Set_MovementInput_Event___SERVER__(struct FVector Move
 	ABP_BaseCharacter_C_Set_MovementInput_Event___SERVER___Params params;
 	params.MovementInput = MovementInput;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4613,10 +4355,7 @@ void ABP_BaseCharacter_C::Set_LookingRotation_Event___SERVER__(struct FRotator L
 	ABP_BaseCharacter_C_Set_LookingRotation_Event___SERVER___Params params;
 	params.LookingRotation = LookingRotation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4637,10 +4376,7 @@ void ABP_BaseCharacter_C::Set_CharacterRotation_Event___SERVER__(struct FRotator
 	params.TargetRotation = TargetRotation;
 	params.characterRotation = characterRotation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4667,10 +4403,7 @@ void ABP_BaseCharacter_C::Play_Networked_Montage___SERVER__(class UAnimMontage* 
 	params.InTimeToStartMontageAt = InTimeToStartMontageAt;
 	params.bStopAllMontages = bStopAllMontages;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4697,10 +4430,7 @@ void ABP_BaseCharacter_C::Play_Networked_Montage___MULTICAST__(class UAnimMontag
 	params.InTimeToStartMontageAt = InTimeToStartMontageAt;
 	params.bStopAllMontages = bStopAllMontages;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4718,10 +4448,7 @@ void ABP_BaseCharacter_C::Set_ALS_Aiming_Event___MULTICAST__(bool ALS_Aiming) {
 	ABP_BaseCharacter_C_Set_ALS_Aiming_Event___MULTICAST___Params params;
 	params.ALS_Aiming = ALS_Aiming;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4739,10 +4466,7 @@ void ABP_BaseCharacter_C::Set_ALS_Aiming_Event___SERVER__(bool ALS_Aiming) {
 	ABP_BaseCharacter_C_Set_ALS_Aiming_Event___SERVER___Params params;
 	params.ALS_Aiming = ALS_Aiming;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4760,10 +4484,7 @@ void ABP_BaseCharacter_C::Set_ALS_RotationMode_Event___MULTICAST__(TEnumAsByte<E
 	ABP_BaseCharacter_C_Set_ALS_RotationMode_Event___MULTICAST___Params params;
 	params.ALS_RotationMode = ALS_RotationMode;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4781,10 +4502,7 @@ void ABP_BaseCharacter_C::Set_ALS_RotationMode_Event___SERVER__(TEnumAsByte<E_Ro
 	ABP_BaseCharacter_C_Set_ALS_RotationMode_Event___SERVER___Params params;
 	params.ALS_RotationMode = ALS_RotationMode;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4802,10 +4520,7 @@ void ABP_BaseCharacter_C::Set_ALS_Gait_Event___MULTICAST__(TEnumAsByte<E_Gait> A
 	ABP_BaseCharacter_C_Set_ALS_Gait_Event___MULTICAST___Params params;
 	params.ALS_Gait = ALS_Gait;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4823,10 +4538,7 @@ void ABP_BaseCharacter_C::Set_ALS_Gait_Event___SERVER__(TEnumAsByte<E_Gait> ALS_
 	ABP_BaseCharacter_C_Set_ALS_Gait_Event___SERVER___Params params;
 	params.ALS_Gait = ALS_Gait;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4853,10 +4565,7 @@ void ABP_BaseCharacter_C::UpdateRagdoll___SERVER__(struct FVector RagdollVelocit
 	params.ActorRotation = ActorRotation;
 	params.ActorLocation = ActorLocation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4874,10 +4583,7 @@ void ABP_BaseCharacter_C::UpdateRagdoll___MULTICAST__(struct FVector ActorLocati
 	ABP_BaseCharacter_C_UpdateRagdoll___MULTICAST___Params params;
 	params.ActorLocation = ActorLocation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4895,10 +4601,7 @@ void ABP_BaseCharacter_C::Un_Ragdoll___SERVER__(bool OnGround) {
 	ABP_BaseCharacter_C_Un_Ragdoll___SERVER___Params params;
 	params.OnGround = OnGround;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4913,10 +4616,7 @@ void ABP_BaseCharacter_C::To_Ragdoll___SERVER__() {
 	};
 	ABP_BaseCharacter_C_To_Ragdoll___SERVER___Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4934,10 +4634,7 @@ void ABP_BaseCharacter_C::AddCharacterRotation_BPI(struct FRotator AddAmount) {
 	ABP_BaseCharacter_C_AddCharacterRotation_BPI_Params params;
 	params.AddAmount = AddAmount;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4955,10 +4652,7 @@ void ABP_BaseCharacter_C::Set_ALS_Stance_BPI(TEnumAsByte<E_Stance> ALS_Stance) {
 	ABP_BaseCharacter_C_Set_ALS_Stance_BPI_Params params;
 	params.ALS_Stance = ALS_Stance;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4976,10 +4670,7 @@ void ABP_BaseCharacter_C::Set_ALS_Gait_BPI(TEnumAsByte<E_Gait> ALS_Gait) {
 	ABP_BaseCharacter_C_Set_ALS_Gait_BPI_Params params;
 	params.ALS_Gait = ALS_Gait;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5000,10 +4691,7 @@ void ABP_BaseCharacter_C::Set_ALS_MovementMode_BPI(TEnumAsByte<E_MovementMode> A
 	params.ALS_MovementMode = ALS_MovementMode;
 	params.Force = Force;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5018,10 +4706,7 @@ void ABP_BaseCharacter_C::StartAiming() {
 	};
 	ABP_BaseCharacter_C_StartAiming_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5036,10 +4721,7 @@ void ABP_BaseCharacter_C::StopAiming() {
 	};
 	ABP_BaseCharacter_C_StopAiming_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5063,10 +4745,7 @@ void ABP_BaseCharacter_C::Set_Sleeping_BPI(bool Sleeping, TEnumAsByte<E_Sleeping
 	params.SleepingDirection = SleepingDirection;
 	params.UseBedSleepingPose = UseBedSleepingPose;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5090,10 +4769,7 @@ void ABP_BaseCharacter_C::Set_Sitting_BPI(bool Sitting, TEnumAsByte<E_SitDownPos
 	params.SitDownPosition = SitDownPosition;
 	params.SittingType = SittingType;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5111,10 +4787,7 @@ void ABP_BaseCharacter_C::AnimNotify_DespawnAnimItem(TEnumAsByte<E_HandsForHolst
 	ABP_BaseCharacter_C_AnimNotify_DespawnAnimItem_Params params;
 	params.HoldablesToDespawn = HoldablesToDespawn;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5135,10 +4808,7 @@ void ABP_BaseCharacter_C::AnimNotify_SpawnAnimItem(TAssetPtr<class UClass> ItemC
 	params.ItemClass = ItemClass;
 	params.IsOffHand = IsOffHand;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5153,10 +4823,7 @@ void ABP_BaseCharacter_C::AnimNotify_HolsterWeapon() {
 	};
 	ABP_BaseCharacter_C_AnimNotify_HolsterWeapon_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5177,10 +4844,7 @@ void ABP_BaseCharacter_C::Set_IdleState_BPI(bool IsInIdleState, TEnumAsByte<E_Id
 	params.IsInIdleState = IsInIdleState;
 	params.IdleState = IdleState;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5195,10 +4859,7 @@ void ABP_BaseCharacter_C::ResetCameraPitch() {
 	};
 	ABP_BaseCharacter_C_ResetCameraPitch_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5228,10 +4889,7 @@ void ABP_BaseCharacter_C::Set_WorkState_BPI(bool IsWorking, TEnumAsByte<E_Profes
 	params.Loops = Loops;
 	params.SkipEndAnim = SkipEndAnim;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5264,10 +4922,7 @@ void ABP_BaseCharacter_C::Set_BreakState_BPI(bool IsTakingBreak, TEnumAsByte<E_P
 	params.BreakType = BreakType;
 	params.Loops = Loops;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5282,10 +4937,7 @@ void ABP_BaseCharacter_C::ForceStanding() {
 	};
 	ABP_BaseCharacter_C_ForceStanding_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5306,10 +4958,7 @@ void ABP_BaseCharacter_C::AnimNotify_AnimObjectNotify(TEnumAsByte<E_NotifyObject
 	params.ObjectToNotify = ObjectToNotify;
 	params.NotifyName = NotifyName;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5330,10 +4979,7 @@ void ABP_BaseCharacter_C::Knockback(struct FVector KnockbackDirection, float Kno
 	params.KnockbackDirection = KnockbackDirection;
 	params.KnockbackStrength = KnockbackStrength;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5357,10 +5003,7 @@ void ABP_BaseCharacter_C::Set_IdlePoseByID_BPI(TEnumAsByte<E_IdleStates> Idle_St
 	params.PoseID = PoseID;
 	params.DoAfterPose = DoAfterPose;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5375,10 +5018,7 @@ void ABP_BaseCharacter_C::OnDeath() {
 	};
 	ABP_BaseCharacter_C_OnDeath_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5396,10 +5036,7 @@ void ABP_BaseCharacter_C::Set_Caught_Prey_BPI(bool CaughtPrey) {
 	ABP_BaseCharacter_C_Set_Caught_Prey_BPI_Params params;
 	params.CaughtPrey = CaughtPrey;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5417,10 +5054,7 @@ void ABP_BaseCharacter_C::PlayMountStopAnimation(int32_t AnimIndex) {
 	ABP_BaseCharacter_C_PlayMountStopAnimation_Params params;
 	params.AnimIndex = AnimIndex;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5435,10 +5069,7 @@ void ABP_BaseCharacter_C::PlayMountSpecial() {
 	};
 	ABP_BaseCharacter_C_PlayMountSpecial_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5459,10 +5090,7 @@ void ABP_BaseCharacter_C::UpdateIKAlpha(float Alpha, bool Enabled) {
 	params.Alpha = Alpha;
 	params.Enabled = Enabled;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5480,10 +5108,7 @@ void ABP_BaseCharacter_C::StartCombat_BPI(class AActor* CombatCauser) {
 	ABP_BaseCharacter_C_StartCombat_BPI_Params params;
 	params.CombatCauser = CombatCauser;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5501,10 +5126,7 @@ void ABP_BaseCharacter_C::EndCombat_BPI(class AActor* CombatCauser) {
 	ABP_BaseCharacter_C_EndCombat_BPI_Params params;
 	params.CombatCauser = CombatCauser;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5522,10 +5144,7 @@ void ABP_BaseCharacter_C::SetEnableIK_BPI(bool IK_Enabled) {
 	ABP_BaseCharacter_C_SetEnableIK_BPI_Params params;
 	params.IK_Enabled = IK_Enabled;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5543,10 +5162,7 @@ void ABP_BaseCharacter_C::SetMountAnimalType_BPI(TEnumAsByte<E_AnimalType> Mount
 	ABP_BaseCharacter_C_SetMountAnimalType_BPI_Params params;
 	params.MountAnimalType = MountAnimalType;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5570,10 +5186,7 @@ void ABP_BaseCharacter_C::UpdateCraftingNumbers_BPI(int32_t ToCraft, int32_t Cur
 	params.CurrentCraft = CurrentCraft;
 	params.CraftTime = CraftTime;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5591,10 +5204,7 @@ void ABP_BaseCharacter_C::SetToolType_BPI(TEnumAsByte<E_Tools> ToolType) {
 	ABP_BaseCharacter_C_SetToolType_BPI_Params params;
 	params.ToolType = ToolType;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5612,10 +5222,7 @@ void ABP_BaseCharacter_C::SetBlocking_BPI(bool Blocking) {
 	ABP_BaseCharacter_C_SetBlocking_BPI_Params params;
 	params.Blocking = Blocking;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5633,10 +5240,7 @@ void ABP_BaseCharacter_C::AddImpaledItem(class AActor* ImpaledItem) {
 	ABP_BaseCharacter_C_AddImpaledItem_Params params;
 	params.ImpaledItem = ImpaledItem;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5654,10 +5258,7 @@ void ABP_BaseCharacter_C::RemoveImpaledItem(class AActor* ImpaledItem) {
 	ABP_BaseCharacter_C_RemoveImpaledItem_Params params;
 	params.ImpaledItem = ImpaledItem;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5675,10 +5276,7 @@ void ABP_BaseCharacter_C::PoisonCharacter(float Poison) {
 	ABP_BaseCharacter_C_PoisonCharacter_Params params;
 	params.Poison = Poison;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5696,10 +5294,7 @@ void ABP_BaseCharacter_C::StopHolsterAnimation(float BlendOutTime) {
 	ABP_BaseCharacter_C_StopHolsterAnimation_Params params;
 	params.BlendOutTime = BlendOutTime;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5720,10 +5315,7 @@ void ABP_BaseCharacter_C::SetCharacterMovementActive(bool IsActive, bool IsIKAct
 	params.IsActive = IsActive;
 	params.IsIKActive = IsIKActive;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5738,10 +5330,7 @@ void ABP_BaseCharacter_C::ForceEndCombat_BPI() {
 	};
 	ABP_BaseCharacter_C_ForceEndCombat_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5762,10 +5351,7 @@ void ABP_BaseCharacter_C::IncreaseTechnology_BPI(TEnumAsByte<E_TechnologyTypes> 
 	params.TechnologyType = TechnologyType;
 	params.Value = Value;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5789,10 +5375,7 @@ void ABP_BaseCharacter_C::CharacterAddSkills_BPI(TEnumAsByte<E_Skills> Skill, fl
 	params.Value = Value;
 	params.AffectedByGameSettings = AffectedByGameSettings;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5819,10 +5402,7 @@ void ABP_BaseCharacter_C::K2_OnMovementModeChanged(TEnumAsByte<EMovementMode> Pr
 	params.PrevCustomMode = PrevCustomMode;
 	params.NewCustomMode = NewCustomMode;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5843,10 +5423,7 @@ void ABP_BaseCharacter_C::K2_OnStartCrouch(float HalfHeightAdjust, float ScaledH
 	params.HalfHeightAdjust = HalfHeightAdjust;
 	params.ScaledHalfHeightAdjust = ScaledHalfHeightAdjust;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5867,10 +5444,7 @@ void ABP_BaseCharacter_C::K2_OnEndCrouch(float HalfHeightAdjust, float ScaledHal
 	params.HalfHeightAdjust = HalfHeightAdjust;
 	params.ScaledHalfHeightAdjust = ScaledHalfHeightAdjust;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5888,10 +5462,7 @@ void ABP_BaseCharacter_C::OnLanded(const struct FHitResult& Hit) {
 	ABP_BaseCharacter_C_OnLanded_Params params;
 	params.Hit = Hit;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5909,10 +5480,7 @@ void ABP_BaseCharacter_C::ReceiveEndPlay(TEnumAsByte<EEndPlayReason> EndPlayReas
 	ABP_BaseCharacter_C_ReceiveEndPlay_Params params;
 	params.EndPlayReason = EndPlayReason;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5927,10 +5495,7 @@ void ABP_BaseCharacter_C::To_Ragdoll___MULTICAST__() {
 	};
 	ABP_BaseCharacter_C_To_Ragdoll___MULTICAST___Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5948,10 +5513,7 @@ void ABP_BaseCharacter_C::Un_Ragdoll___MULTICAST__(bool OnGround) {
 	ABP_BaseCharacter_C_Un_Ragdoll___MULTICAST___Params params;
 	params.OnGround = OnGround;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5966,10 +5528,7 @@ void ABP_BaseCharacter_C::To_Ragdoll_Event() {
 	};
 	ABP_BaseCharacter_C_To_Ragdoll_Event_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5987,10 +5546,7 @@ void ABP_BaseCharacter_C::Un_Ragdoll_Event(bool SkipAnim) {
 	ABP_BaseCharacter_C_Un_Ragdoll_Event_Params params;
 	params.SkipAnim = SkipAnim;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6005,10 +5561,7 @@ void ABP_BaseCharacter_C::Ragdoll() {
 	};
 	ABP_BaseCharacter_C_Ragdoll_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6026,10 +5579,7 @@ void ABP_BaseCharacter_C::SetMeshCollisionKeepTime_BPI(float Keep_Time) {
 	ABP_BaseCharacter_C_SetMeshCollisionKeepTime_BPI_Params params;
 	params.Keep_Time = Keep_Time;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6047,10 +5597,7 @@ void ABP_BaseCharacter_C::SetMeshCollision_BPI(TEnumAsByte<ECollisionEnabled> Co
 	ABP_BaseCharacter_C_SetMeshCollision_BPI_Params params;
 	params.Collision_Type = Collision_Type;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6074,10 +5621,7 @@ void ABP_BaseCharacter_C::Hit(struct FVector HitLocation, struct FVector HitForc
 	params.HitForce = HitForce;
 	params.HitBoneName = HitBoneName;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6100,10 +5644,7 @@ void ABP_BaseCharacter_C::PresetLoad(TArray<struct FST_NPCItemColors>* Array, cl
 	params.Tattoo = Tattoo;
 	params.Async = Async;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Array != nullptr)
 		*Array = params.Array;
 }
@@ -6126,10 +5667,7 @@ void ABP_BaseCharacter_C::SetIsInWater(bool InWater, float Intensity) {
 	params.InWater = InWater;
 	params.Intensity = Intensity;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6153,10 +5691,7 @@ void ABP_BaseCharacter_C::ChangeMontageNextSection(struct FName SectionNameToCha
 	params.NextSection = NextSection;
 	params.Montage = Montage;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6171,10 +5706,7 @@ void ABP_BaseCharacter_C::ShowInspectorUI() {
 	};
 	ABP_BaseCharacter_C_ShowInspectorUI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6189,10 +5721,7 @@ void ABP_BaseCharacter_C::BndEvt__BP_CharacterStatsComponent_K2Node_ComponentBou
 	};
 	ABP_BaseCharacter_C_BndEvt__BP_CharacterStatsComponent_K2Node_ComponentBoundEvent_0_OnHealthChange__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6210,10 +5739,7 @@ void ABP_BaseCharacter_C::SetMontageSettings(TMap<TEnumAsByte<E_AnimInteractionT
 	ABP_BaseCharacter_C_SetMontageSettings_Params params;
 	params.MontagesSettings = MontagesSettings;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6240,10 +5766,7 @@ void ABP_BaseCharacter_C::ReceiveAnyDamage(float Damage, class UDamageType* Dama
 	params.InstigatedBy = InstigatedBy;
 	params.DamageCauser = DamageCauser;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6261,10 +5784,7 @@ void ABP_BaseCharacter_C::SetMontageType(TEnumAsByte<E_AnimInteractionTypes> Mon
 	ABP_BaseCharacter_C_SetMontageType_Params params;
 	params.Montage_Type = Montage_Type;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6279,10 +5799,7 @@ void ABP_BaseCharacter_C::CancelAnimationLoops() {
 	};
 	ABP_BaseCharacter_C_CancelAnimationLoops_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6306,10 +5823,7 @@ void ABP_BaseCharacter_C::SelectPickUpAnimation(class UObject* Instigator, bool 
 	params.PreferTwoHanded = PreferTwoHanded;
 	params.PlayAnimSound = PlayAnimSound;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6327,10 +5841,7 @@ void ABP_BaseCharacter_C::ChangePlayerInput(bool DisablePlayerInput) {
 	ABP_BaseCharacter_C_ChangePlayerInput_Params params;
 	params.DisablePlayerInput = DisablePlayerInput;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6378,10 +5889,7 @@ void ABP_BaseCharacter_C::SetMeshAndMaterials(class USkeletalMesh* HeadMesh, cla
 	params.AnimClass = AnimClass;
 	params.DynamicMaterials = DynamicMaterials;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6405,10 +5913,7 @@ void ABP_BaseCharacter_C::PlayPickingUpMontage(class UObject* Instigator, bool P
 	params.PreferTwoHanded = PreferTwoHanded;
 	params.PlayAnimSound = PlayAnimSound;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6435,10 +5940,7 @@ void ABP_BaseCharacter_C::HoldableHitAction(struct FST_MontagesSettingsArray Act
 	params.AnimID = AnimID;
 	params.IgnorePlayingMontage = IgnorePlayingMontage;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6483,10 +5985,7 @@ void ABP_BaseCharacter_C::HoldableAction(TMap<TEnumAsByte<E_AnimInteractionTypes
 	params.PlayMode = PlayMode;
 	params.AnimID = AnimID;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6504,10 +6003,7 @@ void ABP_BaseCharacter_C::Limit_Camera_Rotation(struct FST_CameraRotationLimits 
 	ABP_BaseCharacter_C_Limit_Camera_Rotation_Params params;
 	params.CameraRotationLimits = CameraRotationLimits;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6531,10 +6027,7 @@ void ABP_BaseCharacter_C::Limit_Stage_Interaction_Camera_Rotation(bool bUseHeadF
 	params.bUsePlayerCamera = bUsePlayerCamera;
 	params.bLimitPlayerCamera = bLimitPlayerCamera;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6552,10 +6045,7 @@ void ABP_BaseCharacter_C::Stop_Character_Movement(bool bStopMovementInput) {
 	ABP_BaseCharacter_C_Stop_Character_Movement_Params params;
 	params.bStopMovementInput = bStopMovementInput;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6570,10 +6060,7 @@ void ABP_BaseCharacter_C::Swoon() {
 	};
 	ABP_BaseCharacter_C_Swoon_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6588,10 +6075,7 @@ void ABP_BaseCharacter_C::FinishStageInteraction() {
 	};
 	ABP_BaseCharacter_C_FinishStageInteraction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6627,10 +6111,7 @@ void ABP_BaseCharacter_C::StartCameraFade_Pawn(float FromAlpha, float ToAlpha, f
 	params.bHoldWhenFinished = bHoldWhenFinished;
 	params.bReverseOnFinish = bReverseOnFinish;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6651,10 +6132,7 @@ void ABP_BaseCharacter_C::Change_Camera(bool bUsePlayerCamera, float BlendTime) 
 	params.bUsePlayerCamera = bUsePlayerCamera;
 	params.BlendTime = BlendTime;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6672,10 +6150,7 @@ void ABP_BaseCharacter_C::Stop_Character_Rotation(bool StopRotationInput) {
 	ABP_BaseCharacter_C_Stop_Character_Rotation_Params params;
 	params.StopRotationInput = StopRotationInput;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6714,10 +6189,7 @@ void ABP_BaseCharacter_C::SetupStageInteraction(class AActor* InteractedActor, T
 	params.NumberOfAutomaticLoops = NumberOfAutomaticLoops;
 	params.SwapItemsOnInteraction = SwapItemsOnInteraction;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6768,10 +6240,7 @@ void ABP_BaseCharacter_C::SetMesh(class USkeletalMesh* NewHeadMesh, class USkele
 	params.NewClass = NewClass;
 	params.UpdateOnly = UpdateOnly;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6786,10 +6255,7 @@ void ABP_BaseCharacter_C::ReceiveBeginPlay() {
 	};
 	ABP_BaseCharacter_C_ReceiveBeginPlay_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6807,10 +6273,7 @@ void ABP_BaseCharacter_C::ReceiveTick(float DeltaSeconds) {
 	ABP_BaseCharacter_C_ReceiveTick_Params params;
 	params.DeltaSeconds = DeltaSeconds;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6828,10 +6291,7 @@ void ABP_BaseCharacter_C::GetMountMovementMode_BPI(TEnumAsByte<E_MovementMode> M
 	ABP_BaseCharacter_C_GetMountMovementMode_BPI_Params params;
 	params.MountMovementMode = MountMovementMode;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6849,10 +6309,7 @@ void ABP_BaseCharacter_C::SetProfessionData(struct FST_Profession ProfessionData
 	ABP_BaseCharacter_C_SetProfessionData_Params params;
 	params.ProfessionData = ProfessionData;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6879,10 +6336,7 @@ void ABP_BaseCharacter_C::AnimNotify_BreakLoopsFinished(TEnumAsByte<E_Profession
 	params.BreakAnimID = BreakAnimID;
 	params.Loop = Loop;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6909,10 +6363,7 @@ void ABP_BaseCharacter_C::AnimNotify_BreakLoopIncreased(TEnumAsByte<E_Profession
 	params.BreakAnimID = BreakAnimID;
 	params.Loop = Loop;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6927,10 +6378,7 @@ void ABP_BaseCharacter_C::WaitForCrafting() {
 	};
 	ABP_BaseCharacter_C_WaitForCrafting_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6954,10 +6402,7 @@ void ABP_BaseCharacter_C::AnimNotify_BreakMontageInterrupted(TEnumAsByte<E_Profe
 	params.Montage = Montage;
 	params.BreakAnimID = BreakAnimID;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6981,10 +6426,7 @@ void ABP_BaseCharacter_C::AnimNotify_BreakMontageBlendOut(TEnumAsByte<E_Professi
 	params.Montage = Montage;
 	params.BreakAnimID = BreakAnimID;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7008,10 +6450,7 @@ void ABP_BaseCharacter_C::AnimNotify_BreakMontageComplete(TEnumAsByte<E_Professi
 	params.Montage = Montage;
 	params.BreakAnimID = BreakAnimID;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7038,10 +6477,7 @@ void ABP_BaseCharacter_C::AnimNotify_WorkLoopsFinished(TEnumAsByte<E_Profession>
 	params.ProfessionState = ProfessionState;
 	params.Loop = Loop;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7068,10 +6504,7 @@ void ABP_BaseCharacter_C::AnimNotify_WorkLoopIncreased(TEnumAsByte<E_Profession>
 	params.ProfessionState = ProfessionState;
 	params.Loop = Loop;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7095,10 +6528,7 @@ void ABP_BaseCharacter_C::AnimNotify_WorkMontageInterrupted(TEnumAsByte<E_Profes
 	params.Montage = Montage;
 	params.ProfessionState = ProfessionState;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7122,10 +6552,7 @@ void ABP_BaseCharacter_C::AnimNotify_WorkMontageComplete(TEnumAsByte<E_Professio
 	params.Montage = Montage;
 	params.ProfessionState = ProfessionState;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7149,10 +6576,7 @@ void ABP_BaseCharacter_C::SelectPickUpAnim(class UObject* Instigator, bool Prefe
 	params.PreferTwoHanded = PreferTwoHanded;
 	params.PlayAnimSound = PlayAnimSound;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7176,10 +6600,7 @@ void ABP_BaseCharacter_C::PlayCraftingAnimation(TEnumAsByte<E_Workbenches> Workb
 	params.CraftingTime = CraftingTime;
 	params.CancelAnimation = CancelAnimation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7197,10 +6618,7 @@ void ABP_BaseCharacter_C::AnimNotify_StopMovement(bool bStopMovementInput) {
 	ABP_BaseCharacter_C_AnimNotify_StopMovement_Params params;
 	params.bStopMovementInput = bStopMovementInput;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7218,10 +6636,7 @@ void ABP_BaseCharacter_C::AnimNotify_StopRotation(bool StopRotationInput) {
 	ABP_BaseCharacter_C_AnimNotify_StopRotation_Params params;
 	params.StopRotationInput = StopRotationInput;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7242,10 +6657,7 @@ void ABP_BaseCharacter_C::PlayerLookAt(class AActor* Target, struct FVector Targ
 	params.Target = Target;
 	params.TargetLocation = TargetLocation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7278,10 +6690,7 @@ void ABP_BaseCharacter_C::PlayerMoveForInteraction(class AActor* Instigator, str
 	params.UsePlayerLookAt = UsePlayerLookAt;
 	params.ResetLookAtPitch = ResetLookAtPitch;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7302,10 +6711,7 @@ void ABP_BaseCharacter_C::PlayPickUpAnim(class UObject* Instigator, bool PreferT
 	params.Instigator = Instigator;
 	params.PreferTwoHanded = PreferTwoHanded;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7323,10 +6729,7 @@ void ABP_BaseCharacter_C::OverrideCanPerfromHitAction(bool CanPerfromHitAction) 
 	ABP_BaseCharacter_C_OverrideCanPerfromHitAction_Params params;
 	params.CanPerfromHitAction = CanPerfromHitAction;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7344,10 +6747,7 @@ void ABP_BaseCharacter_C::SetStrengthAlpha(float Alpha) {
 	ABP_BaseCharacter_C_SetStrengthAlpha_Params params;
 	params.Alpha = Alpha;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7365,10 +6765,7 @@ void ABP_BaseCharacter_C::Set_Range_Strength(float Strength) {
 	ABP_BaseCharacter_C_Set_Range_Strength_Params params;
 	params.Strength = Strength;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7398,10 +6795,7 @@ void ABP_BaseCharacter_C::OnEndStageInteraction(class AActor* InteractedActor, c
 	params.StartingPosition = StartingPosition;
 	params.StartingSection = StartingSection;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7431,10 +6825,7 @@ void ABP_BaseCharacter_C::OnLoopStageInteraction(class AActor* InteractedActor, 
 	params.StartingPosition = StartingPosition;
 	params.StartingSection = StartingSection;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7464,10 +6855,7 @@ void ABP_BaseCharacter_C::OnStartStageInteraction(class AActor* InteractedActor,
 	params.StartingPosition = StartingPosition;
 	params.StartingSection = StartingSection;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7482,10 +6870,7 @@ void ABP_BaseCharacter_C::AnimNotify_StopSnappingIK() {
 	};
 	ABP_BaseCharacter_C_AnimNotify_StopSnappingIK_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7500,10 +6885,7 @@ void ABP_BaseCharacter_C::AnimNotify_StartSnappingIK() {
 	};
 	ABP_BaseCharacter_C_AnimNotify_StartSnappingIK_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7521,10 +6903,7 @@ void ABP_BaseCharacter_C::ChangeAnimLoopState(bool IsLooping) {
 	ABP_BaseCharacter_C_ChangeAnimLoopState_Params params;
 	params.IsLooping = IsLooping;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7557,10 +6936,7 @@ void ABP_BaseCharacter_C::AnimNotify_SnapPoint(class USceneComponent* SnapCompon
 	params.LeftHandSocketName = LeftHandSocketName;
 	params.RightHandSocketName = RightHandSocketName;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7578,10 +6954,7 @@ void ABP_BaseCharacter_C::Set_RF_BPI(bool RF) {
 	ABP_BaseCharacter_C_Set_RF_BPI_Params params;
 	params.RF = RF;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7599,10 +6972,7 @@ void ABP_BaseCharacter_C::Set_CrouchingSpeed_BPI(float crouchingSpeed) {
 	ABP_BaseCharacter_C_Set_CrouchingSpeed_BPI_Params params;
 	params.crouchingSpeed = crouchingSpeed;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7620,10 +6990,7 @@ void ABP_BaseCharacter_C::Set_SprintingSpeed_BPI(float sprintingSpeed) {
 	ABP_BaseCharacter_C_Set_SprintingSpeed_BPI_Params params;
 	params.sprintingSpeed = sprintingSpeed;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7641,10 +7008,7 @@ void ABP_BaseCharacter_C::Set_RunningSpeed_BPI(float runningSpeed) {
 	ABP_BaseCharacter_C_Set_RunningSpeed_BPI_Params params;
 	params.runningSpeed = runningSpeed;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7662,10 +7026,7 @@ void ABP_BaseCharacter_C::Set_WalkingSpeed_BPI(float WalkingSpeed) {
 	ABP_BaseCharacter_C_Set_WalkingSpeed_BPI_Params params;
 	params.WalkingSpeed = WalkingSpeed;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7683,10 +7044,7 @@ void ABP_BaseCharacter_C::ShowTraces_BPI(bool ShowTraces) {
 	ABP_BaseCharacter_C_ShowTraces_BPI_Params params;
 	params.ShowTraces = ShowTraces;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7704,10 +7062,7 @@ void ABP_BaseCharacter_C::Set_ALS_ViewMode_BPI(TEnumAsByte<E_ViewMode> ViewMode)
 	ABP_BaseCharacter_C_Set_ALS_ViewMode_BPI_Params params;
 	params.ViewMode = ViewMode;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7725,10 +7080,7 @@ void ABP_BaseCharacter_C::SavePoseSnapshot_BPI(struct FName PoseName) {
 	ABP_BaseCharacter_C_SavePoseSnapshot_BPI_Params params;
 	params.PoseName = PoseName;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7746,10 +7098,7 @@ void ABP_BaseCharacter_C::Play_GetUp_Anim_BPI(bool FaceDown) {
 	ABP_BaseCharacter_C_Play_GetUp_Anim_BPI_Params params;
 	params.FaceDown = FaceDown;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7767,10 +7116,7 @@ void ABP_BaseCharacter_C::Set_ALS_Aiming_BPI(bool Aiming) {
 	ABP_BaseCharacter_C_Set_ALS_Aiming_BPI_Params params;
 	params.Aiming = Aiming;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7788,10 +7134,7 @@ void ABP_BaseCharacter_C::AnimNotify_IdleEntryState_BPI(TEnumAsByte<E_IdleEntryS
 	ABP_BaseCharacter_C_AnimNotify_IdleEntryState_BPI_Params params;
 	params.IdleEntryState = IdleEntryState;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7818,10 +7161,7 @@ void ABP_BaseCharacter_C::AnimNotify_TurningInPlace_BPI(class UAnimMontage* Turn
 	params.TurningInPlace = TurningInPlace;
 	params.TurningRight = TurningRight;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7839,10 +7179,7 @@ void ABP_BaseCharacter_C::AnimNotify_Pivot_BPI(struct FST_PivotParams PivotParam
 	ABP_BaseCharacter_C_AnimNotify_Pivot_BPI_Params params;
 	params.PivotParams = PivotParams;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7860,10 +7197,7 @@ void ABP_BaseCharacter_C::Set_ALS_RotationMode_BPI(TEnumAsByte<E_RotationMode> A
 	ABP_BaseCharacter_C_Set_ALS_RotationMode_BPI_Params params;
 	params.ALS_RotationMode_BPI = ALS_RotationMode_BPI;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7881,10 +7215,7 @@ void ABP_BaseCharacter_C::RotateYaw(float Angle) {
 	ABP_BaseCharacter_C_RotateYaw_Params params;
 	params.Angle = Angle;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7902,10 +7233,7 @@ void ABP_BaseCharacter_C::RotatePitch(float Angle) {
 	ABP_BaseCharacter_C_RotatePitch_Params params;
 	params.Angle = Angle;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7920,10 +7248,7 @@ void ABP_BaseCharacter_C::DetachItem() {
 	};
 	ABP_BaseCharacter_C_DetachItem_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7944,10 +7269,7 @@ void ABP_BaseCharacter_C::SetRotateMode(bool RotateLeft, bool RotateRight) {
 	params.RotateLeft = RotateLeft;
 	params.RotateRight = RotateRight;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7962,10 +7284,7 @@ void ABP_BaseCharacter_C::StopAttackFunction() {
 	};
 	ABP_BaseCharacter_C_StopAttackFunction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -7986,10 +7305,7 @@ void ABP_BaseCharacter_C::StartAttackFunction(bool Timer, struct FName Socket) {
 	params.Timer = Timer;
 	params.Socket = Socket;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8007,10 +7323,7 @@ void ABP_BaseCharacter_C::InteractWithImpaledItem(class ABP_BaseCharacter_C* Bas
 	ABP_BaseCharacter_C_InteractWithImpaledItem_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8028,10 +7341,7 @@ void ABP_BaseCharacter_C::IsLookedAt(bool Active) {
 	ABP_BaseCharacter_C_IsLookedAt_Params params;
 	params.Active = Active;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8046,10 +7356,7 @@ void ABP_BaseCharacter_C::PerformActorInteraction() {
 	};
 	ABP_BaseCharacter_C_PerformActorInteraction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8076,10 +7383,7 @@ void ABP_BaseCharacter_C::ToolInteract(class ABP_BaseCharacter_C* BaseCharacter,
 	params.UseChunkData = UseChunkData;
 	params.ChunkData = ChunkData;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8097,10 +7401,7 @@ void ABP_BaseCharacter_C::SetOccupied(class APawn* Character) {
 	ABP_BaseCharacter_C_SetOccupied_Params params;
 	params.Character = Character;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8118,10 +7419,7 @@ void ABP_BaseCharacter_C::InteractCancel(class ABP_BaseCharacter_C* BaseCharacte
 	ABP_BaseCharacter_C_InteractCancel_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8139,10 +7437,7 @@ void ABP_BaseCharacter_C::InteractStart(class ABP_BaseCharacter_C* BaseCharacter
 	ABP_BaseCharacter_C_InteractStart_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8160,10 +7455,7 @@ void ABP_BaseCharacter_C::InteractInput(bool KeyDown) {
 	ABP_BaseCharacter_C_InteractInput_Params params;
 	params.KeyDown = KeyDown;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8187,10 +7479,7 @@ void ABP_BaseCharacter_C::Interact(class ABP_BaseCharacter_C* BaseCharacter, str
 	params.Hit = Hit;
 	params.Timer = Timer;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8208,10 +7497,7 @@ void ABP_BaseCharacter_C::OnLoaded_62CC4B9841F5F4A3D73E44B6D98215C9(class UObjec
 	ABP_BaseCharacter_C_OnLoaded_62CC4B9841F5F4A3D73E44B6D98215C9_Params params;
 	params.Loaded = Loaded;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8229,10 +7515,7 @@ void ABP_BaseCharacter_C::OnLoaded_AF7514B049C1F96364328B9F425197C1(class UObjec
 	ABP_BaseCharacter_C_OnLoaded_AF7514B049C1F96364328B9F425197C1_Params params;
 	params.Loaded = Loaded;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8250,10 +7533,7 @@ void ABP_BaseCharacter_C::OnLoaded_D8AD35634544C64C53D5E2A90FFAC7D2(class UObjec
 	ABP_BaseCharacter_C_OnLoaded_D8AD35634544C64C53D5E2A90FFAC7D2_Params params;
 	params.Loaded = Loaded;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8268,10 +7548,7 @@ void ABP_BaseCharacter_C::FistFightingTimeline__UpdateFunc() {
 	};
 	ABP_BaseCharacter_C_FistFightingTimeline__UpdateFunc_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8286,10 +7563,7 @@ void ABP_BaseCharacter_C::FistFightingTimeline__FinishedFunc() {
 	};
 	ABP_BaseCharacter_C_FistFightingTimeline__FinishedFunc_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8304,10 +7578,7 @@ void ABP_BaseCharacter_C::Blinking__UpdateFunc() {
 	};
 	ABP_BaseCharacter_C_Blinking__UpdateFunc_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8322,10 +7593,7 @@ void ABP_BaseCharacter_C::Blinking__FinishedFunc() {
 	};
 	ABP_BaseCharacter_C_Blinking__FinishedFunc_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8340,10 +7608,7 @@ void ABP_BaseCharacter_C::EyesStateTL__UpdateFunc() {
 	};
 	ABP_BaseCharacter_C_EyesStateTL__UpdateFunc_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8358,10 +7623,7 @@ void ABP_BaseCharacter_C::EyesStateTL__FinishedFunc() {
 	};
 	ABP_BaseCharacter_C_EyesStateTL__FinishedFunc_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8376,10 +7638,7 @@ void ABP_BaseCharacter_C::UserConstructionScript() {
 	};
 	ABP_BaseCharacter_C_UserConstructionScript_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8394,10 +7653,7 @@ void ABP_BaseCharacter_C::Calculate_Essential_Variables() {
 	};
 	ABP_BaseCharacter_C_Calculate_Essential_Variables_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8424,10 +7680,7 @@ void ABP_BaseCharacter_C::On_PawnMovementMode_Changed(TEnumAsByte<EMovementMode>
 	params.PrevCustomMode = PrevCustomMode;
 	params.NewCustomMove = NewCustomMove;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8442,10 +7695,7 @@ void ABP_BaseCharacter_C::On_ALS_MovementMode_Changed() {
 	};
 	ABP_BaseCharacter_C_On_ALS_MovementMode_Changed_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8460,10 +7710,7 @@ void ABP_BaseCharacter_C::On_ALS_Gait_Changed() {
 	};
 	ABP_BaseCharacter_C_On_ALS_Gait_Changed_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8478,10 +7725,7 @@ void ABP_BaseCharacter_C::On_ALS_Stance_Changed() {
 	};
 	ABP_BaseCharacter_C_On_ALS_Stance_Changed_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8496,10 +7740,7 @@ void ABP_BaseCharacter_C::On_ALS_RotationMode_Changed() {
 	};
 	ABP_BaseCharacter_C_On_ALS_RotationMode_Changed_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8523,10 +7764,7 @@ void ABP_BaseCharacter_C::SetCharacterRotation(struct FRotator TargetRotation, b
 	params.interpRotation = interpRotation;
 	params.interpSpeed = interpSpeed;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8541,10 +7779,7 @@ void ABP_BaseCharacter_C::UpdateALS_CharacterMovementSettings() {
 	};
 	ABP_BaseCharacter_C_UpdateALS_CharacterMovementSettings_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8561,10 +7796,7 @@ void ABP_BaseCharacter_C::ChooseMaxWalkSpeed(float* MaxWalkSpeed) {
 	};
 	ABP_BaseCharacter_C_ChooseMaxWalkSpeed_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (MaxWalkSpeed != nullptr)
 		*MaxWalkSpeed = params.MaxWalkSpeed;
 }
@@ -8583,10 +7815,7 @@ void ABP_BaseCharacter_C::ChooseMaxAcceleration(float* MaxWalkSpeed) {
 	};
 	ABP_BaseCharacter_C_ChooseMaxAcceleration_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (MaxWalkSpeed != nullptr)
 		*MaxWalkSpeed = params.MaxWalkSpeed;
 }
@@ -8605,10 +7834,7 @@ void ABP_BaseCharacter_C::ChooseBrakingDeceleration(float* MaxWalkSpeed) {
 	};
 	ABP_BaseCharacter_C_ChooseBrakingDeceleration_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (MaxWalkSpeed != nullptr)
 		*MaxWalkSpeed = params.MaxWalkSpeed;
 }
@@ -8627,10 +7853,7 @@ void ABP_BaseCharacter_C::ChooseGroundFriction(float* MaxWalkSpeed) {
 	};
 	ABP_BaseCharacter_C_ChooseGroundFriction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (MaxWalkSpeed != nullptr)
 		*MaxWalkSpeed = params.MaxWalkSpeed;
 }
@@ -8650,10 +7873,7 @@ void ABP_BaseCharacter_C::AddCharacterRotation(struct FRotator AddAmount) {
 	ABP_BaseCharacter_C_AddCharacterRotation_Params params;
 	params.AddAmount = AddAmount;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8688,10 +7908,7 @@ void ABP_BaseCharacter_C::LookingDirectionWithOffset(float OffsetInterpSpeed, fl
 	params.SW_Angle = SW_Angle;
 	params.Buffer = Buffer;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (TargetRotation != nullptr)
 		*TargetRotation = params.TargetRotation;
 }
@@ -8722,10 +7939,7 @@ float ABP_BaseCharacter_C::CalculateRotationRate(float SlowSpeed, float SlowSpee
 	params.FastSpeed = FastSpeed;
 	params.FastSpeedRate = FastSpeedRate;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -8743,10 +7957,7 @@ void ABP_BaseCharacter_C::ChooseCameraSettings(struct FST_CameraSettings* Target
 	};
 	ABP_BaseCharacter_C_ChooseCameraSettings_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (TargetCameraSettings != nullptr)
 		*TargetCameraSettings = params.TargetCameraSettings;
 }
@@ -8769,10 +7980,7 @@ void ABP_BaseCharacter_C::LerpCameraSettings(float LerpAlpha, class USpringArmCo
 	params.LerpAlpha = LerpAlpha;
 	params.TargetSpringArm = TargetSpringArm;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8787,10 +7995,7 @@ void ABP_BaseCharacter_C::On_ALS_Aiming_Changed() {
 	};
 	ABP_BaseCharacter_C_On_ALS_Aiming_Changed_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8811,10 +8016,7 @@ void ABP_BaseCharacter_C::LimitRotation(float AimYawLimit, float interpSpeed) {
 	params.AimYawLimit = AimYawLimit;
 	params.interpSpeed = interpSpeed;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8831,10 +8033,7 @@ void ABP_BaseCharacter_C::ChooseVelocity(struct FVector* Velocity) {
 	};
 	ABP_BaseCharacter_C_ChooseVelocity_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Velocity != nullptr)
 		*Velocity = params.Velocity;
 }
@@ -8851,10 +8050,7 @@ void ABP_BaseCharacter_C::DebugMode() {
 	};
 	ABP_BaseCharacter_C_DebugMode_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8869,10 +8065,7 @@ void ABP_BaseCharacter_C::On_ALS_ViewMode_Changed() {
 	};
 	ABP_BaseCharacter_C_On_ALS_ViewMode_Changed_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8887,10 +8080,7 @@ void ABP_BaseCharacter_C::CustomAcceleration() {
 	};
 	ABP_BaseCharacter_C_CustomAcceleration_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8907,10 +8097,7 @@ void ABP_BaseCharacter_C::CanSprint(bool* CanSprint) {
 	};
 	ABP_BaseCharacter_C_CanSprint_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (CanSprint != nullptr)
 		*CanSprint = params.CanSprint;
 }
@@ -8937,10 +8124,7 @@ void ABP_BaseCharacter_C::CalculateActorLocationAndRotationInRagdoll(struct FRot
 	params.RagdollRotation = RagdollRotation;
 	params.RagdollLocation = RagdollLocation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (ActorRotation != nullptr)
 		*ActorRotation = params.ActorRotation;
 	if (ActorLocation != nullptr)
@@ -8962,10 +8146,7 @@ void ABP_BaseCharacter_C::PlayerMovementInput(bool Is_Forward_Axis) {
 	ABP_BaseCharacter_C_PlayerMovementInput_Params params;
 	params.Is_Forward_Axis = Is_Forward_Axis;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8980,10 +8161,7 @@ void ABP_BaseCharacter_C::CalculateEncumberedSpeed() {
 	};
 	ABP_BaseCharacter_C_CalculateEncumberedSpeed_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -8998,10 +8176,7 @@ void ABP_BaseCharacter_C::SetRandomSkinTone() {
 	};
 	ABP_BaseCharacter_C_SetRandomSkinTone_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9016,10 +8191,7 @@ void ABP_BaseCharacter_C::UpdateHoldableItemActionSpeed() {
 	};
 	ABP_BaseCharacter_C_UpdateHoldableItemActionSpeed_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9034,10 +8206,7 @@ void ABP_BaseCharacter_C::InitializeMaterials() {
 	};
 	ABP_BaseCharacter_C_InitializeMaterials_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9052,10 +8221,7 @@ void ABP_BaseCharacter_C::ClearMaterials() {
 	};
 	ABP_BaseCharacter_C_ClearMaterials_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9075,10 +8241,7 @@ void ABP_BaseCharacter_C::GetDynamicMaterialIndex(class UMeshComponent* Mesh, in
 	ABP_BaseCharacter_C_GetDynamicMaterialIndex_Params params;
 	params.Mesh = Mesh;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Index != nullptr)
 		*Index = params.Index;
 }
@@ -9100,10 +8263,7 @@ void ABP_BaseCharacter_C::GetDynamicMaterialStruct(class UMeshComponent* Mesh, s
 	ABP_BaseCharacter_C_GetDynamicMaterialStruct_Params params;
 	params.Mesh = Mesh;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Array_Element != nullptr)
 		*Array_Element = params.Array_Element;
 }
@@ -9125,10 +8285,7 @@ void ABP_BaseCharacter_C::GetDynamicMaterialsArray(class UMeshComponent* Mesh, T
 	ABP_BaseCharacter_C_GetDynamicMaterialsArray_Params params;
 	params.Mesh = Mesh;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (DynamicMaterialReferences != nullptr)
 		*DynamicMaterialReferences = params.DynamicMaterialReferences;
 }
@@ -9148,10 +8305,7 @@ void ABP_BaseCharacter_C::ResetMeshMaterials(class UMeshComponent* Mesh) {
 	ABP_BaseCharacter_C_ResetMeshMaterials_Params params;
 	params.Mesh = Mesh;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9172,10 +8326,7 @@ void ABP_BaseCharacter_C::CreateNewMeshMaterials(class UMeshComponent* Mesh, str
 	params.Mesh = Mesh;
 	params.Dye = Dye;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9193,10 +8344,7 @@ void ABP_BaseCharacter_C::Update_Range_Strength(float Strength) {
 	ABP_BaseCharacter_C_Update_Range_Strength_Params params;
 	params.Strength = Strength;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9214,10 +8362,7 @@ void ABP_BaseCharacter_C::SetCanPerfromHitAction(bool CanPerfromHitAction) {
 	ABP_BaseCharacter_C_SetCanPerfromHitAction_Params params;
 	params.CanPerfromHitAction = CanPerfromHitAction;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9232,10 +8377,7 @@ void ABP_BaseCharacter_C::Attach_Components() {
 	};
 	ABP_BaseCharacter_C_Attach_Components_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9253,10 +8395,7 @@ void ABP_BaseCharacter_C::SetCurrentCameraFOV(float InFieldOfView) {
 	ABP_BaseCharacter_C_SetCurrentCameraFOV_Params params;
 	params.InFieldOfView = InFieldOfView;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9274,10 +8413,7 @@ void ABP_BaseCharacter_C::UpdateStrengthAlpha(float Alpha) {
 	ABP_BaseCharacter_C_UpdateStrengthAlpha_Params params;
 	params.Alpha = Alpha;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9299,10 +8435,7 @@ void ABP_BaseCharacter_C::Holster_Weapon(bool IsSwitch, bool* bIsSwitch, bool* I
 	ABP_BaseCharacter_C_Holster_Weapon_Params params;
 	params.IsSwitch = IsSwitch;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (bIsSwitch != nullptr)
 		*bIsSwitch = params.bIsSwitch;
 	if (IsValidHeldItem != nullptr)
@@ -9323,10 +8456,7 @@ struct FRotator ABP_BaseCharacter_C::GetLookingRotation() {
 	};
 	ABP_BaseCharacter_C_GetLookingRotation_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -9344,10 +8474,7 @@ float ABP_BaseCharacter_C::GetMouseLeftRightAxisInput() {
 	};
 	ABP_BaseCharacter_C_GetMouseLeftRightAxisInput_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -9365,10 +8492,7 @@ float ABP_BaseCharacter_C::GetMouseUpDownAxisInput() {
 	};
 	ABP_BaseCharacter_C_GetMouseUpDownAxisInput_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -9390,10 +8514,7 @@ void ABP_BaseCharacter_C::EquipAnimHoldable(class ABP_MasterHoldableItem_C* Item
 	params.ItemClass = ItemClass;
 	params.IsOffHand = IsOffHand;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9411,10 +8532,7 @@ void ABP_BaseCharacter_C::DespawnAnimHoldable(TEnumAsByte<E_HandsForHolstering> 
 	ABP_BaseCharacter_C_DespawnAnimHoldable_Params params;
 	params.HoldablesToDespawn = HoldablesToDespawn;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9434,10 +8552,7 @@ bool ABP_BaseCharacter_C::IsMontagePlaying(class UAnimMontage* Montage) {
 	ABP_BaseCharacter_C_IsMontagePlaying_Params params;
 	params.Montage = Montage;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -9456,10 +8571,7 @@ void ABP_BaseCharacter_C::SetOldness(float Value) {
 	ABP_BaseCharacter_C_SetOldness_Params params;
 	params.Value = Value;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9477,10 +8589,7 @@ void ABP_BaseCharacter_C::UpdateOldness(float Value) {
 	ABP_BaseCharacter_C_UpdateOldness_Params params;
 	params.Value = Value;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9498,10 +8607,7 @@ void ABP_BaseCharacter_C::OnOwnershipSwap(TEnumAsByte<E_Ownership> NewOwnership)
 	ABP_BaseCharacter_C_OnOwnershipSwap_Params params;
 	params.NewOwnership = NewOwnership;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9516,10 +8622,7 @@ void ABP_BaseCharacter_C::DestroyHeldItem() {
 	};
 	ABP_BaseCharacter_C_DestroyHeldItem_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9534,10 +8637,7 @@ void ABP_BaseCharacter_C::DestroyOffHandItem() {
 	};
 	ABP_BaseCharacter_C_DestroyOffHandItem_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9554,10 +8654,7 @@ bool ABP_BaseCharacter_C::CheckIfUsingHands() {
 	};
 	ABP_BaseCharacter_C_CheckIfUsingHands_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -9602,10 +8699,7 @@ void ABP_BaseCharacter_C::SpawnHeldItem(class ABP_MasterHoldableItem_C* Class, s
 	params.Ownership = Ownership;
 	params.Instigator = Instigator;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Output_Get != nullptr)
 		*Output_Get = params.Output_Get;
 }
@@ -9651,10 +8745,7 @@ void ABP_BaseCharacter_C::SpawnOffHandItem(class ABP_MasterHoldableItem_C* Class
 	params.Ownership = Ownership;
 	params.Instigator = Instigator;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Output_Get != nullptr)
 		*Output_Get = params.Output_Get;
 }
@@ -9671,10 +8762,7 @@ void ABP_BaseCharacter_C::SpawnHands() {
 	};
 	ABP_BaseCharacter_C_SpawnHands_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9692,10 +8780,7 @@ void ABP_BaseCharacter_C::SetIsSick(bool IsSick) {
 	ABP_BaseCharacter_C_SetIsSick_Params params;
 	params.IsSick = IsSick;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9713,10 +8798,7 @@ void ABP_BaseCharacter_C::SetIsInjured(bool IsInjured) {
 	ABP_BaseCharacter_C_SetIsInjured_Params params;
 	params.IsInjured = IsInjured;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9734,10 +8816,7 @@ void ABP_BaseCharacter_C::OnAfterPoseChanged(TEnumAsByte<E_AfterIdlePose> AfterI
 	ABP_BaseCharacter_C_OnAfterPoseChanged_Params params;
 	params.AfterIdlePose = AfterIdlePose;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9760,10 +8839,7 @@ void ABP_BaseCharacter_C::CheckItemForInteraction(class ABP_MasterHoldableItem_C
 	params.Holdable = Holdable;
 	params.WantedToolType = WantedToolType;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Success != nullptr)
 		*Success = params.Success;
 }
@@ -9780,10 +8856,7 @@ void ABP_BaseCharacter_C::OnSeasonChanged() {
 	};
 	ABP_BaseCharacter_C_OnSeasonChanged_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9798,10 +8871,7 @@ void ABP_BaseCharacter_C::OnCharacterTypeChanged() {
 	};
 	ABP_BaseCharacter_C_OnCharacterTypeChanged_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9816,10 +8886,7 @@ void ABP_BaseCharacter_C::OnDialogueStarted() {
 	};
 	ABP_BaseCharacter_C_OnDialogueStarted_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9834,10 +8901,7 @@ void ABP_BaseCharacter_C::OnDialogueEnded() {
 	};
 	ABP_BaseCharacter_C_OnDialogueEnded_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9854,10 +8918,7 @@ void ABP_BaseCharacter_C::GetNPCDataToSave(struct FST_SAVE_NPC* NPCData) {
 	};
 	ABP_BaseCharacter_C_GetNPCDataToSave_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (NPCData != nullptr)
 		*NPCData = params.NPCData;
 }
@@ -9883,10 +8944,7 @@ void ABP_BaseCharacter_C::SetNPCDataFromSave(struct FST_SAVE_NPC NPCData, bool R
 	params.ResetEQ = ResetEQ;
 	params.SaveGameVersion = SaveGameVersion;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9901,10 +8959,7 @@ void ABP_BaseCharacter_C::Destroy_NPC() {
 	};
 	ABP_BaseCharacter_C_Destroy_NPC_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9919,10 +8974,7 @@ void ABP_BaseCharacter_C::UpdateCharacterSpeedByCharacterType() {
 	};
 	ABP_BaseCharacter_C_UpdateCharacterSpeedByCharacterType_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9951,10 +9003,7 @@ void ABP_BaseCharacter_C::VisibilityCheck(struct FVector StartVector, float Radi
 	params.ObjectTypes = ObjectTypes;
 	params.ActorToIgnore = ActorToIgnore;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Observed != nullptr)
 		*Observed = params.Observed;
 }
@@ -9974,10 +9023,7 @@ void ABP_BaseCharacter_C::SetEarMorph(float Value) {
 	ABP_BaseCharacter_C_SetEarMorph_Params params;
 	params.Value = Value;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -9994,10 +9040,7 @@ void ABP_BaseCharacter_C::GetCrouchingSpeed(float* crouchingSpeed) {
 	};
 	ABP_BaseCharacter_C_GetCrouchingSpeed_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (crouchingSpeed != nullptr)
 		*crouchingSpeed = params.crouchingSpeed;
 }
@@ -10035,10 +9078,7 @@ void ABP_BaseCharacter_C::On_Start_Workbench_Interaction(class ABP_MasterFurnitu
 	params.LookAtBehavior = LookAtBehavior;
 	params.LookAtRotation = LookAtRotation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10062,10 +9102,7 @@ void ABP_BaseCharacter_C::OnEndWorkbenchInteraction(class ABP_MasterFurniture_Wo
 	params.InteractComponent = InteractComponent;
 	params.InteractLocation = InteractLocation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10093,10 +9130,7 @@ void ABP_BaseCharacter_C::CheckToSwap(class ABP_MasterBuilding_C* New_House, boo
 	ABP_BaseCharacter_C_CheckToSwap_Params params;
 	params.New_House = New_House;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (CanSwap != nullptr)
 		*CanSwap = params.CanSwap;
 	if (House1 != nullptr)
@@ -10121,10 +9155,7 @@ void ABP_BaseCharacter_C::OnDestroyFurniture() {
 	};
 	ABP_BaseCharacter_C_OnDestroyFurniture_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10142,10 +9173,7 @@ void ABP_BaseCharacter_C::UnbindFurnitureEvents(class ABP_MasterFurniture_C* Fur
 	ABP_BaseCharacter_C_UnbindFurnitureEvents_Params params;
 	params.Furniture = Furniture;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10163,10 +9191,7 @@ void ABP_BaseCharacter_C::BindFurnitureEvents(class ABP_MasterFurniture_C* Furni
 	ABP_BaseCharacter_C_BindFurnitureEvents_Params params;
 	params.Furniture = Furniture;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10193,10 +9218,7 @@ void ABP_BaseCharacter_C::SwapHouses(class ABP_MasterBuilding_C* House1, TArray<
 	params.House1 = House1;
 	params.House2 = House2;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Family1 != nullptr)
 		*Family1 = params.Family1;
 	if (Family2 != nullptr)
@@ -10217,10 +9239,7 @@ void ABP_BaseCharacter_C::OnDayChanged() {
 	};
 	ABP_BaseCharacter_C_OnDayChanged_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10238,10 +9257,7 @@ void ABP_BaseCharacter_C::OnPlayerOccupy(class ABP_MasterFurniture_C* Furniture)
 	ABP_BaseCharacter_C_OnPlayerOccupy_Params params;
 	params.Furniture = Furniture;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10256,10 +9272,7 @@ void ABP_BaseCharacter_C::SetRandomHairColor() {
 	};
 	ABP_BaseCharacter_C_SetRandomHairColor_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10282,10 +9295,7 @@ void ABP_BaseCharacter_C::EquipToolForInteraction(class ABP_MasterHoldableItem_C
 	params.Holdable = Holdable;
 	params.WantedTool = WantedTool;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Success != nullptr)
 		*Success = params.Success;
 }
@@ -10304,10 +9314,7 @@ void ABP_BaseCharacter_C::GetCurrentCameraFOV(float* FieldOfView) {
 	};
 	ABP_BaseCharacter_C_GetCurrentCameraFOV_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (FieldOfView != nullptr)
 		*FieldOfView = params.FieldOfView;
 }
@@ -10336,10 +9343,7 @@ void ABP_BaseCharacter_C::SetMeshesFromPreset(TEnumAsByte<E_Profession> Professi
 	params.UpdateOnly = UpdateOnly;
 	params.LoadGame = LoadGame;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10359,10 +9363,7 @@ void ABP_BaseCharacter_C::GetPresetForProfession(TEnumAsByte<E_Profession> Profe
 	ABP_BaseCharacter_C_GetPresetForProfession_Params params;
 	params.Profession = Profession;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Preset != nullptr)
 		*Preset = params.Preset;
 }
@@ -10389,10 +9390,7 @@ void ABP_BaseCharacter_C::CombinePresets(TEnumAsByte<E_Profession> Profession, s
 	params.Profession = Profession;
 	params.BasePreset = BasePreset;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (PresetID != nullptr)
 		*PresetID = params.PresetID;
 	if (Meshes != nullptr)
@@ -10420,10 +9418,7 @@ void ABP_BaseCharacter_C::InitializeMeshFromPreset(class USkeletalMeshComponent*
 	params.Mesh = Mesh;
 	params.Tattoo = Tattoo;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10440,10 +9435,7 @@ void ABP_BaseCharacter_C::GetHeadAndHairRow(struct FST_NPCMeshesGen* ST_NPCMeshe
 	};
 	ABP_BaseCharacter_C_GetHeadAndHairRow_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (ST_NPCMeshesGen != nullptr)
 		*ST_NPCMeshesGen = params.ST_NPCMeshesGen;
 }
@@ -10464,10 +9456,7 @@ void ABP_BaseCharacter_C::GetHeadAndHair(class USkeletalMesh** head, class USkel
 	};
 	ABP_BaseCharacter_C_GetHeadAndHair_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (head != nullptr)
 		*head = params.head;
 	if (Hair != nullptr)
@@ -10492,10 +9481,7 @@ void ABP_BaseCharacter_C::InitializeComponentMaterials(class USkeletalMeshCompon
 	params.SkeletalComponent = SkeletalComponent;
 	params.Tattoo = Tattoo;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10516,10 +9502,7 @@ void ABP_BaseCharacter_C::UpdateDyeColor(struct FST_ColorTable Dye, class UMater
 	params.Dye = Dye;
 	params.Material = Material;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10540,10 +9523,7 @@ void ABP_BaseCharacter_C::UpdateStitchColor(struct FST_ColorTable Dye, class UMa
 	params.Dye = Dye;
 	params.Material = Material;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10560,10 +9540,7 @@ class UObject* ABP_BaseCharacter_C::GetAnimClassForNPC() {
 	};
 	ABP_BaseCharacter_C_GetAnimClassForNPC_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -10582,10 +9559,7 @@ void ABP_BaseCharacter_C::UpdateDefaultFov(float InFieldOfView) {
 	ABP_BaseCharacter_C_UpdateDefaultFov_Params params;
 	params.InFieldOfView = InFieldOfView;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10614,10 +9588,7 @@ void ABP_BaseCharacter_C::SnapToSlot(int32_t SlotIndex, class AActor* Interacted
 	params.LocationOffset = LocationOffset;
 	params.IsFinalTransform = IsFinalTransform;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Success != nullptr)
 		*Success = params.Success;
 }
@@ -10639,10 +9610,7 @@ bool ABP_BaseCharacter_C::IsWearingCorrectPreset(bool CheckProfession) {
 	ABP_BaseCharacter_C_IsWearingCorrectPreset_Params params;
 	params.CheckProfession = CheckProfession;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -10658,10 +9626,7 @@ void ABP_BaseCharacter_C::UpdateDrunkMovement() {
 	};
 	ABP_BaseCharacter_C_UpdateDrunkMovement_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10682,10 +9647,7 @@ void ABP_BaseCharacter_C::OnCloseCraftingInteraction(class ABP_MasterFurniture_W
 	params.InteractedWorkbench = InteractedWorkbench;
 	params.InteractLocation = InteractLocation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10709,10 +9671,7 @@ void ABP_BaseCharacter_C::OnWaitForCraftingInteraction(class ABP_MasterFurniture
 	params.InteractLocation = InteractLocation;
 	params.ResetCamera = ResetCamera;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10729,10 +9688,7 @@ void ABP_BaseCharacter_C::GetDirection(float* Direction) {
 	};
 	ABP_BaseCharacter_C_GetDirection_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Direction != nullptr)
 		*Direction = params.Direction;
 }
@@ -10758,10 +9714,7 @@ void ABP_BaseCharacter_C::ChangeName(struct FName NewRowName, struct FText NewNa
 	params.NewName = NewName;
 	params.ChangeSex = ChangeSex;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10779,10 +9732,7 @@ void ABP_BaseCharacter_C::HolsterToolsForDialogue(bool Hide) {
 	ABP_BaseCharacter_C_HolsterToolsForDialogue_Params params;
 	params.Hide = Hide;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10803,10 +9753,7 @@ void ABP_BaseCharacter_C::OnStartFurnitureInteraction(class ABP_MasterFurniture_
 	params.InteractedFurniture = InteractedFurniture;
 	params.InteractLocation = InteractLocation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10827,10 +9774,7 @@ void ABP_BaseCharacter_C::OnEndFurnitureInteraction(class ABP_MasterFurniture_C*
 	params.InteractedFurniture = InteractedFurniture;
 	params.InteractLocation = InteractLocation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10845,10 +9789,7 @@ void ABP_BaseCharacter_C::GroundedRotation() {
 	};
 	ABP_BaseCharacter_C_GroundedRotation_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10866,10 +9807,7 @@ void ABP_BaseCharacter_C::On_MountMovementMode_Changed(TEnumAsByte<E_MovementMod
 	ABP_BaseCharacter_C_On_MountMovementMode_Changed_Params params;
 	params.NewMountMovementMode = NewMountMovementMode;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10887,10 +9825,7 @@ void ABP_BaseCharacter_C::CalculateWorkPlayRateByMoodAndSkill(TEnumAsByte<E_Prof
 	ABP_BaseCharacter_C_CalculateWorkPlayRateByMoodAndSkill_Params params;
 	params.Profession = Profession;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10905,10 +9840,7 @@ void ABP_BaseCharacter_C::CacheProfessionPreset() {
 	};
 	ABP_BaseCharacter_C_CacheProfessionPreset_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10923,10 +9855,7 @@ void ABP_BaseCharacter_C::ClearCachedProfessionPreset() {
 	};
 	ABP_BaseCharacter_C_ClearCachedProfessionPreset_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10950,10 +9879,7 @@ void ABP_BaseCharacter_C::AddSkillsToApprentices(TEnumAsByte<E_Skills> Skill, fl
 	params.Value = Value;
 	params.Profession = Profession;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -10976,10 +9902,7 @@ void ABP_BaseCharacter_C::CheckLocationAvailability(struct FVector CheckLocation
 	params.CheckLocation = CheckLocation;
 	params.ActorToIgnore = ActorToIgnore;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (CorrectLocation != nullptr)
 		*CorrectLocation = params.CorrectLocation;
 }
@@ -10996,10 +9919,7 @@ void ABP_BaseCharacter_C::MeshSettings() {
 	};
 	ABP_BaseCharacter_C_MeshSettings_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -11016,10 +9936,7 @@ bool ABP_BaseCharacter_C::IsRagdolling() {
 	};
 	ABP_BaseCharacter_C_IsRagdolling_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -11035,10 +9952,7 @@ void ABP_BaseCharacter_C::UpdateHairMovement() {
 	};
 	ABP_BaseCharacter_C_UpdateHairMovement_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -11055,10 +9969,7 @@ void ABP_BaseCharacter_C::Get_ALS_Stance_BPI(TEnumAsByte<E_Stance>* stance) {
 	};
 	ABP_BaseCharacter_C_Get_ALS_Stance_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (stance != nullptr)
 		*stance = params.stance;
 }
@@ -11077,10 +9988,7 @@ void ABP_BaseCharacter_C::GetIsAnyMontageFromMapPlaying(bool* Return_Value) {
 	};
 	ABP_BaseCharacter_C_GetIsAnyMontageFromMapPlaying_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Return_Value != nullptr)
 		*Return_Value = params.Return_Value;
 }
@@ -11099,10 +10007,7 @@ void ABP_BaseCharacter_C::GetCurrentPickUpAnim(class UAnimMontage** PickUpMontag
 	};
 	ABP_BaseCharacter_C_GetCurrentPickUpAnim_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (PickUpMontage != nullptr)
 		*PickUpMontage = params.PickUpMontage;
 }
@@ -11121,10 +10026,7 @@ void ABP_BaseCharacter_C::GetProfession(TEnumAsByte<E_Profession>* Profession) {
 	};
 	ABP_BaseCharacter_C_GetProfession_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Profession != nullptr)
 		*Profession = params.Profession;
 }
@@ -11143,10 +10045,7 @@ void ABP_BaseCharacter_C::GetHeadTransform(struct FTransform* HeadTransform) {
 	};
 	ABP_BaseCharacter_C_GetHeadTransform_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (HeadTransform != nullptr)
 		*HeadTransform = params.HeadTransform;
 }
@@ -11173,10 +10072,7 @@ void ABP_BaseCharacter_C::PlayHolsterAnimation(float PlayRate, TEnumAsByte<E_Too
 	params.PlayRate = PlayRate;
 	params.ToolType = ToolType;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Duration != nullptr)
 		*Duration = params.Duration;
 	if (TakeOutDuration != nullptr)
@@ -11197,10 +10093,7 @@ void ABP_BaseCharacter_C::GetBaseCharacterWorldLocation(struct FVector* Location
 	};
 	ABP_BaseCharacter_C_GetBaseCharacterWorldLocation_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Location != nullptr)
 		*Location = params.Location;
 }
@@ -11219,10 +10112,7 @@ void ABP_BaseCharacter_C::GetIsInDialogue_BPI(bool* IsInDialogue) {
 	};
 	ABP_BaseCharacter_C_GetIsInDialogue_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (IsInDialogue != nullptr)
 		*IsInDialogue = params.IsInDialogue;
 }
@@ -11241,10 +10131,7 @@ void ABP_BaseCharacter_C::GetProfessionData(struct FST_Profession* ProfessionDat
 	};
 	ABP_BaseCharacter_C_GetProfessionData_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (ProfessionData != nullptr)
 		*ProfessionData = params.ProfessionData;
 }
@@ -11269,10 +10156,7 @@ void ABP_BaseCharacter_C::PlayMountAnimation(EMountingDirection Position, TEnumA
 	params.Position = Position;
 	params.Type = Type;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Success != nullptr)
 		*Success = params.Success;
 }
@@ -11291,10 +10175,7 @@ void ABP_BaseCharacter_C::GetPhysicsHandle(class UPhysicsHandleComponent** Physi
 	};
 	ABP_BaseCharacter_C_GetPhysicsHandle_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (PhysicsHandle != nullptr)
 		*PhysicsHandle = params.PhysicsHandle;
 }
@@ -11316,10 +10197,7 @@ void ABP_BaseCharacter_C::GetInteractionEndpoint(float Distance, struct FVector*
 	ABP_BaseCharacter_C_GetInteractionEndpoint_Params params;
 	params.Distance = Distance;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (EndPoint != nullptr)
 		*EndPoint = params.EndPoint;
 }
@@ -11338,10 +10216,7 @@ void ABP_BaseCharacter_C::GetAnimalRepelStat_BPI(bool* AnimalRepel) {
 	};
 	ABP_BaseCharacter_C_GetAnimalRepelStat_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (AnimalRepel != nullptr)
 		*AnimalRepel = params.AnimalRepel;
 }
@@ -11372,10 +10247,7 @@ void ABP_BaseCharacter_C::PlayAttackAnimation(float PlayRate, TEnumAsByte<E_Tool
 	params.Random = Random;
 	params.animationId = animationId;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Duration != nullptr)
 		*Duration = params.Duration;
 }
@@ -11412,10 +10284,7 @@ void ABP_BaseCharacter_C::PlayDodgeAnimation(float PlayRate, TEnumAsByte<E_Tools
 	params.Direction = Direction;
 	params.Movement = Movement;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Duration != nullptr)
 		*Duration = params.Duration;
 }
@@ -11446,10 +10315,7 @@ void ABP_BaseCharacter_C::PlayBlockAnimation(float PlayRate, TEnumAsByte<E_Tools
 	params.Random = Random;
 	params.animationId = animationId;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Duration != nullptr)
 		*Duration = params.Duration;
 }
@@ -11480,10 +10346,7 @@ void ABP_BaseCharacter_C::PlayHitAnimation(float PlayRate, TEnumAsByte<E_Tools> 
 	params.Random = Random;
 	params.animationId = animationId;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Duration != nullptr)
 		*Duration = params.Duration;
 }
@@ -11502,10 +10365,7 @@ void ABP_BaseCharacter_C::GetToolType_BPI(TEnumAsByte<E_Tools>* ToolType) {
 	};
 	ABP_BaseCharacter_C_GetToolType_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (ToolType != nullptr)
 		*ToolType = params.ToolType;
 }
@@ -11524,10 +10384,7 @@ void ABP_BaseCharacter_C::GetIsBlocking_BPI(bool* Blocking) {
 	};
 	ABP_BaseCharacter_C_GetIsBlocking_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Blocking != nullptr)
 		*Blocking = params.Blocking;
 }
@@ -11560,10 +10417,7 @@ void ABP_BaseCharacter_C::GetCraftingAnimation(TEnumAsByte<E_Workbenches> Workbe
 	params.WorkbenchType = WorkbenchType;
 	params.FastAnim = FastAnim;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (CraftingMontage != nullptr)
 		*CraftingMontage = params.CraftingMontage;
 	if (Duration != nullptr)
@@ -11590,10 +10444,7 @@ void ABP_BaseCharacter_C::GetCurrentCraftingMontage(class UAnimMontage** Craftin
 	};
 	ABP_BaseCharacter_C_GetCurrentCraftingMontage_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (CraftingMontage != nullptr)
 		*CraftingMontage = params.CraftingMontage;
 }
@@ -11612,10 +10463,7 @@ void ABP_BaseCharacter_C::GetCharacterOwnership(TEnumAsByte<E_Ownership>* Owners
 	};
 	ABP_BaseCharacter_C_GetCharacterOwnership_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Ownership != nullptr)
 		*Ownership = params.Ownership;
 }
@@ -11634,10 +10482,7 @@ void ABP_BaseCharacter_C::GetEnableIK_BPI(bool* IK_Enabled) {
 	};
 	ABP_BaseCharacter_C_GetEnableIK_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (IK_Enabled != nullptr)
 		*IK_Enabled = params.IK_Enabled;
 }
@@ -11656,10 +10501,7 @@ void ABP_BaseCharacter_C::GetMass(float* Value) {
 	};
 	ABP_BaseCharacter_C_GetMass_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }
@@ -11678,10 +10520,7 @@ void ABP_BaseCharacter_C::CanPushOthers(bool* CanPushOthers) {
 	};
 	ABP_BaseCharacter_C_CanPushOthers_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (CanPushOthers != nullptr)
 		*CanPushOthers = params.CanPushOthers;
 }
@@ -11700,10 +10539,7 @@ void ABP_BaseCharacter_C::GetMesh_BPI(class USkeletalMeshComponent** Mesh) {
 	};
 	ABP_BaseCharacter_C_GetMesh_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Mesh != nullptr)
 		*Mesh = params.Mesh;
 }
@@ -11722,10 +10558,7 @@ void ABP_BaseCharacter_C::IsMoving_BPI(bool* IsMoving) {
 	};
 	ABP_BaseCharacter_C_IsMoving_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (IsMoving != nullptr)
 		*IsMoving = params.IsMoving;
 }
@@ -11750,10 +10583,7 @@ void ABP_BaseCharacter_C::PlayPushAnimation(float PlayRate, int32_t animationId,
 	params.PlayRate = PlayRate;
 	params.animationId = animationId;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Duration != nullptr)
 		*Duration = params.Duration;
 }
@@ -11772,10 +10602,7 @@ void ABP_BaseCharacter_C::GetTime(struct FST_Time* Time) {
 	};
 	ABP_BaseCharacter_C_GetTime_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Time != nullptr)
 		*Time = params.Time;
 }
@@ -11796,10 +10623,7 @@ void ABP_BaseCharacter_C::GetCharacterStamina_BPI(float* Stamina, float* MaxStam
 	};
 	ABP_BaseCharacter_C_GetCharacterStamina_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Stamina != nullptr)
 		*Stamina = params.Stamina;
 	if (MaxStamina != nullptr)
@@ -11822,10 +10646,7 @@ void ABP_BaseCharacter_C::GetCharacterHealth_BPI(float* Health, float* MaxHealth
 	};
 	ABP_BaseCharacter_C_GetCharacterHealth_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Health != nullptr)
 		*Health = params.Health;
 	if (MaxHealth != nullptr)
@@ -11852,10 +10673,7 @@ void ABP_BaseCharacter_C::DecreaseStamina_BPI(float Stamina, bool Dirtiness, boo
 	params.Stamina = Stamina;
 	params.Dirtiness = Dirtiness;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Enough != nullptr)
 		*Enough = params.Enough;
 }
@@ -11874,10 +10692,7 @@ void ABP_BaseCharacter_C::GetInteractCount(int32_t* Count) {
 	};
 	ABP_BaseCharacter_C_GetInteractCount_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Count != nullptr)
 		*Count = params.Count;
 }
@@ -11899,10 +10714,7 @@ void ABP_BaseCharacter_C::GetInteractTool(class ABP_BaseCharacter_C* BaseCharact
 	ABP_BaseCharacter_C_GetInteractTool_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Tool != nullptr)
 		*Tool = params.Tool;
 }
@@ -11936,10 +10748,7 @@ void ABP_BaseCharacter_C::IsInteractable(class ABP_BaseCharacter_C* BaseCharacte
 	ABP_BaseCharacter_C_IsInteractable_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Interactable != nullptr)
 		*Interactable = params.Interactable;
 	if (Possibility != nullptr)
@@ -11972,10 +10781,7 @@ void ABP_BaseCharacter_C::GetInteractAction(struct FText* InteractActionText, st
 	};
 	ABP_BaseCharacter_C_GetInteractAction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (InteractActionText != nullptr)
 		*InteractActionText = params.InteractActionText;
 	if (InteractSecondActionText != nullptr)
@@ -11999,10 +10805,7 @@ void ABP_BaseCharacter_C::GetInteractName(class ABP_BaseCharacter_C* BaseCharact
 	ABP_BaseCharacter_C_GetInteractName_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (InteractName != nullptr)
 		*InteractName = params.InteractName;
 }
@@ -12021,10 +10824,7 @@ void ABP_BaseCharacter_C::GetHeldItem(class ABP_MasterHoldableItem_C** HeldItem)
 	};
 	ABP_BaseCharacter_C_GetHeldItem_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (HeldItem != nullptr)
 		*HeldItem = params.HeldItem;
 }
@@ -12043,10 +10843,7 @@ void ABP_BaseCharacter_C::GetResourceType(TEnumAsByte<E_Resources>* ResourceType
 	};
 	ABP_BaseCharacter_C_GetResourceType_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (ResourceType != nullptr)
 		*ResourceType = params.ResourceType;
 }
@@ -12065,10 +10862,7 @@ void ABP_BaseCharacter_C::CheckOccupied(class APawn** Character) {
 	};
 	ABP_BaseCharacter_C_CheckOccupied_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Character != nullptr)
 		*Character = params.Character;
 }
@@ -12092,10 +10886,7 @@ void ABP_BaseCharacter_C::IsToolInteractable(class ABP_BaseCharacter_C* BaseChar
 	ABP_BaseCharacter_C_IsToolInteractable_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Interactable != nullptr)
 		*Interactable = params.Interactable;
 	if (Possibility != nullptr)
@@ -12116,10 +10907,7 @@ void ABP_BaseCharacter_C::GetNPCInteractTime(float* Time) {
 	};
 	ABP_BaseCharacter_C_GetNPCInteractTime_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Time != nullptr)
 		*Time = params.Time;
 }
@@ -12143,10 +10931,7 @@ void ABP_BaseCharacter_C::IsToolInteractable_UI(class ABP_BaseCharacter_C* BaseC
 	ABP_BaseCharacter_C_IsToolInteractable_UI_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Interactable != nullptr)
 		*Interactable = params.Interactable;
 	if (Possibility != nullptr)
@@ -12174,10 +10959,7 @@ void ABP_BaseCharacter_C::GetInteractTool_UI(class ABP_BaseCharacter_C* BaseChar
 	ABP_BaseCharacter_C_GetInteractTool_UI_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Tool != nullptr)
 		*Tool = params.Tool;
 	if (BagMode != nullptr)
@@ -12200,10 +10982,7 @@ void ABP_BaseCharacter_C::GetFluidType(TEnumAsByte<E_Fluids>* FluidType) {
 	};
 	ABP_BaseCharacter_C_GetFluidType_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (FluidType != nullptr)
 		*FluidType = params.FluidType;
 }
@@ -12227,10 +11006,7 @@ void ABP_BaseCharacter_C::GetInteractResources(class ABP_BaseCharacter_C* BaseCh
 	ABP_BaseCharacter_C_GetInteractResources_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Show != nullptr)
 		*Show = params.Show;
 	if (Resources != nullptr)
@@ -12264,10 +11040,7 @@ void ABP_BaseCharacter_C::GetInteractTitle(class ABP_BaseCharacter_C* BaseCharac
 	ABP_BaseCharacter_C_GetInteractTitle_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Show != nullptr)
 		*Show = params.Show;
 	if (Title != nullptr)
@@ -12296,10 +11069,7 @@ void ABP_BaseCharacter_C::GetOwnershipType(TEnumAsByte<E_Ownership>* Ownership) 
 	};
 	ABP_BaseCharacter_C_GetOwnershipType_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Ownership != nullptr)
 		*Ownership = params.Ownership;
 }
@@ -12323,10 +11093,7 @@ void ABP_BaseCharacter_C::IsToolNeeded(class ABP_BaseCharacter_C* BaseCharacter,
 	ABP_BaseCharacter_C_IsToolNeeded_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (CheckTools != nullptr)
 		*CheckTools = params.CheckTools;
 	if (Success != nullptr)
@@ -12350,10 +11117,7 @@ void ABP_BaseCharacter_C::IsInteractCondition(class ABP_BaseCharacter_C* BaseCha
 	ABP_BaseCharacter_C_IsInteractCondition_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (CheckCondition != nullptr)
 		*CheckCondition = params.CheckCondition;
 }
@@ -12386,10 +11150,7 @@ void ABP_BaseCharacter_C::GetInteractCondition(class ABP_BaseCharacter_C* BaseCh
 	params.BaseCharacter = BaseCharacter;
 	params.Hit = Hit;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Condition != nullptr)
 		*Condition = params.Condition;
 	if (CustomText != nullptr)
@@ -12416,10 +11177,7 @@ void ABP_BaseCharacter_C::GetOff_HandItem(class ABP_MasterHoldableItem_C** Off_H
 	};
 	ABP_BaseCharacter_C_GetOff_HandItem_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Off_HandItem != nullptr)
 		*Off_HandItem = params.Off_HandItem;
 }
@@ -12438,10 +11196,7 @@ void ABP_BaseCharacter_C::GetInteractionDistance(float* Distance) {
 	};
 	ABP_BaseCharacter_C_GetInteractionDistance_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Distance != nullptr)
 		*Distance = params.Distance;
 }
@@ -12460,10 +11215,7 @@ void ABP_BaseCharacter_C::GetID(struct FName* ID) {
 	};
 	ABP_BaseCharacter_C_GetID_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (ID != nullptr)
 		*ID = params.ID;
 }
@@ -12484,10 +11236,7 @@ void ABP_BaseCharacter_C::GetFishData(struct FST_ItemResource* Item, struct FTra
 	};
 	ABP_BaseCharacter_C_GetFishData_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Item != nullptr)
 		*Item = params.Item;
 	if (Transform != nullptr)
@@ -12511,10 +11260,7 @@ void ABP_BaseCharacter_C::IsInteractAdditionalStatus(class ABP_BaseCharacter_C* 
 	ABP_BaseCharacter_C_IsInteractAdditionalStatus_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (ShowStatus != nullptr)
 		*ShowStatus = params.ShowStatus;
 }
@@ -12540,10 +11286,7 @@ void ABP_BaseCharacter_C::GetInteractAdditionalStatus(class ABP_BaseCharacter_C*
 	ABP_BaseCharacter_C_GetInteractAdditionalStatus_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (CustomColor != nullptr)
 		*CustomColor = params.CustomColor;
 	if (Color != nullptr)
@@ -12571,10 +11314,7 @@ void ABP_BaseCharacter_C::IsItemInteractable(class ABP_BaseCharacter_C* BaseChar
 	ABP_BaseCharacter_C_IsItemInteractable_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Interactable != nullptr)
 		*Interactable = params.Interactable;
 	if (Possibility != nullptr)
@@ -12598,10 +11338,7 @@ void ABP_BaseCharacter_C::GetInteractItem(class ABP_BaseCharacter_C* BaseCharact
 	ABP_BaseCharacter_C_GetInteractItem_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (ItemHandler != nullptr)
 		*ItemHandler = params.ItemHandler;
 }
@@ -12625,10 +11362,7 @@ void ABP_BaseCharacter_C::IsItemNeeded(class ABP_BaseCharacter_C* BaseCharacter,
 	ABP_BaseCharacter_C_IsItemNeeded_Params params;
 	params.BaseCharacter = BaseCharacter;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (CheckItems != nullptr)
 		*CheckItems = params.CheckItems;
 	if (Success != nullptr)
@@ -12649,10 +11383,7 @@ void ABP_BaseCharacter_C::IsGrabbable(bool* Grabbable) {
 	};
 	ABP_BaseCharacter_C_IsGrabbable_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Grabbable != nullptr)
 		*Grabbable = params.Grabbable;
 }
@@ -12673,10 +11404,7 @@ void ABP_BaseCharacter_C::GetToolType(TEnumAsByte<E_Tools>* ToolType, TEnumAsByt
 	};
 	ABP_BaseCharacter_C_GetToolType_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (ToolType != nullptr)
 		*ToolType = params.ToolType;
 	if (ToolActivityType != nullptr)
@@ -12697,10 +11425,7 @@ void ABP_BaseCharacter_C::GetNPC_Interactable(TArray<bool>* NPC_Interactable) {
 	};
 	ABP_BaseCharacter_C_GetNPC_Interactable_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (NPC_Interactable != nullptr)
 		*NPC_Interactable = params.NPC_Interactable;
 }
@@ -12727,10 +11452,7 @@ bool ABP_BaseCharacter_C::StartPawnMounting(class AActor* newMountActor, class A
 	params.newMountActor = newMountActor;
 	params.linkedActor = linkedActor;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (mountingResponse != nullptr)
 		*mountingResponse = params.mountingResponse;
 	return params.ReturnValue;
@@ -12755,10 +11477,7 @@ bool ABP_BaseCharacter_C::StartPawnDismounting(class AActor* oldPawnMount, struc
 	ABP_BaseCharacter_C_StartPawnDismounting_Params params;
 	params.oldPawnMount = oldPawnMount;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (mountingResponse != nullptr)
 		*mountingResponse = params.mountingResponse;
 	return params.ReturnValue;
@@ -12781,10 +11500,7 @@ bool ABP_BaseCharacter_C::SetRiderCollisionEnabled(bool shouldEnable) {
 	ABP_BaseCharacter_C_SetRiderCollisionEnabled_Params params;
 	params.shouldEnable = shouldEnable;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -12808,10 +11524,7 @@ bool ABP_BaseCharacter_C::PlayMoveToSeatAnimation(int32_t currentSeatId, int32_t
 	params.currentSeatId = currentSeatId;
 	params.oldSeatId = oldSeatId;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -12832,10 +11545,7 @@ bool ABP_BaseCharacter_C::PlayMountingAnimation(EMountingDirection Position) {
 	ABP_BaseCharacter_C_PlayMountingAnimation_Params params;
 	params.Position = Position;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -12856,10 +11566,7 @@ bool ABP_BaseCharacter_C::PlayDismountingAnimation(EMountingDirection Position) 
 	ABP_BaseCharacter_C_PlayDismountingAnimation_Params params;
 	params.Position = Position;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -12877,10 +11584,7 @@ bool ABP_BaseCharacter_C::OnMoveToMountingLocationCompleted() {
 	};
 	ABP_BaseCharacter_C_OnMoveToMountingLocationCompleted_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -12901,10 +11605,7 @@ bool ABP_BaseCharacter_C::OnMountingPawnFinished(class AActor* newMountActor) {
 	ABP_BaseCharacter_C_OnMountingPawnFinished_Params params;
 	params.newMountActor = newMountActor;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -12925,10 +11626,7 @@ bool ABP_BaseCharacter_C::OnDismountingPawnFinished(class AActor* oldPawnMount) 
 	ABP_BaseCharacter_C_OnDismountingPawnFinished_Params params;
 	params.oldPawnMount = oldPawnMount;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -12946,10 +11644,7 @@ bool ABP_BaseCharacter_C::OnChangeToNewSeatCompleted() {
 	};
 	ABP_BaseCharacter_C_OnChangeToNewSeatCompleted_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -12973,10 +11668,7 @@ bool ABP_BaseCharacter_C::MoveToMountingLocation(const struct FVector& Location,
 	params.Location = Location;
 	params.Orientation = Orientation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -12994,10 +11686,7 @@ bool ABP_BaseCharacter_C::IsSeatedOnMount()/* const*/ {
 	};
 	ABP_BaseCharacter_C_IsSeatedOnMount_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -13015,10 +11704,7 @@ bool ABP_BaseCharacter_C::IsDriver()/* const*/ {
 	};
 	ABP_BaseCharacter_C_IsDriver_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -13036,10 +11722,7 @@ int32_t ABP_BaseCharacter_C::GetSeatId()/* const*/ {
 	};
 	ABP_BaseCharacter_C_GetSeatId_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -13057,10 +11740,7 @@ class UMeshComponent* ABP_BaseCharacter_C::GetRiderMesh()/* const*/ {
 	};
 	ABP_BaseCharacter_C_GetRiderMesh_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -13078,10 +11758,7 @@ class UMountRiderComponent* ABP_BaseCharacter_C::GetMountRiderComponent()/* cons
 	};
 	ABP_BaseCharacter_C_GetMountRiderComponent_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -13099,10 +11776,7 @@ TArray<class USkeletalMeshComponent*> ABP_BaseCharacter_C::GetAllRiderSkeletalMe
 	};
 	ABP_BaseCharacter_C_GetAllRiderSkeletalMeshes_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -13131,10 +11805,7 @@ bool ABP_BaseCharacter_C::StartPawnMountingToSeat(class AActor* newMountActor, c
 	params.linkedActor = linkedActor;
 	params.seatId = seatId;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (mountingResponse != nullptr)
 		*mountingResponse = params.mountingResponse;
 	return params.ReturnValue;
@@ -13162,10 +11833,7 @@ bool ABP_BaseCharacter_C::PrepareToMount(class AActor* mountOrRider, class AActo
 	params.mountOrRider = mountOrRider;
 	params.linkedActor = linkedActor;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Response != nullptr)
 		*Response = params.Response;
 	return params.ReturnValue;
@@ -13190,10 +11858,7 @@ bool ABP_BaseCharacter_C::PrepareToDismount(class AActor* mountOrRider, struct F
 	ABP_BaseCharacter_C_PrepareToDismount_Params params;
 	params.mountOrRider = mountOrRider;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Response != nullptr)
 		*Response = params.Response;
 	return params.ReturnValue;
@@ -13213,10 +11878,7 @@ bool ABP_BaseCharacter_C::IsMounted()/* const*/ {
 	};
 	ABP_BaseCharacter_C_IsMounted_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -13234,10 +11896,7 @@ class APawn* ABP_BaseCharacter_C::GetCharacterPawn()/* const*/ {
 	};
 	ABP_BaseCharacter_C_GetCharacterPawn_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -13255,10 +11914,7 @@ class AActor* ABP_BaseCharacter_C::GetCharacterMount()/* const*/ {
 	};
 	ABP_BaseCharacter_C_GetCharacterMount_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -13276,10 +11932,7 @@ class AController* ABP_BaseCharacter_C::GetCharacterController()/* const*/ {
 	};
 	ABP_BaseCharacter_C_GetCharacterController_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -13297,10 +11950,7 @@ void ABP_BaseCharacter_C::IsInCombat_BPI(bool* InCombat) {
 	};
 	ABP_BaseCharacter_C_IsInCombat_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (InCombat != nullptr)
 		*InCombat = params.InCombat;
 }
@@ -13319,10 +11969,7 @@ void ABP_BaseCharacter_C::GetDistance(float* Distance) {
 	};
 	ABP_BaseCharacter_C_GetDistance_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Distance != nullptr)
 		*Distance = params.Distance;
 }
@@ -13341,12 +11988,26 @@ void ABP_BaseCharacter_C::GetOptimalizationStage(int32_t* Stage) {
 	};
 	ABP_BaseCharacter_C_GetOptimalizationStage_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Stage != nullptr)
 		*Stage = params.Stage;
+}
+
+/////////////////////////////////////////////
+// InputAxisDelegateBinding BP_BaseCharacter.BP_BaseCharacter_C.InputAxisDelegateBinding_1
+// Flags: NetReliable, Static, NetMulticast, MulticastDelegate, Public, Private, Protected, Delegate, HasOutParms, HasDefaults, NetClient, DLLImport, BlueprintCallable, BlueprintEvent, NetValidate
+// Params:
+/////////////////////////////////////////////
+void ABP_BaseCharacter_C::InputAxisDelegateBinding_1() {
+	static auto fn = UObject::FindObject<UFunction>("InputAxisDelegateBinding BP_BaseCharacter.BP_BaseCharacter_C.InputAxisDelegateBinding_1");
+
+	struct ABP_BaseCharacter_C_InputAxisDelegateBinding_1_Params {
+	};
+	ABP_BaseCharacter_C_InputAxisDelegateBinding_1_Params params;
+
+	static auto Obj = StaticClass()->CreateDefaultObject();
+	Obj->ProcessEvent(fn, &params);
+
 }
 
 #pragma endregion

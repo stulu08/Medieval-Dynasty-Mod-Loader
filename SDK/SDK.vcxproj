@@ -40,7 +40,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>SDK_EXPORT;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ModLoader\src;..\ModLoader\vendor\glm;src\UE4;src;..\ModLoader\vendor\spdlog;Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ModLoader\src;..\ModLoader\vendor\glm;src\UE4;src;..\ModLoader\vendor\spdlog;src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -63,6 +63,24 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Medieval_Dynasty\AIC_Husbandry\AIC_Husbandry_C.h" />
+    <ClInclude Include="src\Medieval_Dynasty\AIC_Husbandry\AIC_Husbandry_SDK.h" />
+    <ClInclude Include="src\Medieval_Dynasty\AIC_Husbandry\Structs.h" />
+    <ClInclude Include="src\Medieval_Dynasty\AIC_NPC\AIC_NPC_C.h" />
+    <ClInclude Include="src\Medieval_Dynasty\AIC_NPC\AIC_NPC_SDK.h" />
+    <ClInclude Include="src\Medieval_Dynasty\AIC_NPC\Structs.h" />
+    <ClInclude Include="src\Medieval_Dynasty\AIC_NPC_Bandits\AIC_NPC_Bandits_C.h" />
+    <ClInclude Include="src\Medieval_Dynasty\AIC_NPC_Bandits\AIC_NPC_Bandits_SDK.h" />
+    <ClInclude Include="src\Medieval_Dynasty\AIC_NPC_Bandits\Structs.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BPI_AI\BPI_AI_C.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BPI_AI\BPI_AI_SDK.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BPI_AI\Structs.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BPI_AI_Bandit\BPI_AI_Bandit_C.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BPI_AI_Bandit\BPI_AI_Bandit_SDK.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BPI_AI_Bandit\Structs.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BPI_BaseCharacter\BPI_BaseCharacter_C.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BPI_BaseCharacter\BPI_BaseCharacter_SDK.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BPI_BaseCharacter\Structs.h" />
     <ClInclude Include="src\Medieval_Dynasty\BPI_Inventory\BPI_Inventory_C.h" />
     <ClInclude Include="src\Medieval_Dynasty\BPI_Inventory\BPI_Inventory_SDK.h" />
     <ClInclude Include="src\Medieval_Dynasty\BPI_Inventory\Structs.h" />
@@ -73,6 +91,15 @@
     <ClInclude Include="src\Medieval_Dynasty\BP_BaseCharacter\BP_BaseCharacter_SDK.h" />
     <ClInclude Include="src\Medieval_Dynasty\BP_BaseCharacter\Structs.h" />
     <ClInclude Include="src\Medieval_Dynasty\BP_Enums.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BP_NPC\BP_NPC_C.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BP_NPC\BP_NPC_SDK.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BP_NPC\Structs.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BP_NPC_Bandit\BP_NPC_Bandit_C.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BP_NPC_Bandit\BP_NPC_Bandit_SDK.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BP_NPC_Bandit\Structs.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BP_NPC_Manager\BP_NPC_Manager_C.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BP_NPC_Manager\BP_NPC_Manager_SDK.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BP_NPC_Manager\Structs.h" />
     <ClInclude Include="src\Medieval_Dynasty\BP_PlayerBuildingComponent\BP_PlayerBuildingComponent_C.h" />
     <ClInclude Include="src\Medieval_Dynasty\BP_PlayerBuildingComponent\BP_PlayerBuildingComponent_SDK.h" />
     <ClInclude Include="src\Medieval_Dynasty\BP_PlayerBuildingComponent\Structs.h" />
@@ -111,6 +138,7 @@
     <ClInclude Include="src\Medieval_Dynasty\SDK.h" />
     <ClInclude Include="src\NameValidator.h" />
     <ClInclude Include="src\UE4.h" />
+    <ClInclude Include="src\UE4\AIModule\AIController.h" />
     <ClInclude Include="src\UE4\AIModule\Structs.h" />
     <ClInclude Include="src\UE4\AdsMountingSystem\ADMUnifiedControllerPawn.h" />
     <ClInclude Include="src\UE4\AdsMountingSystem\AdsMountingSystemLibrary.h" />
@@ -151,26 +179,61 @@
     <ClInclude Include="src\UE4\Engine\BlueprintAsyncActionBase.h" />
     <ClInclude Include="src\UE4\Engine\BlueprintFunctionLibrary.h" />
     <ClInclude Include="src\UE4\Engine\BlueprintGeneratedClass.h" />
+    <ClInclude Include="src\UE4\Engine\BlueprintMapLibrary.h" />
+    <ClInclude Include="src\UE4\Engine\BlueprintPathsLibrary.h" />
+    <ClInclude Include="src\UE4\Engine\BlueprintPlatformLibrary.h" />
+    <ClInclude Include="src\UE4\Engine\BlueprintSetLibrary.h" />
     <ClInclude Include="src\UE4\Engine\Character.h" />
+    <ClInclude Include="src\UE4\Engine\Controller.h" />
     <ClInclude Include="src\UE4\Engine\DataTable.h" />
+    <ClInclude Include="src\UE4\Engine\DataTableFunctionLibrary.h" />
     <ClInclude Include="src\UE4\Engine\DynamicBlueprintBinding.h" />
     <ClInclude Include="src\UE4\Engine\GameInstance.h" />
     <ClInclude Include="src\UE4\Engine\GameMode.h" />
+    <ClInclude Include="src\UE4\Engine\GameModeBase.h" />
     <ClInclude Include="src\UE4\Engine\GamePlayStatics.h" />
     <ClInclude Include="src\UE4\Engine\GameState.h" />
     <ClInclude Include="src\UE4\Engine\GameStateBase.h" />
     <ClInclude Include="src\UE4\Engine\Info.h" />
+    <ClInclude Include="src\UE4\Engine\KismetArrayLibrary.h" />
+    <ClInclude Include="src\UE4\Engine\KismetGuidLibrary.h" />
+    <ClInclude Include="src\UE4\Engine\KismetInputLibrary.h" />
+    <ClInclude Include="src\UE4\Engine\KismetInternationalizationLibrary.h" />
+    <ClInclude Include="src\UE4\Engine\KismetMaterialLibrary.h" />
+    <ClInclude Include="src\UE4\Engine\KismetMathLibrary.h" />
+    <ClInclude Include="src\UE4\Engine\KismetRenderingLibrary.h" />
+    <ClInclude Include="src\UE4\Engine\KismetStringLibrary.h" />
+    <ClInclude Include="src\UE4\Engine\KismetSystemLibrary.h" />
+    <ClInclude Include="src\UE4\Engine\KismetTextLibrary.h" />
     <ClInclude Include="src\UE4\Engine\Level.h" />
+    <ClInclude Include="src\UE4\Engine\Material.h" />
+    <ClInclude Include="src\UE4\Engine\MaterialInstance.h" />
+    <ClInclude Include="src\UE4\Engine\MaterialInterface.h" />
     <ClInclude Include="src\UE4\Engine\MeshComponent.h" />
+    <ClInclude Include="src\UE4\Engine\MeshVertexPainterKismetLibrary.h" />
+    <ClInclude Include="src\UE4\Engine\ObjectLibrary.h" />
     <ClInclude Include="src\UE4\Engine\Pawn.h" />
     <ClInclude Include="src\UE4\Engine\PlayerController.h" />
     <ClInclude Include="src\UE4\Engine\PlayerState.h" />
     <ClInclude Include="src\UE4\Engine\PrimitiveComponent.h" />
     <ClInclude Include="src\UE4\Engine\Scene.h" />
     <ClInclude Include="src\UE4\Engine\SceneComponent.h" />
+    <ClInclude Include="src\UE4\Engine\SkeletalMesh.h" />
+    <ClInclude Include="src\UE4\Engine\SkeletalMeshActor.h" />
+    <ClInclude Include="src\UE4\Engine\SkeletalMeshComponent.h" />
+    <ClInclude Include="src\UE4\Engine\SkeletalMeshSocket.h" />
+    <ClInclude Include="src\UE4\Engine\Skeleton.h" />
+    <ClInclude Include="src\UE4\Engine\SkinnedMeshComponent.h" />
     <ClInclude Include="src\UE4\Engine\SpringArmComponent.h" />
+    <ClInclude Include="src\UE4\Engine\StaticMesh.h" />
+    <ClInclude Include="src\UE4\Engine\StaticMeshActor.h" />
+    <ClInclude Include="src\UE4\Engine\StaticMeshComponent.h" />
+    <ClInclude Include="src\UE4\Engine\StaticMeshSocket.h" />
+    <ClInclude Include="src\UE4\Engine\StereoLayerFunctionLibrary.h" />
+    <ClInclude Include="src\UE4\Engine\StreamableRenderAsset.h" />
     <ClInclude Include="src\UE4\Engine\StringTable.h" />
     <ClInclude Include="src\UE4\Engine\Structs.h" />
+    <ClInclude Include="src\UE4\Engine\SubsystemBlueprintLibrary.h" />
     <ClInclude Include="src\UE4\Engine\UserDefinedEnum.h" />
     <ClInclude Include="src\UE4\Engine\UserDefinedStruct.h" />
     <ClInclude Include="src\UE4\Engine\World.h" />
@@ -350,9 +413,18 @@
     <ClInclude Include="src\UE4\UMG\WrapBoxSlot.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Medieval_Dynasty\AIC_Husbandry\AIC_Husbandry_C.cpp" />
+    <ClCompile Include="src\Medieval_Dynasty\AIC_NPC\AIC_NPC_C.cpp" />
+    <ClCompile Include="src\Medieval_Dynasty\AIC_NPC_Bandits\AIC_NPC_Bandits_C.cpp" />
+    <ClCompile Include="src\Medieval_Dynasty\BPI_AI\BPI_AI_C.cpp" />
+    <ClCompile Include="src\Medieval_Dynasty\BPI_AI_Bandit\BPI_AI_Bandit_C.cpp" />
+    <ClCompile Include="src\Medieval_Dynasty\BPI_BaseCharacter\BPI_BaseCharacter_C.cpp" />
     <ClCompile Include="src\Medieval_Dynasty\BPI_Inventory\BPI_Inventory_C.cpp" />
     <ClCompile Include="src\Medieval_Dynasty\BPI_PC_Player\BPI_PC_Player_C.cpp" />
     <ClCompile Include="src\Medieval_Dynasty\BP_BaseCharacter\BP_BaseCharacter_C.cpp" />
+    <ClCompile Include="src\Medieval_Dynasty\BP_NPC\BP_NPC_C.cpp" />
+    <ClCompile Include="src\Medieval_Dynasty\BP_NPC_Bandit\BP_NPC_Bandit_C.cpp" />
+    <ClCompile Include="src\Medieval_Dynasty\BP_NPC_Manager\BP_NPC_Manager_C.cpp" />
     <ClCompile Include="src\Medieval_Dynasty\BP_PlayerBuildingComponent\BP_PlayerBuildingComponent_C.cpp" />
     <ClCompile Include="src\Medieval_Dynasty\BP_PlayerCharacter\BP_PlayerCharacter_C.cpp" />
     <ClCompile Include="src\Medieval_Dynasty\BP_PlayerManager\BP_PlayerManager_C.cpp" />
@@ -368,6 +440,7 @@
     <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\MD_SpringArmComponent.cpp" />
     <ClCompile Include="src\Medieval_Dynasty\PC_Player\PC_Player_C.cpp" />
     <ClCompile Include="src\NameValidator.cpp" />
+    <ClCompile Include="src\UE4\AIModule\AIController.cpp" />
     <ClCompile Include="src\UE4\AdsMountingSystem\ADMUnifiedControllerPawn.cpp" />
     <ClCompile Include="src\UE4\AdsMountingSystem\AdsMountingSystemLibrary.cpp" />
     <ClCompile Include="src\UE4\AdsMountingSystem\LinkedMountActor.cpp" />
@@ -387,18 +460,55 @@
     <ClCompile Include="src\UE4\Engine\Actor.cpp" />
     <ClCompile Include="src\UE4\Engine\ActorComponent.cpp" />
     <ClCompile Include="src\UE4\Engine\BlueprintAsyncActionBase.cpp" />
+    <ClCompile Include="src\UE4\Engine\BlueprintMapLibrary.cpp" />
+    <ClCompile Include="src\UE4\Engine\BlueprintPathsLibrary.cpp" />
+    <ClCompile Include="src\UE4\Engine\BlueprintPlatformLibrary.cpp" />
+    <ClCompile Include="src\UE4\Engine\BlueprintSetLibrary.cpp" />
     <ClCompile Include="src\UE4\Engine\Character.cpp" />
+    <ClCompile Include="src\UE4\Engine\Controller.cpp" />
     <ClCompile Include="src\UE4\Engine\DataTable.cpp" />
+    <ClCompile Include="src\UE4\Engine\DataTableFunctionLibrary.cpp" />
+    <ClCompile Include="src\UE4\Engine\GameMode.cpp" />
+    <ClCompile Include="src\UE4\Engine\GameModeBase.cpp" />
     <ClCompile Include="src\UE4\Engine\GamePlayStatics.cpp" />
     <ClCompile Include="src\UE4\Engine\GameStateBase.cpp" />
     <ClCompile Include="src\UE4\Engine\Info.cpp" />
+    <ClCompile Include="src\UE4\Engine\KismetArrayLibrary.cpp" />
+    <ClCompile Include="src\UE4\Engine\KismetGuidLibrary.cpp" />
+    <ClCompile Include="src\UE4\Engine\KismetInputLibrary.cpp" />
+    <ClCompile Include="src\UE4\Engine\KismetInternationalizationLibrary.cpp" />
+    <ClCompile Include="src\UE4\Engine\KismetMaterialLibrary.cpp" />
+    <ClCompile Include="src\UE4\Engine\KismetMathLibrary.cpp" />
+    <ClCompile Include="src\UE4\Engine\KismetRenderingLibrary.cpp" />
+    <ClCompile Include="src\UE4\Engine\KismetStringLibrary.cpp" />
+    <ClCompile Include="src\UE4\Engine\KismetSystemLibrary.cpp" />
+    <ClCompile Include="src\UE4\Engine\KismetTextLibrary.cpp" />
+    <ClCompile Include="src\UE4\Engine\Material.cpp" />
+    <ClCompile Include="src\UE4\Engine\MaterialInstance.cpp" />
+    <ClCompile Include="src\UE4\Engine\MaterialInterface.cpp" />
     <ClCompile Include="src\UE4\Engine\MeshComponent.cpp" />
+    <ClCompile Include="src\UE4\Engine\MeshVertexPainterKismetLibrary.cpp" />
+    <ClCompile Include="src\UE4\Engine\ObjectLibrary.cpp" />
     <ClCompile Include="src\UE4\Engine\Pawn.cpp" />
+    <ClCompile Include="src\UE4\Engine\PlayerController.cpp" />
     <ClCompile Include="src\UE4\Engine\PlayerState.cpp" />
     <ClCompile Include="src\UE4\Engine\PrimitiveComponent.cpp" />
     <ClCompile Include="src\UE4\Engine\SceneComponent.cpp" />
+    <ClCompile Include="src\UE4\Engine\SkeletalMesh.cpp" />
+    <ClCompile Include="src\UE4\Engine\SkeletalMeshActor.cpp" />
+    <ClCompile Include="src\UE4\Engine\SkeletalMeshComponent.cpp" />
+    <ClCompile Include="src\UE4\Engine\SkeletalMeshSocket.cpp" />
+    <ClCompile Include="src\UE4\Engine\Skeleton.cpp" />
+    <ClCompile Include="src\UE4\Engine\SkinnedMeshComponent.cpp" />
     <ClCompile Include="src\UE4\Engine\SpringArmComponent.cpp" />
+    <ClCompile Include="src\UE4\Engine\StaticMesh.cpp" />
+    <ClCompile Include="src\UE4\Engine\StaticMeshActor.cpp" />
+    <ClCompile Include="src\UE4\Engine\StaticMeshComponent.cpp" />
+    <ClCompile Include="src\UE4\Engine\StaticMeshSocket.cpp" />
+    <ClCompile Include="src\UE4\Engine\StereoLayerFunctionLibrary.cpp" />
+    <ClCompile Include="src\UE4\Engine\StreamableRenderAsset.cpp" />
     <ClCompile Include="src\UE4\Engine\StringTable.cpp" />
+    <ClCompile Include="src\UE4\Engine\SubsystemBlueprintLibrary.cpp" />
     <ClCompile Include="src\UE4\Engine\UserDefinedEnum.cpp" />
     <ClCompile Include="src\UE4\Engine\World.cpp" />
     <ClCompile Include="src\UE4\MovieScene\MovieScene.cpp" />

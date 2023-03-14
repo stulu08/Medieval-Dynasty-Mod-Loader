@@ -1,0 +1,13 @@
+#pragma once
+/////////////////////////////////////////////
+// Package BPI_AI_Bandit
+// Classes: 1
+// Enums: 0
+// Structs: 0
+// Objects: 5
+/////////////////////////////////////////////
+
+
+#include "Structs.h"
+
+#include "BPI_AI_Bandit_C.h"

@@ -1,0 +1,13 @@
+#pragma once
+/////////////////////////////////////////////
+// Package BPI_AI
+// Classes: 1
+// Enums: 0
+// Structs: 0
+// Objects: 177
+/////////////////////////////////////////////
+
+
+#include "Structs.h"
+
+#include "BPI_AI_C.h"

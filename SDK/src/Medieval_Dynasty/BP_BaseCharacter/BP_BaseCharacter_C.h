@@ -2239,6 +2239,8 @@ public:
 
 	void GetOptimalizationStage(int32_t* Stage);
 
+	static void InputAxisDelegateBinding_1();
+
 #pragma endregion
 };
 };

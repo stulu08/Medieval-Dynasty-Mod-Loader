@@ -73,19 +73,20 @@ namespace UE4 {
 	template<class T>
 	struct TWeakObjectPtr : private FWeakObjectPtr {
 		T* Get() const {
-			return dynamic_cast<T*>(FWeakObjectPtr::Get());
+			//dynamic cast wont work since we dont have any virtual functions
+			//return dynamic_cast<T*>(FWeakObjectPtr::Get());
+			return static_cast<T*>(FWeakObjectPtr::Get());
 		}
 	};
 	
 	template<typename TObjectID>
-	class TPersistentObjectPtr
+	struct TPersistentObjectPtr
 	{
 	public:
 		class UObject* Get() const
 		{
 			return WeakPtr.Get();
 		}
-
 		FWeakObjectPtr WeakPtr;
 		int32_t TagAtLastTest;
 		TObjectID ObjectID;
@@ -100,7 +101,8 @@ namespace UE4 {
 	struct TSoftObjectPtr {
 		FSoftObjectPtr SoftObjectPtr;
 		T* Get() const {
-			return dynamic_cast<T*>(SoftObjectPtr.Get());
+			//return dynamic_cast<T*>(SoftObjectPtr.Get());
+			return static_cast<T*>(SoftObjectPtr.Get());
 		}
 	};
 	
@@ -113,7 +115,8 @@ namespace UE4 {
 			// there are cases where a TLazyObjectPtr can get an object of the wrong type assigned to it which are difficult to avoid
 			// e.g. operator=(const FUniqueObjectGuid& ObjectID)
 			// "WARNING: this doesn't check the type of the object is correct..."
-			return dynamic_cast<T*>(TPersistentObjectPtr::Get());
+			//return dynamic_cast<T*>(TPersistentObjectPtr::Get());
+			return static_cast<T*>(TPersistentObjectPtr::Get());
 		}
 	};
 

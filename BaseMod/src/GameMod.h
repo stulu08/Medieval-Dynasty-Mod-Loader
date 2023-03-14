@@ -34,7 +34,7 @@ public:
 	//Called when the Game gets the init call
 	virtual bool GameInit() { return false; }
 
-	UE4::APC_Player_C* getPlayer() const { return PlayerActor; }
+	UE4::APC_Player_C* getPlayer() const { return PlayerController; }
 	UE4::ABP_PlayerCharacter_C* getPlayerCharacter() const { return PlayerCharacter; }
 	UE4::UGI_MedievalDynasty_C* getMedievalDynastyGameInstance() const { return MedievalDynastyGameInstance; }
 	UE4::AGM_MedievalDynasty_C* getMedievalDynastyGameMode() const { return MedievalDynastyGameMode; }
@@ -66,7 +66,7 @@ protected:
 		return nullReturn;
 	}
 protected:
-	UE4::APC_Player_C* PlayerActor;
+	UE4::APC_Player_C* PlayerController;
 	UE4::ABP_PlayerCharacter_C* PlayerCharacter;
 	UE4::UGI_MedievalDynasty_C* MedievalDynastyGameInstance;
 	UE4::AGM_MedievalDynasty_C* MedievalDynastyGameMode;

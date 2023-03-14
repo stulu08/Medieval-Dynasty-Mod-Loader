@@ -1,7 +1,47 @@
 #pragma once
 #include "CoreUObject/CoreTypes.h"
 
-
+//GameplayTasks
+namespace UE4 {
+	/////////////////////////////////////////////
+	// Enum GameplayTasks.ETaskResourceOverlapPolicy
+	/////////////////////////////////////////////
+	enum class ETaskResourceOverlapPolicy : uint8_t {
+		StartOnTop = 0,
+		StartAtEnd = 1,
+		MAX = 2,
+	};
+	/////////////////////////////////////////////
+	// Enum GameplayTasks.EGameplayTaskState
+	/////////////////////////////////////////////
+	enum class EGameplayTaskState : uint8_t {
+		Uninitialized = 0,
+		AwaitingActivation = 1,
+		Paused = 2,
+		Active = 3,
+		Finished = 4,
+		MAX = 5,
+	};
+	/////////////////////////////////////////////
+	// Enum GameplayTasks.EGameplayTaskRunResult
+	/////////////////////////////////////////////
+	enum class EGameplayTaskRunResult : uint8_t {
+		Error = 0,
+		Failed = 1,
+		Success_Paused = 2,
+		Success_Active = 3,
+		Success_Finished = 4,
+		MAX = 5,
+	};
+	/////////////////////////////////////////////
+	// ScriptStruct GameplayTasks.GameplayResourceSet
+	// Size 2
+	/////////////////////////////////////////////
+	struct FGameplayResourceSet {
+		unsigned char uknownData_0[2];		//Offset: 0	Size: 2
+	};
+}
+#pragma endregion
 namespace UE4 {
 #pragma region Enums
 /////////////////////////////////////////////

@@ -1,0 +1,13 @@
+#pragma once
+/////////////////////////////////////////////
+// Package BP_NPC
+// Classes: 1
+// Enums: 0
+// Structs: 0
+// Objects: 352
+/////////////////////////////////////////////
+
+
+#include "Structs.h"
+
+#include "BP_NPC_C.h"

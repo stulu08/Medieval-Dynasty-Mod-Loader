@@ -1,0 +1,13 @@
+#pragma once
+/////////////////////////////////////////////
+// Package AIC_NPC
+// Classes: 1
+// Enums: 0
+// Structs: 0
+// Objects: 219
+/////////////////////////////////////////////
+
+
+#include "Structs.h"
+
+#include "AIC_NPC_C.h"
