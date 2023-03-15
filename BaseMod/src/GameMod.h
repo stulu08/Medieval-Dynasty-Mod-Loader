@@ -5,13 +5,16 @@
 // But this mod class extends the default mod class to have game specific features and also does internal stuff 
 class BASEMOD_API GameMod : public ::Mod {
 public:
-	GameMod(HMODULE handle = nullptr) {
+	__forceinline GameMod(HMODULE handle = nullptr) {
 		ModLoaderVersion = MODLOADER_VERSION;
 		MedievalModLoaderVersion = MEDIEVAL_VERSION;
 		CreateLogger = true;
 		LogToFile = true;
 		ModRef = this;
 		hModule = handle;
+
+		//needs to be executed in the Mods code, since GName, ... is static
+		UE4::InitSDK();
 	}
 
 	//When your mod gets initlized

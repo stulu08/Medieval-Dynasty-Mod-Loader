@@ -2,7 +2,6 @@
 #include "Utils.h"
 
 void GameMod::InitializeMod() {
-	UE4::InitSDK();
 	SetupHooks(EnabledModEvents);
 	OnModInitilize();
 }
