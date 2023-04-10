@@ -40,36 +40,16 @@ namespace Utils {
 			out.close();
 			return true;
 		}
-	/// <summary>
-		/// Use this filtering a class in BeginPlay, you should only use this BP classes
-		/// </summary>
-		/// <param name="fullClassName">The full class name</param>
-		/// <param name="Actor">The actor to check if it has the class</param>
-		/// <returns></returns>
-	inline UE4::UClass* FilterByBPClass(const std::string& fullClassName, UE4::AActor* Actor) {
-			if (!Actor)
-				return nullptr;
-			static std::unordered_map<std::string, UE4::UClass*> classes;
-			UE4::UClass*& clas = classes[fullClassName];
-			if (clas && clas == Actor->GetClass()) {
-				return clas;
-			}
-			else if (Actor->GetClass()->GetFullName() == fullClassName) {
-				classes[fullClassName] = Actor->GetClass();
-				return Actor->GetClass();
-			}
-			return nullptr;
-		}
 	template<class T = UE4::AActor>
 	inline bool GetUniqueActorBeginPlay(UE4::AActor* src, T** dest) {
-			if (src->IsA(T::StaticClass())) {
-				if (dest) {
-					*dest = static_cast<T*>(src);
-					return true;
-				}
+		if (src->IsA(T::StaticClass())) {
+			if (dest) {
+				*dest = static_cast<T*>(src);
+				return true;
 			}
-			return false;
 		}
+		return false;
+	}
 	inline bool IsCorrectBPObject(UE4::UObject* src, const std::string& fullName) {
 		if (!src)
 			return false;
@@ -83,6 +63,39 @@ namespace Utils {
 		else {
 			return nullptr;
 		}
+	}
+	//assigns dest to src when class matches
+	template<class T = UE4::AActor>
+	inline bool ValidateBPObjectBeginPlay(UE4::AActor* src, T** dest, const std::string& fullName) {
+		if (IsCorrectBPObject(src, fullName)) {
+			if (dest) {
+				*dest = static_cast<T*>(src);
+			}
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	inline UE4::UDataTable* FindDataTable(const std::string& tableFullName) {
+		static std::unordered_map<std::string, UE4::UDataTable*> tablesCache;
+		if (tablesCache.find(tableFullName) != tablesCache.end())
+			return tablesCache.at(tableFullName);
+
+		UE4::UDataTable* table = UE4::UObject::FindObject<UE4::UDataTable>(tableFullName);
+		if (!table) {
+			UE_LOG(LogTemp, Warn, "Could not find: {0}", tableFullName)
+		}
+		tablesCache.insert({ tableFullName, UE4::UObject::FindObject<UE4::UDataTable>(tableFullName) });
+		return tablesCache.at(tableFullName);
+	}
+	template<typename KeyType, typename ValueType>
+	inline UE4::NativeTMap<KeyType, ValueType> GetDataTableItems(const std::string& tableFullName) {
+		UE4::UDataTable* table = FindDataTable(tableFullName);
+		if (table) {
+			return table->GetRowMap();
+		}
+		return UE4::NativeTMap<KeyType, ValueType>();
 	}
 	inline std::vector<UE4::UFunction*>& GetAllClasssFunctions(UE4::UClass* clas, bool reload = false) {
 			static std::unordered_map<UE4::UClass*, std::vector<UE4::UFunction*>> classFunctions;
@@ -492,10 +505,10 @@ namespace Utils {
 					}
 				}
 				
-				
 				if (i != 0)
 					head += ", ";
-				if (Const)
+				//dont use const for class ptr's
+				if (Const && !info.cppType._Starts_with("class ") && info.cppType[info.cppType.length() - 1] != '*')
 					head += "const ";
 
 				head += info.cppType;
@@ -1102,12 +1115,7 @@ namespace Utils {
 					ImGui::PopID();
 				return status;
 		}
-		/// <summary>
-		/// Returns true if search was peformed, outObjects will only be assigned when searched
-		/// </summary>
-		/// <param name="objects"></param>
-		/// <returns></returns>
-		inline bool SearchBar(UE4::UObject* object, const std::string& search) {
+		inline bool FilterSearch(UE4::UObject* object, const std::string& search) {
 			if (!object)
 				return false;
 			if (search.empty())

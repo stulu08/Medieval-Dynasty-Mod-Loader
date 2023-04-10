@@ -4,7 +4,7 @@
 /////////////////////////////////////////////
 // BlueprintGeneratedClass InventoryComponent.InventoryComponent_C
 // Super: Class Engine.ActorComponent
-// Size: 984
+// Size: 696
 // Size inherited: 176
 /////////////////////////////////////////////
 namespace UE4 {
@@ -76,125 +76,70 @@ public:
 	bool* M_PtrGetCheckWeightWhileTransfering();
 	void M_SetCheckWeightWhileTransfering(const bool& value);
 
-	//class USkeletalMeshComponent*	HeadRef;		//Offset: 440	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class USkeletalMeshComponent* M_GetHeadRef() const;
-	class USkeletalMeshComponent** M_PtrGetHeadRef();
-	void M_SetHeadRef(const class USkeletalMeshComponent*& value);
-
-	//class USkeletalMeshComponent*	TorsoRef;		//Offset: 448	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class USkeletalMeshComponent* M_GetTorsoRef() const;
-	class USkeletalMeshComponent** M_PtrGetTorsoRef();
-	void M_SetTorsoRef(const class USkeletalMeshComponent*& value);
-
-	//class USkeletalMeshComponent*	HandsRef;		//Offset: 456	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class USkeletalMeshComponent* M_GetHandsRef() const;
-	class USkeletalMeshComponent** M_PtrGetHandsRef();
-	void M_SetHandsRef(const class USkeletalMeshComponent*& value);
-
-	//class USkeletalMeshComponent*	LegsRef;		//Offset: 464	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class USkeletalMeshComponent* M_GetLegsRef() const;
-	class USkeletalMeshComponent** M_PtrGetLegsRef();
-	void M_SetLegsRef(const class USkeletalMeshComponent*& value);
-
-	//class USkeletalMeshComponent*	FeetRef;		//Offset: 472	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class USkeletalMeshComponent* M_GetFeetRef() const;
-	class USkeletalMeshComponent** M_PtrGetFeetRef();
-	void M_SetFeetRef(const class USkeletalMeshComponent*& value);
-
-	//class USkeletalMeshComponent*	HatSKMRef;		//Offset: 480	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class USkeletalMeshComponent* M_GetHatSKMRef() const;
-	class USkeletalMeshComponent** M_PtrGetHatSKMRef();
-	void M_SetHatSKMRef(const class USkeletalMeshComponent*& value);
-
-	//class USkeletalMeshComponent*	HoodRef;		//Offset: 488	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class USkeletalMeshComponent* M_GetHoodRef() const;
-	class USkeletalMeshComponent** M_PtrGetHoodRef();
-	void M_SetHoodRef(const class USkeletalMeshComponent*& value);
-
-	//class USkeletalMeshComponent*	HairRef;		//Offset: 496	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class USkeletalMeshComponent* M_GetHairRef() const;
-	class USkeletalMeshComponent** M_PtrGetHairRef();
-	void M_SetHairRef(const class USkeletalMeshComponent*& value);
-
-	//class USkeletalMeshComponent*	BackpackRef;		//Offset: 504	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class USkeletalMeshComponent* M_GetBackpackRef() const;
-	class USkeletalMeshComponent** M_PtrGetBackpackRef();
-	void M_SetBackpackRef(const class USkeletalMeshComponent*& value);
-
-	//class USkeletalMeshComponent*	PouchRef;		//Offset: 512	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class USkeletalMeshComponent* M_GetPouchRef() const;
-	class USkeletalMeshComponent** M_PtrGetPouchRef();
-	void M_SetPouchRef(const class USkeletalMeshComponent*& value);
-
-	//bool	IsHoodOn;		//Offset: 520	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	//bool	IsHoodOn;		//Offset: 433	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
 	bool M_GetIsHoodOn() const;
 	bool* M_PtrGetIsHoodOn();
 	void M_SetIsHoodOn(const bool& value);
 
-	//struct FST_CharacterModules	DefaultCharacterModules;		//Offset: 528	Size: 200	Flags: Edit, BlueprintVisible, DisableEditOnInstance, HasGetValueTypeHash
-	struct FST_CharacterModules M_GetDefaultCharacterModules() const;
-	struct FST_CharacterModules* M_PtrGetDefaultCharacterModules();
-	void M_SetDefaultCharacterModules(const struct FST_CharacterModules& value);
-
-	//TAssetPtr<class FOnArmorChange__DelegateSignature>	OnArmorChange;		//Offset: 728	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
+	//TAssetPtr<class FOnArmorChange__DelegateSignature>	OnArmorChange;		//Offset: 440	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
 	TAssetPtr<class FOnArmorChange__DelegateSignature> M_GetOnArmorChange() const;
 	TAssetPtr<class FOnArmorChange__DelegateSignature>* M_PtrGetOnArmorChange();
 	void M_SetOnArmorChange(const TAssetPtr<class FOnArmorChange__DelegateSignature>& value);
 
-	//float	BaseInitialOverloadWeight;		//Offset: 744	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//float	BaseInitialOverloadWeight;		//Offset: 456	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	float M_GetBaseInitialOverloadWeight() const;
 	float* M_PtrGetBaseInitialOverloadWeight();
 	void M_SetBaseInitialOverloadWeight(const float& value);
 
-	//float	BaseFinalOverloadWeight;		//Offset: 748	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//float	BaseFinalOverloadWeight;		//Offset: 460	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	float M_GetBaseFinalOverloadWeight() const;
 	float* M_PtrGetBaseFinalOverloadWeight();
 	void M_SetBaseFinalOverloadWeight(const float& value);
 
-	//TEnumAsByte<E_InventoryOwnerType>	OwnerType;		//Offset: 752	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash
+	//TEnumAsByte<E_InventoryOwnerType>	OwnerType;		//Offset: 464	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash
 	TEnumAsByte<E_InventoryOwnerType> M_GetOwnerType() const;
 	TEnumAsByte<E_InventoryOwnerType>* M_PtrGetOwnerType();
 	void M_SetOwnerType(const TEnumAsByte<E_InventoryOwnerType>& value);
 
-	//TEnumAsByte<E_Ownership>	LocationType;		//Offset: 753	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash
+	//TEnumAsByte<E_Ownership>	LocationType;		//Offset: 465	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash
 	TEnumAsByte<E_Ownership> M_GetLocationType() const;
 	TEnumAsByte<E_Ownership>* M_PtrGetLocationType();
 	void M_SetLocationType(const TEnumAsByte<E_Ownership>& value);
 
-	//TAssetPtr<class FOnWeightChange__DelegateSignature>	OnWeightChange;		//Offset: 760	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
+	//TAssetPtr<class FOnWeightChange__DelegateSignature>	OnWeightChange;		//Offset: 472	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
 	TAssetPtr<class FOnWeightChange__DelegateSignature> M_GetOnWeightChange() const;
 	TAssetPtr<class FOnWeightChange__DelegateSignature>* M_PtrGetOnWeightChange();
 	void M_SetOnWeightChange(const TAssetPtr<class FOnWeightChange__DelegateSignature>& value);
 
-	//TAssetPtr<class FOnOffHandItemChange__DelegateSignature>	OnOffHandItemChange;		//Offset: 776	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
+	//TAssetPtr<class FOnOffHandItemChange__DelegateSignature>	OnOffHandItemChange;		//Offset: 488	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
 	TAssetPtr<class FOnOffHandItemChange__DelegateSignature> M_GetOnOffHandItemChange() const;
 	TAssetPtr<class FOnOffHandItemChange__DelegateSignature>* M_PtrGetOnOffHandItemChange();
 	void M_SetOnOffHandItemChange(const TAssetPtr<class FOnOffHandItemChange__DelegateSignature>& value);
 
-	//TAssetPtr<class FOnInventoryUpdated__DelegateSignature>	OnInventoryUpdated;		//Offset: 792	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
+	//TAssetPtr<class FOnInventoryUpdated__DelegateSignature>	OnInventoryUpdated;		//Offset: 504	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
 	TAssetPtr<class FOnInventoryUpdated__DelegateSignature> M_GetOnInventoryUpdated() const;
 	TAssetPtr<class FOnInventoryUpdated__DelegateSignature>* M_PtrGetOnInventoryUpdated();
 	void M_SetOnInventoryUpdated(const TAssetPtr<class FOnInventoryUpdated__DelegateSignature>& value);
 
-	//TMap<struct FName, struct FST_InventoryItemsArray>	Inventory_New;		//Offset: 808	Size: 80	Flags: Edit, BlueprintVisible
+	//TMap<struct FName, struct FST_InventoryItemsArray>	Inventory_New;		//Offset: 520	Size: 80	Flags: Edit, BlueprintVisible
 	TMap<struct FName, struct FST_InventoryItemsArray> M_GetInventory_New() const;
 	TMap<struct FName, struct FST_InventoryItemsArray>* M_PtrGetInventory_New();
 	void M_SetInventory_New(const TMap<struct FName, struct FST_InventoryItemsArray>& value);
 
-	//class ABP_VillageManager_C*	VillageManagerReference;		//Offset: 888	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//class ABP_VillageManager_C*	VillageManagerReference;		//Offset: 600	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	class ABP_VillageManager_C* M_GetVillageManagerReference() const;
 	class ABP_VillageManager_C** M_PtrGetVillageManagerReference();
 	void M_SetVillageManagerReference(const class ABP_VillageManager_C*& value);
 
-	//class ABP_MasterFurniture_C*	ChestFurnitureReference;		//Offset: 896	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//class ABP_MasterFurniture_C*	ChestFurnitureReference;		//Offset: 608	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	class ABP_MasterFurniture_C* M_GetChestFurnitureReference() const;
 	class ABP_MasterFurniture_C** M_PtrGetChestFurnitureReference();
 	void M_SetChestFurnitureReference(const class ABP_MasterFurniture_C*& value);
 
-	//TAssetPtr<class FNone_435>	ArmorParams;		//Offset: 904	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnInstance
-	TAssetPtr<class FNone_435> M_GetArmorParams() const;
-	TAssetPtr<class FNone_435>* M_PtrGetArmorParams();
-	void M_SetArmorParams(const TAssetPtr<class FNone_435>& value);
+	//TAssetPtr<class FNone_413>	ArmorParams;		//Offset: 616	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	TAssetPtr<class FNone_413> M_GetArmorParams() const;
+	TAssetPtr<class FNone_413>* M_PtrGetArmorParams();
+	void M_SetArmorParams(const TAssetPtr<class FNone_413>& value);
 
 #pragma endregion
 
@@ -259,7 +204,7 @@ public:
 
 	void UpdateHeadWear(bool IsHoodOn);
 
-	void EquipArmor(struct FST_ItemInventorys* Item, struct FST_ColorTable DyeVariantOverride);
+	void EquipArmor(struct FST_ItemInventorys* Item, struct FST_ColorTable DyeVariantOverride, bool UpdateMeshes);
 
 	void UnequipArmor(struct FST_ItemInventorys* Item, bool RemoveFromInventory);
 
@@ -383,6 +328,8 @@ public:
 
 	bool ShouldBindOnSeasonChanged();
 
+	void MergePlayerMeshes(bool Unequip, struct FST_ColorTable DyeVariant);
+
 	float BaseFinalOverloadWeight_BPI();
 
 	float BaseInitialOverloadWeight_BPI();
@@ -400,6 +347,8 @@ public:
 	void AddItemToInventory_BPI(struct FName ItemId, int32_t Count, bool PassCondition, float CurrentHP, float MaxHP, int32_t Capacity, float Freshness, TEnumAsByte<E_Ownership> Ownership, bool DisplayNotification, bool UpdateInventory, bool CountAsPickUp, float NotificationDelay, int32_t* AddedAtIndex);
 
 	void GetArmorHorse_BPI(TMap<TEnumAsByte<E_EquipmentCategories>, struct FST_ItemInventorys>* ArmorHorse);
+
+	void GetCurrentlyEquippedItemDetailsMount_BPI(TEnumAsByte<E_EquipmentCategories> EquipmentSlot, struct FST_ItemDetails* ItemDetails, bool* found);
 
 #pragma endregion
 };

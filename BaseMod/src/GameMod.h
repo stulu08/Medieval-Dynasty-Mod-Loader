@@ -5,13 +5,16 @@
 // But this mod class extends the default mod class to have game specific features and also does internal stuff 
 class BASEMOD_API GameMod : public ::Mod {
 public:
-	GameMod(HMODULE handle = nullptr) {
+	__forceinline GameMod(HMODULE handle = nullptr) {
 		ModLoaderVersion = MODLOADER_VERSION;
 		MedievalModLoaderVersion = MEDIEVAL_VERSION;
 		CreateLogger = true;
 		LogToFile = true;
 		ModRef = this;
 		hModule = handle;
+
+		//needs to be executed in the Mods code, since GName, ... is static
+		UE4::InitSDK();
 	}
 
 	//When your mod gets initlized
@@ -34,11 +37,12 @@ public:
 	//Called when the Game gets the init call
 	virtual bool GameInit() { return false; }
 
-	UE4::APC_Player_C* getPlayer() const { return PlayerActor; }
+	UE4::APC_Player_C* getPlayer() const { return PlayerController; }
 	UE4::ABP_PlayerCharacter_C* getPlayerCharacter() const { return PlayerCharacter; }
 	UE4::UGI_MedievalDynasty_C* getMedievalDynastyGameInstance() const { return MedievalDynastyGameInstance; }
-	UE4::AGM_MedievalDynasty_C* getMedievalDynastyGameMode() const { return MedievalDynastyGameMode; }
 	UE4::AGS_GameState_C* getMedievalDynastyGameState() const { return MedievalDynastyGameState; }
+	UE4::ABP_SystemsManager_C* getMainGameManager() const { return MainManager; }
+
 	Ref<Logger> getLogger() const { return logger; }
 protected:
 	virtual void InitializeMod() override;
@@ -66,11 +70,12 @@ protected:
 		return nullReturn;
 	}
 protected:
-	UE4::APC_Player_C* PlayerActor;
+	UE4::APC_Player_C* PlayerController;
 	UE4::ABP_PlayerCharacter_C* PlayerCharacter;
 	UE4::UGI_MedievalDynasty_C* MedievalDynastyGameInstance;
-	UE4::AGM_MedievalDynasty_C* MedievalDynastyGameMode;
 	UE4::AGS_GameState_C* MedievalDynastyGameState;
+	UE4::ABP_SystemsManager_C* MainManager;
+
 
 	bool TickWhenGamePaused = false;
 	EventsEnabled::EnabledEvents EnabledModEvents = EventsEnabled::EngineOnly;

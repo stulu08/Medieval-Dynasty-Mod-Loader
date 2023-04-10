@@ -2,9 +2,9 @@
 //The version of unreal mod loader
 #define UML_VERSION "2.2.1"
 //The version of the medieval dynasty mod loader
-#define MODLOADER_VERSION "1.2.2"
+#define MODLOADER_VERSION "2.2.3"
 //The version of medieval dynasty
-#define MEDIEVAL_VERSION "1.5.0.4"
+#define MEDIEVAL_VERSION "1.5.1.3"
 
 #define ModLoaderConfigFile "Config/ModLoaderInfo.ini"
 #define DEFAULT_LOG_DIR "Logs"

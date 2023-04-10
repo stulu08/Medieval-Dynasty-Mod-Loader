@@ -101,15 +101,15 @@ float* UGI_MedievalDynasty_C::M_PtrGetMusicVolumeValue() {
 void UGI_MedievalDynasty_C::M_SetMusicVolumeValue(const float& value) {
 	Write((byte*)this + 532, value);
 }
-// Member Getter and Setter of viewDistanceScale
-// Declaration: int32_t viewDistanceScale
-int32_t UGI_MedievalDynasty_C::M_GetviewDistanceScale() const {
+// Member Getter and Setter of ViewDistanceScale
+// Declaration: int32_t ViewDistanceScale
+int32_t UGI_MedievalDynasty_C::M_GetViewDistanceScale() const {
 	return Read<int32_t>((byte*)this + 536);
 }
-int32_t* UGI_MedievalDynasty_C::M_PtrGetviewDistanceScale() {
+int32_t* UGI_MedievalDynasty_C::M_PtrGetViewDistanceScale() {
 	return reinterpret_cast<int32_t*>((byte*)this + 536);
 }
-void UGI_MedievalDynasty_C::M_SetviewDistanceScale(const int32_t& value) {
+void UGI_MedievalDynasty_C::M_SetViewDistanceScale(const int32_t& value) {
 	Write((byte*)this + 536, value);
 }
 // Member Getter and Setter of PostProcessAAQuality
@@ -1886,10 +1886,7 @@ void UGI_MedievalDynasty_C::OnGraphicsSettingsChanged__DelegateSignature() {
 	};
 	UGI_MedievalDynasty_C_OnGraphicsSettingsChanged__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1907,10 +1904,7 @@ void UGI_MedievalDynasty_C::ExecuteUbergraph_GI_MedievalDynasty(int32_t EntryPoi
 	UGI_MedievalDynasty_C_ExecuteUbergraph_GI_MedievalDynasty_Params params;
 	params.EntryPoint = EntryPoint;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1925,10 +1919,7 @@ void UGI_MedievalDynasty_C::CacheAchievements() {
 	};
 	UGI_MedievalDynasty_C_CacheAchievements_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1943,10 +1934,7 @@ void UGI_MedievalDynasty_C::ReceiveShutdown() {
 	};
 	UGI_MedievalDynasty_C_ReceiveShutdown_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1961,10 +1949,7 @@ void UGI_MedievalDynasty_C::SetGameSettings() {
 	};
 	UGI_MedievalDynasty_C_SetGameSettings_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1979,10 +1964,7 @@ void UGI_MedievalDynasty_C::GetGameSettingsFromFile() {
 	};
 	UGI_MedievalDynasty_C_GetGameSettingsFromFile_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1997,10 +1979,7 @@ void UGI_MedievalDynasty_C::SetGraphicsSettings() {
 	};
 	UGI_MedievalDynasty_C_SetGraphicsSettings_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2015,10 +1994,7 @@ void UGI_MedievalDynasty_C::SetSoundSettings() {
 	};
 	UGI_MedievalDynasty_C_SetSoundSettings_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2033,10 +2009,7 @@ void UGI_MedievalDynasty_C::GetGraphicsSettingsFromFile() {
 	};
 	UGI_MedievalDynasty_C_GetGraphicsSettingsFromFile_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2051,10 +2024,7 @@ void UGI_MedievalDynasty_C::GetSoundSettingsFromFile() {
 	};
 	UGI_MedievalDynasty_C_GetSoundSettingsFromFile_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2069,10 +2039,7 @@ void UGI_MedievalDynasty_C::UpdateSoundsVolumes() {
 	};
 	UGI_MedievalDynasty_C_UpdateSoundsVolumes_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2087,10 +2054,7 @@ void UGI_MedievalDynasty_C::CreateDefaultSave() {
 	};
 	UGI_MedievalDynasty_C_CreateDefaultSave_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2105,10 +2069,7 @@ void UGI_MedievalDynasty_C::GetSettingsFromFile() {
 	};
 	UGI_MedievalDynasty_C_GetSettingsFromFile_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2123,10 +2084,7 @@ void UGI_MedievalDynasty_C::GetDefaultSettings() {
 	};
 	UGI_MedievalDynasty_C_GetDefaultSettings_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2141,10 +2099,7 @@ void UGI_MedievalDynasty_C::SetSettings() {
 	};
 	UGI_MedievalDynasty_C_SetSettings_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2159,10 +2114,7 @@ void UGI_MedievalDynasty_C::ReceiveInit() {
 	};
 	UGI_MedievalDynasty_C_ReceiveInit_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2180,10 +2132,7 @@ void UGI_MedievalDynasty_C::HandleUserSwapping(E_MessageReason messageReason) {
 	UGI_MedievalDynasty_C_HandleUserSwapping_Params params;
 	params.messageReason = messageReason;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2198,10 +2147,7 @@ void UGI_MedievalDynasty_C::OSSUninit() {
 	};
 	UGI_MedievalDynasty_C_OSSUninit_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2216,10 +2162,7 @@ void UGI_MedievalDynasty_C::OSSInit() {
 	};
 	UGI_MedievalDynasty_C_OSSInit_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2237,10 +2180,7 @@ void UGI_MedievalDynasty_C::SetGameState(EMD_GameState GameState) {
 	UGI_MedievalDynasty_C_SetGameState_Params params;
 	params.GameState = GameState;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2258,10 +2198,7 @@ void UGI_MedievalDynasty_C::SetInitialLaunch(bool SetInitialLaunch) {
 	UGI_MedievalDynasty_C_SetInitialLaunch_Params params;
 	params.SetInitialLaunch = SetInitialLaunch;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2279,10 +2216,7 @@ void UGI_MedievalDynasty_C::AddTask(class UMultiTaskBase* Task) {
 	UGI_MedievalDynasty_C_AddTask_Params params;
 	params.Task = Task;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2300,10 +2234,7 @@ void UGI_MedievalDynasty_C::SetSkipMainMenu(bool SkipMainMenu) {
 	UGI_MedievalDynasty_C_SetSkipMainMenu_Params params;
 	params.SkipMainMenu = SkipMainMenu;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2321,10 +2252,7 @@ void UGI_MedievalDynasty_C::SetSkipIntro(bool SetSkipIntro) {
 	UGI_MedievalDynasty_C_SetSkipIntro_Params params;
 	params.SetSkipIntro = SetSkipIntro;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2339,10 +2267,7 @@ void UGI_MedievalDynasty_C::OnSuccess_E6D90EBA4E7857F8B05A4EB8CD96208A() {
 	};
 	UGI_MedievalDynasty_C_OnSuccess_E6D90EBA4E7857F8B05A4EB8CD96208A_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2357,10 +2282,7 @@ void UGI_MedievalDynasty_C::OnFailure_E6D90EBA4E7857F8B05A4EB8CD96208A() {
 	};
 	UGI_MedievalDynasty_C_OnFailure_E6D90EBA4E7857F8B05A4EB8CD96208A_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2378,10 +2300,7 @@ void UGI_MedievalDynasty_C::OnSuccess_37C1D79D4FDF7AA55B46F5A4DEDE2D3D(class APl
 	UGI_MedievalDynasty_C_OnSuccess_37C1D79D4FDF7AA55B46F5A4DEDE2D3D_Params params;
 	params.PlayerController = PlayerController;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2399,10 +2318,7 @@ void UGI_MedievalDynasty_C::OnFailure_37C1D79D4FDF7AA55B46F5A4DEDE2D3D(class APl
 	UGI_MedievalDynasty_C_OnFailure_37C1D79D4FDF7AA55B46F5A4DEDE2D3D_Params params;
 	params.PlayerController = PlayerController;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2420,10 +2336,7 @@ void UGI_MedievalDynasty_C::OnSuccess_D41BB5524E76F93D50046596B7260058(class APl
 	UGI_MedievalDynasty_C_OnSuccess_D41BB5524E76F93D50046596B7260058_Params params;
 	params.PlayerController = PlayerController;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2441,10 +2354,7 @@ void UGI_MedievalDynasty_C::OnFailure_D41BB5524E76F93D50046596B7260058(class APl
 	UGI_MedievalDynasty_C_OnFailure_D41BB5524E76F93D50046596B7260058_Params params;
 	params.PlayerController = PlayerController;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2459,10 +2369,7 @@ void UGI_MedievalDynasty_C::SetDefaultResolutionAndAspectRatioIndex() {
 	};
 	UGI_MedievalDynasty_C_SetDefaultResolutionAndAspectRatioIndex_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2477,10 +2384,7 @@ void UGI_MedievalDynasty_C::RestoreDefaultKeybinds() {
 	};
 	UGI_MedievalDynasty_C_RestoreDefaultKeybinds_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2495,10 +2399,7 @@ void UGI_MedievalDynasty_C::FixForMissingKeybinds() {
 	};
 	UGI_MedievalDynasty_C_FixForMissingKeybinds_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2513,10 +2414,7 @@ void UGI_MedievalDynasty_C::InitSaveGameData() {
 	};
 	UGI_MedievalDynasty_C_InitSaveGameData_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2531,10 +2429,7 @@ void UGI_MedievalDynasty_C::UpdateGamepadKeybinds() {
 	};
 	UGI_MedievalDynasty_C_UpdateGamepadKeybinds_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2552,10 +2447,7 @@ void UGI_MedievalDynasty_C::SetPerformanceMode(bool PerformanceModeActive) {
 	UGI_MedievalDynasty_C_SetPerformanceMode_Params params;
 	params.PerformanceModeActive = PerformanceModeActive;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2570,10 +2462,41 @@ void UGI_MedievalDynasty_C::GameSettings() {
 	};
 	UGI_MedievalDynasty_C_GameSettings_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+}
 
+/////////////////////////////////////////////
+// Function GI_MedievalDynasty.GI_MedievalDynasty_C.LoadSettingsFile
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: SuccessfulLoad	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void UGI_MedievalDynasty_C::LoadSettingsFile(bool* SuccessfulLoad) {
+	static auto fn = UObject::FindObject<UFunction>("Function GI_MedievalDynasty.GI_MedievalDynasty_C.LoadSettingsFile");
+
+	struct UGI_MedievalDynasty_C_LoadSettingsFile_Params {
+		bool SuccessfulLoad;			//Offset: 0 | ElementSize: 1
+	};
+	UGI_MedievalDynasty_C_LoadSettingsFile_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (SuccessfulLoad != nullptr)
+		*SuccessfulLoad = params.SuccessfulLoad;
+}
+
+/////////////////////////////////////////////
+// Function GI_MedievalDynasty.GI_MedievalDynasty_C.ReapplySettingsFromFile
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void UGI_MedievalDynasty_C::ReapplySettingsFromFile() {
+	static auto fn = UObject::FindObject<UFunction>("Function GI_MedievalDynasty.GI_MedievalDynasty_C.ReapplySettingsFromFile");
+
+	struct UGI_MedievalDynasty_C_ReapplySettingsFromFile_Params {
+	};
+	UGI_MedievalDynasty_C_ReapplySettingsFromFile_Params params;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
@@ -2590,10 +2513,7 @@ void UGI_MedievalDynasty_C::GetBackgroundIndex(int32_t* BackgroundIndex) {
 	};
 	UGI_MedievalDynasty_C_GetBackgroundIndex_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (BackgroundIndex != nullptr)
 		*BackgroundIndex = params.BackgroundIndex;
 }
@@ -2612,10 +2532,7 @@ void UGI_MedievalDynasty_C::RandomizeBackgroundIndex(int32_t* BackgroundIndex) {
 	};
 	UGI_MedievalDynasty_C_RandomizeBackgroundIndex_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (BackgroundIndex != nullptr)
 		*BackgroundIndex = params.BackgroundIndex;
 }
@@ -2634,10 +2551,7 @@ void UGI_MedievalDynasty_C::GetTasks(TArray<class UMultiTaskBase*>* Tasks) {
 	};
 	UGI_MedievalDynasty_C_GetTasks_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Tasks != nullptr)
 		*Tasks = params.Tasks;
 }
@@ -2656,10 +2570,7 @@ void UGI_MedievalDynasty_C::GetCurrentPlatform(EMD_SpecificPlatform* Platform) {
 	};
 	UGI_MedievalDynasty_C_GetCurrentPlatform_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Platform != nullptr)
 		*Platform = params.Platform;
 }
@@ -2678,10 +2589,7 @@ void UGI_MedievalDynasty_C::IsConsole(bool* Value) {
 	};
 	UGI_MedievalDynasty_C_IsConsole_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }
@@ -2700,10 +2608,7 @@ void UGI_MedievalDynasty_C::IsConsoleOldGen(bool* Value) {
 	};
 	UGI_MedievalDynasty_C_IsConsoleOldGen_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }
@@ -2722,10 +2627,7 @@ void UGI_MedievalDynasty_C::IsXbox(bool* Value) {
 	};
 	UGI_MedievalDynasty_C_IsXbox_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }
@@ -2744,10 +2646,7 @@ void UGI_MedievalDynasty_C::IsPlaystation(bool* Value) {
 	};
 	UGI_MedievalDynasty_C_IsPlaystation_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }
@@ -2766,10 +2665,7 @@ void UGI_MedievalDynasty_C::IsWindows(bool* Value) {
 	};
 	UGI_MedievalDynasty_C_IsWindows_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }
@@ -2788,10 +2684,7 @@ void UGI_MedievalDynasty_C::GetCurrentViewDistanceScale(int32_t* Value) {
 	};
 	UGI_MedievalDynasty_C_GetCurrentViewDistanceScale_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }
@@ -2810,10 +2703,7 @@ void UGI_MedievalDynasty_C::GetCurrentGamepadType(TEnumAsByte<E_GamepadType>* Ga
 	};
 	UGI_MedievalDynasty_C_GetCurrentGamepadType_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Gamepad != nullptr)
 		*Gamepad = params.Gamepad;
 }
@@ -2832,10 +2722,7 @@ void UGI_MedievalDynasty_C::IsCheatVersion(bool* Value) {
 	};
 	UGI_MedievalDynasty_C_IsCheatVersion_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }
@@ -2854,10 +2741,7 @@ void UGI_MedievalDynasty_C::GetCurrent_UserID(int32_t* Value) {
 	};
 	UGI_MedievalDynasty_C_GetCurrent_UserID_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }
@@ -2876,10 +2760,7 @@ void UGI_MedievalDynasty_C::GetCurrentDFAO(bool* Value) {
 	};
 	UGI_MedievalDynasty_C_GetCurrentDFAO_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }
@@ -2898,10 +2779,7 @@ void UGI_MedievalDynasty_C::GetCurrentContactShadows(bool* Value) {
 	};
 	UGI_MedievalDynasty_C_GetCurrentContactShadows_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }
@@ -2920,10 +2798,7 @@ void UGI_MedievalDynasty_C::GetCurrentShadowQuality(int32_t* Value) {
 	};
 	UGI_MedievalDynasty_C_GetCurrentShadowQuality_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }
@@ -2942,10 +2817,7 @@ void UGI_MedievalDynasty_C::IsTestVersion(bool* Value) {
 	};
 	UGI_MedievalDynasty_C_IsTestVersion_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }
@@ -2964,10 +2836,7 @@ void UGI_MedievalDynasty_C::IsInitialLaunch(bool* Value) {
 	};
 	UGI_MedievalDynasty_C_IsInitialLaunch_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }
@@ -2986,10 +2855,7 @@ void UGI_MedievalDynasty_C::GetPlatform_UserID(int32_t* Value) {
 	};
 	UGI_MedievalDynasty_C_GetPlatform_UserID_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }
@@ -3008,10 +2874,7 @@ void UGI_MedievalDynasty_C::GetGameState(EMD_GameState* GameState) {
 	};
 	UGI_MedievalDynasty_C_GetGameState_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (GameState != nullptr)
 		*GameState = params.GameState;
 }
@@ -3030,10 +2893,7 @@ void UGI_MedievalDynasty_C::IsSteamDeck(bool* Value) {
 	};
 	UGI_MedievalDynasty_C_IsSteamDeck_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }

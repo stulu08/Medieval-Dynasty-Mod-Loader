@@ -41,7 +41,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>NDEBUG;BaseMod_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ModLoader\vendor\spdlog;..\ModLoader\vendor\MinHook;..\ModLoader\src;..\ModLoader\vendor\INI;..\ModLoader\vendor\glm;src;..\ModLoader\vendor\ImGui;..\SDK\src\UE4;..\SDK\src;..\SDK\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ModLoader\vendor\spdlog;..\ModLoader\vendor\MinHook;..\ModLoader\src;..\ModLoader\vendor\INI;..\ModLoader\vendor\glm;src;..\ModLoader\vendor\ImGui;..\SDK\src\UE4;..\SDK\src;..\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>

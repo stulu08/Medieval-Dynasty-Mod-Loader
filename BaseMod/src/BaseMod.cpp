@@ -68,6 +68,7 @@ namespace MDMLBase {
 
 	bool Mod::InitGameState() {
 		static int count = 0;
+		m_NPCManager = nullptr;
 		needObjectReload = true;
 		GameMod::InitGameState();
 		if (MedievalDynastyGameInstance && m_enableCheatsMenu) {
@@ -82,7 +83,7 @@ namespace MDMLBase {
 	bool loadItems = false;
 	UE4::NativeTMap<struct UE4::FName, struct UE4::FST_InventoryItemsArray> items;
 	bool Mod::GameTick(float delta) {
-		if (PlayerActor) {
+		if (PlayerController) {
 			UE4::UInventoryComponent_C* inv =  PlayerCharacter->M_GetInventoryComponent();
 			if (inv && loadItems) {
 				inv->GetInventoryItems_BPI(items);
@@ -90,6 +91,12 @@ namespace MDMLBase {
 			}
 		}
 		return false;
+	}
+
+	bool Mod::BeginPlay(UE4::AActor* Actor) {
+		Utils::ValidateBPObjectBeginPlay(Actor, &m_NPCManager, "BlueprintGeneratedClass BP_NPC_Manager.BP_NPC_Manager_C");
+
+		return GameMod::BeginPlay(Actor);
 	}
 
 	bool Mod::SetupImGui(ImGuiIO& io) {
@@ -149,93 +156,122 @@ namespace MDMLBase {
 				ImGui::Separator();
 			}
 			
-			ImGui::Text("Game Instance: %s", MedievalDynastyGameInstance ? MedievalDynastyGameInstance->GetName().c_str() : "Not found");
-			ImGui::Text("Game Mode: %s", MedievalDynastyGameMode ? MedievalDynastyGameMode->GetName().c_str() : "Not found");
-			ImGui::Text("Game State: %s", MedievalDynastyGameState ? MedievalDynastyGameState->GetName().c_str() : "Not found");
-			ImGui::Text("Player Actor: %s", PlayerActor ? PlayerActor->GetName().c_str() : "Not found");
-			ImGui::Text("Player Character: %s", PlayerCharacter ? PlayerCharacter->GetName().c_str() : "Not found");
-			if (PlayerCharacter != nullptr) {
-				if (ImGui::CollapsingHeader("Player Controller Transform")) {
-					Utils::Gui::UE4ActorTransformEdit(PlayerCharacter);
-					ImGui::Separator();
+			if (ImGui::TreeNodeEx("##PlayerCharacter", DEFAULT_TREE_NODE_FLAGS, PlayerCharacter ? ("Player Character: " + PlayerCharacter->GetName()).c_str() : "Player Character: Not found")) {
+				if (PlayerCharacter != nullptr) {
+					if (ImGui::CollapsingHeader("Transform")) {
+						Utils::Gui::UE4ActorTransformEdit(PlayerCharacter);
+						ImGui::Separator();
+					}
+					if (ImGui::CollapsingHeader("Items")) {
+						if (ImGui::Button("Load Items"))
+							loadItems = true;
+						for (int i = 0; i < items.Num(); i++) {
+							UE4::TPair<UE4::FName, UE4::FST_InventoryItemsArray> pair = items.GetPair(i);
+							if (ImGui::TreeNodeEx(pair.Key.GetName().c_str(), DEFAULT_TREE_NODE_FLAGS)) {
+								UE4::FST_ItemInventorys item = pair.Value.Items[0];
+								ImGui::Text("ID: %s", item.ID.GetName().c_str());
+								ImGui::Text("Count: %d", item.Count);
+								ImGui::Text("Index: %d", item.Index);
+								ImGui::Text("IsAssignedToQuickSlot: %s", item.IsAssignedToQuickSlot ? "true" : "false");
+								ImGui::Text("IsEquipped: %s", item.IsEquipped ? "true" : "false");
+								ImGui::Text("QuickSlotIndex: %d", item.QuickSlotIndex);
+								ImGui::Text("Condition: %f", item.Condition);
+								ImGui::Text("Freshness: %f", item.Freshness);
+								ImGui::Text("Capacity: %d", item.Capacity);
+								ImGui::Text("HP: %f", item.HP);
+								ImGui::Text("MaxHP: %f", item.MaxHP);
+								ImGui::Text("Ownership: %d", item.Ownership.value);
+								ImGui::TreePop();
+							}
+						}
+
+						if (ImGui::CollapsingHeader("Add Item")) {
+							static std::vector<UE4::FName> items;
+							static int32_t selectedItem = 0;
+							static int32_t count = 10000;
+							static bool passCondition = true;
+							static float CurrentHP = 100.0f;
+							static float MaxHP = 100.0f;
+							static int32_t Capacity = 0;
+							static float Freshness = 1.0;
+							static int32_t Ownership = (uint32_t)UE4::E_Ownership::Player;
+							static bool DisplayNotification = true;
+							static bool UpdateInventory = true;
+							static bool CountAsPickUp = true;
+							static float NotificationDelay = 0.1f;
+							{
+								static std::vector<std::string> displayItem = { "No Items Found!" };
+								if (items.empty()) {
+									displayItem.clear();
+									auto tableMap = Utils::GetDataTableItems<UE4::FName, UE4::FST_ItemDetails*>("DataTable DT_ListOfItems.DT_ListOfItems");
+
+									for (int i = 0; i < tableMap.Num(); i++) {
+										items.push_back(tableMap.GetKey(i));
+										displayItem.push_back(tableMap.GetKey(i).GetName());
+									}
+								}
+								ImGui::MDML_Combo("Item", selectedItem, displayItem);
+							}
+							ImGui::MDML_Int("Count", count);
+							ImGui::MDML_Bool("PassCondition", passCondition);
+							ImGui::MDML_FloatSlider("CurrentHP", CurrentHP, 0.0f, 100.0f);
+							ImGui::MDML_FloatSlider("MaxHP", MaxHP, 0.0f, 100.0f);
+							ImGui::MDML_Int("Capacity", Capacity);
+							ImGui::MDML_Float("Freshness", Freshness);
+							ImGui::MDML_Combo("Ownership", Ownership,
+								"Player\0Ownerless\0Bandit\0BlueVillage\0GreenVillage\0SkyBlueVillage"
+								"\0RedVillage\0PinkVillage\0OrangeVillage\0YellowVillage\0PurpleVillage\0"
+								"\0NavyBlueVillagee\0BurgundyVillage\0BrownVillage");
+							ImGui::MDML_Bool("DisplayNotification", DisplayNotification);
+							ImGui::MDML_Bool("UpdateInventory", UpdateInventory);
+							ImGui::MDML_Bool("CountAsPickUp", CountAsPickUp);
+							ImGui::MDML_Float("NotificationDelay", NotificationDelay);
+							if (ImGui::Button("Add") && !items.empty()) {
+								PlayerCharacter->M_GetInventoryComponent()->AddItemToInventory(items[selectedItem], count, passCondition, CurrentHP, MaxHP, Capacity, Freshness, (UE4::E_Ownership)Ownership, DisplayNotification, UpdateInventory, CountAsPickUp, NotificationDelay, nullptr);
+							}
+						}
+						ImGui::Separator();
+					}
+
+					if (ImGui::TreeNodeEx("Components", DEFAULT_TREE_NODE_FLAGS)) {
+						auto components = PlayerCharacter->K2_GetComponentsByClass((UE4::UActorComponent*)UE4::UActorComponent::StaticClass());
+						for (int i = 0; i < components.Num(); i++) {
+							UE4::UActorComponent* comp = components[i];
+							if (ImGui::CollapsingHeader(comp->GetName().c_str())) {
+								ImGui::Text(comp->GetFullName().c_str());
+								ImGui::Separator();
+							}
+						}
+					}
 				}
-				if (ImGui::CollapsingHeader("Items")) {
-					if (ImGui::Button("Load Items"))
-						loadItems = true;
-					for (int i = 0; i < items.Num(); i++) {
-						UE4::TPair<UE4::FName, UE4::FST_InventoryItemsArray> pair = items.GetPair(i);
-						if (ImGui::TreeNodeEx(pair.Key.GetName().c_str(), DEFAULT_TREE_NODE_FLAGS)) {
-							UE4::FST_ItemInventorys item = pair.Value.Items[0];
-							ImGui::Text("ID: %s", item.ID.GetName().c_str());
-							ImGui::Text("Count: %d", item.Count);
-							ImGui::Text("Index: %d", item.Index);
-							ImGui::Text("IsAssignedToQuickSlot: %s", item.IsAssignedToQuickSlot ? "true" : "false");
-							ImGui::Text("IsEquipped: %s", item.IsEquipped ? "true" : "false");
-							ImGui::Text("QuickSlotIndex: %d", item.QuickSlotIndex);
-							ImGui::Text("Condition: %f", item.Condition);
-							ImGui::Text("Freshness: %f", item.Freshness);
-							ImGui::Text("Capacity: %d", item.Capacity);
-							ImGui::Text("HP: %f", item.HP);
-							ImGui::Text("MaxHP: %f", item.MaxHP);
-							ImGui::Text("Ownership: %d", item.Ownership.value);
+				ImGui::TreePop();
+			}
+			if (ImGui::TreeNodeEx("##NPCManager", DEFAULT_TREE_NODE_FLAGS, m_NPCManager ? ("NPC Manager: " + m_NPCManager->GetName()).c_str() : "NPC Manager : Not found")) {
+				if (m_NPCManager != nullptr) {
+					auto Presets = m_NPCManager->M_GetAvailableFemalePresets();
+					for (int i = 0; i < Presets.Num(); i++) {
+						UE4::FST_NPCsPresets Preset = Presets[i];
+						if (ImGui::TreeNodeEx(Preset.PresetID.GetName().c_str(), DEFAULT_TREE_NODE_FLAGS)) {
+							if (Preset.Meshes.Torso.Mesh.Get()) {
+								ImGui::Text("Body Mesh: %s", Preset.Meshes.Torso.Mesh.Get()->GetName());
+							}
+							ImGui::Text("Body Mesh: %d", Preset.Meshes.Torso.Mesh.SoftObjectPtr.WeakPtr.ObjectIndex);
 							ImGui::TreePop();
 						}
 					}
 				}
-				if (ImGui::CollapsingHeader("Add Item")) {
-					static std::vector<UE4::FName> items;
-					static int32_t selectedItem = 0;
-					static int32_t count = 10000;
-					static bool passCondition = true;
-					static float CurrentHP = 100.0f;
-					static float MaxHP = 100.0f;
-					static int32_t Capacity = 0;
-					static float Freshness = 1.0;
-					static int32_t Ownership = (uint32_t)UE4::E_Ownership::Player;
-					static bool DisplayNotification = true;
-					static bool UpdateInventory = true;
-					static bool CountAsPickUp = true;
-					static float NotificationDelay = 0.1f;	
-					{
-						static std::vector<std::string> displayItem = {"No Items Found!"};
-						if (items.empty()) {
-							displayItem.clear();
-							auto tableMap = GetItemsMap();
-							for (int i = 0; i < tableMap.Num(); i++) {
-								items.push_back(tableMap.GetKey(i));
-								displayItem.push_back(tableMap.GetKey(i).GetName());
-							}
-						}
-						ImGui::MDML_Combo("Item", selectedItem, displayItem);
-					}
-					ImGui::MDML_Int("Count", count);
-					ImGui::MDML_Bool("PassCondition", passCondition);
-					ImGui::MDML_FloatSlider("CurrentHP", CurrentHP, 0.0f, 100.0f);
-					ImGui::MDML_FloatSlider("MaxHP", MaxHP, 0.0f, 100.0f);
-					ImGui::MDML_Int("Capacity", Capacity);
-					ImGui::MDML_Float("Freshness", Freshness);
-					ImGui::MDML_Combo("Ownership", Ownership, 
-						"Player\0Ownerless\0Bandit\0BlueVillage\0GreenVillage\0SkyBlueVillage"
-						"\0RedVillage\0PinkVillage\0OrangeVillage\0YellowVillage\0PurpleVillage\0"
-						"\0NavyBlueVillagee\0BurgundyVillage\0BrownVillage");
-					ImGui::MDML_Bool("DisplayNotification", DisplayNotification);
-					ImGui::MDML_Bool("UpdateInventory", UpdateInventory);
-					ImGui::MDML_Bool("CountAsPickUp", CountAsPickUp);
-					ImGui::MDML_Float("NotificationDelay", NotificationDelay);
-					if (ImGui::Button("Add") && !items.empty()) {
-						PlayerCharacter->M_GetInventoryComponent()->AddItemToInventory(items[selectedItem], count, passCondition, CurrentHP, MaxHP, Capacity, Freshness, (UE4::E_Ownership)Ownership, DisplayNotification, UpdateInventory, CountAsPickUp, NotificationDelay, nullptr);
-					}
-				}
+				ImGui::TreePop();
 			}
 			if (ImGui::CollapsingHeader("Debug")) {
 				if (ImGui::TreeNodeEx("Items Data table", DEFAULT_TREE_NODE_FLAGS)) {
-					auto tableMap = GetItemsMap();
+					auto tableMap = Utils::GetDataTableItems<UE4::FName, UE4::FST_ItemDetails*>("DataTable DT_ListOfItems.DT_ListOfItems");
 					for (int i = 0; i < tableMap.Num(); i++) {
 						ImGui::Text("%s -> ID: %d", tableMap.GetKey(i).GetName().c_str(), tableMap.GetKey(i).ComparisonIndex);
 					}
+					ImGui::TreePop();
 				}
 			}
-				
+
 		}
 		ImGui::End();
 
@@ -244,30 +280,6 @@ namespace MDMLBase {
 		return false;
 	}
 
-	UE4::UDataTable* Mod::GetItemsDataTable() const {
-		static UE4::UDataTable* table = UE4::UObject::FindObject<UE4::UDataTable>("DataTable DT_ListOfItems.DT_ListOfItems");
-		if (!table) {
-			logger->Warn("DataTable DT_ListOfItems.DT_ListOfItems Not found");
-			return nullptr;
-		}
-		return table;
-		
-	}
-	UE4::NativeTMap<UE4::FName, UE4::FST_ItemDetails*> Mod::GetItemsMap() const {
-		auto table = GetItemsDataTable();
-		if (table) {
-			return table->GetRowMap();
-		}
-		return UE4::NativeTMap<UE4::FName, UE4::FST_ItemDetails*>();
-	}
-	UE4::UStringTable* Mod::GetItemsStringTable() const {
-		static UE4::UStringTable* table = UE4::UObject::FindObject<UE4::UStringTable>("StringTable Items.Items");
-		if (!table) {
-			logger->Warn("StringTable Items.Items Not found");
-			return nullptr;
-		}
-		return table;
-	}
 	void Mod::ShowObjectBrowser() {
 		if (m_showObjectBrowser && ImGui::Begin("Object Browser", &m_showObjectBrowser)) {
 			static bool init = true;
@@ -290,11 +302,11 @@ namespace MDMLBase {
 			ImGui::Separator();
 			if ((ImGui::TreeNodeEx("ACTORLIST", DEFAULT_TREE_NODE_FLAGS | ImGuiTreeNodeFlags_CollapsingHeader, "%d Actors", actors.size()))) {
 				static std::string search;
-				ImGui::InputText("##SearchClasses_SEARCHBAR", &search);
+				ImGui::InputText("##SearchClasses_SEARCHBAR", &search); 
 				for (UE4::UObject* object : actors) {
 					if (!object)
 						continue;
-					if (!Utils::Gui::SearchBar(object, search))
+					if (!Utils::Gui::FilterSearch(object, search))
 						continue;
 					UE4::AActor* actor = static_cast<UE4::AActor*>(object);
 					if (ImGui::TreeNodeEx(("Actors_" + std::to_string(index++)).c_str(), DEFAULT_TREE_NODE_FLAGS, actor->GetName().c_str())) {
@@ -313,7 +325,7 @@ namespace MDMLBase {
 				for (auto object : classes) {
 					if (!object)
 						continue;
-					if (!Utils::Gui::SearchBar(object, search))
+					if (!Utils::Gui::FilterSearch(object, search))
 						continue;
 					UE4::UClass* clas = static_cast<UE4::UClass*>(object);
 					if (ImGui::TreeNodeEx(("Classes_" + std::to_string(index++)).c_str(), DEFAULT_TREE_NODE_FLAGS, clas->GetName().c_str())) {
@@ -329,7 +341,7 @@ namespace MDMLBase {
 				for (auto object : blueprints) {
 					if (!object)
 						continue;
-					if (!Utils::Gui::SearchBar(object, search))
+					if (!Utils::Gui::FilterSearch(object, search))
 						continue;
 					UE4::UClass* clas = static_cast<UE4::UClass*>(object);
 					if (ImGui::TreeNodeEx(("Blueprints_" + std::to_string(index++)).c_str(), DEFAULT_TREE_NODE_FLAGS, clas->GetName().c_str())) {
@@ -345,7 +357,7 @@ namespace MDMLBase {
 				for (auto object : dataTables) {
 					if (!object)
 						continue;
-					if (!Utils::Gui::SearchBar(object, search))
+					if (!Utils::Gui::FilterSearch(object, search))
 						continue;
 					if (ImGui::TreeNodeEx(("DataTables_" + std::to_string(index++)).c_str(), DEFAULT_TREE_NODE_FLAGS, object->GetName().c_str())) {
 						ImGui::Text("Package: %s", object->GetPackage()->GetName().c_str());
@@ -405,7 +417,7 @@ namespace MDMLBase {
 				for (auto object : packages) {
 					if (!object)
 						continue;
-					if (!Utils::Gui::SearchBar(object, search))
+					if (!Utils::Gui::FilterSearch(object, search))
 						continue;
 					float x = ImGui::GetContentRegionAvail().x;
 					if (ImGui::TreeNodeEx(("Packages_" + std::to_string(index++)).c_str(), ImGuiTreeNodeFlags_OpenOnArrow, object->GetName().c_str())) {
@@ -467,6 +479,9 @@ namespace MDMLBase {
 						}
 						if (object->GetName().find("Default__") != std::string::npos) {
 							continue;
+						}
+						else if (object->IsAByName("BlueprintGeneratedClass BP_NPC.BP_NPC_C")) {
+							blueprints.push_back(object);
 						}
 						else if (object->IsA(UE4::UBlueprintGeneratedClass::StaticClass())) {
 							blueprints.push_back(object);

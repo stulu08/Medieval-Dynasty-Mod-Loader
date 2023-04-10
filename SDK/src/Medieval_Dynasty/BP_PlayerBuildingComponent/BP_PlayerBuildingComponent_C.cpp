@@ -162,10 +162,7 @@ void UBP_PlayerBuildingComponent_C::ExecuteUbergraph_BP_PlayerBuildingComponent(
 	UBP_PlayerBuildingComponent_C_ExecuteUbergraph_BP_PlayerBuildingComponent_Params params;
 	params.EntryPoint = EntryPoint;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -186,10 +183,7 @@ void UBP_PlayerBuildingComponent_C::SpawnBridgeGhost(struct FDataTableRowHandle 
 	params.BridgeType = BridgeType;
 	params.Continue = Continue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -210,10 +204,7 @@ void UBP_PlayerBuildingComponent_C::SpawnGateGhost(struct FDataTableRowHandle Ga
 	params.GateType = GateType;
 	params.Continue = Continue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -240,10 +231,7 @@ void UBP_PlayerBuildingComponent_C::SpawnRoadGhost(struct FDataTableRowHandle Ro
 	params.StartPoint = StartPoint;
 	params.EndPoint = EndPoint;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -264,10 +252,7 @@ void UBP_PlayerBuildingComponent_C::SpawnFurnitureGhost(const struct FDataTableR
 	params.FurnitureType = FurnitureType;
 	params.Continue = Continue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -297,10 +282,7 @@ void UBP_PlayerBuildingComponent_C::SpawnSplineGhost(struct FDataTableRowHandle 
 	params.EndPoint = EndPoint;
 	params.Invert = Invert;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -318,10 +300,7 @@ void UBP_PlayerBuildingComponent_C::SpawnMasterFieldGhost(TEnumAsByte<E_FieldCat
 	UBP_PlayerBuildingComponent_C_SpawnMasterFieldGhost_Params params;
 	params.FieldType = FieldType;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -339,10 +318,7 @@ void UBP_PlayerBuildingComponent_C::SpawnBuildingGhost(struct FDataTableRowHandl
 	UBP_PlayerBuildingComponent_C_SpawnBuildingGhost_Params params;
 	params.BuildingType = BuildingType;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -357,10 +333,7 @@ void UBP_PlayerBuildingComponent_C::ReceiveBeginPlay() {
 	};
 	UBP_PlayerBuildingComponent_C_ReceiveBeginPlay_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -378,10 +351,7 @@ void UBP_PlayerBuildingComponent_C::UpdateBuildingLocation(struct FVector NewBui
 	UBP_PlayerBuildingComponent_C_UpdateBuildingLocation_Params params;
 	params.NewBuildingLocation = NewBuildingLocation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -399,10 +369,7 @@ void UBP_PlayerBuildingComponent_C::UpdateBuildingDistance(float Distance) {
 	UBP_PlayerBuildingComponent_C_UpdateBuildingDistance_Params params;
 	params.Distance = Distance;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -419,10 +386,7 @@ void UBP_PlayerBuildingComponent_C::GetBuildingDistanceFromPlayer(float* Distanc
 	};
 	UBP_PlayerBuildingComponent_C_GetBuildingDistanceFromPlayer_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Distance != nullptr)
 		*Distance = params.Distance;
 }

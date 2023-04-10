@@ -145,269 +145,148 @@ bool* UInventoryComponent_C::M_PtrGetCheckWeightWhileTransfering() {
 void UInventoryComponent_C::M_SetCheckWeightWhileTransfering(const bool& value) {
 	Write((byte*)this + 432, value);
 }
-// Member Getter and Setter of HeadRef
-// Declaration: class USkeletalMeshComponent* HeadRef
-class USkeletalMeshComponent* UInventoryComponent_C::M_GetHeadRef() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 440);
-}
-class USkeletalMeshComponent** UInventoryComponent_C::M_PtrGetHeadRef() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 440);
-}
-void UInventoryComponent_C::M_SetHeadRef(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 440, value);
-}
-// Member Getter and Setter of TorsoRef
-// Declaration: class USkeletalMeshComponent* TorsoRef
-class USkeletalMeshComponent* UInventoryComponent_C::M_GetTorsoRef() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 448);
-}
-class USkeletalMeshComponent** UInventoryComponent_C::M_PtrGetTorsoRef() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 448);
-}
-void UInventoryComponent_C::M_SetTorsoRef(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 448, value);
-}
-// Member Getter and Setter of HandsRef
-// Declaration: class USkeletalMeshComponent* HandsRef
-class USkeletalMeshComponent* UInventoryComponent_C::M_GetHandsRef() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 456);
-}
-class USkeletalMeshComponent** UInventoryComponent_C::M_PtrGetHandsRef() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 456);
-}
-void UInventoryComponent_C::M_SetHandsRef(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 456, value);
-}
-// Member Getter and Setter of LegsRef
-// Declaration: class USkeletalMeshComponent* LegsRef
-class USkeletalMeshComponent* UInventoryComponent_C::M_GetLegsRef() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 464);
-}
-class USkeletalMeshComponent** UInventoryComponent_C::M_PtrGetLegsRef() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 464);
-}
-void UInventoryComponent_C::M_SetLegsRef(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 464, value);
-}
-// Member Getter and Setter of FeetRef
-// Declaration: class USkeletalMeshComponent* FeetRef
-class USkeletalMeshComponent* UInventoryComponent_C::M_GetFeetRef() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 472);
-}
-class USkeletalMeshComponent** UInventoryComponent_C::M_PtrGetFeetRef() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 472);
-}
-void UInventoryComponent_C::M_SetFeetRef(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 472, value);
-}
-// Member Getter and Setter of HatSKMRef
-// Declaration: class USkeletalMeshComponent* HatSKMRef
-class USkeletalMeshComponent* UInventoryComponent_C::M_GetHatSKMRef() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 480);
-}
-class USkeletalMeshComponent** UInventoryComponent_C::M_PtrGetHatSKMRef() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 480);
-}
-void UInventoryComponent_C::M_SetHatSKMRef(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 480, value);
-}
-// Member Getter and Setter of HoodRef
-// Declaration: class USkeletalMeshComponent* HoodRef
-class USkeletalMeshComponent* UInventoryComponent_C::M_GetHoodRef() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 488);
-}
-class USkeletalMeshComponent** UInventoryComponent_C::M_PtrGetHoodRef() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 488);
-}
-void UInventoryComponent_C::M_SetHoodRef(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 488, value);
-}
-// Member Getter and Setter of HairRef
-// Declaration: class USkeletalMeshComponent* HairRef
-class USkeletalMeshComponent* UInventoryComponent_C::M_GetHairRef() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 496);
-}
-class USkeletalMeshComponent** UInventoryComponent_C::M_PtrGetHairRef() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 496);
-}
-void UInventoryComponent_C::M_SetHairRef(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 496, value);
-}
-// Member Getter and Setter of BackpackRef
-// Declaration: class USkeletalMeshComponent* BackpackRef
-class USkeletalMeshComponent* UInventoryComponent_C::M_GetBackpackRef() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 504);
-}
-class USkeletalMeshComponent** UInventoryComponent_C::M_PtrGetBackpackRef() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 504);
-}
-void UInventoryComponent_C::M_SetBackpackRef(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 504, value);
-}
-// Member Getter and Setter of PouchRef
-// Declaration: class USkeletalMeshComponent* PouchRef
-class USkeletalMeshComponent* UInventoryComponent_C::M_GetPouchRef() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 512);
-}
-class USkeletalMeshComponent** UInventoryComponent_C::M_PtrGetPouchRef() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 512);
-}
-void UInventoryComponent_C::M_SetPouchRef(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 512, value);
-}
 // Member Getter and Setter of IsHoodOn
 // Declaration: bool IsHoodOn
 bool UInventoryComponent_C::M_GetIsHoodOn() const {
-	return Read<bool>((byte*)this + 520);
+	return Read<bool>((byte*)this + 433);
 }
 bool* UInventoryComponent_C::M_PtrGetIsHoodOn() {
-	return reinterpret_cast<bool*>((byte*)this + 520);
+	return reinterpret_cast<bool*>((byte*)this + 433);
 }
 void UInventoryComponent_C::M_SetIsHoodOn(const bool& value) {
-	Write((byte*)this + 520, value);
-}
-// Member Getter and Setter of DefaultCharacterModules
-// Declaration: struct FST_CharacterModules DefaultCharacterModules
-struct FST_CharacterModules UInventoryComponent_C::M_GetDefaultCharacterModules() const {
-	return Read<struct FST_CharacterModules>((byte*)this + 528);
-}
-struct FST_CharacterModules* UInventoryComponent_C::M_PtrGetDefaultCharacterModules() {
-	return reinterpret_cast<struct FST_CharacterModules*>((byte*)this + 528);
-}
-void UInventoryComponent_C::M_SetDefaultCharacterModules(const struct FST_CharacterModules& value) {
-	Write((byte*)this + 528, value);
+	Write((byte*)this + 433, value);
 }
 // Member Getter and Setter of OnArmorChange
 // Declaration: TAssetPtr<class FOnArmorChange__DelegateSignature> OnArmorChange
 TAssetPtr<class FOnArmorChange__DelegateSignature> UInventoryComponent_C::M_GetOnArmorChange() const {
-	return Read<TAssetPtr<class FOnArmorChange__DelegateSignature>>((byte*)this + 728);
+	return Read<TAssetPtr<class FOnArmorChange__DelegateSignature>>((byte*)this + 440);
 }
 TAssetPtr<class FOnArmorChange__DelegateSignature>* UInventoryComponent_C::M_PtrGetOnArmorChange() {
-	return reinterpret_cast<TAssetPtr<class FOnArmorChange__DelegateSignature>*>((byte*)this + 728);
+	return reinterpret_cast<TAssetPtr<class FOnArmorChange__DelegateSignature>*>((byte*)this + 440);
 }
 void UInventoryComponent_C::M_SetOnArmorChange(const TAssetPtr<class FOnArmorChange__DelegateSignature>& value) {
-	Write((byte*)this + 728, value);
+	Write((byte*)this + 440, value);
 }
 // Member Getter and Setter of BaseInitialOverloadWeight
 // Declaration: float BaseInitialOverloadWeight
 float UInventoryComponent_C::M_GetBaseInitialOverloadWeight() const {
-	return Read<float>((byte*)this + 744);
+	return Read<float>((byte*)this + 456);
 }
 float* UInventoryComponent_C::M_PtrGetBaseInitialOverloadWeight() {
-	return reinterpret_cast<float*>((byte*)this + 744);
+	return reinterpret_cast<float*>((byte*)this + 456);
 }
 void UInventoryComponent_C::M_SetBaseInitialOverloadWeight(const float& value) {
-	Write((byte*)this + 744, value);
+	Write((byte*)this + 456, value);
 }
 // Member Getter and Setter of BaseFinalOverloadWeight
 // Declaration: float BaseFinalOverloadWeight
 float UInventoryComponent_C::M_GetBaseFinalOverloadWeight() const {
-	return Read<float>((byte*)this + 748);
+	return Read<float>((byte*)this + 460);
 }
 float* UInventoryComponent_C::M_PtrGetBaseFinalOverloadWeight() {
-	return reinterpret_cast<float*>((byte*)this + 748);
+	return reinterpret_cast<float*>((byte*)this + 460);
 }
 void UInventoryComponent_C::M_SetBaseFinalOverloadWeight(const float& value) {
-	Write((byte*)this + 748, value);
+	Write((byte*)this + 460, value);
 }
 // Member Getter and Setter of OwnerType
 // Declaration: TEnumAsByte<E_InventoryOwnerType> OwnerType
 TEnumAsByte<E_InventoryOwnerType> UInventoryComponent_C::M_GetOwnerType() const {
-	return Read<TEnumAsByte<E_InventoryOwnerType>>((byte*)this + 752);
+	return Read<TEnumAsByte<E_InventoryOwnerType>>((byte*)this + 464);
 }
 TEnumAsByte<E_InventoryOwnerType>* UInventoryComponent_C::M_PtrGetOwnerType() {
-	return reinterpret_cast<TEnumAsByte<E_InventoryOwnerType>*>((byte*)this + 752);
+	return reinterpret_cast<TEnumAsByte<E_InventoryOwnerType>*>((byte*)this + 464);
 }
 void UInventoryComponent_C::M_SetOwnerType(const TEnumAsByte<E_InventoryOwnerType>& value) {
-	Write((byte*)this + 752, value);
+	Write((byte*)this + 464, value);
 }
 // Member Getter and Setter of LocationType
 // Declaration: TEnumAsByte<E_Ownership> LocationType
 TEnumAsByte<E_Ownership> UInventoryComponent_C::M_GetLocationType() const {
-	return Read<TEnumAsByte<E_Ownership>>((byte*)this + 753);
+	return Read<TEnumAsByte<E_Ownership>>((byte*)this + 465);
 }
 TEnumAsByte<E_Ownership>* UInventoryComponent_C::M_PtrGetLocationType() {
-	return reinterpret_cast<TEnumAsByte<E_Ownership>*>((byte*)this + 753);
+	return reinterpret_cast<TEnumAsByte<E_Ownership>*>((byte*)this + 465);
 }
 void UInventoryComponent_C::M_SetLocationType(const TEnumAsByte<E_Ownership>& value) {
-	Write((byte*)this + 753, value);
+	Write((byte*)this + 465, value);
 }
 // Member Getter and Setter of OnWeightChange
 // Declaration: TAssetPtr<class FOnWeightChange__DelegateSignature> OnWeightChange
 TAssetPtr<class FOnWeightChange__DelegateSignature> UInventoryComponent_C::M_GetOnWeightChange() const {
-	return Read<TAssetPtr<class FOnWeightChange__DelegateSignature>>((byte*)this + 760);
+	return Read<TAssetPtr<class FOnWeightChange__DelegateSignature>>((byte*)this + 472);
 }
 TAssetPtr<class FOnWeightChange__DelegateSignature>* UInventoryComponent_C::M_PtrGetOnWeightChange() {
-	return reinterpret_cast<TAssetPtr<class FOnWeightChange__DelegateSignature>*>((byte*)this + 760);
+	return reinterpret_cast<TAssetPtr<class FOnWeightChange__DelegateSignature>*>((byte*)this + 472);
 }
 void UInventoryComponent_C::M_SetOnWeightChange(const TAssetPtr<class FOnWeightChange__DelegateSignature>& value) {
-	Write((byte*)this + 760, value);
+	Write((byte*)this + 472, value);
 }
 // Member Getter and Setter of OnOffHandItemChange
 // Declaration: TAssetPtr<class FOnOffHandItemChange__DelegateSignature> OnOffHandItemChange
 TAssetPtr<class FOnOffHandItemChange__DelegateSignature> UInventoryComponent_C::M_GetOnOffHandItemChange() const {
-	return Read<TAssetPtr<class FOnOffHandItemChange__DelegateSignature>>((byte*)this + 776);
+	return Read<TAssetPtr<class FOnOffHandItemChange__DelegateSignature>>((byte*)this + 488);
 }
 TAssetPtr<class FOnOffHandItemChange__DelegateSignature>* UInventoryComponent_C::M_PtrGetOnOffHandItemChange() {
-	return reinterpret_cast<TAssetPtr<class FOnOffHandItemChange__DelegateSignature>*>((byte*)this + 776);
+	return reinterpret_cast<TAssetPtr<class FOnOffHandItemChange__DelegateSignature>*>((byte*)this + 488);
 }
 void UInventoryComponent_C::M_SetOnOffHandItemChange(const TAssetPtr<class FOnOffHandItemChange__DelegateSignature>& value) {
-	Write((byte*)this + 776, value);
+	Write((byte*)this + 488, value);
 }
 // Member Getter and Setter of OnInventoryUpdated
 // Declaration: TAssetPtr<class FOnInventoryUpdated__DelegateSignature> OnInventoryUpdated
 TAssetPtr<class FOnInventoryUpdated__DelegateSignature> UInventoryComponent_C::M_GetOnInventoryUpdated() const {
-	return Read<TAssetPtr<class FOnInventoryUpdated__DelegateSignature>>((byte*)this + 792);
+	return Read<TAssetPtr<class FOnInventoryUpdated__DelegateSignature>>((byte*)this + 504);
 }
 TAssetPtr<class FOnInventoryUpdated__DelegateSignature>* UInventoryComponent_C::M_PtrGetOnInventoryUpdated() {
-	return reinterpret_cast<TAssetPtr<class FOnInventoryUpdated__DelegateSignature>*>((byte*)this + 792);
+	return reinterpret_cast<TAssetPtr<class FOnInventoryUpdated__DelegateSignature>*>((byte*)this + 504);
 }
 void UInventoryComponent_C::M_SetOnInventoryUpdated(const TAssetPtr<class FOnInventoryUpdated__DelegateSignature>& value) {
-	Write((byte*)this + 792, value);
+	Write((byte*)this + 504, value);
 }
 // Member Getter and Setter of Inventory_New
 // Declaration: TMap<struct FName, struct FST_InventoryItemsArray> Inventory_New
 TMap<struct FName, struct FST_InventoryItemsArray> UInventoryComponent_C::M_GetInventory_New() const {
-	return Read<TMap<struct FName, struct FST_InventoryItemsArray>>((byte*)this + 808);
+	return Read<TMap<struct FName, struct FST_InventoryItemsArray>>((byte*)this + 520);
 }
 TMap<struct FName, struct FST_InventoryItemsArray>* UInventoryComponent_C::M_PtrGetInventory_New() {
-	return reinterpret_cast<TMap<struct FName, struct FST_InventoryItemsArray>*>((byte*)this + 808);
+	return reinterpret_cast<TMap<struct FName, struct FST_InventoryItemsArray>*>((byte*)this + 520);
 }
 void UInventoryComponent_C::M_SetInventory_New(const TMap<struct FName, struct FST_InventoryItemsArray>& value) {
-	Write((byte*)this + 808, value);
+	Write((byte*)this + 520, value);
 }
 // Member Getter and Setter of VillageManagerReference
 // Declaration: class ABP_VillageManager_C* VillageManagerReference
 class ABP_VillageManager_C* UInventoryComponent_C::M_GetVillageManagerReference() const {
-	return Read<class ABP_VillageManager_C*>((byte*)this + 888);
+	return Read<class ABP_VillageManager_C*>((byte*)this + 600);
 }
 class ABP_VillageManager_C** UInventoryComponent_C::M_PtrGetVillageManagerReference() {
-	return reinterpret_cast<class ABP_VillageManager_C**>((byte*)this + 888);
+	return reinterpret_cast<class ABP_VillageManager_C**>((byte*)this + 600);
 }
 void UInventoryComponent_C::M_SetVillageManagerReference(const class ABP_VillageManager_C*& value) {
-	Write((byte*)this + 888, value);
+	Write((byte*)this + 600, value);
 }
 // Member Getter and Setter of ChestFurnitureReference
 // Declaration: class ABP_MasterFurniture_C* ChestFurnitureReference
 class ABP_MasterFurniture_C* UInventoryComponent_C::M_GetChestFurnitureReference() const {
-	return Read<class ABP_MasterFurniture_C*>((byte*)this + 896);
+	return Read<class ABP_MasterFurniture_C*>((byte*)this + 608);
 }
 class ABP_MasterFurniture_C** UInventoryComponent_C::M_PtrGetChestFurnitureReference() {
-	return reinterpret_cast<class ABP_MasterFurniture_C**>((byte*)this + 896);
+	return reinterpret_cast<class ABP_MasterFurniture_C**>((byte*)this + 608);
 }
 void UInventoryComponent_C::M_SetChestFurnitureReference(const class ABP_MasterFurniture_C*& value) {
-	Write((byte*)this + 896, value);
+	Write((byte*)this + 608, value);
 }
 // Member Getter and Setter of ArmorParams
-// Declaration: TAssetPtr<class FNone_435> ArmorParams
-TAssetPtr<class FNone_435> UInventoryComponent_C::M_GetArmorParams() const {
-	return Read<TAssetPtr<class FNone_435>>((byte*)this + 904);
+// Declaration: TAssetPtr<class FNone_413> ArmorParams
+TAssetPtr<class FNone_413> UInventoryComponent_C::M_GetArmorParams() const {
+	return Read<TAssetPtr<class FNone_413>>((byte*)this + 616);
 }
-TAssetPtr<class FNone_435>* UInventoryComponent_C::M_PtrGetArmorParams() {
-	return reinterpret_cast<TAssetPtr<class FNone_435>*>((byte*)this + 904);
+TAssetPtr<class FNone_413>* UInventoryComponent_C::M_PtrGetArmorParams() {
+	return reinterpret_cast<TAssetPtr<class FNone_413>*>((byte*)this + 616);
 }
-void UInventoryComponent_C::M_SetArmorParams(const TAssetPtr<class FNone_435>& value) {
-	Write((byte*)this + 904, value);
+void UInventoryComponent_C::M_SetArmorParams(const TAssetPtr<class FNone_413>& value) {
+	Write((byte*)this + 616, value);
 }
 #pragma endregion
 #pragma region Functions
@@ -423,10 +302,7 @@ void UInventoryComponent_C::OnQuickSlotChange__DelegateSignature() {
 	};
 	UInventoryComponent_C_OnQuickSlotChange__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -441,10 +317,7 @@ void UInventoryComponent_C::OnInventoryChange__DelegateSignature() {
 	};
 	UInventoryComponent_C_OnInventoryChange__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -459,10 +332,7 @@ void UInventoryComponent_C::OnArmorChange__DelegateSignature() {
 	};
 	UInventoryComponent_C_OnArmorChange__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -477,10 +347,7 @@ void UInventoryComponent_C::OnWeightChange__DelegateSignature() {
 	};
 	UInventoryComponent_C_OnWeightChange__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -495,10 +362,7 @@ void UInventoryComponent_C::OnOffHandItemChange__DelegateSignature() {
 	};
 	UInventoryComponent_C_OnOffHandItemChange__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -513,10 +377,7 @@ void UInventoryComponent_C::OnInventoryUpdated__DelegateSignature() {
 	};
 	UInventoryComponent_C_OnInventoryUpdated__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -534,10 +395,7 @@ void UInventoryComponent_C::ExecuteUbergraph_InventoryComponent(int32_t EntryPoi
 	UInventoryComponent_C_ExecuteUbergraph_InventoryComponent_Params params;
 	params.EntryPoint = EntryPoint;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -552,10 +410,7 @@ void UInventoryComponent_C::UpdateTotalWeightOfInventory_BPI() {
 	};
 	UInventoryComponent_C_UpdateTotalWeightOfInventory_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -576,10 +431,7 @@ void UInventoryComponent_C::EquipArmorHorse_BPI(const struct FST_ItemInventorys&
 	params.Item = Item;
 	params.DyeVariantOverride = DyeVariantOverride;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -594,10 +446,7 @@ void UInventoryComponent_C::ClearInventory_BPI() {
 	};
 	UInventoryComponent_C_ClearInventory_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -612,10 +461,7 @@ void UInventoryComponent_C::CalculateClothesStatsMount_BPI() {
 	};
 	UInventoryComponent_C_CalculateClothesStatsMount_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -630,10 +476,7 @@ void UInventoryComponent_C::ExecuteFoodDecreaseOnSeasonChange() {
 	};
 	UInventoryComponent_C_ExecuteFoodDecreaseOnSeasonChange_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -648,10 +491,7 @@ void UInventoryComponent_C::ReceiveBeginPlay() {
 	};
 	UInventoryComponent_C_ReceiveBeginPlay_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -666,10 +506,7 @@ void UInventoryComponent_C::InitMeshes() {
 	};
 	UInventoryComponent_C_InitMeshes_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -722,10 +559,7 @@ void UInventoryComponent_C::AddItemToInventory(struct FName ItemId, int32_t Coun
 	params.CountAsPickUp = CountAsPickUp;
 	params.NotificationDelay = NotificationDelay;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (AddedAtIndex != nullptr)
 		*AddedAtIndex = params.AddedAtIndex;
 }
@@ -769,10 +603,7 @@ void UInventoryComponent_C::RemoveItemFromInventory(int32_t Count, bool ShouldSp
 	params.ItemName = ItemName;
 	params.NotificationDelay = NotificationDelay;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -787,10 +618,7 @@ void UInventoryComponent_C::UpdateTotalWeightOfInventory() {
 	};
 	UInventoryComponent_C_UpdateTotalWeightOfInventory_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -813,10 +641,7 @@ void UInventoryComponent_C::FindItemInInventory(struct FName ItemName, bool Ommi
 	params.ItemName = ItemName;
 	params.OmmitEquippedItem = OmmitEquippedItem;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (found != nullptr)
 		*found = params.found;
 }
@@ -850,10 +675,7 @@ void UInventoryComponent_C::TransferItem(int32_t Count, class UInventoryComponen
 	params.ArrayID = ArrayID;
 	params.CoinTransaction = CoinTransaction;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Success != nullptr)
 		*Success = params.Success;
 }
@@ -880,10 +702,7 @@ void UInventoryComponent_C::RemoveItemFromInventory_ByName(struct FName ItemName
 	params.ItemName = ItemName;
 	params.Count = Count;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (CountLeft != nullptr)
 		*CountLeft = params.CountLeft;
 	if (RemovedItems != nullptr)
@@ -911,10 +730,7 @@ void UInventoryComponent_C::Assign_to_Quick_Slot_Split_Stack(int32_t QuickSlotID
 	params.ItemName = ItemName;
 	params.ArrayID = ArrayID;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -938,10 +754,7 @@ void UInventoryComponent_C::AssignToArmorSlot_SplitStack(TEnumAsByte<E_Equipment
 	params.ItemName = ItemName;
 	params.ArrayID = ArrayID;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -959,10 +772,7 @@ void UInventoryComponent_C::ClearQuickSlot(int32_t QuickSlotID) {
 	UInventoryComponent_C_ClearQuickSlot_Params params;
 	params.QuickSlotID = QuickSlotID;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -986,10 +796,7 @@ void UInventoryComponent_C::AssignToQuickSlot_NoSplit(int32_t QuickSlotID, struc
 	params.ItemName = ItemName;
 	params.ArrayID = ArrayID;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1004,10 +811,7 @@ void UInventoryComponent_C::RecalculateQuickSlotIndexes() {
 	};
 	UInventoryComponent_C_RecalculateQuickSlotIndexes_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1025,15 +829,12 @@ void UInventoryComponent_C::UpdateOldGearStatus(TEnumAsByte<E_EquipmentCategorie
 	UInventoryComponent_C_UpdateOldGearStatus_Params params;
 	params.EquipmentSlot = EquipmentSlot;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
 // Function InventoryComponent.InventoryComponent_C.UpdateHeadWear
-// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: IsHoodOn	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
@@ -1046,10 +847,7 @@ void UInventoryComponent_C::UpdateHeadWear(bool IsHoodOn) {
 	UInventoryComponent_C_UpdateHeadWear_Params params;
 	params.IsHoodOn = IsHoodOn;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1058,21 +856,21 @@ void UInventoryComponent_C::UpdateHeadWear(bool IsHoodOn) {
 // Params:
 // Name: Item	Type: struct FST_ItemInventorys	Flags: BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: DyeVariantOverride	Type: struct FST_ColorTable	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
+// Name: UpdateMeshes	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void UInventoryComponent_C::EquipArmor(struct FST_ItemInventorys* Item, struct FST_ColorTable DyeVariantOverride) {
+void UInventoryComponent_C::EquipArmor(struct FST_ItemInventorys* Item, struct FST_ColorTable DyeVariantOverride, bool UpdateMeshes) {
 	static auto fn = UObject::FindObject<UFunction>("Function InventoryComponent.InventoryComponent_C.EquipArmor");
 
 	struct UInventoryComponent_C_EquipArmor_Params {
 		struct FST_ItemInventorys Item;			//Offset: 0 | ElementSize: 48
 		struct FST_ColorTable DyeVariantOverride;			//Offset: 48 | ElementSize: 16
+		bool UpdateMeshes;			//Offset: 64 | ElementSize: 1
 	};
 	UInventoryComponent_C_EquipArmor_Params params;
 	params.DyeVariantOverride = DyeVariantOverride;
+	params.UpdateMeshes = UpdateMeshes;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Item != nullptr)
 		*Item = params.Item;
 }
@@ -1094,10 +892,7 @@ void UInventoryComponent_C::UnequipArmor(struct FST_ItemInventorys* Item, bool R
 	UInventoryComponent_C_UnequipArmor_Params params;
 	params.RemoveFromInventory = RemoveFromInventory;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Item != nullptr)
 		*Item = params.Item;
 }
@@ -1114,10 +909,7 @@ void UInventoryComponent_C::EquipTorch() {
 	};
 	UInventoryComponent_C_EquipTorch_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1132,10 +924,7 @@ void UInventoryComponent_C::UnequipTorch() {
 	};
 	UInventoryComponent_C_UnequipTorch_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1180,10 +969,7 @@ void UInventoryComponent_C::Init_Mesh_Ref(class USkeletalMeshComponent* head, cl
 	params.Backpack = Backpack;
 	params.Pouch = Pouch;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1205,10 +991,7 @@ void UInventoryComponent_C::GetCurrentlyEquippedItemDetails(TEnumAsByte<E_Equipm
 	UInventoryComponent_C_GetCurrentlyEquippedItemDetails_Params params;
 	params.EquipmentSlot = EquipmentSlot;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (ItemDetails != nullptr)
 		*ItemDetails = params.ItemDetails;
 	if (found != nullptr)
@@ -1239,10 +1022,7 @@ void UInventoryComponent_C::SetMeshDependingOnEquippedItems(class USkeletalMeshC
 	params.EquippedMesh = EquippedMesh;
 	params.AlternativeEquippedMesh = AlternativeEquippedMesh;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1269,10 +1049,7 @@ void UInventoryComponent_C::SetMeshAndUpdateEquippedItems(class USkeletalMeshCom
 	params.EquipmentSlot = EquipmentSlot;
 	params.SkeletalMeshSlotToUpdate = SkeletalMeshSlotToUpdate;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1299,10 +1076,7 @@ void UInventoryComponent_C::SetSoftMeshDependingOnEquippedItems(class USkeletalM
 	params.EquippedMesh = EquippedMesh;
 	params.AlternativeEquippedMesh = AlternativeEquippedMesh;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1320,10 +1094,7 @@ void UInventoryComponent_C::SetIsHoodOn(bool IsHoodOn) {
 	UInventoryComponent_C_SetIsHoodOn_Params params;
 	params.IsHoodOn = IsHoodOn;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1350,10 +1121,7 @@ void UInventoryComponent_C::UpdateEquippedItemsOnDrop(TEnumAsByte<E_EquipmentCat
 	params.ItemName = ItemName;
 	params.ArrayID = ArrayID;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1375,10 +1143,7 @@ void UInventoryComponent_C::GetCurrentlyEquippedItem(TEnumAsByte<E_EquipmentCate
 	UInventoryComponent_C_GetCurrentlyEquippedItem_Params params;
 	params.EquipmentSlot = EquipmentSlot;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Item != nullptr)
 		*Item = params.Item;
 	if (found != nullptr)
@@ -1407,10 +1172,7 @@ void UInventoryComponent_C::CompareStrings(struct FString String1, struct FStrin
 	params.String1 = String1;
 	params.String2 = String2;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Equal_ != nullptr)
 		*Equal_ = params.Equal_;
 	if (_1Before2_ != nullptr)
@@ -1429,10 +1191,7 @@ void UInventoryComponent_C::Sort_Inventory_by_Name() {
 	};
 	UInventoryComponent_C_Sort_Inventory_by_Name_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1450,10 +1209,7 @@ void UInventoryComponent_C::RandomizeNPCClothing(class ABP_BaseCharacter_C* NPC)
 	UInventoryComponent_C_RandomizeNPCClothing_Params params;
 	params.NPC = NPC;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1481,10 +1237,7 @@ void UInventoryComponent_C::FindToolInInventory(TEnumAsByte<E_Tools> ToolType, b
 	UInventoryComponent_C_FindToolInInventory_Params params;
 	params.ToolType = ToolType;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Found_ != nullptr)
 		*Found_ = params.Found_;
 	if (Count != nullptr)
@@ -1520,10 +1273,7 @@ void UInventoryComponent_C::FindAmmoInInventory(TEnumAsByte<E_Ammo> AmmoType, bo
 	UInventoryComponent_C_FindAmmoInInventory_Params params;
 	params.AmmoType = AmmoType;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Found_ != nullptr)
 		*Found_ = params.Found_;
 	if (Count != nullptr)
@@ -1549,10 +1299,7 @@ void UInventoryComponent_C::UpdateEquippedItemCapacity(int32_t Capacity) {
 	UInventoryComponent_C_UpdateEquippedItemCapacity_Params params;
 	params.Capacity = Capacity;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1571,10 +1318,7 @@ void UInventoryComponent_C::GetEquippedItemIndex(struct FName* ItemName, int32_t
 	};
 	UInventoryComponent_C_GetEquippedItemIndex_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (ItemName != nullptr)
 		*ItemName = params.ItemName;
 	if (ArrayIndex != nullptr)
@@ -1593,10 +1337,7 @@ void UInventoryComponent_C::DecreaseFreshness() {
 	};
 	UInventoryComponent_C_DecreaseFreshness_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1617,10 +1358,7 @@ void UInventoryComponent_C::FreshnessDropToZero(struct FName ItemName, int32_t A
 	params.ItemName = ItemName;
 	params.ArrayID = ArrayID;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1641,10 +1379,7 @@ void UInventoryComponent_C::UpdateEquippedItemHP(float HP, bool Offhand) {
 	params.HP = HP;
 	params.Offhand = Offhand;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1659,10 +1394,7 @@ void UInventoryComponent_C::CalculateClothesStats() {
 	};
 	UInventoryComponent_C_CalculateClothesStats_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1686,10 +1418,7 @@ void UInventoryComponent_C::ConditionDropToZero(bool Offhand, struct FName ItemN
 	params.ItemName = ItemName;
 	params.ArrayID = ArrayID;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1713,10 +1442,7 @@ void UInventoryComponent_C::EmptyContainer(int32_t CountToEmpty, struct FName It
 	params.ItemName = ItemName;
 	params.ArrayID = ArrayID;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1736,10 +1462,7 @@ void UInventoryComponent_C::AddItemsFromPreset(struct FST_OutfitsPresets OutfitP
 	UInventoryComponent_C_AddItemsFromPreset_Params params;
 	params.OutfitPresetRow = OutfitPresetRow;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (ItemsIndexes != nullptr)
 		*ItemsIndexes = params.ItemsIndexes;
 }
@@ -1785,10 +1508,7 @@ void UInventoryComponent_C::RemoveCraftingResourceWithLowestCondition_ByName(str
 	params.UseConsumeInsteadOfRemove = UseConsumeInsteadOfRemove;
 	params.OnlyRemoveItemsWithFullCapacity = OnlyRemoveItemsWithFullCapacity;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Success != nullptr)
 		*Success = params.Success;
 	if (RemainingCount != nullptr)
@@ -1827,10 +1547,7 @@ void UInventoryComponent_C::FindAllItemsOfID_InInventory(struct FName ItemName, 
 	params.OmmitEquippedItems = OmmitEquippedItems;
 	params.ReturnOnlyItemsWithFullCapacity = ReturnOnlyItemsWithFullCapacity;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (found != nullptr)
 		*found = params.found;
 	if (Count != nullptr)
@@ -1860,10 +1577,7 @@ void UInventoryComponent_C::CalculateItemTradePricePerUnit(struct FST_ItemInvent
 	params.IsPlayerOwnerOfItem_ = IsPlayerOwnerOfItem_;
 	params.IsMarketSelling_ = IsMarketSelling_;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Price != nullptr)
 		*Price = params.Price;
 }
@@ -1890,10 +1604,7 @@ void UInventoryComponent_C::IsFull(int32_t ItemsCount, float SingleWeight, bool*
 	params.ItemsCount = ItemsCount;
 	params.SingleWeight = SingleWeight;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Full != nullptr)
 		*Full = params.Full;
 	if (CountOfItemsThatWillFitIn != nullptr)
@@ -1921,10 +1632,7 @@ void UInventoryComponent_C::DecreaseItemsCapacity(int32_t CapacityToDecrease, st
 	params.ItemName = ItemName;
 	params.ArrayID = ArrayID;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1947,10 +1655,7 @@ void UInventoryComponent_C::CheckItemForInteraction(class ABP_MasterHoldableItem
 	params.Holdable = Holdable;
 	params.WantedToolType = WantedToolType;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Success != nullptr)
 		*Success = params.Success;
 }
@@ -1970,10 +1675,7 @@ void UInventoryComponent_C::ClearArmorSlot(TEnumAsByte<E_EquipmentCategories> Ar
 	UInventoryComponent_C_ClearArmorSlot_Params params;
 	params.ArmorSlot = ArmorSlot;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1988,10 +1690,7 @@ void UInventoryComponent_C::ClearInventory() {
 	};
 	UInventoryComponent_C_ClearInventory_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2024,10 +1723,7 @@ void UInventoryComponent_C::RemoveItemFromInventory_ForTransfer(int32_t Count, b
 	params.ArrayID = ArrayID;
 	params.ItemName = ItemName;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2060,10 +1756,7 @@ void UInventoryComponent_C::ConsumeItem(int32_t CountToConsume, struct FName Ite
 	params.VillageManagerReference = VillageManagerReference;
 	params.DisplayNotifications = DisplayNotifications;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2087,10 +1780,7 @@ void UInventoryComponent_C::AssignSelectedItemToSelectedQuickslot_New(const stru
 	params.ArrayIndex = ArrayIndex;
 	params.QuickslotIndex = QuickslotIndex;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2111,10 +1801,7 @@ void UInventoryComponent_C::UpdateWeightOnRemove(struct FName ItemName, int32_t 
 	params.ItemName = ItemName;
 	params.Count = Count;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2135,10 +1822,7 @@ void UInventoryComponent_C::UpdateWeightOnAdd(struct FName ItemName, int32_t Cou
 	params.ItemName = ItemName;
 	params.Count = Count;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2158,10 +1842,7 @@ void UInventoryComponent_C::EquipArmor_Horse(struct FST_ItemInventorys* Item, st
 	UInventoryComponent_C_EquipArmor_Horse_Params params;
 	params.DyeVariantOverride = DyeVariantOverride;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Item != nullptr)
 		*Item = params.Item;
 }
@@ -2183,10 +1864,7 @@ void UInventoryComponent_C::UnequipArmor_Horse(struct FST_ItemInventorys* Item, 
 	UInventoryComponent_C_UnequipArmor_Horse_Params params;
 	params.RemoveFromInventory = RemoveFromInventory;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Item != nullptr)
 		*Item = params.Item;
 }
@@ -2210,10 +1888,7 @@ void UInventoryComponent_C::GetCurrentlyEquippedItem_Horse(TEnumAsByte<E_Equipme
 	UInventoryComponent_C_GetCurrentlyEquippedItem_Horse_Params params;
 	params.EquipmentSlot = EquipmentSlot;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Item != nullptr)
 		*Item = params.Item;
 	if (found != nullptr)
@@ -2232,10 +1907,7 @@ void UInventoryComponent_C::CalculateClothesStats_Horse() {
 	};
 	UInventoryComponent_C_CalculateClothesStats_Horse_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2253,10 +1925,7 @@ void UInventoryComponent_C::UpdateOldGearStatus_Horse(TEnumAsByte<E_EquipmentCat
 	UInventoryComponent_C_UpdateOldGearStatus_Horse_Params params;
 	params.EquipmentSlot = EquipmentSlot;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2280,10 +1949,7 @@ void UInventoryComponent_C::AssignToArmorSlot_SplitStack_Horse(TEnumAsByte<E_Equ
 	params.ItemName = ItemName;
 	params.ArrayID = ArrayID;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2301,10 +1967,7 @@ void UInventoryComponent_C::ClearArmorSlot_Horse(TEnumAsByte<E_EquipmentCategori
 	UInventoryComponent_C_ClearArmorSlot_Horse_Params params;
 	params.ArmorSlot = ArmorSlot;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2326,10 +1989,7 @@ void UInventoryComponent_C::GetCurrentlyEquippedItemDetails_Horse(TEnumAsByte<E_
 	UInventoryComponent_C_GetCurrentlyEquippedItemDetails_Horse_Params params;
 	params.EquipmentSlot = EquipmentSlot;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (ItemDetails != nullptr)
 		*ItemDetails = params.ItemDetails;
 	if (found != nullptr)
@@ -2366,10 +2026,7 @@ void UInventoryComponent_C::FindToolByActivityInInventory(TEnumAsByte<E_Tools_Ac
 	params.ToolType_Activity = ToolType_Activity;
 	params.GetItemWithLowestHP = GetItemWithLowestHP;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Found_ != nullptr)
 		*Found_ = params.Found_;
 	if (Count != nullptr)
@@ -2396,10 +2053,7 @@ void UInventoryComponent_C::UpdateArmorParams() {
 	};
 	UInventoryComponent_C_UpdateArmorParams_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2418,10 +2072,7 @@ void UInventoryComponent_C::CalculatePriceOfMarketSoldItems(TArray<struct FST_It
 	};
 	UInventoryComponent_C_CalculatePriceOfMarketSoldItems_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (SoldItems != nullptr)
 		*SoldItems = params.SoldItems;
 	if (CoinsForTransaction != nullptr)
@@ -2446,10 +2097,7 @@ void UInventoryComponent_C::DecreaseHPOfMostUsedToolOfType(TEnumAsByte<E_Tools> 
 	params.ToolType = ToolType;
 	params.HPAmount = HPAmount;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2473,10 +2121,7 @@ void UInventoryComponent_C::DecreaseHPOfMostUsedToolOfName(struct FName ToolName
 	params.ToolIndex = ToolIndex;
 	params.HPAmount = HPAmount;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2493,10 +2138,7 @@ void UInventoryComponent_C::SortUIInventory_ByName_Decreasing(TMap<struct FName,
 	};
 	UInventoryComponent_C_SortUIInventory_ByName_Decreasing_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (SortedInventory != nullptr)
 		*SortedInventory = params.SortedInventory;
 }
@@ -2515,10 +2157,7 @@ void UInventoryComponent_C::SortUIInventory_ByCount_Increasing(TMap<struct FName
 	};
 	UInventoryComponent_C_SortUIInventory_ByCount_Increasing_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Inventory != nullptr)
 		*Inventory = params.Inventory;
 }
@@ -2537,10 +2176,7 @@ void UInventoryComponent_C::SortUIInventory_ByCount_Decreasing(TMap<struct FName
 	};
 	UInventoryComponent_C_SortUIInventory_ByCount_Decreasing_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Inventory != nullptr)
 		*Inventory = params.Inventory;
 }
@@ -2559,10 +2195,7 @@ void UInventoryComponent_C::SortUIInventory_ByCondition_Increasing(TMap<struct F
 	};
 	UInventoryComponent_C_SortUIInventory_ByCondition_Increasing_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Inventory != nullptr)
 		*Inventory = params.Inventory;
 }
@@ -2581,10 +2214,7 @@ void UInventoryComponent_C::SortUIInventory_ByCondition_Decreasing(TMap<struct F
 	};
 	UInventoryComponent_C_SortUIInventory_ByCondition_Decreasing_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Inventory != nullptr)
 		*Inventory = params.Inventory;
 }
@@ -2603,10 +2233,7 @@ void UInventoryComponent_C::SortUIInventory_ByWeight_Increasing(TMap<struct FNam
 	};
 	UInventoryComponent_C_SortUIInventory_ByWeight_Increasing_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Inventory != nullptr)
 		*Inventory = params.Inventory;
 }
@@ -2625,10 +2252,7 @@ void UInventoryComponent_C::SortUIInventory_ByWeight_Decreasing(TMap<struct FNam
 	};
 	UInventoryComponent_C_SortUIInventory_ByWeight_Decreasing_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Inventory != nullptr)
 		*Inventory = params.Inventory;
 }
@@ -2656,10 +2280,7 @@ void UInventoryComponent_C::SortUIInventory_ByPrice_Increasing(bool CalculatePri
 	params.IsPlayerOwnerOfItem_ = IsPlayerOwnerOfItem_;
 	params.IsMarketSelling_ = IsMarketSelling_;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Inventory != nullptr)
 		*Inventory = params.Inventory;
 }
@@ -2687,10 +2308,7 @@ void UInventoryComponent_C::SortUIInventory_ByPrice_Decreasing(bool CalculatePri
 	params.IsPlayerOwnerOfItem_ = IsPlayerOwnerOfItem_;
 	params.IsMarketSelling_ = IsMarketSelling_;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Inventory != nullptr)
 		*Inventory = params.Inventory;
 }
@@ -2709,11 +2327,29 @@ bool UInventoryComponent_C::ShouldBindOnSeasonChanged() {
 	};
 	UInventoryComponent_C_ShouldBindOnSeasonChanged_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function InventoryComponent.InventoryComponent_C.MergePlayerMeshes
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Unequip	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: DyeVariant	Type: struct FST_ColorTable	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
+/////////////////////////////////////////////
+void UInventoryComponent_C::MergePlayerMeshes(bool Unequip, struct FST_ColorTable DyeVariant) {
+	static auto fn = UObject::FindObject<UFunction>("Function InventoryComponent.InventoryComponent_C.MergePlayerMeshes");
+
+	struct UInventoryComponent_C_MergePlayerMeshes_Params {
+		bool Unequip;			//Offset: 0 | ElementSize: 1
+		struct FST_ColorTable DyeVariant;			//Offset: 8 | ElementSize: 16
+	};
+	UInventoryComponent_C_MergePlayerMeshes_Params params;
+	params.Unequip = Unequip;
+	params.DyeVariant = DyeVariant;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
@@ -2730,10 +2366,7 @@ float UInventoryComponent_C::BaseFinalOverloadWeight_BPI() {
 	};
 	UInventoryComponent_C_BaseFinalOverloadWeight_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -2751,10 +2384,7 @@ float UInventoryComponent_C::BaseInitialOverloadWeight_BPI() {
 	};
 	UInventoryComponent_C_BaseInitialOverloadWeight_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -2772,10 +2402,7 @@ float UInventoryComponent_C::GetCurrentTotalWeightOfInventory_BPI() {
 	};
 	UInventoryComponent_C_GetCurrentTotalWeightOfInventory_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -2793,10 +2420,7 @@ float UInventoryComponent_C::GetFinalOverloadWeight_BPI() {
 	};
 	UInventoryComponent_C_GetFinalOverloadWeight_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -2814,10 +2438,7 @@ float UInventoryComponent_C::GetInitialOverloadWeight_BPI() {
 	};
 	UInventoryComponent_C_GetInitialOverloadWeight_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -2840,10 +2461,7 @@ void UInventoryComponent_C::GetCurrentlyEquippedItemMount_BPI(TEnumAsByte<E_Equi
 	UInventoryComponent_C_GetCurrentlyEquippedItemMount_BPI_Params params;
 	params.EquipmentSlot = EquipmentSlot;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Item != nullptr)
 		*Item = params.Item;
 	if (found != nullptr)
@@ -2864,10 +2482,7 @@ void UInventoryComponent_C::GetInventoryItems_BPI(TMap<struct FName, struct FST_
 	};
 	UInventoryComponent_C_GetInventoryItems_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent_Save(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
+	UObject::ProcessEvent(fn, &params);
 	if (Inventory != nullptr)
 		*Inventory = params.Inventory;
 }
@@ -2922,10 +2537,7 @@ void UInventoryComponent_C::AddItemToInventory_BPI(struct FName ItemId, int32_t 
 	params.CountAsPickUp = CountAsPickUp;
 	params.NotificationDelay = NotificationDelay;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (AddedAtIndex != nullptr)
 		*AddedAtIndex = params.AddedAtIndex;
 }
@@ -2944,12 +2556,35 @@ void UInventoryComponent_C::GetArmorHorse_BPI(TMap<TEnumAsByte<E_EquipmentCatego
 	};
 	UInventoryComponent_C_GetArmorHorse_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (ArmorHorse != nullptr)
 		*ArmorHorse = params.ArmorHorse;
+}
+
+/////////////////////////////////////////////
+// Function InventoryComponent.InventoryComponent_C.GetCurrentlyEquippedItemDetailsMount_BPI
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: EquipmentSlot	Type: TEnumAsByte<E_EquipmentCategories>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ItemDetails	Type: struct FST_ItemDetails	Flags: Parm, OutParm, HasGetValueTypeHash
+// Name: found	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void UInventoryComponent_C::GetCurrentlyEquippedItemDetailsMount_BPI(TEnumAsByte<E_EquipmentCategories> EquipmentSlot, struct FST_ItemDetails* ItemDetails, bool* found) {
+	static auto fn = UObject::FindObject<UFunction>("Function InventoryComponent.InventoryComponent_C.GetCurrentlyEquippedItemDetailsMount_BPI");
+
+	struct UInventoryComponent_C_GetCurrentlyEquippedItemDetailsMount_BPI_Params {
+		TEnumAsByte<E_EquipmentCategories> EquipmentSlot;			//Offset: 0 | ElementSize: 1
+		struct FST_ItemDetails ItemDetails;			//Offset: 8 | ElementSize: 848
+		bool found;			//Offset: 856 | ElementSize: 1
+	};
+	UInventoryComponent_C_GetCurrentlyEquippedItemDetailsMount_BPI_Params params;
+	params.EquipmentSlot = EquipmentSlot;
+
+	UObject::ProcessEvent(fn, &params);
+	if (ItemDetails != nullptr)
+		*ItemDetails = params.ItemDetails;
+	if (found != nullptr)
+		*found = params.found;
 }
 
 #pragma endregion

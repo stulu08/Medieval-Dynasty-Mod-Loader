@@ -5,1707 +5,1718 @@ namespace UE4 {
 // Member Getter and Setter of UberGraphFrame
 // Declaration: struct FPointerToUberGraphFrame UberGraphFrame
 struct FPointerToUberGraphFrame ABP_PlayerCharacter_C::M_GetUberGraphFrame() const {
-	return Read<struct FPointerToUberGraphFrame>((byte*)this + 5840);
+	return Read<struct FPointerToUberGraphFrame>((byte*)this + 5888);
 }
 struct FPointerToUberGraphFrame* ABP_PlayerCharacter_C::M_PtrGetUberGraphFrame() {
-	return reinterpret_cast<struct FPointerToUberGraphFrame*>((byte*)this + 5840);
+	return reinterpret_cast<struct FPointerToUberGraphFrame*>((byte*)this + 5888);
 }
 void ABP_PlayerCharacter_C::M_SetUberGraphFrame(const struct FPointerToUberGraphFrame& value) {
-	Write((byte*)this + 5840, value);
+	Write((byte*)this + 5888, value);
 }
 // Member Getter and Setter of NPC_Light
 // Declaration: class UPointLightComponent* NPC_Light
 class UPointLightComponent* ABP_PlayerCharacter_C::M_GetNPC_Light() const {
-	return Read<class UPointLightComponent*>((byte*)this + 5848);
+	return Read<class UPointLightComponent*>((byte*)this + 5896);
 }
 class UPointLightComponent** ABP_PlayerCharacter_C::M_PtrGetNPC_Light() {
-	return reinterpret_cast<class UPointLightComponent**>((byte*)this + 5848);
+	return reinterpret_cast<class UPointLightComponent**>((byte*)this + 5896);
 }
 void ABP_PlayerCharacter_C::M_SetNPC_Light(const class UPointLightComponent*& value) {
-	Write((byte*)this + 5848, value);
+	Write((byte*)this + 5896, value);
 }
 // Member Getter and Setter of TP_Camera
 // Declaration: class UCameraComponent* TP_Camera
 class UCameraComponent* ABP_PlayerCharacter_C::M_GetTP_Camera() const {
-	return Read<class UCameraComponent*>((byte*)this + 5856);
+	return Read<class UCameraComponent*>((byte*)this + 5904);
 }
 class UCameraComponent** ABP_PlayerCharacter_C::M_PtrGetTP_Camera() {
-	return reinterpret_cast<class UCameraComponent**>((byte*)this + 5856);
+	return reinterpret_cast<class UCameraComponent**>((byte*)this + 5904);
 }
 void ABP_PlayerCharacter_C::M_SetTP_Camera(const class UCameraComponent*& value) {
-	Write((byte*)this + 5856, value);
+	Write((byte*)this + 5904, value);
 }
 // Member Getter and Setter of TP_SpringArm
 // Declaration: class UMD_SpringArmComponent* TP_SpringArm
 class UMD_SpringArmComponent* ABP_PlayerCharacter_C::M_GetTP_SpringArm() const {
-	return Read<class UMD_SpringArmComponent*>((byte*)this + 5864);
+	return Read<class UMD_SpringArmComponent*>((byte*)this + 5912);
 }
 class UMD_SpringArmComponent** ABP_PlayerCharacter_C::M_PtrGetTP_SpringArm() {
-	return reinterpret_cast<class UMD_SpringArmComponent**>((byte*)this + 5864);
+	return reinterpret_cast<class UMD_SpringArmComponent**>((byte*)this + 5912);
 }
 void ABP_PlayerCharacter_C::M_SetTP_SpringArm(const class UMD_SpringArmComponent*& value) {
-	Write((byte*)this + 5864, value);
+	Write((byte*)this + 5912, value);
 }
 // Member Getter and Setter of PhysicsHandle
 // Declaration: class UPhysicsHandleComponent* PhysicsHandle
 class UPhysicsHandleComponent* ABP_PlayerCharacter_C::M_GetPhysicsHandle() const {
-	return Read<class UPhysicsHandleComponent*>((byte*)this + 5872);
+	return Read<class UPhysicsHandleComponent*>((byte*)this + 5920);
 }
 class UPhysicsHandleComponent** ABP_PlayerCharacter_C::M_PtrGetPhysicsHandle() {
-	return reinterpret_cast<class UPhysicsHandleComponent**>((byte*)this + 5872);
+	return reinterpret_cast<class UPhysicsHandleComponent**>((byte*)this + 5920);
 }
 void ABP_PlayerCharacter_C::M_SetPhysicsHandle(const class UPhysicsHandleComponent*& value) {
-	Write((byte*)this + 5872, value);
+	Write((byte*)this + 5920, value);
 }
 // Member Getter and Setter of FP_Camera
 // Declaration: class UCameraComponent* FP_Camera
 class UCameraComponent* ABP_PlayerCharacter_C::M_GetFP_Camera() const {
-	return Read<class UCameraComponent*>((byte*)this + 5880);
+	return Read<class UCameraComponent*>((byte*)this + 5928);
 }
 class UCameraComponent** ABP_PlayerCharacter_C::M_PtrGetFP_Camera() {
-	return reinterpret_cast<class UCameraComponent**>((byte*)this + 5880);
+	return reinterpret_cast<class UCameraComponent**>((byte*)this + 5928);
 }
 void ABP_PlayerCharacter_C::M_SetFP_Camera(const class UCameraComponent*& value) {
-	Write((byte*)this + 5880, value);
+	Write((byte*)this + 5928, value);
 }
 // Member Getter and Setter of FP_SpringArm
 // Declaration: class USpringArmComponent* FP_SpringArm
 class USpringArmComponent* ABP_PlayerCharacter_C::M_GetFP_SpringArm() const {
-	return Read<class USpringArmComponent*>((byte*)this + 5888);
+	return Read<class USpringArmComponent*>((byte*)this + 5936);
 }
 class USpringArmComponent** ABP_PlayerCharacter_C::M_PtrGetFP_SpringArm() {
-	return reinterpret_cast<class USpringArmComponent**>((byte*)this + 5888);
+	return reinterpret_cast<class USpringArmComponent**>((byte*)this + 5936);
 }
 void ABP_PlayerCharacter_C::M_SetFP_SpringArm(const class USpringArmComponent*& value) {
-	Write((byte*)this + 5888, value);
+	Write((byte*)this + 5936, value);
 }
 // Member Getter and Setter of LifeStats_Voice
 // Declaration: class UAudioComponent* LifeStats_Voice
 class UAudioComponent* ABP_PlayerCharacter_C::M_GetLifeStats_Voice() const {
-	return Read<class UAudioComponent*>((byte*)this + 5896);
+	return Read<class UAudioComponent*>((byte*)this + 5944);
 }
 class UAudioComponent** ABP_PlayerCharacter_C::M_PtrGetLifeStats_Voice() {
-	return reinterpret_cast<class UAudioComponent**>((byte*)this + 5896);
+	return reinterpret_cast<class UAudioComponent**>((byte*)this + 5944);
 }
 void ABP_PlayerCharacter_C::M_SetLifeStats_Voice(const class UAudioComponent*& value) {
-	Write((byte*)this + 5896, value);
+	Write((byte*)this + 5944, value);
 }
 // Member Getter and Setter of BP_AimOffsetComponent
 // Declaration: class UBP_AimOffsetComponent_C* BP_AimOffsetComponent
 class UBP_AimOffsetComponent_C* ABP_PlayerCharacter_C::M_GetBP_AimOffsetComponent() const {
-	return Read<class UBP_AimOffsetComponent_C*>((byte*)this + 5904);
+	return Read<class UBP_AimOffsetComponent_C*>((byte*)this + 5952);
 }
 class UBP_AimOffsetComponent_C** ABP_PlayerCharacter_C::M_PtrGetBP_AimOffsetComponent() {
-	return reinterpret_cast<class UBP_AimOffsetComponent_C**>((byte*)this + 5904);
+	return reinterpret_cast<class UBP_AimOffsetComponent_C**>((byte*)this + 5952);
 }
 void ABP_PlayerCharacter_C::M_SetBP_AimOffsetComponent(const class UBP_AimOffsetComponent_C*& value) {
-	Write((byte*)this + 5904, value);
+	Write((byte*)this + 5952, value);
 }
 // Member Getter and Setter of ActionCameraSocket
 // Declaration: class USceneComponent* ActionCameraSocket
 class USceneComponent* ABP_PlayerCharacter_C::M_GetActionCameraSocket() const {
-	return Read<class USceneComponent*>((byte*)this + 5912);
+	return Read<class USceneComponent*>((byte*)this + 5960);
 }
 class USceneComponent** ABP_PlayerCharacter_C::M_PtrGetActionCameraSocket() {
-	return reinterpret_cast<class USceneComponent**>((byte*)this + 5912);
+	return reinterpret_cast<class USceneComponent**>((byte*)this + 5960);
 }
 void ABP_PlayerCharacter_C::M_SetActionCameraSocket(const class USceneComponent*& value) {
-	Write((byte*)this + 5912, value);
+	Write((byte*)this + 5960, value);
 }
 // Member Getter and Setter of BP_WeatherComponent
 // Declaration: class UBP_WeatherComponent_C* BP_WeatherComponent
 class UBP_WeatherComponent_C* ABP_PlayerCharacter_C::M_GetBP_WeatherComponent() const {
-	return Read<class UBP_WeatherComponent_C*>((byte*)this + 5920);
+	return Read<class UBP_WeatherComponent_C*>((byte*)this + 5968);
 }
 class UBP_WeatherComponent_C** ABP_PlayerCharacter_C::M_PtrGetBP_WeatherComponent() {
-	return reinterpret_cast<class UBP_WeatherComponent_C**>((byte*)this + 5920);
+	return reinterpret_cast<class UBP_WeatherComponent_C**>((byte*)this + 5968);
 }
 void ABP_PlayerCharacter_C::M_SetBP_WeatherComponent(const class UBP_WeatherComponent_C*& value) {
-	Write((byte*)this + 5920, value);
+	Write((byte*)this + 5968, value);
 }
 // Member Getter and Setter of BuildingTargetArrow
 // Declaration: class UArrowComponent* BuildingTargetArrow
 class UArrowComponent* ABP_PlayerCharacter_C::M_GetBuildingTargetArrow() const {
-	return Read<class UArrowComponent*>((byte*)this + 5928);
+	return Read<class UArrowComponent*>((byte*)this + 5976);
 }
 class UArrowComponent** ABP_PlayerCharacter_C::M_PtrGetBuildingTargetArrow() {
-	return reinterpret_cast<class UArrowComponent**>((byte*)this + 5928);
+	return reinterpret_cast<class UArrowComponent**>((byte*)this + 5976);
 }
 void ABP_PlayerCharacter_C::M_SetBuildingTargetArrow(const class UArrowComponent*& value) {
-	Write((byte*)this + 5928, value);
+	Write((byte*)this + 5976, value);
 }
 // Member Getter and Setter of BP_PlayerBuildingComponent
 // Declaration: class UBP_PlayerBuildingComponent_C* BP_PlayerBuildingComponent
 class UBP_PlayerBuildingComponent_C* ABP_PlayerCharacter_C::M_GetBP_PlayerBuildingComponent() const {
-	return Read<class UBP_PlayerBuildingComponent_C*>((byte*)this + 5936);
+	return Read<class UBP_PlayerBuildingComponent_C*>((byte*)this + 5984);
 }
 class UBP_PlayerBuildingComponent_C** ABP_PlayerCharacter_C::M_PtrGetBP_PlayerBuildingComponent() {
-	return reinterpret_cast<class UBP_PlayerBuildingComponent_C**>((byte*)this + 5936);
+	return reinterpret_cast<class UBP_PlayerBuildingComponent_C**>((byte*)this + 5984);
 }
 void ABP_PlayerCharacter_C::M_SetBP_PlayerBuildingComponent(const class UBP_PlayerBuildingComponent_C*& value) {
-	Write((byte*)this + 5936, value);
+	Write((byte*)this + 5984, value);
 }
 // Member Getter and Setter of CameraLerp_LerpAlpha_C5FA4DB54C0199BD8228928150300557
 // Declaration: float CameraLerp_LerpAlpha_C5FA4DB54C0199BD8228928150300557
 float ABP_PlayerCharacter_C::M_GetCameraLerp_LerpAlpha_C5FA4DB54C0199BD8228928150300557() const {
-	return Read<float>((byte*)this + 5944);
+	return Read<float>((byte*)this + 5992);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetCameraLerp_LerpAlpha_C5FA4DB54C0199BD8228928150300557() {
-	return reinterpret_cast<float*>((byte*)this + 5944);
+	return reinterpret_cast<float*>((byte*)this + 5992);
 }
 void ABP_PlayerCharacter_C::M_SetCameraLerp_LerpAlpha_C5FA4DB54C0199BD8228928150300557(const float& value) {
-	Write((byte*)this + 5944, value);
+	Write((byte*)this + 5992, value);
 }
 // Member Getter and Setter of CameraLerp__Direction_C5FA4DB54C0199BD8228928150300557
 // Declaration: TEnumAsByte<ETimelineDirection> CameraLerp__Direction_C5FA4DB54C0199BD8228928150300557
 TEnumAsByte<ETimelineDirection> ABP_PlayerCharacter_C::M_GetCameraLerp__Direction_C5FA4DB54C0199BD8228928150300557() const {
-	return Read<TEnumAsByte<ETimelineDirection>>((byte*)this + 5948);
+	return Read<TEnumAsByte<ETimelineDirection>>((byte*)this + 5996);
 }
 TEnumAsByte<ETimelineDirection>* ABP_PlayerCharacter_C::M_PtrGetCameraLerp__Direction_C5FA4DB54C0199BD8228928150300557() {
-	return reinterpret_cast<TEnumAsByte<ETimelineDirection>*>((byte*)this + 5948);
+	return reinterpret_cast<TEnumAsByte<ETimelineDirection>*>((byte*)this + 5996);
 }
 void ABP_PlayerCharacter_C::M_SetCameraLerp__Direction_C5FA4DB54C0199BD8228928150300557(const TEnumAsByte<ETimelineDirection>& value) {
-	Write((byte*)this + 5948, value);
+	Write((byte*)this + 5996, value);
 }
 // Member Getter and Setter of CameraLerp
 // Declaration: class UTimelineComponent* CameraLerp
 class UTimelineComponent* ABP_PlayerCharacter_C::M_GetCameraLerp() const {
-	return Read<class UTimelineComponent*>((byte*)this + 5952);
+	return Read<class UTimelineComponent*>((byte*)this + 6000);
 }
 class UTimelineComponent** ABP_PlayerCharacter_C::M_PtrGetCameraLerp() {
-	return reinterpret_cast<class UTimelineComponent**>((byte*)this + 5952);
+	return reinterpret_cast<class UTimelineComponent**>((byte*)this + 6000);
 }
 void ABP_PlayerCharacter_C::M_SetCameraLerp(const class UTimelineComponent*& value) {
-	Write((byte*)this + 5952, value);
+	Write((byte*)this + 6000, value);
 }
 // Member Getter and Setter of FOV_FOV_Lerp_D090BFAE4EDC09CE8849BEA7FF1ACD7A
 // Declaration: float FOV_FOV_Lerp_D090BFAE4EDC09CE8849BEA7FF1ACD7A
 float ABP_PlayerCharacter_C::M_GetFOV_FOV_Lerp_D090BFAE4EDC09CE8849BEA7FF1ACD7A() const {
-	return Read<float>((byte*)this + 5960);
+	return Read<float>((byte*)this + 6008);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetFOV_FOV_Lerp_D090BFAE4EDC09CE8849BEA7FF1ACD7A() {
-	return reinterpret_cast<float*>((byte*)this + 5960);
+	return reinterpret_cast<float*>((byte*)this + 6008);
 }
 void ABP_PlayerCharacter_C::M_SetFOV_FOV_Lerp_D090BFAE4EDC09CE8849BEA7FF1ACD7A(const float& value) {
-	Write((byte*)this + 5960, value);
+	Write((byte*)this + 6008, value);
 }
 // Member Getter and Setter of FOV__Direction_D090BFAE4EDC09CE8849BEA7FF1ACD7A
 // Declaration: TEnumAsByte<ETimelineDirection> FOV__Direction_D090BFAE4EDC09CE8849BEA7FF1ACD7A
 TEnumAsByte<ETimelineDirection> ABP_PlayerCharacter_C::M_GetFOV__Direction_D090BFAE4EDC09CE8849BEA7FF1ACD7A() const {
-	return Read<TEnumAsByte<ETimelineDirection>>((byte*)this + 5964);
+	return Read<TEnumAsByte<ETimelineDirection>>((byte*)this + 6012);
 }
 TEnumAsByte<ETimelineDirection>* ABP_PlayerCharacter_C::M_PtrGetFOV__Direction_D090BFAE4EDC09CE8849BEA7FF1ACD7A() {
-	return reinterpret_cast<TEnumAsByte<ETimelineDirection>*>((byte*)this + 5964);
+	return reinterpret_cast<TEnumAsByte<ETimelineDirection>*>((byte*)this + 6012);
 }
 void ABP_PlayerCharacter_C::M_SetFOV__Direction_D090BFAE4EDC09CE8849BEA7FF1ACD7A(const TEnumAsByte<ETimelineDirection>& value) {
-	Write((byte*)this + 5964, value);
+	Write((byte*)this + 6012, value);
 }
 // Member Getter and Setter of FOV
 // Declaration: class UTimelineComponent* FOV
 class UTimelineComponent* ABP_PlayerCharacter_C::M_GetFOV() const {
-	return Read<class UTimelineComponent*>((byte*)this + 5968);
+	return Read<class UTimelineComponent*>((byte*)this + 6016);
 }
 class UTimelineComponent** ABP_PlayerCharacter_C::M_PtrGetFOV() {
-	return reinterpret_cast<class UTimelineComponent**>((byte*)this + 5968);
+	return reinterpret_cast<class UTimelineComponent**>((byte*)this + 6016);
 }
 void ABP_PlayerCharacter_C::M_SetFOV(const class UTimelineComponent*& value) {
-	Write((byte*)this + 5968, value);
+	Write((byte*)this + 6016, value);
 }
 // Member Getter and Setter of PlayerControllerReference
 // Declaration: class APC_Player_C* PlayerControllerReference
 class APC_Player_C* ABP_PlayerCharacter_C::M_GetPlayerControllerReference() const {
-	return Read<class APC_Player_C*>((byte*)this + 5976);
+	return Read<class APC_Player_C*>((byte*)this + 6024);
 }
 class APC_Player_C** ABP_PlayerCharacter_C::M_PtrGetPlayerControllerReference() {
-	return reinterpret_cast<class APC_Player_C**>((byte*)this + 5976);
+	return reinterpret_cast<class APC_Player_C**>((byte*)this + 6024);
 }
 void ABP_PlayerCharacter_C::M_SetPlayerControllerReference(const class APC_Player_C*& value) {
-	Write((byte*)this + 5976, value);
+	Write((byte*)this + 6024, value);
 }
 // Member Getter and Setter of QuickSlotCount
 // Declaration: int32_t QuickSlotCount
 int32_t ABP_PlayerCharacter_C::M_GetQuickSlotCount() const {
-	return Read<int32_t>((byte*)this + 5984);
+	return Read<int32_t>((byte*)this + 6032);
 }
 int32_t* ABP_PlayerCharacter_C::M_PtrGetQuickSlotCount() {
-	return reinterpret_cast<int32_t*>((byte*)this + 5984);
+	return reinterpret_cast<int32_t*>((byte*)this + 6032);
 }
 void ABP_PlayerCharacter_C::M_SetQuickSlotCount(const int32_t& value) {
-	Write((byte*)this + 5984, value);
+	Write((byte*)this + 6032, value);
 }
 // Member Getter and Setter of LastHitActor
 // Declaration: class AActor* LastHitActor
 class AActor* ABP_PlayerCharacter_C::M_GetLastHitActor() const {
-	return Read<class AActor*>((byte*)this + 5992);
+	return Read<class AActor*>((byte*)this + 6040);
 }
 class AActor** ABP_PlayerCharacter_C::M_PtrGetLastHitActor() {
-	return reinterpret_cast<class AActor**>((byte*)this + 5992);
+	return reinterpret_cast<class AActor**>((byte*)this + 6040);
 }
 void ABP_PlayerCharacter_C::M_SetLastHitActor(const class AActor*& value) {
-	Write((byte*)this + 5992, value);
+	Write((byte*)this + 6040, value);
 }
 // Member Getter and Setter of HoldingItem
 // Declaration: bool HoldingItem
 bool ABP_PlayerCharacter_C::M_GetHoldingItem() const {
-	return Read<bool>((byte*)this + 6000);
+	return Read<bool>((byte*)this + 6048);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetHoldingItem() {
-	return reinterpret_cast<bool*>((byte*)this + 6000);
+	return reinterpret_cast<bool*>((byte*)this + 6048);
 }
 void ABP_PlayerCharacter_C::M_SetHoldingItem(const bool& value) {
-	Write((byte*)this + 6000, value);
+	Write((byte*)this + 6048, value);
 }
 // Member Getter and Setter of UsedItem
 // Declaration: struct FST_ItemInventorys UsedItem
 struct FST_ItemInventorys ABP_PlayerCharacter_C::M_GetUsedItem() const {
-	return Read<struct FST_ItemInventorys>((byte*)this + 6004);
+	return Read<struct FST_ItemInventorys>((byte*)this + 6052);
 }
 struct FST_ItemInventorys* ABP_PlayerCharacter_C::M_PtrGetUsedItem() {
-	return reinterpret_cast<struct FST_ItemInventorys*>((byte*)this + 6004);
+	return reinterpret_cast<struct FST_ItemInventorys*>((byte*)this + 6052);
 }
 void ABP_PlayerCharacter_C::M_SetUsedItem(const struct FST_ItemInventorys& value) {
-	Write((byte*)this + 6004, value);
+	Write((byte*)this + 6052, value);
 }
 // Member Getter and Setter of HitActor
 // Declaration: class AActor* HitActor
 class AActor* ABP_PlayerCharacter_C::M_GetHitActor() const {
-	return Read<class AActor*>((byte*)this + 6056);
+	return Read<class AActor*>((byte*)this + 6104);
 }
 class AActor** ABP_PlayerCharacter_C::M_PtrGetHitActor() {
-	return reinterpret_cast<class AActor**>((byte*)this + 6056);
+	return reinterpret_cast<class AActor**>((byte*)this + 6104);
 }
 void ABP_PlayerCharacter_C::M_SetHitActor(const class AActor*& value) {
-	Write((byte*)this + 6056, value);
+	Write((byte*)this + 6104, value);
 }
 // Member Getter and Setter of InteractTimerHandle
 // Declaration: struct FTimerHandle InteractTimerHandle
 struct FTimerHandle ABP_PlayerCharacter_C::M_GetInteractTimerHandle() const {
-	return Read<struct FTimerHandle>((byte*)this + 6064);
+	return Read<struct FTimerHandle>((byte*)this + 6112);
 }
 struct FTimerHandle* ABP_PlayerCharacter_C::M_PtrGetInteractTimerHandle() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 6064);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 6112);
 }
 void ABP_PlayerCharacter_C::M_SetInteractTimerHandle(const struct FTimerHandle& value) {
-	Write((byte*)this + 6064, value);
+	Write((byte*)this + 6112, value);
 }
 // Member Getter and Setter of InteractKeyDown
 // Declaration: bool InteractKeyDown
 bool ABP_PlayerCharacter_C::M_GetInteractKeyDown() const {
-	return Read<bool>((byte*)this + 6072);
+	return Read<bool>((byte*)this + 6120);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetInteractKeyDown() {
-	return reinterpret_cast<bool*>((byte*)this + 6072);
+	return reinterpret_cast<bool*>((byte*)this + 6120);
 }
 void ABP_PlayerCharacter_C::M_SetInteractKeyDown(const bool& value) {
-	Write((byte*)this + 6072, value);
+	Write((byte*)this + 6120, value);
 }
 // Member Getter and Setter of PickingTImer
 // Declaration: struct FTimerHandle PickingTImer
 struct FTimerHandle ABP_PlayerCharacter_C::M_GetPickingTImer() const {
-	return Read<struct FTimerHandle>((byte*)this + 6080);
+	return Read<struct FTimerHandle>((byte*)this + 6128);
 }
 struct FTimerHandle* ABP_PlayerCharacter_C::M_PtrGetPickingTImer() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 6080);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 6128);
 }
 void ABP_PlayerCharacter_C::M_SetPickingTImer(const struct FTimerHandle& value) {
-	Write((byte*)this + 6080, value);
+	Write((byte*)this + 6128, value);
 }
 // Member Getter and Setter of InteractionTime
 // Declaration: float InteractionTime
 float ABP_PlayerCharacter_C::M_GetInteractionTime() const {
-	return Read<float>((byte*)this + 6088);
+	return Read<float>((byte*)this + 6136);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetInteractionTime() {
-	return reinterpret_cast<float*>((byte*)this + 6088);
+	return reinterpret_cast<float*>((byte*)this + 6136);
 }
 void ABP_PlayerCharacter_C::M_SetInteractionTime(const float& value) {
-	Write((byte*)this + 6088, value);
+	Write((byte*)this + 6136, value);
 }
 // Member Getter and Setter of InteractionRange
 // Declaration: float InteractionRange
 float ABP_PlayerCharacter_C::M_GetInteractionRange() const {
-	return Read<float>((byte*)this + 6092);
+	return Read<float>((byte*)this + 6140);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetInteractionRange() {
-	return reinterpret_cast<float*>((byte*)this + 6092);
+	return reinterpret_cast<float*>((byte*)this + 6140);
 }
 void ABP_PlayerCharacter_C::M_SetInteractionRange(const float& value) {
-	Write((byte*)this + 6092, value);
+	Write((byte*)this + 6140, value);
 }
 // Member Getter and Setter of InteractionNoCollisionRange
 // Declaration: float InteractionNoCollisionRange
 float ABP_PlayerCharacter_C::M_GetInteractionNoCollisionRange() const {
-	return Read<float>((byte*)this + 6096);
+	return Read<float>((byte*)this + 6144);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetInteractionNoCollisionRange() {
-	return reinterpret_cast<float*>((byte*)this + 6096);
+	return reinterpret_cast<float*>((byte*)this + 6144);
 }
 void ABP_PlayerCharacter_C::M_SetInteractionNoCollisionRange(const float& value) {
-	Write((byte*)this + 6096, value);
+	Write((byte*)this + 6144, value);
 }
 // Member Getter and Setter of HitRayCastFrequency
 // Declaration: float HitRayCastFrequency
 float ABP_PlayerCharacter_C::M_GetHitRayCastFrequency() const {
-	return Read<float>((byte*)this + 6100);
+	return Read<float>((byte*)this + 6148);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetHitRayCastFrequency() {
-	return reinterpret_cast<float*>((byte*)this + 6100);
+	return reinterpret_cast<float*>((byte*)this + 6148);
 }
 void ABP_PlayerCharacter_C::M_SetHitRayCastFrequency(const float& value) {
-	Write((byte*)this + 6100, value);
+	Write((byte*)this + 6148, value);
 }
 // Member Getter and Setter of HitRayCastBuildingFrequency
 // Declaration: float HitRayCastBuildingFrequency
 float ABP_PlayerCharacter_C::M_GetHitRayCastBuildingFrequency() const {
-	return Read<float>((byte*)this + 6104);
+	return Read<float>((byte*)this + 6152);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetHitRayCastBuildingFrequency() {
-	return reinterpret_cast<float*>((byte*)this + 6104);
+	return reinterpret_cast<float*>((byte*)this + 6152);
 }
 void ABP_PlayerCharacter_C::M_SetHitRayCastBuildingFrequency(const float& value) {
-	Write((byte*)this + 6104, value);
+	Write((byte*)this + 6152, value);
 }
 // Member Getter and Setter of HitActorID
 // Declaration: int32_t HitActorID
 int32_t ABP_PlayerCharacter_C::M_GetHitActorID() const {
-	return Read<int32_t>((byte*)this + 6108);
+	return Read<int32_t>((byte*)this + 6156);
 }
 int32_t* ABP_PlayerCharacter_C::M_PtrGetHitActorID() {
-	return reinterpret_cast<int32_t*>((byte*)this + 6108);
+	return reinterpret_cast<int32_t*>((byte*)this + 6156);
 }
 void ABP_PlayerCharacter_C::M_SetHitActorID(const int32_t& value) {
-	Write((byte*)this + 6108, value);
+	Write((byte*)this + 6156, value);
 }
 // Member Getter and Setter of LastHitActorID
 // Declaration: int32_t LastHitActorID
 int32_t ABP_PlayerCharacter_C::M_GetLastHitActorID() const {
-	return Read<int32_t>((byte*)this + 6112);
+	return Read<int32_t>((byte*)this + 6160);
 }
 int32_t* ABP_PlayerCharacter_C::M_PtrGetLastHitActorID() {
-	return reinterpret_cast<int32_t*>((byte*)this + 6112);
+	return reinterpret_cast<int32_t*>((byte*)this + 6160);
 }
 void ABP_PlayerCharacter_C::M_SetLastHitActorID(const int32_t& value) {
-	Write((byte*)this + 6112, value);
+	Write((byte*)this + 6160, value);
 }
 // Member Getter and Setter of TmpItemName
 // Declaration: struct FName TmpItemName
 struct FName ABP_PlayerCharacter_C::M_GetTmpItemName() const {
-	return Read<struct FName>((byte*)this + 6116);
+	return Read<struct FName>((byte*)this + 6164);
 }
 struct FName* ABP_PlayerCharacter_C::M_PtrGetTmpItemName() {
-	return reinterpret_cast<struct FName*>((byte*)this + 6116);
+	return reinterpret_cast<struct FName*>((byte*)this + 6164);
 }
 void ABP_PlayerCharacter_C::M_SetTmpItemName(const struct FName& value) {
-	Write((byte*)this + 6116, value);
+	Write((byte*)this + 6164, value);
 }
 // Member Getter and Setter of LastSelectedQuickSlotID
 // Declaration: int32_t LastSelectedQuickSlotID
 int32_t ABP_PlayerCharacter_C::M_GetLastSelectedQuickSlotID() const {
-	return Read<int32_t>((byte*)this + 6124);
+	return Read<int32_t>((byte*)this + 6172);
 }
 int32_t* ABP_PlayerCharacter_C::M_PtrGetLastSelectedQuickSlotID() {
-	return reinterpret_cast<int32_t*>((byte*)this + 6124);
+	return reinterpret_cast<int32_t*>((byte*)this + 6172);
 }
 void ABP_PlayerCharacter_C::M_SetLastSelectedQuickSlotID(const int32_t& value) {
-	Write((byte*)this + 6124, value);
+	Write((byte*)this + 6172, value);
 }
 // Member Getter and Setter of UI_GameMenu
 // Declaration: class UUserWidget* UI_GameMenu
 class UUserWidget* ABP_PlayerCharacter_C::M_GetUI_GameMenu() const {
-	return Read<class UUserWidget*>((byte*)this + 6128);
+	return Read<class UUserWidget*>((byte*)this + 6176);
 }
 class UUserWidget** ABP_PlayerCharacter_C::M_PtrGetUI_GameMenu() {
-	return reinterpret_cast<class UUserWidget**>((byte*)this + 6128);
+	return reinterpret_cast<class UUserWidget**>((byte*)this + 6176);
 }
 void ABP_PlayerCharacter_C::M_SetUI_GameMenu(const class UUserWidget*& value) {
-	Write((byte*)this + 6128, value);
+	Write((byte*)this + 6176, value);
 }
 // Member Getter and Setter of InBuildingMode
 // Declaration: bool InBuildingMode
 bool ABP_PlayerCharacter_C::M_GetInBuildingMode() const {
-	return Read<bool>((byte*)this + 6136);
+	return Read<bool>((byte*)this + 6184);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetInBuildingMode() {
-	return reinterpret_cast<bool*>((byte*)this + 6136);
+	return reinterpret_cast<bool*>((byte*)this + 6184);
 }
 void ABP_PlayerCharacter_C::M_SetInBuildingMode(const bool& value) {
-	Write((byte*)this + 6136, value);
+	Write((byte*)this + 6184, value);
 }
 // Member Getter and Setter of BuildingRotation
 // Declaration: float BuildingRotation
 float ABP_PlayerCharacter_C::M_GetBuildingRotation() const {
-	return Read<float>((byte*)this + 6140);
+	return Read<float>((byte*)this + 6188);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetBuildingRotation() {
-	return reinterpret_cast<float*>((byte*)this + 6140);
+	return reinterpret_cast<float*>((byte*)this + 6188);
 }
 void ABP_PlayerCharacter_C::M_SetBuildingRotation(const float& value) {
-	Write((byte*)this + 6140, value);
+	Write((byte*)this + 6188, value);
 }
 // Member Getter and Setter of RotatingRight
 // Declaration: bool RotatingRight
 bool ABP_PlayerCharacter_C::M_GetRotatingRight() const {
-	return Read<bool>((byte*)this + 6144);
+	return Read<bool>((byte*)this + 6192);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetRotatingRight() {
-	return reinterpret_cast<bool*>((byte*)this + 6144);
+	return reinterpret_cast<bool*>((byte*)this + 6192);
 }
 void ABP_PlayerCharacter_C::M_SetRotatingRight(const bool& value) {
-	Write((byte*)this + 6144, value);
+	Write((byte*)this + 6192, value);
 }
 // Member Getter and Setter of RotatingLeft
 // Declaration: bool RotatingLeft
 bool ABP_PlayerCharacter_C::M_GetRotatingLeft() const {
-	return Read<bool>((byte*)this + 6145);
+	return Read<bool>((byte*)this + 6193);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetRotatingLeft() {
-	return reinterpret_cast<bool*>((byte*)this + 6145);
+	return reinterpret_cast<bool*>((byte*)this + 6193);
 }
 void ABP_PlayerCharacter_C::M_SetRotatingLeft(const bool& value) {
-	Write((byte*)this + 6145, value);
+	Write((byte*)this + 6193, value);
 }
 // Member Getter and Setter of TempSoundsVolume
 // Declaration: float TempSoundsVolume
 float ABP_PlayerCharacter_C::M_GetTempSoundsVolume() const {
-	return Read<float>((byte*)this + 6148);
+	return Read<float>((byte*)this + 6196);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetTempSoundsVolume() {
-	return reinterpret_cast<float*>((byte*)this + 6148);
+	return reinterpret_cast<float*>((byte*)this + 6196);
 }
 void ABP_PlayerCharacter_C::M_SetTempSoundsVolume(const float& value) {
-	Write((byte*)this + 6148, value);
+	Write((byte*)this + 6196, value);
 }
 // Member Getter and Setter of TorchLighten
 // Declaration: bool TorchLighten
 bool ABP_PlayerCharacter_C::M_GetTorchLighten() const {
-	return Read<bool>((byte*)this + 6152);
+	return Read<bool>((byte*)this + 6200);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetTorchLighten() {
-	return reinterpret_cast<bool*>((byte*)this + 6152);
+	return reinterpret_cast<bool*>((byte*)this + 6200);
 }
 void ABP_PlayerCharacter_C::M_SetTorchLighten(const bool& value) {
-	Write((byte*)this + 6152, value);
+	Write((byte*)this + 6200, value);
 }
 // Member Getter and Setter of FoliageDestination
 // Declaration: struct FVector FoliageDestination
 struct FVector ABP_PlayerCharacter_C::M_GetFoliageDestination() const {
-	return Read<struct FVector>((byte*)this + 6156);
+	return Read<struct FVector>((byte*)this + 6204);
 }
 struct FVector* ABP_PlayerCharacter_C::M_PtrGetFoliageDestination() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 6156);
+	return reinterpret_cast<struct FVector*>((byte*)this + 6204);
 }
 void ABP_PlayerCharacter_C::M_SetFoliageDestination(const struct FVector& value) {
-	Write((byte*)this + 6156, value);
+	Write((byte*)this + 6204, value);
 }
 // Member Getter and Setter of BuildingModeTargetingOffset
 // Declaration: bool BuildingModeTargetingOffset
 bool ABP_PlayerCharacter_C::M_GetBuildingModeTargetingOffset() const {
-	return Read<bool>((byte*)this + 6168);
+	return Read<bool>((byte*)this + 6216);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetBuildingModeTargetingOffset() {
-	return reinterpret_cast<bool*>((byte*)this + 6168);
+	return reinterpret_cast<bool*>((byte*)this + 6216);
 }
 void ABP_PlayerCharacter_C::M_SetBuildingModeTargetingOffset(const bool& value) {
-	Write((byte*)this + 6168, value);
+	Write((byte*)this + 6216, value);
 }
 // Member Getter and Setter of FieldBuildingRange
 // Declaration: float FieldBuildingRange
 float ABP_PlayerCharacter_C::M_GetFieldBuildingRange() const {
-	return Read<float>((byte*)this + 6172);
+	return Read<float>((byte*)this + 6220);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetFieldBuildingRange() {
-	return reinterpret_cast<float*>((byte*)this + 6172);
+	return reinterpret_cast<float*>((byte*)this + 6220);
 }
 void ABP_PlayerCharacter_C::M_SetFieldBuildingRange(const float& value) {
-	Write((byte*)this + 6172, value);
+	Write((byte*)this + 6220, value);
 }
 // Member Getter and Setter of TmpFreshness
 // Declaration: float TmpFreshness
 float ABP_PlayerCharacter_C::M_GetTmpFreshness() const {
-	return Read<float>((byte*)this + 6176);
+	return Read<float>((byte*)this + 6224);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetTmpFreshness() {
-	return reinterpret_cast<float*>((byte*)this + 6176);
+	return reinterpret_cast<float*>((byte*)this + 6224);
 }
 void ABP_PlayerCharacter_C::M_SetTmpFreshness(const float& value) {
-	Write((byte*)this + 6176, value);
+	Write((byte*)this + 6224, value);
 }
 // Member Getter and Setter of QuickslotMenuOpen
 // Declaration: bool QuickslotMenuOpen
 bool ABP_PlayerCharacter_C::M_GetQuickslotMenuOpen() const {
-	return Read<bool>((byte*)this + 6180);
+	return Read<bool>((byte*)this + 6228);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetQuickslotMenuOpen() {
-	return reinterpret_cast<bool*>((byte*)this + 6180);
+	return reinterpret_cast<bool*>((byte*)this + 6228);
 }
 void ABP_PlayerCharacter_C::M_SetQuickslotMenuOpen(const bool& value) {
-	Write((byte*)this + 6180, value);
+	Write((byte*)this + 6228, value);
 }
 // Member Getter and Setter of TraderReference
 // Declaration: class ABP_NPC_C* TraderReference
 class ABP_NPC_C* ABP_PlayerCharacter_C::M_GetTraderReference() const {
-	return Read<class ABP_NPC_C*>((byte*)this + 6184);
+	return Read<class ABP_NPC_C*>((byte*)this + 6232);
 }
 class ABP_NPC_C** ABP_PlayerCharacter_C::M_PtrGetTraderReference() {
-	return reinterpret_cast<class ABP_NPC_C**>((byte*)this + 6184);
+	return reinterpret_cast<class ABP_NPC_C**>((byte*)this + 6232);
 }
 void ABP_PlayerCharacter_C::M_SetTraderReference(const class ABP_NPC_C*& value) {
-	Write((byte*)this + 6184, value);
+	Write((byte*)this + 6232, value);
 }
 // Member Getter and Setter of StartingWeapons
 // Declaration: TArray<struct FName> StartingWeapons
 TArray<struct FName> ABP_PlayerCharacter_C::M_GetStartingWeapons() const {
-	return Read<TArray<struct FName>>((byte*)this + 6192);
+	return Read<TArray<struct FName>>((byte*)this + 6240);
 }
 TArray<struct FName>* ABP_PlayerCharacter_C::M_PtrGetStartingWeapons() {
-	return reinterpret_cast<TArray<struct FName>*>((byte*)this + 6192);
+	return reinterpret_cast<TArray<struct FName>*>((byte*)this + 6240);
 }
 void ABP_PlayerCharacter_C::M_SetStartingWeapons(const TArray<struct FName>& value) {
-	Write((byte*)this + 6192, value);
+	Write((byte*)this + 6240, value);
 }
 // Member Getter and Setter of HadOffHandItem
 // Declaration: bool HadOffHandItem
 bool ABP_PlayerCharacter_C::M_GetHadOffHandItem() const {
-	return Read<bool>((byte*)this + 6208);
+	return Read<bool>((byte*)this + 6256);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetHadOffHandItem() {
-	return reinterpret_cast<bool*>((byte*)this + 6208);
+	return reinterpret_cast<bool*>((byte*)this + 6256);
 }
 void ABP_PlayerCharacter_C::M_SetHadOffHandItem(const bool& value) {
-	Write((byte*)this + 6208, value);
+	Write((byte*)this + 6256, value);
 }
 // Member Getter and Setter of HadMainHandItem
 // Declaration: bool HadMainHandItem
 bool ABP_PlayerCharacter_C::M_GetHadMainHandItem() const {
-	return Read<bool>((byte*)this + 6209);
+	return Read<bool>((byte*)this + 6257);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetHadMainHandItem() {
-	return reinterpret_cast<bool*>((byte*)this + 6209);
+	return reinterpret_cast<bool*>((byte*)this + 6257);
 }
 void ABP_PlayerCharacter_C::M_SetHadMainHandItem(const bool& value) {
-	Write((byte*)this + 6209, value);
+	Write((byte*)this + 6257, value);
 }
 // Member Getter and Setter of HadRightTool
 // Declaration: bool HadRightTool
 bool ABP_PlayerCharacter_C::M_GetHadRightTool() const {
-	return Read<bool>((byte*)this + 6210);
+	return Read<bool>((byte*)this + 6258);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetHadRightTool() {
-	return reinterpret_cast<bool*>((byte*)this + 6210);
+	return reinterpret_cast<bool*>((byte*)this + 6258);
 }
 void ABP_PlayerCharacter_C::M_SetHadRightTool(const bool& value) {
-	Write((byte*)this + 6210, value);
+	Write((byte*)this + 6258, value);
 }
 // Member Getter and Setter of PlayerCamera
 // Declaration: bool PlayerCamera
 bool ABP_PlayerCharacter_C::M_GetPlayerCamera() const {
-	return Read<bool>((byte*)this + 6211);
+	return Read<bool>((byte*)this + 6259);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetPlayerCamera() {
-	return reinterpret_cast<bool*>((byte*)this + 6211);
+	return reinterpret_cast<bool*>((byte*)this + 6259);
 }
 void ABP_PlayerCharacter_C::M_SetPlayerCamera(const bool& value) {
-	Write((byte*)this + 6211, value);
+	Write((byte*)this + 6259, value);
 }
 // Member Getter and Setter of ActionCamera
 // Declaration: class ABP_Camera_C* ActionCamera
 class ABP_Camera_C* ABP_PlayerCharacter_C::M_GetActionCamera() const {
-	return Read<class ABP_Camera_C*>((byte*)this + 6216);
+	return Read<class ABP_Camera_C*>((byte*)this + 6264);
 }
 class ABP_Camera_C** ABP_PlayerCharacter_C::M_PtrGetActionCamera() {
-	return reinterpret_cast<class ABP_Camera_C**>((byte*)this + 6216);
+	return reinterpret_cast<class ABP_Camera_C**>((byte*)this + 6264);
 }
 void ABP_PlayerCharacter_C::M_SetActionCamera(const class ABP_Camera_C*& value) {
-	Write((byte*)this + 6216, value);
+	Write((byte*)this + 6264, value);
 }
 // Member Getter and Setter of DefaultViewYawMin
 // Declaration: float DefaultViewYawMin
 float ABP_PlayerCharacter_C::M_GetDefaultViewYawMin() const {
-	return Read<float>((byte*)this + 6224);
+	return Read<float>((byte*)this + 6272);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetDefaultViewYawMin() {
-	return reinterpret_cast<float*>((byte*)this + 6224);
+	return reinterpret_cast<float*>((byte*)this + 6272);
 }
 void ABP_PlayerCharacter_C::M_SetDefaultViewYawMin(const float& value) {
-	Write((byte*)this + 6224, value);
+	Write((byte*)this + 6272, value);
 }
 // Member Getter and Setter of DefaultViewYawMax
 // Declaration: float DefaultViewYawMax
 float ABP_PlayerCharacter_C::M_GetDefaultViewYawMax() const {
-	return Read<float>((byte*)this + 6228);
+	return Read<float>((byte*)this + 6276);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetDefaultViewYawMax() {
-	return reinterpret_cast<float*>((byte*)this + 6228);
+	return reinterpret_cast<float*>((byte*)this + 6276);
 }
 void ABP_PlayerCharacter_C::M_SetDefaultViewYawMax(const float& value) {
-	Write((byte*)this + 6228, value);
+	Write((byte*)this + 6276, value);
 }
 // Member Getter and Setter of DefaultViewPitchMin
 // Declaration: float DefaultViewPitchMin
 float ABP_PlayerCharacter_C::M_GetDefaultViewPitchMin() const {
-	return Read<float>((byte*)this + 6232);
+	return Read<float>((byte*)this + 6280);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetDefaultViewPitchMin() {
-	return reinterpret_cast<float*>((byte*)this + 6232);
+	return reinterpret_cast<float*>((byte*)this + 6280);
 }
 void ABP_PlayerCharacter_C::M_SetDefaultViewPitchMin(const float& value) {
-	Write((byte*)this + 6232, value);
+	Write((byte*)this + 6280, value);
 }
 // Member Getter and Setter of DefaultViewPitchMax
 // Declaration: float DefaultViewPitchMax
 float ABP_PlayerCharacter_C::M_GetDefaultViewPitchMax() const {
-	return Read<float>((byte*)this + 6236);
+	return Read<float>((byte*)this + 6284);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetDefaultViewPitchMax() {
-	return reinterpret_cast<float*>((byte*)this + 6236);
+	return reinterpret_cast<float*>((byte*)this + 6284);
 }
 void ABP_PlayerCharacter_C::M_SetDefaultViewPitchMax(const float& value) {
-	Write((byte*)this + 6236, value);
+	Write((byte*)this + 6284, value);
 }
 // Member Getter and Setter of LimitPlayerCamera
 // Declaration: bool LimitPlayerCamera
 bool ABP_PlayerCharacter_C::M_GetLimitPlayerCamera() const {
-	return Read<bool>((byte*)this + 6240);
+	return Read<bool>((byte*)this + 6288);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetLimitPlayerCamera() {
-	return reinterpret_cast<bool*>((byte*)this + 6240);
+	return reinterpret_cast<bool*>((byte*)this + 6288);
 }
 void ABP_PlayerCharacter_C::M_SetLimitPlayerCamera(const bool& value) {
-	Write((byte*)this + 6240, value);
+	Write((byte*)this + 6288, value);
 }
 // Member Getter and Setter of SplineBuildingRange
 // Declaration: float SplineBuildingRange
 float ABP_PlayerCharacter_C::M_GetSplineBuildingRange() const {
-	return Read<float>((byte*)this + 6244);
+	return Read<float>((byte*)this + 6292);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetSplineBuildingRange() {
-	return reinterpret_cast<float*>((byte*)this + 6244);
+	return reinterpret_cast<float*>((byte*)this + 6292);
 }
 void ABP_PlayerCharacter_C::M_SetSplineBuildingRange(const float& value) {
-	Write((byte*)this + 6244, value);
+	Write((byte*)this + 6292, value);
 }
 // Member Getter and Setter of FurnitureBuildingRange
 // Declaration: float FurnitureBuildingRange
 float ABP_PlayerCharacter_C::M_GetFurnitureBuildingRange() const {
-	return Read<float>((byte*)this + 6248);
+	return Read<float>((byte*)this + 6296);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetFurnitureBuildingRange() {
-	return reinterpret_cast<float*>((byte*)this + 6248);
+	return reinterpret_cast<float*>((byte*)this + 6296);
 }
 void ABP_PlayerCharacter_C::M_SetFurnitureBuildingRange(const float& value) {
-	Write((byte*)this + 6248, value);
+	Write((byte*)this + 6296, value);
 }
 // Member Getter and Setter of IsInteractTimer_
 // Declaration: bool IsInteractTimer_
 bool ABP_PlayerCharacter_C::M_GetIsInteractTimer_() const {
-	return Read<bool>((byte*)this + 6252);
+	return Read<bool>((byte*)this + 6300);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetIsInteractTimer_() {
-	return reinterpret_cast<bool*>((byte*)this + 6252);
+	return reinterpret_cast<bool*>((byte*)this + 6300);
 }
 void ABP_PlayerCharacter_C::M_SetIsInteractTimer_(const bool& value) {
-	Write((byte*)this + 6252, value);
+	Write((byte*)this + 6300, value);
 }
 // Member Getter and Setter of SwapItemOnInteraction
 // Declaration: bool SwapItemOnInteraction
 bool ABP_PlayerCharacter_C::M_GetSwapItemOnInteraction() const {
-	return Read<bool>((byte*)this + 6253);
+	return Read<bool>((byte*)this + 6301);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetSwapItemOnInteraction() {
-	return reinterpret_cast<bool*>((byte*)this + 6253);
+	return reinterpret_cast<bool*>((byte*)this + 6301);
 }
 void ABP_PlayerCharacter_C::M_SetSwapItemOnInteraction(const bool& value) {
-	Write((byte*)this + 6253, value);
+	Write((byte*)this + 6301, value);
 }
 // Member Getter and Setter of TimeRequired
 // Declaration: float TimeRequired
 float ABP_PlayerCharacter_C::M_GetTimeRequired() const {
-	return Read<float>((byte*)this + 6256);
+	return Read<float>((byte*)this + 6304);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetTimeRequired() {
-	return reinterpret_cast<float*>((byte*)this + 6256);
+	return reinterpret_cast<float*>((byte*)this + 6304);
 }
 void ABP_PlayerCharacter_C::M_SetTimeRequired(const float& value) {
-	Write((byte*)this + 6256, value);
+	Write((byte*)this + 6304, value);
 }
 // Member Getter and Setter of tmp_Capacity
 // Declaration: int32_t tmp_Capacity
 int32_t ABP_PlayerCharacter_C::M_Gettmp_Capacity() const {
-	return Read<int32_t>((byte*)this + 6260);
+	return Read<int32_t>((byte*)this + 6308);
 }
 int32_t* ABP_PlayerCharacter_C::M_PtrGettmp_Capacity() {
-	return reinterpret_cast<int32_t*>((byte*)this + 6260);
+	return reinterpret_cast<int32_t*>((byte*)this + 6308);
 }
 void ABP_PlayerCharacter_C::M_Settmp_Capacity(const int32_t& value) {
-	Write((byte*)this + 6260, value);
+	Write((byte*)this + 6308, value);
 }
 // Member Getter and Setter of InputDisabled
 // Declaration: bool InputDisabled
 bool ABP_PlayerCharacter_C::M_GetInputDisabled() const {
-	return Read<bool>((byte*)this + 6264);
+	return Read<bool>((byte*)this + 6312);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetInputDisabled() {
-	return reinterpret_cast<bool*>((byte*)this + 6264);
+	return reinterpret_cast<bool*>((byte*)this + 6312);
 }
 void ABP_PlayerCharacter_C::M_SetInputDisabled(const bool& value) {
-	Write((byte*)this + 6264, value);
+	Write((byte*)this + 6312, value);
 }
 // Member Getter and Setter of ClickBlock
 // Declaration: bool ClickBlock
 bool ABP_PlayerCharacter_C::M_GetClickBlock() const {
-	return Read<bool>((byte*)this + 6265);
+	return Read<bool>((byte*)this + 6313);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetClickBlock() {
-	return reinterpret_cast<bool*>((byte*)this + 6265);
+	return reinterpret_cast<bool*>((byte*)this + 6313);
 }
 void ABP_PlayerCharacter_C::M_SetClickBlock(const bool& value) {
-	Write((byte*)this + 6265, value);
+	Write((byte*)this + 6313, value);
 }
 // Member Getter and Setter of UpBool
 // Declaration: bool UpBool
 bool ABP_PlayerCharacter_C::M_GetUpBool() const {
-	return Read<bool>((byte*)this + 6266);
+	return Read<bool>((byte*)this + 6314);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetUpBool() {
-	return reinterpret_cast<bool*>((byte*)this + 6266);
+	return reinterpret_cast<bool*>((byte*)this + 6314);
 }
 void ABP_PlayerCharacter_C::M_SetUpBool(const bool& value) {
-	Write((byte*)this + 6266, value);
+	Write((byte*)this + 6314, value);
 }
 // Member Getter and Setter of DownBool
 // Declaration: bool DownBool
 bool ABP_PlayerCharacter_C::M_GetDownBool() const {
-	return Read<bool>((byte*)this + 6267);
+	return Read<bool>((byte*)this + 6315);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetDownBool() {
-	return reinterpret_cast<bool*>((byte*)this + 6267);
+	return reinterpret_cast<bool*>((byte*)this + 6315);
 }
 void ABP_PlayerCharacter_C::M_SetDownBool(const bool& value) {
-	Write((byte*)this + 6267, value);
+	Write((byte*)this + 6315, value);
 }
 // Member Getter and Setter of RightBool
 // Declaration: bool RightBool
 bool ABP_PlayerCharacter_C::M_GetRightBool() const {
-	return Read<bool>((byte*)this + 6268);
+	return Read<bool>((byte*)this + 6316);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetRightBool() {
-	return reinterpret_cast<bool*>((byte*)this + 6268);
+	return reinterpret_cast<bool*>((byte*)this + 6316);
 }
 void ABP_PlayerCharacter_C::M_SetRightBool(const bool& value) {
-	Write((byte*)this + 6268, value);
+	Write((byte*)this + 6316, value);
 }
 // Member Getter and Setter of LeftBool
 // Declaration: bool LeftBool
 bool ABP_PlayerCharacter_C::M_GetLeftBool() const {
-	return Read<bool>((byte*)this + 6269);
+	return Read<bool>((byte*)this + 6317);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetLeftBool() {
-	return reinterpret_cast<bool*>((byte*)this + 6269);
+	return reinterpret_cast<bool*>((byte*)this + 6317);
 }
 void ABP_PlayerCharacter_C::M_SetLeftBool(const bool& value) {
-	Write((byte*)this + 6269, value);
+	Write((byte*)this + 6317, value);
 }
 // Member Getter and Setter of NextBool
 // Declaration: bool NextBool
 bool ABP_PlayerCharacter_C::M_GetNextBool() const {
-	return Read<bool>((byte*)this + 6270);
+	return Read<bool>((byte*)this + 6318);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetNextBool() {
-	return reinterpret_cast<bool*>((byte*)this + 6270);
+	return reinterpret_cast<bool*>((byte*)this + 6318);
 }
 void ABP_PlayerCharacter_C::M_SetNextBool(const bool& value) {
-	Write((byte*)this + 6270, value);
+	Write((byte*)this + 6318, value);
 }
 // Member Getter and Setter of PreviousBool
 // Declaration: bool PreviousBool
 bool ABP_PlayerCharacter_C::M_GetPreviousBool() const {
-	return Read<bool>((byte*)this + 6271);
+	return Read<bool>((byte*)this + 6319);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetPreviousBool() {
-	return reinterpret_cast<bool*>((byte*)this + 6271);
+	return reinterpret_cast<bool*>((byte*)this + 6319);
 }
 void ABP_PlayerCharacter_C::M_SetPreviousBool(const bool& value) {
-	Write((byte*)this + 6271, value);
+	Write((byte*)this + 6319, value);
 }
 // Member Getter and Setter of tmp_BuildingTutorialBlockade
 // Declaration: bool tmp_BuildingTutorialBlockade
 bool ABP_PlayerCharacter_C::M_Gettmp_BuildingTutorialBlockade() const {
-	return Read<bool>((byte*)this + 6272);
+	return Read<bool>((byte*)this + 6320);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGettmp_BuildingTutorialBlockade() {
-	return reinterpret_cast<bool*>((byte*)this + 6272);
+	return reinterpret_cast<bool*>((byte*)this + 6320);
 }
 void ABP_PlayerCharacter_C::M_Settmp_BuildingTutorialBlockade(const bool& value) {
-	Write((byte*)this + 6272, value);
+	Write((byte*)this + 6320, value);
 }
 // Member Getter and Setter of HitComponent
 // Declaration: class UPrimitiveComponent* HitComponent
 class UPrimitiveComponent* ABP_PlayerCharacter_C::M_GetHitComponent() const {
-	return Read<class UPrimitiveComponent*>((byte*)this + 6280);
+	return Read<class UPrimitiveComponent*>((byte*)this + 6328);
 }
 class UPrimitiveComponent** ABP_PlayerCharacter_C::M_PtrGetHitComponent() {
-	return reinterpret_cast<class UPrimitiveComponent**>((byte*)this + 6280);
+	return reinterpret_cast<class UPrimitiveComponent**>((byte*)this + 6328);
 }
 void ABP_PlayerCharacter_C::M_SetHitComponent(const class UPrimitiveComponent*& value) {
-	Write((byte*)this + 6280, value);
+	Write((byte*)this + 6328, value);
 }
 // Member Getter and Setter of LastHitComponent
 // Declaration: class UPrimitiveComponent* LastHitComponent
 class UPrimitiveComponent* ABP_PlayerCharacter_C::M_GetLastHitComponent() const {
-	return Read<class UPrimitiveComponent*>((byte*)this + 6288);
+	return Read<class UPrimitiveComponent*>((byte*)this + 6336);
 }
 class UPrimitiveComponent** ABP_PlayerCharacter_C::M_PtrGetLastHitComponent() {
-	return reinterpret_cast<class UPrimitiveComponent**>((byte*)this + 6288);
+	return reinterpret_cast<class UPrimitiveComponent**>((byte*)this + 6336);
 }
 void ABP_PlayerCharacter_C::M_SetLastHitComponent(const class UPrimitiveComponent*& value) {
-	Write((byte*)this + 6288, value);
+	Write((byte*)this + 6336, value);
 }
 // Member Getter and Setter of Tmp_HP
 // Declaration: float Tmp_HP
 float ABP_PlayerCharacter_C::M_GetTmp_HP() const {
-	return Read<float>((byte*)this + 6296);
+	return Read<float>((byte*)this + 6344);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetTmp_HP() {
-	return reinterpret_cast<float*>((byte*)this + 6296);
+	return reinterpret_cast<float*>((byte*)this + 6344);
 }
 void ABP_PlayerCharacter_C::M_SetTmp_HP(const float& value) {
-	Write((byte*)this + 6296, value);
+	Write((byte*)this + 6344, value);
 }
 // Member Getter and Setter of BlockModificationMenuMovement
 // Declaration: bool BlockModificationMenuMovement
 bool ABP_PlayerCharacter_C::M_GetBlockModificationMenuMovement() const {
-	return Read<bool>((byte*)this + 6300);
+	return Read<bool>((byte*)this + 6348);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetBlockModificationMenuMovement() {
-	return reinterpret_cast<bool*>((byte*)this + 6300);
+	return reinterpret_cast<bool*>((byte*)this + 6348);
 }
 void ABP_PlayerCharacter_C::M_SetBlockModificationMenuMovement(const bool& value) {
-	Write((byte*)this + 6300, value);
+	Write((byte*)this + 6348, value);
 }
 // Member Getter and Setter of Tmp_Max_HP
 // Declaration: float Tmp_Max_HP
 float ABP_PlayerCharacter_C::M_GetTmp_Max_HP() const {
-	return Read<float>((byte*)this + 6304);
+	return Read<float>((byte*)this + 6352);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetTmp_Max_HP() {
-	return reinterpret_cast<float*>((byte*)this + 6304);
+	return reinterpret_cast<float*>((byte*)this + 6352);
 }
 void ABP_PlayerCharacter_C::M_SetTmp_Max_HP(const float& value) {
-	Write((byte*)this + 6304, value);
+	Write((byte*)this + 6352, value);
 }
 // Member Getter and Setter of OnStartHitReference
 // Declaration: struct FHitResult OnStartHitReference
 struct FHitResult ABP_PlayerCharacter_C::M_GetOnStartHitReference() const {
-	return Read<struct FHitResult>((byte*)this + 6308);
+	return Read<struct FHitResult>((byte*)this + 6356);
 }
 struct FHitResult* ABP_PlayerCharacter_C::M_PtrGetOnStartHitReference() {
-	return reinterpret_cast<struct FHitResult*>((byte*)this + 6308);
+	return reinterpret_cast<struct FHitResult*>((byte*)this + 6356);
 }
 void ABP_PlayerCharacter_C::M_SetOnStartHitReference(const struct FHitResult& value) {
-	Write((byte*)this + 6308, value);
+	Write((byte*)this + 6356, value);
 }
 // Member Getter and Setter of TimerPickup
 // Declaration: bool TimerPickup
 bool ABP_PlayerCharacter_C::M_GetTimerPickup() const {
-	return Read<bool>((byte*)this + 6444);
+	return Read<bool>((byte*)this + 6492);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetTimerPickup() {
-	return reinterpret_cast<bool*>((byte*)this + 6444);
+	return reinterpret_cast<bool*>((byte*)this + 6492);
 }
 void ABP_PlayerCharacter_C::M_SetTimerPickup(const bool& value) {
-	Write((byte*)this + 6444, value);
+	Write((byte*)this + 6492, value);
 }
 // Member Getter and Setter of SpawnedHeldItem
 // Declaration: TAssetPtr<class FSpawnedHeldItem__DelegateSignature> SpawnedHeldItem
 TAssetPtr<class FSpawnedHeldItem__DelegateSignature> ABP_PlayerCharacter_C::M_GetSpawnedHeldItem() const {
-	return Read<TAssetPtr<class FSpawnedHeldItem__DelegateSignature>>((byte*)this + 6448);
+	return Read<TAssetPtr<class FSpawnedHeldItem__DelegateSignature>>((byte*)this + 6496);
 }
 TAssetPtr<class FSpawnedHeldItem__DelegateSignature>* ABP_PlayerCharacter_C::M_PtrGetSpawnedHeldItem() {
-	return reinterpret_cast<TAssetPtr<class FSpawnedHeldItem__DelegateSignature>*>((byte*)this + 6448);
+	return reinterpret_cast<TAssetPtr<class FSpawnedHeldItem__DelegateSignature>*>((byte*)this + 6496);
 }
 void ABP_PlayerCharacter_C::M_SetSpawnedHeldItem(const TAssetPtr<class FSpawnedHeldItem__DelegateSignature>& value) {
-	Write((byte*)this + 6448, value);
+	Write((byte*)this + 6496, value);
 }
 // Member Getter and Setter of DespawnedHeldItem
 // Declaration: TAssetPtr<class FDespawnedHeldItem__DelegateSignature> DespawnedHeldItem
 TAssetPtr<class FDespawnedHeldItem__DelegateSignature> ABP_PlayerCharacter_C::M_GetDespawnedHeldItem() const {
-	return Read<TAssetPtr<class FDespawnedHeldItem__DelegateSignature>>((byte*)this + 6464);
+	return Read<TAssetPtr<class FDespawnedHeldItem__DelegateSignature>>((byte*)this + 6512);
 }
 TAssetPtr<class FDespawnedHeldItem__DelegateSignature>* ABP_PlayerCharacter_C::M_PtrGetDespawnedHeldItem() {
-	return reinterpret_cast<TAssetPtr<class FDespawnedHeldItem__DelegateSignature>*>((byte*)this + 6464);
+	return reinterpret_cast<TAssetPtr<class FDespawnedHeldItem__DelegateSignature>*>((byte*)this + 6512);
 }
 void ABP_PlayerCharacter_C::M_SetDespawnedHeldItem(const TAssetPtr<class FDespawnedHeldItem__DelegateSignature>& value) {
-	Write((byte*)this + 6464, value);
+	Write((byte*)this + 6512, value);
 }
 // Member Getter and Setter of SpawnedOffHandItem
 // Declaration: TAssetPtr<class FSpawnedOffHandItem__DelegateSignature> SpawnedOffHandItem
 TAssetPtr<class FSpawnedOffHandItem__DelegateSignature> ABP_PlayerCharacter_C::M_GetSpawnedOffHandItem() const {
-	return Read<TAssetPtr<class FSpawnedOffHandItem__DelegateSignature>>((byte*)this + 6480);
+	return Read<TAssetPtr<class FSpawnedOffHandItem__DelegateSignature>>((byte*)this + 6528);
 }
 TAssetPtr<class FSpawnedOffHandItem__DelegateSignature>* ABP_PlayerCharacter_C::M_PtrGetSpawnedOffHandItem() {
-	return reinterpret_cast<TAssetPtr<class FSpawnedOffHandItem__DelegateSignature>*>((byte*)this + 6480);
+	return reinterpret_cast<TAssetPtr<class FSpawnedOffHandItem__DelegateSignature>*>((byte*)this + 6528);
 }
 void ABP_PlayerCharacter_C::M_SetSpawnedOffHandItem(const TAssetPtr<class FSpawnedOffHandItem__DelegateSignature>& value) {
-	Write((byte*)this + 6480, value);
+	Write((byte*)this + 6528, value);
 }
 // Member Getter and Setter of DespawnedOffHandItem
 // Declaration: TAssetPtr<class FDespawnedOffHandItem__DelegateSignature> DespawnedOffHandItem
 TAssetPtr<class FDespawnedOffHandItem__DelegateSignature> ABP_PlayerCharacter_C::M_GetDespawnedOffHandItem() const {
-	return Read<TAssetPtr<class FDespawnedOffHandItem__DelegateSignature>>((byte*)this + 6496);
+	return Read<TAssetPtr<class FDespawnedOffHandItem__DelegateSignature>>((byte*)this + 6544);
 }
 TAssetPtr<class FDespawnedOffHandItem__DelegateSignature>* ABP_PlayerCharacter_C::M_PtrGetDespawnedOffHandItem() {
-	return reinterpret_cast<TAssetPtr<class FDespawnedOffHandItem__DelegateSignature>*>((byte*)this + 6496);
+	return reinterpret_cast<TAssetPtr<class FDespawnedOffHandItem__DelegateSignature>*>((byte*)this + 6544);
 }
 void ABP_PlayerCharacter_C::M_SetDespawnedOffHandItem(const TAssetPtr<class FDespawnedOffHandItem__DelegateSignature>& value) {
-	Write((byte*)this + 6496, value);
+	Write((byte*)this + 6544, value);
 }
 // Member Getter and Setter of SleepMenuOpen
 // Declaration: bool SleepMenuOpen
 bool ABP_PlayerCharacter_C::M_GetSleepMenuOpen() const {
-	return Read<bool>((byte*)this + 6512);
+	return Read<bool>((byte*)this + 6560);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetSleepMenuOpen() {
-	return reinterpret_cast<bool*>((byte*)this + 6512);
+	return reinterpret_cast<bool*>((byte*)this + 6560);
 }
 void ABP_PlayerCharacter_C::M_SetSleepMenuOpen(const bool& value) {
-	Write((byte*)this + 6512, value);
+	Write((byte*)this + 6560, value);
 }
 // Member Getter and Setter of Tmp_Ownership
 // Declaration: TEnumAsByte<E_Ownership> Tmp_Ownership
 TEnumAsByte<E_Ownership> ABP_PlayerCharacter_C::M_GetTmp_Ownership() const {
-	return Read<TEnumAsByte<E_Ownership>>((byte*)this + 6513);
+	return Read<TEnumAsByte<E_Ownership>>((byte*)this + 6561);
 }
 TEnumAsByte<E_Ownership>* ABP_PlayerCharacter_C::M_PtrGetTmp_Ownership() {
-	return reinterpret_cast<TEnumAsByte<E_Ownership>*>((byte*)this + 6513);
+	return reinterpret_cast<TEnumAsByte<E_Ownership>*>((byte*)this + 6561);
 }
 void ABP_PlayerCharacter_C::M_SetTmp_Ownership(const TEnumAsByte<E_Ownership>& value) {
-	Write((byte*)this + 6513, value);
+	Write((byte*)this + 6561, value);
 }
 // Member Getter and Setter of InteractionHitTimer
 // Declaration: struct FTimerHandle InteractionHitTimer
 struct FTimerHandle ABP_PlayerCharacter_C::M_GetInteractionHitTimer() const {
-	return Read<struct FTimerHandle>((byte*)this + 6520);
+	return Read<struct FTimerHandle>((byte*)this + 6568);
 }
 struct FTimerHandle* ABP_PlayerCharacter_C::M_PtrGetInteractionHitTimer() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 6520);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 6568);
 }
 void ABP_PlayerCharacter_C::M_SetInteractionHitTimer(const struct FTimerHandle& value) {
-	Write((byte*)this + 6520, value);
+	Write((byte*)this + 6568, value);
 }
 // Member Getter and Setter of CurrentlyCrafting
 // Declaration: TArray<struct FST_ItemResource> CurrentlyCrafting
 TArray<struct FST_ItemResource> ABP_PlayerCharacter_C::M_GetCurrentlyCrafting() const {
-	return Read<TArray<struct FST_ItemResource>>((byte*)this + 6528);
+	return Read<TArray<struct FST_ItemResource>>((byte*)this + 6576);
 }
 TArray<struct FST_ItemResource>* ABP_PlayerCharacter_C::M_PtrGetCurrentlyCrafting() {
-	return reinterpret_cast<TArray<struct FST_ItemResource>*>((byte*)this + 6528);
+	return reinterpret_cast<TArray<struct FST_ItemResource>*>((byte*)this + 6576);
 }
 void ABP_PlayerCharacter_C::M_SetCurrentlyCrafting(const TArray<struct FST_ItemResource>& value) {
-	Write((byte*)this + 6528, value);
+	Write((byte*)this + 6576, value);
 }
 // Member Getter and Setter of InteractionKeyDown
 // Declaration: bool InteractionKeyDown
 bool ABP_PlayerCharacter_C::M_GetInteractionKeyDown() const {
-	return Read<bool>((byte*)this + 6544);
+	return Read<bool>((byte*)this + 6592);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetInteractionKeyDown() {
-	return reinterpret_cast<bool*>((byte*)this + 6544);
+	return reinterpret_cast<bool*>((byte*)this + 6592);
 }
 void ABP_PlayerCharacter_C::M_SetInteractionKeyDown(const bool& value) {
-	Write((byte*)this + 6544, value);
+	Write((byte*)this + 6592, value);
 }
 // Member Getter and Setter of LastHitLocation
 // Declaration: struct FVector LastHitLocation
 struct FVector ABP_PlayerCharacter_C::M_GetLastHitLocation() const {
-	return Read<struct FVector>((byte*)this + 6548);
+	return Read<struct FVector>((byte*)this + 6596);
 }
 struct FVector* ABP_PlayerCharacter_C::M_PtrGetLastHitLocation() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 6548);
+	return reinterpret_cast<struct FVector*>((byte*)this + 6596);
 }
 void ABP_PlayerCharacter_C::M_SetLastHitLocation(const struct FVector& value) {
-	Write((byte*)this + 6548, value);
+	Write((byte*)this + 6596, value);
 }
 // Member Getter and Setter of TakingOutToolType
 // Declaration: TEnumAsByte<E_Tools> TakingOutToolType
 TEnumAsByte<E_Tools> ABP_PlayerCharacter_C::M_GetTakingOutToolType() const {
-	return Read<TEnumAsByte<E_Tools>>((byte*)this + 6560);
+	return Read<TEnumAsByte<E_Tools>>((byte*)this + 6608);
 }
 TEnumAsByte<E_Tools>* ABP_PlayerCharacter_C::M_PtrGetTakingOutToolType() {
-	return reinterpret_cast<TEnumAsByte<E_Tools>*>((byte*)this + 6560);
+	return reinterpret_cast<TEnumAsByte<E_Tools>*>((byte*)this + 6608);
 }
 void ABP_PlayerCharacter_C::M_SetTakingOutToolType(const TEnumAsByte<E_Tools>& value) {
-	Write((byte*)this + 6560, value);
+	Write((byte*)this + 6608, value);
 }
 // Member Getter and Setter of EquipTorchHandle
 // Declaration: struct FTimerHandle EquipTorchHandle
 struct FTimerHandle ABP_PlayerCharacter_C::M_GetEquipTorchHandle() const {
-	return Read<struct FTimerHandle>((byte*)this + 6568);
+	return Read<struct FTimerHandle>((byte*)this + 6616);
 }
 struct FTimerHandle* ABP_PlayerCharacter_C::M_PtrGetEquipTorchHandle() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 6568);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 6616);
 }
 void ABP_PlayerCharacter_C::M_SetEquipTorchHandle(const struct FTimerHandle& value) {
-	Write((byte*)this + 6568, value);
+	Write((byte*)this + 6616, value);
 }
 // Member Getter and Setter of EquipToolHandle
 // Declaration: struct FTimerHandle EquipToolHandle
 struct FTimerHandle ABP_PlayerCharacter_C::M_GetEquipToolHandle() const {
-	return Read<struct FTimerHandle>((byte*)this + 6576);
+	return Read<struct FTimerHandle>((byte*)this + 6624);
 }
 struct FTimerHandle* ABP_PlayerCharacter_C::M_PtrGetEquipToolHandle() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 6576);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 6624);
 }
 void ABP_PlayerCharacter_C::M_SetEquipToolHandle(const struct FTimerHandle& value) {
-	Write((byte*)this + 6576, value);
+	Write((byte*)this + 6624, value);
 }
 // Member Getter and Setter of UnequipToolHandle
 // Declaration: struct FTimerHandle UnequipToolHandle
 struct FTimerHandle ABP_PlayerCharacter_C::M_GetUnequipToolHandle() const {
-	return Read<struct FTimerHandle>((byte*)this + 6584);
+	return Read<struct FTimerHandle>((byte*)this + 6632);
 }
 struct FTimerHandle* ABP_PlayerCharacter_C::M_PtrGetUnequipToolHandle() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 6584);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 6632);
 }
 void ABP_PlayerCharacter_C::M_SetUnequipToolHandle(const struct FTimerHandle& value) {
-	Write((byte*)this + 6584, value);
+	Write((byte*)this + 6632, value);
 }
 // Member Getter and Setter of LastHitActorInteractionDistance
 // Declaration: float LastHitActorInteractionDistance
 float ABP_PlayerCharacter_C::M_GetLastHitActorInteractionDistance() const {
-	return Read<float>((byte*)this + 6592);
+	return Read<float>((byte*)this + 6640);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetLastHitActorInteractionDistance() {
-	return reinterpret_cast<float*>((byte*)this + 6592);
+	return reinterpret_cast<float*>((byte*)this + 6640);
 }
 void ABP_PlayerCharacter_C::M_SetLastHitActorInteractionDistance(const float& value) {
-	Write((byte*)this + 6592, value);
+	Write((byte*)this + 6640, value);
 }
 // Member Getter and Setter of HolsteredToolType
 // Declaration: TEnumAsByte<E_Tools> HolsteredToolType
 TEnumAsByte<E_Tools> ABP_PlayerCharacter_C::M_GetHolsteredToolType() const {
-	return Read<TEnumAsByte<E_Tools>>((byte*)this + 6596);
+	return Read<TEnumAsByte<E_Tools>>((byte*)this + 6644);
 }
 TEnumAsByte<E_Tools>* ABP_PlayerCharacter_C::M_PtrGetHolsteredToolType() {
-	return reinterpret_cast<TEnumAsByte<E_Tools>*>((byte*)this + 6596);
+	return reinterpret_cast<TEnumAsByte<E_Tools>*>((byte*)this + 6644);
 }
 void ABP_PlayerCharacter_C::M_SetHolsteredToolType(const TEnumAsByte<E_Tools>& value) {
-	Write((byte*)this + 6596, value);
+	Write((byte*)this + 6644, value);
 }
 // Member Getter and Setter of SelectedQuickSlotID
 // Declaration: int32_t SelectedQuickSlotID
 int32_t ABP_PlayerCharacter_C::M_GetSelectedQuickSlotID() const {
-	return Read<int32_t>((byte*)this + 6600);
+	return Read<int32_t>((byte*)this + 6648);
 }
 int32_t* ABP_PlayerCharacter_C::M_PtrGetSelectedQuickSlotID() {
-	return reinterpret_cast<int32_t*>((byte*)this + 6600);
+	return reinterpret_cast<int32_t*>((byte*)this + 6648);
 }
 void ABP_PlayerCharacter_C::M_SetSelectedQuickSlotID(const int32_t& value) {
-	Write((byte*)this + 6600, value);
+	Write((byte*)this + 6648, value);
 }
 // Member Getter and Setter of SelectedQuickSlotItem
 // Declaration: struct FST_ItemDetails SelectedQuickSlotItem
 struct FST_ItemDetails ABP_PlayerCharacter_C::M_GetSelectedQuickSlotItem() const {
-	return Read<struct FST_ItemDetails>((byte*)this + 6608);
+	return Read<struct FST_ItemDetails>((byte*)this + 6656);
 }
 struct FST_ItemDetails* ABP_PlayerCharacter_C::M_PtrGetSelectedQuickSlotItem() {
-	return reinterpret_cast<struct FST_ItemDetails*>((byte*)this + 6608);
+	return reinterpret_cast<struct FST_ItemDetails*>((byte*)this + 6656);
 }
 void ABP_PlayerCharacter_C::M_SetSelectedQuickSlotItem(const struct FST_ItemDetails& value) {
-	Write((byte*)this + 6608, value);
+	Write((byte*)this + 6656, value);
 }
 // Member Getter and Setter of SelectedQuickSlotDrawWeapon
 // Declaration: bool SelectedQuickSlotDrawWeapon
 bool ABP_PlayerCharacter_C::M_GetSelectedQuickSlotDrawWeapon() const {
-	return Read<bool>((byte*)this + 7456);
+	return Read<bool>((byte*)this + 7504);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetSelectedQuickSlotDrawWeapon() {
-	return reinterpret_cast<bool*>((byte*)this + 7456);
+	return reinterpret_cast<bool*>((byte*)this + 7504);
 }
 void ABP_PlayerCharacter_C::M_SetSelectedQuickSlotDrawWeapon(const bool& value) {
-	Write((byte*)this + 7456, value);
+	Write((byte*)this + 7504, value);
 }
 // Member Getter and Setter of EquippedToolsForInteraction
 // Declaration: bool EquippedToolsForInteraction
 bool ABP_PlayerCharacter_C::M_GetEquippedToolsForInteraction() const {
-	return Read<bool>((byte*)this + 7457);
+	return Read<bool>((byte*)this + 7505);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetEquippedToolsForInteraction() {
-	return reinterpret_cast<bool*>((byte*)this + 7457);
+	return reinterpret_cast<bool*>((byte*)this + 7505);
 }
 void ABP_PlayerCharacter_C::M_SetEquippedToolsForInteraction(const bool& value) {
-	Write((byte*)this + 7457, value);
+	Write((byte*)this + 7505, value);
 }
 // Member Getter and Setter of StabilizedRotation
 // Declaration: struct FRotator StabilizedRotation
 struct FRotator ABP_PlayerCharacter_C::M_GetStabilizedRotation() const {
-	return Read<struct FRotator>((byte*)this + 7460);
+	return Read<struct FRotator>((byte*)this + 7508);
 }
 struct FRotator* ABP_PlayerCharacter_C::M_PtrGetStabilizedRotation() {
-	return reinterpret_cast<struct FRotator*>((byte*)this + 7460);
+	return reinterpret_cast<struct FRotator*>((byte*)this + 7508);
 }
 void ABP_PlayerCharacter_C::M_SetStabilizedRotation(const struct FRotator& value) {
-	Write((byte*)this + 7460, value);
+	Write((byte*)this + 7508, value);
 }
 // Member Getter and Setter of PreviousControllerRotation
 // Declaration: struct FRotator PreviousControllerRotation
 struct FRotator ABP_PlayerCharacter_C::M_GetPreviousControllerRotation() const {
-	return Read<struct FRotator>((byte*)this + 7472);
+	return Read<struct FRotator>((byte*)this + 7520);
 }
 struct FRotator* ABP_PlayerCharacter_C::M_PtrGetPreviousControllerRotation() {
-	return reinterpret_cast<struct FRotator*>((byte*)this + 7472);
+	return reinterpret_cast<struct FRotator*>((byte*)this + 7520);
 }
 void ABP_PlayerCharacter_C::M_SetPreviousControllerRotation(const struct FRotator& value) {
-	Write((byte*)this + 7472, value);
+	Write((byte*)this + 7520, value);
 }
 // Member Getter and Setter of PreviousTargetRotation
 // Declaration: struct FRotator PreviousTargetRotation
 struct FRotator ABP_PlayerCharacter_C::M_GetPreviousTargetRotation() const {
-	return Read<struct FRotator>((byte*)this + 7484);
+	return Read<struct FRotator>((byte*)this + 7532);
 }
 struct FRotator* ABP_PlayerCharacter_C::M_PtrGetPreviousTargetRotation() {
-	return reinterpret_cast<struct FRotator*>((byte*)this + 7484);
+	return reinterpret_cast<struct FRotator*>((byte*)this + 7532);
 }
 void ABP_PlayerCharacter_C::M_SetPreviousTargetRotation(const struct FRotator& value) {
-	Write((byte*)this + 7484, value);
+	Write((byte*)this + 7532, value);
 }
 // Member Getter and Setter of Heir_Temp
 // Declaration: class ABP_BaseCharacter_C* Heir_Temp
 class ABP_BaseCharacter_C* ABP_PlayerCharacter_C::M_GetHeir_Temp() const {
-	return Read<class ABP_BaseCharacter_C*>((byte*)this + 7496);
+	return Read<class ABP_BaseCharacter_C*>((byte*)this + 7544);
 }
 class ABP_BaseCharacter_C** ABP_PlayerCharacter_C::M_PtrGetHeir_Temp() {
-	return reinterpret_cast<class ABP_BaseCharacter_C**>((byte*)this + 7496);
+	return reinterpret_cast<class ABP_BaseCharacter_C**>((byte*)this + 7544);
 }
 void ABP_PlayerCharacter_C::M_SetHeir_Temp(const class ABP_BaseCharacter_C*& value) {
-	Write((byte*)this + 7496, value);
+	Write((byte*)this + 7544, value);
 }
 // Member Getter and Setter of Headbobbing
 // Declaration: bool Headbobbing
 bool ABP_PlayerCharacter_C::M_GetHeadbobbing() const {
-	return Read<bool>((byte*)this + 7504);
+	return Read<bool>((byte*)this + 7552);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetHeadbobbing() {
-	return reinterpret_cast<bool*>((byte*)this + 7504);
+	return reinterpret_cast<bool*>((byte*)this + 7552);
 }
 void ABP_PlayerCharacter_C::M_SetHeadbobbing(const bool& value) {
-	Write((byte*)this + 7504, value);
+	Write((byte*)this + 7552, value);
 }
 // Member Getter and Setter of TimedInteractionHandle
 // Declaration: struct FTimerHandle TimedInteractionHandle
 struct FTimerHandle ABP_PlayerCharacter_C::M_GetTimedInteractionHandle() const {
-	return Read<struct FTimerHandle>((byte*)this + 7512);
+	return Read<struct FTimerHandle>((byte*)this + 7560);
 }
 struct FTimerHandle* ABP_PlayerCharacter_C::M_PtrGetTimedInteractionHandle() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 7512);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 7560);
 }
 void ABP_PlayerCharacter_C::M_SetTimedInteractionHandle(const struct FTimerHandle& value) {
-	Write((byte*)this + 7512, value);
+	Write((byte*)this + 7560, value);
 }
 // Member Getter and Setter of PressedKey
 // Declaration: struct FKey PressedKey
 struct FKey ABP_PlayerCharacter_C::M_GetPressedKey() const {
-	return Read<struct FKey>((byte*)this + 7520);
+	return Read<struct FKey>((byte*)this + 7568);
 }
 struct FKey* ABP_PlayerCharacter_C::M_PtrGetPressedKey() {
-	return reinterpret_cast<struct FKey*>((byte*)this + 7520);
+	return reinterpret_cast<struct FKey*>((byte*)this + 7568);
 }
 void ABP_PlayerCharacter_C::M_SetPressedKey(const struct FKey& value) {
-	Write((byte*)this + 7520, value);
+	Write((byte*)this + 7568, value);
 }
 // Member Getter and Setter of CameraTargets
 // Declaration: struct FST_Camera_Targets CameraTargets
 struct FST_Camera_Targets ABP_PlayerCharacter_C::M_GetCameraTargets() const {
-	return Read<struct FST_Camera_Targets>((byte*)this + 7544);
+	return Read<struct FST_Camera_Targets>((byte*)this + 7592);
 }
 struct FST_Camera_Targets* ABP_PlayerCharacter_C::M_PtrGetCameraTargets() {
-	return reinterpret_cast<struct FST_Camera_Targets*>((byte*)this + 7544);
+	return reinterpret_cast<struct FST_Camera_Targets*>((byte*)this + 7592);
 }
 void ABP_PlayerCharacter_C::M_SetCameraTargets(const struct FST_Camera_Targets& value) {
-	Write((byte*)this + 7544, value);
+	Write((byte*)this + 7592, value);
 }
 // Member Getter and Setter of FirstPersonCameraSocket
 // Declaration: struct FName FirstPersonCameraSocket
 struct FName ABP_PlayerCharacter_C::M_GetFirstPersonCameraSocket() const {
-	return Read<struct FName>((byte*)this + 7764);
+	return Read<struct FName>((byte*)this + 7812);
 }
 struct FName* ABP_PlayerCharacter_C::M_PtrGetFirstPersonCameraSocket() {
-	return reinterpret_cast<struct FName*>((byte*)this + 7764);
+	return reinterpret_cast<struct FName*>((byte*)this + 7812);
 }
 void ABP_PlayerCharacter_C::M_SetFirstPersonCameraSocket(const struct FName& value) {
-	Write((byte*)this + 7764, value);
+	Write((byte*)this + 7812, value);
 }
 // Member Getter and Setter of CurrentCameraSettings
 // Declaration: struct FST_CameraSettings CurrentCameraSettings
 struct FST_CameraSettings ABP_PlayerCharacter_C::M_GetCurrentCameraSettings() const {
-	return Read<struct FST_CameraSettings>((byte*)this + 7772);
+	return Read<struct FST_CameraSettings>((byte*)this + 7820);
 }
 struct FST_CameraSettings* ABP_PlayerCharacter_C::M_PtrGetCurrentCameraSettings() {
-	return reinterpret_cast<struct FST_CameraSettings*>((byte*)this + 7772);
+	return reinterpret_cast<struct FST_CameraSettings*>((byte*)this + 7820);
 }
 void ABP_PlayerCharacter_C::M_SetCurrentCameraSettings(const struct FST_CameraSettings& value) {
-	Write((byte*)this + 7772, value);
+	Write((byte*)this + 7820, value);
 }
 // Member Getter and Setter of CameraLerpCurve
 // Declaration: class UCurveFloat* CameraLerpCurve
 class UCurveFloat* ABP_PlayerCharacter_C::M_GetCameraLerpCurve() const {
-	return Read<class UCurveFloat*>((byte*)this + 7792);
+	return Read<class UCurveFloat*>((byte*)this + 7840);
 }
 class UCurveFloat** ABP_PlayerCharacter_C::M_PtrGetCameraLerpCurve() {
-	return reinterpret_cast<class UCurveFloat**>((byte*)this + 7792);
+	return reinterpret_cast<class UCurveFloat**>((byte*)this + 7840);
 }
 void ABP_PlayerCharacter_C::M_SetCameraLerpCurve(const class UCurveFloat*& value) {
-	Write((byte*)this + 7792, value);
+	Write((byte*)this + 7840, value);
 }
 // Member Getter and Setter of RightShoulder
 // Declaration: bool RightShoulder
 bool ABP_PlayerCharacter_C::M_GetRightShoulder() const {
-	return Read<bool>((byte*)this + 7800);
+	return Read<bool>((byte*)this + 7848);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetRightShoulder() {
-	return reinterpret_cast<bool*>((byte*)this + 7800);
+	return reinterpret_cast<bool*>((byte*)this + 7848);
 }
 void ABP_PlayerCharacter_C::M_SetRightShoulder(const bool& value) {
-	Write((byte*)this + 7800, value);
+	Write((byte*)this + 7848, value);
 }
 // Member Getter and Setter of TimerHitActor
 // Declaration: class AActor* TimerHitActor
 class AActor* ABP_PlayerCharacter_C::M_GetTimerHitActor() const {
-	return Read<class AActor*>((byte*)this + 7808);
+	return Read<class AActor*>((byte*)this + 7856);
 }
 class AActor** ABP_PlayerCharacter_C::M_PtrGetTimerHitActor() {
-	return reinterpret_cast<class AActor**>((byte*)this + 7808);
+	return reinterpret_cast<class AActor**>((byte*)this + 7856);
 }
 void ABP_PlayerCharacter_C::M_SetTimerHitActor(const class AActor*& value) {
-	Write((byte*)this + 7808, value);
+	Write((byte*)this + 7856, value);
 }
 // Member Getter and Setter of ForwardAxisInput
 // Declaration: float ForwardAxisInput
 float ABP_PlayerCharacter_C::M_GetForwardAxisInput() const {
-	return Read<float>((byte*)this + 7816);
+	return Read<float>((byte*)this + 7864);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetForwardAxisInput() {
-	return reinterpret_cast<float*>((byte*)this + 7816);
+	return reinterpret_cast<float*>((byte*)this + 7864);
 }
 void ABP_PlayerCharacter_C::M_SetForwardAxisInput(const float& value) {
-	Write((byte*)this + 7816, value);
+	Write((byte*)this + 7864, value);
 }
 // Member Getter and Setter of RightAxisInput
 // Declaration: float RightAxisInput
 float ABP_PlayerCharacter_C::M_GetRightAxisInput() const {
-	return Read<float>((byte*)this + 7820);
+	return Read<float>((byte*)this + 7868);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetRightAxisInput() {
-	return reinterpret_cast<float*>((byte*)this + 7820);
+	return reinterpret_cast<float*>((byte*)this + 7868);
 }
 void ABP_PlayerCharacter_C::M_SetRightAxisInput(const float& value) {
-	Write((byte*)this + 7820, value);
+	Write((byte*)this + 7868, value);
 }
 // Member Getter and Setter of Interacted_Furniture
 // Declaration: class ABP_MasterFurniture_C* Interacted_Furniture
 class ABP_MasterFurniture_C* ABP_PlayerCharacter_C::M_GetInteracted_Furniture() const {
-	return Read<class ABP_MasterFurniture_C*>((byte*)this + 7824);
+	return Read<class ABP_MasterFurniture_C*>((byte*)this + 7872);
 }
 class ABP_MasterFurniture_C** ABP_PlayerCharacter_C::M_PtrGetInteracted_Furniture() {
-	return reinterpret_cast<class ABP_MasterFurniture_C**>((byte*)this + 7824);
+	return reinterpret_cast<class ABP_MasterFurniture_C**>((byte*)this + 7872);
 }
 void ABP_PlayerCharacter_C::M_SetInteracted_Furniture(const class ABP_MasterFurniture_C*& value) {
-	Write((byte*)this + 7824, value);
+	Write((byte*)this + 7872, value);
 }
 // Member Getter and Setter of MountCameraRotation
 // Declaration: struct FRotator MountCameraRotation
 struct FRotator ABP_PlayerCharacter_C::M_GetMountCameraRotation() const {
-	return Read<struct FRotator>((byte*)this + 7832);
+	return Read<struct FRotator>((byte*)this + 7880);
 }
 struct FRotator* ABP_PlayerCharacter_C::M_PtrGetMountCameraRotation() {
-	return reinterpret_cast<struct FRotator*>((byte*)this + 7832);
+	return reinterpret_cast<struct FRotator*>((byte*)this + 7880);
 }
 void ABP_PlayerCharacter_C::M_SetMountCameraRotation(const struct FRotator& value) {
-	Write((byte*)this + 7832, value);
+	Write((byte*)this + 7880, value);
 }
 // Member Getter and Setter of CameraShakes
 // Declaration: bool CameraShakes
 bool ABP_PlayerCharacter_C::M_GetCameraShakes() const {
-	return Read<bool>((byte*)this + 7844);
+	return Read<bool>((byte*)this + 7892);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetCameraShakes() {
-	return reinterpret_cast<bool*>((byte*)this + 7844);
+	return reinterpret_cast<bool*>((byte*)this + 7892);
 }
 void ABP_PlayerCharacter_C::M_SetCameraShakes(const bool& value) {
-	Write((byte*)this + 7844, value);
+	Write((byte*)this + 7892, value);
 }
 // Member Getter and Setter of Breathing
 // Declaration: bool Breathing
 bool ABP_PlayerCharacter_C::M_GetBreathing() const {
-	return Read<bool>((byte*)this + 7845);
+	return Read<bool>((byte*)this + 7893);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetBreathing() {
-	return reinterpret_cast<bool*>((byte*)this + 7845);
+	return reinterpret_cast<bool*>((byte*)this + 7893);
 }
 void ABP_PlayerCharacter_C::M_SetBreathing(const bool& value) {
-	Write((byte*)this + 7845, value);
+	Write((byte*)this + 7893, value);
 }
 // Member Getter and Setter of isMounting
 // Declaration: bool isMounting
 bool ABP_PlayerCharacter_C::M_GetisMounting() const {
-	return Read<bool>((byte*)this + 7846);
+	return Read<bool>((byte*)this + 7894);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetisMounting() {
-	return reinterpret_cast<bool*>((byte*)this + 7846);
+	return reinterpret_cast<bool*>((byte*)this + 7894);
 }
 void ABP_PlayerCharacter_C::M_SetisMounting(const bool& value) {
-	Write((byte*)this + 7846, value);
+	Write((byte*)this + 7894, value);
 }
 // Member Getter and Setter of ThirdPersonMinDistance
 // Declaration: float ThirdPersonMinDistance
 float ABP_PlayerCharacter_C::M_GetThirdPersonMinDistance() const {
-	return Read<float>((byte*)this + 7848);
+	return Read<float>((byte*)this + 7896);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetThirdPersonMinDistance() {
-	return reinterpret_cast<float*>((byte*)this + 7848);
+	return reinterpret_cast<float*>((byte*)this + 7896);
 }
 void ABP_PlayerCharacter_C::M_SetThirdPersonMinDistance(const float& value) {
-	Write((byte*)this + 7848, value);
+	Write((byte*)this + 7896, value);
 }
 // Member Getter and Setter of ThirdPersonMaxDistance
 // Declaration: float ThirdPersonMaxDistance
 float ABP_PlayerCharacter_C::M_GetThirdPersonMaxDistance() const {
-	return Read<float>((byte*)this + 7852);
+	return Read<float>((byte*)this + 7900);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetThirdPersonMaxDistance() {
-	return reinterpret_cast<float*>((byte*)this + 7852);
+	return reinterpret_cast<float*>((byte*)this + 7900);
 }
 void ABP_PlayerCharacter_C::M_SetThirdPersonMaxDistance(const float& value) {
-	Write((byte*)this + 7852, value);
+	Write((byte*)this + 7900, value);
 }
 // Member Getter and Setter of TP_CameraDistance_Temp
 // Declaration: float TP_CameraDistance_Temp
 float ABP_PlayerCharacter_C::M_GetTP_CameraDistance_Temp() const {
-	return Read<float>((byte*)this + 7856);
+	return Read<float>((byte*)this + 7904);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetTP_CameraDistance_Temp() {
-	return reinterpret_cast<float*>((byte*)this + 7856);
+	return reinterpret_cast<float*>((byte*)this + 7904);
 }
 void ABP_PlayerCharacter_C::M_SetTP_CameraDistance_Temp(const float& value) {
-	Write((byte*)this + 7856, value);
+	Write((byte*)this + 7904, value);
 }
 // Member Getter and Setter of PreviousViewmode
 // Declaration: TEnumAsByte<E_ViewMode> PreviousViewmode
 TEnumAsByte<E_ViewMode> ABP_PlayerCharacter_C::M_GetPreviousViewmode() const {
-	return Read<TEnumAsByte<E_ViewMode>>((byte*)this + 7860);
+	return Read<TEnumAsByte<E_ViewMode>>((byte*)this + 7908);
 }
 TEnumAsByte<E_ViewMode>* ABP_PlayerCharacter_C::M_PtrGetPreviousViewmode() {
-	return reinterpret_cast<TEnumAsByte<E_ViewMode>*>((byte*)this + 7860);
+	return reinterpret_cast<TEnumAsByte<E_ViewMode>*>((byte*)this + 7908);
 }
 void ABP_PlayerCharacter_C::M_SetPreviousViewmode(const TEnumAsByte<E_ViewMode>& value) {
-	Write((byte*)this + 7860, value);
+	Write((byte*)this + 7908, value);
 }
 // Member Getter and Setter of ZoomCounter
 // Declaration: int32_t ZoomCounter
 int32_t ABP_PlayerCharacter_C::M_GetZoomCounter() const {
-	return Read<int32_t>((byte*)this + 7864);
+	return Read<int32_t>((byte*)this + 7912);
 }
 int32_t* ABP_PlayerCharacter_C::M_PtrGetZoomCounter() {
-	return reinterpret_cast<int32_t*>((byte*)this + 7864);
+	return reinterpret_cast<int32_t*>((byte*)this + 7912);
 }
 void ABP_PlayerCharacter_C::M_SetZoomCounter(const int32_t& value) {
-	Write((byte*)this + 7864, value);
+	Write((byte*)this + 7912, value);
 }
 // Member Getter and Setter of InteractedSlotIndex
 // Declaration: int32_t InteractedSlotIndex
 int32_t ABP_PlayerCharacter_C::M_GetInteractedSlotIndex() const {
-	return Read<int32_t>((byte*)this + 7868);
+	return Read<int32_t>((byte*)this + 7916);
 }
 int32_t* ABP_PlayerCharacter_C::M_PtrGetInteractedSlotIndex() {
-	return reinterpret_cast<int32_t*>((byte*)this + 7868);
+	return reinterpret_cast<int32_t*>((byte*)this + 7916);
 }
 void ABP_PlayerCharacter_C::M_SetInteractedSlotIndex(const int32_t& value) {
-	Write((byte*)this + 7868, value);
+	Write((byte*)this + 7916, value);
 }
 // Member Getter and Setter of RotatingObjectMode
 // Declaration: bool RotatingObjectMode
 bool ABP_PlayerCharacter_C::M_GetRotatingObjectMode() const {
-	return Read<bool>((byte*)this + 7872);
+	return Read<bool>((byte*)this + 7920);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetRotatingObjectMode() {
-	return reinterpret_cast<bool*>((byte*)this + 7872);
+	return reinterpret_cast<bool*>((byte*)this + 7920);
 }
 void ABP_PlayerCharacter_C::M_SetRotatingObjectMode(const bool& value) {
-	Write((byte*)this + 7872, value);
+	Write((byte*)this + 7920, value);
 }
 // Member Getter and Setter of FlowerpotMenuOpen
 // Declaration: bool FlowerpotMenuOpen
 bool ABP_PlayerCharacter_C::M_GetFlowerpotMenuOpen() const {
-	return Read<bool>((byte*)this + 7873);
+	return Read<bool>((byte*)this + 7921);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetFlowerpotMenuOpen() {
-	return reinterpret_cast<bool*>((byte*)this + 7873);
+	return reinterpret_cast<bool*>((byte*)this + 7921);
 }
 void ABP_PlayerCharacter_C::M_SetFlowerpotMenuOpen(const bool& value) {
-	Write((byte*)this + 7873, value);
+	Write((byte*)this + 7921, value);
 }
 // Member Getter and Setter of DecorMenuOpen
 // Declaration: bool DecorMenuOpen
 bool ABP_PlayerCharacter_C::M_GetDecorMenuOpen() const {
-	return Read<bool>((byte*)this + 7874);
+	return Read<bool>((byte*)this + 7922);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetDecorMenuOpen() {
-	return reinterpret_cast<bool*>((byte*)this + 7874);
+	return reinterpret_cast<bool*>((byte*)this + 7922);
 }
 void ABP_PlayerCharacter_C::M_SetDecorMenuOpen(const bool& value) {
-	Write((byte*)this + 7874, value);
+	Write((byte*)this + 7922, value);
 }
 // Member Getter and Setter of WindowMenuOpen
 // Declaration: bool WindowMenuOpen
 bool ABP_PlayerCharacter_C::M_GetWindowMenuOpen() const {
-	return Read<bool>((byte*)this + 7875);
+	return Read<bool>((byte*)this + 7923);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetWindowMenuOpen() {
-	return reinterpret_cast<bool*>((byte*)this + 7875);
+	return reinterpret_cast<bool*>((byte*)this + 7923);
 }
 void ABP_PlayerCharacter_C::M_SetWindowMenuOpen(const bool& value) {
-	Write((byte*)this + 7875, value);
+	Write((byte*)this + 7923, value);
 }
 // Member Getter and Setter of InteractWithObject
 // Declaration: TAssetPtr<class FInteractWithObject__DelegateSignature> InteractWithObject
 TAssetPtr<class FInteractWithObject__DelegateSignature> ABP_PlayerCharacter_C::M_GetInteractWithObject() const {
-	return Read<TAssetPtr<class FInteractWithObject__DelegateSignature>>((byte*)this + 7880);
+	return Read<TAssetPtr<class FInteractWithObject__DelegateSignature>>((byte*)this + 7928);
 }
 TAssetPtr<class FInteractWithObject__DelegateSignature>* ABP_PlayerCharacter_C::M_PtrGetInteractWithObject() {
-	return reinterpret_cast<TAssetPtr<class FInteractWithObject__DelegateSignature>*>((byte*)this + 7880);
+	return reinterpret_cast<TAssetPtr<class FInteractWithObject__DelegateSignature>*>((byte*)this + 7928);
 }
 void ABP_PlayerCharacter_C::M_SetInteractWithObject(const TAssetPtr<class FInteractWithObject__DelegateSignature>& value) {
-	Write((byte*)this + 7880, value);
+	Write((byte*)this + 7928, value);
 }
 // Member Getter and Setter of InteractionDetect_Task
 // Declaration: class UTask_InteractionDetect_C* InteractionDetect_Task
 class UTask_InteractionDetect_C* ABP_PlayerCharacter_C::M_GetInteractionDetect_Task() const {
-	return Read<class UTask_InteractionDetect_C*>((byte*)this + 7896);
+	return Read<class UTask_InteractionDetect_C*>((byte*)this + 7944);
 }
 class UTask_InteractionDetect_C** ABP_PlayerCharacter_C::M_PtrGetInteractionDetect_Task() {
-	return reinterpret_cast<class UTask_InteractionDetect_C**>((byte*)this + 7896);
+	return reinterpret_cast<class UTask_InteractionDetect_C**>((byte*)this + 7944);
 }
 void ABP_PlayerCharacter_C::M_SetInteractionDetect_Task(const class UTask_InteractionDetect_C*& value) {
-	Write((byte*)this + 7896, value);
+	Write((byte*)this + 7944, value);
 }
 // Member Getter and Setter of ShouldCancelInteractTimer
 // Declaration: bool ShouldCancelInteractTimer
 bool ABP_PlayerCharacter_C::M_GetShouldCancelInteractTimer() const {
-	return Read<bool>((byte*)this + 7904);
+	return Read<bool>((byte*)this + 7952);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetShouldCancelInteractTimer() {
-	return reinterpret_cast<bool*>((byte*)this + 7904);
+	return reinterpret_cast<bool*>((byte*)this + 7952);
 }
 void ABP_PlayerCharacter_C::M_SetShouldCancelInteractTimer(const bool& value) {
-	Write((byte*)this + 7904, value);
+	Write((byte*)this + 7952, value);
 }
 // Member Getter and Setter of InteractionDetect_Mutex
 // Declaration: class UMultiTaskMutex* InteractionDetect_Mutex
 class UMultiTaskMutex* ABP_PlayerCharacter_C::M_GetInteractionDetect_Mutex() const {
-	return Read<class UMultiTaskMutex*>((byte*)this + 7912);
+	return Read<class UMultiTaskMutex*>((byte*)this + 7960);
 }
 class UMultiTaskMutex** ABP_PlayerCharacter_C::M_PtrGetInteractionDetect_Mutex() {
-	return reinterpret_cast<class UMultiTaskMutex**>((byte*)this + 7912);
+	return reinterpret_cast<class UMultiTaskMutex**>((byte*)this + 7960);
 }
 void ABP_PlayerCharacter_C::M_SetInteractionDetect_Mutex(const class UMultiTaskMutex*& value) {
-	Write((byte*)this + 7912, value);
+	Write((byte*)this + 7960, value);
 }
 // Member Getter and Setter of PlayerThreadPool
 // Declaration: class UMultiTaskThreadPool* PlayerThreadPool
 class UMultiTaskThreadPool* ABP_PlayerCharacter_C::M_GetPlayerThreadPool() const {
-	return Read<class UMultiTaskThreadPool*>((byte*)this + 7920);
+	return Read<class UMultiTaskThreadPool*>((byte*)this + 7968);
 }
 class UMultiTaskThreadPool** ABP_PlayerCharacter_C::M_PtrGetPlayerThreadPool() {
-	return reinterpret_cast<class UMultiTaskThreadPool**>((byte*)this + 7920);
+	return reinterpret_cast<class UMultiTaskThreadPool**>((byte*)this + 7968);
 }
 void ABP_PlayerCharacter_C::M_SetPlayerThreadPool(const class UMultiTaskThreadPool*& value) {
-	Write((byte*)this + 7920, value);
+	Write((byte*)this + 7968, value);
 }
 // Member Getter and Setter of IsBeingFollowed
 // Declaration: bool IsBeingFollowed
 bool ABP_PlayerCharacter_C::M_GetIsBeingFollowed() const {
-	return Read<bool>((byte*)this + 7928);
+	return Read<bool>((byte*)this + 7976);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetIsBeingFollowed() {
-	return reinterpret_cast<bool*>((byte*)this + 7928);
+	return reinterpret_cast<bool*>((byte*)this + 7976);
 }
 void ABP_PlayerCharacter_C::M_SetIsBeingFollowed(const bool& value) {
-	Write((byte*)this + 7928, value);
+	Write((byte*)this + 7976, value);
 }
 // Member Getter and Setter of FoliageInteractionTimer
 // Declaration: struct FTimerHandle FoliageInteractionTimer
 struct FTimerHandle ABP_PlayerCharacter_C::M_GetFoliageInteractionTimer() const {
-	return Read<struct FTimerHandle>((byte*)this + 7936);
+	return Read<struct FTimerHandle>((byte*)this + 7984);
 }
 struct FTimerHandle* ABP_PlayerCharacter_C::M_PtrGetFoliageInteractionTimer() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 7936);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 7984);
 }
 void ABP_PlayerCharacter_C::M_SetFoliageInteractionTimer(const struct FTimerHandle& value) {
-	Write((byte*)this + 7936, value);
+	Write((byte*)this + 7984, value);
 }
 // Member Getter and Setter of Damage_Voice
 // Declaration: class UAudioComponent* Damage_Voice
 class UAudioComponent* ABP_PlayerCharacter_C::M_GetDamage_Voice() const {
-	return Read<class UAudioComponent*>((byte*)this + 7944);
+	return Read<class UAudioComponent*>((byte*)this + 7992);
 }
 class UAudioComponent** ABP_PlayerCharacter_C::M_PtrGetDamage_Voice() {
-	return reinterpret_cast<class UAudioComponent**>((byte*)this + 7944);
+	return reinterpret_cast<class UAudioComponent**>((byte*)this + 7992);
 }
 void ABP_PlayerCharacter_C::M_SetDamage_Voice(const class UAudioComponent*& value) {
-	Write((byte*)this + 7944, value);
+	Write((byte*)this + 7992, value);
 }
 // Member Getter and Setter of InitialCrouchingSpeed
 // Declaration: float InitialCrouchingSpeed
 float ABP_PlayerCharacter_C::M_GetInitialCrouchingSpeed() const {
-	return Read<float>((byte*)this + 7952);
+	return Read<float>((byte*)this + 8000);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetInitialCrouchingSpeed() {
-	return reinterpret_cast<float*>((byte*)this + 7952);
+	return reinterpret_cast<float*>((byte*)this + 8000);
 }
 void ABP_PlayerCharacter_C::M_SetInitialCrouchingSpeed(const float& value) {
-	Write((byte*)this + 7952, value);
+	Write((byte*)this + 8000, value);
 }
 // Member Getter and Setter of InteractionRepeatTimer
 // Declaration: struct FTimerHandle InteractionRepeatTimer
 struct FTimerHandle ABP_PlayerCharacter_C::M_GetInteractionRepeatTimer() const {
-	return Read<struct FTimerHandle>((byte*)this + 7960);
+	return Read<struct FTimerHandle>((byte*)this + 8008);
 }
 struct FTimerHandle* ABP_PlayerCharacter_C::M_PtrGetInteractionRepeatTimer() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 7960);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 8008);
 }
 void ABP_PlayerCharacter_C::M_SetInteractionRepeatTimer(const struct FTimerHandle& value) {
-	Write((byte*)this + 7960, value);
+	Write((byte*)this + 8008, value);
 }
 // Member Getter and Setter of SkipTimer
 // Declaration: bool SkipTimer
 bool ABP_PlayerCharacter_C::M_GetSkipTimer() const {
-	return Read<bool>((byte*)this + 7968);
+	return Read<bool>((byte*)this + 8016);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetSkipTimer() {
-	return reinterpret_cast<bool*>((byte*)this + 7968);
+	return reinterpret_cast<bool*>((byte*)this + 8016);
 }
 void ABP_PlayerCharacter_C::M_SetSkipTimer(const bool& value) {
-	Write((byte*)this + 7968, value);
+	Write((byte*)this + 8016, value);
 }
 // Member Getter and Setter of RagdollCounter
 // Declaration: int32_t RagdollCounter
 int32_t ABP_PlayerCharacter_C::M_GetRagdollCounter() const {
-	return Read<int32_t>((byte*)this + 7972);
+	return Read<int32_t>((byte*)this + 8020);
 }
 int32_t* ABP_PlayerCharacter_C::M_PtrGetRagdollCounter() {
-	return reinterpret_cast<int32_t*>((byte*)this + 7972);
+	return reinterpret_cast<int32_t*>((byte*)this + 8020);
 }
 void ABP_PlayerCharacter_C::M_SetRagdollCounter(const int32_t& value) {
-	Write((byte*)this + 7972, value);
+	Write((byte*)this + 8020, value);
 }
 // Member Getter and Setter of RagdollStoppedCounter
 // Declaration: int32_t RagdollStoppedCounter
 int32_t ABP_PlayerCharacter_C::M_GetRagdollStoppedCounter() const {
-	return Read<int32_t>((byte*)this + 7976);
+	return Read<int32_t>((byte*)this + 8024);
 }
 int32_t* ABP_PlayerCharacter_C::M_PtrGetRagdollStoppedCounter() {
-	return reinterpret_cast<int32_t*>((byte*)this + 7976);
+	return reinterpret_cast<int32_t*>((byte*)this + 8024);
 }
 void ABP_PlayerCharacter_C::M_SetRagdollStoppedCounter(const int32_t& value) {
-	Write((byte*)this + 7976, value);
+	Write((byte*)this + 8024, value);
 }
 // Member Getter and Setter of WasMountedBeforeRagdoll
 // Declaration: bool WasMountedBeforeRagdoll
 bool ABP_PlayerCharacter_C::M_GetWasMountedBeforeRagdoll() const {
-	return Read<bool>((byte*)this + 7980);
+	return Read<bool>((byte*)this + 8028);
 }
 bool* ABP_PlayerCharacter_C::M_PtrGetWasMountedBeforeRagdoll() {
-	return reinterpret_cast<bool*>((byte*)this + 7980);
+	return reinterpret_cast<bool*>((byte*)this + 8028);
 }
 void ABP_PlayerCharacter_C::M_SetWasMountedBeforeRagdoll(const bool& value) {
-	Write((byte*)this + 7980, value);
+	Write((byte*)this + 8028, value);
 }
 // Member Getter and Setter of MountVelocityBeforeRagdoll
 // Declaration: struct FVector MountVelocityBeforeRagdoll
 struct FVector ABP_PlayerCharacter_C::M_GetMountVelocityBeforeRagdoll() const {
-	return Read<struct FVector>((byte*)this + 7984);
+	return Read<struct FVector>((byte*)this + 8032);
 }
 struct FVector* ABP_PlayerCharacter_C::M_PtrGetMountVelocityBeforeRagdoll() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 7984);
+	return reinterpret_cast<struct FVector*>((byte*)this + 8032);
 }
 void ABP_PlayerCharacter_C::M_SetMountVelocityBeforeRagdoll(const struct FVector& value) {
-	Write((byte*)this + 7984, value);
+	Write((byte*)this + 8032, value);
 }
 // Member Getter and Setter of MountedLocationBeforeRagdoll
 // Declaration: struct FVector MountedLocationBeforeRagdoll
 struct FVector ABP_PlayerCharacter_C::M_GetMountedLocationBeforeRagdoll() const {
-	return Read<struct FVector>((byte*)this + 7996);
+	return Read<struct FVector>((byte*)this + 8044);
 }
 struct FVector* ABP_PlayerCharacter_C::M_PtrGetMountedLocationBeforeRagdoll() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 7996);
+	return reinterpret_cast<struct FVector*>((byte*)this + 8044);
 }
 void ABP_PlayerCharacter_C::M_SetMountedLocationBeforeRagdoll(const struct FVector& value) {
-	Write((byte*)this + 7996, value);
+	Write((byte*)this + 8044, value);
 }
 // Member Getter and Setter of AimAssist_Sensitivity_X
 // Declaration: float AimAssist_Sensitivity_X
 float ABP_PlayerCharacter_C::M_GetAimAssist_Sensitivity_X() const {
-	return Read<float>((byte*)this + 8008);
+	return Read<float>((byte*)this + 8056);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetAimAssist_Sensitivity_X() {
-	return reinterpret_cast<float*>((byte*)this + 8008);
+	return reinterpret_cast<float*>((byte*)this + 8056);
 }
 void ABP_PlayerCharacter_C::M_SetAimAssist_Sensitivity_X(const float& value) {
-	Write((byte*)this + 8008, value);
+	Write((byte*)this + 8056, value);
 }
 // Member Getter and Setter of AimAssist_Sensitivity_Y
 // Declaration: float AimAssist_Sensitivity_Y
 float ABP_PlayerCharacter_C::M_GetAimAssist_Sensitivity_Y() const {
-	return Read<float>((byte*)this + 8012);
+	return Read<float>((byte*)this + 8060);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetAimAssist_Sensitivity_Y() {
-	return reinterpret_cast<float*>((byte*)this + 8012);
+	return reinterpret_cast<float*>((byte*)this + 8060);
 }
 void ABP_PlayerCharacter_C::M_SetAimAssist_Sensitivity_Y(const float& value) {
-	Write((byte*)this + 8012, value);
+	Write((byte*)this + 8060, value);
 }
 // Member Getter and Setter of AimAssistTimerHandle
 // Declaration: struct FTimerHandle AimAssistTimerHandle
 struct FTimerHandle ABP_PlayerCharacter_C::M_GetAimAssistTimerHandle() const {
-	return Read<struct FTimerHandle>((byte*)this + 8016);
+	return Read<struct FTimerHandle>((byte*)this + 8064);
 }
 struct FTimerHandle* ABP_PlayerCharacter_C::M_PtrGetAimAssistTimerHandle() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 8016);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 8064);
 }
 void ABP_PlayerCharacter_C::M_SetAimAssistTimerHandle(const struct FTimerHandle& value) {
-	Write((byte*)this + 8016, value);
+	Write((byte*)this + 8064, value);
 }
 // Member Getter and Setter of UpDownLookAxisInput
 // Declaration: float UpDownLookAxisInput
 float ABP_PlayerCharacter_C::M_GetUpDownLookAxisInput() const {
-	return Read<float>((byte*)this + 8024);
+	return Read<float>((byte*)this + 8072);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetUpDownLookAxisInput() {
-	return reinterpret_cast<float*>((byte*)this + 8024);
+	return reinterpret_cast<float*>((byte*)this + 8072);
 }
 void ABP_PlayerCharacter_C::M_SetUpDownLookAxisInput(const float& value) {
-	Write((byte*)this + 8024, value);
+	Write((byte*)this + 8072, value);
 }
 // Member Getter and Setter of LeftRightLookAxisInput
 // Declaration: float LeftRightLookAxisInput
 float ABP_PlayerCharacter_C::M_GetLeftRightLookAxisInput() const {
-	return Read<float>((byte*)this + 8028);
+	return Read<float>((byte*)this + 8076);
 }
 float* ABP_PlayerCharacter_C::M_PtrGetLeftRightLookAxisInput() {
-	return reinterpret_cast<float*>((byte*)this + 8028);
+	return reinterpret_cast<float*>((byte*)this + 8076);
 }
 void ABP_PlayerCharacter_C::M_SetLeftRightLookAxisInput(const float& value) {
-	Write((byte*)this + 8028, value);
+	Write((byte*)this + 8076, value);
 }
 // Member Getter and Setter of AimAssistLocationRelative
 // Declaration: struct FVector AimAssistLocationRelative
 struct FVector ABP_PlayerCharacter_C::M_GetAimAssistLocationRelative() const {
-	return Read<struct FVector>((byte*)this + 8032);
+	return Read<struct FVector>((byte*)this + 8080);
 }
 struct FVector* ABP_PlayerCharacter_C::M_PtrGetAimAssistLocationRelative() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 8032);
+	return reinterpret_cast<struct FVector*>((byte*)this + 8080);
 }
 void ABP_PlayerCharacter_C::M_SetAimAssistLocationRelative(const struct FVector& value) {
-	Write((byte*)this + 8032, value);
+	Write((byte*)this + 8080, value);
+}
+// Member Getter and Setter of PreviouslyActiveItems
+// Declaration: TArray<class AActor*> PreviouslyActiveItems
+TArray<class AActor*> ABP_PlayerCharacter_C::M_GetPreviouslyActiveItems() const {
+	return Read<TArray<class AActor*>>((byte*)this + 8096);
+}
+TArray<class AActor*>* ABP_PlayerCharacter_C::M_PtrGetPreviouslyActiveItems() {
+	return reinterpret_cast<TArray<class AActor*>*>((byte*)this + 8096);
+}
+void ABP_PlayerCharacter_C::M_SetPreviouslyActiveItems(const TArray<class AActor*>& value) {
+	Write((byte*)this + 8096, value);
 }
 #pragma endregion
 #pragma region Functions
@@ -1721,10 +1732,7 @@ void ABP_PlayerCharacter_C::SpawnedHeldItem__DelegateSignature() {
 	};
 	ABP_PlayerCharacter_C_SpawnedHeldItem__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1739,10 +1747,7 @@ void ABP_PlayerCharacter_C::DespawnedHeldItem__DelegateSignature() {
 	};
 	ABP_PlayerCharacter_C_DespawnedHeldItem__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1757,10 +1762,7 @@ void ABP_PlayerCharacter_C::SpawnedOffHandItem__DelegateSignature() {
 	};
 	ABP_PlayerCharacter_C_SpawnedOffHandItem__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1775,10 +1777,7 @@ void ABP_PlayerCharacter_C::DespawnedOffHandItem__DelegateSignature() {
 	};
 	ABP_PlayerCharacter_C_DespawnedOffHandItem__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1796,10 +1795,7 @@ void ABP_PlayerCharacter_C::InteractWithObject__DelegateSignature(class UObject*
 	ABP_PlayerCharacter_C_InteractWithObject__DelegateSignature_Params params;
 	params.ObjectTypeReference = ObjectTypeReference;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1817,10 +1813,7 @@ void ABP_PlayerCharacter_C::ExecuteUbergraph_BP_PlayerCharacter(int32_t EntryPoi
 	ABP_PlayerCharacter_C_ExecuteUbergraph_BP_PlayerCharacter_Params params;
 	params.EntryPoint = EntryPoint;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1838,10 +1831,7 @@ void ABP_PlayerCharacter_C::UpdateCameraDistance(float AxisValue) {
 	ABP_PlayerCharacter_C_UpdateCameraDistance_Params params;
 	params.AxisValue = AxisValue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1856,10 +1846,7 @@ void ABP_PlayerCharacter_C::IncreaseCounter() {
 	};
 	ABP_PlayerCharacter_C_IncreaseCounter_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1874,10 +1861,7 @@ void ABP_PlayerCharacter_C::ResetCounter() {
 	};
 	ABP_PlayerCharacter_C_ResetCounter_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1898,10 +1882,7 @@ void ABP_PlayerCharacter_C::CameraShake_BPI(class UCameraShakeBase* ShakeClass, 
 	params.ShakeClass = ShakeClass;
 	params.Scale = Scale;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1916,10 +1897,7 @@ void ABP_PlayerCharacter_C::StartingInventory() {
 	};
 	ABP_PlayerCharacter_C_StartingInventory_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1940,10 +1918,7 @@ void ABP_PlayerCharacter_C::SelectQuickSlotWithHolster(int32_t SelectedQuickSlot
 	params.SelectedQuickSlotID = SelectedQuickSlotID;
 	params.DrawWeapon_ = DrawWeapon_;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1958,10 +1933,7 @@ void ABP_PlayerCharacter_C::EquipToolTimer() {
 	};
 	ABP_PlayerCharacter_C_EquipToolTimer_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1976,10 +1948,7 @@ void ABP_PlayerCharacter_C::UnequipToolTimer() {
 	};
 	ABP_PlayerCharacter_C_UnequipToolTimer_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1994,10 +1963,7 @@ void ABP_PlayerCharacter_C::UnequipToEmptySlot() {
 	};
 	ABP_PlayerCharacter_C_UnequipToEmptySlot_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2012,10 +1978,7 @@ void ABP_PlayerCharacter_C::UnequipWithEquipTimer() {
 	};
 	ABP_PlayerCharacter_C_UnequipWithEquipTimer_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2051,10 +2014,7 @@ void ABP_PlayerCharacter_C::StartCameraFadePawn_BPI(float FromAlpha, float ToAlp
 	params.HoldWhenFinished = HoldWhenFinished;
 	params.ReverseOnFinish = ReverseOnFinish;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2069,10 +2029,7 @@ void ABP_PlayerCharacter_C::RagdollTimer() {
 	};
 	ABP_PlayerCharacter_C_RagdollTimer_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2087,10 +2044,37 @@ void ABP_PlayerCharacter_C::CheckCollisionAfterRagdoll() {
 	};
 	ABP_PlayerCharacter_C_CheckCollisionAfterRagdoll_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+}
 
+/////////////////////////////////////////////
+// Function BP_PlayerCharacter.BP_PlayerCharacter_C.ReceiveDestroyed
+// Flags: Event, Public, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_PlayerCharacter_C::ReceiveDestroyed() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.ReceiveDestroyed");
+
+	struct ABP_PlayerCharacter_C_ReceiveDestroyed_Params {
+	};
+	ABP_PlayerCharacter_C_ReceiveDestroyed_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_PlayerCharacter.BP_PlayerCharacter_C.ManageGroundedRotation
+// Flags: Event, Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_PlayerCharacter_C::ManageGroundedRotation() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.ManageGroundedRotation");
+
+	struct ABP_PlayerCharacter_C_ManageGroundedRotation_Params {
+	};
+	ABP_PlayerCharacter_C_ManageGroundedRotation_Params params;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
@@ -2108,10 +2092,7 @@ void ABP_PlayerCharacter_C::UpdateOnTimeChanged(int32_t IteratorNumber) {
 	ABP_PlayerCharacter_C_UpdateOnTimeChanged_Params params;
 	params.IteratorNumber = IteratorNumber;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2141,10 +2122,25 @@ void ABP_PlayerCharacter_C::OnCapsuleComponentHit(class UPrimitiveComponent* Hit
 	params.NormalImpulse = NormalImpulse;
 	params.Hit = Hit;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+}
 
+/////////////////////////////////////////////
+// Function BP_PlayerCharacter.BP_PlayerCharacter_C.ReceiveTick
+// Flags: Event, Public, BlueprintEvent
+// Params:
+// Name: DeltaSeconds	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_PlayerCharacter_C::ReceiveTick(float DeltaSeconds) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.ReceiveTick");
+
+	struct ABP_PlayerCharacter_C_ReceiveTick_Params {
+		float DeltaSeconds;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_PlayerCharacter_C_ReceiveTick_Params params;
+	params.DeltaSeconds = DeltaSeconds;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
@@ -2159,10 +2155,7 @@ void ABP_PlayerCharacter_C::UpdateFoliageInteraction() {
 	};
 	ABP_PlayerCharacter_C_UpdateFoliageInteraction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2177,10 +2170,7 @@ void ABP_PlayerCharacter_C::InitInteraction() {
 	};
 	ABP_PlayerCharacter_C_InitInteraction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2195,10 +2185,7 @@ void ABP_PlayerCharacter_C::StartInteractionDetectionTask() {
 	};
 	ABP_PlayerCharacter_C_StartInteractionDetectionTask_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2216,10 +2203,7 @@ void ABP_PlayerCharacter_C::PrepareForMounting(struct FVector Location) {
 	ABP_PlayerCharacter_C_PrepareForMounting_Params params;
 	params.Location = Location;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2237,10 +2221,7 @@ void ABP_PlayerCharacter_C::CreateDeathScreen(TEnumAsByte<E_DeathType> DeathType
 	ABP_PlayerCharacter_C_CreateDeathScreen_Params params;
 	params.DeathType = DeathType;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2255,10 +2236,7 @@ void ABP_PlayerCharacter_C::OnSeasonChanged_End_Event_1() {
 	};
 	ABP_PlayerCharacter_C_OnSeasonChanged_End_Event_1_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2273,10 +2251,52 @@ void ABP_PlayerCharacter_C::OnLookAtLoopReached() {
 	};
 	ABP_PlayerCharacter_C_OnLookAtLoopReached_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+}
 
+/////////////////////////////////////////////
+// Function BP_PlayerCharacter.BP_PlayerCharacter_C.OnCombatCheck
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_PlayerCharacter_C::OnCombatCheck() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.OnCombatCheck");
+
+	struct ABP_PlayerCharacter_C_OnCombatCheck_Params {
+	};
+	ABP_PlayerCharacter_C_OnCombatCheck_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_PlayerCharacter.BP_PlayerCharacter_C.OnCombatEnded
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_PlayerCharacter_C::OnCombatEnded() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.OnCombatEnded");
+
+	struct ABP_PlayerCharacter_C_OnCombatEnded_Params {
+	};
+	ABP_PlayerCharacter_C_OnCombatEnded_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_PlayerCharacter.BP_PlayerCharacter_C.OnCombatStarted
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_PlayerCharacter_C::OnCombatStarted() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.OnCombatStarted");
+
+	struct ABP_PlayerCharacter_C_OnCombatStarted_Params {
+	};
+	ABP_PlayerCharacter_C_OnCombatStarted_Params params;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
@@ -2294,85 +2314,7 @@ void ABP_PlayerCharacter_C::SetInteractionTimer(float Time) {
 	ABP_PlayerCharacter_C_SetInteractionTimer_Params params;
 	params.Time = Time;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// Function BP_PlayerCharacter.BP_PlayerCharacter_C.Update Camera Event
-// Flags: BlueprintCallable, BlueprintEvent
-// Params:
-// Name: LerpCurve	Type: class UCurveFloat*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::Update_Camera_Event(class UCurveFloat* LerpCurve) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.Update Camera Event");
-
-	struct ABP_PlayerCharacter_C_Update_Camera_Event_Params {
-		class UCurveFloat* LerpCurve;			//Offset: 0 | ElementSize: 8
-	};
-	ABP_PlayerCharacter_C_Update_Camera_Event_Params params;
-	params.LerpCurve = LerpCurve;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// Function BP_PlayerCharacter.BP_PlayerCharacter_C.OnCombatCheck
-// Flags: BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::OnCombatCheck() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.OnCombatCheck");
-
-	struct ABP_PlayerCharacter_C_OnCombatCheck_Params {
-	};
-	ABP_PlayerCharacter_C_OnCombatCheck_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// Function BP_PlayerCharacter.BP_PlayerCharacter_C.OnCombatEnded
-// Flags: BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::OnCombatEnded() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.OnCombatEnded");
-
-	struct ABP_PlayerCharacter_C_OnCombatEnded_Params {
-	};
-	ABP_PlayerCharacter_C_OnCombatEnded_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// Function BP_PlayerCharacter.BP_PlayerCharacter_C.OnCombatStarted
-// Flags: BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::OnCombatStarted() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.OnCombatStarted");
-
-	struct ABP_PlayerCharacter_C_OnCombatStarted_Params {
-	};
-	ABP_PlayerCharacter_C_OnCombatStarted_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2387,10 +2329,7 @@ void ABP_PlayerCharacter_C::BndEvt__BP_StageInteractionComponent_K2Node_Componen
 	};
 	ABP_PlayerCharacter_C_BndEvt__BP_StageInteractionComponent_K2Node_ComponentBoundEvent_0_OnLoopStageFinished__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2405,10 +2344,7 @@ void ABP_PlayerCharacter_C::On_Camera_Fade_Finished() {
 	};
 	ABP_PlayerCharacter_C_On_Camera_Fade_Finished_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2423,10 +2359,7 @@ void ABP_PlayerCharacter_C::StartInteractionTrace() {
 	};
 	ABP_PlayerCharacter_C_StartInteractionTrace_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2441,10 +2374,7 @@ void ABP_PlayerCharacter_C::PressedInput_GameMenu() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_GameMenu_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2459,10 +2389,7 @@ void ABP_PlayerCharacter_C::PressedInput_UI_Cancel() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_UI_Cancel_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2477,10 +2404,7 @@ void ABP_PlayerCharacter_C::PressedInput_UI_Down() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_UI_Down_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2495,10 +2419,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_UI_Down() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_UI_Down_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2513,10 +2434,7 @@ void ABP_PlayerCharacter_C::PressedInput_UI_Up() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_UI_Up_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2531,10 +2449,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_UI_Up() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_UI_Up_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2549,10 +2464,7 @@ void ABP_PlayerCharacter_C::PressedInput_UI_Right() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_UI_Right_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2567,10 +2479,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_UI_Right() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_UI_Right_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2585,10 +2494,7 @@ void ABP_PlayerCharacter_C::PressedInput_UI_Left() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_UI_Left_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2603,10 +2509,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_UI_Left() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_UI_Left_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2621,10 +2524,7 @@ void ABP_PlayerCharacter_C::PressedInput_UI_PreviousSection() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_UI_PreviousSection_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2639,10 +2539,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_UI_PreviousSelection() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_UI_PreviousSelection_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2657,10 +2554,7 @@ void ABP_PlayerCharacter_C::PressedInput_UI_NextSection() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_UI_NextSection_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2675,10 +2569,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_UI_NextSection() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_UI_NextSection_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2693,10 +2584,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_UI_Cancel() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_UI_Cancel_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2711,10 +2599,7 @@ void ABP_PlayerCharacter_C::ConfirmForGamepadRadialMenuNew_Delayed() {
 	};
 	ABP_PlayerCharacter_C_ConfirmForGamepadRadialMenuNew_Delayed_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2732,10 +2617,7 @@ void ABP_PlayerCharacter_C::Right_Axis(float Axis_Value) {
 	ABP_PlayerCharacter_C_Right_Axis_Params params;
 	params.Axis_Value = Axis_Value;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2750,10 +2632,7 @@ void ABP_PlayerCharacter_C::PressedInput_LeftAction() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_LeftAction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2768,10 +2647,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_LeftAction() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_LeftAction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2786,10 +2662,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_RightAction() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_RightAction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2804,10 +2677,7 @@ void ABP_PlayerCharacter_C::PressedInput_RightAction() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_RightAction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2825,10 +2695,7 @@ void ABP_PlayerCharacter_C::MouseWheelAxisChange(float Axis_Value) {
 	ABP_PlayerCharacter_C_MouseWheelAxisChange_Params params;
 	params.Axis_Value = Axis_Value;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2846,10 +2713,7 @@ void ABP_PlayerCharacter_C::Down_Axis(float AxisValue) {
 	ABP_PlayerCharacter_C_Down_Axis_Params params;
 	params.AxisValue = AxisValue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2864,10 +2728,7 @@ void ABP_PlayerCharacter_C::InteractTimerDone() {
 	};
 	ABP_PlayerCharacter_C_InteractTimerDone_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2882,10 +2743,7 @@ void ABP_PlayerCharacter_C::PickingItem() {
 	};
 	ABP_PlayerCharacter_C_PickingItem_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2900,10 +2758,7 @@ void ABP_PlayerCharacter_C::ResetRepeatTimer() {
 	};
 	ABP_PlayerCharacter_C_ResetRepeatTimer_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2918,10 +2773,7 @@ void ABP_PlayerCharacter_C::InteractRepeat() {
 	};
 	ABP_PlayerCharacter_C_InteractRepeat_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2936,10 +2788,7 @@ void ABP_PlayerCharacter_C::GetUp() {
 	};
 	ABP_PlayerCharacter_C_GetUp_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2954,10 +2803,7 @@ void ABP_PlayerCharacter_C::FinishFurnitureInteraction_Released() {
 	};
 	ABP_PlayerCharacter_C_FinishFurnitureInteraction_Released_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2972,10 +2818,7 @@ void ABP_PlayerCharacter_C::FinishFurnitureInteraction_Pressed() {
 	};
 	ABP_PlayerCharacter_C_FinishFurnitureInteraction_Pressed_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2990,10 +2833,7 @@ void ABP_PlayerCharacter_C::TimedInteraction() {
 	};
 	ABP_PlayerCharacter_C_TimedInteraction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3008,10 +2848,7 @@ void ABP_PlayerCharacter_C::PressedInput_RotateGhostLeft() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_RotateGhostLeft_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3026,10 +2863,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_RotateGhostLeft() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_RotateGhostLeft_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3044,10 +2878,7 @@ void ABP_PlayerCharacter_C::EquipTorchTimer() {
 	};
 	ABP_PlayerCharacter_C_EquipTorchTimer_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3062,10 +2893,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_InspectorMode() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_InspectorMode_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3080,10 +2908,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_JumpAction() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_JumpAction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3098,10 +2923,7 @@ void ABP_PlayerCharacter_C::PressedInput_JumpAction() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_JumpAction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3116,10 +2938,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_CameraAction() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_CameraAction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3134,10 +2953,7 @@ void ABP_PlayerCharacter_C::PressedInput_CameraAction() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_CameraAction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3152,10 +2968,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_StanceAction() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_StanceAction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3170,10 +2983,7 @@ void ABP_PlayerCharacter_C::PressedInput_StanceAction() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_StanceAction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3191,10 +3001,7 @@ void ABP_PlayerCharacter_C::Left_Axis(float AxisValue) {
 	ABP_PlayerCharacter_C_Left_Axis_Params params;
 	params.AxisValue = AxisValue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3212,10 +3019,7 @@ void ABP_PlayerCharacter_C::Backwards_Axis(float AxisValue) {
 	ABP_PlayerCharacter_C_Backwards_Axis_Params params;
 	params.AxisValue = AxisValue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3230,10 +3034,7 @@ void ABP_PlayerCharacter_C::PressedInput_WalkAction() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_WalkAction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3248,10 +3049,7 @@ void ABP_PlayerCharacter_C::PressedInput_SelectRotationMode_3() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_SelectRotationMode_3_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3266,10 +3064,7 @@ void ABP_PlayerCharacter_C::PressedInput_SelectRotationMode_2() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_SelectRotationMode_2_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3284,10 +3079,7 @@ void ABP_PlayerCharacter_C::JumpEvent() {
 	};
 	ABP_PlayerCharacter_C_JumpEvent_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3302,10 +3094,7 @@ void ABP_PlayerCharacter_C::UnequipItem() {
 	};
 	ABP_PlayerCharacter_C_UnequipItem_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3320,10 +3109,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_RotateGhostRight() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_RotateGhostRight_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3338,10 +3124,7 @@ void ABP_PlayerCharacter_C::PressedInput_RotateGhostRight() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_RotateGhostRight_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3356,10 +3139,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_ChoiceMenu() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_ChoiceMenu_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3374,10 +3154,7 @@ void ABP_PlayerCharacter_C::PressedInput_ChoiceMenu() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_ChoiceMenu_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3392,10 +3169,7 @@ void ABP_PlayerCharacter_C::PressedInput_HolsterHoldableItem() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_HolsterHoldableItem_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3410,10 +3184,7 @@ void ABP_PlayerCharacter_C::PressedInput_InspectorMode() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_InspectorMode_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3428,10 +3199,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_Sprint() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_Sprint_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3446,10 +3214,7 @@ void ABP_PlayerCharacter_C::PressedInput_Sprint() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_Sprint_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3464,10 +3229,7 @@ void ABP_PlayerCharacter_C::ReleasedInput_InteractAction() {
 	};
 	ABP_PlayerCharacter_C_ReleasedInput_InteractAction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3485,10 +3247,7 @@ void ABP_PlayerCharacter_C::PressedInput_InteractAction(struct FKey Key) {
 	ABP_PlayerCharacter_C_PressedInput_InteractAction_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3503,10 +3262,7 @@ void ABP_PlayerCharacter_C::PressedInput_QuickSlot8() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_QuickSlot8_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3521,10 +3277,7 @@ void ABP_PlayerCharacter_C::PressedInput_QuickSlot7() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_QuickSlot7_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3539,10 +3292,7 @@ void ABP_PlayerCharacter_C::PressedInput_QuickSlot6() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_QuickSlot6_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3557,10 +3307,7 @@ void ABP_PlayerCharacter_C::PressedInput_QuickSlot5() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_QuickSlot5_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3575,10 +3322,7 @@ void ABP_PlayerCharacter_C::PressedInput_QuickSlot4() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_QuickSlot4_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3593,10 +3337,7 @@ void ABP_PlayerCharacter_C::PressedInput_QuickSlot3() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_QuickSlot3_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3611,10 +3352,7 @@ void ABP_PlayerCharacter_C::PressedInput_QuickSlot2() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_QuickSlot2_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3629,10 +3367,7 @@ void ABP_PlayerCharacter_C::PressedInput_QuickSlot1() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_QuickSlot1_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3647,10 +3382,7 @@ void ABP_PlayerCharacter_C::PressedInput_Torch() {
 	};
 	ABP_PlayerCharacter_C_PressedInput_Torch_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3665,10 +3397,7 @@ void ABP_PlayerCharacter_C::InteractLineTrace() {
 	};
 	ABP_PlayerCharacter_C_InteractLineTrace_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3683,10 +3412,7 @@ void ABP_PlayerCharacter_C::InteractCloseGate() {
 	};
 	ABP_PlayerCharacter_C_InteractCloseGate_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3704,10 +3430,7 @@ void ABP_PlayerCharacter_C::InteractOpenGate(bool Timer) {
 	ABP_PlayerCharacter_C_InteractOpenGate_Params params;
 	params.Timer = Timer;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3737,10 +3460,7 @@ void ABP_PlayerCharacter_C::ClientPlayForceFeedback_BPI(class UForceFeedbackEffe
 	params.IgnoreTimeDilation = IgnoreTimeDilation;
 	params.PlayWhilePaused = PlayWhilePaused;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3758,10 +3478,7 @@ void ABP_PlayerCharacter_C::OpenHusbandryAnimalAssignment_BPI(class AActor* Anim
 	ABP_PlayerCharacter_C_OpenHusbandryAnimalAssignment_BPI_Params params;
 	params.AnimalReference = AnimalReference;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3782,10 +3499,7 @@ void ABP_PlayerCharacter_C::StartTrance_BPI(float TranceMaxTime, TEnumAsByte<E_T
 	params.TranceMaxTime = TranceMaxTime;
 	params.WoodcutterTrance_ = WoodcutterTrance_;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3806,10 +3520,7 @@ void ABP_PlayerCharacter_C::StartEffect_BPI(TEnumAsByte<E_Effects> Effect, float
 	params.Effect = Effect;
 	params.FullEffectTime = FullEffectTime;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3833,10 +3544,7 @@ void ABP_PlayerCharacter_C::UpdateEffect_BPI(TEnumAsByte<E_Effects> Effect, floa
 	params.EffectTimeLeft = EffectTimeLeft;
 	params.HasEffectEnded = HasEffectEnded;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3860,10 +3568,7 @@ void ABP_PlayerCharacter_C::StartBlink_BPI(TEnumAsByte<E_BlinkParameters> BlinkP
 	params.BlinkingActualTime = BlinkingActualTime;
 	params.BlinkingProcessTime = BlinkingProcessTime;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3881,10 +3586,7 @@ void ABP_PlayerCharacter_C::RemoveTranceStatus_BPI(TEnumAsByte<E_TalentTrance> W
 	ABP_PlayerCharacter_C_RemoveTranceStatus_BPI_Params params;
 	params.WoodcutterTrance_ = WoodcutterTrance_;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3908,10 +3610,7 @@ void ABP_PlayerCharacter_C::UpdateTranceStatus_BPI(float Time, int32_t NumberOfS
 	params.NumberOfStacks = NumberOfStacks;
 	params.WoodcutterTrance_ = WoodcutterTrance_;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3926,10 +3625,7 @@ void ABP_PlayerCharacter_C::UpdateHoldableItemInputs_BPI() {
 	};
 	ABP_PlayerCharacter_C_UpdateHoldableItemInputs_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3956,10 +3652,7 @@ void ABP_PlayerCharacter_C::ToggleTradingMenu_BPI(bool WithNPC_, class UActorCom
 	params.WithHorse_ = WithHorse_;
 	params.GiftGiving = GiftGiving;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3983,10 +3676,7 @@ void ABP_PlayerCharacter_C::CreateCraftingMenu_BPI(const TArray<struct FDataTabl
 	params.WorkbenchType = WorkbenchType;
 	params.NoWorkbench_ = NoWorkbench_;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4019,10 +3709,7 @@ void ABP_PlayerCharacter_C::CreateNotification_BPI(struct FST_ItemInventorys Ite
 	params.NotificationTimeOut = NotificationTimeOut;
 	params.NotificationDelay = NotificationDelay;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4040,10 +3727,7 @@ void ABP_PlayerCharacter_C::InpActEvt_LeftMouseButton_K2Node_InputKeyEvent_1(str
 	ABP_PlayerCharacter_C_InpActEvt_LeftMouseButton_K2Node_InputKeyEvent_1_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4058,10 +3742,7 @@ void ABP_PlayerCharacter_C::CameraLerp__UpdateFunc() {
 	};
 	ABP_PlayerCharacter_C_CameraLerp__UpdateFunc_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4076,10 +3757,7 @@ void ABP_PlayerCharacter_C::CameraLerp__FinishedFunc() {
 	};
 	ABP_PlayerCharacter_C_CameraLerp__FinishedFunc_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4094,10 +3772,7 @@ void ABP_PlayerCharacter_C::FOV__UpdateFunc() {
 	};
 	ABP_PlayerCharacter_C_FOV__UpdateFunc_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4112,10 +3787,7 @@ void ABP_PlayerCharacter_C::FOV__FinishedFunc() {
 	};
 	ABP_PlayerCharacter_C_FOV__FinishedFunc_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4137,10 +3809,7 @@ void ABP_PlayerCharacter_C::InteractRange(float InteractionRange, struct FVector
 	ABP_PlayerCharacter_C_InteractRange_Params params;
 	params.InteractionRange = InteractionRange;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (StartVector != nullptr)
 		*StartVector = params.StartVector;
 	if (EndVector != nullptr)
@@ -4165,10 +3834,7 @@ void ABP_PlayerCharacter_C::SelectQuickSlot(int32_t SelectedQuickSlotID, bool Dr
 	params.SelectedQuickSlotID = SelectedQuickSlotID;
 	params.DrawWeapon_ = DrawWeapon_;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4183,10 +3849,7 @@ void ABP_PlayerCharacter_C::ToggleGameMenu() {
 	};
 	ABP_PlayerCharacter_C_ToggleGameMenu_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4207,10 +3870,7 @@ void ABP_PlayerCharacter_C::SwapHeldItem(struct FName ItemName, int32_t ArrayID)
 	params.ItemName = ItemName;
 	params.ArrayID = ArrayID;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4225,10 +3885,7 @@ void ABP_PlayerCharacter_C::RevertHeldItem() {
 	};
 	ABP_PlayerCharacter_C_RevertHeldItem_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4246,10 +3903,7 @@ void ABP_PlayerCharacter_C::SwapHeldItemToHands(bool _2Hand) {
 	ABP_PlayerCharacter_C_SwapHeldItemToHands_Params params;
 	params._2Hand = _2Hand;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4269,10 +3923,7 @@ void ABP_PlayerCharacter_C::StartBarterWithNPC(class ABP_NPC_C** NPCReference, b
 	ABP_PlayerCharacter_C_StartBarterWithNPC_Params params;
 	params.GiftGiving = GiftGiving;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (NPCReference != nullptr)
 		*NPCReference = params.NPCReference;
 }
@@ -4289,10 +3940,7 @@ void ABP_PlayerCharacter_C::StopBarterWithNPC() {
 	};
 	ABP_PlayerCharacter_C_StopBarterWithNPC_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4310,10 +3958,7 @@ void ABP_PlayerCharacter_C::Hide_Held_Items(class AActor* InteractedActor) {
 	ABP_PlayerCharacter_C_Hide_Held_Items_Params params;
 	params.InteractedActor = InteractedActor;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4328,10 +3973,7 @@ void ABP_PlayerCharacter_C::ReEquipHeldItems() {
 	};
 	ABP_PlayerCharacter_C_ReEquipHeldItems_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4346,10 +3988,7 @@ void ABP_PlayerCharacter_C::InteractionDetect() {
 	};
 	ABP_PlayerCharacter_C_InteractionDetect_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4364,10 +4003,7 @@ void ABP_PlayerCharacter_C::UpdateGhosts() {
 	};
 	ABP_PlayerCharacter_C_UpdateGhosts_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4385,10 +4021,7 @@ void ABP_PlayerCharacter_C::SetInBuildingMode(bool Active) {
 	ABP_PlayerCharacter_C_SetInBuildingMode_Params params;
 	params.Active = Active;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4405,10 +4038,7 @@ void ABP_PlayerCharacter_C::GetLastHitActorInteractionDistance(float* Distance) 
 	};
 	ABP_PlayerCharacter_C_GetLastHitActorInteractionDistance_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Distance != nullptr)
 		*Distance = params.Distance;
 }
@@ -4425,10 +4055,7 @@ void ABP_PlayerCharacter_C::SelectedSlotWithToolUpdate() {
 	};
 	ABP_PlayerCharacter_C_SelectedSlotWithToolUpdate_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4446,10 +4073,7 @@ void ABP_PlayerCharacter_C::HideHeldItemsForInteraction(TEnumAsByte<E_Tools> Too
 	ABP_PlayerCharacter_C_HideHeldItemsForInteraction_Params params;
 	params.ToolType = ToolType;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4464,10 +4088,7 @@ void ABP_PlayerCharacter_C::ReEquipHeldItemsForInteraction() {
 	};
 	ABP_PlayerCharacter_C_ReEquipHeldItemsForInteraction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4482,10 +4103,7 @@ void ABP_PlayerCharacter_C::Unstuck() {
 	};
 	ABP_PlayerCharacter_C_Unstuck_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4500,10 +4118,7 @@ void ABP_PlayerCharacter_C::PlayerPush() {
 	};
 	ABP_PlayerCharacter_C_PlayerPush_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4520,10 +4135,7 @@ void ABP_PlayerCharacter_C::InteractTimer(bool* FinishedInteraction) {
 	};
 	ABP_PlayerCharacter_C_InteractTimer_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (FinishedInteraction != nullptr)
 		*FinishedInteraction = params.FinishedInteraction;
 }
@@ -4548,10 +4160,7 @@ void ABP_PlayerCharacter_C::InteractTimerFoliage(class UBP_MasterFoliage_C* Mast
 	params.MasterFoliage = MasterFoliage;
 	params.HitReference = HitReference;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (FinishedInteraction != nullptr)
 		*FinishedInteraction = params.FinishedInteraction;
 }
@@ -4573,10 +4182,7 @@ void ABP_PlayerCharacter_C::InteractTimerActor(struct FHitResult HitReference, b
 	ABP_PlayerCharacter_C_InteractTimerActor_Params params;
 	params.HitReference = HitReference;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (FinishedInteraction != nullptr)
 		*FinishedInteraction = params.FinishedInteraction;
 }
@@ -4596,10 +4202,7 @@ void ABP_PlayerCharacter_C::InteractTimerFinish(class AActor* Actor) {
 	ABP_PlayerCharacter_C_InteractTimerFinish_Params params;
 	params.Actor = Actor;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4620,10 +4223,7 @@ bool ABP_PlayerCharacter_C::TryToUnstuckPlayer(struct FVector* TargetLocation, s
 	};
 	ABP_PlayerCharacter_C_TryToUnstuckPlayer_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (TargetLocation != nullptr)
 		*TargetLocation = params.TargetLocation;
 	if (TargetRotation != nullptr)
@@ -4645,10 +4245,7 @@ void ABP_PlayerCharacter_C::FindRandomPointForUnstuck(struct FVector* RandomLoca
 	};
 	ABP_PlayerCharacter_C_FindRandomPointForUnstuck_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (RandomLocation != nullptr)
 		*RandomLocation = params.RandomLocation;
 }
@@ -4675,10 +4272,7 @@ bool ABP_PlayerCharacter_C::GetRandomPointOnTerrain(class AActor* Actor, class U
 	params.Actor = Actor;
 	params.Mesh = Mesh;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Location != nullptr)
 		*Location = params.Location;
 	return params.ReturnValue;
@@ -4698,10 +4292,7 @@ bool ABP_PlayerCharacter_C::IsFovChanging() {
 	};
 	ABP_PlayerCharacter_C_IsFovChanging_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -4717,10 +4308,7 @@ void ABP_PlayerCharacter_C::ReleasePlayerInputs() {
 	};
 	ABP_PlayerCharacter_C_ReleasePlayerInputs_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4737,10 +4325,7 @@ bool ABP_PlayerCharacter_C::CanSwitchToTP() {
 	};
 	ABP_PlayerCharacter_C_CanSwitchToTP_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -4759,10 +4344,7 @@ void ABP_PlayerCharacter_C::ChangeTPCameraDistance(float ChangeValue) {
 	ABP_PlayerCharacter_C_ChangeTPCameraDistance_Params params;
 	params.ChangeValue = ChangeValue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4780,10 +4362,7 @@ void ABP_PlayerCharacter_C::SetTPCameraDistance(float Distance) {
 	ABP_PlayerCharacter_C_SetTPCameraDistance_Params params;
 	params.Distance = Distance;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4801,10 +4380,7 @@ void ABP_PlayerCharacter_C::SetPlayerHairColor(struct FLinearColor HairColor) {
 	ABP_PlayerCharacter_C_SetPlayerHairColor_Params params;
 	params.HairColor = HairColor;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4822,10 +4398,7 @@ void ABP_PlayerCharacter_C::SetPlayerSkinTone(struct FLinearColor SkinTone) {
 	ABP_PlayerCharacter_C_SetPlayerSkinTone_Params params;
 	params.SkinTone = SkinTone;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4840,10 +4413,7 @@ void ABP_PlayerCharacter_C::UpdatePlayerLook() {
 	};
 	ABP_PlayerCharacter_C_UpdatePlayerLook_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4864,10 +4434,7 @@ void ABP_PlayerCharacter_C::InitCameraMode(TEnumAsByte<E_ViewMode> ViewMode, flo
 	params.ViewMode = ViewMode;
 	params.CameraDistance = CameraDistance;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4884,10 +4451,7 @@ void ABP_PlayerCharacter_C::TPInteractionTrace(TArray<struct FHitResult>* Hits) 
 	};
 	ABP_PlayerCharacter_C_TPInteractionTrace_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Hits != nullptr)
 		*Hits = params.Hits;
 }
@@ -4904,10 +4468,7 @@ void ABP_PlayerCharacter_C::InterruptInteractAction() {
 	};
 	ABP_PlayerCharacter_C_InterruptInteractAction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4926,10 +4487,7 @@ void ABP_PlayerCharacter_C::CheckInventoryForTorchToEquip(bool* TorchFound, stru
 	};
 	ABP_PlayerCharacter_C_CheckInventoryForTorchToEquip_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (TorchFound != nullptr)
 		*TorchFound = params.TorchFound;
 	if (TorchType != nullptr)
@@ -4951,10 +4509,7 @@ void ABP_PlayerCharacter_C::TryToEquipTorch(const struct FName& TorchName) {
 	ABP_PlayerCharacter_C_TryToEquipTorch_Params params;
 	params.TorchName = TorchName;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4971,10 +4526,7 @@ void ABP_PlayerCharacter_C::IsAnyRadialMenuOpen(bool* Value) {
 	};
 	ABP_PlayerCharacter_C_IsAnyRadialMenuOpen_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Value != nullptr)
 		*Value = params.Value;
 }
@@ -4991,10 +4543,7 @@ void ABP_PlayerCharacter_C::StopInteractionThread() {
 	};
 	ABP_PlayerCharacter_C_StopInteractionThread_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5012,10 +4561,7 @@ void ABP_PlayerCharacter_C::PreviousViewmodeChangeCamera(bool SwitchBack) {
 	ABP_PlayerCharacter_C_PreviousViewmodeChangeCamera_Params params;
 	params.SwitchBack = SwitchBack;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5030,10 +4576,43 @@ void ABP_PlayerCharacter_C::AimAssist() {
 	};
 	ABP_PlayerCharacter_C_AimAssist_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+}
 
+/////////////////////////////////////////////
+// Function BP_PlayerCharacter.BP_PlayerCharacter_C.CalculateLookingRotation
+// Flags: Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ReturnValue	Type: struct FRotator	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+struct FRotator ABP_PlayerCharacter_C::CalculateLookingRotation() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.CalculateLookingRotation");
+
+	struct ABP_PlayerCharacter_C_CalculateLookingRotation_Params {
+		struct FRotator ReturnValue;			//Offset: 0 | ElementSize: 12
+	};
+	ABP_PlayerCharacter_C_CalculateLookingRotation_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function BP_PlayerCharacter.BP_PlayerCharacter_C.ChangePlayerHiddenState
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Hide	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_PlayerCharacter_C::ChangePlayerHiddenState(bool Hide) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.ChangePlayerHiddenState");
+
+	struct ABP_PlayerCharacter_C_ChangePlayerHiddenState_Params {
+		bool Hide;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_PlayerCharacter_C_ChangePlayerHiddenState_Params params;
+	params.Hide = Hide;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
@@ -5055,10 +4634,7 @@ void ABP_PlayerCharacter_C::GetCameraComponents_BPI(TEnumAsByte<E_ViewMode> View
 	ABP_PlayerCharacter_C_GetCameraComponents_BPI_Params params;
 	params.ViewMode = ViewMode;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (CameraSpringArm != nullptr)
 		*CameraSpringArm = params.CameraSpringArm;
 	if (CameraComponent != nullptr)
@@ -5079,17 +4655,14 @@ void ABP_PlayerCharacter_C::GetCameraViewDirection_BPI(struct FVector* Forward) 
 	};
 	ABP_PlayerCharacter_C_GetCameraViewDirection_BPI_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Forward != nullptr)
 		*Forward = params.Forward;
 }
 
 /////////////////////////////////////////////
 // InheritableComponentHandler BP_PlayerCharacter.BP_PlayerCharacter_C.InheritableComponentHandler
-// Flags: Final, RequiredAPI, BlueprintAuthorityOnly, BlueprintCosmetic, Net, NetReliable, NetRequest, Exec, Native, Event, NetResponse, Static, NetMulticast, MulticastDelegate, Public, Private, Protected, Delegate, NetServer, HasOutParms
+// Flags: Final, RequiredAPI, BlueprintAuthorityOnly
 // Params:
 /////////////////////////////////////////////
 void ABP_PlayerCharacter_C::InheritableComponentHandler() {
@@ -5099,16 +4672,40 @@ void ABP_PlayerCharacter_C::InheritableComponentHandler() {
 	};
 	ABP_PlayerCharacter_C_InheritableComponentHandler_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	uint32_t newFlags = flags;
-	newFlags |= 0x00000400;
-	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+	UObject::ProcessEvent(fn, &params);
+}
 
-	static auto Obj = StaticClass()->CreateDefaultObject();
-	Obj->ProcessEvent(fn, &params);
+/////////////////////////////////////////////
+// InputKeyDelegateBinding BP_PlayerCharacter.BP_PlayerCharacter_C.InputKeyDelegateBinding_1
+// Flags: BlueprintCosmetic, Net
+// Params:
+/////////////////////////////////////////////
+void ABP_PlayerCharacter_C::InputKeyDelegateBinding_1() {
+	static auto fn = UObject::FindObject<UFunction>("InputKeyDelegateBinding BP_PlayerCharacter.BP_PlayerCharacter_C.InputKeyDelegateBinding_1");
 
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+	struct ABP_PlayerCharacter_C_InputKeyDelegateBinding_1_Params {
+	};
+	ABP_PlayerCharacter_C_InputKeyDelegateBinding_1_Params params;
 
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_PlayerCharacter.BP_PlayerCharacter_C.Update Camera Event
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+// Name: LerpCurve	Type: class UCurveFloat*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_PlayerCharacter_C::Update_Camera_Event(class UCurveFloat* LerpCurve) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.Update Camera Event");
+
+	struct ABP_PlayerCharacter_C_Update_Camera_Event_Params {
+		class UCurveFloat* LerpCurve;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_PlayerCharacter_C_Update_Camera_Event_Params params;
+	params.LerpCurve = LerpCurve;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
@@ -5132,10 +4729,7 @@ void ABP_PlayerCharacter_C::FOVLerpUpdateSettings(class UCurveFloat* FloatCurve,
 	params.NewRate = NewRate;
 	params.TargetFOV = TargetFOV;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5150,10 +4744,7 @@ void ABP_PlayerCharacter_C::StopCameraFOVLerp() {
 	};
 	ABP_PlayerCharacter_C_StopCameraFOVLerp_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5168,10 +4759,7 @@ void ABP_PlayerCharacter_C::PlayFromStartCameraFOVLerp() {
 	};
 	ABP_PlayerCharacter_C_PlayFromStartCameraFOVLerp_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5186,10 +4774,7 @@ void ABP_PlayerCharacter_C::PlayCameraFOVLerp() {
 	};
 	ABP_PlayerCharacter_C_PlayCameraFOVLerp_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5204,10 +4789,7 @@ void ABP_PlayerCharacter_C::ReverseCameraFOVLerp() {
 	};
 	ABP_PlayerCharacter_C_ReverseCameraFOVLerp_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5222,10 +4804,7 @@ void ABP_PlayerCharacter_C::ReverseFromEndCameraFOVLerp() {
 	};
 	ABP_PlayerCharacter_C_ReverseFromEndCameraFOVLerp_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5243,10 +4822,7 @@ void ABP_PlayerCharacter_C::SetNewTimeCameraFOVLerp(float NewTime) {
 	ABP_PlayerCharacter_C_SetNewTimeCameraFOVLerp_Params params;
 	params.NewTime = NewTime;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5261,10 +4837,7 @@ void ABP_PlayerCharacter_C::OnGoToSleep() {
 	};
 	ABP_PlayerCharacter_C_OnGoToSleep_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5279,10 +4852,7 @@ void ABP_PlayerCharacter_C::OnSit() {
 	};
 	ABP_PlayerCharacter_C_OnSit_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5297,10 +4867,7 @@ void ABP_PlayerCharacter_C::OnGetUp() {
 	};
 	ABP_PlayerCharacter_C_OnGetUp_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5315,10 +4882,7 @@ void ABP_PlayerCharacter_C::OnSitIdle() {
 	};
 	ABP_PlayerCharacter_C_OnSitIdle_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5336,10 +4900,7 @@ void ABP_PlayerCharacter_C::SetBlocking_Event(bool Blocking) {
 	ABP_PlayerCharacter_C_SetBlocking_Event_Params params;
 	params.Blocking = Blocking;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5354,10 +4915,7 @@ void ABP_PlayerCharacter_C::Set_ForceStanding_Event() {
 	};
 	ABP_PlayerCharacter_C_Set_ForceStanding_Event_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5381,10 +4939,7 @@ void ABP_PlayerCharacter_C::Set_Sitting_Event(bool IsSitting, TEnumAsByte<E_SitD
 	params.SitDownPosition = SitDownPosition;
 	params.SittingType = SittingType;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5399,10 +4954,7 @@ void ABP_PlayerCharacter_C::ResetCameraPitch() {
 	};
 	ABP_PlayerCharacter_C_ResetCameraPitch_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5420,10 +4972,7 @@ void ABP_PlayerCharacter_C::AddCharacterRotation_BPI(struct FRotator AddAmount) 
 	ABP_PlayerCharacter_C_AddCharacterRotation_BPI_Params params;
 	params.AddAmount = AddAmount;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5441,28 +4990,25 @@ void ABP_PlayerCharacter_C::AddImpaledItem(class AActor* ImpaledItem) {
 	ABP_PlayerCharacter_C_AddImpaledItem_Params params;
 	params.ImpaledItem = ImpaledItem;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
 // Function BP_PlayerCharacter.BP_PlayerCharacter_C.Ragdoll
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
+// Name: InitialRagdollVelocity	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_PlayerCharacter_C::Ragdoll() {
+void ABP_PlayerCharacter_C::Ragdoll(struct FVector InitialRagdollVelocity) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.Ragdoll");
 
 	struct ABP_PlayerCharacter_C_Ragdoll_Params {
+		struct FVector InitialRagdollVelocity;			//Offset: 0 | ElementSize: 12
 	};
 	ABP_PlayerCharacter_C_Ragdoll_Params params;
+	params.InitialRagdollVelocity = InitialRagdollVelocity;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5480,10 +5026,7 @@ void ABP_PlayerCharacter_C::Un_Ragdoll_Event(bool SkipAnim) {
 	ABP_PlayerCharacter_C_Un_Ragdoll_Event_Params params;
 	params.SkipAnim = SkipAnim;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5501,31 +5044,37 @@ void ABP_PlayerCharacter_C::ReceiveEndPlay(TEnumAsByte<EEndPlayReason> EndPlayRe
 	ABP_PlayerCharacter_C_ReceiveEndPlay_Params params;
 	params.EndPlayReason = EndPlayReason;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
-// Function BP_PlayerCharacter.BP_PlayerCharacter_C.Stop Character Movement
-// Flags: BlueprintCallable, BlueprintEvent
+// Function BP_PlayerCharacter.BP_PlayerCharacter_C.SetMesh
+// Flags: HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: bStopMovementInput	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: NewHeadMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: NewHairMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: NewBodyMeshes	Type: TArray<class USkeletalMesh*>	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm
+// Name: NewClass	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: UpdateOnly	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_PlayerCharacter_C::Stop_Character_Movement(bool bStopMovementInput) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.Stop Character Movement");
+void ABP_PlayerCharacter_C::SetMesh(class USkeletalMesh* NewHeadMesh, class USkeletalMesh* NewHairMesh, const TArray<class USkeletalMesh*>& NewBodyMeshes, class UObject* NewClass, bool UpdateOnly) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.SetMesh");
 
-	struct ABP_PlayerCharacter_C_Stop_Character_Movement_Params {
-		bool bStopMovementInput;			//Offset: 0 | ElementSize: 1
+	struct ABP_PlayerCharacter_C_SetMesh_Params {
+		class USkeletalMesh* NewHeadMesh;			//Offset: 0 | ElementSize: 8
+		class USkeletalMesh* NewHairMesh;			//Offset: 8 | ElementSize: 8
+		TArray<class USkeletalMesh*> NewBodyMeshes;			//Offset: 16 | ElementSize: 16
+		class UObject* NewClass;			//Offset: 32 | ElementSize: 8
+		bool UpdateOnly;			//Offset: 40 | ElementSize: 1
 	};
-	ABP_PlayerCharacter_C_Stop_Character_Movement_Params params;
-	params.bStopMovementInput = bStopMovementInput;
+	ABP_PlayerCharacter_C_SetMesh_Params params;
+	params.NewHeadMesh = NewHeadMesh;
+	params.NewHairMesh = NewHairMesh;
+	params.NewBodyMeshes = NewBodyMeshes;
+	params.NewClass = NewClass;
+	params.UpdateOnly = UpdateOnly;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5549,10 +5098,7 @@ void ABP_PlayerCharacter_C::Limit_Stage_Interaction_Camera_Rotation(bool bUseHea
 	params.bUsePlayerCamera = bUsePlayerCamera;
 	params.bLimitPlayerCamera = bLimitPlayerCamera;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5570,10 +5116,7 @@ void ABP_PlayerCharacter_C::Limit_Camera_Rotation(struct FST_CameraRotationLimit
 	ABP_PlayerCharacter_C_Limit_Camera_Rotation_Params params;
 	params.CameraRotationLimits = CameraRotationLimits;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5591,10 +5134,7 @@ void ABP_PlayerCharacter_C::ChangePlayerInput(bool DisablePlayerInput) {
 	ABP_PlayerCharacter_C_ChangePlayerInput_Params params;
 	params.DisablePlayerInput = DisablePlayerInput;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5621,10 +5161,7 @@ void ABP_PlayerCharacter_C::ReceiveAnyDamage(float Damage, class UDamageType* Da
 	params.InstigatedBy = InstigatedBy;
 	params.DamageCauser = DamageCauser;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5663,10 +5200,7 @@ void ABP_PlayerCharacter_C::SetupStageInteraction(class AActor* InteractedActor,
 	params.NumberOfAutomaticLoops = NumberOfAutomaticLoops;
 	params.SwapItemsOnInteraction = SwapItemsOnInteraction;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5687,10 +5221,7 @@ void ABP_PlayerCharacter_C::Change_Camera(bool bUsePlayerCamera, float BlendTime
 	params.bUsePlayerCamera = bUsePlayerCamera;
 	params.BlendTime = BlendTime;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5708,10 +5239,25 @@ void ABP_PlayerCharacter_C::Stop_Character_Rotation(bool StopRotationInput) {
 	ABP_PlayerCharacter_C_Stop_Character_Rotation_Params params;
 	params.StopRotationInput = StopRotationInput;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+}
 
+/////////////////////////////////////////////
+// Function BP_PlayerCharacter.BP_PlayerCharacter_C.Stop Character Movement
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+// Name: bStopMovementInput	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_PlayerCharacter_C::Stop_Character_Movement(bool bStopMovementInput) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.Stop Character Movement");
+
+	struct ABP_PlayerCharacter_C_Stop_Character_Movement_Params {
+		bool bStopMovementInput;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_PlayerCharacter_C_Stop_Character_Movement_Params params;
+	params.bStopMovementInput = bStopMovementInput;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
@@ -5726,85 +5272,7 @@ void ABP_PlayerCharacter_C::FinishStageInteraction() {
 	};
 	ABP_PlayerCharacter_C_FinishStageInteraction_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// Function BP_PlayerCharacter.BP_PlayerCharacter_C.ReceiveTick
-// Flags: Event, Public, BlueprintEvent
-// Params:
-// Name: DeltaSeconds	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::ReceiveTick(float DeltaSeconds) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.ReceiveTick");
-
-	struct ABP_PlayerCharacter_C_ReceiveTick_Params {
-		float DeltaSeconds;			//Offset: 0 | ElementSize: 4
-	};
-	ABP_PlayerCharacter_C_ReceiveTick_Params params;
-	params.DeltaSeconds = DeltaSeconds;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// Function BP_PlayerCharacter.BP_PlayerCharacter_C.SetMesh
-// Flags: BlueprintCallable, BlueprintEvent
-// Params:
-// Name: NewHeadMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewTorsoMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewHandsMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewLegsMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewFeetMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewHatSKMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewHoodMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewHairMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewBackpackMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewPouchMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewClass	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: UpdateOnly	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::SetMesh(class USkeletalMesh* NewHeadMesh, class USkeletalMesh* NewTorsoMesh, class USkeletalMesh* NewHandsMesh, class USkeletalMesh* NewLegsMesh, class USkeletalMesh* NewFeetMesh, class USkeletalMesh* NewHatSKMesh, class USkeletalMesh* NewHoodMesh, class USkeletalMesh* NewHairMesh, class USkeletalMesh* NewBackpackMesh, class USkeletalMesh* NewPouchMesh, class UObject* NewClass, bool UpdateOnly) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.SetMesh");
-
-	struct ABP_PlayerCharacter_C_SetMesh_Params {
-		class USkeletalMesh* NewHeadMesh;			//Offset: 0 | ElementSize: 8
-		class USkeletalMesh* NewTorsoMesh;			//Offset: 8 | ElementSize: 8
-		class USkeletalMesh* NewHandsMesh;			//Offset: 16 | ElementSize: 8
-		class USkeletalMesh* NewLegsMesh;			//Offset: 24 | ElementSize: 8
-		class USkeletalMesh* NewFeetMesh;			//Offset: 32 | ElementSize: 8
-		class USkeletalMesh* NewHatSKMesh;			//Offset: 40 | ElementSize: 8
-		class USkeletalMesh* NewHoodMesh;			//Offset: 48 | ElementSize: 8
-		class USkeletalMesh* NewHairMesh;			//Offset: 56 | ElementSize: 8
-		class USkeletalMesh* NewBackpackMesh;			//Offset: 64 | ElementSize: 8
-		class USkeletalMesh* NewPouchMesh;			//Offset: 72 | ElementSize: 8
-		class UObject* NewClass;			//Offset: 80 | ElementSize: 8
-		bool UpdateOnly;			//Offset: 88 | ElementSize: 1
-	};
-	ABP_PlayerCharacter_C_SetMesh_Params params;
-	params.NewHeadMesh = NewHeadMesh;
-	params.NewTorsoMesh = NewTorsoMesh;
-	params.NewHandsMesh = NewHandsMesh;
-	params.NewLegsMesh = NewLegsMesh;
-	params.NewFeetMesh = NewFeetMesh;
-	params.NewHatSKMesh = NewHatSKMesh;
-	params.NewHoodMesh = NewHoodMesh;
-	params.NewHairMesh = NewHairMesh;
-	params.NewBackpackMesh = NewBackpackMesh;
-	params.NewPouchMesh = NewPouchMesh;
-	params.NewClass = NewClass;
-	params.UpdateOnly = UpdateOnly;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5819,10 +5287,7 @@ void ABP_PlayerCharacter_C::Swoon() {
 	};
 	ABP_PlayerCharacter_C_Swoon_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5858,10 +5323,7 @@ void ABP_PlayerCharacter_C::StartCameraFade_Pawn(float FromAlpha, float ToAlpha,
 	params.bHoldWhenFinished = bHoldWhenFinished;
 	params.bReverseOnFinish = bReverseOnFinish;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5876,10 +5338,7 @@ void ABP_PlayerCharacter_C::ReceiveBeginPlay() {
 	};
 	ABP_PlayerCharacter_C_ReceiveBeginPlay_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5912,10 +5371,7 @@ void ABP_PlayerCharacter_C::PlayerMoveForInteraction(class AActor* Instigator, s
 	params.UsePlayerLookAt = UsePlayerLookAt;
 	params.ResetLookAtPitch = ResetLookAtPitch;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5936,10 +5392,7 @@ void ABP_PlayerCharacter_C::PlayerLookAt(class AActor* Target, struct FVector Ta
 	params.Target = Target;
 	params.TargetLocation = TargetLocation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5954,10 +5407,22 @@ void ABP_PlayerCharacter_C::UserConstructionScript() {
 	};
 	ABP_PlayerCharacter_C_UserConstructionScript_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+}
 
+/////////////////////////////////////////////
+// Function BP_PlayerCharacter.BP_PlayerCharacter_C.On ALS_ViewMode Changed
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_PlayerCharacter_C::On_ALS_ViewMode_Changed() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.On ALS_ViewMode Changed");
+
+	struct ABP_PlayerCharacter_C_On_ALS_ViewMode_Changed_Params {
+	};
+	ABP_PlayerCharacter_C_On_ALS_ViewMode_Changed_Params params;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
@@ -5972,10 +5437,7 @@ void ABP_PlayerCharacter_C::On_ALS_Aiming_Changed() {
 	};
 	ABP_PlayerCharacter_C_On_ALS_Aiming_Changed_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5996,10 +5458,7 @@ void ABP_PlayerCharacter_C::LerpCameraSettings(float LerpAlpha, class USpringArm
 	params.LerpAlpha = LerpAlpha;
 	params.TargetSpringArm = TargetSpringArm;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6016,30 +5475,42 @@ void ABP_PlayerCharacter_C::ChooseCameraSettings(struct FST_CameraSettings* Targ
 	};
 	ABP_PlayerCharacter_C_ChooseCameraSettings_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (TargetCameraSettings != nullptr)
 		*TargetCameraSettings = params.TargetCameraSettings;
 }
 
 /////////////////////////////////////////////
-// Function BP_PlayerCharacter.BP_PlayerCharacter_C.On ALS_ViewMode Changed
+// Function BP_PlayerCharacter.BP_PlayerCharacter_C.Attach Components
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
 /////////////////////////////////////////////
-void ABP_PlayerCharacter_C::On_ALS_ViewMode_Changed() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.On ALS_ViewMode Changed");
+void ABP_PlayerCharacter_C::Attach_Components() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.Attach Components");
 
-	struct ABP_PlayerCharacter_C_On_ALS_ViewMode_Changed_Params {
+	struct ABP_PlayerCharacter_C_Attach_Components_Params {
 	};
-	ABP_PlayerCharacter_C_On_ALS_ViewMode_Changed_Params params;
+	ABP_PlayerCharacter_C_Attach_Components_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+}
 
+/////////////////////////////////////////////
+// Function BP_PlayerCharacter.BP_PlayerCharacter_C.SetCurrentCameraFOV
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: InFieldOfView	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_PlayerCharacter_C::SetCurrentCameraFOV(float InFieldOfView) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.SetCurrentCameraFOV");
+
+	struct ABP_PlayerCharacter_C_SetCurrentCameraFOV_Params {
+		float InFieldOfView;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_PlayerCharacter_C_SetCurrentCameraFOV_Params params;
+	params.InFieldOfView = InFieldOfView;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
@@ -6061,10 +5532,7 @@ void ABP_PlayerCharacter_C::Holster_Weapon(bool IsSwitch, bool* bIsSwitch, bool*
 	ABP_PlayerCharacter_C_Holster_Weapon_Params params;
 	params.IsSwitch = IsSwitch;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (bIsSwitch != nullptr)
 		*bIsSwitch = params.bIsSwitch;
 	if (IsValidHeldItem != nullptr)
@@ -6112,10 +5580,7 @@ void ABP_PlayerCharacter_C::SpawnHeldItem(class ABP_MasterHoldableItem_C* Class,
 	params.Ownership = Ownership;
 	params.Instigator = Instigator;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Output_Get != nullptr)
 		*Output_Get = params.Output_Get;
 }
@@ -6132,10 +5597,7 @@ void ABP_PlayerCharacter_C::DestroyHeldItem() {
 	};
 	ABP_PlayerCharacter_C_DestroyHeldItem_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6150,10 +5612,7 @@ void ABP_PlayerCharacter_C::DestroyOffHandItem() {
 	};
 	ABP_PlayerCharacter_C_DestroyOffHandItem_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6197,72 +5656,9 @@ void ABP_PlayerCharacter_C::SpawnOffHandItem(class ABP_MasterHoldableItem_C* Cla
 	params.Ownership = Ownership;
 	params.Instigator = Instigator;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Output_Get != nullptr)
 		*Output_Get = params.Output_Get;
-}
-
-/////////////////////////////////////////////
-// Function BP_PlayerCharacter.BP_PlayerCharacter_C.Attach Components
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::Attach_Components() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.Attach Components");
-
-	struct ABP_PlayerCharacter_C_Attach_Components_Params {
-	};
-	ABP_PlayerCharacter_C_Attach_Components_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// Function BP_PlayerCharacter.BP_PlayerCharacter_C.SetCurrentCameraFOV
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: InFieldOfView	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::SetCurrentCameraFOV(float InFieldOfView) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.SetCurrentCameraFOV");
-
-	struct ABP_PlayerCharacter_C_SetCurrentCameraFOV_Params {
-		float InFieldOfView;			//Offset: 0 | ElementSize: 4
-	};
-	ABP_PlayerCharacter_C_SetCurrentCameraFOV_Params params;
-	params.InFieldOfView = InFieldOfView;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// Function BP_PlayerCharacter.BP_PlayerCharacter_C.GetLookingRotation
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
-// Params:
-// Name: ReturnValue	Type: struct FRotator	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor
-/////////////////////////////////////////////
-struct FRotator ABP_PlayerCharacter_C::GetLookingRotation() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.GetLookingRotation");
-
-	struct ABP_PlayerCharacter_C_GetLookingRotation_Params {
-		struct FRotator ReturnValue;			//Offset: 0 | ElementSize: 12
-	};
-	ABP_PlayerCharacter_C_GetLookingRotation_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-	return params.ReturnValue;
 }
 
 /////////////////////////////////////////////
@@ -6298,10 +5694,7 @@ void ABP_PlayerCharacter_C::On_Start_Workbench_Interaction(class ABP_MasterFurni
 	params.LookAtBehavior = LookAtBehavior;
 	params.LookAtRotation = LookAtRotation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6325,10 +5718,7 @@ void ABP_PlayerCharacter_C::OnEndWorkbenchInteraction(class ABP_MasterFurniture_
 	params.InteractComponent = InteractComponent;
 	params.InteractLocation = InteractLocation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6343,10 +5733,7 @@ void ABP_PlayerCharacter_C::OnDialogueStarted() {
 	};
 	ABP_PlayerCharacter_C_OnDialogueStarted_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6361,10 +5748,7 @@ void ABP_PlayerCharacter_C::OnDialogueEnded() {
 	};
 	ABP_PlayerCharacter_C_OnDialogueEnded_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6382,10 +5766,7 @@ void ABP_PlayerCharacter_C::SetEarMorph(float Value) {
 	ABP_PlayerCharacter_C_SetEarMorph_Params params;
 	params.Value = Value;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6408,56 +5789,9 @@ void ABP_PlayerCharacter_C::EquipToolForInteraction(class ABP_MasterHoldableItem
 	params.Holdable = Holdable;
 	params.WantedTool = WantedTool;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Success != nullptr)
 		*Success = params.Success;
-}
-
-/////////////////////////////////////////////
-// Function BP_PlayerCharacter.BP_PlayerCharacter_C.GetCurrentCameraFOV
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
-// Params:
-// Name: FieldOfView	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::GetCurrentCameraFOV(float* FieldOfView) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.GetCurrentCameraFOV");
-
-	struct ABP_PlayerCharacter_C_GetCurrentCameraFOV_Params {
-		float FieldOfView;			//Offset: 0 | ElementSize: 4
-	};
-	ABP_PlayerCharacter_C_GetCurrentCameraFOV_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-	if (FieldOfView != nullptr)
-		*FieldOfView = params.FieldOfView;
-}
-
-/////////////////////////////////////////////
-// Function BP_PlayerCharacter.BP_PlayerCharacter_C.GetHeadAndHairRow
-// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
-// Params:
-// Name: ST_NPCMeshesGen	Type: struct FST_NPCMeshesGen	Flags: Parm, OutParm, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::GetHeadAndHairRow(struct FST_NPCMeshesGen* ST_NPCMeshesGen) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.GetHeadAndHairRow");
-
-	struct ABP_PlayerCharacter_C_GetHeadAndHairRow_Params {
-		struct FST_NPCMeshesGen ST_NPCMeshesGen;			//Offset: 0 | ElementSize: 128
-	};
-	ABP_PlayerCharacter_C_GetHeadAndHairRow_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-	if (ST_NPCMeshesGen != nullptr)
-		*ST_NPCMeshesGen = params.ST_NPCMeshesGen;
 }
 
 /////////////////////////////////////////////
@@ -6475,10 +5809,26 @@ void ABP_PlayerCharacter_C::UpdateDefaultFov(float InFieldOfView) {
 	ABP_PlayerCharacter_C_UpdateDefaultFov_Params params;
 	params.InFieldOfView = InFieldOfView;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+}
 
+/////////////////////////////////////////////
+// Function BP_PlayerCharacter.BP_PlayerCharacter_C.GetCurrentCameraFOV
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: FieldOfView	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_PlayerCharacter_C::GetCurrentCameraFOV(float* FieldOfView) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.GetCurrentCameraFOV");
+
+	struct ABP_PlayerCharacter_C_GetCurrentCameraFOV_Params {
+		float FieldOfView;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_PlayerCharacter_C_GetCurrentCameraFOV_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (FieldOfView != nullptr)
+		*FieldOfView = params.FieldOfView;
 }
 
 /////////////////////////////////////////////
@@ -6499,10 +5849,26 @@ void ABP_PlayerCharacter_C::OnCloseCraftingInteraction(class ABP_MasterFurniture
 	params.InteractedWorkbench = InteractedWorkbench;
 	params.InteractLocation = InteractLocation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+}
 
+/////////////////////////////////////////////
+// Function BP_PlayerCharacter.BP_PlayerCharacter_C.GetHeadAndHairRow
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: ST_NPCMeshesGen	Type: struct FST_NPCMeshesGen	Flags: Parm, OutParm, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_PlayerCharacter_C::GetHeadAndHairRow(struct FST_NPCMeshesGen* ST_NPCMeshesGen) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.GetHeadAndHairRow");
+
+	struct ABP_PlayerCharacter_C_GetHeadAndHairRow_Params {
+		struct FST_NPCMeshesGen ST_NPCMeshesGen;			//Offset: 0 | ElementSize: 128
+	};
+	ABP_PlayerCharacter_C_GetHeadAndHairRow_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (ST_NPCMeshesGen != nullptr)
+		*ST_NPCMeshesGen = params.ST_NPCMeshesGen;
 }
 
 /////////////////////////////////////////////
@@ -6526,10 +5892,7 @@ void ABP_PlayerCharacter_C::OnWaitForCraftingInteraction(class ABP_MasterFurnitu
 	params.InteractLocation = InteractLocation;
 	params.ResetCamera = ResetCamera;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6547,10 +5910,7 @@ void ABP_PlayerCharacter_C::HolsterToolsForDialogue(bool Hide) {
 	ABP_PlayerCharacter_C_HolsterToolsForDialogue_Params params;
 	params.Hide = Hide;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6571,10 +5931,7 @@ void ABP_PlayerCharacter_C::OnStartFurnitureInteraction(class ABP_MasterFurnitur
 	params.InteractedFurniture = InteractedFurniture;
 	params.InteractLocation = InteractLocation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6595,28 +5952,7 @@ void ABP_PlayerCharacter_C::OnEndFurnitureInteraction(class ABP_MasterFurniture_
 	params.InteractedFurniture = InteractedFurniture;
 	params.InteractLocation = InteractLocation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// Function BP_PlayerCharacter.BP_PlayerCharacter_C.GroundedRotation
-// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_PlayerCharacter_C::GroundedRotation() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerCharacter.BP_PlayerCharacter_C.GroundedRotation");
-
-	struct ABP_PlayerCharacter_C_GroundedRotation_Params {
-	};
-	ABP_PlayerCharacter_C_GroundedRotation_Params params;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -6633,10 +5969,7 @@ void ABP_PlayerCharacter_C::GetPhysicsHandle(class UPhysicsHandleComponent** Phy
 	};
 	ABP_PlayerCharacter_C_GetPhysicsHandle_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (PhysicsHandle != nullptr)
 		*PhysicsHandle = params.PhysicsHandle;
 }
@@ -6658,10 +5991,7 @@ void ABP_PlayerCharacter_C::GetInteractionEndpoint(float Distance, struct FVecto
 	ABP_PlayerCharacter_C_GetInteractionEndpoint_Params params;
 	params.Distance = Distance;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (EndPoint != nullptr)
 		*EndPoint = params.EndPoint;
 }
@@ -6686,10 +6016,7 @@ bool ABP_PlayerCharacter_C::MoveToMountingLocation(const struct FVector& Locatio
 	params.Location = Location;
 	params.Orientation = Orientation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -6710,10 +6037,7 @@ bool ABP_PlayerCharacter_C::OnMountingPawnFinished(class AActor* newMountActor) 
 	ABP_PlayerCharacter_C_OnMountingPawnFinished_Params params;
 	params.newMountActor = newMountActor;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -6734,10 +6058,7 @@ bool ABP_PlayerCharacter_C::OnDismountingPawnFinished(class AActor* oldPawnMount
 	ABP_PlayerCharacter_C_OnDismountingPawnFinished_Params params;
 	params.oldPawnMount = oldPawnMount;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -6758,10 +6079,7 @@ bool ABP_PlayerCharacter_C::SetRiderCollisionEnabled(bool shouldEnable) {
 	ABP_PlayerCharacter_C_SetRiderCollisionEnabled_Params params;
 	params.shouldEnable = shouldEnable;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -6787,10 +6105,7 @@ bool ABP_PlayerCharacter_C::PrepareToMount(class AActor* mountOrRider, class AAc
 	params.mountOrRider = mountOrRider;
 	params.linkedActor = linkedActor;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Response != nullptr)
 		*Response = params.Response;
 	return params.ReturnValue;
@@ -6815,10 +6130,7 @@ bool ABP_PlayerCharacter_C::PrepareToDismount(class AActor* mountOrRider, struct
 	ABP_PlayerCharacter_C_PrepareToDismount_Params params;
 	params.mountOrRider = mountOrRider;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Response != nullptr)
 		*Response = params.Response;
 	return params.ReturnValue;

@@ -1,6 +1,6 @@
 #pragma once
 #include "Structs.h"
-#include "Engine/GameMode.h"
+#include "Engine/GameModeBase.h"
 /////////////////////////////////////////////
 // BlueprintGeneratedClass GM_MedievalDynasty.GM_MedievalDynasty_C
 // Super: Class Engine.GameModeBase
@@ -421,10 +421,10 @@ public:
 	class UAudioComponent** M_PtrGetCutsceneSound();
 	void M_SetCutsceneSound(const class UAudioComponent*& value);
 
-	//TAssetPtr<class FNone_323>	AlreadyWrittenAchievements;		//Offset: 1296	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnInstance
-	TAssetPtr<class FNone_323> M_GetAlreadyWrittenAchievements() const;
-	TAssetPtr<class FNone_323>* M_PtrGetAlreadyWrittenAchievements();
-	void M_SetAlreadyWrittenAchievements(const TAssetPtr<class FNone_323>& value);
+	//TAssetPtr<class FNone_413>	AlreadyWrittenAchievements;		//Offset: 1296	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	TAssetPtr<class FNone_413> M_GetAlreadyWrittenAchievements() const;
+	TAssetPtr<class FNone_413>* M_PtrGetAlreadyWrittenAchievements();
+	void M_SetAlreadyWrittenAchievements(const TAssetPtr<class FNone_413>& value);
 
 	//bool	SaveDataExistsTemp;		//Offset: 1376	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
 	bool M_GetSaveDataExistsTemp() const;
@@ -536,9 +536,9 @@ public:
 
 #pragma region Functions
 	void ExecuteUbergraph_GM_MedievalDynasty(int32_t EntryPoint);
-	
+
 	void TryToAddAchievement();
-	
+
 	void GiveAchievement(const struct FName& AchID);
 
 	void BPI_OnQuitGame();

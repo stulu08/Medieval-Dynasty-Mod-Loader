@@ -1,0 +1,13 @@
+#pragma once
+/////////////////////////////////////////////
+// Package AIC_Husbandry
+// Classes: 1
+// Enums: 0
+// Structs: 0
+// Objects: 56
+/////////////////////////////////////////////
+
+
+#include "Structs.h"
+
+#include "AIC_Husbandry_C.h"

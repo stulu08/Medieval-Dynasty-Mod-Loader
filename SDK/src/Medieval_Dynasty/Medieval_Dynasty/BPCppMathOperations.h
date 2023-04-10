@@ -28,6 +28,8 @@ public:
 
 	static void SortByString(TArray<int32_t>* SortedIndices, TArray<struct FString>* Texts, bool Increasing);
 
+	static TArray<int32_t> SplineDjikstra(TArray<class AActor*> Roads, class AActor* StartingSpline, class AActor* EndingSpline, int32_t StartingSplineIndex, int32_t EndingSplineIndex, TArray<struct FST_DoubleActorArray> ConnectionPoints);
+
 #pragma endregion
 };
 };

@@ -26,9 +26,9 @@ public:
 
 	static bool Array_Empty(const TArray<int32_t>& TargetArray);
 
-	static void CalculateDistanceForDisplay(class ACharacter* ownerComponent, float closeRadiusForDisplay, float mediumRadiusForDisplay, float farRadiusForDisplay, float activeRadius, float viewDistanceScale, bool ignoreRenderVisibility, float* Distance, int32_t* optimizationStage);
-
 	static void CheckAnotherAppInstance(bool IsEnabled);
+
+	static struct FVector CheckIsBuilding(class UObject* WorldContextObject, struct FVector actorLocation, struct FVector checkLocation, struct FVector Destination, float capsuleRadius, float CapsuleHalfHeight);
 
 	static void CopyCurve(class UAnimSequence* Source, class UAnimSequence* Target);
 
@@ -50,11 +50,11 @@ public:
 
 	static float GetSectionPosition(class UAnimMontage* Montage, struct FName SectionName);
 
-	static void GroundedRotation(class ACharacter* Character, bool IsMoving, bool lookInVelocityDirection, bool isAiming, bool isFirstPerson, struct FRotator currentLookingRotation, struct FRotator lastVelocityRotation, bool hasMovementInput, struct FRotator lastMovementInputRotation, float aimYawDelta, ECardinalDirection currentCardinalDirection, float currentRotationOffset, EGait gait, struct FVector Velocity, float currentRotationRateMultiplier, bool* shouldChangeRotation, struct FRotator* TargetRotation, bool* interpRotation, float* interpSpeed, ECardinalDirection* cardinalDirection, float* RotationOffset, float* rotationRateMultiplier);
-
 	static void InitSaveModule();
 
 	static struct FString Int64ToFStr(int64_t Value);
+
+	static void IsInCameraRange(class USceneComponent* SceneComponent, float Range, bool* IsInRange);
 
 	static void KillGameInstance();
 
@@ -62,13 +62,9 @@ public:
 
 	static void SetActorName(class UObject* Object, struct FString DisplayName);
 
-	static void SetAnimalRotation(class UCharacterMovementComponent* CharacterMovement, class AController* controllerReference, struct FRotator currentAnimalRotation, struct FRotator TargetRotation, bool interpRotation, float interpSpeed, struct FRotator* animalRotation);
-
 	static void SetAnimUpdateRateParams(class USkinnedMeshComponent* Mesh, TMap<int32_t, int32_t> LodToSkipSettings);
 
 	static void SetAnimUpdateRateParamsScreenSize(class USkinnedMeshComponent* Mesh, TArray<float> ScreenSizes);
-
-	static void SetCharacterRotation(class UCharacterMovementComponent* CharacterMovement, struct FRotator currentCharacterRotation, struct FRotator TargetRotation, bool interpRotation, float interpSpeed, bool useControllerRotationYaw, struct FRotator* characterRotation, float* rotationDifference);
 
 	static void SetCurrentAspectRatioConstraint(class APlayerController* Controller, TEnumAsByte<EAspectRatioAxisConstraint> ConstraintMode);
 
@@ -77,8 +73,6 @@ public:
 	static bool SetMinimumLODForPlatformsForSkeletals(class USkeletalMesh* Mesh, TMap<struct FName, int32_t> PerPlatformMinLods);
 
 	static void SetUnfocusedVolumeMultiplier(float Multiplier);
-
-	static void UpdateCharacterMovementSettings(class UCharacterMovementComponent* CharacterMovement, EStance stance, EGait gait, bool isInWater, bool isAiming, float randomSpeedMultiplier, float slopeSpeedMultiplier, float inWaterIntensity, float WalkingSpeed, float runningSpeed, float sprintingSpeed, float crouchingSpeed, float WalkingAcceleration, float runningAcceleration, float walkingDeceleration, float runningDeceleration, float walkingGroundFriction, float runningGroundFriction);
 
 	static void UpdateMontageSlot(class UAnimMontage* Montage, struct FName SlotName, int32_t SlotIndex);
 

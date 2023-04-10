@@ -225,7 +225,7 @@ UE4::AActor* MDML::SpawnActor(UE4::UClass* Class, const UE4::FTransform& transfo
 		return UE4::UWorld::GetWorld()->SpawnActor(Class, &transform, &spawnParams);
 	}
 	else {
-		return UE4::UGameplayStatics::BeginDeferredActorSpawnFromClass(Class, transform, UE4::ESpawnActorCollisionHandlingMethod::AlwaysSpawn, nullptr);
+		return UE4::UGameplayStatics::BeginDeferredActorSpawnFromClass((UE4::AActor*)Class, transform, UE4::ESpawnActorCollisionHandlingMethod::AlwaysSpawn, nullptr);
 	}
 }
 

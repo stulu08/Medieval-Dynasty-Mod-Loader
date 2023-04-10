@@ -910,10 +910,7 @@ void APC_Player_C::ChangeSteeringType__DelegateSignature(bool Gamepad) {
 	APC_Player_C_ChangeSteeringType__DelegateSignature_Params params;
 	params.Gamepad = Gamepad;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -928,10 +925,7 @@ void APC_Player_C::OnInputKeybindChange__DelegateSignature() {
 	};
 	APC_Player_C_OnInputKeybindChange__DelegateSignature_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -949,10 +943,7 @@ void APC_Player_C::ExecuteUbergraph_PC_Player(int32_t EntryPoint) {
 	APC_Player_C_ExecuteUbergraph_PC_Player_Params params;
 	params.EntryPoint = EntryPoint;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -988,10 +979,7 @@ void APC_Player_C::Event_StartCameraFade_PC(float FromAlpha, float ToAlpha, floa
 	params.bHoldWhenFinished = bHoldWhenFinished;
 	params.ReverseOnFinish = ReverseOnFinish;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1006,10 +994,7 @@ void APC_Player_C::Event_StopCameraFade_PC() {
 	};
 	APC_Player_C_Event_StopCameraFade_PC_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1033,10 +1018,7 @@ void APC_Player_C::Event_SetManualCameraFade_PC(float InFadeAmount, struct FLine
 	params.Color = Color;
 	params.bInFadeAudio = bInFadeAudio;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1096,10 +1078,7 @@ void APC_Player_C::FakeMakeLove(bool AddPotionEffect_, float EffectDurationTime,
 	params.AnimalRepel = AnimalRepel;
 	params.AdditionalWeight = AdditionalWeight;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1135,10 +1114,7 @@ void APC_Player_C::DialogueEventFade(float FromAlpha, float ToAlpha, float Durat
 	params.bHoldWhenFinished = bHoldWhenFinished;
 	params.ReverseOnFinish = ReverseOnFinish;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1153,10 +1129,7 @@ void APC_Player_C::ToggleHUD() {
 	};
 	APC_Player_C_ToggleHUD_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1174,10 +1147,7 @@ void APC_Player_C::XboxMessageDelegate(E_MessageReason messageReason) {
 	APC_Player_C_XboxMessageDelegate_Params params;
 	params.messageReason = messageReason;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1195,10 +1165,7 @@ void APC_Player_C::InpAxisKeyEvt_Gamepad_RightTriggerAxis_K2Node_InputAxisKeyEve
 	APC_Player_C_InpAxisKeyEvt_Gamepad_RightTriggerAxis_K2Node_InputAxisKeyEvent_3_Params params;
 	params.AxisValue = AxisValue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1216,10 +1183,7 @@ void APC_Player_C::InpAxisKeyEvt_Gamepad_LeftTriggerAxis_K2Node_InputAxisKeyEven
 	APC_Player_C_InpAxisKeyEvt_Gamepad_LeftTriggerAxis_K2Node_InputAxisKeyEvent_2_Params params;
 	params.AxisValue = AxisValue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1234,10 +1198,7 @@ void APC_Player_C::ToggleHeirHairCut() {
 	};
 	APC_Player_C_ToggleHeirHairCut_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1252,10 +1213,7 @@ void APC_Player_C::InputHoldAction_UI_Special() {
 	};
 	APC_Player_C_InputHoldAction_UI_Special_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1270,10 +1228,7 @@ void APC_Player_C::InputKnowledgeTab() {
 	};
 	APC_Player_C_InputKnowledgeTab_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1294,10 +1249,7 @@ void APC_Player_C::RemoveCutscene(float Delay, class UBinkMediaPlayer* MediaPlay
 	params.Delay = Delay;
 	params.MediaPlayer = MediaPlayer;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1312,10 +1264,7 @@ void APC_Player_C::CreateCutscene() {
 	};
 	APC_Player_C_CreateCutscene_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1330,10 +1279,7 @@ void APC_Player_C::StopAutorun() {
 	};
 	APC_Player_C_StopAutorun_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1348,10 +1294,7 @@ void APC_Player_C::Autorun() {
 	};
 	APC_Player_C_Autorun_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1366,10 +1309,7 @@ void APC_Player_C::StartAutorun() {
 	};
 	APC_Player_C_StartAutorun_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1384,10 +1324,7 @@ void APC_Player_C::InputHoldAction_UI_Confirm() {
 	};
 	APC_Player_C_InputHoldAction_UI_Confirm_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1405,10 +1342,7 @@ void APC_Player_C::ReceiveTick(float DeltaSeconds) {
 	APC_Player_C_ReceiveTick_Params params;
 	params.DeltaSeconds = DeltaSeconds;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1423,10 +1357,7 @@ void APC_Player_C::InputHoldAction_UI_Drop() {
 	};
 	APC_Player_C_InputHoldAction_UI_Drop_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1444,10 +1375,7 @@ void APC_Player_C::Down_K2Node_InputAxisEvent_4(float AxisValue) {
 	APC_Player_C_Down_K2Node_InputAxisEvent_4_Params params;
 	params.AxisValue = AxisValue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1465,10 +1393,25 @@ void APC_Player_C::Right_K2Node_InputAxisEvent_7(float AxisValue) {
 	APC_Player_C_Right_K2Node_InputAxisEvent_7_Params params;
 	params.AxisValue = AxisValue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+}
 
+/////////////////////////////////////////////
+// Function PC_Player.PC_Player_C.Down_K2Node_InputAxisEvent_4
+// Flags: BlueprintEvent
+// Params:
+// Name: AxisValue	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void APC_Player_C::Down_K2Node_InputAxisEvent_4_1(float AxisValue) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.Down_K2Node_InputAxisEvent_4");
+
+	struct APC_Player_C_Down_K2Node_InputAxisEvent_4_Params {
+		float AxisValue;			//Offset: 0 | ElementSize: 4
+	};
+	APC_Player_C_Down_K2Node_InputAxisEvent_4_Params params;
+	params.AxisValue = AxisValue;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
@@ -1483,10 +1426,7 @@ void APC_Player_C::CheatMenu() {
 	};
 	APC_Player_C_CheatMenu_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1504,10 +1444,7 @@ void APC_Player_C::ChangeSteeringType_Event(bool Gamepad) {
 	APC_Player_C_ChangeSteeringType_Event_Params params;
 	params.Gamepad = Gamepad;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1522,10 +1459,7 @@ void APC_Player_C::PlayerLookAt_Interrupt_Event() {
 	};
 	APC_Player_C_PlayerLookAt_Interrupt_Event_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1558,10 +1492,7 @@ void APC_Player_C::PlayerLookAt_Event(class AActor* targetActor, struct FVector 
 	params.interpSpeed = interpSpeed;
 	params.ErrorTolerance = ErrorTolerance;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1576,10 +1507,7 @@ void APC_Player_C::InterruptPlayerMove() {
 	};
 	APC_Player_C_InterruptPlayerMove_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1594,10 +1522,7 @@ void APC_Player_C::UpdateControlsSensitivity() {
 	};
 	APC_Player_C_UpdateControlsSensitivity_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1612,10 +1537,7 @@ void APC_Player_C::InterruptPlayerLooktAtForDialogue() {
 	};
 	APC_Player_C_InterruptPlayerLooktAtForDialogue_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1633,10 +1555,7 @@ void APC_Player_C::InpAxisEvt_ChangeInputOnGamepadThumbstickMove_K2Node_InputAxi
 	APC_Player_C_InpAxisEvt_ChangeInputOnGamepadThumbstickMove_K2Node_InputAxisEvent_6_Params params;
 	params.AxisValue = AxisValue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1654,28 +1573,25 @@ void APC_Player_C::InpAxisEvt_ChangeInputOnMouseMove_K2Node_InputAxisEvent_5(flo
 	APC_Player_C_InpAxisEvt_ChangeInputOnMouseMove_K2Node_InputAxisEvent_5_Params params;
 	params.AxisValue = AxisValue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
 // Function PC_Player.PC_Player_C.EnterFreeCam
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
+// Name: PhotoMode	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void APC_Player_C::EnterFreeCam() {
+void APC_Player_C::EnterFreeCam(bool PhotoMode) {
 	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.EnterFreeCam");
 
 	struct APC_Player_C_EnterFreeCam_Params {
+		bool PhotoMode;			//Offset: 0 | ElementSize: 1
 	};
 	APC_Player_C_EnterFreeCam_Params params;
+	params.PhotoMode = PhotoMode;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1690,10 +1606,7 @@ void APC_Player_C::ReceiveBeginPlay() {
 	};
 	APC_Player_C_ReceiveBeginPlay_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1708,10 +1621,7 @@ void APC_Player_C::InitWideCamera() {
 	};
 	APC_Player_C_InitWideCamera_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1726,10 +1636,7 @@ void APC_Player_C::Reset_Camera_Pitch() {
 	};
 	APC_Player_C_Reset_Camera_Pitch_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1750,10 +1657,7 @@ void APC_Player_C::RemoveIntro(float Delay, class UBinkMediaPlayer* MediaPlayer)
 	params.Delay = Delay;
 	params.MediaPlayer = MediaPlayer;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1768,10 +1672,7 @@ void APC_Player_C::CreateIntro() {
 	};
 	APC_Player_C_CreateIntro_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1789,10 +1690,7 @@ void APC_Player_C::RemoveMainMenu(float Delay) {
 	APC_Player_C_RemoveMainMenu_Params params;
 	params.Delay = Delay;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1807,10 +1705,7 @@ void APC_Player_C::CreateMainMenu() {
 	};
 	APC_Player_C_CreateMainMenu_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1828,10 +1723,7 @@ void APC_Player_C::CreateDeathScreen(TEnumAsByte<E_DeathType> DeathType) {
 	APC_Player_C_CreateDeathScreen_Params params;
 	params.DeathType = DeathType;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1846,10 +1738,7 @@ void APC_Player_C::InputTechnologyTab() {
 	};
 	APC_Player_C_InputTechnologyTab_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1867,10 +1756,7 @@ void APC_Player_C::Left_K2Node_InputAxisEvent_2(float AxisValue) {
 	APC_Player_C_Left_K2Node_InputAxisEvent_2_Params params;
 	params.AxisValue = AxisValue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1888,10 +1774,7 @@ void APC_Player_C::Backwards_K2Node_InputAxisEvent_1(float AxisValue) {
 	APC_Player_C_Backwards_K2Node_InputAxisEvent_1_Params params;
 	params.AxisValue = AxisValue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1909,10 +1792,25 @@ void APC_Player_C::InpAxisKeyEvt_MouseWheelAxis_K2Node_InputAxisKeyEvent_1(float
 	APC_Player_C_InpAxisKeyEvt_MouseWheelAxis_K2Node_InputAxisKeyEvent_1_Params params;
 	params.AxisValue = AxisValue;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+}
 
+/////////////////////////////////////////////
+// Function PC_Player.PC_Player_C.Right_K2Node_InputAxisEvent_7
+// Flags: BlueprintEvent
+// Params:
+// Name: AxisValue	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void APC_Player_C::Right_K2Node_InputAxisEvent_7_1(float AxisValue) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.Right_K2Node_InputAxisEvent_7");
+
+	struct APC_Player_C_Right_K2Node_InputAxisEvent_7_Params {
+		float AxisValue;			//Offset: 0 | ElementSize: 4
+	};
+	APC_Player_C_Right_K2Node_InputAxisEvent_7_Params params;
+	params.AxisValue = AxisValue;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
@@ -1927,10 +1825,7 @@ void APC_Player_C::OnDialogueStarted() {
 	};
 	APC_Player_C_OnDialogueStarted_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1945,10 +1840,7 @@ void APC_Player_C::OnDialogueEnded() {
 	};
 	APC_Player_C_OnDialogueEnded_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1969,10 +1861,7 @@ void APC_Player_C::Player_Look_At_For_Dialogue(class AActor* targetActor, struct
 	params.targetActor = targetActor;
 	params.TargetLocation = TargetLocation;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -1987,10 +1876,7 @@ void APC_Player_C::EventToggleInventory() {
 	};
 	APC_Player_C_EventToggleInventory_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2005,10 +1891,7 @@ void APC_Player_C::InputInventoryTab() {
 	};
 	APC_Player_C_InputInventoryTab_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2023,10 +1906,7 @@ void APC_Player_C::InputMapTab() {
 	};
 	APC_Player_C_InputMapTab_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2041,10 +1921,7 @@ void APC_Player_C::InputSkillsTab() {
 	};
 	APC_Player_C_InputSkillsTab_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2059,10 +1936,7 @@ void APC_Player_C::InputJournalTab() {
 	};
 	APC_Player_C_InputJournalTab_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2077,10 +1951,7 @@ void APC_Player_C::InputManagementTab() {
 	};
 	APC_Player_C_InputManagementTab_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2095,10 +1966,7 @@ void APC_Player_C::InputLastInventoryTab() {
 	};
 	APC_Player_C_InputLastInventoryTab_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2128,10 +1996,7 @@ void APC_Player_C::Player_Move_For_Interaction(struct FVector Target, struct FVe
 	params.UsePlayerLookAt = UsePlayerLookAt;
 	params.ResetLookAtPitch = ResetLookAtPitch;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2146,10 +2011,7 @@ void APC_Player_C::Decrease_TP_Camera_Distance() {
 	};
 	APC_Player_C_Decrease_TP_Camera_Distance_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2164,10 +2026,7 @@ void APC_Player_C::Increase_TP_Camera_Distance() {
 	};
 	APC_Player_C_Increase_TP_Camera_Distance_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2194,10 +2053,7 @@ void APC_Player_C::ToggleTradingMenu(bool WithNPC_, class UInventoryComponent_C*
 	params.WithHorse_ = WithHorse_;
 	params.GiftGiving = GiftGiving;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2218,10 +2074,7 @@ void APC_Player_C::ToggleEvent(bool CheatStart, bool CheatEnd) {
 	params.CheatStart = CheatStart;
 	params.CheatEnd = CheatEnd;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2245,10 +2098,7 @@ void APC_Player_C::ToggleInventory(TEnumAsByte<E_InventoryMainTab> MainTab, bool
 	params.OpenLastTab_ = OpenLastTab_;
 	params.Close_ = Close_;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2266,10 +2116,7 @@ void APC_Player_C::ReceivePossess(class APawn* PossessedPawn) {
 	APC_Player_C_ReceivePossess_Params params;
 	params.PossessedPawn = PossessedPawn;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2287,10 +2134,7 @@ void APC_Player_C::Server_PossessPawn(class APawn* characterToPossess) {
 	APC_Player_C_Server_PossessPawn_Params params;
 	params.characterToPossess = characterToPossess;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2305,10 +2149,7 @@ void APC_Player_C::BPI_OnCameraShakesChanged() {
 	};
 	APC_Player_C_BPI_OnCameraShakesChanged_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2323,10 +2164,7 @@ void APC_Player_C::BPI_OnBreathingChanged() {
 	};
 	APC_Player_C_BPI_OnBreathingChanged_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2341,10 +2179,7 @@ void APC_Player_C::BPI_UpdateControlsSensitivity() {
 	};
 	APC_Player_C_BPI_UpdateControlsSensitivity_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2359,31 +2194,43 @@ void APC_Player_C::BPI_OnHeadbobbingChanged() {
 	};
 	APC_Player_C_BPI_OnHeadbobbingChanged_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.InpActEvt_Slash_K2Node_InputKeyEvent_1
+// Function PC_Player.PC_Player_C.InpActEvt_NumPadSeven_K2Node_InputKeyEvent_1
 // Flags: BlueprintEvent
 // Params:
 // Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
 /////////////////////////////////////////////
-void APC_Player_C::InpActEvt_Slash_K2Node_InputKeyEvent_1(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_Slash_K2Node_InputKeyEvent_1");
+void APC_Player_C::InpActEvt_NumPadSeven_K2Node_InputKeyEvent_1(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_NumPadSeven_K2Node_InputKeyEvent_1");
 
-	struct APC_Player_C_InpActEvt_Slash_K2Node_InputKeyEvent_1_Params {
+	struct APC_Player_C_InpActEvt_NumPadSeven_K2Node_InputKeyEvent_1_Params {
 		struct FKey Key;			//Offset: 0 | ElementSize: 24
 	};
-	APC_Player_C_InpActEvt_Slash_K2Node_InputKeyEvent_1_Params params;
+	APC_Player_C_InpActEvt_NumPadSeven_K2Node_InputKeyEvent_1_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+}
 
+/////////////////////////////////////////////
+// Function PC_Player.PC_Player_C.InpActEvt_Slash_K2Node_InputKeyEvent_2
+// Flags: BlueprintEvent
+// Params:
+// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
+/////////////////////////////////////////////
+void APC_Player_C::InpActEvt_Slash_K2Node_InputKeyEvent_2(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_Slash_K2Node_InputKeyEvent_2");
+
+	struct APC_Player_C_InpActEvt_Slash_K2Node_InputKeyEvent_2_Params {
+		struct FKey Key;			//Offset: 0 | ElementSize: 24
+	};
+	APC_Player_C_InpActEvt_Slash_K2Node_InputKeyEvent_2_Params params;
+	params.Key = Key;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
@@ -2401,10 +2248,7 @@ void APC_Player_C::InpActEvt_Knowledge_K2Node_InputActionEvent_1(struct FKey Key
 	APC_Player_C_InpActEvt_Knowledge_K2Node_InputActionEvent_1_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2422,10 +2266,7 @@ void APC_Player_C::InpActEvt_Knowledge_K2Node_InputActionEvent_2(struct FKey Key
 	APC_Player_C_InpActEvt_Knowledge_K2Node_InputActionEvent_2_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2443,10 +2284,7 @@ void APC_Player_C::InpActEvt_SummonMount_K2Node_InputActionEvent_3(struct FKey K
 	APC_Player_C_InpActEvt_SummonMount_K2Node_InputActionEvent_3_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2464,10 +2302,7 @@ void APC_Player_C::InpActEvt_DismountAction_K2Node_InputActionEvent_4(struct FKe
 	APC_Player_C_InpActEvt_DismountAction_K2Node_InputActionEvent_4_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2485,10 +2320,7 @@ void APC_Player_C::InpActEvt_DismountAction_K2Node_InputActionEvent_5(struct FKe
 	APC_Player_C_InpActEvt_DismountAction_K2Node_InputActionEvent_5_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2506,10 +2338,7 @@ void APC_Player_C::InpActEvt_UI_SpecialAction_K2Node_InputActionEvent_6(struct F
 	APC_Player_C_InpActEvt_UI_SpecialAction_K2Node_InputActionEvent_6_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2527,10 +2356,7 @@ void APC_Player_C::InpActEvt_UI_SpecialAction_K2Node_InputActionEvent_7(struct F
 	APC_Player_C_InpActEvt_UI_SpecialAction_K2Node_InputActionEvent_7_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2548,10 +2374,7 @@ void APC_Player_C::InpActEvt_RotateGhost_Left_K2Node_InputActionEvent_8(struct F
 	APC_Player_C_InpActEvt_RotateGhost_Left_K2Node_InputActionEvent_8_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2569,10 +2392,7 @@ void APC_Player_C::InpActEvt_RotateGhost_Left_K2Node_InputActionEvent_9(struct F
 	APC_Player_C_InpActEvt_RotateGhost_Left_K2Node_InputActionEvent_9_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2590,10 +2410,7 @@ void APC_Player_C::InpActEvt_RotateGhost_Right_K2Node_InputActionEvent_10(struct
 	APC_Player_C_InpActEvt_RotateGhost_Right_K2Node_InputActionEvent_10_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2611,10 +2428,7 @@ void APC_Player_C::InpActEvt_RotateGhost_Right_K2Node_InputActionEvent_11(struct
 	APC_Player_C_InpActEvt_RotateGhost_Right_K2Node_InputActionEvent_11_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2632,10 +2446,7 @@ void APC_Player_C::InpActEvt_HideHUD_K2Node_InputActionEvent_12(struct FKey Key)
 	APC_Player_C_InpActEvt_HideHUD_K2Node_InputActionEvent_12_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2653,52 +2464,43 @@ void APC_Player_C::InpActEvt_ChangeCharacter_K2Node_InputActionEvent_13(struct F
 	APC_Player_C_InpActEvt_ChangeCharacter_K2Node_InputActionEvent_13_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.InpActEvt_F9_K2Node_InputKeyEvent_2
+// Function PC_Player.PC_Player_C.InpActEvt_F9_K2Node_InputKeyEvent_3
 // Flags: BlueprintEvent
 // Params:
 // Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
 /////////////////////////////////////////////
-void APC_Player_C::InpActEvt_F9_K2Node_InputKeyEvent_2(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_F9_K2Node_InputKeyEvent_2");
+void APC_Player_C::InpActEvt_F9_K2Node_InputKeyEvent_3(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_F9_K2Node_InputKeyEvent_3");
 
-	struct APC_Player_C_InpActEvt_F9_K2Node_InputKeyEvent_2_Params {
+	struct APC_Player_C_InpActEvt_F9_K2Node_InputKeyEvent_3_Params {
 		struct FKey Key;			//Offset: 0 | ElementSize: 24
 	};
-	APC_Player_C_InpActEvt_F9_K2Node_InputKeyEvent_2_Params params;
+	APC_Player_C_InpActEvt_F9_K2Node_InputKeyEvent_3_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.InpActEvt_Equals_K2Node_InputKeyEvent_3
+// Function PC_Player.PC_Player_C.InpActEvt_Equals_K2Node_InputKeyEvent_4
 // Flags: BlueprintEvent
 // Params:
 // Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
 /////////////////////////////////////////////
-void APC_Player_C::InpActEvt_Equals_K2Node_InputKeyEvent_3(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_Equals_K2Node_InputKeyEvent_3");
+void APC_Player_C::InpActEvt_Equals_K2Node_InputKeyEvent_4(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_Equals_K2Node_InputKeyEvent_4");
 
-	struct APC_Player_C_InpActEvt_Equals_K2Node_InputKeyEvent_3_Params {
+	struct APC_Player_C_InpActEvt_Equals_K2Node_InputKeyEvent_4_Params {
 		struct FKey Key;			//Offset: 0 | ElementSize: 24
 	};
-	APC_Player_C_InpActEvt_Equals_K2Node_InputKeyEvent_3_Params params;
+	APC_Player_C_InpActEvt_Equals_K2Node_InputKeyEvent_4_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2716,10 +2518,7 @@ void APC_Player_C::InpActEvt_ChangeInputAction_K2Node_InputActionEvent_14(struct
 	APC_Player_C_InpActEvt_ChangeInputAction_K2Node_InputActionEvent_14_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2737,31 +2536,25 @@ void APC_Player_C::InpActEvt_ChangeInputAction_K2Node_InputActionEvent_15(struct
 	APC_Player_C_InpActEvt_ChangeInputAction_K2Node_InputActionEvent_15_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.InpActEvt_F5_K2Node_InputKeyEvent_4
+// Function PC_Player.PC_Player_C.InpActEvt_F5_K2Node_InputKeyEvent_5
 // Flags: BlueprintEvent
 // Params:
 // Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
 /////////////////////////////////////////////
-void APC_Player_C::InpActEvt_F5_K2Node_InputKeyEvent_4(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_F5_K2Node_InputKeyEvent_4");
+void APC_Player_C::InpActEvt_F5_K2Node_InputKeyEvent_5(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_F5_K2Node_InputKeyEvent_5");
 
-	struct APC_Player_C_InpActEvt_F5_K2Node_InputKeyEvent_4_Params {
+	struct APC_Player_C_InpActEvt_F5_K2Node_InputKeyEvent_5_Params {
 		struct FKey Key;			//Offset: 0 | ElementSize: 24
 	};
-	APC_Player_C_InpActEvt_F5_K2Node_InputKeyEvent_4_Params params;
+	APC_Player_C_InpActEvt_F5_K2Node_InputKeyEvent_5_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2779,10 +2572,7 @@ void APC_Player_C::InpActEvt_ChoiceMenu_K2Node_InputActionEvent_16(struct FKey K
 	APC_Player_C_InpActEvt_ChoiceMenu_K2Node_InputActionEvent_16_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2800,52 +2590,43 @@ void APC_Player_C::InpActEvt_ChoiceMenu_K2Node_InputActionEvent_17(struct FKey K
 	APC_Player_C_InpActEvt_ChoiceMenu_K2Node_InputActionEvent_17_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.InpActEvt_Insert_K2Node_InputKeyEvent_5
+// Function PC_Player.PC_Player_C.InpActEvt_Insert_K2Node_InputKeyEvent_6
 // Flags: BlueprintEvent
 // Params:
 // Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
 /////////////////////////////////////////////
-void APC_Player_C::InpActEvt_Insert_K2Node_InputKeyEvent_5(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_Insert_K2Node_InputKeyEvent_5");
+void APC_Player_C::InpActEvt_Insert_K2Node_InputKeyEvent_6(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_Insert_K2Node_InputKeyEvent_6");
 
-	struct APC_Player_C_InpActEvt_Insert_K2Node_InputKeyEvent_5_Params {
+	struct APC_Player_C_InpActEvt_Insert_K2Node_InputKeyEvent_6_Params {
 		struct FKey Key;			//Offset: 0 | ElementSize: 24
 	};
-	APC_Player_C_InpActEvt_Insert_K2Node_InputKeyEvent_5_Params params;
+	APC_Player_C_InpActEvt_Insert_K2Node_InputKeyEvent_6_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.InpActEvt_Home_K2Node_InputKeyEvent_6
+// Function PC_Player.PC_Player_C.InpActEvt_Home_K2Node_InputKeyEvent_7
 // Flags: BlueprintEvent
 // Params:
 // Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
 /////////////////////////////////////////////
-void APC_Player_C::InpActEvt_Home_K2Node_InputKeyEvent_6(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_Home_K2Node_InputKeyEvent_6");
+void APC_Player_C::InpActEvt_Home_K2Node_InputKeyEvent_7(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_Home_K2Node_InputKeyEvent_7");
 
-	struct APC_Player_C_InpActEvt_Home_K2Node_InputKeyEvent_6_Params {
+	struct APC_Player_C_InpActEvt_Home_K2Node_InputKeyEvent_7_Params {
 		struct FKey Key;			//Offset: 0 | ElementSize: 24
 	};
-	APC_Player_C_InpActEvt_Home_K2Node_InputKeyEvent_6_Params params;
+	APC_Player_C_InpActEvt_Home_K2Node_InputKeyEvent_7_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2863,10 +2644,7 @@ void APC_Player_C::InpActEvt_Technology_K2Node_InputActionEvent_18(struct FKey K
 	APC_Player_C_InpActEvt_Technology_K2Node_InputActionEvent_18_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2884,10 +2662,7 @@ void APC_Player_C::InpActEvt_Technology_K2Node_InputActionEvent_19(struct FKey K
 	APC_Player_C_InpActEvt_Technology_K2Node_InputActionEvent_19_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2905,10 +2680,7 @@ void APC_Player_C::InpActEvt_JumpAction_K2Node_InputActionEvent_20(struct FKey K
 	APC_Player_C_InpActEvt_JumpAction_K2Node_InputActionEvent_20_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2926,10 +2698,7 @@ void APC_Player_C::InpActEvt_JumpAction_K2Node_InputActionEvent_21(struct FKey K
 	APC_Player_C_InpActEvt_JumpAction_K2Node_InputActionEvent_21_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2947,10 +2716,7 @@ void APC_Player_C::InpActEvt_CameraAction_K2Node_InputActionEvent_22(struct FKey
 	APC_Player_C_InpActEvt_CameraAction_K2Node_InputActionEvent_22_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2968,10 +2734,7 @@ void APC_Player_C::InpActEvt_CameraAction_K2Node_InputActionEvent_23(struct FKey
 	APC_Player_C_InpActEvt_CameraAction_K2Node_InputActionEvent_23_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -2989,10 +2752,7 @@ void APC_Player_C::InpActEvt_StanceAction_K2Node_InputActionEvent_24(struct FKey
 	APC_Player_C_InpActEvt_StanceAction_K2Node_InputActionEvent_24_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3010,10 +2770,7 @@ void APC_Player_C::InpActEvt_StanceAction_K2Node_InputActionEvent_25(struct FKey
 	APC_Player_C_InpActEvt_StanceAction_K2Node_InputActionEvent_25_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3031,10 +2788,7 @@ void APC_Player_C::InpActEvt_WalkAction_K2Node_InputActionEvent_26(struct FKey K
 	APC_Player_C_InpActEvt_WalkAction_K2Node_InputActionEvent_26_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3052,10 +2806,7 @@ void APC_Player_C::InpActEvt_SelectRotationMode_2_K2Node_InputActionEvent_27(str
 	APC_Player_C_InpActEvt_SelectRotationMode_2_K2Node_InputActionEvent_27_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3073,10 +2824,7 @@ void APC_Player_C::InpActEvt_SelectRotationMode_1_K2Node_InputActionEvent_28(str
 	APC_Player_C_InpActEvt_SelectRotationMode_1_K2Node_InputActionEvent_28_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3094,10 +2842,7 @@ void APC_Player_C::InpActEvt_UI_NextSection_K2Node_InputActionEvent_29(struct FK
 	APC_Player_C_InpActEvt_UI_NextSection_K2Node_InputActionEvent_29_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3115,10 +2860,7 @@ void APC_Player_C::InpActEvt_UI_NextSection_K2Node_InputActionEvent_30(struct FK
 	APC_Player_C_InpActEvt_UI_NextSection_K2Node_InputActionEvent_30_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3136,10 +2878,7 @@ void APC_Player_C::InpActEvt_UI_PreviousSection_K2Node_InputActionEvent_31(struc
 	APC_Player_C_InpActEvt_UI_PreviousSection_K2Node_InputActionEvent_31_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3157,10 +2896,7 @@ void APC_Player_C::InpActEvt_UI_PreviousSection_K2Node_InputActionEvent_32(struc
 	APC_Player_C_InpActEvt_UI_PreviousSection_K2Node_InputActionEvent_32_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3178,10 +2914,7 @@ void APC_Player_C::InpActEvt_GameMenu_K2Node_InputActionEvent_33(struct FKey Key
 	APC_Player_C_InpActEvt_GameMenu_K2Node_InputActionEvent_33_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3199,10 +2932,7 @@ void APC_Player_C::InpActEvt_UI_AdditionalInteraction_K2Node_InputActionEvent_34
 	APC_Player_C_InpActEvt_UI_AdditionalInteraction_K2Node_InputActionEvent_34_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3220,31 +2950,7 @@ void APC_Player_C::InpActEvt_UI_AdditionalInteraction_K2Node_InputActionEvent_35
 	APC_Player_C_InpActEvt_UI_AdditionalInteraction_K2Node_InputActionEvent_35_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.InpActEvt_E_K2Node_InputKeyEvent_7
-// Flags: BlueprintEvent
-// Params:
-// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
-/////////////////////////////////////////////
-void APC_Player_C::InpActEvt_E_K2Node_InputKeyEvent_7(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_E_K2Node_InputKeyEvent_7");
-
-	struct APC_Player_C_InpActEvt_E_K2Node_InputKeyEvent_7_Params {
-		struct FKey Key;			//Offset: 0 | ElementSize: 24
-	};
-	APC_Player_C_InpActEvt_E_K2Node_InputKeyEvent_7_Params params;
-	params.Key = Key;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3262,10 +2968,25 @@ void APC_Player_C::InpActEvt_E_K2Node_InputKeyEvent_8(struct FKey Key) {
 	APC_Player_C_InpActEvt_E_K2Node_InputKeyEvent_8_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+}
 
+/////////////////////////////////////////////
+// Function PC_Player.PC_Player_C.InpActEvt_E_K2Node_InputKeyEvent_9
+// Flags: BlueprintEvent
+// Params:
+// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
+/////////////////////////////////////////////
+void APC_Player_C::InpActEvt_E_K2Node_InputKeyEvent_9(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_E_K2Node_InputKeyEvent_9");
+
+	struct APC_Player_C_InpActEvt_E_K2Node_InputKeyEvent_9_Params {
+		struct FKey Key;			//Offset: 0 | ElementSize: 24
+	};
+	APC_Player_C_InpActEvt_E_K2Node_InputKeyEvent_9_Params params;
+	params.Key = Key;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
@@ -3283,10 +3004,7 @@ void APC_Player_C::InpActEvt_HolsterHoldableItem_K2Node_InputActionEvent_36(stru
 	APC_Player_C_InpActEvt_HolsterHoldableItem_K2Node_InputActionEvent_36_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3304,10 +3022,7 @@ void APC_Player_C::InpActEvt_InspectorMode_K2Node_InputActionEvent_37(struct FKe
 	APC_Player_C_InpActEvt_InspectorMode_K2Node_InputActionEvent_37_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3325,10 +3040,7 @@ void APC_Player_C::InpActEvt_InspectorMode_K2Node_InputActionEvent_38(struct FKe
 	APC_Player_C_InpActEvt_InspectorMode_K2Node_InputActionEvent_38_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3346,10 +3058,7 @@ void APC_Player_C::InpActEvt_SprintAction_K2Node_InputActionEvent_39(struct FKey
 	APC_Player_C_InpActEvt_SprintAction_K2Node_InputActionEvent_39_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3367,10 +3076,7 @@ void APC_Player_C::InpActEvt_SprintAction_K2Node_InputActionEvent_40(struct FKey
 	APC_Player_C_InpActEvt_SprintAction_K2Node_InputActionEvent_40_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3388,10 +3094,7 @@ void APC_Player_C::InpActEvt_InteractAction_K2Node_InputActionEvent_41(struct FK
 	APC_Player_C_InpActEvt_InteractAction_K2Node_InputActionEvent_41_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3409,10 +3112,7 @@ void APC_Player_C::InpActEvt_InteractAction_K2Node_InputActionEvent_42(struct FK
 	APC_Player_C_InpActEvt_InteractAction_K2Node_InputActionEvent_42_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3430,10 +3130,7 @@ void APC_Player_C::InpActEvt_QuickSlot1_K2Node_InputActionEvent_43(struct FKey K
 	APC_Player_C_InpActEvt_QuickSlot1_K2Node_InputActionEvent_43_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3451,10 +3148,7 @@ void APC_Player_C::InpActEvt_QuickSlot5_K2Node_InputActionEvent_44(struct FKey K
 	APC_Player_C_InpActEvt_QuickSlot5_K2Node_InputActionEvent_44_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3472,10 +3166,7 @@ void APC_Player_C::InpActEvt_QuickSlot6_K2Node_InputActionEvent_45(struct FKey K
 	APC_Player_C_InpActEvt_QuickSlot6_K2Node_InputActionEvent_45_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3493,10 +3184,7 @@ void APC_Player_C::InpActEvt_QuickSlot2_K2Node_InputActionEvent_46(struct FKey K
 	APC_Player_C_InpActEvt_QuickSlot2_K2Node_InputActionEvent_46_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3514,10 +3202,7 @@ void APC_Player_C::InpActEvt_QuickSlot7_K2Node_InputActionEvent_47(struct FKey K
 	APC_Player_C_InpActEvt_QuickSlot7_K2Node_InputActionEvent_47_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3535,10 +3220,7 @@ void APC_Player_C::InpActEvt_QuickSlot3_K2Node_InputActionEvent_48(struct FKey K
 	APC_Player_C_InpActEvt_QuickSlot3_K2Node_InputActionEvent_48_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3556,10 +3238,7 @@ void APC_Player_C::InpActEvt_QuickSlot8_K2Node_InputActionEvent_49(struct FKey K
 	APC_Player_C_InpActEvt_QuickSlot8_K2Node_InputActionEvent_49_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3577,10 +3256,7 @@ void APC_Player_C::InpActEvt_QuickSlot4_K2Node_InputActionEvent_50(struct FKey K
 	APC_Player_C_InpActEvt_QuickSlot4_K2Node_InputActionEvent_50_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3598,10 +3274,7 @@ void APC_Player_C::InpActEvt_RightAction_K2Node_InputActionEvent_51(struct FKey 
 	APC_Player_C_InpActEvt_RightAction_K2Node_InputActionEvent_51_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3619,10 +3292,7 @@ void APC_Player_C::InpActEvt_RightAction_K2Node_InputActionEvent_52(struct FKey 
 	APC_Player_C_InpActEvt_RightAction_K2Node_InputActionEvent_52_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3640,10 +3310,7 @@ void APC_Player_C::InpActEvt_LeftAction_K2Node_InputActionEvent_53(struct FKey K
 	APC_Player_C_InpActEvt_LeftAction_K2Node_InputActionEvent_53_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3661,10 +3328,7 @@ void APC_Player_C::InpActEvt_LeftAction_K2Node_InputActionEvent_54(struct FKey K
 	APC_Player_C_InpActEvt_LeftAction_K2Node_InputActionEvent_54_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3682,10 +3346,7 @@ void APC_Player_C::InpActEvt_QuickslotMenu_K2Node_InputActionEvent_55(struct FKe
 	APC_Player_C_InpActEvt_QuickslotMenu_K2Node_InputActionEvent_55_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3703,10 +3364,7 @@ void APC_Player_C::InpActEvt_Torch_K2Node_InputActionEvent_56(struct FKey Key) {
 	APC_Player_C_InpActEvt_Torch_K2Node_InputActionEvent_56_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3724,10 +3382,7 @@ void APC_Player_C::InpActEvt_UI_Drop_K2Node_InputActionEvent_57(struct FKey Key)
 	APC_Player_C_InpActEvt_UI_Drop_K2Node_InputActionEvent_57_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3745,31 +3400,7 @@ void APC_Player_C::InpActEvt_UI_Drop_K2Node_InputActionEvent_58(struct FKey Key)
 	APC_Player_C_InpActEvt_UI_Drop_K2Node_InputActionEvent_58_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-}
-
-/////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.InpActEvt_PageUp_K2Node_InputKeyEvent_9
-// Flags: BlueprintEvent
-// Params:
-// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
-/////////////////////////////////////////////
-void APC_Player_C::InpActEvt_PageUp_K2Node_InputKeyEvent_9(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_PageUp_K2Node_InputKeyEvent_9");
-
-	struct APC_Player_C_InpActEvt_PageUp_K2Node_InputKeyEvent_9_Params {
-		struct FKey Key;			//Offset: 0 | ElementSize: 24
-	};
-	APC_Player_C_InpActEvt_PageUp_K2Node_InputKeyEvent_9_Params params;
-	params.Key = Key;
-
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3787,31 +3418,25 @@ void APC_Player_C::InpActEvt_PageUp_K2Node_InputKeyEvent_10(struct FKey Key) {
 	APC_Player_C_InpActEvt_PageUp_K2Node_InputKeyEvent_10_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.InpActEvt_PageDown_K2Node_InputKeyEvent_11
+// Function PC_Player.PC_Player_C.InpActEvt_PageUp_K2Node_InputKeyEvent_11
 // Flags: BlueprintEvent
 // Params:
 // Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
 /////////////////////////////////////////////
-void APC_Player_C::InpActEvt_PageDown_K2Node_InputKeyEvent_11(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_PageDown_K2Node_InputKeyEvent_11");
+void APC_Player_C::InpActEvt_PageUp_K2Node_InputKeyEvent_11(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_PageUp_K2Node_InputKeyEvent_11");
 
-	struct APC_Player_C_InpActEvt_PageDown_K2Node_InputKeyEvent_11_Params {
+	struct APC_Player_C_InpActEvt_PageUp_K2Node_InputKeyEvent_11_Params {
 		struct FKey Key;			//Offset: 0 | ElementSize: 24
 	};
-	APC_Player_C_InpActEvt_PageDown_K2Node_InputKeyEvent_11_Params params;
+	APC_Player_C_InpActEvt_PageUp_K2Node_InputKeyEvent_11_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3829,31 +3454,43 @@ void APC_Player_C::InpActEvt_PageDown_K2Node_InputKeyEvent_12(struct FKey Key) {
 	APC_Player_C_InpActEvt_PageDown_K2Node_InputKeyEvent_12_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.InpActEvt_NumPadFour_K2Node_InputKeyEvent_13
+// Function PC_Player.PC_Player_C.InpActEvt_PageDown_K2Node_InputKeyEvent_13
 // Flags: BlueprintEvent
 // Params:
 // Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
 /////////////////////////////////////////////
-void APC_Player_C::InpActEvt_NumPadFour_K2Node_InputKeyEvent_13(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_NumPadFour_K2Node_InputKeyEvent_13");
+void APC_Player_C::InpActEvt_PageDown_K2Node_InputKeyEvent_13(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_PageDown_K2Node_InputKeyEvent_13");
 
-	struct APC_Player_C_InpActEvt_NumPadFour_K2Node_InputKeyEvent_13_Params {
+	struct APC_Player_C_InpActEvt_PageDown_K2Node_InputKeyEvent_13_Params {
 		struct FKey Key;			//Offset: 0 | ElementSize: 24
 	};
-	APC_Player_C_InpActEvt_NumPadFour_K2Node_InputKeyEvent_13_Params params;
+	APC_Player_C_InpActEvt_PageDown_K2Node_InputKeyEvent_13_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
+}
 
+/////////////////////////////////////////////
+// Function PC_Player.PC_Player_C.InpActEvt_NumPadFour_K2Node_InputKeyEvent_14
+// Flags: BlueprintEvent
+// Params:
+// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
+/////////////////////////////////////////////
+void APC_Player_C::InpActEvt_NumPadFour_K2Node_InputKeyEvent_14(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_NumPadFour_K2Node_InputKeyEvent_14");
+
+	struct APC_Player_C_InpActEvt_NumPadFour_K2Node_InputKeyEvent_14_Params {
+		struct FKey Key;			//Offset: 0 | ElementSize: 24
+	};
+	APC_Player_C_InpActEvt_NumPadFour_K2Node_InputKeyEvent_14_Params params;
+	params.Key = Key;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
@@ -3871,10 +3508,7 @@ void APC_Player_C::InpActEvt_Management_K2Node_InputActionEvent_59(struct FKey K
 	APC_Player_C_InpActEvt_Management_K2Node_InputActionEvent_59_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3892,52 +3526,43 @@ void APC_Player_C::InpActEvt_Management_K2Node_InputActionEvent_60(struct FKey K
 	APC_Player_C_InpActEvt_Management_K2Node_InputActionEvent_60_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.InpActEvt_BackSpace_K2Node_InputKeyEvent_14
+// Function PC_Player.PC_Player_C.InpActEvt_BackSpace_K2Node_InputKeyEvent_15
 // Flags: BlueprintEvent
 // Params:
 // Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
 /////////////////////////////////////////////
-void APC_Player_C::InpActEvt_BackSpace_K2Node_InputKeyEvent_14(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_BackSpace_K2Node_InputKeyEvent_14");
+void APC_Player_C::InpActEvt_BackSpace_K2Node_InputKeyEvent_15(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_BackSpace_K2Node_InputKeyEvent_15");
 
-	struct APC_Player_C_InpActEvt_BackSpace_K2Node_InputKeyEvent_14_Params {
+	struct APC_Player_C_InpActEvt_BackSpace_K2Node_InputKeyEvent_15_Params {
 		struct FKey Key;			//Offset: 0 | ElementSize: 24
 	};
-	APC_Player_C_InpActEvt_BackSpace_K2Node_InputKeyEvent_14_Params params;
+	APC_Player_C_InpActEvt_BackSpace_K2Node_InputKeyEvent_15_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.InpActEvt_Backslash_K2Node_InputKeyEvent_15
+// Function PC_Player.PC_Player_C.InpActEvt_Backslash_K2Node_InputKeyEvent_16
 // Flags: BlueprintEvent
 // Params:
 // Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
 /////////////////////////////////////////////
-void APC_Player_C::InpActEvt_Backslash_K2Node_InputKeyEvent_15(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_Backslash_K2Node_InputKeyEvent_15");
+void APC_Player_C::InpActEvt_Backslash_K2Node_InputKeyEvent_16(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_Backslash_K2Node_InputKeyEvent_16");
 
-	struct APC_Player_C_InpActEvt_Backslash_K2Node_InputKeyEvent_15_Params {
+	struct APC_Player_C_InpActEvt_Backslash_K2Node_InputKeyEvent_16_Params {
 		struct FKey Key;			//Offset: 0 | ElementSize: 24
 	};
-	APC_Player_C_InpActEvt_Backslash_K2Node_InputKeyEvent_15_Params params;
+	APC_Player_C_InpActEvt_Backslash_K2Node_InputKeyEvent_16_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3955,10 +3580,7 @@ void APC_Player_C::InpActEvt_UI_Cancel_K2Node_InputActionEvent_61(struct FKey Ke
 	APC_Player_C_InpActEvt_UI_Cancel_K2Node_InputActionEvent_61_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3976,10 +3598,7 @@ void APC_Player_C::InpActEvt_UI_Cancel_K2Node_InputActionEvent_62(struct FKey Ke
 	APC_Player_C_InpActEvt_UI_Cancel_K2Node_InputActionEvent_62_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -3997,10 +3616,7 @@ void APC_Player_C::InpActEvt_UI_Left_K2Node_InputActionEvent_63(struct FKey Key)
 	APC_Player_C_InpActEvt_UI_Left_K2Node_InputActionEvent_63_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4018,10 +3634,7 @@ void APC_Player_C::InpActEvt_UI_Left_K2Node_InputActionEvent_64(struct FKey Key)
 	APC_Player_C_InpActEvt_UI_Left_K2Node_InputActionEvent_64_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4039,10 +3652,7 @@ void APC_Player_C::InpActEvt_UI_Right_K2Node_InputActionEvent_65(struct FKey Key
 	APC_Player_C_InpActEvt_UI_Right_K2Node_InputActionEvent_65_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4060,10 +3670,7 @@ void APC_Player_C::InpActEvt_UI_Right_K2Node_InputActionEvent_66(struct FKey Key
 	APC_Player_C_InpActEvt_UI_Right_K2Node_InputActionEvent_66_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4081,10 +3688,7 @@ void APC_Player_C::InpActEvt_UI_Down_K2Node_InputActionEvent_67(struct FKey Key)
 	APC_Player_C_InpActEvt_UI_Down_K2Node_InputActionEvent_67_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4102,10 +3706,7 @@ void APC_Player_C::InpActEvt_UI_Down_K2Node_InputActionEvent_68(struct FKey Key)
 	APC_Player_C_InpActEvt_UI_Down_K2Node_InputActionEvent_68_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4123,10 +3724,7 @@ void APC_Player_C::InpActEvt_UI_Up_K2Node_InputActionEvent_69(struct FKey Key) {
 	APC_Player_C_InpActEvt_UI_Up_K2Node_InputActionEvent_69_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4144,10 +3742,7 @@ void APC_Player_C::InpActEvt_UI_Up_K2Node_InputActionEvent_70(struct FKey Key) {
 	APC_Player_C_InpActEvt_UI_Up_K2Node_InputActionEvent_70_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4165,10 +3760,7 @@ void APC_Player_C::InpActEvt_UI_Confirm_K2Node_InputActionEvent_71(struct FKey K
 	APC_Player_C_InpActEvt_UI_Confirm_K2Node_InputActionEvent_71_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4186,10 +3778,7 @@ void APC_Player_C::InpActEvt_UI_Confirm_K2Node_InputActionEvent_72(struct FKey K
 	APC_Player_C_InpActEvt_UI_Confirm_K2Node_InputActionEvent_72_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4207,10 +3796,7 @@ void APC_Player_C::InpActEvt_LastInventoryTab_K2Node_InputActionEvent_73(struct 
 	APC_Player_C_InpActEvt_LastInventoryTab_K2Node_InputActionEvent_73_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4228,10 +3814,7 @@ void APC_Player_C::InpActEvt_LastInventoryTab_K2Node_InputActionEvent_74(struct 
 	APC_Player_C_InpActEvt_LastInventoryTab_K2Node_InputActionEvent_74_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4249,10 +3832,7 @@ void APC_Player_C::InpActEvt_Journal_K2Node_InputActionEvent_75(struct FKey Key)
 	APC_Player_C_InpActEvt_Journal_K2Node_InputActionEvent_75_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4270,10 +3850,7 @@ void APC_Player_C::InpActEvt_Journal_K2Node_InputActionEvent_76(struct FKey Key)
 	APC_Player_C_InpActEvt_Journal_K2Node_InputActionEvent_76_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4291,10 +3868,7 @@ void APC_Player_C::InpActEvt_Skills_K2Node_InputActionEvent_77(struct FKey Key) 
 	APC_Player_C_InpActEvt_Skills_K2Node_InputActionEvent_77_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4312,10 +3886,7 @@ void APC_Player_C::InpActEvt_Skills_K2Node_InputActionEvent_78(struct FKey Key) 
 	APC_Player_C_InpActEvt_Skills_K2Node_InputActionEvent_78_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4333,10 +3904,7 @@ void APC_Player_C::InpActEvt_Map_K2Node_InputActionEvent_79(struct FKey Key) {
 	APC_Player_C_InpActEvt_Map_K2Node_InputActionEvent_79_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4354,31 +3922,25 @@ void APC_Player_C::InpActEvt_Map_K2Node_InputActionEvent_80(struct FKey Key) {
 	APC_Player_C_InpActEvt_Map_K2Node_InputActionEvent_80_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.InpActEvt_Multiply_K2Node_InputKeyEvent_16
+// Function PC_Player.PC_Player_C.InpActEvt_Multiply_K2Node_InputKeyEvent_17
 // Flags: BlueprintEvent
 // Params:
 // Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
 /////////////////////////////////////////////
-void APC_Player_C::InpActEvt_Multiply_K2Node_InputKeyEvent_16(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_Multiply_K2Node_InputKeyEvent_16");
+void APC_Player_C::InpActEvt_Multiply_K2Node_InputKeyEvent_17(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_Multiply_K2Node_InputKeyEvent_17");
 
-	struct APC_Player_C_InpActEvt_Multiply_K2Node_InputKeyEvent_16_Params {
+	struct APC_Player_C_InpActEvt_Multiply_K2Node_InputKeyEvent_17_Params {
 		struct FKey Key;			//Offset: 0 | ElementSize: 24
 	};
-	APC_Player_C_InpActEvt_Multiply_K2Node_InputKeyEvent_16_Params params;
+	APC_Player_C_InpActEvt_Multiply_K2Node_InputKeyEvent_17_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4396,10 +3958,7 @@ void APC_Player_C::InpActEvt_Inventory_K2Node_InputActionEvent_81(struct FKey Ke
 	APC_Player_C_InpActEvt_Inventory_K2Node_InputActionEvent_81_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4417,52 +3976,43 @@ void APC_Player_C::InpActEvt_Inventory_K2Node_InputActionEvent_82(struct FKey Ke
 	APC_Player_C_InpActEvt_Inventory_K2Node_InputActionEvent_82_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.InpActEvt_Subtract_K2Node_InputKeyEvent_17
+// Function PC_Player.PC_Player_C.InpActEvt_Subtract_K2Node_InputKeyEvent_18
 // Flags: BlueprintEvent
 // Params:
 // Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
 /////////////////////////////////////////////
-void APC_Player_C::InpActEvt_Subtract_K2Node_InputKeyEvent_17(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_Subtract_K2Node_InputKeyEvent_17");
+void APC_Player_C::InpActEvt_Subtract_K2Node_InputKeyEvent_18(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_Subtract_K2Node_InputKeyEvent_18");
 
-	struct APC_Player_C_InpActEvt_Subtract_K2Node_InputKeyEvent_17_Params {
+	struct APC_Player_C_InpActEvt_Subtract_K2Node_InputKeyEvent_18_Params {
 		struct FKey Key;			//Offset: 0 | ElementSize: 24
 	};
-	APC_Player_C_InpActEvt_Subtract_K2Node_InputKeyEvent_17_Params params;
+	APC_Player_C_InpActEvt_Subtract_K2Node_InputKeyEvent_18_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.InpActEvt_Add_K2Node_InputKeyEvent_18
+// Function PC_Player.PC_Player_C.InpActEvt_Add_K2Node_InputKeyEvent_19
 // Flags: BlueprintEvent
 // Params:
 // Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
 /////////////////////////////////////////////
-void APC_Player_C::InpActEvt_Add_K2Node_InputKeyEvent_18(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_Add_K2Node_InputKeyEvent_18");
+void APC_Player_C::InpActEvt_Add_K2Node_InputKeyEvent_19(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.InpActEvt_Add_K2Node_InputKeyEvent_19");
 
-	struct APC_Player_C_InpActEvt_Add_K2Node_InputKeyEvent_18_Params {
+	struct APC_Player_C_InpActEvt_Add_K2Node_InputKeyEvent_19_Params {
 		struct FKey Key;			//Offset: 0 | ElementSize: 24
 	};
-	APC_Player_C_InpActEvt_Add_K2Node_InputKeyEvent_18_Params params;
+	APC_Player_C_InpActEvt_Add_K2Node_InputKeyEvent_19_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4477,10 +4027,7 @@ void APC_Player_C::UserConstructionScript() {
 	};
 	APC_Player_C_UserConstructionScript_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4498,10 +4045,7 @@ void APC_Player_C::ChangeCrosshairStatePC(bool Aiming) {
 	APC_Player_C_ChangeCrosshairStatePC_Params params;
 	params.Aiming = Aiming;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4519,28 +4063,22 @@ void APC_Player_C::OnLockFreeCam(bool LockFreeCam) {
 	APC_Player_C_OnLockFreeCam_Params params;
 	params.LockFreeCam = LockFreeCam;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
-// Function PC_Player.PC_Player_C.UpdateFoV
+// Function PC_Player.PC_Player_C.UpdateFov
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
 /////////////////////////////////////////////
-void APC_Player_C::UpdateFoV() {
-	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.UpdateFoV");
+void APC_Player_C::UpdateFov() {
+	static auto fn = UObject::FindObject<UFunction>("Function PC_Player.PC_Player_C.UpdateFov");
 
-	struct APC_Player_C_UpdateFoV_Params {
+	struct APC_Player_C_UpdateFov_Params {
 	};
-	APC_Player_C_UpdateFoV_Params params;
+	APC_Player_C_UpdateFov_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4555,10 +4093,7 @@ void APC_Player_C::OnHeadbobbingChanged() {
 	};
 	APC_Player_C_OnHeadbobbingChanged_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4573,10 +4108,7 @@ void APC_Player_C::InputHoldingWithCount() {
 	};
 	APC_Player_C_InputHoldingWithCount_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4591,10 +4123,7 @@ void APC_Player_C::ResetInputHoldingCount() {
 	};
 	APC_Player_C_ResetInputHoldingCount_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4612,10 +4141,7 @@ void APC_Player_C::UpdateInputHoldingTime(float DeltaTime) {
 	APC_Player_C_UpdateInputHoldingTime_Params params;
 	params.DeltaTime = DeltaTime;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4633,10 +4159,7 @@ void APC_Player_C::CheckCzechQuickslot(struct FKey Key) {
 	APC_Player_C_CheckCzechQuickslot_Params params;
 	params.Key = Key;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4651,10 +4174,7 @@ void APC_Player_C::ReleaseAllUIInputs() {
 	};
 	APC_Player_C_ReleaseAllUIInputs_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4672,10 +4192,7 @@ void APC_Player_C::OnLockCameraPosition(bool LockCameraPosition) {
 	APC_Player_C_OnLockCameraPosition_Params params;
 	params.LockCameraPosition = LockCameraPosition;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4690,10 +4207,7 @@ void APC_Player_C::OnDismountFinished() {
 	};
 	APC_Player_C_OnDismountFinished_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4708,10 +4222,7 @@ void APC_Player_C::OnCameraShakesChanged() {
 	};
 	APC_Player_C_OnCameraShakesChanged_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4726,10 +4237,7 @@ void APC_Player_C::OnBreathingChanged() {
 	};
 	APC_Player_C_OnBreathingChanged_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4746,10 +4254,7 @@ void APC_Player_C::GetIsSteeringSetToGamepad(bool* IsSteeringSetToGamepad) {
 	};
 	APC_Player_C_GetIsSteeringSetToGamepad_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (IsSteeringSetToGamepad != nullptr)
 		*IsSteeringSetToGamepad = params.IsSteeringSetToGamepad;
 }
@@ -4766,10 +4271,7 @@ void APC_Player_C::ShowLoggedOutPopup() {
 	};
 	APC_Player_C_ShowLoggedOutPopup_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4784,10 +4286,7 @@ void APC_Player_C::ShowReconnectPopup() {
 	};
 	APC_Player_C_ShowReconnectPopup_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -4812,10 +4311,7 @@ bool APC_Player_C::PrepareToMount(class AActor* mountOrRider, class AActor* link
 	params.mountOrRider = mountOrRider;
 	params.linkedActor = linkedActor;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Response != nullptr)
 		*Response = params.Response;
 	return params.ReturnValue;
@@ -4840,10 +4336,7 @@ bool APC_Player_C::PrepareToDismount(class AActor* mountOrRider, struct FMountAc
 	APC_Player_C_PrepareToDismount_Params params;
 	params.mountOrRider = mountOrRider;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Response != nullptr)
 		*Response = params.Response;
 	return params.ReturnValue;
@@ -4863,10 +4356,7 @@ bool APC_Player_C::IsMounted()/* const*/ {
 	};
 	APC_Player_C_IsMounted_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -4884,10 +4374,7 @@ class APawn* APC_Player_C::GetCharacterPawn()/* const*/ {
 	};
 	APC_Player_C_GetCharacterPawn_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -4905,10 +4392,7 @@ class AActor* APC_Player_C::GetCharacterMount()/* const*/ {
 	};
 	APC_Player_C_GetCharacterMount_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -4926,10 +4410,7 @@ class AController* APC_Player_C::GetCharacterController()/* const*/ {
 	};
 	APC_Player_C_GetCharacterController_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -4950,10 +4431,7 @@ bool APC_Player_C::PossessCharacter(class APawn* characterToPossess) {
 	APC_Player_C_PossessCharacter_Params params;
 	params.characterToPossess = characterToPossess;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -4977,10 +4455,7 @@ bool APC_Player_C::OnRiderRemoved(class AActor* removedRider, int32_t seatId) {
 	params.removedRider = removedRider;
 	params.seatId = seatId;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -5004,10 +4479,7 @@ bool APC_Player_C::OnRiderAdded(class AActor* newRider, int32_t seatId) {
 	params.newRider = newRider;
 	params.seatId = seatId;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -5034,10 +4506,7 @@ bool APC_Player_C::OnOtherRiderChangedSeats(class AActor* otherRider, int32_t ne
 	params.newSeatId = newSeatId;
 	params.oldSeatId = oldSeatId;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -5064,10 +4533,7 @@ bool APC_Player_C::OnMountActionFailed(class AActor* newMount, class AActor* new
 	params.newLinkedActor = newLinkedActor;
 	params.Response = Response;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -5091,10 +4557,7 @@ bool APC_Player_C::OnDismountActionFailed(class AActor* currentMount, struct FMo
 	params.currentMount = currentMount;
 	params.Response = Response;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -5115,10 +4578,7 @@ bool APC_Player_C::OnChangeSeatActionFailed(struct FMountActionResponse Response
 	APC_Player_C_OnChangeSeatActionFailed_Params params;
 	params.Response = Response;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -5136,10 +4596,7 @@ class URiderControllerComponent* APC_Player_C::GetRiderControllerComponent()/* c
 	};
 	APC_Player_C_GetRiderControllerComponent_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -5160,10 +4617,7 @@ bool APC_Player_C::PNMS_PossessPawn(class APawn* pawnToPossess) {
 	APC_Player_C_PNMS_PossessPawn_Params params;
 	params.pawnToPossess = pawnToPossess;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	return params.ReturnValue;
 }
 
@@ -5192,10 +4646,7 @@ bool APC_Player_C::BeginMountingActorToSeat(class AActor* newMount, class AActor
 	params.linkedActor = linkedActor;
 	params.seatId = seatId;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (mountingResponse != nullptr)
 		*mountingResponse = params.mountingResponse;
 	return params.ReturnValue;
@@ -5223,10 +4674,7 @@ bool APC_Player_C::BeginMountingActor(class AActor* newMount, class AActor* link
 	params.newMount = newMount;
 	params.linkedActor = linkedActor;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (mountingResponse != nullptr)
 		*mountingResponse = params.mountingResponse;
 	return params.ReturnValue;
@@ -5248,10 +4696,7 @@ bool APC_Player_C::BeginDismountingActor(struct FMountActionResponse* Response) 
 	};
 	APC_Player_C_BeginDismountingActor_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (Response != nullptr)
 		*Response = params.Response;
 	return params.ReturnValue;
@@ -5276,10 +4721,7 @@ bool APC_Player_C::BeginChangingSeatToIndex(int32_t seatIndex, struct FMountActi
 	APC_Player_C_BeginChangingSeatToIndex_Params params;
 	params.seatIndex = seatIndex;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (mountingResponse != nullptr)
 		*mountingResponse = params.mountingResponse;
 	return params.ReturnValue;
@@ -5304,10 +4746,7 @@ bool APC_Player_C::BeginChangingSeatById(int32_t seatId, struct FMountActionResp
 	APC_Player_C_BeginChangingSeatById_Params params;
 	params.seatId = seatId;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 	if (mountingResponse != nullptr)
 		*mountingResponse = params.mountingResponse;
 	return params.ReturnValue;
@@ -5325,7 +4764,26 @@ void APC_Player_C::BPI_RefreshSetSteering() {
 	};
 	APC_Player_C_BPI_RefreshSetSteering_Params params;
 
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// InputActionDelegateBinding PC_Player.PC_Player_C.InputActionDelegateBinding_1
+// Flags: Net, NetReliable, NetRequest, Exec, Native, NetResponse, NetMulticast, Public, Private, Delegate, NetServer, NetClient, DLLImport, BlueprintCallable, BlueprintEvent, BlueprintPure, Const
+// Params:
+/////////////////////////////////////////////
+void APC_Player_C::InputActionDelegateBinding_1()/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("InputActionDelegateBinding PC_Player.PC_Player_C.InputActionDelegateBinding_1");
+
+	struct APC_Player_C_InputActionDelegateBinding_1_Params {
+	};
+	APC_Player_C_InputActionDelegateBinding_1_Params params;
+
 	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
 	UObject::ProcessEvent(fn, &params);
 	fn->SetFunctionFlags((EFunctionFlags)flags);
 
@@ -5333,20 +4791,17 @@ void APC_Player_C::BPI_RefreshSetSteering() {
 
 /////////////////////////////////////////////
 // InputAxisDelegateBinding PC_Player.PC_Player_C.InputAxisDelegateBinding_1
-// Flags: Final, Public, Private, Delegate, BlueprintCallable
+// Flags: Final, NetClient, BlueprintEvent, BlueprintPure, Const
 // Params:
 /////////////////////////////////////////////
-void APC_Player_C::InputAxisDelegateBinding_1() {
+void APC_Player_C::InputAxisDelegateBinding_1()/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("InputAxisDelegateBinding PC_Player.PC_Player_C.InputAxisDelegateBinding_1");
 
 	struct APC_Player_C_InputAxisDelegateBinding_1_Params {
 	};
 	APC_Player_C_InputAxisDelegateBinding_1_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -5361,10 +4816,7 @@ void APC_Player_C::InputAxisKeyDelegateBinding_1() {
 	};
 	APC_Player_C_InputAxisKeyDelegateBinding_1_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 #pragma endregion
