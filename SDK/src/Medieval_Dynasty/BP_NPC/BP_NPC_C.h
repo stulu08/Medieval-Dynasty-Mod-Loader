@@ -4,352 +4,372 @@
 /////////////////////////////////////////////
 // BlueprintGeneratedClass BP_NPC.BP_NPC_C
 // Super: BlueprintGeneratedClass BP_BaseCharacter.BP_BaseCharacter_C
-// Size: 7569
-// Size inherited: 5833
+// Size: 7688
+// Size inherited: 5881
 /////////////////////////////////////////////
 namespace UE4 {
 class ABP_NPC_C : public ABP_BaseCharacter_C {
 public:
 #pragma region Members
-	//struct FPointerToUberGraphFrame	UberGraphFrame;		//Offset: 5840	Size: 8	Flags: ZeroConstructor, Transient, DuplicateTransient
+	//struct FPointerToUberGraphFrame	UberGraphFrame;		//Offset: 5888	Size: 8	Flags: ZeroConstructor, Transient, DuplicateTransient
 	struct FPointerToUberGraphFrame M_GetUberGraphFrame() const;
 	struct FPointerToUberGraphFrame* M_PtrGetUberGraphFrame();
 	void M_SetUberGraphFrame(const struct FPointerToUberGraphFrame& value);
 
-	//class UAudioComponent*	Voice;		//Offset: 5848	Size: 8	Flags: BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash
-	class UAudioComponent* M_GetVoice() const;
-	class UAudioComponent** M_PtrGetVoice();
-	void M_SetVoice(const class UAudioComponent*& value);
-
-	//class USkeletalMeshComponent*	ShadowCaster;		//Offset: 5856	Size: 8	Flags: BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash
+	//class USkeletalMeshComponent*	ShadowCaster;		//Offset: 5896	Size: 8	Flags: BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash
 	class USkeletalMeshComponent* M_GetShadowCaster() const;
 	class USkeletalMeshComponent** M_PtrGetShadowCaster();
 	void M_SetShadowCaster(const class USkeletalMeshComponent*& value);
 
-	//class UBP_BoostComponent_C*	BP_BoostComponent;		//Offset: 5864	Size: 8	Flags: BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash
+	//class UBP_BoostComponent_C*	BP_BoostComponent;		//Offset: 5904	Size: 8	Flags: BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash
 	class UBP_BoostComponent_C* M_GetBP_BoostComponent() const;
 	class UBP_BoostComponent_C** M_PtrGetBP_BoostComponent();
 	void M_SetBP_BoostComponent(const class UBP_BoostComponent_C*& value);
 
-	//class UNavigationInvokerComponent*	NavigationInvoker;		//Offset: 5872	Size: 8	Flags: BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash
+	//class UNavigationInvokerComponent*	NavigationInvoker;		//Offset: 5912	Size: 8	Flags: BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData, NonTransactional, NoDestructor, HasGetValueTypeHash
 	class UNavigationInvokerComponent* M_GetNavigationInvoker() const;
 	class UNavigationInvokerComponent** M_PtrGetNavigationInvoker();
 	void M_SetNavigationInvoker(const class UNavigationInvokerComponent*& value);
 
-	//class AAIC_NPC_C*	AINPCReference;		//Offset: 5880	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class AAIC_NPC_C* M_GetAINPCReference() const;
-	class AAIC_NPC_C** M_PtrGetAINPCReference();
-	void M_SetAINPCReference(const class AAIC_NPC_C*& value);
-
-	//struct FString	ID;		//Offset: 5888	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, ExposeOnSpawn, HasGetValueTypeHash
-	struct FString M_GetID() const;
-	struct FString* M_PtrGetID();
-	void M_SetID(const struct FString& value);
-
-	//struct FName	VoiceID;		//Offset: 5904	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	struct FName M_GetVoiceID() const;
-	struct FName* M_PtrGetVoiceID();
-	void M_SetVoiceID(const struct FName& value);
-
-	//struct FDataTableRowHandle	CustomNPC_DTHandler;		//Offset: 5912	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor
-	struct FDataTableRowHandle M_GetCustomNPC_DTHandler() const;
-	struct FDataTableRowHandle* M_PtrGetCustomNPC_DTHandler();
-	void M_SetCustomNPC_DTHandler(const struct FDataTableRowHandle& value);
-
-	//struct FST_Profession	ProfessionData;		//Offset: 5928	Size: 72	Flags: Edit, BlueprintVisible, DisableEditOnInstance, HasGetValueTypeHash
-	struct FST_Profession M_GetProfessionData() const;
-	struct FST_Profession* M_PtrGetProfessionData();
-	void M_SetProfessionData(const struct FST_Profession& value);
-
-	//TEnumAsByte<E_OutsideNPCTypes>	OutsideNPCType;		//Offset: 6000	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash
-	TEnumAsByte<E_OutsideNPCTypes> M_GetOutsideNPCType() const;
-	TEnumAsByte<E_OutsideNPCTypes>* M_PtrGetOutsideNPCType();
-	void M_SetOutsideNPCType(const TEnumAsByte<E_OutsideNPCTypes>& value);
-
-	//TEnumAsByte<E_Ownership>	OutsideNPC_Ownership;		//Offset: 6001	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	TEnumAsByte<E_Ownership> M_GetOutsideNPC_Ownership() const;
-	TEnumAsByte<E_Ownership>* M_PtrGetOutsideNPC_Ownership();
-	void M_SetOutsideNPC_Ownership(const TEnumAsByte<E_Ownership>& value);
-
-	//TEnumAsByte<E_BanditType>	BanditType;		//Offset: 6002	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	TEnumAsByte<E_BanditType> M_GetBanditType() const;
-	TEnumAsByte<E_BanditType>* M_PtrGetBanditType();
-	void M_SetBanditType(const TEnumAsByte<E_BanditType>& value);
-
-	//TEnumAsByte<E_Wealth>	Wealth;		//Offset: 6003	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash
-	TEnumAsByte<E_Wealth> M_GetWealth() const;
-	TEnumAsByte<E_Wealth>* M_PtrGetWealth();
-	void M_SetWealth(const TEnumAsByte<E_Wealth>& value);
-
-	//unsigned char	ProfessionState;		//Offset: 6004	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//unsigned char	ProfessionState;		//Offset: 5920	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	unsigned char M_GetProfessionState() const;
 	unsigned char* M_PtrGetProfessionState();
 	void M_SetProfessionState(const unsigned char& value);
 
-	//unsigned char	BreakAnimID;		//Offset: 6005	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//unsigned char	BreakAnimID;		//Offset: 5921	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	unsigned char M_GetBreakAnimID() const;
 	unsigned char* M_PtrGetBreakAnimID();
 	void M_SetBreakAnimID(const unsigned char& value);
 
-	//TEnumAsByte<E_AnimBreakType>	BreakAnimType;		//Offset: 6006	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//TEnumAsByte<E_AnimBreakType>	BreakAnimType;		//Offset: 5922	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	TEnumAsByte<E_AnimBreakType> M_GetBreakAnimType() const;
 	TEnumAsByte<E_AnimBreakType>* M_PtrGetBreakAnimType();
 	void M_SetBreakAnimType(const TEnumAsByte<E_AnimBreakType>& value);
 
-	//int32_t	WorkStateLoops;		//Offset: 6008	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//int32_t	WorkStateLoops;		//Offset: 5924	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	int32_t M_GetWorkStateLoops() const;
 	int32_t* M_PtrGetWorkStateLoops();
 	void M_SetWorkStateLoops(const int32_t& value);
 
-	//int32_t	CurrentWorkStateLoop;		//Offset: 6012	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//int32_t	CurrentWorkStateLoop;		//Offset: 5928	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	int32_t M_GetCurrentWorkStateLoop() const;
 	int32_t* M_PtrGetCurrentWorkStateLoop();
 	void M_SetCurrentWorkStateLoop(const int32_t& value);
 
-	//struct FST_Hour	BeginWakeUpTime;		//Offset: 6016	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	struct FST_Hour M_GetBeginWakeUpTime() const;
-	struct FST_Hour* M_PtrGetBeginWakeUpTime();
-	void M_SetBeginWakeUpTime(const struct FST_Hour& value);
-
-	//struct FST_Hour	BeginSleepTime;		//Offset: 6028	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	struct FST_Hour M_GetBeginSleepTime() const;
-	struct FST_Hour* M_PtrGetBeginSleepTime();
-	void M_SetBeginSleepTime(const struct FST_Hour& value);
-
-	//struct FST_Hour	StartWorkingTime;		//Offset: 6040	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	struct FST_Hour M_GetStartWorkingTime() const;
-	struct FST_Hour* M_PtrGetStartWorkingTime();
-	void M_SetStartWorkingTime(const struct FST_Hour& value);
-
-	//struct FST_Hour	StopWorkingTime;		//Offset: 6052	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	struct FST_Hour M_GetStopWorkingTime() const;
-	struct FST_Hour* M_PtrGetStopWorkingTime();
-	void M_SetStopWorkingTime(const struct FST_Hour& value);
-
-	//struct FTimerHandle	CheckUnderTheMapTimer;		//Offset: 6064	Size: 8	Flags: Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash
-	struct FTimerHandle M_GetCheckUnderTheMapTimer() const;
-	struct FTimerHandle* M_PtrGetCheckUnderTheMapTimer();
-	void M_SetCheckUnderTheMapTimer(const struct FTimerHandle& value);
-
-	//struct FTimerHandle	AfterGetOrWakeUpTimer;		//Offset: 6072	Size: 8	Flags: Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash
-	struct FTimerHandle M_GetAfterGetOrWakeUpTimer() const;
-	struct FTimerHandle* M_PtrGetAfterGetOrWakeUpTimer();
-	void M_SetAfterGetOrWakeUpTimer(const struct FTimerHandle& value);
-
-	//TMap<TEnumAsByte<E_TimeOfDay>, bool>	ChangedTimeOfDay;		//Offset: 6080	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnInstance
-	TMap<TEnumAsByte<E_TimeOfDay>, bool> M_GetChangedTimeOfDay() const;
-	TMap<TEnumAsByte<E_TimeOfDay>, bool>* M_PtrGetChangedTimeOfDay();
-	void M_SetChangedTimeOfDay(const TMap<TEnumAsByte<E_TimeOfDay>, bool>& value);
-
-	//bool	Spawned;		//Offset: 6160	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	//bool	Spawned;		//Offset: 5932	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
 	bool M_GetSpawned() const;
 	bool* M_PtrGetSpawned();
 	void M_SetSpawned(const bool& value);
 
-	//bool	IsStoryNPC;		//Offset: 6161	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn
+	//bool	IsStoryNPC;		//Offset: 5933	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn
 	bool M_GetIsStoryNPC() const;
 	bool* M_PtrGetIsStoryNPC();
 	void M_SetIsStoryNPC(const bool& value);
 
-	//bool	NightPatrol;		//Offset: 6162	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn
+	//bool	NightPatrol;		//Offset: 5934	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn
 	bool M_GetNightPatrol() const;
 	bool* M_PtrGetNightPatrol();
 	void M_SetNightPatrol(const bool& value);
 
-	//bool	HasInfant;		//Offset: 6163	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	//bool	HasInfant;		//Offset: 5935	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
 	bool M_GetHasInfant() const;
 	bool* M_PtrGetHasInfant();
 	void M_SetHasInfant(const bool& value);
 
-	//bool	ChangeCollision;		//Offset: 6164	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	//bool	ChangeCollision;		//Offset: 5936	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
 	bool M_GetChangeCollision() const;
 	bool* M_PtrGetChangeCollision();
 	void M_SetChangeCollision(const bool& value);
 
-	//bool	IsComponent;		//Offset: 6165	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	//bool	IsComponent;		//Offset: 5937	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
 	bool M_GetIsComponent() const;
 	bool* M_PtrGetIsComponent();
 	void M_SetIsComponent(const bool& value);
 
-	//bool	Interactable;		//Offset: 6166	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	//bool	Interactable;		//Offset: 5938	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
 	bool M_GetInteractable() const;
 	bool* M_PtrGetInteractable();
 	void M_SetInteractable(const bool& value);
 
-	//bool	IsLookAtTargetRotation;		//Offset: 6167	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
-	bool M_GetIsLookAtTargetRotation() const;
-	bool* M_PtrGetIsLookAtTargetRotation();
-	void M_SetIsLookAtTargetRotation(const bool& value);
-
-	//bool	InspectorVisibility;		//Offset: 6168	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	//bool	InspectorVisibility;		//Offset: 5939	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
 	bool M_GetInspectorVisibility() const;
 	bool* M_PtrGetInspectorVisibility();
 	void M_SetInspectorVisibility(const bool& value);
 
-	//bool	IsLost;		//Offset: 6169	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	//bool	IsLost;		//Offset: 5940	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
 	bool M_GetIsLost() const;
 	bool* M_PtrGetIsLost();
 	void M_SetIsLost(const bool& value);
 
-	//bool	IsTargetOfTalkGoal;		//Offset: 6170	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	//bool	IsTargetOfTalkGoal;		//Offset: 5941	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
 	bool M_GetIsTargetOfTalkGoal() const;
 	bool* M_PtrGetIsTargetOfTalkGoal();
 	void M_SetIsTargetOfTalkGoal(const bool& value);
 
-	//int32_t	QuestIndex;		//Offset: 6172	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//int32_t	QuestIndex;		//Offset: 5944	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	int32_t M_GetQuestIndex() const;
 	int32_t* M_PtrGetQuestIndex();
 	void M_SetQuestIndex(const int32_t& value);
 
-	//TArray<class UObject*>	AnimalsReferences;		//Offset: 6176	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
-	TArray<class UObject*> M_GetAnimalsReferences() const;
-	TArray<class UObject*>* M_PtrGetAnimalsReferences();
-	void M_SetAnimalsReferences(const TArray<class UObject*>& value);
-
-	//class AActor*	Building;		//Offset: 6192	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class AActor* M_GetBuilding() const;
-	class AActor** M_PtrGetBuilding();
-	void M_SetBuilding(const class AActor*& value);
-
-	//bool	Vendor;		//Offset: 6200	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn
+	//bool	Vendor;		//Offset: 5948	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn
 	bool M_GetVendor() const;
 	bool* M_PtrGetVendor();
 	void M_SetVendor(const bool& value);
 
-	//class AActor*	LastFurniture;		//Offset: 6208	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class AActor* M_GetLastFurniture() const;
-	class AActor** M_PtrGetLastFurniture();
-	void M_SetLastFurniture(const class AActor*& value);
-
-	//class AActor*	Spawner;		//Offset: 6216	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class AActor* M_GetSpawner() const;
-	class AActor** M_PtrGetSpawner();
-	void M_SetSpawner(const class AActor*& value);
-
-	//struct FST_FoliageTarget	FoliageTarget;		//Offset: 6224	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData, NoDestructor, ContainsInstancedReference, HasGetValueTypeHash
-	struct FST_FoliageTarget M_GetFoliageTarget() const;
-	struct FST_FoliageTarget* M_PtrGetFoliageTarget();
-	void M_SetFoliageTarget(const struct FST_FoliageTarget& value);
-
-	//struct FVector	FoliageLocation;		//Offset: 6304	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	struct FVector M_GetFoliageLocation() const;
-	struct FVector* M_PtrGetFoliageLocation();
-	void M_SetFoliageLocation(const struct FVector& value);
-
-	//int32_t	BedIndex;		//Offset: 6316	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//int32_t	BedIndex;		//Offset: 5952	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	int32_t M_GetBedIndex() const;
 	int32_t* M_PtrGetBedIndex();
 	void M_SetBedIndex(const int32_t& value);
 
-	//int32_t	BedSlotIndex;		//Offset: 6320	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//int32_t	BedSlotIndex;		//Offset: 5956	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	int32_t M_GetBedSlotIndex() const;
 	int32_t* M_PtrGetBedSlotIndex();
 	void M_SetBedSlotIndex(const int32_t& value);
 
-	//int32_t	WorkSlotIndex;		//Offset: 6324	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//int32_t	WorkSlotIndex;		//Offset: 5960	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	int32_t M_GetWorkSlotIndex() const;
 	int32_t* M_PtrGetWorkSlotIndex();
 	void M_SetWorkSlotIndex(const int32_t& value);
 
-	//class UBTTask_BlueprintBase*	AI_Task;		//Offset: 6328	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class UBTTask_BlueprintBase* M_GetAI_Task() const;
-	class UBTTask_BlueprintBase** M_PtrGetAI_Task();
-	void M_SetAI_Task(const class UBTTask_BlueprintBase*& value);
-
-	//struct FST_FieldTasksLists	FieldTask;		//Offset: 6336	Size: 56	Flags: Edit, BlueprintVisible, DisableEditOnInstance, HasGetValueTypeHash
-	struct FST_FieldTasksLists M_GetFieldTask() const;
-	struct FST_FieldTasksLists* M_PtrGetFieldTask();
-	void M_SetFieldTask(const struct FST_FieldTasksLists& value);
-
-	//struct FST_QuestAnimation	QuestAnimation;		//Offset: 6392	Size: 4	Flags: Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//struct FST_QuestAnimation	QuestAnimation;		//Offset: 5964	Size: 4	Flags: Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	struct FST_QuestAnimation M_GetQuestAnimation() const;
 	struct FST_QuestAnimation* M_PtrGetQuestAnimation();
 	void M_SetQuestAnimation(const struct FST_QuestAnimation& value);
 
-	//struct FST_QuestInfos	QuestToGive;		//Offset: 6400	Size: 976	Flags: Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference, HasGetValueTypeHash
+	//struct FST_QuestInfos	QuestToGive;		//Offset: 5968	Size: 976	Flags: Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference, HasGetValueTypeHash
 	struct FST_QuestInfos M_GetQuestToGive() const;
 	struct FST_QuestInfos* M_PtrGetQuestToGive();
 	void M_SetQuestToGive(const struct FST_QuestInfos& value);
 
-	//TArray<struct FST_QuestInfos>	TalkQuestReference;		//Offset: 7376	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference
+	//TArray<struct FST_QuestInfos>	TalkQuestReference;		//Offset: 6944	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference
 	TArray<struct FST_QuestInfos> M_GetTalkQuestReference() const;
 	TArray<struct FST_QuestInfos>* M_PtrGetTalkQuestReference();
 	void M_SetTalkQuestReference(const TArray<struct FST_QuestInfos>& value);
 
-	//TAssetPtr<class FWorkMontageComplete__DelegateSignature>	WorkMontageComplete;		//Offset: 7392	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
+	//TAssetPtr<class FWorkMontageComplete__DelegateSignature>	WorkMontageComplete;		//Offset: 6960	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
 	TAssetPtr<class FWorkMontageComplete__DelegateSignature> M_GetWorkMontageComplete() const;
 	TAssetPtr<class FWorkMontageComplete__DelegateSignature>* M_PtrGetWorkMontageComplete();
 	void M_SetWorkMontageComplete(const TAssetPtr<class FWorkMontageComplete__DelegateSignature>& value);
 
-	//TAssetPtr<class FWorkLoopsFinished__DelegateSignature>	WorkLoopsFinished;		//Offset: 7408	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
+	//TAssetPtr<class FWorkLoopsFinished__DelegateSignature>	WorkLoopsFinished;		//Offset: 6976	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
 	TAssetPtr<class FWorkLoopsFinished__DelegateSignature> M_GetWorkLoopsFinished() const;
 	TAssetPtr<class FWorkLoopsFinished__DelegateSignature>* M_PtrGetWorkLoopsFinished();
 	void M_SetWorkLoopsFinished(const TAssetPtr<class FWorkLoopsFinished__DelegateSignature>& value);
 
-	//struct FST_SAVE_NPC_Blackboards	OptimizationBlackboards;		//Offset: 7424	Size: 40	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	struct FST_SAVE_NPC_Blackboards M_GetOptimizationBlackboards() const;
-	struct FST_SAVE_NPC_Blackboards* M_PtrGetOptimizationBlackboards();
-	void M_SetOptimizationBlackboards(const struct FST_SAVE_NPC_Blackboards& value);
-
-	//class UAnimMontage*	WorkMontage;		//Offset: 7464	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class UAnimMontage* M_GetWorkMontage() const;
-	class UAnimMontage** M_PtrGetWorkMontage();
-	void M_SetWorkMontage(const class UAnimMontage*& value);
-
-	//struct FDataTableRowHandle	VendorCat;		//Offset: 7472	Size: 16	Flags: Edit, BlueprintVisible, NoDestructor, ExposeOnSpawn
-	struct FDataTableRowHandle M_GetVendorCat() const;
-	struct FDataTableRowHandle* M_PtrGetVendorCat();
-	void M_SetVendorCat(const struct FDataTableRowHandle& value);
-
-	//TEnumAsByte<E_NPCStatus>	NPC_Status;		//Offset: 7488	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	TEnumAsByte<E_NPCStatus> M_GetNPC_Status() const;
-	TEnumAsByte<E_NPCStatus>* M_PtrGetNPC_Status();
-	void M_SetNPC_Status(const TEnumAsByte<E_NPCStatus>& value);
-
-	//TEnumAsByte<E_Tools_Activity>	ToolActivity;		//Offset: 7489	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	TEnumAsByte<E_Tools_Activity> M_GetToolActivity() const;
-	TEnumAsByte<E_Tools_Activity>* M_PtrGetToolActivity();
-	void M_SetToolActivity(const TEnumAsByte<E_Tools_Activity>& value);
-
-	//struct FName	NeedItem;		//Offset: 7492	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	struct FName M_GetNeedItem() const;
-	struct FName* M_PtrGetNeedItem();
-	void M_SetNeedItem(const struct FName& value);
-
-	//bool	OptimizationSetBlackboards;		//Offset: 7500	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
-	bool M_GetOptimizationSetBlackboards() const;
-	bool* M_PtrGetOptimizationSetBlackboards();
-	void M_SetOptimizationSetBlackboards(const bool& value);
-
-	//TArray<struct FVector>	Paths;		//Offset: 7504	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
-	TArray<struct FVector> M_GetPaths() const;
-	TArray<struct FVector>* M_PtrGetPaths();
-	void M_SetPaths(const TArray<struct FVector>& value);
-
-	//bool	WhetherAffectNavigation;		//Offset: 7520	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
-	bool M_GetWhetherAffectNavigation() const;
-	bool* M_PtrGetWhetherAffectNavigation();
-	void M_SetWhetherAffectNavigation(const bool& value);
-
-	//TAssetPtr<class FBreakMontageComplete__DelegateSignature>	BreakMontageComplete;		//Offset: 7528	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
-	TAssetPtr<class FBreakMontageComplete__DelegateSignature> M_GetBreakMontageComplete() const;
-	TAssetPtr<class FBreakMontageComplete__DelegateSignature>* M_PtrGetBreakMontageComplete();
-	void M_SetBreakMontageComplete(const TAssetPtr<class FBreakMontageComplete__DelegateSignature>& value);
-
-	//class UAnimMontage*	BreakMontage;		//Offset: 7544	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class UAnimMontage* M_GetBreakMontage() const;
-	class UAnimMontage** M_PtrGetBreakMontage();
-	void M_SetBreakMontage(const class UAnimMontage*& value);
-
-	//TArray<struct FName>	Toys;		//Offset: 7552	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	//TArray<struct FName>	Toys;		//Offset: 6992	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
 	TArray<struct FName> M_GetToys() const;
 	TArray<struct FName>* M_PtrGetToys();
 	void M_SetToys(const TArray<struct FName>& value);
 
-	//bool	CanChangeMovementActive;		//Offset: 7568	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	//class UAnimMontage*	WorkMontage;		//Offset: 7008	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	class UAnimMontage* M_GetWorkMontage() const;
+	class UAnimMontage** M_PtrGetWorkMontage();
+	void M_SetWorkMontage(const class UAnimMontage*& value);
+
+	//struct FDataTableRowHandle	VendorCat;		//Offset: 7016	Size: 16	Flags: Edit, BlueprintVisible, NoDestructor, ExposeOnSpawn
+	struct FDataTableRowHandle M_GetVendorCat() const;
+	struct FDataTableRowHandle* M_PtrGetVendorCat();
+	void M_SetVendorCat(const struct FDataTableRowHandle& value);
+
+	//TEnumAsByte<E_NPCStatus>	NPC_Status;		//Offset: 7032	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	TEnumAsByte<E_NPCStatus> M_GetNPC_Status() const;
+	TEnumAsByte<E_NPCStatus>* M_PtrGetNPC_Status();
+	void M_SetNPC_Status(const TEnumAsByte<E_NPCStatus>& value);
+
+	//TEnumAsByte<E_Tools_Activity>	ToolActivity;		//Offset: 7033	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	TEnumAsByte<E_Tools_Activity> M_GetToolActivity() const;
+	TEnumAsByte<E_Tools_Activity>* M_PtrGetToolActivity();
+	void M_SetToolActivity(const TEnumAsByte<E_Tools_Activity>& value);
+
+	//struct FName	NeedItem;		//Offset: 7036	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	struct FName M_GetNeedItem() const;
+	struct FName* M_PtrGetNeedItem();
+	void M_SetNeedItem(const struct FName& value);
+
+	//class UBTTask_BlueprintBase*	AI_Task;		//Offset: 7048	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	class UBTTask_BlueprintBase* M_GetAI_Task() const;
+	class UBTTask_BlueprintBase** M_PtrGetAI_Task();
+	void M_SetAI_Task(const class UBTTask_BlueprintBase*& value);
+
+	//struct FST_FieldTasksLists	FieldTask;		//Offset: 7056	Size: 56	Flags: Edit, BlueprintVisible, DisableEditOnInstance, HasGetValueTypeHash
+	struct FST_FieldTasksLists M_GetFieldTask() const;
+	struct FST_FieldTasksLists* M_PtrGetFieldTask();
+	void M_SetFieldTask(const struct FST_FieldTasksLists& value);
+
+	//bool	OptimizationSetBlackboards;		//Offset: 7112	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	bool M_GetOptimizationSetBlackboards() const;
+	bool* M_PtrGetOptimizationSetBlackboards();
+	void M_SetOptimizationSetBlackboards(const bool& value);
+
+	//struct FVector	FoliageLocation;		//Offset: 7116	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	struct FVector M_GetFoliageLocation() const;
+	struct FVector* M_PtrGetFoliageLocation();
+	void M_SetFoliageLocation(const struct FVector& value);
+
+	//TArray<struct FVector>	Paths;		//Offset: 7128	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	TArray<struct FVector> M_GetPaths() const;
+	TArray<struct FVector>* M_PtrGetPaths();
+	void M_SetPaths(const TArray<struct FVector>& value);
+
+	//bool	WhetherAffectNavigation;		//Offset: 7144	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	bool M_GetWhetherAffectNavigation() const;
+	bool* M_PtrGetWhetherAffectNavigation();
+	void M_SetWhetherAffectNavigation(const bool& value);
+
+	//TAssetPtr<class FBreakMontageComplete__DelegateSignature>	BreakMontageComplete;		//Offset: 7152	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
+	TAssetPtr<class FBreakMontageComplete__DelegateSignature> M_GetBreakMontageComplete() const;
+	TAssetPtr<class FBreakMontageComplete__DelegateSignature>* M_PtrGetBreakMontageComplete();
+	void M_SetBreakMontageComplete(const TAssetPtr<class FBreakMontageComplete__DelegateSignature>& value);
+
+	//class UAnimMontage*	BreakMontage;		//Offset: 7168	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	class UAnimMontage* M_GetBreakMontage() const;
+	class UAnimMontage** M_PtrGetBreakMontage();
+	void M_SetBreakMontage(const class UAnimMontage*& value);
+
+	//bool	CanChangeMovementActive;		//Offset: 7176	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
 	bool M_GetCanChangeMovementActive() const;
 	bool* M_PtrGetCanChangeMovementActive();
 	void M_SetCanChangeMovementActive(const bool& value);
+
+	//TEnumAsByte<E_OutsideNPCTypes>	OutsideNPCType;		//Offset: 7177	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash
+	TEnumAsByte<E_OutsideNPCTypes> M_GetOutsideNPCType() const;
+	TEnumAsByte<E_OutsideNPCTypes>* M_PtrGetOutsideNPCType();
+	void M_SetOutsideNPCType(const TEnumAsByte<E_OutsideNPCTypes>& value);
+
+	//TEnumAsByte<E_Ownership>	OutsideNPC_Ownership;		//Offset: 7178	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	TEnumAsByte<E_Ownership> M_GetOutsideNPC_Ownership() const;
+	TEnumAsByte<E_Ownership>* M_PtrGetOutsideNPC_Ownership();
+	void M_SetOutsideNPC_Ownership(const TEnumAsByte<E_Ownership>& value);
+
+	//TEnumAsByte<E_BanditType>	BanditType;		//Offset: 7179	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	TEnumAsByte<E_BanditType> M_GetBanditType() const;
+	TEnumAsByte<E_BanditType>* M_PtrGetBanditType();
+	void M_SetBanditType(const TEnumAsByte<E_BanditType>& value);
+
+	//TEnumAsByte<E_Wealth>	Wealth;		//Offset: 7180	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash
+	TEnumAsByte<E_Wealth> M_GetWealth() const;
+	TEnumAsByte<E_Wealth>* M_PtrGetWealth();
+	void M_SetWealth(const TEnumAsByte<E_Wealth>& value);
+
+	//TMap<TEnumAsByte<E_TimeOfDay>, bool>	ChangedTimeOfDay;		//Offset: 7184	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	TMap<TEnumAsByte<E_TimeOfDay>, bool> M_GetChangedTimeOfDay() const;
+	TMap<TEnumAsByte<E_TimeOfDay>, bool>* M_PtrGetChangedTimeOfDay();
+	void M_SetChangedTimeOfDay(const TMap<TEnumAsByte<E_TimeOfDay>, bool>& value);
+
+	//struct FName	VoiceID;		//Offset: 7264	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	struct FName M_GetVoiceID() const;
+	struct FName* M_PtrGetVoiceID();
+	void M_SetVoiceID(const struct FName& value);
+
+	//struct FString	ID;		//Offset: 7272	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, ExposeOnSpawn, HasGetValueTypeHash
+	struct FString M_GetID() const;
+	struct FString* M_PtrGetID();
+	void M_SetID(const struct FString& value);
+
+	//struct FTimerHandle	CheckUnderTheMapTimer;		//Offset: 7288	Size: 8	Flags: Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash
+	struct FTimerHandle M_GetCheckUnderTheMapTimer() const;
+	struct FTimerHandle* M_PtrGetCheckUnderTheMapTimer();
+	void M_SetCheckUnderTheMapTimer(const struct FTimerHandle& value);
+
+	//struct FTimerHandle	AfterGetOrWakeUpTimer;		//Offset: 7296	Size: 8	Flags: Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash
+	struct FTimerHandle M_GetAfterGetOrWakeUpTimer() const;
+	struct FTimerHandle* M_PtrGetAfterGetOrWakeUpTimer();
+	void M_SetAfterGetOrWakeUpTimer(const struct FTimerHandle& value);
+
+	//struct FST_Hour	BeginWakeUpTime;		//Offset: 7304	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	struct FST_Hour M_GetBeginWakeUpTime() const;
+	struct FST_Hour* M_PtrGetBeginWakeUpTime();
+	void M_SetBeginWakeUpTime(const struct FST_Hour& value);
+
+	//struct FST_Hour	BeginSleepTime;		//Offset: 7316	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	struct FST_Hour M_GetBeginSleepTime() const;
+	struct FST_Hour* M_PtrGetBeginSleepTime();
+	void M_SetBeginSleepTime(const struct FST_Hour& value);
+
+	//struct FST_Hour	StartWorkingTime;		//Offset: 7328	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	struct FST_Hour M_GetStartWorkingTime() const;
+	struct FST_Hour* M_PtrGetStartWorkingTime();
+	void M_SetStartWorkingTime(const struct FST_Hour& value);
+
+	//struct FST_Hour	StopWorkingTime;		//Offset: 7340	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	struct FST_Hour M_GetStopWorkingTime() const;
+	struct FST_Hour* M_PtrGetStopWorkingTime();
+	void M_SetStopWorkingTime(const struct FST_Hour& value);
+
+	//struct FST_Profession	ProfessionData;		//Offset: 7352	Size: 72	Flags: Edit, BlueprintVisible, DisableEditOnInstance, HasGetValueTypeHash
+	struct FST_Profession M_GetProfessionData() const;
+	struct FST_Profession* M_PtrGetProfessionData();
+	void M_SetProfessionData(const struct FST_Profession& value);
+
+	//struct FDataTableRowHandle	CustomNPC_DTHandler;		//Offset: 7424	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor
+	struct FDataTableRowHandle M_GetCustomNPC_DTHandler() const;
+	struct FDataTableRowHandle* M_PtrGetCustomNPC_DTHandler();
+	void M_SetCustomNPC_DTHandler(const struct FDataTableRowHandle& value);
+
+	//class AAIC_NPC_C*	AINPCReference;		//Offset: 7440	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	class AAIC_NPC_C* M_GetAINPCReference() const;
+	class AAIC_NPC_C** M_PtrGetAINPCReference();
+	void M_SetAINPCReference(const class AAIC_NPC_C*& value);
+
+	//class UAudioComponent*	VoiceComponentVar;		//Offset: 7448	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	class UAudioComponent* M_GetVoiceComponentVar() const;
+	class UAudioComponent** M_PtrGetVoiceComponentVar();
+	void M_SetVoiceComponentVar(const class UAudioComponent*& value);
+
+	//bool	DestroyAudioAfterPlaying;		//Offset: 7456	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	bool M_GetDestroyAudioAfterPlaying() const;
+	bool* M_PtrGetDestroyAudioAfterPlaying();
+	void M_SetDestroyAudioAfterPlaying(const bool& value);
+
+	//bool	SeasonChangeClothes;		//Offset: 7457	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	bool M_GetSeasonChangeClothes() const;
+	bool* M_PtrGetSeasonChangeClothes();
+	void M_SetSeasonChangeClothes(const bool& value);
+
+	//bool	RandomizeMeshes;		//Offset: 7458	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	bool M_GetRandomizeMeshes() const;
+	bool* M_PtrGetRandomizeMeshes();
+	void M_SetRandomizeMeshes(const bool& value);
+
+	//struct FST_SAVE_NPC_Blackboards	OptimizationBlackboards;		//Offset: 7460	Size: 40	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	struct FST_SAVE_NPC_Blackboards M_GetOptimizationBlackboards() const;
+	struct FST_SAVE_NPC_Blackboards* M_PtrGetOptimizationBlackboards();
+	void M_SetOptimizationBlackboards(const struct FST_SAVE_NPC_Blackboards& value);
+
+	//struct FTransform	SpawnPoint;		//Offset: 7504	Size: 48	Flags: Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	struct FTransform M_GetSpawnPoint() const;
+	struct FTransform* M_PtrGetSpawnPoint();
+	void M_SetSpawnPoint(const struct FTransform& value);
+
+	//class AActor*	Building;		//Offset: 7552	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	class AActor* M_GetBuilding() const;
+	class AActor** M_PtrGetBuilding();
+	void M_SetBuilding(const class AActor*& value);
+
+	//class AActor*	LastFurniture;		//Offset: 7560	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	class AActor* M_GetLastFurniture() const;
+	class AActor** M_PtrGetLastFurniture();
+	void M_SetLastFurniture(const class AActor*& value);
+
+	//class AActor*	Spawner;		//Offset: 7568	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	class AActor* M_GetSpawner() const;
+	class AActor** M_PtrGetSpawner();
+	void M_SetSpawner(const class AActor*& value);
+
+	//TArray<class UObject*>	AnimalsReferences;		//Offset: 7576	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	TArray<class UObject*> M_GetAnimalsReferences() const;
+	TArray<class UObject*>* M_PtrGetAnimalsReferences();
+	void M_SetAnimalsReferences(const TArray<class UObject*>& value);
+
+	//struct FST_FoliageTarget	FoliageTarget;		//Offset: 7600	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData, NoDestructor, ContainsInstancedReference, HasGetValueTypeHash
+	struct FST_FoliageTarget M_GetFoliageTarget() const;
+	struct FST_FoliageTarget* M_PtrGetFoliageTarget();
+	void M_SetFoliageTarget(const struct FST_FoliageTarget& value);
+
+	//struct FTimerHandle	NoiseTimer;		//Offset: 7680	Size: 8	Flags: Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash
+	struct FTimerHandle M_GetNoiseTimer() const;
+	struct FTimerHandle* M_PtrGetNoiseTimer();
+	void M_SetNoiseTimer(const struct FTimerHandle& value);
 
 #pragma endregion
 
@@ -446,7 +466,7 @@ public:
 
 	void AI_ResetBehaviorOnWakeUp();
 
-	void AI_PlayAudio(float StartTime);
+	void AI_PlayAudio(class USoundBase*& Audio, float StartTime, bool DestroyAfterPlaying);
 
 	void AI_StopAudio();
 
@@ -455,6 +475,10 @@ public:
 	void SleepingFinish();
 
 	void SittingFinish();
+
+	void DestroyAudioComp();
+
+	void AI_DestroyAudioComponent(bool WaitForSoundToFinish);
 
 	void AI_SetBanditType(TEnumAsByte<E_BanditType> BanditType);
 
@@ -516,8 +540,6 @@ public:
 
 	void AI_SetGetOutSettings();
 
-	void AI_SetSound(TAssetPtr<class USoundBase> Sound);
-
 	void AI_SetChangeCollision(bool ChangeCollision);
 
 	void AI_SetNPCAfterGetOrWakeUp();
@@ -526,11 +548,9 @@ public:
 
 	void AI_SetHasInfant(bool HasInfant);
 
-	void SetProfessionData(struct FST_Profession ProfessionData);
-
 	void AI_SetID(struct FString ID);
 
-	void AI_SetRotationManaged(bool IsRotationManaged);
+	void AI_SetRotationManaged(bool isRotationManaged);
 
 	void AI_SetBedIndexes(int32_t BedIndex, int32_t BedSlotIndex);
 
@@ -540,7 +560,7 @@ public:
 
 	void AI_SetQuestBlocking(bool QuestBlocking);
 
-	void AI_Start_Combat(class AActor* Actor);
+	void AI_Start_Combat(class AActor*& Actor);
 
 	void AI_SetMotherParameters();
 
@@ -554,11 +574,13 @@ public:
 
 	void AI_DestroyOnGetOut();
 
-	void Set_Sleeping_Event(bool IsSleeping, TEnumAsByte<E_SleepingDirection> SleepingDirection, bool UseBedSleepingPose);
+	void StopNoiseTimer();
 
-	void Set_Sitting_Event(bool IsSitting, TEnumAsByte<E_SitDownPosition> SitDownPosition, TEnumAsByte<E_SittingType> SittingType);
+	void StartNoiseTimer(float Time);
 
-	void PlayPickingUpMontage(class UObject* Instigator, bool PreferTwoHanded, bool PlayAnimSound);
+	void ExecuteNoise();
+
+	void PushSFX();
 
 	void NPCsStartTimer_Stamina_BPI();
 
@@ -566,19 +588,7 @@ public:
 
 	void OnCapsuleComponentHit(class UPrimitiveComponent* HitComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, struct FVector NormalImpulse, const struct FHitResult& Hit);
 
-	void Hit(struct FVector HitLocation, struct FVector HitForce, struct FName HitBoneName);
-
 	void AI_SetPerceptionActive(bool Enabled, float TickInterval);
-
-	void SetCharacterMovementActive(bool IsActive, bool IsIKActive);
-
-	void AnimNotify_BreakLoopIncreased(TEnumAsByte<E_Profession> Profession, class UAnimMontage* Montage, unsigned char BreakAnimID, int32_t Loop);
-
-	void AnimNotify_BreakLoopsFinished(TEnumAsByte<E_Profession> Profession, class UAnimMontage* Montage, unsigned char BreakAnimID, int32_t Loop);
-
-	void AnimNotify_WorkLoopIncreased(TEnumAsByte<E_Profession> Profession, class UAnimMontage* Montage, unsigned char ProfessionState, int32_t Loop);
-
-	void AnimNotify_BreakMontageComplete(TEnumAsByte<E_Profession> Profession, class UAnimMontage* Montage, unsigned char BreakAnimID);
 
 	void FarOptimization();
 
@@ -592,43 +602,19 @@ public:
 
 	void UpdateOnDead();
 
-	void OnWakeUp();
-
-	void OnGetUp();
-
 	void InitSetSkills(bool Birth);
-
-	void AnimNotify_WorkLoopsFinished(TEnumAsByte<E_Profession> Profession, class UAnimMontage* Montage, unsigned char ProfessionState, int32_t Loop);
-
-	void AnimNotify_WorkMontageComplete(TEnumAsByte<E_Profession> Profession, class UAnimMontage* Montage, unsigned char ProfessionState);
-
-	void EndFalling();
-
-	void StartFalling();
 
 	void DisableNPC();
 
 	void EnableNPC();
 
-	void SetMeshAndMaterials(class USkeletalMesh* HeadMesh, class USkeletalMesh* TorsoMesh, class USkeletalMesh* HandsMesh, class USkeletalMesh* LegsMesh, class USkeletalMesh* FeetMesh, class USkeletalMesh* HatSKMesh, class USkeletalMesh* HoodMesh, class USkeletalMesh* Backpack, class USkeletalMesh* Pouch, class UObject* AnimClass, const TArray<struct FST_MeshDynamicMaterials>& DynamicMaterials);
-
-	void SetMesh(class USkeletalMesh* NewHeadMesh, class USkeletalMesh* NewTorsoMesh, class USkeletalMesh* NewHandsMesh, class USkeletalMesh* NewLegsMesh, class USkeletalMesh* NewFeetMesh, class USkeletalMesh* NewHatSKMesh, class USkeletalMesh* NewHoodMesh, class USkeletalMesh* NewHairMesh, class USkeletalMesh* NewBackpackMesh, class USkeletalMesh* NewPouchMesh, class UObject* NewClass, bool UpdateOnly);
-
 	void LoadNPCDataFromSave(struct FST_SAVE_NPC NPCData, bool ResetEQ, struct FString SaveGameVersion);
 
 	void Init_NPC(bool LoadGame);
 
-	void ShowInspectorUI();
-
-	void ReceiveTick(float DeltaSeconds);
-
 	void RemoveFromWorkPlace();
 
 	void AI_AddSkills(TEnumAsByte<E_Skills> Skill, float Value);
-
-	void Interact(class ABP_BaseCharacter_C* BaseCharacter, struct FHitResult Hit, bool Timer);
-
-	void ReceiveBeginPlay();
 
 	void AI_ResetNavInvoker();
 
@@ -642,15 +628,11 @@ public:
 
 	void OnLoaded_9AA73FD8484CD67355ABCEB05F2C8AB7(class UObject* Loaded);
 
-	void GetHeldItem(class ABP_MasterHoldableItem_C** HeldItem);
-
-	void IsInteractable(class ABP_BaseCharacter_C* BaseCharacter, bool* Interactable, bool* Possibility, bool* ShowPressUI, bool* ShowTimerUI, bool* ShowOnlyName, float* Time, float* Distance);
+	void OnLoaded_A8D3AB2C48079456925A13A50E8CAB36(class UObject* Loaded);
 
 	void CheckForTalkGoal(TAssetPtr<class UDialogue>* Dialogue, bool* found);
 
 	void FindBedInHouse(bool Occupy, struct FVector* Destination, bool* Find);
-
-	struct FRotator GetLookingRotation();
 
 	void SetBlackboardValues_Object(TEnumAsByte<E_NPC_BlackboardObject> BlacboardObject, class UObject* Object);
 
@@ -712,27 +694,9 @@ public:
 
 	void GetBlackboardValues_Seeds(TEnumAsByte<E_BagMode>* Seeds);
 
-	void GetProfession(TEnumAsByte<E_Profession>* Profession);
-
 	void FindTool(TEnumAsByte<E_Tools> ToolType, bool* Found_, struct FST_ItemDetails* ItemDetails);
 
-	void OnDayChanged();
-
-	void OnSeasonChanged();
-
-	void OnCharacterTypeChanged();
-
-	void OnDialogueStarted();
-
-	void OnDialogueEnded();
-
 	void Set_New_Collision(bool IsCollision);
-
-	void GetNPCDataToSave(struct FST_SAVE_NPC* NPCData);
-
-	void SetNPCDataFromSave(struct FST_SAVE_NPC NPCData, bool ResetEQ, struct FString SaveGameVersion);
-
-	void Destroy_NPC();
 
 	void RespawnInfant();
 
@@ -744,29 +708,17 @@ public:
 
 	void SetNPCBehaviorFromSave();
 
-	void OnPlayerOccupy(class ABP_MasterFurniture_C* Furniture);
-
-	void BindFurnitureEvents(class ABP_MasterFurniture_C* Furniture);
-
-	void UnbindFurnitureEvents(class ABP_MasterFurniture_C* Furniture);
-
 	void OnOptimizationActive();
 
 	void OnOptimizationDeactive();
 
-	void SetMeshesFromPreset(TEnumAsByte<E_Profession> Profession, class UObject* NewClass, bool UpdateOnly, bool LoadGame);
-
 	void CheckUnderTheMap();
-
-	void GetProfessionData(struct FST_Profession* ProfessionData);
 
 	void FixCustomNPCsFromDT();
 
 	void ToolInteractFoliage();
 
 	class USkeletalMesh* SelectCaster();
-
-	void GetDirection(float* Direction);
 
 	void SetCustomNPC_DTHandler(struct FString SaveGameVersion);
 
@@ -788,10 +740,6 @@ public:
 
 	void SetRandomInventory();
 
-	void Attach_Components();
-
-	void ChangeName(struct FName NewRowName, struct FText NewName, bool ChangeSex);
-
 	void ChooseCharacterVoiceID();
 
 	TAssetPtr<class UDialogue> GetActualDialogue();
@@ -804,8 +752,6 @@ public:
 
 	void ReloadCharacterVoice(struct FString SaveGameVersion);
 
-	void OnDestroyFurniture();
-
 	void BoostComponentDebug();
 
 	void SetQuestNPC_OnLoad();
@@ -813,8 +759,6 @@ public:
 	void CheckNPCLocationOnSave();
 
 	void ChangeApprenticeToWorker();
-
-	void AddSkillsToApprentices(TEnumAsByte<E_Skills> Skill, float Value, TEnumAsByte<E_Profession> Profession);
 
 	void ComeBackHome(struct FTransform ParentTransform, bool* Success);
 
@@ -824,21 +768,25 @@ public:
 
 	void FixQuestNPCsPersonality(struct FString SaveGameVersion);
 
-	void MeshSettings();
-
 	void SetQuestPose(TEnumAsByte<E_IdleStates> IdleState, unsigned char PoseID, TEnumAsByte<E_AfterIdlePose> AfterIdlePose);
 
-	void GetDistance(float* Distance);
+	void SpawnSoundComponentAndPlay(class USoundBase** Sound, float StartTime, bool AutoDestroy, class UAudioComponent** AudioComponent);
 
-	void GetOptimalizationStage(int32_t* Stage);
+	void CheckHeraldOrGiftVendorLocation();
 
-	void Push_Sounds();
+	void SetClothes();
+
+	struct FRotator CalculateLookingAtCharacterRotation();
+
+	struct FRotator CalculateLookingAtTargetRotation();
+
+	void GetPointOutsideBuilding(struct FVector checkLocation, struct FVector Destination, struct FVector* FinalLocation);
+
+	void RandMeshesOnCharTypeChanged(TAssetPtr<class UClass> AnimClass);
 
 	void AI_FindFoliage(TEnumAsByte<E_Resources> TargetType, struct FVector* Destination, bool* Foliage);
 
-	void AI_GetTargetLocation(struct FVector Target, float MaxDistance, float MaxDirection, float DistanceToLastPoint, bool OutsideLastPoint, struct FVector* Location);
-
-	void AI_GetDistanceAndDirection(struct FVector Target_Location, struct FVector Current_Location, float* Distance, struct FVector* Direction);
+	void AI_GetTargetLocation(struct FVector Target, float MaxDistance, float MaxDirection, bool OutsideLastPoint, struct FVector* Location);
 
 	void AI_FindField(struct FVector* Destination, bool* Field, struct FST_FieldTasksLists* TaskList, bool* IsTask);
 
@@ -886,11 +834,11 @@ public:
 
 	void AI_GetIsChangedTimeOfDay(TEnumAsByte<E_TimeOfDay> TimeOfDay, bool* IsChanged);
 
-	void AI_GetCollisionResponse(TEnumAsByte<ECollisionChannel> Channel, TEnumAsByte<ECollisionResponse>* Resposne);
+	void AI_GetCollisionResponse(TEnumAsByte<ECollisionChannel> Channel, TEnumAsByte<ECollisionResponse>* Response);
 
 	void AI_GetOptimizationBlackboards(struct FST_SAVE_NPC_Blackboards* OptimizationBlackboards);
 
-	void AI_GetDead(bool* IsDead);
+	void AI_GetDead(bool* isDead);
 
 	void AI_GetIsGetOut(bool* GetOut);
 
@@ -934,7 +882,7 @@ public:
 
 	void AI_GetWhetherAffectNavigation(bool* WhetherAffectNavigation);
 
-	void AI_FindPOIFurniture(bool* IsFurniture, struct FVector* Destination);
+	void AI_FindPOIFurniture(TArray<TEnumAsByte<E_FurnitureType>>* FurnitureTypes, bool* IsFurniture, struct FVector* Destination);
 
 	void AI_GetBanditType(TEnumAsByte<E_BanditType>* BanditType);
 
@@ -996,7 +944,7 @@ public:
 
 	void AI_CheckCanTalk(bool CheckResourceState, bool* CanTalk);
 
-	void AI_GetRotationManaged(bool* IsRotationManaged);
+	void AI_GetRotationManaged(bool* isRotationManaged);
 
 	void AI_CheckIsInGoToCenterTask(bool* Success);
 
@@ -1008,7 +956,95 @@ public:
 
 	void AI_CheckIsField(bool* IsField);
 
+	void AI_GoToTeleport(bool OnSuccess, struct FVector Location, TArray<struct FVector>* PathPoints, bool* Success);
+
+	void AI_FindPOISpawnPoint(bool* IsSpawnPoint, struct FVector* Destination);
+
 	void InheritableComponentHandler();
+
+	void OnGetUp();
+
+	void OnWakeUp();
+
+	void EndFalling();
+
+	void StartFalling();
+
+	void Set_Sleeping_Event(bool IsSleeping, TEnumAsByte<E_SleepingDirection> SleepingDirection, bool UseBedSleepingPose);
+
+	void Set_Sitting_Event(bool IsSitting, TEnumAsByte<E_SitDownPosition> SitDownPosition, TEnumAsByte<E_SittingType> SittingType);
+
+	void SetCharacterMovementActive(bool IsActive, bool IsIKActive);
+
+	void SetMesh(class USkeletalMesh* NewHeadMesh, class USkeletalMesh* NewHairMesh, const TArray<class USkeletalMesh*>& NewBodyMeshes, class UObject* NewClass, bool UpdateOnly);
+
+	void PlayPickingUpMontage(class UObject* Instigator, bool PreferTwoHanded, bool PlayAnimSound);
+
+	void Hit(struct FVector HitLocation, struct FVector HitForce, struct FName HitBoneName);
+
+	void ShowInspectorUI();
+
+	void SetProfessionData(struct FST_Profession ProfessionData);
+
+	void AnimNotify_BreakLoopIncreased(TEnumAsByte<E_Profession> Profession, class UAnimMontage* Montage, unsigned char BreakAnimID, int32_t Loop);
+
+	void AnimNotify_BreakLoopsFinished(TEnumAsByte<E_Profession> Profession, class UAnimMontage* Montage, unsigned char BreakAnimID, int32_t Loop);
+
+	void AnimNotify_WorkLoopIncreased(TEnumAsByte<E_Profession> Profession, class UAnimMontage* Montage, unsigned char ProfessionState, int32_t Loop);
+
+	void AnimNotify_BreakMontageComplete(TEnumAsByte<E_Profession> Profession, class UAnimMontage* Montage, unsigned char BreakAnimID);
+
+	void AnimNotify_WorkLoopsFinished(TEnumAsByte<E_Profession> Profession, class UAnimMontage* Montage, unsigned char ProfessionState, int32_t Loop);
+
+	void ReceiveBeginPlay();
+
+	void AnimNotify_WorkMontageComplete(TEnumAsByte<E_Profession> Profession, class UAnimMontage* Montage, unsigned char ProfessionState);
+
+	void Interact(class ABP_BaseCharacter_C* BaseCharacter, struct FHitResult Hit, bool Timer);
+
+	void OnDayChanged();
+
+	void OnSeasonChanged();
+
+	void OnCharacterTypeChanged();
+
+	void OnDialogueStarted();
+
+	void OnDialogueEnded();
+
+	void GetNPCDataToSave(struct FST_SAVE_NPC* NPCData);
+
+	void SetNPCDataFromSave(struct FST_SAVE_NPC NPCData, bool ResetEQ, struct FString SaveGameVersion);
+
+	void Destroy_NPC();
+
+	void BindFurnitureEvents(class ABP_MasterFurniture_C* Furniture);
+
+	void UnbindFurnitureEvents(class ABP_MasterFurniture_C* Furniture);
+
+	void OnDestroyFurniture();
+
+	void OnPlayerOccupy(class ABP_MasterFurniture_C* Furniture);
+
+	void SetMeshesFromPreset(TEnumAsByte<E_Profession> Profession, class UObject* NewClass, bool UpdateOnly, bool LoadGame, bool DelayPresetLoad);
+
+	void GetProfession(TEnumAsByte<E_Profession>* Profession);
+
+	void ChangeName(struct FName NewRowName, struct FText NewName, bool ChangeSex);
+
+	void AddSkillsToApprentices(TEnumAsByte<E_Skills> Skill, float Value, TEnumAsByte<E_Profession> Profession);
+
+	void MeshSettings();
+
+	void GetProfessionData(struct FST_Profession* ProfessionData);
+
+	void GetHeldItem(class ABP_MasterHoldableItem_C** HeldItem);
+
+	void IsInteractable(class ABP_BaseCharacter_C* BaseCharacter, bool* Interactable, bool* Possibility, bool* ShowPressUI, bool* ShowTimerUI, bool* ShowOnlyName, float* Time, float* Distance);
+
+	void GetDistance(float* Distance);
+
+	void GetOptimalizationStage(int32_t* Stage);
 
 #pragma endregion
 };

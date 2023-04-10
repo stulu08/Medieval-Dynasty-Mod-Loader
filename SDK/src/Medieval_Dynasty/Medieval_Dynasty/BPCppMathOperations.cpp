@@ -142,5 +142,50 @@ void UBPCppMathOperations::SortByString(TArray<int32_t>* SortedIndices, TArray<s
 		*Texts = params.Texts;
 }
 
+/////////////////////////////////////////////
+// Function Medieval_Dynasty.BPCppMathOperations.SplineDjikstra
+// Flags: Final, Native, Static, Private, BlueprintCallable
+// Params:
+// Name: Roads	Type: TArray<class AActor*>	Flags: Parm, ZeroConstructor, NativeAccessSpecifierPublic
+// Name: StartingSpline	Type: class AActor*	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: EndingSpline	Type: class AActor*	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: StartingSplineIndex	Type: int32_t	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: EndingSplineIndex	Type: int32_t	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: ConnectionPoints	Type: TArray<struct FST_DoubleActorArray>	Flags: Parm, ZeroConstructor, NativeAccessSpecifierPublic
+// Name: ReturnValue	Type: TArray<int32_t>	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, NativeAccessSpecifierPublic
+/////////////////////////////////////////////
+TArray<int32_t> UBPCppMathOperations::SplineDjikstra(TArray<class AActor*> Roads, class AActor* StartingSpline, class AActor* EndingSpline, int32_t StartingSplineIndex, int32_t EndingSplineIndex, TArray<struct FST_DoubleActorArray> ConnectionPoints) {
+	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppMathOperations.SplineDjikstra");
+
+	struct UBPCppMathOperations_SplineDjikstra_Params {
+		TArray<class AActor*> Roads;			//Offset: 0 | ElementSize: 16
+		class AActor* StartingSpline;			//Offset: 16 | ElementSize: 8
+		class AActor* EndingSpline;			//Offset: 24 | ElementSize: 8
+		int32_t StartingSplineIndex;			//Offset: 32 | ElementSize: 4
+		int32_t EndingSplineIndex;			//Offset: 36 | ElementSize: 4
+		TArray<struct FST_DoubleActorArray> ConnectionPoints;			//Offset: 40 | ElementSize: 16
+		TArray<int32_t> ReturnValue;			//Offset: 56 | ElementSize: 16
+	};
+	UBPCppMathOperations_SplineDjikstra_Params params;
+	params.Roads = Roads;
+	params.StartingSpline = StartingSpline;
+	params.EndingSpline = EndingSpline;
+	params.StartingSplineIndex = StartingSplineIndex;
+	params.EndingSplineIndex = EndingSplineIndex;
+	params.ConnectionPoints = ConnectionPoints;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
+	static auto Obj = StaticClass()->CreateDefaultObject();
+	Obj->ProcessEvent(fn, &params);
+
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+	return params.ReturnValue;
+}
+
 #pragma endregion
 }

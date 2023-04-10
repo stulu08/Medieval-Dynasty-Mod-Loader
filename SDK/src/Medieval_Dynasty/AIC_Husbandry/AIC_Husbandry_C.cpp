@@ -205,16 +205,16 @@ void AAIC_Husbandry_C::SetOccupyByNPC(bool OccupyByNPC) {
 // Function AIC_Husbandry.AIC_Husbandry_C.SetBirdTypeBPI
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: IsWaterType	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: isWaterType	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void AAIC_Husbandry_C::SetBirdTypeBPI(bool IsWaterType) {
+void AAIC_Husbandry_C::SetBirdTypeBPI(bool isWaterType) {
 	static auto fn = UObject::FindObject<UFunction>("Function AIC_Husbandry.AIC_Husbandry_C.SetBirdTypeBPI");
 
 	struct AAIC_Husbandry_C_SetBirdTypeBPI_Params {
-		bool IsWaterType;			//Offset: 0 | ElementSize: 1
+		bool isWaterType;			//Offset: 0 | ElementSize: 1
 	};
 	AAIC_Husbandry_C_SetBirdTypeBPI_Params params;
-	params.IsWaterType = IsWaterType;
+	params.isWaterType = isWaterType;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -337,13 +337,13 @@ void AAIC_Husbandry_C::SetForSale(bool ForSale) {
 // Function AIC_Husbandry.AIC_Husbandry_C.SetAnimalMovementMode BPI
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: MovementMode	Type: TEnumAsByte<E_MovementMode>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: MovementMode	Type: EAnimalMovementMode	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void AAIC_Husbandry_C::SetAnimalMovementMode_BPI(TEnumAsByte<E_MovementMode> MovementMode) {
+void AAIC_Husbandry_C::SetAnimalMovementMode_BPI(EAnimalMovementMode MovementMode) {
 	static auto fn = UObject::FindObject<UFunction>("Function AIC_Husbandry.AIC_Husbandry_C.SetAnimalMovementMode BPI");
 
 	struct AAIC_Husbandry_C_SetAnimalMovementMode_BPI_Params {
-		TEnumAsByte<E_MovementMode> MovementMode;			//Offset: 0 | ElementSize: 1
+		EAnimalMovementMode MovementMode;			//Offset: 0 | ElementSize: 1
 	};
 	AAIC_Husbandry_C_SetAnimalMovementMode_BPI_Params params;
 	params.MovementMode = MovementMode;
@@ -459,31 +459,6 @@ void AAIC_Husbandry_C::GetFleeingTimer(struct FTimerHandle* FleeingTimer) {
 	UObject::ProcessEvent(fn, &params);
 	if (FleeingTimer != nullptr)
 		*FleeingTimer = params.FleeingTimer;
-}
-
-/////////////////////////////////////////////
-// Function AIC_Husbandry.AIC_Husbandry_C.CheckIsBuilding
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: CheckLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Destination	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewLocation	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void AAIC_Husbandry_C::CheckIsBuilding(struct FVector CheckLocation, struct FVector Destination, struct FVector* NewLocation) {
-	static auto fn = UObject::FindObject<UFunction>("Function AIC_Husbandry.AIC_Husbandry_C.CheckIsBuilding");
-
-	struct AAIC_Husbandry_C_CheckIsBuilding_Params {
-		struct FVector CheckLocation;			//Offset: 0 | ElementSize: 12
-		struct FVector Destination;			//Offset: 12 | ElementSize: 12
-		struct FVector NewLocation;			//Offset: 24 | ElementSize: 12
-	};
-	AAIC_Husbandry_C_CheckIsBuilding_Params params;
-	params.CheckLocation = CheckLocation;
-	params.Destination = Destination;
-
-	UObject::ProcessEvent(fn, &params);
-	if (NewLocation != nullptr)
-		*NewLocation = params.NewLocation;
 }
 
 /////////////////////////////////////////////
@@ -734,6 +709,44 @@ void AAIC_Husbandry_C::GetAnimalType(TEnumAsByte<E_AnimalType>* AnimalType) {
 	UObject::ProcessEvent(fn, &params);
 	if (AnimalType != nullptr)
 		*AnimalType = params.AnimalType;
+}
+
+/////////////////////////////////////////////
+// Function AIC_Husbandry.AIC_Husbandry_C.GetHalfAnimalHeight
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: HalfHeight	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void AAIC_Husbandry_C::GetHalfAnimalHeight(float* HalfHeight) {
+	static auto fn = UObject::FindObject<UFunction>("Function AIC_Husbandry.AIC_Husbandry_C.GetHalfAnimalHeight");
+
+	struct AAIC_Husbandry_C_GetHalfAnimalHeight_Params {
+		float HalfHeight;			//Offset: 0 | ElementSize: 4
+	};
+	AAIC_Husbandry_C_GetHalfAnimalHeight_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (HalfHeight != nullptr)
+		*HalfHeight = params.HalfHeight;
+}
+
+/////////////////////////////////////////////
+// Function AIC_Husbandry.AIC_Husbandry_C.GetAnimalRadius
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Radius	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void AAIC_Husbandry_C::GetAnimalRadius(float* Radius) {
+	static auto fn = UObject::FindObject<UFunction>("Function AIC_Husbandry.AIC_Husbandry_C.GetAnimalRadius");
+
+	struct AAIC_Husbandry_C_GetAnimalRadius_Params {
+		float Radius;			//Offset: 0 | ElementSize: 4
+	};
+	AAIC_Husbandry_C_GetAnimalRadius_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Radius != nullptr)
+		*Radius = params.Radius;
 }
 
 /////////////////////////////////////////////

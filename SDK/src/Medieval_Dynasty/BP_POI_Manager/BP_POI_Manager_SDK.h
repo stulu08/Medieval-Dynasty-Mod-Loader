@@ -1,0 +1,13 @@
+#pragma once
+/////////////////////////////////////////////
+// Package BP_POI_Manager
+// Classes: 1
+// Enums: 0
+// Structs: 0
+// Objects: 28
+/////////////////////////////////////////////
+
+
+#include "Structs.h"
+
+#include "BP_POI_Manager_C.h"

@@ -136,7 +136,7 @@ namespace UE4 {
 		{
 			return Name.GetName();
 		}
-		return "nullptr";
+		return "null";
 	}
 
 	uint64_t FFieldClass::GetID() const

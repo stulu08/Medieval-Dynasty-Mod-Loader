@@ -127,9 +127,9 @@ public:
 
 	void AI_SetWaitTask(bool CheckDayActivities);
 
-	void AI_Start_Combat(class AActor* Actor);
+	void AI_Start_Combat(class AActor*& Actor);
 
-	void AI_SetRotationManaged(bool IsRotationManaged);
+	void AI_SetRotationManaged(bool isRotationManaged);
 
 	void AI_SetHasInfant(bool HasInfant);
 
@@ -139,11 +139,11 @@ public:
 
 	void AI_StopFurnitureAnimation(class AActor* Furniture);
 
+	void AI_DestroyAudioComponent(bool WaitForSoundToFinish);
+
 	void AI_StopAudio();
 
-	void AI_PlayAudio(float StartTime);
-
-	void AI_SetSound(TAssetPtr<class USoundBase> Sound);
+	void AI_PlayAudio(class USoundBase*& Audio, float StartTime, bool DestroyAfterPlaying);
 
 	void AI_ResetBehaviorOnWakeUp();
 
@@ -297,11 +297,7 @@ public:
 
 	void OnFail_0A0414E3447604926B5365B0ED2C24D3(TEnumAsByte<EPathFollowingResult> MovementResult);
 
-	void GetDistanceAndDirection(struct FVector Target_Location, struct FVector Current_Location, float* Distance, struct FVector* Direction);
-
 	void SetSceneName(class ABP_NPC_C* NPC);
-
-	void CheckIsBuilding(struct FVector CheckLocation, struct FVector Destination, struct FVector* NewLocation);
 
 	void GetOutSetting();
 
@@ -319,9 +315,7 @@ public:
 
 	void AI_FindFoliage(TEnumAsByte<E_Resources> TargetType, struct FVector* Destination, bool* Foliage);
 
-	void AI_GetTargetLocation(struct FVector Target, float MaxDistance, float MaxDirection, float DistanceToLastPoint, bool OutsideLastPoint, struct FVector* Location);
-
-	void AI_GetDistanceAndDirection(struct FVector Target_Location, struct FVector Current_Location, float* Distance, struct FVector* Direction);
+	void AI_GetTargetLocation(struct FVector Target, float MaxDistance, float MaxDirection, bool OutsideLastPoint, struct FVector* Location);
 
 	void AI_FindField(struct FVector* Destination, bool* Field, struct FST_FieldTasksLists* TaskList, bool* IsTask);
 
@@ -367,11 +361,11 @@ public:
 
 	void AI_GetIsChangedTimeOfDay(TEnumAsByte<E_TimeOfDay> TimeOfDay, bool* IsChanged);
 
-	void AI_GetCollisionResponse(TEnumAsByte<ECollisionChannel> Channel, TEnumAsByte<ECollisionResponse>* Resposne);
+	void AI_GetCollisionResponse(TEnumAsByte<ECollisionChannel> Channel, TEnumAsByte<ECollisionResponse>* Response);
 
 	void AI_GetOptimizationBlackboards(struct FST_SAVE_NPC_Blackboards* OptimizationBlackboards);
 
-	void AI_GetDead(bool* IsDead);
+	void AI_GetDead(bool* isDead);
 
 	void AI_GetMontages(class UAnimMontage** WorkMontage, class UAnimMontage** BreakMontage);
 
@@ -417,7 +411,7 @@ public:
 
 	void AI_GetWhetherAffectNavigation(bool* WhetherAffectNavigation);
 
-	void AI_FindPOIFurniture(bool* IsFurniture, struct FVector* Destination);
+	void AI_FindPOIFurniture(TArray<TEnumAsByte<E_FurnitureType>>* FurnitureTypes, bool* IsFurniture, struct FVector* Destination);
 
 	void AI_GetBanditType(TEnumAsByte<E_BanditType>* BanditType);
 
@@ -479,7 +473,7 @@ public:
 
 	void AI_CheckCanTalk(bool CheckResourceState, bool* CanTalk);
 
-	void AI_GetRotationManaged(bool* IsRotationManaged);
+	void AI_GetRotationManaged(bool* isRotationManaged);
 
 	void AI_CheckIsInGoToCenterTask(bool* Success);
 
@@ -490,6 +484,12 @@ public:
 	void AI_CheckIsWorkHours(bool* Success);
 
 	void AI_CheckIsField(bool* IsField);
+
+	void AI_GoToTeleport(bool OnSuccess, struct FVector Location, TArray<struct FVector>* PathPoints, bool* Success);
+
+	void AI_FindPOISpawnPoint(bool* IsSpawnPoint, struct FVector* Destination);
+
+	void ComponentDelegateBinding_1()/* const*/;
 
 #pragma endregion
 };

@@ -423,6 +423,7 @@ public:
 		static auto ptr = UObject::FindClass("BlueprintGeneratedClass PC_Player.PC_Player_C");
 		return ptr;
 	}
+
 #pragma region Functions
 	void ChangeSteeringType__DelegateSignature(bool Gamepad);
 
@@ -472,6 +473,10 @@ public:
 
 	void Down_K2Node_InputAxisEvent_4(float AxisValue);
 
+	void Right_K2Node_InputAxisEvent_7(float AxisValue);
+
+	void Down_K2Node_InputAxisEvent_4_1(float AxisValue);
+
 	void CheatMenu();
 
 	void ChangeSteeringType_Event(bool Gamepad);
@@ -490,7 +495,7 @@ public:
 
 	void InpAxisEvt_ChangeInputOnMouseMove_K2Node_InputAxisEvent_5(float AxisValue);
 
-	void EnterFreeCam();
+	void EnterFreeCam(bool PhotoMode);
 
 	void ReceiveBeginPlay();
 
@@ -516,7 +521,7 @@ public:
 
 	void InpAxisKeyEvt_MouseWheelAxis_K2Node_InputAxisKeyEvent_1(float AxisValue);
 
-	void Right_K2Node_InputAxisEvent_7(float AxisValue);
+	void Right_K2Node_InputAxisEvent_7_1(float AxisValue);
 
 	void OnDialogueStarted();
 
@@ -562,7 +567,9 @@ public:
 
 	void BPI_OnHeadbobbingChanged();
 
-	void InpActEvt_Slash_K2Node_InputKeyEvent_1(struct FKey Key);
+	void InpActEvt_NumPadSeven_K2Node_InputKeyEvent_1(struct FKey Key);
+
+	void InpActEvt_Slash_K2Node_InputKeyEvent_2(struct FKey Key);
 
 	void InpActEvt_Knowledge_K2Node_InputActionEvent_1(struct FKey Key);
 
@@ -590,23 +597,23 @@ public:
 
 	void InpActEvt_ChangeCharacter_K2Node_InputActionEvent_13(struct FKey Key);
 
-	void InpActEvt_F9_K2Node_InputKeyEvent_2(struct FKey Key);
+	void InpActEvt_F9_K2Node_InputKeyEvent_3(struct FKey Key);
 
-	void InpActEvt_Equals_K2Node_InputKeyEvent_3(struct FKey Key);
+	void InpActEvt_Equals_K2Node_InputKeyEvent_4(struct FKey Key);
 
 	void InpActEvt_ChangeInputAction_K2Node_InputActionEvent_14(struct FKey Key);
 
 	void InpActEvt_ChangeInputAction_K2Node_InputActionEvent_15(struct FKey Key);
 
-	void InpActEvt_F5_K2Node_InputKeyEvent_4(struct FKey Key);
+	void InpActEvt_F5_K2Node_InputKeyEvent_5(struct FKey Key);
 
 	void InpActEvt_ChoiceMenu_K2Node_InputActionEvent_16(struct FKey Key);
 
 	void InpActEvt_ChoiceMenu_K2Node_InputActionEvent_17(struct FKey Key);
 
-	void InpActEvt_Insert_K2Node_InputKeyEvent_5(struct FKey Key);
+	void InpActEvt_Insert_K2Node_InputKeyEvent_6(struct FKey Key);
 
-	void InpActEvt_Home_K2Node_InputKeyEvent_6(struct FKey Key);
+	void InpActEvt_Home_K2Node_InputKeyEvent_7(struct FKey Key);
 
 	void InpActEvt_Technology_K2Node_InputActionEvent_18(struct FKey Key);
 
@@ -644,9 +651,9 @@ public:
 
 	void InpActEvt_UI_AdditionalInteraction_K2Node_InputActionEvent_35(struct FKey Key);
 
-	void InpActEvt_E_K2Node_InputKeyEvent_7(struct FKey Key);
-
 	void InpActEvt_E_K2Node_InputKeyEvent_8(struct FKey Key);
+
+	void InpActEvt_E_K2Node_InputKeyEvent_9(struct FKey Key);
 
 	void InpActEvt_HolsterHoldableItem_K2Node_InputActionEvent_36(struct FKey Key);
 
@@ -694,23 +701,23 @@ public:
 
 	void InpActEvt_UI_Drop_K2Node_InputActionEvent_58(struct FKey Key);
 
-	void InpActEvt_PageUp_K2Node_InputKeyEvent_9(struct FKey Key);
-
 	void InpActEvt_PageUp_K2Node_InputKeyEvent_10(struct FKey Key);
 
-	void InpActEvt_PageDown_K2Node_InputKeyEvent_11(struct FKey Key);
+	void InpActEvt_PageUp_K2Node_InputKeyEvent_11(struct FKey Key);
 
 	void InpActEvt_PageDown_K2Node_InputKeyEvent_12(struct FKey Key);
 
-	void InpActEvt_NumPadFour_K2Node_InputKeyEvent_13(struct FKey Key);
+	void InpActEvt_PageDown_K2Node_InputKeyEvent_13(struct FKey Key);
+
+	void InpActEvt_NumPadFour_K2Node_InputKeyEvent_14(struct FKey Key);
 
 	void InpActEvt_Management_K2Node_InputActionEvent_59(struct FKey Key);
 
 	void InpActEvt_Management_K2Node_InputActionEvent_60(struct FKey Key);
 
-	void InpActEvt_BackSpace_K2Node_InputKeyEvent_14(struct FKey Key);
+	void InpActEvt_BackSpace_K2Node_InputKeyEvent_15(struct FKey Key);
 
-	void InpActEvt_Backslash_K2Node_InputKeyEvent_15(struct FKey Key);
+	void InpActEvt_Backslash_K2Node_InputKeyEvent_16(struct FKey Key);
 
 	void InpActEvt_UI_Cancel_K2Node_InputActionEvent_61(struct FKey Key);
 
@@ -752,15 +759,15 @@ public:
 
 	void InpActEvt_Map_K2Node_InputActionEvent_80(struct FKey Key);
 
-	void InpActEvt_Multiply_K2Node_InputKeyEvent_16(struct FKey Key);
+	void InpActEvt_Multiply_K2Node_InputKeyEvent_17(struct FKey Key);
 
 	void InpActEvt_Inventory_K2Node_InputActionEvent_81(struct FKey Key);
 
 	void InpActEvt_Inventory_K2Node_InputActionEvent_82(struct FKey Key);
 
-	void InpActEvt_Subtract_K2Node_InputKeyEvent_17(struct FKey Key);
+	void InpActEvt_Subtract_K2Node_InputKeyEvent_18(struct FKey Key);
 
-	void InpActEvt_Add_K2Node_InputKeyEvent_18(struct FKey Key);
+	void InpActEvt_Add_K2Node_InputKeyEvent_19(struct FKey Key);
 
 	void UserConstructionScript();
 
@@ -768,7 +775,7 @@ public:
 
 	void OnLockFreeCam(bool LockFreeCam);
 
-	void UpdateFoV();
+	void UpdateFov();
 
 	void OnHeadbobbingChanged();
 
@@ -838,7 +845,9 @@ public:
 
 	void BPI_RefreshSetSteering();
 
-	void InputAxisDelegateBinding_1();
+	void InputActionDelegateBinding_1()/* const*/;
+
+	void InputAxisDelegateBinding_1()/* const*/;
 
 	void InputAxisKeyDelegateBinding_1();
 

@@ -1,0 +1,13 @@
+#pragma once
+/////////////////////////////////////////////
+// Package BP_CameraManager
+// Classes: 1
+// Enums: 0
+// Structs: 0
+// Objects: 9
+/////////////////////////////////////////////
+
+
+#include "Structs.h"
+
+#include "BP_CameraManager_C.h"

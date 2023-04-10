@@ -8,7 +8,7 @@ namespace MDMLBase {
 		Mod(HMODULE handle = nullptr) 
 			: GameMod(handle) {
 			ModName = "BaseMod";
-			ModVersion = "1.0.0";
+			ModVersion = "1.1.0";
 			ModDescription = "Base Mod of MDML";
 			ModAuthors = "Stulu";
 			EnabledModEvents = EventsEnabled::All;

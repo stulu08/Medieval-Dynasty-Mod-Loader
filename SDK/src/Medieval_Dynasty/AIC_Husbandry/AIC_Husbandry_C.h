@@ -47,7 +47,7 @@ public:
 
 	void SetOccupyByNPC(bool OccupyByNPC);
 
-	void SetBirdTypeBPI(bool IsWaterType);
+	void SetBirdTypeBPI(bool isWaterType);
 
 	void SetHusbandryAnimalCapacity(float Capacity);
 
@@ -61,7 +61,7 @@ public:
 
 	void SetForSale(bool ForSale);
 
-	void SetAnimalMovementMode_BPI(TEnumAsByte<E_MovementMode> MovementMode);
+	void SetAnimalMovementMode_BPI(EAnimalMovementMode MovementMode);
 
 	void CauseBleeding(float BleedDamage, float BleedDuration);
 
@@ -74,8 +74,6 @@ public:
 	void GetFear(int32_t* FearFactor);
 
 	void GetFleeingTimer(struct FTimerHandle* FleeingTimer);
-
-	void CheckIsBuilding(struct FVector CheckLocation, struct FVector Destination, struct FVector* NewLocation);
 
 	void GetInventoryComponent_AnimalBPI(class UActorComponent** InventoryComponent);
 
@@ -102,6 +100,10 @@ public:
 	void GetSkinningSocketLocation(struct FVector* SkinningSocketLocation);
 
 	void GetAnimalType(TEnumAsByte<E_AnimalType>* AnimalType);
+
+	void GetHalfAnimalHeight(float* HalfHeight);
+
+	void GetAnimalRadius(float* Radius);
 
 	void GetMass(float* Mass);
 

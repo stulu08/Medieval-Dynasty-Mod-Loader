@@ -5,2895 +5,2268 @@ namespace UE4 {
 // Member Getter and Setter of UberGraphFrame
 // Declaration: struct FPointerToUberGraphFrame UberGraphFrame
 struct FPointerToUberGraphFrame ABP_BaseCharacter_C::M_GetUberGraphFrame() const {
-	return Read<struct FPointerToUberGraphFrame>((byte*)this + 1216);
+	return Read<struct FPointerToUberGraphFrame>((byte*)this + 1568);
 }
 struct FPointerToUberGraphFrame* ABP_BaseCharacter_C::M_PtrGetUberGraphFrame() {
-	return reinterpret_cast<struct FPointerToUberGraphFrame*>((byte*)this + 1216);
+	return reinterpret_cast<struct FPointerToUberGraphFrame*>((byte*)this + 1568);
 }
 void ABP_BaseCharacter_C::M_SetUberGraphFrame(const struct FPointerToUberGraphFrame& value) {
-	Write((byte*)this + 1216, value);
+	Write((byte*)this + 1568, value);
+}
+// Member Getter and Setter of SKModular
+// Declaration: class USKModularComponent* SKModular
+class USKModularComponent* ABP_BaseCharacter_C::M_GetSKModular() const {
+	return Read<class USKModularComponent*>((byte*)this + 1576);
+}
+class USKModularComponent** ABP_BaseCharacter_C::M_PtrGetSKModular() {
+	return reinterpret_cast<class USKModularComponent**>((byte*)this + 1576);
+}
+void ABP_BaseCharacter_C::M_SetSKModular(const class USKModularComponent*& value) {
+	Write((byte*)this + 1576, value);
 }
 // Member Getter and Setter of UI_Inspector
 // Declaration: class UWidgetComponent* UI_Inspector
 class UWidgetComponent* ABP_BaseCharacter_C::M_GetUI_Inspector() const {
-	return Read<class UWidgetComponent*>((byte*)this + 1224);
+	return Read<class UWidgetComponent*>((byte*)this + 1584);
 }
 class UWidgetComponent** ABP_BaseCharacter_C::M_PtrGetUI_Inspector() {
-	return reinterpret_cast<class UWidgetComponent**>((byte*)this + 1224);
+	return reinterpret_cast<class UWidgetComponent**>((byte*)this + 1584);
 }
 void ABP_BaseCharacter_C::M_SetUI_Inspector(const class UWidgetComponent*& value) {
-	Write((byte*)this + 1224, value);
+	Write((byte*)this + 1584, value);
 }
 // Member Getter and Setter of BP_AquaticInteractionLeftFoot
 // Declaration: class UBP_AquaticInteraction_C* BP_AquaticInteractionLeftFoot
 class UBP_AquaticInteraction_C* ABP_BaseCharacter_C::M_GetBP_AquaticInteractionLeftFoot() const {
-	return Read<class UBP_AquaticInteraction_C*>((byte*)this + 1232);
+	return Read<class UBP_AquaticInteraction_C*>((byte*)this + 1592);
 }
 class UBP_AquaticInteraction_C** ABP_BaseCharacter_C::M_PtrGetBP_AquaticInteractionLeftFoot() {
-	return reinterpret_cast<class UBP_AquaticInteraction_C**>((byte*)this + 1232);
+	return reinterpret_cast<class UBP_AquaticInteraction_C**>((byte*)this + 1592);
 }
 void ABP_BaseCharacter_C::M_SetBP_AquaticInteractionLeftFoot(const class UBP_AquaticInteraction_C*& value) {
-	Write((byte*)this + 1232, value);
+	Write((byte*)this + 1592, value);
 }
 // Member Getter and Setter of BP_AquaticInteractionRightFoot
 // Declaration: class UBP_AquaticInteraction_C* BP_AquaticInteractionRightFoot
 class UBP_AquaticInteraction_C* ABP_BaseCharacter_C::M_GetBP_AquaticInteractionRightFoot() const {
-	return Read<class UBP_AquaticInteraction_C*>((byte*)this + 1240);
+	return Read<class UBP_AquaticInteraction_C*>((byte*)this + 1600);
 }
 class UBP_AquaticInteraction_C** ABP_BaseCharacter_C::M_PtrGetBP_AquaticInteractionRightFoot() {
-	return reinterpret_cast<class UBP_AquaticInteraction_C**>((byte*)this + 1240);
+	return reinterpret_cast<class UBP_AquaticInteraction_C**>((byte*)this + 1600);
 }
 void ABP_BaseCharacter_C::M_SetBP_AquaticInteractionRightFoot(const class UBP_AquaticInteraction_C*& value) {
-	Write((byte*)this + 1240, value);
+	Write((byte*)this + 1600, value);
 }
 // Member Getter and Setter of BP_AquaticInteraction
 // Declaration: class UBP_AquaticInteraction_C* BP_AquaticInteraction
 class UBP_AquaticInteraction_C* ABP_BaseCharacter_C::M_GetBP_AquaticInteraction() const {
-	return Read<class UBP_AquaticInteraction_C*>((byte*)this + 1248);
+	return Read<class UBP_AquaticInteraction_C*>((byte*)this + 1608);
 }
 class UBP_AquaticInteraction_C** ABP_BaseCharacter_C::M_PtrGetBP_AquaticInteraction() {
-	return reinterpret_cast<class UBP_AquaticInteraction_C**>((byte*)this + 1248);
+	return reinterpret_cast<class UBP_AquaticInteraction_C**>((byte*)this + 1608);
 }
 void ABP_BaseCharacter_C::M_SetBP_AquaticInteraction(const class UBP_AquaticInteraction_C*& value) {
-	Write((byte*)this + 1248, value);
+	Write((byte*)this + 1608, value);
 }
 // Member Getter and Setter of BP_AquaticInteractionRightHand
 // Declaration: class UBP_AquaticInteraction_C* BP_AquaticInteractionRightHand
 class UBP_AquaticInteraction_C* ABP_BaseCharacter_C::M_GetBP_AquaticInteractionRightHand() const {
-	return Read<class UBP_AquaticInteraction_C*>((byte*)this + 1256);
+	return Read<class UBP_AquaticInteraction_C*>((byte*)this + 1616);
 }
 class UBP_AquaticInteraction_C** ABP_BaseCharacter_C::M_PtrGetBP_AquaticInteractionRightHand() {
-	return reinterpret_cast<class UBP_AquaticInteraction_C**>((byte*)this + 1256);
+	return reinterpret_cast<class UBP_AquaticInteraction_C**>((byte*)this + 1616);
 }
 void ABP_BaseCharacter_C::M_SetBP_AquaticInteractionRightHand(const class UBP_AquaticInteraction_C*& value) {
-	Write((byte*)this + 1256, value);
+	Write((byte*)this + 1616, value);
 }
 // Member Getter and Setter of BP_AquaticInteractionLeftHand
 // Declaration: class UBP_AquaticInteraction_C* BP_AquaticInteractionLeftHand
 class UBP_AquaticInteraction_C* ABP_BaseCharacter_C::M_GetBP_AquaticInteractionLeftHand() const {
-	return Read<class UBP_AquaticInteraction_C*>((byte*)this + 1264);
+	return Read<class UBP_AquaticInteraction_C*>((byte*)this + 1624);
 }
 class UBP_AquaticInteraction_C** ABP_BaseCharacter_C::M_PtrGetBP_AquaticInteractionLeftHand() {
-	return reinterpret_cast<class UBP_AquaticInteraction_C**>((byte*)this + 1264);
+	return reinterpret_cast<class UBP_AquaticInteraction_C**>((byte*)this + 1624);
 }
 void ABP_BaseCharacter_C::M_SetBP_AquaticInteractionLeftHand(const class UBP_AquaticInteraction_C*& value) {
-	Write((byte*)this + 1264, value);
+	Write((byte*)this + 1624, value);
 }
 // Member Getter and Setter of BP_CombatComponent
 // Declaration: class UBP_CombatComponent_C* BP_CombatComponent
 class UBP_CombatComponent_C* ABP_BaseCharacter_C::M_GetBP_CombatComponent() const {
-	return Read<class UBP_CombatComponent_C*>((byte*)this + 1272);
+	return Read<class UBP_CombatComponent_C*>((byte*)this + 1632);
 }
 class UBP_CombatComponent_C** ABP_BaseCharacter_C::M_PtrGetBP_CombatComponent() {
-	return reinterpret_cast<class UBP_CombatComponent_C**>((byte*)this + 1272);
+	return reinterpret_cast<class UBP_CombatComponent_C**>((byte*)this + 1632);
 }
 void ABP_BaseCharacter_C::M_SetBP_CombatComponent(const class UBP_CombatComponent_C*& value) {
-	Write((byte*)this + 1272, value);
+	Write((byte*)this + 1632, value);
 }
 // Member Getter and Setter of MountRider
 // Declaration: class UMountRiderComponent* MountRider
 class UMountRiderComponent* ABP_BaseCharacter_C::M_GetMountRider() const {
-	return Read<class UMountRiderComponent*>((byte*)this + 1280);
+	return Read<class UMountRiderComponent*>((byte*)this + 1640);
 }
 class UMountRiderComponent** ABP_BaseCharacter_C::M_PtrGetMountRider() {
-	return reinterpret_cast<class UMountRiderComponent**>((byte*)this + 1280);
+	return reinterpret_cast<class UMountRiderComponent**>((byte*)this + 1640);
 }
 void ABP_BaseCharacter_C::M_SetMountRider(const class UMountRiderComponent*& value) {
-	Write((byte*)this + 1280, value);
-}
-// Member Getter and Setter of Pouch
-// Declaration: class USkeletalMeshComponent* Pouch
-class USkeletalMeshComponent* ABP_BaseCharacter_C::M_GetPouch() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 1288);
-}
-class USkeletalMeshComponent** ABP_BaseCharacter_C::M_PtrGetPouch() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 1288);
-}
-void ABP_BaseCharacter_C::M_SetPouch(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 1288, value);
-}
-// Member Getter and Setter of Backpack
-// Declaration: class USkeletalMeshComponent* Backpack
-class USkeletalMeshComponent* ABP_BaseCharacter_C::M_GetBackpack() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 1296);
-}
-class USkeletalMeshComponent** ABP_BaseCharacter_C::M_PtrGetBackpack() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 1296);
-}
-void ABP_BaseCharacter_C::M_SetBackpack(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 1296, value);
+	Write((byte*)this + 1640, value);
 }
 // Member Getter and Setter of Hair
 // Declaration: class USkeletalMeshComponent* Hair
 class USkeletalMeshComponent* ABP_BaseCharacter_C::M_GetHair() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 1304);
+	return Read<class USkeletalMeshComponent*>((byte*)this + 1648);
 }
 class USkeletalMeshComponent** ABP_BaseCharacter_C::M_PtrGetHair() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 1304);
+	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 1648);
 }
 void ABP_BaseCharacter_C::M_SetHair(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 1304, value);
+	Write((byte*)this + 1648, value);
 }
 // Member Getter and Setter of BP_AquaticBuoyancy
 // Declaration: class UBP_AquaticBuoyancy_C* BP_AquaticBuoyancy
 class UBP_AquaticBuoyancy_C* ABP_BaseCharacter_C::M_GetBP_AquaticBuoyancy() const {
-	return Read<class UBP_AquaticBuoyancy_C*>((byte*)this + 1312);
+	return Read<class UBP_AquaticBuoyancy_C*>((byte*)this + 1656);
 }
 class UBP_AquaticBuoyancy_C** ABP_BaseCharacter_C::M_PtrGetBP_AquaticBuoyancy() {
-	return reinterpret_cast<class UBP_AquaticBuoyancy_C**>((byte*)this + 1312);
+	return reinterpret_cast<class UBP_AquaticBuoyancy_C**>((byte*)this + 1656);
 }
 void ABP_BaseCharacter_C::M_SetBP_AquaticBuoyancy(const class UBP_AquaticBuoyancy_C*& value) {
-	Write((byte*)this + 1312, value);
+	Write((byte*)this + 1656, value);
 }
 // Member Getter and Setter of BP_StageInteractionComponent
 // Declaration: class UBP_StageInteractionComponent_C* BP_StageInteractionComponent
 class UBP_StageInteractionComponent_C* ABP_BaseCharacter_C::M_GetBP_StageInteractionComponent() const {
-	return Read<class UBP_StageInteractionComponent_C*>((byte*)this + 1320);
+	return Read<class UBP_StageInteractionComponent_C*>((byte*)this + 1664);
 }
 class UBP_StageInteractionComponent_C** ABP_BaseCharacter_C::M_PtrGetBP_StageInteractionComponent() {
-	return reinterpret_cast<class UBP_StageInteractionComponent_C**>((byte*)this + 1320);
+	return reinterpret_cast<class UBP_StageInteractionComponent_C**>((byte*)this + 1664);
 }
 void ABP_BaseCharacter_C::M_SetBP_StageInteractionComponent(const class UBP_StageInteractionComponent_C*& value) {
-	Write((byte*)this + 1320, value);
-}
-// Member Getter and Setter of HatSKM
-// Declaration: class USkeletalMeshComponent* HatSKM
-class USkeletalMeshComponent* ABP_BaseCharacter_C::M_GetHatSKM() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 1328);
-}
-class USkeletalMeshComponent** ABP_BaseCharacter_C::M_PtrGetHatSKM() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 1328);
-}
-void ABP_BaseCharacter_C::M_SetHatSKM(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 1328, value);
-}
-// Member Getter and Setter of Hood
-// Declaration: class USkeletalMeshComponent* Hood
-class USkeletalMeshComponent* ABP_BaseCharacter_C::M_GetHood() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 1336);
-}
-class USkeletalMeshComponent** ABP_BaseCharacter_C::M_PtrGetHood() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 1336);
-}
-void ABP_BaseCharacter_C::M_SetHood(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 1336, value);
+	Write((byte*)this + 1664, value);
 }
 // Member Getter and Setter of Torso
 // Declaration: class USkeletalMeshComponent* Torso
 class USkeletalMeshComponent* ABP_BaseCharacter_C::M_GetTorso() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 1344);
+	return Read<class USkeletalMeshComponent*>((byte*)this + 1672);
 }
 class USkeletalMeshComponent** ABP_BaseCharacter_C::M_PtrGetTorso() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 1344);
+	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 1672);
 }
 void ABP_BaseCharacter_C::M_SetTorso(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 1344, value);
-}
-// Member Getter and Setter of Feet
-// Declaration: class USkeletalMeshComponent* Feet
-class USkeletalMeshComponent* ABP_BaseCharacter_C::M_GetFeet() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 1352);
-}
-class USkeletalMeshComponent** ABP_BaseCharacter_C::M_PtrGetFeet() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 1352);
-}
-void ABP_BaseCharacter_C::M_SetFeet(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 1352, value);
-}
-// Member Getter and Setter of Legs
-// Declaration: class USkeletalMeshComponent* Legs
-class USkeletalMeshComponent* ABP_BaseCharacter_C::M_GetLegs() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 1360);
-}
-class USkeletalMeshComponent** ABP_BaseCharacter_C::M_PtrGetLegs() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 1360);
-}
-void ABP_BaseCharacter_C::M_SetLegs(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 1360, value);
-}
-// Member Getter and Setter of Hands
-// Declaration: class USkeletalMeshComponent* Hands
-class USkeletalMeshComponent* ABP_BaseCharacter_C::M_GetHands() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 1368);
-}
-class USkeletalMeshComponent** ABP_BaseCharacter_C::M_PtrGetHands() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 1368);
-}
-void ABP_BaseCharacter_C::M_SetHands(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 1368, value);
+	Write((byte*)this + 1672, value);
 }
 // Member Getter and Setter of BP_CharacterStatsComponent
 // Declaration: class UBP_CharacterStatsComponent_C* BP_CharacterStatsComponent
 class UBP_CharacterStatsComponent_C* ABP_BaseCharacter_C::M_GetBP_CharacterStatsComponent() const {
-	return Read<class UBP_CharacterStatsComponent_C*>((byte*)this + 1376);
+	return Read<class UBP_CharacterStatsComponent_C*>((byte*)this + 1680);
 }
 class UBP_CharacterStatsComponent_C** ABP_BaseCharacter_C::M_PtrGetBP_CharacterStatsComponent() {
-	return reinterpret_cast<class UBP_CharacterStatsComponent_C**>((byte*)this + 1376);
+	return reinterpret_cast<class UBP_CharacterStatsComponent_C**>((byte*)this + 1680);
 }
 void ABP_BaseCharacter_C::M_SetBP_CharacterStatsComponent(const class UBP_CharacterStatsComponent_C*& value) {
-	Write((byte*)this + 1376, value);
+	Write((byte*)this + 1680, value);
 }
 // Member Getter and Setter of BP_RelationsComponent
 // Declaration: class UBP_CharacterRelationsComponent_C* BP_RelationsComponent
 class UBP_CharacterRelationsComponent_C* ABP_BaseCharacter_C::M_GetBP_RelationsComponent() const {
-	return Read<class UBP_CharacterRelationsComponent_C*>((byte*)this + 1384);
+	return Read<class UBP_CharacterRelationsComponent_C*>((byte*)this + 1688);
 }
 class UBP_CharacterRelationsComponent_C** ABP_BaseCharacter_C::M_PtrGetBP_RelationsComponent() {
-	return reinterpret_cast<class UBP_CharacterRelationsComponent_C**>((byte*)this + 1384);
+	return reinterpret_cast<class UBP_CharacterRelationsComponent_C**>((byte*)this + 1688);
 }
 void ABP_BaseCharacter_C::M_SetBP_RelationsComponent(const class UBP_CharacterRelationsComponent_C*& value) {
-	Write((byte*)this + 1384, value);
+	Write((byte*)this + 1688, value);
 }
 // Member Getter and Setter of InventoryComponent
 // Declaration: class UInventoryComponent_C* InventoryComponent
 class UInventoryComponent_C* ABP_BaseCharacter_C::M_GetInventoryComponent() const {
-	return Read<class UInventoryComponent_C*>((byte*)this + 1392);
+	return Read<class UInventoryComponent_C*>((byte*)this + 1696);
 }
 class UInventoryComponent_C** ABP_BaseCharacter_C::M_PtrGetInventoryComponent() {
-	return reinterpret_cast<class UInventoryComponent_C**>((byte*)this + 1392);
+	return reinterpret_cast<class UInventoryComponent_C**>((byte*)this + 1696);
 }
 void ABP_BaseCharacter_C::M_SetInventoryComponent(const class UInventoryComponent_C*& value) {
-	Write((byte*)this + 1392, value);
+	Write((byte*)this + 1696, value);
 }
 // Member Getter and Setter of AIPerceptionStimuliSource
 // Declaration: class UAIPerceptionStimuliSourceComponent* AIPerceptionStimuliSource
 class UAIPerceptionStimuliSourceComponent* ABP_BaseCharacter_C::M_GetAIPerceptionStimuliSource() const {
-	return Read<class UAIPerceptionStimuliSourceComponent*>((byte*)this + 1400);
+	return Read<class UAIPerceptionStimuliSourceComponent*>((byte*)this + 1704);
 }
 class UAIPerceptionStimuliSourceComponent** ABP_BaseCharacter_C::M_PtrGetAIPerceptionStimuliSource() {
-	return reinterpret_cast<class UAIPerceptionStimuliSourceComponent**>((byte*)this + 1400);
+	return reinterpret_cast<class UAIPerceptionStimuliSourceComponent**>((byte*)this + 1704);
 }
 void ABP_BaseCharacter_C::M_SetAIPerceptionStimuliSource(const class UAIPerceptionStimuliSourceComponent*& value) {
-	Write((byte*)this + 1400, value);
+	Write((byte*)this + 1704, value);
 }
 // Member Getter and Setter of EyesStateTL_Alpha_28990BE2480EC3470C3BB39375E98F99
 // Declaration: float EyesStateTL_Alpha_28990BE2480EC3470C3BB39375E98F99
 float ABP_BaseCharacter_C::M_GetEyesStateTL_Alpha_28990BE2480EC3470C3BB39375E98F99() const {
-	return Read<float>((byte*)this + 1408);
+	return Read<float>((byte*)this + 1712);
 }
 float* ABP_BaseCharacter_C::M_PtrGetEyesStateTL_Alpha_28990BE2480EC3470C3BB39375E98F99() {
-	return reinterpret_cast<float*>((byte*)this + 1408);
+	return reinterpret_cast<float*>((byte*)this + 1712);
 }
 void ABP_BaseCharacter_C::M_SetEyesStateTL_Alpha_28990BE2480EC3470C3BB39375E98F99(const float& value) {
-	Write((byte*)this + 1408, value);
+	Write((byte*)this + 1712, value);
 }
 // Member Getter and Setter of EyesStateTL__Direction_28990BE2480EC3470C3BB39375E98F99
 // Declaration: TEnumAsByte<ETimelineDirection> EyesStateTL__Direction_28990BE2480EC3470C3BB39375E98F99
 TEnumAsByte<ETimelineDirection> ABP_BaseCharacter_C::M_GetEyesStateTL__Direction_28990BE2480EC3470C3BB39375E98F99() const {
-	return Read<TEnumAsByte<ETimelineDirection>>((byte*)this + 1412);
+	return Read<TEnumAsByte<ETimelineDirection>>((byte*)this + 1716);
 }
 TEnumAsByte<ETimelineDirection>* ABP_BaseCharacter_C::M_PtrGetEyesStateTL__Direction_28990BE2480EC3470C3BB39375E98F99() {
-	return reinterpret_cast<TEnumAsByte<ETimelineDirection>*>((byte*)this + 1412);
+	return reinterpret_cast<TEnumAsByte<ETimelineDirection>*>((byte*)this + 1716);
 }
 void ABP_BaseCharacter_C::M_SetEyesStateTL__Direction_28990BE2480EC3470C3BB39375E98F99(const TEnumAsByte<ETimelineDirection>& value) {
-	Write((byte*)this + 1412, value);
+	Write((byte*)this + 1716, value);
 }
 // Member Getter and Setter of EyesStateTL
 // Declaration: class UTimelineComponent* EyesStateTL
 class UTimelineComponent* ABP_BaseCharacter_C::M_GetEyesStateTL() const {
-	return Read<class UTimelineComponent*>((byte*)this + 1416);
+	return Read<class UTimelineComponent*>((byte*)this + 1720);
 }
 class UTimelineComponent** ABP_BaseCharacter_C::M_PtrGetEyesStateTL() {
-	return reinterpret_cast<class UTimelineComponent**>((byte*)this + 1416);
+	return reinterpret_cast<class UTimelineComponent**>((byte*)this + 1720);
 }
 void ABP_BaseCharacter_C::M_SetEyesStateTL(const class UTimelineComponent*& value) {
-	Write((byte*)this + 1416, value);
+	Write((byte*)this + 1720, value);
 }
 // Member Getter and Setter of Blinking_Alpha_F1DEA1DC4D6B77F0C4F264B3D8DFD46A
 // Declaration: float Blinking_Alpha_F1DEA1DC4D6B77F0C4F264B3D8DFD46A
 float ABP_BaseCharacter_C::M_GetBlinking_Alpha_F1DEA1DC4D6B77F0C4F264B3D8DFD46A() const {
-	return Read<float>((byte*)this + 1424);
+	return Read<float>((byte*)this + 1728);
 }
 float* ABP_BaseCharacter_C::M_PtrGetBlinking_Alpha_F1DEA1DC4D6B77F0C4F264B3D8DFD46A() {
-	return reinterpret_cast<float*>((byte*)this + 1424);
+	return reinterpret_cast<float*>((byte*)this + 1728);
 }
 void ABP_BaseCharacter_C::M_SetBlinking_Alpha_F1DEA1DC4D6B77F0C4F264B3D8DFD46A(const float& value) {
-	Write((byte*)this + 1424, value);
+	Write((byte*)this + 1728, value);
 }
 // Member Getter and Setter of Blinking__Direction_F1DEA1DC4D6B77F0C4F264B3D8DFD46A
 // Declaration: TEnumAsByte<ETimelineDirection> Blinking__Direction_F1DEA1DC4D6B77F0C4F264B3D8DFD46A
 TEnumAsByte<ETimelineDirection> ABP_BaseCharacter_C::M_GetBlinking__Direction_F1DEA1DC4D6B77F0C4F264B3D8DFD46A() const {
-	return Read<TEnumAsByte<ETimelineDirection>>((byte*)this + 1428);
+	return Read<TEnumAsByte<ETimelineDirection>>((byte*)this + 1732);
 }
 TEnumAsByte<ETimelineDirection>* ABP_BaseCharacter_C::M_PtrGetBlinking__Direction_F1DEA1DC4D6B77F0C4F264B3D8DFD46A() {
-	return reinterpret_cast<TEnumAsByte<ETimelineDirection>*>((byte*)this + 1428);
+	return reinterpret_cast<TEnumAsByte<ETimelineDirection>*>((byte*)this + 1732);
 }
 void ABP_BaseCharacter_C::M_SetBlinking__Direction_F1DEA1DC4D6B77F0C4F264B3D8DFD46A(const TEnumAsByte<ETimelineDirection>& value) {
-	Write((byte*)this + 1428, value);
+	Write((byte*)this + 1732, value);
 }
 // Member Getter and Setter of Blinking
 // Declaration: class UTimelineComponent* Blinking
 class UTimelineComponent* ABP_BaseCharacter_C::M_GetBlinking() const {
-	return Read<class UTimelineComponent*>((byte*)this + 1432);
+	return Read<class UTimelineComponent*>((byte*)this + 1736);
 }
 class UTimelineComponent** ABP_BaseCharacter_C::M_PtrGetBlinking() {
-	return reinterpret_cast<class UTimelineComponent**>((byte*)this + 1432);
+	return reinterpret_cast<class UTimelineComponent**>((byte*)this + 1736);
 }
 void ABP_BaseCharacter_C::M_SetBlinking(const class UTimelineComponent*& value) {
-	Write((byte*)this + 1432, value);
+	Write((byte*)this + 1736, value);
 }
 // Member Getter and Setter of FistFightingTimeline_Alpha_26A602FE4930F8B0303292943852C813
 // Declaration: float FistFightingTimeline_Alpha_26A602FE4930F8B0303292943852C813
 float ABP_BaseCharacter_C::M_GetFistFightingTimeline_Alpha_26A602FE4930F8B0303292943852C813() const {
-	return Read<float>((byte*)this + 1440);
+	return Read<float>((byte*)this + 1744);
 }
 float* ABP_BaseCharacter_C::M_PtrGetFistFightingTimeline_Alpha_26A602FE4930F8B0303292943852C813() {
-	return reinterpret_cast<float*>((byte*)this + 1440);
+	return reinterpret_cast<float*>((byte*)this + 1744);
 }
 void ABP_BaseCharacter_C::M_SetFistFightingTimeline_Alpha_26A602FE4930F8B0303292943852C813(const float& value) {
-	Write((byte*)this + 1440, value);
+	Write((byte*)this + 1744, value);
 }
 // Member Getter and Setter of FistFightingTimeline__Direction_26A602FE4930F8B0303292943852C813
 // Declaration: TEnumAsByte<ETimelineDirection> FistFightingTimeline__Direction_26A602FE4930F8B0303292943852C813
 TEnumAsByte<ETimelineDirection> ABP_BaseCharacter_C::M_GetFistFightingTimeline__Direction_26A602FE4930F8B0303292943852C813() const {
-	return Read<TEnumAsByte<ETimelineDirection>>((byte*)this + 1444);
+	return Read<TEnumAsByte<ETimelineDirection>>((byte*)this + 1748);
 }
 TEnumAsByte<ETimelineDirection>* ABP_BaseCharacter_C::M_PtrGetFistFightingTimeline__Direction_26A602FE4930F8B0303292943852C813() {
-	return reinterpret_cast<TEnumAsByte<ETimelineDirection>*>((byte*)this + 1444);
+	return reinterpret_cast<TEnumAsByte<ETimelineDirection>*>((byte*)this + 1748);
 }
 void ABP_BaseCharacter_C::M_SetFistFightingTimeline__Direction_26A602FE4930F8B0303292943852C813(const TEnumAsByte<ETimelineDirection>& value) {
-	Write((byte*)this + 1444, value);
+	Write((byte*)this + 1748, value);
 }
 // Member Getter and Setter of FistFightingTimeline
 // Declaration: class UTimelineComponent* FistFightingTimeline
 class UTimelineComponent* ABP_BaseCharacter_C::M_GetFistFightingTimeline() const {
-	return Read<class UTimelineComponent*>((byte*)this + 1448);
+	return Read<class UTimelineComponent*>((byte*)this + 1752);
 }
 class UTimelineComponent** ABP_BaseCharacter_C::M_PtrGetFistFightingTimeline() {
-	return reinterpret_cast<class UTimelineComponent**>((byte*)this + 1448);
+	return reinterpret_cast<class UTimelineComponent**>((byte*)this + 1752);
 }
 void ABP_BaseCharacter_C::M_SetFistFightingTimeline(const class UTimelineComponent*& value) {
-	Write((byte*)this + 1448, value);
+	Write((byte*)this + 1752, value);
 }
 // Member Getter and Setter of ShouldSprint
 // Declaration: bool ShouldSprint
 bool ABP_BaseCharacter_C::M_GetShouldSprint() const {
-	return Read<bool>((byte*)this + 1456);
+	return Read<bool>((byte*)this + 1760);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetShouldSprint() {
-	return reinterpret_cast<bool*>((byte*)this + 1456);
+	return reinterpret_cast<bool*>((byte*)this + 1760);
 }
 void ABP_BaseCharacter_C::M_SetShouldSprint(const bool& value) {
-	Write((byte*)this + 1456, value);
+	Write((byte*)this + 1760, value);
 }
 // Member Getter and Setter of LookUp_DownRate
 // Declaration: float LookUp_DownRate
 float ABP_BaseCharacter_C::M_GetLookUp_DownRate() const {
-	return Read<float>((byte*)this + 1460);
+	return Read<float>((byte*)this + 1764);
 }
 float* ABP_BaseCharacter_C::M_PtrGetLookUp_DownRate() {
-	return reinterpret_cast<float*>((byte*)this + 1460);
+	return reinterpret_cast<float*>((byte*)this + 1764);
 }
 void ABP_BaseCharacter_C::M_SetLookUp_DownRate(const float& value) {
-	Write((byte*)this + 1460, value);
+	Write((byte*)this + 1764, value);
 }
 // Member Getter and Setter of LookLeft_RightRate
 // Declaration: float LookLeft_RightRate
 float ABP_BaseCharacter_C::M_GetLookLeft_RightRate() const {
-	return Read<float>((byte*)this + 1464);
+	return Read<float>((byte*)this + 1768);
 }
 float* ABP_BaseCharacter_C::M_PtrGetLookLeft_RightRate() {
-	return reinterpret_cast<float*>((byte*)this + 1464);
+	return reinterpret_cast<float*>((byte*)this + 1768);
 }
 void ABP_BaseCharacter_C::M_SetLookLeft_RightRate(const float& value) {
-	Write((byte*)this + 1464, value);
-}
-// Member Getter and Setter of MovementInput
-// Declaration: struct FVector MovementInput
-struct FVector ABP_BaseCharacter_C::M_GetMovementInput() const {
-	return Read<struct FVector>((byte*)this + 1468);
-}
-struct FVector* ABP_BaseCharacter_C::M_PtrGetMovementInput() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 1468);
-}
-void ABP_BaseCharacter_C::M_SetMovementInput(const struct FVector& value) {
-	Write((byte*)this + 1468, value);
-}
-// Member Getter and Setter of aimYawDelta
-// Declaration: float aimYawDelta
-float ABP_BaseCharacter_C::M_GetaimYawDelta() const {
-	return Read<float>((byte*)this + 1480);
-}
-float* ABP_BaseCharacter_C::M_PtrGetaimYawDelta() {
-	return reinterpret_cast<float*>((byte*)this + 1480);
-}
-void ABP_BaseCharacter_C::M_SetaimYawDelta(const float& value) {
-	Write((byte*)this + 1480, value);
-}
-// Member Getter and Setter of AimYawRate
-// Declaration: float AimYawRate
-float ABP_BaseCharacter_C::M_GetAimYawRate() const {
-	return Read<float>((byte*)this + 1484);
-}
-float* ABP_BaseCharacter_C::M_PtrGetAimYawRate() {
-	return reinterpret_cast<float*>((byte*)this + 1484);
-}
-void ABP_BaseCharacter_C::M_SetAimYawRate(const float& value) {
-	Write((byte*)this + 1484, value);
-}
-// Member Getter and Setter of MovementInput_VelocityDifference
-// Declaration: float MovementInput_VelocityDifference
-float ABP_BaseCharacter_C::M_GetMovementInput_VelocityDifference() const {
-	return Read<float>((byte*)this + 1488);
-}
-float* ABP_BaseCharacter_C::M_PtrGetMovementInput_VelocityDifference() {
-	return reinterpret_cast<float*>((byte*)this + 1488);
-}
-void ABP_BaseCharacter_C::M_SetMovementInput_VelocityDifference(const float& value) {
-	Write((byte*)this + 1488, value);
-}
-// Member Getter and Setter of Target_CharacterRotationDifference
-// Declaration: float Target_CharacterRotationDifference
-float ABP_BaseCharacter_C::M_GetTarget_CharacterRotationDifference() const {
-	return Read<float>((byte*)this + 1492);
-}
-float* ABP_BaseCharacter_C::M_PtrGetTarget_CharacterRotationDifference() {
-	return reinterpret_cast<float*>((byte*)this + 1492);
-}
-void ABP_BaseCharacter_C::M_SetTarget_CharacterRotationDifference(const float& value) {
-	Write((byte*)this + 1492, value);
-}
-// Member Getter and Setter of Direction
-// Declaration: float Direction
-float ABP_BaseCharacter_C::M_GetDirection() const {
-	return Read<float>((byte*)this + 1496);
-}
-float* ABP_BaseCharacter_C::M_PtrGetDirection() {
-	return reinterpret_cast<float*>((byte*)this + 1496);
-}
-void ABP_BaseCharacter_C::M_SetDirection(const float& value) {
-	Write((byte*)this + 1496, value);
-}
-// Member Getter and Setter of characterRotation
-// Declaration: struct FRotator characterRotation
-struct FRotator ABP_BaseCharacter_C::M_GetcharacterRotation() const {
-	return Read<struct FRotator>((byte*)this + 1500);
-}
-struct FRotator* ABP_BaseCharacter_C::M_PtrGetcharacterRotation() {
-	return reinterpret_cast<struct FRotator*>((byte*)this + 1500);
-}
-void ABP_BaseCharacter_C::M_SetcharacterRotation(const struct FRotator& value) {
-	Write((byte*)this + 1500, value);
-}
-// Member Getter and Setter of LookingRotation
-// Declaration: struct FRotator LookingRotation
-struct FRotator ABP_BaseCharacter_C::M_GetLookingRotation() const {
-	return Read<struct FRotator>((byte*)this + 1512);
-}
-struct FRotator* ABP_BaseCharacter_C::M_PtrGetLookingRotation() {
-	return reinterpret_cast<struct FRotator*>((byte*)this + 1512);
-}
-void ABP_BaseCharacter_C::M_SetLookingRotation(const struct FRotator& value) {
-	Write((byte*)this + 1512, value);
-}
-// Member Getter and Setter of lastVelocityRotation
-// Declaration: struct FRotator lastVelocityRotation
-struct FRotator ABP_BaseCharacter_C::M_GetlastVelocityRotation() const {
-	return Read<struct FRotator>((byte*)this + 1524);
-}
-struct FRotator* ABP_BaseCharacter_C::M_PtrGetlastVelocityRotation() {
-	return reinterpret_cast<struct FRotator*>((byte*)this + 1524);
-}
-void ABP_BaseCharacter_C::M_SetlastVelocityRotation(const struct FRotator& value) {
-	Write((byte*)this + 1524, value);
-}
-// Member Getter and Setter of lastMovementInputRotation
-// Declaration: struct FRotator lastMovementInputRotation
-struct FRotator ABP_BaseCharacter_C::M_GetlastMovementInputRotation() const {
-	return Read<struct FRotator>((byte*)this + 1536);
-}
-struct FRotator* ABP_BaseCharacter_C::M_PtrGetlastMovementInputRotation() {
-	return reinterpret_cast<struct FRotator*>((byte*)this + 1536);
-}
-void ABP_BaseCharacter_C::M_SetlastMovementInputRotation(const struct FRotator& value) {
-	Write((byte*)this + 1536, value);
-}
-// Member Getter and Setter of IsMoving
-// Declaration: bool IsMoving
-bool ABP_BaseCharacter_C::M_GetIsMoving() const {
-	return Read<bool>((byte*)this + 1548);
-}
-bool* ABP_BaseCharacter_C::M_PtrGetIsMoving() {
-	return reinterpret_cast<bool*>((byte*)this + 1548);
-}
-void ABP_BaseCharacter_C::M_SetIsMoving(const bool& value) {
-	Write((byte*)this + 1548, value);
-}
-// Member Getter and Setter of hasMovementInput
-// Declaration: bool hasMovementInput
-bool ABP_BaseCharacter_C::M_GethasMovementInput() const {
-	return Read<bool>((byte*)this + 1549);
-}
-bool* ABP_BaseCharacter_C::M_PtrGethasMovementInput() {
-	return reinterpret_cast<bool*>((byte*)this + 1549);
-}
-void ABP_BaseCharacter_C::M_SethasMovementInput(const bool& value) {
-	Write((byte*)this + 1549, value);
-}
-// Member Getter and Setter of GaitType
-// Declaration: TEnumAsByte<E_Gait> GaitType
-TEnumAsByte<E_Gait> ABP_BaseCharacter_C::M_GetGaitType() const {
-	return Read<TEnumAsByte<E_Gait>>((byte*)this + 1550);
-}
-TEnumAsByte<E_Gait>* ABP_BaseCharacter_C::M_PtrGetGaitType() {
-	return reinterpret_cast<TEnumAsByte<E_Gait>*>((byte*)this + 1550);
-}
-void ABP_BaseCharacter_C::M_SetGaitType(const TEnumAsByte<E_Gait>& value) {
-	Write((byte*)this + 1550, value);
-}
-// Member Getter and Setter of stance
-// Declaration: TEnumAsByte<E_Stance> stance
-TEnumAsByte<E_Stance> ABP_BaseCharacter_C::M_Getstance() const {
-	return Read<TEnumAsByte<E_Stance>>((byte*)this + 1551);
-}
-TEnumAsByte<E_Stance>* ABP_BaseCharacter_C::M_PtrGetstance() {
-	return reinterpret_cast<TEnumAsByte<E_Stance>*>((byte*)this + 1551);
-}
-void ABP_BaseCharacter_C::M_Setstance(const TEnumAsByte<E_Stance>& value) {
-	Write((byte*)this + 1551, value);
-}
-// Member Getter and Setter of RotationMode
-// Declaration: TEnumAsByte<E_RotationMode> RotationMode
-TEnumAsByte<E_RotationMode> ABP_BaseCharacter_C::M_GetRotationMode() const {
-	return Read<TEnumAsByte<E_RotationMode>>((byte*)this + 1552);
-}
-TEnumAsByte<E_RotationMode>* ABP_BaseCharacter_C::M_PtrGetRotationMode() {
-	return reinterpret_cast<TEnumAsByte<E_RotationMode>*>((byte*)this + 1552);
-}
-void ABP_BaseCharacter_C::M_SetRotationMode(const TEnumAsByte<E_RotationMode>& value) {
-	Write((byte*)this + 1552, value);
-}
-// Member Getter and Setter of MovementMode
-// Declaration: TEnumAsByte<E_MovementMode> MovementMode
-TEnumAsByte<E_MovementMode> ABP_BaseCharacter_C::M_GetMovementMode() const {
-	return Read<TEnumAsByte<E_MovementMode>>((byte*)this + 1553);
-}
-TEnumAsByte<E_MovementMode>* ABP_BaseCharacter_C::M_PtrGetMovementMode() {
-	return reinterpret_cast<TEnumAsByte<E_MovementMode>*>((byte*)this + 1553);
-}
-void ABP_BaseCharacter_C::M_SetMovementMode(const TEnumAsByte<E_MovementMode>& value) {
-	Write((byte*)this + 1553, value);
-}
-// Member Getter and Setter of PrevMovementMode
-// Declaration: TEnumAsByte<E_MovementMode> PrevMovementMode
-TEnumAsByte<E_MovementMode> ABP_BaseCharacter_C::M_GetPrevMovementMode() const {
-	return Read<TEnumAsByte<E_MovementMode>>((byte*)this + 1554);
-}
-TEnumAsByte<E_MovementMode>* ABP_BaseCharacter_C::M_PtrGetPrevMovementMode() {
-	return reinterpret_cast<TEnumAsByte<E_MovementMode>*>((byte*)this + 1554);
-}
-void ABP_BaseCharacter_C::M_SetPrevMovementMode(const TEnumAsByte<E_MovementMode>& value) {
-	Write((byte*)this + 1554, value);
-}
-// Member Getter and Setter of cardinalDirection
-// Declaration: TEnumAsByte<E_CardinalDirection> cardinalDirection
-TEnumAsByte<E_CardinalDirection> ABP_BaseCharacter_C::M_GetcardinalDirection() const {
-	return Read<TEnumAsByte<E_CardinalDirection>>((byte*)this + 1555);
-}
-TEnumAsByte<E_CardinalDirection>* ABP_BaseCharacter_C::M_PtrGetcardinalDirection() {
-	return reinterpret_cast<TEnumAsByte<E_CardinalDirection>*>((byte*)this + 1555);
-}
-void ABP_BaseCharacter_C::M_SetcardinalDirection(const TEnumAsByte<E_CardinalDirection>& value) {
-	Write((byte*)this + 1555, value);
-}
-// Member Getter and Setter of TargetRotation
-// Declaration: struct FRotator TargetRotation
-struct FRotator ABP_BaseCharacter_C::M_GetTargetRotation() const {
-	return Read<struct FRotator>((byte*)this + 1556);
-}
-struct FRotator* ABP_BaseCharacter_C::M_PtrGetTargetRotation() {
-	return reinterpret_cast<struct FRotator*>((byte*)this + 1556);
-}
-void ABP_BaseCharacter_C::M_SetTargetRotation(const struct FRotator& value) {
-	Write((byte*)this + 1556, value);
-}
-// Member Getter and Setter of WalkingSpeed
-// Declaration: float WalkingSpeed
-float ABP_BaseCharacter_C::M_GetWalkingSpeed() const {
-	return Read<float>((byte*)this + 1568);
-}
-float* ABP_BaseCharacter_C::M_PtrGetWalkingSpeed() {
-	return reinterpret_cast<float*>((byte*)this + 1568);
-}
-void ABP_BaseCharacter_C::M_SetWalkingSpeed(const float& value) {
-	Write((byte*)this + 1568, value);
-}
-// Member Getter and Setter of runningSpeed
-// Declaration: float runningSpeed
-float ABP_BaseCharacter_C::M_GetrunningSpeed() const {
-	return Read<float>((byte*)this + 1572);
-}
-float* ABP_BaseCharacter_C::M_PtrGetrunningSpeed() {
-	return reinterpret_cast<float*>((byte*)this + 1572);
-}
-void ABP_BaseCharacter_C::M_SetrunningSpeed(const float& value) {
-	Write((byte*)this + 1572, value);
-}
-// Member Getter and Setter of sprintingSpeed
-// Declaration: float sprintingSpeed
-float ABP_BaseCharacter_C::M_GetsprintingSpeed() const {
-	return Read<float>((byte*)this + 1576);
-}
-float* ABP_BaseCharacter_C::M_PtrGetsprintingSpeed() {
-	return reinterpret_cast<float*>((byte*)this + 1576);
-}
-void ABP_BaseCharacter_C::M_SetsprintingSpeed(const float& value) {
-	Write((byte*)this + 1576, value);
-}
-// Member Getter and Setter of crouchingSpeed
-// Declaration: float crouchingSpeed
-float ABP_BaseCharacter_C::M_GetcrouchingSpeed() const {
-	return Read<float>((byte*)this + 1580);
-}
-float* ABP_BaseCharacter_C::M_PtrGetcrouchingSpeed() {
-	return reinterpret_cast<float*>((byte*)this + 1580);
-}
-void ABP_BaseCharacter_C::M_SetcrouchingSpeed(const float& value) {
-	Write((byte*)this + 1580, value);
-}
-// Member Getter and Setter of WalkingAcceleration
-// Declaration: float WalkingAcceleration
-float ABP_BaseCharacter_C::M_GetWalkingAcceleration() const {
-	return Read<float>((byte*)this + 1584);
-}
-float* ABP_BaseCharacter_C::M_PtrGetWalkingAcceleration() {
-	return reinterpret_cast<float*>((byte*)this + 1584);
-}
-void ABP_BaseCharacter_C::M_SetWalkingAcceleration(const float& value) {
-	Write((byte*)this + 1584, value);
-}
-// Member Getter and Setter of runningAcceleration
-// Declaration: float runningAcceleration
-float ABP_BaseCharacter_C::M_GetrunningAcceleration() const {
-	return Read<float>((byte*)this + 1588);
-}
-float* ABP_BaseCharacter_C::M_PtrGetrunningAcceleration() {
-	return reinterpret_cast<float*>((byte*)this + 1588);
-}
-void ABP_BaseCharacter_C::M_SetrunningAcceleration(const float& value) {
-	Write((byte*)this + 1588, value);
-}
-// Member Getter and Setter of walkingDeceleration
-// Declaration: float walkingDeceleration
-float ABP_BaseCharacter_C::M_GetwalkingDeceleration() const {
-	return Read<float>((byte*)this + 1592);
-}
-float* ABP_BaseCharacter_C::M_PtrGetwalkingDeceleration() {
-	return reinterpret_cast<float*>((byte*)this + 1592);
-}
-void ABP_BaseCharacter_C::M_SetwalkingDeceleration(const float& value) {
-	Write((byte*)this + 1592, value);
-}
-// Member Getter and Setter of runningDeceleration
-// Declaration: float runningDeceleration
-float ABP_BaseCharacter_C::M_GetrunningDeceleration() const {
-	return Read<float>((byte*)this + 1596);
-}
-float* ABP_BaseCharacter_C::M_PtrGetrunningDeceleration() {
-	return reinterpret_cast<float*>((byte*)this + 1596);
-}
-void ABP_BaseCharacter_C::M_SetrunningDeceleration(const float& value) {
-	Write((byte*)this + 1596, value);
-}
-// Member Getter and Setter of walkingGroundFriction
-// Declaration: float walkingGroundFriction
-float ABP_BaseCharacter_C::M_GetwalkingGroundFriction() const {
-	return Read<float>((byte*)this + 1600);
-}
-float* ABP_BaseCharacter_C::M_PtrGetwalkingGroundFriction() {
-	return reinterpret_cast<float*>((byte*)this + 1600);
-}
-void ABP_BaseCharacter_C::M_SetwalkingGroundFriction(const float& value) {
-	Write((byte*)this + 1600, value);
-}
-// Member Getter and Setter of runningGroundFriction
-// Declaration: float runningGroundFriction
-float ABP_BaseCharacter_C::M_GetrunningGroundFriction() const {
-	return Read<float>((byte*)this + 1604);
-}
-float* ABP_BaseCharacter_C::M_PtrGetrunningGroundFriction() {
-	return reinterpret_cast<float*>((byte*)this + 1604);
-}
-void ABP_BaseCharacter_C::M_SetrunningGroundFriction(const float& value) {
-	Write((byte*)this + 1604, value);
-}
-// Member Getter and Setter of JumpRotation
-// Declaration: struct FRotator JumpRotation
-struct FRotator ABP_BaseCharacter_C::M_GetJumpRotation() const {
-	return Read<struct FRotator>((byte*)this + 1608);
-}
-struct FRotator* ABP_BaseCharacter_C::M_PtrGetJumpRotation() {
-	return reinterpret_cast<struct FRotator*>((byte*)this + 1608);
-}
-void ABP_BaseCharacter_C::M_SetJumpRotation(const struct FRotator& value) {
-	Write((byte*)this + 1608, value);
-}
-// Member Getter and Setter of RotationOffset
-// Declaration: float RotationOffset
-float ABP_BaseCharacter_C::M_GetRotationOffset() const {
-	return Read<float>((byte*)this + 1620);
-}
-float* ABP_BaseCharacter_C::M_PtrGetRotationOffset() {
-	return reinterpret_cast<float*>((byte*)this + 1620);
-}
-void ABP_BaseCharacter_C::M_SetRotationOffset(const float& value) {
-	Write((byte*)this + 1620, value);
-}
-// Member Getter and Setter of rotationRateMultiplier
-// Declaration: float rotationRateMultiplier
-float ABP_BaseCharacter_C::M_GetrotationRateMultiplier() const {
-	return Read<float>((byte*)this + 1624);
-}
-float* ABP_BaseCharacter_C::M_PtrGetrotationRateMultiplier() {
-	return reinterpret_cast<float*>((byte*)this + 1624);
-}
-void ABP_BaseCharacter_C::M_SetrotationRateMultiplier(const float& value) {
-	Write((byte*)this + 1624, value);
+	Write((byte*)this + 1768, value);
 }
 // Member Getter and Setter of ForwardAxisValue
 // Declaration: float ForwardAxisValue
 float ABP_BaseCharacter_C::M_GetForwardAxisValue() const {
-	return Read<float>((byte*)this + 1628);
+	return Read<float>((byte*)this + 1772);
 }
 float* ABP_BaseCharacter_C::M_PtrGetForwardAxisValue() {
-	return reinterpret_cast<float*>((byte*)this + 1628);
+	return reinterpret_cast<float*>((byte*)this + 1772);
 }
 void ABP_BaseCharacter_C::M_SetForwardAxisValue(const float& value) {
-	Write((byte*)this + 1628, value);
+	Write((byte*)this + 1772, value);
 }
 // Member Getter and Setter of RightAxisValue
 // Declaration: float RightAxisValue
 float ABP_BaseCharacter_C::M_GetRightAxisValue() const {
-	return Read<float>((byte*)this + 1632);
+	return Read<float>((byte*)this + 1776);
 }
 float* ABP_BaseCharacter_C::M_PtrGetRightAxisValue() {
-	return reinterpret_cast<float*>((byte*)this + 1632);
+	return reinterpret_cast<float*>((byte*)this + 1776);
 }
 void ABP_BaseCharacter_C::M_SetRightAxisValue(const float& value) {
-	Write((byte*)this + 1632, value);
+	Write((byte*)this + 1776, value);
 }
 // Member Getter and Setter of ViewMode
 // Declaration: TEnumAsByte<E_ViewMode> ViewMode
 TEnumAsByte<E_ViewMode> ABP_BaseCharacter_C::M_GetViewMode() const {
-	return Read<TEnumAsByte<E_ViewMode>>((byte*)this + 1636);
+	return Read<TEnumAsByte<E_ViewMode>>((byte*)this + 1780);
 }
 TEnumAsByte<E_ViewMode>* ABP_BaseCharacter_C::M_PtrGetViewMode() {
-	return reinterpret_cast<TEnumAsByte<E_ViewMode>*>((byte*)this + 1636);
+	return reinterpret_cast<TEnumAsByte<E_ViewMode>*>((byte*)this + 1780);
 }
 void ABP_BaseCharacter_C::M_SetViewMode(const TEnumAsByte<E_ViewMode>& value) {
-	Write((byte*)this + 1636, value);
+	Write((byte*)this + 1780, value);
 }
 // Member Getter and Setter of Aiming
 // Declaration: bool Aiming
 bool ABP_BaseCharacter_C::M_GetAiming() const {
-	return Read<bool>((byte*)this + 1637);
+	return Read<bool>((byte*)this + 1781);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetAiming() {
-	return reinterpret_cast<bool*>((byte*)this + 1637);
+	return reinterpret_cast<bool*>((byte*)this + 1781);
 }
 void ABP_BaseCharacter_C::M_SetAiming(const bool& value) {
-	Write((byte*)this + 1637, value);
+	Write((byte*)this + 1781, value);
 }
 // Member Getter and Setter of VoiceSocket
 // Declaration: struct FName VoiceSocket
 struct FName ABP_BaseCharacter_C::M_GetVoiceSocket() const {
-	return Read<struct FName>((byte*)this + 1640);
+	return Read<struct FName>((byte*)this + 1784);
 }
 struct FName* ABP_BaseCharacter_C::M_PtrGetVoiceSocket() {
-	return reinterpret_cast<struct FName*>((byte*)this + 1640);
+	return reinterpret_cast<struct FName*>((byte*)this + 1784);
 }
 void ABP_BaseCharacter_C::M_SetVoiceSocket(const struct FName& value) {
-	Write((byte*)this + 1640, value);
+	Write((byte*)this + 1784, value);
 }
 // Member Getter and Setter of ShowTraces
 // Declaration: bool ShowTraces
 bool ABP_BaseCharacter_C::M_GetShowTraces() const {
-	return Read<bool>((byte*)this + 1648);
+	return Read<bool>((byte*)this + 1792);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetShowTraces() {
-	return reinterpret_cast<bool*>((byte*)this + 1648);
+	return reinterpret_cast<bool*>((byte*)this + 1792);
 }
 void ABP_BaseCharacter_C::M_SetShowTraces(const bool& value) {
-	Write((byte*)this + 1648, value);
+	Write((byte*)this + 1792, value);
 }
 // Member Getter and Setter of ShowSettings
 // Declaration: bool ShowSettings
 bool ABP_BaseCharacter_C::M_GetShowSettings() const {
-	return Read<bool>((byte*)this + 1649);
+	return Read<bool>((byte*)this + 1793);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetShowSettings() {
-	return reinterpret_cast<bool*>((byte*)this + 1649);
+	return reinterpret_cast<bool*>((byte*)this + 1793);
 }
 void ABP_BaseCharacter_C::M_SetShowSettings(const bool& value) {
-	Write((byte*)this + 1649, value);
+	Write((byte*)this + 1793, value);
 }
 // Member Getter and Setter of PelvisBone
 // Declaration: struct FName PelvisBone
 struct FName ABP_BaseCharacter_C::M_GetPelvisBone() const {
-	return Read<struct FName>((byte*)this + 1652);
+	return Read<struct FName>((byte*)this + 1796);
 }
 struct FName* ABP_BaseCharacter_C::M_PtrGetPelvisBone() {
-	return reinterpret_cast<struct FName*>((byte*)this + 1652);
+	return reinterpret_cast<struct FName*>((byte*)this + 1796);
 }
 void ABP_BaseCharacter_C::M_SetPelvisBone(const struct FName& value) {
-	Write((byte*)this + 1652, value);
+	Write((byte*)this + 1796, value);
 }
 // Member Getter and Setter of RagdollPoseSnapshot
 // Declaration: struct FName RagdollPoseSnapshot
 struct FName ABP_BaseCharacter_C::M_GetRagdollPoseSnapshot() const {
-	return Read<struct FName>((byte*)this + 1660);
+	return Read<struct FName>((byte*)this + 1804);
 }
 struct FName* ABP_BaseCharacter_C::M_PtrGetRagdollPoseSnapshot() {
-	return reinterpret_cast<struct FName*>((byte*)this + 1660);
+	return reinterpret_cast<struct FName*>((byte*)this + 1804);
 }
 void ABP_BaseCharacter_C::M_SetRagdollPoseSnapshot(const struct FName& value) {
-	Write((byte*)this + 1660, value);
+	Write((byte*)this + 1804, value);
 }
 // Member Getter and Setter of RagdollOnGround
 // Declaration: bool RagdollOnGround
 bool ABP_BaseCharacter_C::M_GetRagdollOnGround() const {
-	return Read<bool>((byte*)this + 1668);
+	return Read<bool>((byte*)this + 1812);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetRagdollOnGround() {
-	return reinterpret_cast<bool*>((byte*)this + 1668);
+	return reinterpret_cast<bool*>((byte*)this + 1812);
 }
 void ABP_BaseCharacter_C::M_SetRagdollOnGround(const bool& value) {
-	Write((byte*)this + 1668, value);
+	Write((byte*)this + 1812, value);
 }
 // Member Getter and Setter of RagdollLocation
 // Declaration: struct FVector RagdollLocation
 struct FVector ABP_BaseCharacter_C::M_GetRagdollLocation() const {
-	return Read<struct FVector>((byte*)this + 1672);
+	return Read<struct FVector>((byte*)this + 1816);
 }
 struct FVector* ABP_BaseCharacter_C::M_PtrGetRagdollLocation() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 1672);
+	return reinterpret_cast<struct FVector*>((byte*)this + 1816);
 }
 void ABP_BaseCharacter_C::M_SetRagdollLocation(const struct FVector& value) {
-	Write((byte*)this + 1672, value);
+	Write((byte*)this + 1816, value);
 }
 // Member Getter and Setter of RagdollVelocity
 // Declaration: struct FVector RagdollVelocity
 struct FVector ABP_BaseCharacter_C::M_GetRagdollVelocity() const {
-	return Read<struct FVector>((byte*)this + 1684);
+	return Read<struct FVector>((byte*)this + 1828);
 }
 struct FVector* ABP_BaseCharacter_C::M_PtrGetRagdollVelocity() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 1684);
+	return reinterpret_cast<struct FVector*>((byte*)this + 1828);
 }
 void ABP_BaseCharacter_C::M_SetRagdollVelocity(const struct FVector& value) {
-	Write((byte*)this + 1684, value);
+	Write((byte*)this + 1828, value);
 }
 // Member Getter and Setter of Inventory_Open
 // Declaration: bool Inventory_Open
 bool ABP_BaseCharacter_C::M_GetInventory_Open() const {
-	return Read<bool>((byte*)this + 1696);
+	return Read<bool>((byte*)this + 1840);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetInventory_Open() {
-	return reinterpret_cast<bool*>((byte*)this + 1696);
+	return reinterpret_cast<bool*>((byte*)this + 1840);
 }
 void ABP_BaseCharacter_C::M_SetInventory_Open(const bool& value) {
-	Write((byte*)this + 1696, value);
+	Write((byte*)this + 1840, value);
 }
 // Member Getter and Setter of ShouldCrouch
 // Declaration: bool ShouldCrouch
 bool ABP_BaseCharacter_C::M_GetShouldCrouch() const {
-	return Read<bool>((byte*)this + 1697);
+	return Read<bool>((byte*)this + 1841);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetShouldCrouch() {
-	return reinterpret_cast<bool*>((byte*)this + 1697);
+	return reinterpret_cast<bool*>((byte*)this + 1841);
 }
 void ABP_BaseCharacter_C::M_SetShouldCrouch(const bool& value) {
-	Write((byte*)this + 1697, value);
+	Write((byte*)this + 1841, value);
 }
 // Member Getter and Setter of SelectedItemID
 // Declaration: int32_t SelectedItemID
 int32_t ABP_BaseCharacter_C::M_GetSelectedItemID() const {
-	return Read<int32_t>((byte*)this + 1700);
+	return Read<int32_t>((byte*)this + 1844);
 }
 int32_t* ABP_BaseCharacter_C::M_PtrGetSelectedItemID() {
-	return reinterpret_cast<int32_t*>((byte*)this + 1700);
+	return reinterpret_cast<int32_t*>((byte*)this + 1844);
 }
 void ABP_BaseCharacter_C::M_SetSelectedItemID(const int32_t& value) {
-	Write((byte*)this + 1700, value);
+	Write((byte*)this + 1844, value);
 }
 // Member Getter and Setter of HitReference
 // Declaration: struct FHitResult HitReference
 struct FHitResult ABP_BaseCharacter_C::M_GetHitReference() const {
-	return Read<struct FHitResult>((byte*)this + 1704);
+	return Read<struct FHitResult>((byte*)this + 1848);
 }
 struct FHitResult* ABP_BaseCharacter_C::M_PtrGetHitReference() {
-	return reinterpret_cast<struct FHitResult*>((byte*)this + 1704);
+	return reinterpret_cast<struct FHitResult*>((byte*)this + 1848);
 }
 void ABP_BaseCharacter_C::M_SetHitReference(const struct FHitResult& value) {
-	Write((byte*)this + 1704, value);
+	Write((byte*)this + 1848, value);
 }
 // Member Getter and Setter of HeldItem
 // Declaration: class ABP_MasterHoldableItem_C* HeldItem
 class ABP_MasterHoldableItem_C* ABP_BaseCharacter_C::M_GetHeldItem() const {
-	return Read<class ABP_MasterHoldableItem_C*>((byte*)this + 1840);
+	return Read<class ABP_MasterHoldableItem_C*>((byte*)this + 1984);
 }
 class ABP_MasterHoldableItem_C** ABP_BaseCharacter_C::M_PtrGetHeldItem() {
-	return reinterpret_cast<class ABP_MasterHoldableItem_C**>((byte*)this + 1840);
+	return reinterpret_cast<class ABP_MasterHoldableItem_C**>((byte*)this + 1984);
 }
 void ABP_BaseCharacter_C::M_SetHeldItem(const class ABP_MasterHoldableItem_C*& value) {
-	Write((byte*)this + 1840, value);
+	Write((byte*)this + 1984, value);
 }
 // Member Getter and Setter of BlockEquipping
 // Declaration: bool BlockEquipping
 bool ABP_BaseCharacter_C::M_GetBlockEquipping() const {
-	return Read<bool>((byte*)this + 1848);
+	return Read<bool>((byte*)this + 1992);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetBlockEquipping() {
-	return reinterpret_cast<bool*>((byte*)this + 1848);
+	return reinterpret_cast<bool*>((byte*)this + 1992);
 }
 void ABP_BaseCharacter_C::M_SetBlockEquipping(const bool& value) {
-	Write((byte*)this + 1848, value);
+	Write((byte*)this + 1992, value);
 }
 // Member Getter and Setter of Tag
 // Declaration: TArray<struct FName> Tag
 TArray<struct FName> ABP_BaseCharacter_C::M_GetTag() const {
-	return Read<TArray<struct FName>>((byte*)this + 1856);
+	return Read<TArray<struct FName>>((byte*)this + 2000);
 }
 TArray<struct FName>* ABP_BaseCharacter_C::M_PtrGetTag() {
-	return reinterpret_cast<TArray<struct FName>*>((byte*)this + 1856);
+	return reinterpret_cast<TArray<struct FName>*>((byte*)this + 2000);
 }
 void ABP_BaseCharacter_C::M_SetTag(const TArray<struct FName>& value) {
-	Write((byte*)this + 1856, value);
+	Write((byte*)this + 2000, value);
 }
 // Member Getter and Setter of EncumberedSpeedMultiplier
 // Declaration: float EncumberedSpeedMultiplier
 float ABP_BaseCharacter_C::M_GetEncumberedSpeedMultiplier() const {
-	return Read<float>((byte*)this + 1872);
+	return Read<float>((byte*)this + 2016);
 }
 float* ABP_BaseCharacter_C::M_PtrGetEncumberedSpeedMultiplier() {
-	return reinterpret_cast<float*>((byte*)this + 1872);
+	return reinterpret_cast<float*>((byte*)this + 2016);
 }
 void ABP_BaseCharacter_C::M_SetEncumberedSpeedMultiplier(const float& value) {
-	Write((byte*)this + 1872, value);
+	Write((byte*)this + 2016, value);
 }
 // Member Getter and Setter of BuildingMenuOpen
 // Declaration: bool BuildingMenuOpen
 bool ABP_BaseCharacter_C::M_GetBuildingMenuOpen() const {
-	return Read<bool>((byte*)this + 1876);
+	return Read<bool>((byte*)this + 2020);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetBuildingMenuOpen() {
-	return reinterpret_cast<bool*>((byte*)this + 1876);
+	return reinterpret_cast<bool*>((byte*)this + 2020);
 }
 void ABP_BaseCharacter_C::M_SetBuildingMenuOpen(const bool& value) {
-	Write((byte*)this + 1876, value);
+	Write((byte*)this + 2020, value);
 }
 // Member Getter and Setter of BlockInteraction
 // Declaration: bool BlockInteraction
 bool ABP_BaseCharacter_C::M_GetBlockInteraction() const {
-	return Read<bool>((byte*)this + 1877);
+	return Read<bool>((byte*)this + 2021);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetBlockInteraction() {
-	return reinterpret_cast<bool*>((byte*)this + 1877);
+	return reinterpret_cast<bool*>((byte*)this + 2021);
 }
 void ABP_BaseCharacter_C::M_SetBlockInteraction(const bool& value) {
-	Write((byte*)this + 1877, value);
+	Write((byte*)this + 2021, value);
 }
 // Member Getter and Setter of Off_HandItem
 // Declaration: class ABP_MasterHoldableItem_C* Off_HandItem
 class ABP_MasterHoldableItem_C* ABP_BaseCharacter_C::M_GetOff_HandItem() const {
-	return Read<class ABP_MasterHoldableItem_C*>((byte*)this + 1880);
+	return Read<class ABP_MasterHoldableItem_C*>((byte*)this + 2024);
 }
 class ABP_MasterHoldableItem_C** ABP_BaseCharacter_C::M_PtrGetOff_HandItem() {
-	return reinterpret_cast<class ABP_MasterHoldableItem_C**>((byte*)this + 1880);
+	return reinterpret_cast<class ABP_MasterHoldableItem_C**>((byte*)this + 2024);
 }
 void ABP_BaseCharacter_C::M_SetOff_HandItem(const class ABP_MasterHoldableItem_C*& value) {
-	Write((byte*)this + 1880, value);
+	Write((byte*)this + 2024, value);
 }
 // Member Getter and Setter of SystemsManagerReference
 // Declaration: class ABP_SystemsManager_C* SystemsManagerReference
 class ABP_SystemsManager_C* ABP_BaseCharacter_C::M_GetSystemsManagerReference() const {
-	return Read<class ABP_SystemsManager_C*>((byte*)this + 1888);
+	return Read<class ABP_SystemsManager_C*>((byte*)this + 2032);
 }
 class ABP_SystemsManager_C** ABP_BaseCharacter_C::M_PtrGetSystemsManagerReference() {
-	return reinterpret_cast<class ABP_SystemsManager_C**>((byte*)this + 1888);
+	return reinterpret_cast<class ABP_SystemsManager_C**>((byte*)this + 2032);
 }
 void ABP_BaseCharacter_C::M_SetSystemsManagerReference(const class ABP_SystemsManager_C*& value) {
-	Write((byte*)this + 1888, value);
+	Write((byte*)this + 2032, value);
 }
 // Member Getter and Setter of FieldChunk
 // Declaration: struct FST_Chunks FieldChunk
 struct FST_Chunks ABP_BaseCharacter_C::M_GetFieldChunk() const {
-	return Read<struct FST_Chunks>((byte*)this + 1896);
+	return Read<struct FST_Chunks>((byte*)this + 2040);
 }
 struct FST_Chunks* ABP_BaseCharacter_C::M_PtrGetFieldChunk() {
-	return reinterpret_cast<struct FST_Chunks*>((byte*)this + 1896);
+	return reinterpret_cast<struct FST_Chunks*>((byte*)this + 2040);
 }
 void ABP_BaseCharacter_C::M_SetFieldChunk(const struct FST_Chunks& value) {
-	Write((byte*)this + 1896, value);
+	Write((byte*)this + 2040, value);
 }
 // Member Getter and Setter of HitFieldChunk
 // Declaration: struct FST_Chunks HitFieldChunk
 struct FST_Chunks ABP_BaseCharacter_C::M_GetHitFieldChunk() const {
-	return Read<struct FST_Chunks>((byte*)this + 2416);
+	return Read<struct FST_Chunks>((byte*)this + 2560);
 }
 struct FST_Chunks* ABP_BaseCharacter_C::M_PtrGetHitFieldChunk() {
-	return reinterpret_cast<struct FST_Chunks*>((byte*)this + 2416);
+	return reinterpret_cast<struct FST_Chunks*>((byte*)this + 2560);
 }
 void ABP_BaseCharacter_C::M_SetHitFieldChunk(const struct FST_Chunks& value) {
-	Write((byte*)this + 2416, value);
+	Write((byte*)this + 2560, value);
 }
 // Member Getter and Setter of DefaultCharacterModules
 // Declaration: struct FST_CharacterModules DefaultCharacterModules
 struct FST_CharacterModules ABP_BaseCharacter_C::M_GetDefaultCharacterModules() const {
-	return Read<struct FST_CharacterModules>((byte*)this + 2936);
+	return Read<struct FST_CharacterModules>((byte*)this + 3080);
 }
 struct FST_CharacterModules* ABP_BaseCharacter_C::M_PtrGetDefaultCharacterModules() {
-	return reinterpret_cast<struct FST_CharacterModules*>((byte*)this + 2936);
+	return reinterpret_cast<struct FST_CharacterModules*>((byte*)this + 3080);
 }
 void ABP_BaseCharacter_C::M_SetDefaultCharacterModules(const struct FST_CharacterModules& value) {
-	Write((byte*)this + 2936, value);
+	Write((byte*)this + 3080, value);
 }
 // Member Getter and Setter of DynamicMaterials
 // Declaration: TArray<struct FST_MeshDynamicMaterials> DynamicMaterials
 TArray<struct FST_MeshDynamicMaterials> ABP_BaseCharacter_C::M_GetDynamicMaterials() const {
-	return Read<TArray<struct FST_MeshDynamicMaterials>>((byte*)this + 3136);
+	return Read<TArray<struct FST_MeshDynamicMaterials>>((byte*)this + 3280);
 }
 TArray<struct FST_MeshDynamicMaterials>* ABP_BaseCharacter_C::M_PtrGetDynamicMaterials() {
-	return reinterpret_cast<TArray<struct FST_MeshDynamicMaterials>*>((byte*)this + 3136);
+	return reinterpret_cast<TArray<struct FST_MeshDynamicMaterials>*>((byte*)this + 3280);
 }
 void ABP_BaseCharacter_C::M_SetDynamicMaterials(const TArray<struct FST_MeshDynamicMaterials>& value) {
-	Write((byte*)this + 3136, value);
+	Write((byte*)this + 3280, value);
 }
 // Member Getter and Setter of UseHeadForFullBodyAnimations
 // Declaration: bool UseHeadForFullBodyAnimations
 bool ABP_BaseCharacter_C::M_GetUseHeadForFullBodyAnimations() const {
-	return Read<bool>((byte*)this + 3152);
+	return Read<bool>((byte*)this + 3296);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetUseHeadForFullBodyAnimations() {
-	return reinterpret_cast<bool*>((byte*)this + 3152);
+	return reinterpret_cast<bool*>((byte*)this + 3296);
 }
 void ABP_BaseCharacter_C::M_SetUseHeadForFullBodyAnimations(const bool& value) {
-	Write((byte*)this + 3152, value);
+	Write((byte*)this + 3296, value);
 }
 // Member Getter and Setter of InteractionCameraSlowDown
 // Declaration: float InteractionCameraSlowDown
 float ABP_BaseCharacter_C::M_GetInteractionCameraSlowDown() const {
-	return Read<float>((byte*)this + 3156);
+	return Read<float>((byte*)this + 3300);
 }
 float* ABP_BaseCharacter_C::M_PtrGetInteractionCameraSlowDown() {
-	return reinterpret_cast<float*>((byte*)this + 3156);
+	return reinterpret_cast<float*>((byte*)this + 3300);
 }
 void ABP_BaseCharacter_C::M_SetInteractionCameraSlowDown(const float& value) {
-	Write((byte*)this + 3156, value);
+	Write((byte*)this + 3300, value);
 }
 // Member Getter and Setter of InteractionMovementSlowDown
 // Declaration: float InteractionMovementSlowDown
 float ABP_BaseCharacter_C::M_GetInteractionMovementSlowDown() const {
-	return Read<float>((byte*)this + 3160);
+	return Read<float>((byte*)this + 3304);
 }
 float* ABP_BaseCharacter_C::M_PtrGetInteractionMovementSlowDown() {
-	return reinterpret_cast<float*>((byte*)this + 3160);
+	return reinterpret_cast<float*>((byte*)this + 3304);
 }
 void ABP_BaseCharacter_C::M_SetInteractionMovementSlowDown(const float& value) {
-	Write((byte*)this + 3160, value);
+	Write((byte*)this + 3304, value);
 }
 // Member Getter and Setter of UsePawnCameraRelativeRotation
 // Declaration: struct FRotator UsePawnCameraRelativeRotation
 struct FRotator ABP_BaseCharacter_C::M_GetUsePawnCameraRelativeRotation() const {
-	return Read<struct FRotator>((byte*)this + 3164);
+	return Read<struct FRotator>((byte*)this + 3308);
 }
 struct FRotator* ABP_BaseCharacter_C::M_PtrGetUsePawnCameraRelativeRotation() {
-	return reinterpret_cast<struct FRotator*>((byte*)this + 3164);
+	return reinterpret_cast<struct FRotator*>((byte*)this + 3308);
 }
 void ABP_BaseCharacter_C::M_SetUsePawnCameraRelativeRotation(const struct FRotator& value) {
-	Write((byte*)this + 3164, value);
+	Write((byte*)this + 3308, value);
 }
 // Member Getter and Setter of CameraFadeFinished
 // Declaration: TAssetPtr<class FCameraFadeFinished__DelegateSignature> CameraFadeFinished
 TAssetPtr<class FCameraFadeFinished__DelegateSignature> ABP_BaseCharacter_C::M_GetCameraFadeFinished() const {
-	return Read<TAssetPtr<class FCameraFadeFinished__DelegateSignature>>((byte*)this + 3176);
+	return Read<TAssetPtr<class FCameraFadeFinished__DelegateSignature>>((byte*)this + 3320);
 }
 TAssetPtr<class FCameraFadeFinished__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetCameraFadeFinished() {
-	return reinterpret_cast<TAssetPtr<class FCameraFadeFinished__DelegateSignature>*>((byte*)this + 3176);
+	return reinterpret_cast<TAssetPtr<class FCameraFadeFinished__DelegateSignature>*>((byte*)this + 3320);
 }
 void ABP_BaseCharacter_C::M_SetCameraFadeFinished(const TAssetPtr<class FCameraFadeFinished__DelegateSignature>& value) {
-	Write((byte*)this + 3176, value);
+	Write((byte*)this + 3320, value);
 }
 // Member Getter and Setter of TorchUsableToolTypes
 // Declaration: TArray<TEnumAsByte<E_Tools>> TorchUsableToolTypes
 TArray<TEnumAsByte<E_Tools>> ABP_BaseCharacter_C::M_GetTorchUsableToolTypes() const {
-	return Read<TArray<TEnumAsByte<E_Tools>>>((byte*)this + 3192);
+	return Read<TArray<TEnumAsByte<E_Tools>>>((byte*)this + 3336);
 }
 TArray<TEnumAsByte<E_Tools>>* ABP_BaseCharacter_C::M_PtrGetTorchUsableToolTypes() {
-	return reinterpret_cast<TArray<TEnumAsByte<E_Tools>>*>((byte*)this + 3192);
+	return reinterpret_cast<TArray<TEnumAsByte<E_Tools>>*>((byte*)this + 3336);
 }
 void ABP_BaseCharacter_C::M_SetTorchUsableToolTypes(const TArray<TEnumAsByte<E_Tools>>& value) {
-	Write((byte*)this + 3192, value);
+	Write((byte*)this + 3336, value);
 }
 // Member Getter and Setter of SkinTone
 // Declaration: struct FLinearColor SkinTone
 struct FLinearColor ABP_BaseCharacter_C::M_GetSkinTone() const {
-	return Read<struct FLinearColor>((byte*)this + 3208);
+	return Read<struct FLinearColor>((byte*)this + 3352);
 }
 struct FLinearColor* ABP_BaseCharacter_C::M_PtrGetSkinTone() {
-	return reinterpret_cast<struct FLinearColor*>((byte*)this + 3208);
+	return reinterpret_cast<struct FLinearColor*>((byte*)this + 3352);
 }
 void ABP_BaseCharacter_C::M_SetSkinTone(const struct FLinearColor& value) {
-	Write((byte*)this + 3208, value);
+	Write((byte*)this + 3352, value);
 }
 // Member Getter and Setter of IsSwooned
 // Declaration: bool IsSwooned
 bool ABP_BaseCharacter_C::M_GetIsSwooned() const {
-	return Read<bool>((byte*)this + 3224);
+	return Read<bool>((byte*)this + 3368);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIsSwooned() {
-	return reinterpret_cast<bool*>((byte*)this + 3224);
+	return reinterpret_cast<bool*>((byte*)this + 3368);
 }
 void ABP_BaseCharacter_C::M_SetIsSwooned(const bool& value) {
-	Write((byte*)this + 3224, value);
+	Write((byte*)this + 3368, value);
 }
 // Member Getter and Setter of IsSprintKeyDown
 // Declaration: bool IsSprintKeyDown
 bool ABP_BaseCharacter_C::M_GetIsSprintKeyDown() const {
-	return Read<bool>((byte*)this + 3225);
+	return Read<bool>((byte*)this + 3369);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIsSprintKeyDown() {
-	return reinterpret_cast<bool*>((byte*)this + 3225);
+	return reinterpret_cast<bool*>((byte*)this + 3369);
 }
 void ABP_BaseCharacter_C::M_SetIsSprintKeyDown(const bool& value) {
-	Write((byte*)this + 3225, value);
+	Write((byte*)this + 3369, value);
 }
 // Member Getter and Setter of DefaultFPCameraFOV
 // Declaration: float DefaultFPCameraFOV
 float ABP_BaseCharacter_C::M_GetDefaultFPCameraFOV() const {
-	return Read<float>((byte*)this + 3228);
+	return Read<float>((byte*)this + 3372);
 }
 float* ABP_BaseCharacter_C::M_PtrGetDefaultFPCameraFOV() {
-	return reinterpret_cast<float*>((byte*)this + 3228);
+	return reinterpret_cast<float*>((byte*)this + 3372);
 }
 void ABP_BaseCharacter_C::M_SetDefaultFPCameraFOV(const float& value) {
-	Write((byte*)this + 3228, value);
+	Write((byte*)this + 3372, value);
 }
 // Member Getter and Setter of OnMovementFinished
 // Declaration: TAssetPtr<class FOnMovementFinished__DelegateSignature> OnMovementFinished
 TAssetPtr<class FOnMovementFinished__DelegateSignature> ABP_BaseCharacter_C::M_GetOnMovementFinished() const {
-	return Read<TAssetPtr<class FOnMovementFinished__DelegateSignature>>((byte*)this + 3232);
+	return Read<TAssetPtr<class FOnMovementFinished__DelegateSignature>>((byte*)this + 3376);
 }
 TAssetPtr<class FOnMovementFinished__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnMovementFinished() {
-	return reinterpret_cast<TAssetPtr<class FOnMovementFinished__DelegateSignature>*>((byte*)this + 3232);
+	return reinterpret_cast<TAssetPtr<class FOnMovementFinished__DelegateSignature>*>((byte*)this + 3376);
 }
 void ABP_BaseCharacter_C::M_SetOnMovementFinished(const TAssetPtr<class FOnMovementFinished__DelegateSignature>& value) {
-	Write((byte*)this + 3232, value);
+	Write((byte*)this + 3376, value);
 }
 // Member Getter and Setter of Sitting
 // Declaration: bool Sitting
 bool ABP_BaseCharacter_C::M_GetSitting() const {
-	return Read<bool>((byte*)this + 3248);
+	return Read<bool>((byte*)this + 3392);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetSitting() {
-	return reinterpret_cast<bool*>((byte*)this + 3248);
+	return reinterpret_cast<bool*>((byte*)this + 3392);
 }
 void ABP_BaseCharacter_C::M_SetSitting(const bool& value) {
-	Write((byte*)this + 3248, value);
+	Write((byte*)this + 3392, value);
 }
 // Member Getter and Setter of GettingUp
 // Declaration: bool GettingUp
 bool ABP_BaseCharacter_C::M_GetGettingUp() const {
-	return Read<bool>((byte*)this + 3249);
+	return Read<bool>((byte*)this + 3393);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetGettingUp() {
-	return reinterpret_cast<bool*>((byte*)this + 3249);
+	return reinterpret_cast<bool*>((byte*)this + 3393);
 }
 void ABP_BaseCharacter_C::M_SetGettingUp(const bool& value) {
-	Write((byte*)this + 3249, value);
+	Write((byte*)this + 3393, value);
 }
 // Member Getter and Setter of Sleeping
 // Declaration: bool Sleeping
 bool ABP_BaseCharacter_C::M_GetSleeping() const {
-	return Read<bool>((byte*)this + 3250);
+	return Read<bool>((byte*)this + 3394);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetSleeping() {
-	return reinterpret_cast<bool*>((byte*)this + 3250);
+	return reinterpret_cast<bool*>((byte*)this + 3394);
 }
 void ABP_BaseCharacter_C::M_SetSleeping(const bool& value) {
-	Write((byte*)this + 3250, value);
+	Write((byte*)this + 3394, value);
 }
 // Member Getter and Setter of SleepingDirection
 // Declaration: TEnumAsByte<E_SleepingDirection> SleepingDirection
 TEnumAsByte<E_SleepingDirection> ABP_BaseCharacter_C::M_GetSleepingDirection() const {
-	return Read<TEnumAsByte<E_SleepingDirection>>((byte*)this + 3251);
+	return Read<TEnumAsByte<E_SleepingDirection>>((byte*)this + 3395);
 }
 TEnumAsByte<E_SleepingDirection>* ABP_BaseCharacter_C::M_PtrGetSleepingDirection() {
-	return reinterpret_cast<TEnumAsByte<E_SleepingDirection>*>((byte*)this + 3251);
+	return reinterpret_cast<TEnumAsByte<E_SleepingDirection>*>((byte*)this + 3395);
 }
 void ABP_BaseCharacter_C::M_SetSleepingDirection(const TEnumAsByte<E_SleepingDirection>& value) {
-	Write((byte*)this + 3251, value);
+	Write((byte*)this + 3395, value);
 }
 // Member Getter and Setter of OnSitIdleEntered
 // Declaration: TAssetPtr<class FOnSitIdleEntered__DelegateSignature> OnSitIdleEntered
 TAssetPtr<class FOnSitIdleEntered__DelegateSignature> ABP_BaseCharacter_C::M_GetOnSitIdleEntered() const {
-	return Read<TAssetPtr<class FOnSitIdleEntered__DelegateSignature>>((byte*)this + 3256);
+	return Read<TAssetPtr<class FOnSitIdleEntered__DelegateSignature>>((byte*)this + 3400);
 }
 TAssetPtr<class FOnSitIdleEntered__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnSitIdleEntered() {
-	return reinterpret_cast<TAssetPtr<class FOnSitIdleEntered__DelegateSignature>*>((byte*)this + 3256);
+	return reinterpret_cast<TAssetPtr<class FOnSitIdleEntered__DelegateSignature>*>((byte*)this + 3400);
 }
 void ABP_BaseCharacter_C::M_SetOnSitIdleEntered(const TAssetPtr<class FOnSitIdleEntered__DelegateSignature>& value) {
-	Write((byte*)this + 3256, value);
+	Write((byte*)this + 3400, value);
 }
 // Member Getter and Setter of OnSleepIdleEntered
 // Declaration: TAssetPtr<class FOnSleepIdleEntered__DelegateSignature> OnSleepIdleEntered
 TAssetPtr<class FOnSleepIdleEntered__DelegateSignature> ABP_BaseCharacter_C::M_GetOnSleepIdleEntered() const {
-	return Read<TAssetPtr<class FOnSleepIdleEntered__DelegateSignature>>((byte*)this + 3272);
+	return Read<TAssetPtr<class FOnSleepIdleEntered__DelegateSignature>>((byte*)this + 3416);
 }
 TAssetPtr<class FOnSleepIdleEntered__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnSleepIdleEntered() {
-	return reinterpret_cast<TAssetPtr<class FOnSleepIdleEntered__DelegateSignature>*>((byte*)this + 3272);
+	return reinterpret_cast<TAssetPtr<class FOnSleepIdleEntered__DelegateSignature>*>((byte*)this + 3416);
 }
 void ABP_BaseCharacter_C::M_SetOnSleepIdleEntered(const TAssetPtr<class FOnSleepIdleEntered__DelegateSignature>& value) {
-	Write((byte*)this + 3272, value);
+	Write((byte*)this + 3416, value);
 }
 // Member Getter and Setter of UseBedSleepingPose
 // Declaration: bool UseBedSleepingPose
 bool ABP_BaseCharacter_C::M_GetUseBedSleepingPose() const {
-	return Read<bool>((byte*)this + 3288);
+	return Read<bool>((byte*)this + 3432);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetUseBedSleepingPose() {
-	return reinterpret_cast<bool*>((byte*)this + 3288);
+	return reinterpret_cast<bool*>((byte*)this + 3432);
 }
 void ABP_BaseCharacter_C::M_SetUseBedSleepingPose(const bool& value) {
-	Write((byte*)this + 3288, value);
+	Write((byte*)this + 3432, value);
 }
 // Member Getter and Setter of CraftingMenuOpen
 // Declaration: bool CraftingMenuOpen
 bool ABP_BaseCharacter_C::M_GetCraftingMenuOpen() const {
-	return Read<bool>((byte*)this + 3289);
+	return Read<bool>((byte*)this + 3433);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetCraftingMenuOpen() {
-	return reinterpret_cast<bool*>((byte*)this + 3289);
+	return reinterpret_cast<bool*>((byte*)this + 3433);
 }
 void ABP_BaseCharacter_C::M_SetCraftingMenuOpen(const bool& value) {
-	Write((byte*)this + 3289, value);
+	Write((byte*)this + 3433, value);
 }
 // Member Getter and Setter of IsCrafting
 // Declaration: bool IsCrafting
 bool ABP_BaseCharacter_C::M_GetIsCrafting() const {
-	return Read<bool>((byte*)this + 3290);
+	return Read<bool>((byte*)this + 3434);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIsCrafting() {
-	return reinterpret_cast<bool*>((byte*)this + 3290);
+	return reinterpret_cast<bool*>((byte*)this + 3434);
 }
 void ABP_BaseCharacter_C::M_SetIsCrafting(const bool& value) {
-	Write((byte*)this + 3290, value);
+	Write((byte*)this + 3434, value);
 }
 // Member Getter and Setter of InstantBuilding
 // Declaration: bool InstantBuilding
 bool ABP_BaseCharacter_C::M_GetInstantBuilding() const {
-	return Read<bool>((byte*)this + 3291);
+	return Read<bool>((byte*)this + 3435);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetInstantBuilding() {
-	return reinterpret_cast<bool*>((byte*)this + 3291);
+	return reinterpret_cast<bool*>((byte*)this + 3435);
 }
 void ABP_BaseCharacter_C::M_SetInstantBuilding(const bool& value) {
-	Write((byte*)this + 3291, value);
+	Write((byte*)this + 3435, value);
 }
 // Member Getter and Setter of EndLoopSectionDuration
 // Declaration: float EndLoopSectionDuration
 float ABP_BaseCharacter_C::M_GetEndLoopSectionDuration() const {
-	return Read<float>((byte*)this + 3292);
+	return Read<float>((byte*)this + 3436);
 }
 float* ABP_BaseCharacter_C::M_PtrGetEndLoopSectionDuration() {
-	return reinterpret_cast<float*>((byte*)this + 3292);
+	return reinterpret_cast<float*>((byte*)this + 3436);
 }
 void ABP_BaseCharacter_C::M_SetEndLoopSectionDuration(const float& value) {
-	Write((byte*)this + 3292, value);
+	Write((byte*)this + 3436, value);
 }
 // Member Getter and Setter of CraftingTime
 // Declaration: float CraftingTime
 float ABP_BaseCharacter_C::M_GetCraftingTime() const {
-	return Read<float>((byte*)this + 3296);
+	return Read<float>((byte*)this + 3440);
 }
 float* ABP_BaseCharacter_C::M_PtrGetCraftingTime() {
-	return reinterpret_cast<float*>((byte*)this + 3296);
+	return reinterpret_cast<float*>((byte*)this + 3440);
 }
 void ABP_BaseCharacter_C::M_SetCraftingTime(const float& value) {
-	Write((byte*)this + 3296, value);
+	Write((byte*)this + 3440, value);
 }
 // Member Getter and Setter of HadToolBeforeCrafting
 // Declaration: bool HadToolBeforeCrafting
 bool ABP_BaseCharacter_C::M_GetHadToolBeforeCrafting() const {
-	return Read<bool>((byte*)this + 3300);
+	return Read<bool>((byte*)this + 3444);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetHadToolBeforeCrafting() {
-	return reinterpret_cast<bool*>((byte*)this + 3300);
+	return reinterpret_cast<bool*>((byte*)this + 3444);
 }
 void ABP_BaseCharacter_C::M_SetHadToolBeforeCrafting(const bool& value) {
-	Write((byte*)this + 3300, value);
+	Write((byte*)this + 3444, value);
 }
 // Member Getter and Setter of SpawnedOffHandAnimItem
 // Declaration: bool SpawnedOffHandAnimItem
 bool ABP_BaseCharacter_C::M_GetSpawnedOffHandAnimItem() const {
-	return Read<bool>((byte*)this + 3301);
+	return Read<bool>((byte*)this + 3445);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetSpawnedOffHandAnimItem() {
-	return reinterpret_cast<bool*>((byte*)this + 3301);
+	return reinterpret_cast<bool*>((byte*)this + 3445);
 }
 void ABP_BaseCharacter_C::M_SetSpawnedOffHandAnimItem(const bool& value) {
-	Write((byte*)this + 3301, value);
+	Write((byte*)this + 3445, value);
 }
 // Member Getter and Setter of HadOffhandBeforeCrafting
 // Declaration: bool HadOffhandBeforeCrafting
 bool ABP_BaseCharacter_C::M_GetHadOffhandBeforeCrafting() const {
-	return Read<bool>((byte*)this + 3302);
+	return Read<bool>((byte*)this + 3446);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetHadOffhandBeforeCrafting() {
-	return reinterpret_cast<bool*>((byte*)this + 3302);
+	return reinterpret_cast<bool*>((byte*)this + 3446);
 }
 void ABP_BaseCharacter_C::M_SetHadOffhandBeforeCrafting(const bool& value) {
-	Write((byte*)this + 3302, value);
+	Write((byte*)this + 3446, value);
 }
 // Member Getter and Setter of ChoiceMenuOpen
 // Declaration: bool ChoiceMenuOpen
 bool ABP_BaseCharacter_C::M_GetChoiceMenuOpen() const {
-	return Read<bool>((byte*)this + 3303);
+	return Read<bool>((byte*)this + 3447);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetChoiceMenuOpen() {
-	return reinterpret_cast<bool*>((byte*)this + 3303);
+	return reinterpret_cast<bool*>((byte*)this + 3447);
 }
 void ABP_BaseCharacter_C::M_SetChoiceMenuOpen(const bool& value) {
-	Write((byte*)this + 3303, value);
+	Write((byte*)this + 3447, value);
 }
 // Member Getter and Setter of CurrentPickingMontage
 // Declaration: class UAnimMontage* CurrentPickingMontage
 class UAnimMontage* ABP_BaseCharacter_C::M_GetCurrentPickingMontage() const {
-	return Read<class UAnimMontage*>((byte*)this + 3304);
+	return Read<class UAnimMontage*>((byte*)this + 3448);
 }
 class UAnimMontage** ABP_BaseCharacter_C::M_PtrGetCurrentPickingMontage() {
-	return reinterpret_cast<class UAnimMontage**>((byte*)this + 3304);
+	return reinterpret_cast<class UAnimMontage**>((byte*)this + 3448);
 }
 void ABP_BaseCharacter_C::M_SetCurrentPickingMontage(const class UAnimMontage*& value) {
-	Write((byte*)this + 3304, value);
+	Write((byte*)this + 3448, value);
 }
 // Member Getter and Setter of bLockMovement
 // Declaration: bool bLockMovement
 bool ABP_BaseCharacter_C::M_GetbLockMovement() const {
-	return Read<bool>((byte*)this + 3312);
+	return Read<bool>((byte*)this + 3456);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetbLockMovement() {
-	return reinterpret_cast<bool*>((byte*)this + 3312);
+	return reinterpret_cast<bool*>((byte*)this + 3456);
 }
 void ABP_BaseCharacter_C::M_SetbLockMovement(const bool& value) {
-	Write((byte*)this + 3312, value);
+	Write((byte*)this + 3456, value);
 }
 // Member Getter and Setter of MontageSectionStartTime
 // Declaration: float MontageSectionStartTime
 float ABP_BaseCharacter_C::M_GetMontageSectionStartTime() const {
-	return Read<float>((byte*)this + 3316);
+	return Read<float>((byte*)this + 3460);
 }
 float* ABP_BaseCharacter_C::M_PtrGetMontageSectionStartTime() {
-	return reinterpret_cast<float*>((byte*)this + 3316);
+	return reinterpret_cast<float*>((byte*)this + 3460);
 }
 void ABP_BaseCharacter_C::M_SetMontageSectionStartTime(const float& value) {
-	Write((byte*)this + 3316, value);
+	Write((byte*)this + 3460, value);
 }
 // Member Getter and Setter of BlockCraftingMenuMovement
 // Declaration: bool BlockCraftingMenuMovement
 bool ABP_BaseCharacter_C::M_GetBlockCraftingMenuMovement() const {
-	return Read<bool>((byte*)this + 3320);
+	return Read<bool>((byte*)this + 3464);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetBlockCraftingMenuMovement() {
-	return reinterpret_cast<bool*>((byte*)this + 3320);
+	return reinterpret_cast<bool*>((byte*)this + 3464);
 }
 void ABP_BaseCharacter_C::M_SetBlockCraftingMenuMovement(const bool& value) {
-	Write((byte*)this + 3320, value);
+	Write((byte*)this + 3464, value);
 }
 // Member Getter and Setter of BlockOffhandEquipping
 // Declaration: bool BlockOffhandEquipping
 bool ABP_BaseCharacter_C::M_GetBlockOffhandEquipping() const {
-	return Read<bool>((byte*)this + 3321);
+	return Read<bool>((byte*)this + 3465);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetBlockOffhandEquipping() {
-	return reinterpret_cast<bool*>((byte*)this + 3321);
+	return reinterpret_cast<bool*>((byte*)this + 3465);
 }
 void ABP_BaseCharacter_C::M_SetBlockOffhandEquipping(const bool& value) {
-	Write((byte*)this + 3321, value);
+	Write((byte*)this + 3465, value);
 }
 // Member Getter and Setter of Oldness
 // Declaration: float Oldness
 float ABP_BaseCharacter_C::M_GetOldness() const {
-	return Read<float>((byte*)this + 3324);
+	return Read<float>((byte*)this + 3468);
 }
 float* ABP_BaseCharacter_C::M_PtrGetOldness() {
-	return reinterpret_cast<float*>((byte*)this + 3324);
+	return reinterpret_cast<float*>((byte*)this + 3468);
 }
 void ABP_BaseCharacter_C::M_SetOldness(const float& value) {
-	Write((byte*)this + 3324, value);
+	Write((byte*)this + 3468, value);
 }
 // Member Getter and Setter of Ownership
 // Declaration: TEnumAsByte<E_Ownership> Ownership
 TEnumAsByte<E_Ownership> ABP_BaseCharacter_C::M_GetOwnership() const {
-	return Read<TEnumAsByte<E_Ownership>>((byte*)this + 3328);
+	return Read<TEnumAsByte<E_Ownership>>((byte*)this + 3472);
 }
 TEnumAsByte<E_Ownership>* ABP_BaseCharacter_C::M_PtrGetOwnership() {
-	return reinterpret_cast<TEnumAsByte<E_Ownership>*>((byte*)this + 3328);
+	return reinterpret_cast<TEnumAsByte<E_Ownership>*>((byte*)this + 3472);
 }
 void ABP_BaseCharacter_C::M_SetOwnership(const TEnumAsByte<E_Ownership>& value) {
-	Write((byte*)this + 3328, value);
+	Write((byte*)this + 3472, value);
 }
 // Member Getter and Setter of LeftHandReference
 // Declaration: class ABP_MasterHoldableItem_C* LeftHandReference
 class ABP_MasterHoldableItem_C* ABP_BaseCharacter_C::M_GetLeftHandReference() const {
-	return Read<class ABP_MasterHoldableItem_C*>((byte*)this + 3336);
+	return Read<class ABP_MasterHoldableItem_C*>((byte*)this + 3480);
 }
 class ABP_MasterHoldableItem_C** ABP_BaseCharacter_C::M_PtrGetLeftHandReference() {
-	return reinterpret_cast<class ABP_MasterHoldableItem_C**>((byte*)this + 3336);
+	return reinterpret_cast<class ABP_MasterHoldableItem_C**>((byte*)this + 3480);
 }
 void ABP_BaseCharacter_C::M_SetLeftHandReference(const class ABP_MasterHoldableItem_C*& value) {
-	Write((byte*)this + 3336, value);
+	Write((byte*)this + 3480, value);
 }
 // Member Getter and Setter of RightHandReference
 // Declaration: class ABP_MasterHoldableItem_C* RightHandReference
 class ABP_MasterHoldableItem_C* ABP_BaseCharacter_C::M_GetRightHandReference() const {
-	return Read<class ABP_MasterHoldableItem_C*>((byte*)this + 3344);
+	return Read<class ABP_MasterHoldableItem_C*>((byte*)this + 3488);
 }
 class ABP_MasterHoldableItem_C** ABP_BaseCharacter_C::M_PtrGetRightHandReference() {
-	return reinterpret_cast<class ABP_MasterHoldableItem_C**>((byte*)this + 3344);
+	return reinterpret_cast<class ABP_MasterHoldableItem_C**>((byte*)this + 3488);
 }
 void ABP_BaseCharacter_C::M_SetRightHandReference(const class ABP_MasterHoldableItem_C*& value) {
-	Write((byte*)this + 3344, value);
+	Write((byte*)this + 3488, value);
 }
 // Member Getter and Setter of FistFightingAlpha
 // Declaration: float FistFightingAlpha
 float ABP_BaseCharacter_C::M_GetFistFightingAlpha() const {
-	return Read<float>((byte*)this + 3352);
+	return Read<float>((byte*)this + 3496);
 }
 float* ABP_BaseCharacter_C::M_PtrGetFistFightingAlpha() {
-	return reinterpret_cast<float*>((byte*)this + 3352);
+	return reinterpret_cast<float*>((byte*)this + 3496);
 }
 void ABP_BaseCharacter_C::M_SetFistFightingAlpha(const float& value) {
-	Write((byte*)this + 3352, value);
+	Write((byte*)this + 3496, value);
 }
 // Member Getter and Setter of IsSick
 // Declaration: bool IsSick
 bool ABP_BaseCharacter_C::M_GetIsSick() const {
-	return Read<bool>((byte*)this + 3356);
+	return Read<bool>((byte*)this + 3500);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIsSick() {
-	return reinterpret_cast<bool*>((byte*)this + 3356);
+	return reinterpret_cast<bool*>((byte*)this + 3500);
 }
 void ABP_BaseCharacter_C::M_SetIsSick(const bool& value) {
-	Write((byte*)this + 3356, value);
+	Write((byte*)this + 3500, value);
 }
 // Member Getter and Setter of IsInjured
 // Declaration: bool IsInjured
 bool ABP_BaseCharacter_C::M_GetIsInjured() const {
-	return Read<bool>((byte*)this + 3357);
+	return Read<bool>((byte*)this + 3501);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIsInjured() {
-	return reinterpret_cast<bool*>((byte*)this + 3357);
+	return reinterpret_cast<bool*>((byte*)this + 3501);
 }
 void ABP_BaseCharacter_C::M_SetIsInjured(const bool& value) {
-	Write((byte*)this + 3357, value);
+	Write((byte*)this + 3501, value);
 }
 // Member Getter and Setter of UI_InspectorReference
 // Declaration: class UUI_Inspector_NPC_C* UI_InspectorReference
 class UUI_Inspector_NPC_C* ABP_BaseCharacter_C::M_GetUI_InspectorReference() const {
-	return Read<class UUI_Inspector_NPC_C*>((byte*)this + 3360);
+	return Read<class UUI_Inspector_NPC_C*>((byte*)this + 3504);
 }
 class UUI_Inspector_NPC_C** ABP_BaseCharacter_C::M_PtrGetUI_InspectorReference() {
-	return reinterpret_cast<class UUI_Inspector_NPC_C**>((byte*)this + 3360);
+	return reinterpret_cast<class UUI_Inspector_NPC_C**>((byte*)this + 3504);
 }
 void ABP_BaseCharacter_C::M_SetUI_InspectorReference(const class UUI_Inspector_NPC_C*& value) {
-	Write((byte*)this + 3360, value);
+	Write((byte*)this + 3504, value);
 }
 // Member Getter and Setter of IsInIdleState
 // Declaration: bool IsInIdleState
 bool ABP_BaseCharacter_C::M_GetIsInIdleState() const {
-	return Read<bool>((byte*)this + 3368);
+	return Read<bool>((byte*)this + 3512);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIsInIdleState() {
-	return reinterpret_cast<bool*>((byte*)this + 3368);
+	return reinterpret_cast<bool*>((byte*)this + 3512);
 }
 void ABP_BaseCharacter_C::M_SetIsInIdleState(const bool& value) {
-	Write((byte*)this + 3368, value);
+	Write((byte*)this + 3512, value);
 }
 // Member Getter and Setter of IdleState
 // Declaration: TEnumAsByte<E_IdleStates> IdleState
 TEnumAsByte<E_IdleStates> ABP_BaseCharacter_C::M_GetIdleState() const {
-	return Read<TEnumAsByte<E_IdleStates>>((byte*)this + 3369);
+	return Read<TEnumAsByte<E_IdleStates>>((byte*)this + 3513);
 }
 TEnumAsByte<E_IdleStates>* ABP_BaseCharacter_C::M_PtrGetIdleState() {
-	return reinterpret_cast<TEnumAsByte<E_IdleStates>*>((byte*)this + 3369);
+	return reinterpret_cast<TEnumAsByte<E_IdleStates>*>((byte*)this + 3513);
 }
 void ABP_BaseCharacter_C::M_SetIdleState(const TEnumAsByte<E_IdleStates>& value) {
-	Write((byte*)this + 3369, value);
+	Write((byte*)this + 3513, value);
 }
 // Member Getter and Setter of CanTakeFallDamage
 // Declaration: bool CanTakeFallDamage
 bool ABP_BaseCharacter_C::M_GetCanTakeFallDamage() const {
-	return Read<bool>((byte*)this + 3370);
+	return Read<bool>((byte*)this + 3514);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetCanTakeFallDamage() {
-	return reinterpret_cast<bool*>((byte*)this + 3370);
+	return reinterpret_cast<bool*>((byte*)this + 3514);
 }
 void ABP_BaseCharacter_C::M_SetCanTakeFallDamage(const bool& value) {
-	Write((byte*)this + 3370, value);
+	Write((byte*)this + 3514, value);
 }
 // Member Getter and Setter of FallingTimerHandle
 // Declaration: struct FTimerHandle FallingTimerHandle
 struct FTimerHandle ABP_BaseCharacter_C::M_GetFallingTimerHandle() const {
-	return Read<struct FTimerHandle>((byte*)this + 3376);
+	return Read<struct FTimerHandle>((byte*)this + 3520);
 }
 struct FTimerHandle* ABP_BaseCharacter_C::M_PtrGetFallingTimerHandle() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 3376);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 3520);
 }
 void ABP_BaseCharacter_C::M_SetFallingTimerHandle(const struct FTimerHandle& value) {
-	Write((byte*)this + 3376, value);
+	Write((byte*)this + 3520, value);
 }
 // Member Getter and Setter of FallVelocity
 // Declaration: float FallVelocity
 float ABP_BaseCharacter_C::M_GetFallVelocity() const {
-	return Read<float>((byte*)this + 3384);
+	return Read<float>((byte*)this + 3528);
 }
 float* ABP_BaseCharacter_C::M_PtrGetFallVelocity() {
-	return reinterpret_cast<float*>((byte*)this + 3384);
+	return reinterpret_cast<float*>((byte*)this + 3528);
 }
 void ABP_BaseCharacter_C::M_SetFallVelocity(const float& value) {
-	Write((byte*)this + 3384, value);
+	Write((byte*)this + 3528, value);
 }
 // Member Getter and Setter of FallVelocityThreshold
 // Declaration: float FallVelocityThreshold
 float ABP_BaseCharacter_C::M_GetFallVelocityThreshold() const {
-	return Read<float>((byte*)this + 3388);
+	return Read<float>((byte*)this + 3532);
 }
 float* ABP_BaseCharacter_C::M_PtrGetFallVelocityThreshold() {
-	return reinterpret_cast<float*>((byte*)this + 3388);
+	return reinterpret_cast<float*>((byte*)this + 3532);
 }
 void ABP_BaseCharacter_C::M_SetFallVelocityThreshold(const float& value) {
-	Write((byte*)this + 3388, value);
+	Write((byte*)this + 3532, value);
 }
 // Member Getter and Setter of ShouldTakeFallDamage
 // Declaration: bool ShouldTakeFallDamage
 bool ABP_BaseCharacter_C::M_GetShouldTakeFallDamage() const {
-	return Read<bool>((byte*)this + 3392);
+	return Read<bool>((byte*)this + 3536);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetShouldTakeFallDamage() {
-	return reinterpret_cast<bool*>((byte*)this + 3392);
+	return reinterpret_cast<bool*>((byte*)this + 3536);
 }
 void ABP_BaseCharacter_C::M_SetShouldTakeFallDamage(const bool& value) {
-	Write((byte*)this + 3392, value);
+	Write((byte*)this + 3536, value);
 }
 // Member Getter and Setter of FallDamageToApply
 // Declaration: float FallDamageToApply
 float ABP_BaseCharacter_C::M_GetFallDamageToApply() const {
-	return Read<float>((byte*)this + 3396);
+	return Read<float>((byte*)this + 3540);
 }
 float* ABP_BaseCharacter_C::M_PtrGetFallDamageToApply() {
-	return reinterpret_cast<float*>((byte*)this + 3396);
+	return reinterpret_cast<float*>((byte*)this + 3540);
 }
 void ABP_BaseCharacter_C::M_SetFallDamageToApply(const float& value) {
-	Write((byte*)this + 3396, value);
+	Write((byte*)this + 3540, value);
 }
 // Member Getter and Setter of StandingIdlePose
 // Declaration: unsigned char StandingIdlePose
 unsigned char ABP_BaseCharacter_C::M_GetStandingIdlePose() const {
-	return Read<unsigned char>((byte*)this + 3400);
+	return Read<unsigned char>((byte*)this + 3544);
 }
 unsigned char* ABP_BaseCharacter_C::M_PtrGetStandingIdlePose() {
-	return reinterpret_cast<unsigned char*>((byte*)this + 3400);
+	return reinterpret_cast<unsigned char*>((byte*)this + 3544);
 }
 void ABP_BaseCharacter_C::M_SetStandingIdlePose(const unsigned char& value) {
-	Write((byte*)this + 3400, value);
+	Write((byte*)this + 3544, value);
 }
 // Member Getter and Setter of TalkingIdlePose
 // Declaration: unsigned char TalkingIdlePose
 unsigned char ABP_BaseCharacter_C::M_GetTalkingIdlePose() const {
-	return Read<unsigned char>((byte*)this + 3401);
+	return Read<unsigned char>((byte*)this + 3545);
 }
 unsigned char* ABP_BaseCharacter_C::M_PtrGetTalkingIdlePose() {
-	return reinterpret_cast<unsigned char*>((byte*)this + 3401);
+	return reinterpret_cast<unsigned char*>((byte*)this + 3545);
 }
 void ABP_BaseCharacter_C::M_SetTalkingIdlePose(const unsigned char& value) {
-	Write((byte*)this + 3401, value);
+	Write((byte*)this + 3545, value);
 }
 // Member Getter and Setter of LookingIdlePose
 // Declaration: unsigned char LookingIdlePose
 unsigned char ABP_BaseCharacter_C::M_GetLookingIdlePose() const {
-	return Read<unsigned char>((byte*)this + 3402);
+	return Read<unsigned char>((byte*)this + 3546);
 }
 unsigned char* ABP_BaseCharacter_C::M_PtrGetLookingIdlePose() {
-	return reinterpret_cast<unsigned char*>((byte*)this + 3402);
+	return reinterpret_cast<unsigned char*>((byte*)this + 3546);
 }
 void ABP_BaseCharacter_C::M_SetLookingIdlePose(const unsigned char& value) {
-	Write((byte*)this + 3402, value);
+	Write((byte*)this + 3546, value);
 }
 // Member Getter and Setter of OtherIdlePose
 // Declaration: unsigned char OtherIdlePose
 unsigned char ABP_BaseCharacter_C::M_GetOtherIdlePose() const {
-	return Read<unsigned char>((byte*)this + 3403);
+	return Read<unsigned char>((byte*)this + 3547);
 }
 unsigned char* ABP_BaseCharacter_C::M_PtrGetOtherIdlePose() {
-	return reinterpret_cast<unsigned char*>((byte*)this + 3403);
+	return reinterpret_cast<unsigned char*>((byte*)this + 3547);
 }
 void ABP_BaseCharacter_C::M_SetOtherIdlePose(const unsigned char& value) {
-	Write((byte*)this + 3403, value);
+	Write((byte*)this + 3547, value);
 }
 // Member Getter and Setter of OnIdleAnimEntered
 // Declaration: TAssetPtr<class FOnIdleAnimEntered__DelegateSignature> OnIdleAnimEntered
 TAssetPtr<class FOnIdleAnimEntered__DelegateSignature> ABP_BaseCharacter_C::M_GetOnIdleAnimEntered() const {
-	return Read<TAssetPtr<class FOnIdleAnimEntered__DelegateSignature>>((byte*)this + 3408);
+	return Read<TAssetPtr<class FOnIdleAnimEntered__DelegateSignature>>((byte*)this + 3552);
 }
 TAssetPtr<class FOnIdleAnimEntered__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnIdleAnimEntered() {
-	return reinterpret_cast<TAssetPtr<class FOnIdleAnimEntered__DelegateSignature>*>((byte*)this + 3408);
+	return reinterpret_cast<TAssetPtr<class FOnIdleAnimEntered__DelegateSignature>*>((byte*)this + 3552);
 }
 void ABP_BaseCharacter_C::M_SetOnIdleAnimEntered(const TAssetPtr<class FOnIdleAnimEntered__DelegateSignature>& value) {
-	Write((byte*)this + 3408, value);
+	Write((byte*)this + 3552, value);
 }
 // Member Getter and Setter of OnIdleAnimFinished
 // Declaration: TAssetPtr<class FOnIdleAnimFinished__DelegateSignature> OnIdleAnimFinished
 TAssetPtr<class FOnIdleAnimFinished__DelegateSignature> ABP_BaseCharacter_C::M_GetOnIdleAnimFinished() const {
-	return Read<TAssetPtr<class FOnIdleAnimFinished__DelegateSignature>>((byte*)this + 3424);
+	return Read<TAssetPtr<class FOnIdleAnimFinished__DelegateSignature>>((byte*)this + 3568);
 }
 TAssetPtr<class FOnIdleAnimFinished__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnIdleAnimFinished() {
-	return reinterpret_cast<TAssetPtr<class FOnIdleAnimFinished__DelegateSignature>*>((byte*)this + 3424);
+	return reinterpret_cast<TAssetPtr<class FOnIdleAnimFinished__DelegateSignature>*>((byte*)this + 3568);
 }
 void ABP_BaseCharacter_C::M_SetOnIdleAnimFinished(const TAssetPtr<class FOnIdleAnimFinished__DelegateSignature>& value) {
-	Write((byte*)this + 3424, value);
+	Write((byte*)this + 3568, value);
 }
 // Member Getter and Setter of WavingIdlePose
 // Declaration: unsigned char WavingIdlePose
 unsigned char ABP_BaseCharacter_C::M_GetWavingIdlePose() const {
-	return Read<unsigned char>((byte*)this + 3440);
+	return Read<unsigned char>((byte*)this + 3584);
 }
 unsigned char* ABP_BaseCharacter_C::M_PtrGetWavingIdlePose() {
-	return reinterpret_cast<unsigned char*>((byte*)this + 3440);
+	return reinterpret_cast<unsigned char*>((byte*)this + 3584);
 }
 void ABP_BaseCharacter_C::M_SetWavingIdlePose(const unsigned char& value) {
-	Write((byte*)this + 3440, value);
+	Write((byte*)this + 3584, value);
 }
 // Member Getter and Setter of HasLanded
 // Declaration: bool HasLanded
 bool ABP_BaseCharacter_C::M_GetHasLanded() const {
-	return Read<bool>((byte*)this + 3441);
+	return Read<bool>((byte*)this + 3585);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetHasLanded() {
-	return reinterpret_cast<bool*>((byte*)this + 3441);
+	return reinterpret_cast<bool*>((byte*)this + 3585);
 }
 void ABP_BaseCharacter_C::M_SetHasLanded(const bool& value) {
-	Write((byte*)this + 3441, value);
+	Write((byte*)this + 3585, value);
 }
 // Member Getter and Setter of IsInDialogue
 // Declaration: bool IsInDialogue
 bool ABP_BaseCharacter_C::M_GetIsInDialogue() const {
-	return Read<bool>((byte*)this + 3442);
+	return Read<bool>((byte*)this + 3586);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIsInDialogue() {
-	return reinterpret_cast<bool*>((byte*)this + 3442);
+	return reinterpret_cast<bool*>((byte*)this + 3586);
 }
 void ABP_BaseCharacter_C::M_SetIsInDialogue(const bool& value) {
-	Write((byte*)this + 3442, value);
+	Write((byte*)this + 3586, value);
 }
 // Member Getter and Setter of BodyPartsIndexes
 // Declaration: TMap<TEnumAsByte<E_BodyParts>, int32_t> BodyPartsIndexes
 TMap<TEnumAsByte<E_BodyParts>, int32_t> ABP_BaseCharacter_C::M_GetBodyPartsIndexes() const {
-	return Read<TMap<TEnumAsByte<E_BodyParts>, int32_t>>((byte*)this + 3448);
+	return Read<TMap<TEnumAsByte<E_BodyParts>, int32_t>>((byte*)this + 3592);
 }
 TMap<TEnumAsByte<E_BodyParts>, int32_t>* ABP_BaseCharacter_C::M_PtrGetBodyPartsIndexes() {
-	return reinterpret_cast<TMap<TEnumAsByte<E_BodyParts>, int32_t>*>((byte*)this + 3448);
+	return reinterpret_cast<TMap<TEnumAsByte<E_BodyParts>, int32_t>*>((byte*)this + 3592);
 }
 void ABP_BaseCharacter_C::M_SetBodyPartsIndexes(const TMap<TEnumAsByte<E_BodyParts>, int32_t>& value) {
-	Write((byte*)this + 3448, value);
+	Write((byte*)this + 3592, value);
 }
 // Member Getter and Setter of MeshesRowName
 // Declaration: struct FName MeshesRowName
 struct FName ABP_BaseCharacter_C::M_GetMeshesRowName() const {
-	return Read<struct FName>((byte*)this + 3528);
+	return Read<struct FName>((byte*)this + 3672);
 }
 struct FName* ABP_BaseCharacter_C::M_PtrGetMeshesRowName() {
-	return reinterpret_cast<struct FName*>((byte*)this + 3528);
+	return reinterpret_cast<struct FName*>((byte*)this + 3672);
 }
 void ABP_BaseCharacter_C::M_SetMeshesRowName(const struct FName& value) {
-	Write((byte*)this + 3528, value);
+	Write((byte*)this + 3672, value);
 }
 // Member Getter and Setter of PhysicsLocation
 // Declaration: struct FVector PhysicsLocation
 struct FVector ABP_BaseCharacter_C::M_GetPhysicsLocation() const {
-	return Read<struct FVector>((byte*)this + 3536);
+	return Read<struct FVector>((byte*)this + 3680);
 }
 struct FVector* ABP_BaseCharacter_C::M_PtrGetPhysicsLocation() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 3536);
+	return reinterpret_cast<struct FVector*>((byte*)this + 3680);
 }
 void ABP_BaseCharacter_C::M_SetPhysicsLocation(const struct FVector& value) {
-	Write((byte*)this + 3536, value);
+	Write((byte*)this + 3680, value);
 }
 // Member Getter and Setter of PhysicsVectorLength
 // Declaration: float PhysicsVectorLength
 float ABP_BaseCharacter_C::M_GetPhysicsVectorLength() const {
-	return Read<float>((byte*)this + 3548);
+	return Read<float>((byte*)this + 3692);
 }
 float* ABP_BaseCharacter_C::M_PtrGetPhysicsVectorLength() {
-	return reinterpret_cast<float*>((byte*)this + 3548);
+	return reinterpret_cast<float*>((byte*)this + 3692);
 }
 void ABP_BaseCharacter_C::M_SetPhysicsVectorLength(const float& value) {
-	Write((byte*)this + 3548, value);
+	Write((byte*)this + 3692, value);
 }
 // Member Getter and Setter of IsWorking
 // Declaration: bool IsWorking
 bool ABP_BaseCharacter_C::M_GetIsWorking() const {
-	return Read<bool>((byte*)this + 3552);
+	return Read<bool>((byte*)this + 3696);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIsWorking() {
-	return reinterpret_cast<bool*>((byte*)this + 3552);
+	return reinterpret_cast<bool*>((byte*)this + 3696);
 }
 void ABP_BaseCharacter_C::M_SetIsWorking(const bool& value) {
-	Write((byte*)this + 3552, value);
+	Write((byte*)this + 3696, value);
 }
 // Member Getter and Setter of BagMode
 // Declaration: TEnumAsByte<E_BagMode> BagMode
 TEnumAsByte<E_BagMode> ABP_BaseCharacter_C::M_GetBagMode() const {
-	return Read<TEnumAsByte<E_BagMode>>((byte*)this + 3553);
+	return Read<TEnumAsByte<E_BagMode>>((byte*)this + 3697);
 }
 TEnumAsByte<E_BagMode>* ABP_BaseCharacter_C::M_PtrGetBagMode() {
-	return reinterpret_cast<TEnumAsByte<E_BagMode>*>((byte*)this + 3553);
+	return reinterpret_cast<TEnumAsByte<E_BagMode>*>((byte*)this + 3697);
 }
 void ABP_BaseCharacter_C::M_SetBagMode(const TEnumAsByte<E_BagMode>& value) {
-	Write((byte*)this + 3553, value);
+	Write((byte*)this + 3697, value);
 }
 // Member Getter and Setter of IsTakingBreak
 // Declaration: bool IsTakingBreak
 bool ABP_BaseCharacter_C::M_GetIsTakingBreak() const {
-	return Read<bool>((byte*)this + 3554);
+	return Read<bool>((byte*)this + 3698);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIsTakingBreak() {
-	return reinterpret_cast<bool*>((byte*)this + 3554);
+	return reinterpret_cast<bool*>((byte*)this + 3698);
 }
 void ABP_BaseCharacter_C::M_SetIsTakingBreak(const bool& value) {
-	Write((byte*)this + 3554, value);
+	Write((byte*)this + 3698, value);
 }
 // Member Getter and Setter of OnInteractionFinished
 // Declaration: TAssetPtr<class FOnInteractionFinished__DelegateSignature> OnInteractionFinished
 TAssetPtr<class FOnInteractionFinished__DelegateSignature> ABP_BaseCharacter_C::M_GetOnInteractionFinished() const {
-	return Read<TAssetPtr<class FOnInteractionFinished__DelegateSignature>>((byte*)this + 3560);
+	return Read<TAssetPtr<class FOnInteractionFinished__DelegateSignature>>((byte*)this + 3704);
 }
 TAssetPtr<class FOnInteractionFinished__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnInteractionFinished() {
-	return reinterpret_cast<TAssetPtr<class FOnInteractionFinished__DelegateSignature>*>((byte*)this + 3560);
+	return reinterpret_cast<TAssetPtr<class FOnInteractionFinished__DelegateSignature>*>((byte*)this + 3704);
 }
 void ABP_BaseCharacter_C::M_SetOnInteractionFinished(const TAssetPtr<class FOnInteractionFinished__DelegateSignature>& value) {
-	Write((byte*)this + 3560, value);
+	Write((byte*)this + 3704, value);
 }
 // Member Getter and Setter of InteractionSlotIndex
 // Declaration: int32_t InteractionSlotIndex
 int32_t ABP_BaseCharacter_C::M_GetInteractionSlotIndex() const {
-	return Read<int32_t>((byte*)this + 3576);
+	return Read<int32_t>((byte*)this + 3720);
 }
 int32_t* ABP_BaseCharacter_C::M_PtrGetInteractionSlotIndex() {
-	return reinterpret_cast<int32_t*>((byte*)this + 3576);
+	return reinterpret_cast<int32_t*>((byte*)this + 3720);
 }
 void ABP_BaseCharacter_C::M_SetInteractionSlotIndex(const int32_t& value) {
-	Write((byte*)this + 3576, value);
+	Write((byte*)this + 3720, value);
 }
 // Member Getter and Setter of SpawnedMainHandAnimItem
 // Declaration: bool SpawnedMainHandAnimItem
 bool ABP_BaseCharacter_C::M_GetSpawnedMainHandAnimItem() const {
-	return Read<bool>((byte*)this + 3580);
+	return Read<bool>((byte*)this + 3724);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetSpawnedMainHandAnimItem() {
-	return reinterpret_cast<bool*>((byte*)this + 3580);
+	return reinterpret_cast<bool*>((byte*)this + 3724);
 }
 void ABP_BaseCharacter_C::M_SetSpawnedMainHandAnimItem(const bool& value) {
-	Write((byte*)this + 3580, value);
+	Write((byte*)this + 3724, value);
 }
 // Member Getter and Setter of BuildingMode
 // Declaration: TEnumAsByte<E_BuildingModifications> BuildingMode
 TEnumAsByte<E_BuildingModifications> ABP_BaseCharacter_C::M_GetBuildingMode() const {
-	return Read<TEnumAsByte<E_BuildingModifications>>((byte*)this + 3581);
+	return Read<TEnumAsByte<E_BuildingModifications>>((byte*)this + 3725);
 }
 TEnumAsByte<E_BuildingModifications>* ABP_BaseCharacter_C::M_PtrGetBuildingMode() {
-	return reinterpret_cast<TEnumAsByte<E_BuildingModifications>*>((byte*)this + 3581);
+	return reinterpret_cast<TEnumAsByte<E_BuildingModifications>*>((byte*)this + 3725);
 }
 void ABP_BaseCharacter_C::M_SetBuildingMode(const TEnumAsByte<E_BuildingModifications>& value) {
-	Write((byte*)this + 3581, value);
+	Write((byte*)this + 3725, value);
 }
 // Member Getter and Setter of SitDownPosition
 // Declaration: TEnumAsByte<E_SitDownPosition> SitDownPosition
 TEnumAsByte<E_SitDownPosition> ABP_BaseCharacter_C::M_GetSitDownPosition() const {
-	return Read<TEnumAsByte<E_SitDownPosition>>((byte*)this + 3582);
+	return Read<TEnumAsByte<E_SitDownPosition>>((byte*)this + 3726);
 }
 TEnumAsByte<E_SitDownPosition>* ABP_BaseCharacter_C::M_PtrGetSitDownPosition() {
-	return reinterpret_cast<TEnumAsByte<E_SitDownPosition>*>((byte*)this + 3582);
+	return reinterpret_cast<TEnumAsByte<E_SitDownPosition>*>((byte*)this + 3726);
 }
 void ABP_BaseCharacter_C::M_SetSitDownPosition(const TEnumAsByte<E_SitDownPosition>& value) {
-	Write((byte*)this + 3582, value);
+	Write((byte*)this + 3726, value);
 }
 // Member Getter and Setter of OnSitStarted
 // Declaration: TAssetPtr<class FOnSitStarted__DelegateSignature> OnSitStarted
 TAssetPtr<class FOnSitStarted__DelegateSignature> ABP_BaseCharacter_C::M_GetOnSitStarted() const {
-	return Read<TAssetPtr<class FOnSitStarted__DelegateSignature>>((byte*)this + 3584);
+	return Read<TAssetPtr<class FOnSitStarted__DelegateSignature>>((byte*)this + 3728);
 }
 TAssetPtr<class FOnSitStarted__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnSitStarted() {
-	return reinterpret_cast<TAssetPtr<class FOnSitStarted__DelegateSignature>*>((byte*)this + 3584);
+	return reinterpret_cast<TAssetPtr<class FOnSitStarted__DelegateSignature>*>((byte*)this + 3728);
 }
 void ABP_BaseCharacter_C::M_SetOnSitStarted(const TAssetPtr<class FOnSitStarted__DelegateSignature>& value) {
-	Write((byte*)this + 3584, value);
+	Write((byte*)this + 3728, value);
 }
 // Member Getter and Setter of OnSitFinished
 // Declaration: TAssetPtr<class FOnSitFinished__DelegateSignature> OnSitFinished
 TAssetPtr<class FOnSitFinished__DelegateSignature> ABP_BaseCharacter_C::M_GetOnSitFinished() const {
-	return Read<TAssetPtr<class FOnSitFinished__DelegateSignature>>((byte*)this + 3600);
+	return Read<TAssetPtr<class FOnSitFinished__DelegateSignature>>((byte*)this + 3744);
 }
 TAssetPtr<class FOnSitFinished__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnSitFinished() {
-	return reinterpret_cast<TAssetPtr<class FOnSitFinished__DelegateSignature>*>((byte*)this + 3600);
+	return reinterpret_cast<TAssetPtr<class FOnSitFinished__DelegateSignature>*>((byte*)this + 3744);
 }
 void ABP_BaseCharacter_C::M_SetOnSitFinished(const TAssetPtr<class FOnSitFinished__DelegateSignature>& value) {
-	Write((byte*)this + 3600, value);
+	Write((byte*)this + 3744, value);
 }
 // Member Getter and Setter of OnSleepStarted
 // Declaration: TAssetPtr<class FOnSleepStarted__DelegateSignature> OnSleepStarted
 TAssetPtr<class FOnSleepStarted__DelegateSignature> ABP_BaseCharacter_C::M_GetOnSleepStarted() const {
-	return Read<TAssetPtr<class FOnSleepStarted__DelegateSignature>>((byte*)this + 3616);
+	return Read<TAssetPtr<class FOnSleepStarted__DelegateSignature>>((byte*)this + 3760);
 }
 TAssetPtr<class FOnSleepStarted__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnSleepStarted() {
-	return reinterpret_cast<TAssetPtr<class FOnSleepStarted__DelegateSignature>*>((byte*)this + 3616);
+	return reinterpret_cast<TAssetPtr<class FOnSleepStarted__DelegateSignature>*>((byte*)this + 3760);
 }
 void ABP_BaseCharacter_C::M_SetOnSleepStarted(const TAssetPtr<class FOnSleepStarted__DelegateSignature>& value) {
-	Write((byte*)this + 3616, value);
+	Write((byte*)this + 3760, value);
 }
 // Member Getter and Setter of OnSleepFinished
 // Declaration: TAssetPtr<class FOnSleepFinished__DelegateSignature> OnSleepFinished
 TAssetPtr<class FOnSleepFinished__DelegateSignature> ABP_BaseCharacter_C::M_GetOnSleepFinished() const {
-	return Read<TAssetPtr<class FOnSleepFinished__DelegateSignature>>((byte*)this + 3632);
+	return Read<TAssetPtr<class FOnSleepFinished__DelegateSignature>>((byte*)this + 3776);
 }
 TAssetPtr<class FOnSleepFinished__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnSleepFinished() {
-	return reinterpret_cast<TAssetPtr<class FOnSleepFinished__DelegateSignature>*>((byte*)this + 3632);
+	return reinterpret_cast<TAssetPtr<class FOnSleepFinished__DelegateSignature>*>((byte*)this + 3776);
 }
 void ABP_BaseCharacter_C::M_SetOnSleepFinished(const TAssetPtr<class FOnSleepFinished__DelegateSignature>& value) {
-	Write((byte*)this + 3632, value);
-}
-// Member Getter and Setter of isInWater
-// Declaration: bool isInWater
-bool ABP_BaseCharacter_C::M_GetisInWater() const {
-	return Read<bool>((byte*)this + 3648);
-}
-bool* ABP_BaseCharacter_C::M_PtrGetisInWater() {
-	return reinterpret_cast<bool*>((byte*)this + 3648);
-}
-void ABP_BaseCharacter_C::M_SetisInWater(const bool& value) {
-	Write((byte*)this + 3648, value);
-}
-// Member Getter and Setter of inWaterIntensity
-// Declaration: float inWaterIntensity
-float ABP_BaseCharacter_C::M_GetinWaterIntensity() const {
-	return Read<float>((byte*)this + 3652);
-}
-float* ABP_BaseCharacter_C::M_PtrGetinWaterIntensity() {
-	return reinterpret_cast<float*>((byte*)this + 3652);
-}
-void ABP_BaseCharacter_C::M_SetinWaterIntensity(const float& value) {
-	Write((byte*)this + 3652, value);
+	Write((byte*)this + 3776, value);
 }
 // Member Getter and Setter of OnStartCrafting
 // Declaration: TAssetPtr<class FOnStartCrafting__DelegateSignature> OnStartCrafting
 TAssetPtr<class FOnStartCrafting__DelegateSignature> ABP_BaseCharacter_C::M_GetOnStartCrafting() const {
-	return Read<TAssetPtr<class FOnStartCrafting__DelegateSignature>>((byte*)this + 3656);
+	return Read<TAssetPtr<class FOnStartCrafting__DelegateSignature>>((byte*)this + 3792);
 }
 TAssetPtr<class FOnStartCrafting__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnStartCrafting() {
-	return reinterpret_cast<TAssetPtr<class FOnStartCrafting__DelegateSignature>*>((byte*)this + 3656);
+	return reinterpret_cast<TAssetPtr<class FOnStartCrafting__DelegateSignature>*>((byte*)this + 3792);
 }
 void ABP_BaseCharacter_C::M_SetOnStartCrafting(const TAssetPtr<class FOnStartCrafting__DelegateSignature>& value) {
-	Write((byte*)this + 3656, value);
+	Write((byte*)this + 3792, value);
 }
 // Member Getter and Setter of OnWaitForCrafting
 // Declaration: TAssetPtr<class FOnWaitForCrafting__DelegateSignature> OnWaitForCrafting
 TAssetPtr<class FOnWaitForCrafting__DelegateSignature> ABP_BaseCharacter_C::M_GetOnWaitForCrafting() const {
-	return Read<TAssetPtr<class FOnWaitForCrafting__DelegateSignature>>((byte*)this + 3672);
+	return Read<TAssetPtr<class FOnWaitForCrafting__DelegateSignature>>((byte*)this + 3808);
 }
 TAssetPtr<class FOnWaitForCrafting__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnWaitForCrafting() {
-	return reinterpret_cast<TAssetPtr<class FOnWaitForCrafting__DelegateSignature>*>((byte*)this + 3672);
+	return reinterpret_cast<TAssetPtr<class FOnWaitForCrafting__DelegateSignature>*>((byte*)this + 3808);
 }
 void ABP_BaseCharacter_C::M_SetOnWaitForCrafting(const TAssetPtr<class FOnWaitForCrafting__DelegateSignature>& value) {
-	Write((byte*)this + 3672, value);
+	Write((byte*)this + 3808, value);
 }
 // Member Getter and Setter of OnEndCrafting
 // Declaration: TAssetPtr<class FOnEndCrafting__DelegateSignature> OnEndCrafting
 TAssetPtr<class FOnEndCrafting__DelegateSignature> ABP_BaseCharacter_C::M_GetOnEndCrafting() const {
-	return Read<TAssetPtr<class FOnEndCrafting__DelegateSignature>>((byte*)this + 3688);
+	return Read<TAssetPtr<class FOnEndCrafting__DelegateSignature>>((byte*)this + 3824);
 }
 TAssetPtr<class FOnEndCrafting__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnEndCrafting() {
-	return reinterpret_cast<TAssetPtr<class FOnEndCrafting__DelegateSignature>*>((byte*)this + 3688);
+	return reinterpret_cast<TAssetPtr<class FOnEndCrafting__DelegateSignature>*>((byte*)this + 3824);
 }
 void ABP_BaseCharacter_C::M_SetOnEndCrafting(const TAssetPtr<class FOnEndCrafting__DelegateSignature>& value) {
-	Write((byte*)this + 3688, value);
+	Write((byte*)this + 3824, value);
 }
 // Member Getter and Setter of OnStoppingCrafting
 // Declaration: TAssetPtr<class FOnStoppingCrafting__DelegateSignature> OnStoppingCrafting
 TAssetPtr<class FOnStoppingCrafting__DelegateSignature> ABP_BaseCharacter_C::M_GetOnStoppingCrafting() const {
-	return Read<TAssetPtr<class FOnStoppingCrafting__DelegateSignature>>((byte*)this + 3704);
+	return Read<TAssetPtr<class FOnStoppingCrafting__DelegateSignature>>((byte*)this + 3840);
 }
 TAssetPtr<class FOnStoppingCrafting__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnStoppingCrafting() {
-	return reinterpret_cast<TAssetPtr<class FOnStoppingCrafting__DelegateSignature>*>((byte*)this + 3704);
+	return reinterpret_cast<TAssetPtr<class FOnStoppingCrafting__DelegateSignature>*>((byte*)this + 3840);
 }
 void ABP_BaseCharacter_C::M_SetOnStoppingCrafting(const TAssetPtr<class FOnStoppingCrafting__DelegateSignature>& value) {
-	Write((byte*)this + 3704, value);
+	Write((byte*)this + 3840, value);
 }
 // Member Getter and Setter of IsWaitingForCrafting
 // Declaration: bool IsWaitingForCrafting
 bool ABP_BaseCharacter_C::M_GetIsWaitingForCrafting() const {
-	return Read<bool>((byte*)this + 3720);
+	return Read<bool>((byte*)this + 3856);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIsWaitingForCrafting() {
-	return reinterpret_cast<bool*>((byte*)this + 3720);
+	return reinterpret_cast<bool*>((byte*)this + 3856);
 }
 void ABP_BaseCharacter_C::M_SetIsWaitingForCrafting(const bool& value) {
-	Write((byte*)this + 3720, value);
+	Write((byte*)this + 3856, value);
 }
 // Member Getter and Setter of InteractedActor
 // Declaration: class AActor* InteractedActor
 class AActor* ABP_BaseCharacter_C::M_GetInteractedActor() const {
-	return Read<class AActor*>((byte*)this + 3728);
+	return Read<class AActor*>((byte*)this + 3864);
 }
 class AActor** ABP_BaseCharacter_C::M_PtrGetInteractedActor() {
-	return reinterpret_cast<class AActor**>((byte*)this + 3728);
+	return reinterpret_cast<class AActor**>((byte*)this + 3864);
 }
 void ABP_BaseCharacter_C::M_SetInteractedActor(const class AActor*& value) {
-	Write((byte*)this + 3728, value);
+	Write((byte*)this + 3864, value);
 }
 // Member Getter and Setter of HairColor
 // Declaration: struct FLinearColor HairColor
 struct FLinearColor ABP_BaseCharacter_C::M_GetHairColor() const {
-	return Read<struct FLinearColor>((byte*)this + 3736);
+	return Read<struct FLinearColor>((byte*)this + 3872);
 }
 struct FLinearColor* ABP_BaseCharacter_C::M_PtrGetHairColor() {
-	return reinterpret_cast<struct FLinearColor*>((byte*)this + 3736);
+	return reinterpret_cast<struct FLinearColor*>((byte*)this + 3872);
 }
 void ABP_BaseCharacter_C::M_SetHairColor(const struct FLinearColor& value) {
-	Write((byte*)this + 3736, value);
+	Write((byte*)this + 3872, value);
 }
 // Member Getter and Setter of IKFPSLimit
 // Declaration: float IKFPSLimit
 float ABP_BaseCharacter_C::M_GetIKFPSLimit() const {
-	return Read<float>((byte*)this + 3752);
+	return Read<float>((byte*)this + 3888);
 }
 float* ABP_BaseCharacter_C::M_PtrGetIKFPSLimit() {
-	return reinterpret_cast<float*>((byte*)this + 3752);
+	return reinterpret_cast<float*>((byte*)this + 3888);
 }
 void ABP_BaseCharacter_C::M_SetIKFPSLimit(const float& value) {
-	Write((byte*)this + 3752, value);
+	Write((byte*)this + 3888, value);
 }
 // Member Getter and Setter of IKFPSRestore
 // Declaration: float IKFPSRestore
 float ABP_BaseCharacter_C::M_GetIKFPSRestore() const {
-	return Read<float>((byte*)this + 3756);
+	return Read<float>((byte*)this + 3892);
 }
 float* ABP_BaseCharacter_C::M_PtrGetIKFPSRestore() {
-	return reinterpret_cast<float*>((byte*)this + 3756);
+	return reinterpret_cast<float*>((byte*)this + 3892);
 }
 void ABP_BaseCharacter_C::M_SetIKFPSRestore(const float& value) {
-	Write((byte*)this + 3756, value);
+	Write((byte*)this + 3892, value);
 }
 // Member Getter and Setter of OnCharacterDeactivated
 // Declaration: TAssetPtr<class FOnCharacterDeactivated__DelegateSignature> OnCharacterDeactivated
 TAssetPtr<class FOnCharacterDeactivated__DelegateSignature> ABP_BaseCharacter_C::M_GetOnCharacterDeactivated() const {
-	return Read<TAssetPtr<class FOnCharacterDeactivated__DelegateSignature>>((byte*)this + 3760);
+	return Read<TAssetPtr<class FOnCharacterDeactivated__DelegateSignature>>((byte*)this + 3896);
 }
 TAssetPtr<class FOnCharacterDeactivated__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnCharacterDeactivated() {
-	return reinterpret_cast<TAssetPtr<class FOnCharacterDeactivated__DelegateSignature>*>((byte*)this + 3760);
+	return reinterpret_cast<TAssetPtr<class FOnCharacterDeactivated__DelegateSignature>*>((byte*)this + 3896);
 }
 void ABP_BaseCharacter_C::M_SetOnCharacterDeactivated(const TAssetPtr<class FOnCharacterDeactivated__DelegateSignature>& value) {
-	Write((byte*)this + 3760, value);
+	Write((byte*)this + 3896, value);
 }
 // Member Getter and Setter of OnCharacterActivated
 // Declaration: TAssetPtr<class FOnCharacterActivated__DelegateSignature> OnCharacterActivated
 TAssetPtr<class FOnCharacterActivated__DelegateSignature> ABP_BaseCharacter_C::M_GetOnCharacterActivated() const {
-	return Read<TAssetPtr<class FOnCharacterActivated__DelegateSignature>>((byte*)this + 3776);
+	return Read<TAssetPtr<class FOnCharacterActivated__DelegateSignature>>((byte*)this + 3912);
 }
 TAssetPtr<class FOnCharacterActivated__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnCharacterActivated() {
-	return reinterpret_cast<TAssetPtr<class FOnCharacterActivated__DelegateSignature>*>((byte*)this + 3776);
+	return reinterpret_cast<TAssetPtr<class FOnCharacterActivated__DelegateSignature>*>((byte*)this + 3912);
 }
 void ABP_BaseCharacter_C::M_SetOnCharacterActivated(const TAssetPtr<class FOnCharacterActivated__DelegateSignature>& value) {
-	Write((byte*)this + 3776, value);
+	Write((byte*)this + 3912, value);
 }
 // Member Getter and Setter of TargetLerpFOV
 // Declaration: float TargetLerpFOV
 float ABP_BaseCharacter_C::M_GetTargetLerpFOV() const {
-	return Read<float>((byte*)this + 3792);
+	return Read<float>((byte*)this + 3928);
 }
 float* ABP_BaseCharacter_C::M_PtrGetTargetLerpFOV() {
-	return reinterpret_cast<float*>((byte*)this + 3792);
+	return reinterpret_cast<float*>((byte*)this + 3928);
 }
 void ABP_BaseCharacter_C::M_SetTargetLerpFOV(const float& value) {
-	Write((byte*)this + 3792, value);
+	Write((byte*)this + 3928, value);
 }
 // Member Getter and Setter of StartingLerpFOV
 // Declaration: float StartingLerpFOV
 float ABP_BaseCharacter_C::M_GetStartingLerpFOV() const {
-	return Read<float>((byte*)this + 3796);
+	return Read<float>((byte*)this + 3932);
 }
 float* ABP_BaseCharacter_C::M_PtrGetStartingLerpFOV() {
-	return reinterpret_cast<float*>((byte*)this + 3796);
+	return reinterpret_cast<float*>((byte*)this + 3932);
 }
 void ABP_BaseCharacter_C::M_SetStartingLerpFOV(const float& value) {
-	Write((byte*)this + 3796, value);
+	Write((byte*)this + 3932, value);
 }
 // Member Getter and Setter of HeadID
 // Declaration: int32_t HeadID
 int32_t ABP_BaseCharacter_C::M_GetHeadID() const {
-	return Read<int32_t>((byte*)this + 3800);
+	return Read<int32_t>((byte*)this + 3936);
 }
 int32_t* ABP_BaseCharacter_C::M_PtrGetHeadID() {
-	return reinterpret_cast<int32_t*>((byte*)this + 3800);
+	return reinterpret_cast<int32_t*>((byte*)this + 3936);
 }
 void ABP_BaseCharacter_C::M_SetHeadID(const int32_t& value) {
-	Write((byte*)this + 3800, value);
+	Write((byte*)this + 3936, value);
 }
 // Member Getter and Setter of HairID
 // Declaration: int32_t HairID
 int32_t ABP_BaseCharacter_C::M_GetHairID() const {
-	return Read<int32_t>((byte*)this + 3804);
+	return Read<int32_t>((byte*)this + 3940);
 }
 int32_t* ABP_BaseCharacter_C::M_PtrGetHairID() {
-	return reinterpret_cast<int32_t*>((byte*)this + 3804);
+	return reinterpret_cast<int32_t*>((byte*)this + 3940);
 }
 void ABP_BaseCharacter_C::M_SetHairID(const int32_t& value) {
-	Write((byte*)this + 3804, value);
+	Write((byte*)this + 3940, value);
 }
 // Member Getter and Setter of PresetsIDs
 // Declaration: TMap<TEnumAsByte<E_Profession>, struct FST_NPCSeasonClothing> PresetsIDs
 TMap<TEnumAsByte<E_Profession>, struct FST_NPCSeasonClothing> ABP_BaseCharacter_C::M_GetPresetsIDs() const {
-	return Read<TMap<TEnumAsByte<E_Profession>, struct FST_NPCSeasonClothing>>((byte*)this + 3808);
+	return Read<TMap<TEnumAsByte<E_Profession>, struct FST_NPCSeasonClothing>>((byte*)this + 3944);
 }
 TMap<TEnumAsByte<E_Profession>, struct FST_NPCSeasonClothing>* ABP_BaseCharacter_C::M_PtrGetPresetsIDs() {
-	return reinterpret_cast<TMap<TEnumAsByte<E_Profession>, struct FST_NPCSeasonClothing>*>((byte*)this + 3808);
+	return reinterpret_cast<TMap<TEnumAsByte<E_Profession>, struct FST_NPCSeasonClothing>*>((byte*)this + 3944);
 }
 void ABP_BaseCharacter_C::M_SetPresetsIDs(const TMap<TEnumAsByte<E_Profession>, struct FST_NPCSeasonClothing>& value) {
-	Write((byte*)this + 3808, value);
+	Write((byte*)this + 3944, value);
 }
 // Member Getter and Setter of IsCraftingClosed
 // Declaration: bool IsCraftingClosed
 bool ABP_BaseCharacter_C::M_GetIsCraftingClosed() const {
-	return Read<bool>((byte*)this + 3888);
+	return Read<bool>((byte*)this + 4024);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIsCraftingClosed() {
-	return reinterpret_cast<bool*>((byte*)this + 3888);
+	return reinterpret_cast<bool*>((byte*)this + 4024);
 }
 void ABP_BaseCharacter_C::M_SetIsCraftingClosed(const bool& value) {
-	Write((byte*)this + 3888, value);
+	Write((byte*)this + 4024, value);
 }
 // Member Getter and Setter of PendingKill
 // Declaration: bool PendingKill
 bool ABP_BaseCharacter_C::M_GetPendingKill() const {
-	return Read<bool>((byte*)this + 3889);
+	return Read<bool>((byte*)this + 4025);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetPendingKill() {
-	return reinterpret_cast<bool*>((byte*)this + 3889);
+	return reinterpret_cast<bool*>((byte*)this + 4025);
 }
 void ABP_BaseCharacter_C::M_SetPendingKill(const bool& value) {
-	Write((byte*)this + 3889, value);
+	Write((byte*)this + 4025, value);
 }
 // Member Getter and Setter of CaughtPrey
 // Declaration: bool CaughtPrey
 bool ABP_BaseCharacter_C::M_GetCaughtPrey() const {
-	return Read<bool>((byte*)this + 3890);
+	return Read<bool>((byte*)this + 4026);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetCaughtPrey() {
-	return reinterpret_cast<bool*>((byte*)this + 3890);
+	return reinterpret_cast<bool*>((byte*)this + 4026);
 }
 void ABP_BaseCharacter_C::M_SetCaughtPrey(const bool& value) {
-	Write((byte*)this + 3890, value);
+	Write((byte*)this + 4026, value);
 }
 // Member Getter and Setter of Blinking_
 // Declaration: bool Blinking_
 bool ABP_BaseCharacter_C::M_GetBlinking_() const {
-	return Read<bool>((byte*)this + 3891);
+	return Read<bool>((byte*)this + 4027);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetBlinking_() {
-	return reinterpret_cast<bool*>((byte*)this + 3891);
+	return reinterpret_cast<bool*>((byte*)this + 4027);
 }
 void ABP_BaseCharacter_C::M_SetBlinking_(const bool& value) {
-	Write((byte*)this + 3891, value);
+	Write((byte*)this + 4027, value);
 }
 // Member Getter and Setter of EyesClosed
 // Declaration: bool EyesClosed
 bool ABP_BaseCharacter_C::M_GetEyesClosed() const {
-	return Read<bool>((byte*)this + 3892);
+	return Read<bool>((byte*)this + 4028);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetEyesClosed() {
-	return reinterpret_cast<bool*>((byte*)this + 3892);
+	return reinterpret_cast<bool*>((byte*)this + 4028);
 }
 void ABP_BaseCharacter_C::M_SetEyesClosed(const bool& value) {
-	Write((byte*)this + 3892, value);
+	Write((byte*)this + 4028, value);
 }
 // Member Getter and Setter of EyesMovement
 // Declaration: bool EyesMovement
 bool ABP_BaseCharacter_C::M_GetEyesMovement() const {
-	return Read<bool>((byte*)this + 3893);
+	return Read<bool>((byte*)this + 4029);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetEyesMovement() {
-	return reinterpret_cast<bool*>((byte*)this + 3893);
+	return reinterpret_cast<bool*>((byte*)this + 4029);
 }
 void ABP_BaseCharacter_C::M_SetEyesMovement(const bool& value) {
-	Write((byte*)this + 3893, value);
-}
-// Member Getter and Setter of HeadRotationAlpha
-// Declaration: float HeadRotationAlpha
-float ABP_BaseCharacter_C::M_GetHeadRotationAlpha() const {
-	return Read<float>((byte*)this + 3896);
-}
-float* ABP_BaseCharacter_C::M_PtrGetHeadRotationAlpha() {
-	return reinterpret_cast<float*>((byte*)this + 3896);
-}
-void ABP_BaseCharacter_C::M_SetHeadRotationAlpha(const float& value) {
-	Write((byte*)this + 3896, value);
+	Write((byte*)this + 4029, value);
 }
 // Member Getter and Setter of BodyMovementAlpha
 // Declaration: float BodyMovementAlpha
 float ABP_BaseCharacter_C::M_GetBodyMovementAlpha() const {
-	return Read<float>((byte*)this + 3900);
+	return Read<float>((byte*)this + 4032);
 }
 float* ABP_BaseCharacter_C::M_PtrGetBodyMovementAlpha() {
-	return reinterpret_cast<float*>((byte*)this + 3900);
+	return reinterpret_cast<float*>((byte*)this + 4032);
 }
 void ABP_BaseCharacter_C::M_SetBodyMovementAlpha(const float& value) {
-	Write((byte*)this + 3900, value);
+	Write((byte*)this + 4032, value);
 }
 // Member Getter and Setter of MountMovementType
 // Declaration: float MountMovementType
 float ABP_BaseCharacter_C::M_GetMountMovementType() const {
-	return Read<float>((byte*)this + 3904);
+	return Read<float>((byte*)this + 4036);
 }
 float* ABP_BaseCharacter_C::M_PtrGetMountMovementType() {
-	return reinterpret_cast<float*>((byte*)this + 3904);
+	return reinterpret_cast<float*>((byte*)this + 4036);
 }
 void ABP_BaseCharacter_C::M_SetMountMovementType(const float& value) {
-	Write((byte*)this + 3904, value);
+	Write((byte*)this + 4036, value);
 }
 // Member Getter and Setter of MountTurnDirection
 // Declaration: float MountTurnDirection
 float ABP_BaseCharacter_C::M_GetMountTurnDirection() const {
-	return Read<float>((byte*)this + 3908);
+	return Read<float>((byte*)this + 4040);
 }
 float* ABP_BaseCharacter_C::M_PtrGetMountTurnDirection() {
-	return reinterpret_cast<float*>((byte*)this + 3908);
+	return reinterpret_cast<float*>((byte*)this + 4040);
 }
 void ABP_BaseCharacter_C::M_SetMountTurnDirection(const float& value) {
-	Write((byte*)this + 3908, value);
+	Write((byte*)this + 4040, value);
 }
 // Member Getter and Setter of IgnoreMountingAnimation
 // Declaration: bool IgnoreMountingAnimation
 bool ABP_BaseCharacter_C::M_GetIgnoreMountingAnimation() const {
-	return Read<bool>((byte*)this + 3912);
+	return Read<bool>((byte*)this + 4044);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIgnoreMountingAnimation() {
-	return reinterpret_cast<bool*>((byte*)this + 3912);
+	return reinterpret_cast<bool*>((byte*)this + 4044);
 }
 void ABP_BaseCharacter_C::M_SetIgnoreMountingAnimation(const bool& value) {
-	Write((byte*)this + 3912, value);
+	Write((byte*)this + 4044, value);
 }
 // Member Getter and Setter of IgnoreDismountingAnimation
 // Declaration: bool IgnoreDismountingAnimation
 bool ABP_BaseCharacter_C::M_GetIgnoreDismountingAnimation() const {
-	return Read<bool>((byte*)this + 3913);
+	return Read<bool>((byte*)this + 4045);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIgnoreDismountingAnimation() {
-	return reinterpret_cast<bool*>((byte*)this + 3913);
+	return reinterpret_cast<bool*>((byte*)this + 4045);
 }
 void ABP_BaseCharacter_C::M_SetIgnoreDismountingAnimation(const bool& value) {
-	Write((byte*)this + 3913, value);
+	Write((byte*)this + 4045, value);
 }
 // Member Getter and Setter of CurrentBasePresetID
 // Declaration: struct FName CurrentBasePresetID
 struct FName ABP_BaseCharacter_C::M_GetCurrentBasePresetID() const {
-	return Read<struct FName>((byte*)this + 3916);
+	return Read<struct FName>((byte*)this + 4048);
 }
 struct FName* ABP_BaseCharacter_C::M_PtrGetCurrentBasePresetID() {
-	return reinterpret_cast<struct FName*>((byte*)this + 3916);
+	return reinterpret_cast<struct FName*>((byte*)this + 4048);
 }
 void ABP_BaseCharacter_C::M_SetCurrentBasePresetID(const struct FName& value) {
-	Write((byte*)this + 3916, value);
+	Write((byte*)this + 4048, value);
 }
 // Member Getter and Setter of CurrentProfessionPresetID
 // Declaration: struct FName CurrentProfessionPresetID
 struct FName ABP_BaseCharacter_C::M_GetCurrentProfessionPresetID() const {
-	return Read<struct FName>((byte*)this + 3924);
+	return Read<struct FName>((byte*)this + 4056);
 }
 struct FName* ABP_BaseCharacter_C::M_PtrGetCurrentProfessionPresetID() {
-	return reinterpret_cast<struct FName*>((byte*)this + 3924);
+	return reinterpret_cast<struct FName*>((byte*)this + 4056);
 }
 void ABP_BaseCharacter_C::M_SetCurrentProfessionPresetID(const struct FName& value) {
-	Write((byte*)this + 3924, value);
+	Write((byte*)this + 4056, value);
 }
 // Member Getter and Setter of DrunkForwardAxis
 // Declaration: float DrunkForwardAxis
 float ABP_BaseCharacter_C::M_GetDrunkForwardAxis() const {
-	return Read<float>((byte*)this + 3932);
+	return Read<float>((byte*)this + 4064);
 }
 float* ABP_BaseCharacter_C::M_PtrGetDrunkForwardAxis() {
-	return reinterpret_cast<float*>((byte*)this + 3932);
+	return reinterpret_cast<float*>((byte*)this + 4064);
 }
 void ABP_BaseCharacter_C::M_SetDrunkForwardAxis(const float& value) {
-	Write((byte*)this + 3932, value);
+	Write((byte*)this + 4064, value);
 }
 // Member Getter and Setter of DrunkRightAxis
 // Declaration: float DrunkRightAxis
 float ABP_BaseCharacter_C::M_GetDrunkRightAxis() const {
-	return Read<float>((byte*)this + 3936);
+	return Read<float>((byte*)this + 4068);
 }
 float* ABP_BaseCharacter_C::M_PtrGetDrunkRightAxis() {
-	return reinterpret_cast<float*>((byte*)this + 3936);
+	return reinterpret_cast<float*>((byte*)this + 4068);
 }
 void ABP_BaseCharacter_C::M_SetDrunkRightAxis(const float& value) {
-	Write((byte*)this + 3936, value);
+	Write((byte*)this + 4068, value);
 }
 // Member Getter and Setter of DrunkForwardTarget
 // Declaration: float DrunkForwardTarget
 float ABP_BaseCharacter_C::M_GetDrunkForwardTarget() const {
-	return Read<float>((byte*)this + 3940);
+	return Read<float>((byte*)this + 4072);
 }
 float* ABP_BaseCharacter_C::M_PtrGetDrunkForwardTarget() {
-	return reinterpret_cast<float*>((byte*)this + 3940);
+	return reinterpret_cast<float*>((byte*)this + 4072);
 }
 void ABP_BaseCharacter_C::M_SetDrunkForwardTarget(const float& value) {
-	Write((byte*)this + 3940, value);
+	Write((byte*)this + 4072, value);
 }
 // Member Getter and Setter of DrunkRightTarget
 // Declaration: float DrunkRightTarget
 float ABP_BaseCharacter_C::M_GetDrunkRightTarget() const {
-	return Read<float>((byte*)this + 3944);
+	return Read<float>((byte*)this + 4076);
 }
 float* ABP_BaseCharacter_C::M_PtrGetDrunkRightTarget() {
-	return reinterpret_cast<float*>((byte*)this + 3944);
+	return reinterpret_cast<float*>((byte*)this + 4076);
 }
 void ABP_BaseCharacter_C::M_SetDrunkRightTarget(const float& value) {
-	Write((byte*)this + 3944, value);
+	Write((byte*)this + 4076, value);
 }
 // Member Getter and Setter of StartedCrafting
 // Declaration: bool StartedCrafting
 bool ABP_BaseCharacter_C::M_GetStartedCrafting() const {
-	return Read<bool>((byte*)this + 3948);
+	return Read<bool>((byte*)this + 4080);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetStartedCrafting() {
-	return reinterpret_cast<bool*>((byte*)this + 3948);
+	return reinterpret_cast<bool*>((byte*)this + 4080);
 }
 void ABP_BaseCharacter_C::M_SetStartedCrafting(const bool& value) {
-	Write((byte*)this + 3948, value);
+	Write((byte*)this + 4080, value);
 }
 // Member Getter and Setter of DrunkForwardDelayDuration
 // Declaration: float DrunkForwardDelayDuration
 float ABP_BaseCharacter_C::M_GetDrunkForwardDelayDuration() const {
-	return Read<float>((byte*)this + 3952);
+	return Read<float>((byte*)this + 4084);
 }
 float* ABP_BaseCharacter_C::M_PtrGetDrunkForwardDelayDuration() {
-	return reinterpret_cast<float*>((byte*)this + 3952);
+	return reinterpret_cast<float*>((byte*)this + 4084);
 }
 void ABP_BaseCharacter_C::M_SetDrunkForwardDelayDuration(const float& value) {
-	Write((byte*)this + 3952, value);
+	Write((byte*)this + 4084, value);
 }
 // Member Getter and Setter of DrunkRightDelayDuration
 // Declaration: float DrunkRightDelayDuration
 float ABP_BaseCharacter_C::M_GetDrunkRightDelayDuration() const {
-	return Read<float>((byte*)this + 3956);
+	return Read<float>((byte*)this + 4088);
 }
 float* ABP_BaseCharacter_C::M_PtrGetDrunkRightDelayDuration() {
-	return reinterpret_cast<float*>((byte*)this + 3956);
+	return reinterpret_cast<float*>((byte*)this + 4088);
 }
 void ABP_BaseCharacter_C::M_SetDrunkRightDelayDuration(const float& value) {
-	Write((byte*)this + 3956, value);
+	Write((byte*)this + 4088, value);
 }
 // Member Getter and Setter of MountAnimalType
 // Declaration: TEnumAsByte<E_AnimalType> MountAnimalType
 TEnumAsByte<E_AnimalType> ABP_BaseCharacter_C::M_GetMountAnimalType() const {
-	return Read<TEnumAsByte<E_AnimalType>>((byte*)this + 3960);
+	return Read<TEnumAsByte<E_AnimalType>>((byte*)this + 4092);
 }
 TEnumAsByte<E_AnimalType>* ABP_BaseCharacter_C::M_PtrGetMountAnimalType() {
-	return reinterpret_cast<TEnumAsByte<E_AnimalType>*>((byte*)this + 3960);
+	return reinterpret_cast<TEnumAsByte<E_AnimalType>*>((byte*)this + 4092);
 }
 void ABP_BaseCharacter_C::M_SetMountAnimalType(const TEnumAsByte<E_AnimalType>& value) {
-	Write((byte*)this + 3960, value);
+	Write((byte*)this + 4092, value);
 }
 // Member Getter and Setter of OnCraftingAnimEnd
 // Declaration: TAssetPtr<class FOnCraftingAnimEnd__DelegateSignature> OnCraftingAnimEnd
 TAssetPtr<class FOnCraftingAnimEnd__DelegateSignature> ABP_BaseCharacter_C::M_GetOnCraftingAnimEnd() const {
-	return Read<TAssetPtr<class FOnCraftingAnimEnd__DelegateSignature>>((byte*)this + 3968);
+	return Read<TAssetPtr<class FOnCraftingAnimEnd__DelegateSignature>>((byte*)this + 4096);
 }
 TAssetPtr<class FOnCraftingAnimEnd__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnCraftingAnimEnd() {
-	return reinterpret_cast<TAssetPtr<class FOnCraftingAnimEnd__DelegateSignature>*>((byte*)this + 3968);
+	return reinterpret_cast<TAssetPtr<class FOnCraftingAnimEnd__DelegateSignature>*>((byte*)this + 4096);
 }
 void ABP_BaseCharacter_C::M_SetOnCraftingAnimEnd(const TAssetPtr<class FOnCraftingAnimEnd__DelegateSignature>& value) {
-	Write((byte*)this + 3968, value);
-}
-// Member Getter and Setter of Velocity
-// Declaration: struct FVector Velocity
-struct FVector ABP_BaseCharacter_C::M_GetVelocity() const {
-	return Read<struct FVector>((byte*)this + 3984);
-}
-struct FVector* ABP_BaseCharacter_C::M_PtrGetVelocity() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 3984);
-}
-void ABP_BaseCharacter_C::M_SetVelocity(const struct FVector& value) {
-	Write((byte*)this + 3984, value);
+	Write((byte*)this + 4096, value);
 }
 // Member Getter and Setter of Blocking
 // Declaration: bool Blocking
 bool ABP_BaseCharacter_C::M_GetBlocking() const {
-	return Read<bool>((byte*)this + 3996);
+	return Read<bool>((byte*)this + 4112);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetBlocking() {
-	return reinterpret_cast<bool*>((byte*)this + 3996);
+	return reinterpret_cast<bool*>((byte*)this + 4112);
 }
 void ABP_BaseCharacter_C::M_SetBlocking(const bool& value) {
-	Write((byte*)this + 3996, value);
+	Write((byte*)this + 4112, value);
 }
 // Member Getter and Setter of InteractableHit
 // Declaration: struct FHitResult InteractableHit
 struct FHitResult ABP_BaseCharacter_C::M_GetInteractableHit() const {
-	return Read<struct FHitResult>((byte*)this + 4000);
+	return Read<struct FHitResult>((byte*)this + 4116);
 }
 struct FHitResult* ABP_BaseCharacter_C::M_PtrGetInteractableHit() {
-	return reinterpret_cast<struct FHitResult*>((byte*)this + 4000);
+	return reinterpret_cast<struct FHitResult*>((byte*)this + 4116);
 }
 void ABP_BaseCharacter_C::M_SetInteractableHit(const struct FHitResult& value) {
-	Write((byte*)this + 4000, value);
+	Write((byte*)this + 4116, value);
 }
 // Member Getter and Setter of MountRotation
 // Declaration: struct FRotator MountRotation
 struct FRotator ABP_BaseCharacter_C::M_GetMountRotation() const {
-	return Read<struct FRotator>((byte*)this + 4136);
+	return Read<struct FRotator>((byte*)this + 4252);
 }
 struct FRotator* ABP_BaseCharacter_C::M_PtrGetMountRotation() {
-	return reinterpret_cast<struct FRotator*>((byte*)this + 4136);
+	return reinterpret_cast<struct FRotator*>((byte*)this + 4252);
 }
 void ABP_BaseCharacter_C::M_SetMountRotation(const struct FRotator& value) {
-	Write((byte*)this + 4136, value);
+	Write((byte*)this + 4252, value);
 }
 // Member Getter and Setter of ImpaledItems
 // Declaration: TArray<class AActor*> ImpaledItems
 TArray<class AActor*> ABP_BaseCharacter_C::M_GetImpaledItems() const {
-	return Read<TArray<class AActor*>>((byte*)this + 4152);
+	return Read<TArray<class AActor*>>((byte*)this + 4264);
 }
 TArray<class AActor*>* ABP_BaseCharacter_C::M_PtrGetImpaledItems() {
-	return reinterpret_cast<TArray<class AActor*>*>((byte*)this + 4152);
+	return reinterpret_cast<TArray<class AActor*>*>((byte*)this + 4264);
 }
 void ABP_BaseCharacter_C::M_SetImpaledItems(const TArray<class AActor*>& value) {
-	Write((byte*)this + 4152, value);
+	Write((byte*)this + 4264, value);
 }
 // Member Getter and Setter of SittingType
 // Declaration: TEnumAsByte<E_SittingType> SittingType
 TEnumAsByte<E_SittingType> ABP_BaseCharacter_C::M_GetSittingType() const {
-	return Read<TEnumAsByte<E_SittingType>>((byte*)this + 4168);
+	return Read<TEnumAsByte<E_SittingType>>((byte*)this + 4280);
 }
 TEnumAsByte<E_SittingType>* ABP_BaseCharacter_C::M_PtrGetSittingType() {
-	return reinterpret_cast<TEnumAsByte<E_SittingType>*>((byte*)this + 4168);
+	return reinterpret_cast<TEnumAsByte<E_SittingType>*>((byte*)this + 4280);
 }
 void ABP_BaseCharacter_C::M_SetSittingType(const TEnumAsByte<E_SittingType>& value) {
-	Write((byte*)this + 4168, value);
+	Write((byte*)this + 4280, value);
 }
 // Member Getter and Setter of HadToolBeforeDialogue
 // Declaration: bool HadToolBeforeDialogue
 bool ABP_BaseCharacter_C::M_GetHadToolBeforeDialogue() const {
-	return Read<bool>((byte*)this + 4169);
+	return Read<bool>((byte*)this + 4281);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetHadToolBeforeDialogue() {
-	return reinterpret_cast<bool*>((byte*)this + 4169);
+	return reinterpret_cast<bool*>((byte*)this + 4281);
 }
 void ABP_BaseCharacter_C::M_SetHadToolBeforeDialogue(const bool& value) {
-	Write((byte*)this + 4169, value);
+	Write((byte*)this + 4281, value);
 }
 // Member Getter and Setter of Underwater
 // Declaration: bool Underwater
 bool ABP_BaseCharacter_C::M_GetUnderwater() const {
-	return Read<bool>((byte*)this + 4170);
+	return Read<bool>((byte*)this + 4282);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetUnderwater() {
-	return reinterpret_cast<bool*>((byte*)this + 4170);
+	return reinterpret_cast<bool*>((byte*)this + 4282);
 }
 void ABP_BaseCharacter_C::M_SetUnderwater(const bool& value) {
-	Write((byte*)this + 4170, value);
+	Write((byte*)this + 4282, value);
 }
 // Member Getter and Setter of IsInTPPCombatState
 // Declaration: bool IsInTPPCombatState
 bool ABP_BaseCharacter_C::M_GetIsInTPPCombatState() const {
-	return Read<bool>((byte*)this + 4171);
+	return Read<bool>((byte*)this + 4283);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIsInTPPCombatState() {
-	return reinterpret_cast<bool*>((byte*)this + 4171);
+	return reinterpret_cast<bool*>((byte*)this + 4283);
 }
 void ABP_BaseCharacter_C::M_SetIsInTPPCombatState(const bool& value) {
-	Write((byte*)this + 4171, value);
+	Write((byte*)this + 4283, value);
 }
 // Member Getter and Setter of EnemyDamageMultiplier
 // Declaration: float EnemyDamageMultiplier
 float ABP_BaseCharacter_C::M_GetEnemyDamageMultiplier() const {
-	return Read<float>((byte*)this + 4172);
+	return Read<float>((byte*)this + 4284);
 }
 float* ABP_BaseCharacter_C::M_PtrGetEnemyDamageMultiplier() {
-	return reinterpret_cast<float*>((byte*)this + 4172);
+	return reinterpret_cast<float*>((byte*)this + 4284);
 }
 void ABP_BaseCharacter_C::M_SetEnemyDamageMultiplier(const float& value) {
-	Write((byte*)this + 4172, value);
+	Write((byte*)this + 4284, value);
 }
 // Member Getter and Setter of OnStartGettingUp
 // Declaration: TAssetPtr<class FOnStartGettingUp__DelegateSignature> OnStartGettingUp
 TAssetPtr<class FOnStartGettingUp__DelegateSignature> ABP_BaseCharacter_C::M_GetOnStartGettingUp() const {
-	return Read<TAssetPtr<class FOnStartGettingUp__DelegateSignature>>((byte*)this + 4176);
+	return Read<TAssetPtr<class FOnStartGettingUp__DelegateSignature>>((byte*)this + 4288);
 }
 TAssetPtr<class FOnStartGettingUp__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnStartGettingUp() {
-	return reinterpret_cast<TAssetPtr<class FOnStartGettingUp__DelegateSignature>*>((byte*)this + 4176);
+	return reinterpret_cast<TAssetPtr<class FOnStartGettingUp__DelegateSignature>*>((byte*)this + 4288);
 }
 void ABP_BaseCharacter_C::M_SetOnStartGettingUp(const TAssetPtr<class FOnStartGettingUp__DelegateSignature>& value) {
-	Write((byte*)this + 4176, value);
+	Write((byte*)this + 4288, value);
 }
 // Member Getter and Setter of OnViewmodeChanged
 // Declaration: TAssetPtr<class FOnViewmodeChanged__DelegateSignature> OnViewmodeChanged
 TAssetPtr<class FOnViewmodeChanged__DelegateSignature> ABP_BaseCharacter_C::M_GetOnViewmodeChanged() const {
-	return Read<TAssetPtr<class FOnViewmodeChanged__DelegateSignature>>((byte*)this + 4192);
+	return Read<TAssetPtr<class FOnViewmodeChanged__DelegateSignature>>((byte*)this + 4304);
 }
 TAssetPtr<class FOnViewmodeChanged__DelegateSignature>* ABP_BaseCharacter_C::M_PtrGetOnViewmodeChanged() {
-	return reinterpret_cast<TAssetPtr<class FOnViewmodeChanged__DelegateSignature>*>((byte*)this + 4192);
+	return reinterpret_cast<TAssetPtr<class FOnViewmodeChanged__DelegateSignature>*>((byte*)this + 4304);
 }
 void ABP_BaseCharacter_C::M_SetOnViewmodeChanged(const TAssetPtr<class FOnViewmodeChanged__DelegateSignature>& value) {
-	Write((byte*)this + 4192, value);
+	Write((byte*)this + 4304, value);
 }
 // Member Getter and Setter of WantsToDespawn
 // Declaration: bool WantsToDespawn
 bool ABP_BaseCharacter_C::M_GetWantsToDespawn() const {
-	return Read<bool>((byte*)this + 4208);
+	return Read<bool>((byte*)this + 4320);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetWantsToDespawn() {
-	return reinterpret_cast<bool*>((byte*)this + 4208);
+	return reinterpret_cast<bool*>((byte*)this + 4320);
 }
 void ABP_BaseCharacter_C::M_SetWantsToDespawn(const bool& value) {
-	Write((byte*)this + 4208, value);
-}
-// Member Getter and Setter of Velocity_Length
-// Declaration: float Velocity_Length
-float ABP_BaseCharacter_C::M_GetVelocity_Length() const {
-	return Read<float>((byte*)this + 4212);
-}
-float* ABP_BaseCharacter_C::M_PtrGetVelocity_Length() {
-	return reinterpret_cast<float*>((byte*)this + 4212);
-}
-void ABP_BaseCharacter_C::M_SetVelocity_Length(const float& value) {
-	Write((byte*)this + 4212, value);
+	Write((byte*)this + 4320, value);
 }
 // Member Getter and Setter of WorkPlayRate
 // Declaration: float WorkPlayRate
 float ABP_BaseCharacter_C::M_GetWorkPlayRate() const {
-	return Read<float>((byte*)this + 4216);
+	return Read<float>((byte*)this + 4324);
 }
 float* ABP_BaseCharacter_C::M_PtrGetWorkPlayRate() {
-	return reinterpret_cast<float*>((byte*)this + 4216);
+	return reinterpret_cast<float*>((byte*)this + 4324);
 }
 void ABP_BaseCharacter_C::M_SetWorkPlayRate(const float& value) {
-	Write((byte*)this + 4216, value);
+	Write((byte*)this + 4324, value);
 }
 // Member Getter and Setter of HatsValue
 // Declaration: float HatsValue
 float ABP_BaseCharacter_C::M_GetHatsValue() const {
-	return Read<float>((byte*)this + 4220);
+	return Read<float>((byte*)this + 4328);
 }
 float* ABP_BaseCharacter_C::M_PtrGetHatsValue() {
-	return reinterpret_cast<float*>((byte*)this + 4220);
+	return reinterpret_cast<float*>((byte*)this + 4328);
 }
 void ABP_BaseCharacter_C::M_SetHatsValue(const float& value) {
-	Write((byte*)this + 4220, value);
+	Write((byte*)this + 4328, value);
 }
 // Member Getter and Setter of CachedPreset
 // Declaration: struct FST_NPCsPresets CachedPreset
 struct FST_NPCsPresets ABP_BaseCharacter_C::M_GetCachedPreset() const {
-	return Read<struct FST_NPCsPresets>((byte*)this + 4224);
+	return Read<struct FST_NPCsPresets>((byte*)this + 4336);
 }
 struct FST_NPCsPresets* ABP_BaseCharacter_C::M_PtrGetCachedPreset() {
-	return reinterpret_cast<struct FST_NPCsPresets*>((byte*)this + 4224);
+	return reinterpret_cast<struct FST_NPCsPresets*>((byte*)this + 4336);
 }
 void ABP_BaseCharacter_C::M_SetCachedPreset(const struct FST_NPCsPresets& value) {
-	Write((byte*)this + 4224, value);
+	Write((byte*)this + 4336, value);
 }
 // Member Getter and Setter of MinRandomSpeedMultiplier
 // Declaration: float MinRandomSpeedMultiplier
 float ABP_BaseCharacter_C::M_GetMinRandomSpeedMultiplier() const {
-	return Read<float>((byte*)this + 5648);
+	return Read<float>((byte*)this + 5760);
 }
 float* ABP_BaseCharacter_C::M_PtrGetMinRandomSpeedMultiplier() {
-	return reinterpret_cast<float*>((byte*)this + 5648);
+	return reinterpret_cast<float*>((byte*)this + 5760);
 }
 void ABP_BaseCharacter_C::M_SetMinRandomSpeedMultiplier(const float& value) {
-	Write((byte*)this + 5648, value);
+	Write((byte*)this + 5760, value);
 }
 // Member Getter and Setter of MaxRandomSpeedMultiplier
 // Declaration: float MaxRandomSpeedMultiplier
 float ABP_BaseCharacter_C::M_GetMaxRandomSpeedMultiplier() const {
-	return Read<float>((byte*)this + 5652);
+	return Read<float>((byte*)this + 5764);
 }
 float* ABP_BaseCharacter_C::M_PtrGetMaxRandomSpeedMultiplier() {
-	return reinterpret_cast<float*>((byte*)this + 5652);
+	return reinterpret_cast<float*>((byte*)this + 5764);
 }
 void ABP_BaseCharacter_C::M_SetMaxRandomSpeedMultiplier(const float& value) {
-	Write((byte*)this + 5652, value);
-}
-// Member Getter and Setter of randomSpeedMultiplier
-// Declaration: float randomSpeedMultiplier
-float ABP_BaseCharacter_C::M_GetrandomSpeedMultiplier() const {
-	return Read<float>((byte*)this + 5656);
-}
-float* ABP_BaseCharacter_C::M_PtrGetrandomSpeedMultiplier() {
-	return reinterpret_cast<float*>((byte*)this + 5656);
-}
-void ABP_BaseCharacter_C::M_SetrandomSpeedMultiplier(const float& value) {
-	Write((byte*)this + 5656, value);
-}
-// Member Getter and Setter of IsRotationManaged
-// Declaration: bool IsRotationManaged
-bool ABP_BaseCharacter_C::M_GetIsRotationManaged() const {
-	return Read<bool>((byte*)this + 5660);
-}
-bool* ABP_BaseCharacter_C::M_PtrGetIsRotationManaged() {
-	return reinterpret_cast<bool*>((byte*)this + 5660);
-}
-void ABP_BaseCharacter_C::M_SetIsRotationManaged(const bool& value) {
-	Write((byte*)this + 5660, value);
+	Write((byte*)this + 5764, value);
 }
 // Member Getter and Setter of FallDamageMultiplier
 // Declaration: float FallDamageMultiplier
 float ABP_BaseCharacter_C::M_GetFallDamageMultiplier() const {
-	return Read<float>((byte*)this + 5664);
+	return Read<float>((byte*)this + 5768);
 }
 float* ABP_BaseCharacter_C::M_PtrGetFallDamageMultiplier() {
-	return reinterpret_cast<float*>((byte*)this + 5664);
+	return reinterpret_cast<float*>((byte*)this + 5768);
 }
 void ABP_BaseCharacter_C::M_SetFallDamageMultiplier(const float& value) {
-	Write((byte*)this + 5664, value);
-}
-// Member Getter and Setter of slopeSpeedMultiplier
-// Declaration: float slopeSpeedMultiplier
-float ABP_BaseCharacter_C::M_GetslopeSpeedMultiplier() const {
-	return Read<float>((byte*)this + 5668);
-}
-float* ABP_BaseCharacter_C::M_PtrGetslopeSpeedMultiplier() {
-	return reinterpret_cast<float*>((byte*)this + 5668);
-}
-void ABP_BaseCharacter_C::M_SetslopeSpeedMultiplier(const float& value) {
-	Write((byte*)this + 5668, value);
-}
-// Member Getter and Setter of TicksDelayToCalculateEssentialVariables
-// Declaration: int32_t TicksDelayToCalculateEssentialVariables
-int32_t ABP_BaseCharacter_C::M_GetTicksDelayToCalculateEssentialVariables() const {
-	return Read<int32_t>((byte*)this + 5672);
-}
-int32_t* ABP_BaseCharacter_C::M_PtrGetTicksDelayToCalculateEssentialVariables() {
-	return reinterpret_cast<int32_t*>((byte*)this + 5672);
-}
-void ABP_BaseCharacter_C::M_SetTicksDelayToCalculateEssentialVariables(const int32_t& value) {
-	Write((byte*)this + 5672, value);
-}
-// Member Getter and Setter of TicksLeftToCalculateEssentialsVariables
-// Declaration: int32_t TicksLeftToCalculateEssentialsVariables
-int32_t ABP_BaseCharacter_C::M_GetTicksLeftToCalculateEssentialsVariables() const {
-	return Read<int32_t>((byte*)this + 5676);
-}
-int32_t* ABP_BaseCharacter_C::M_PtrGetTicksLeftToCalculateEssentialsVariables() {
-	return reinterpret_cast<int32_t*>((byte*)this + 5676);
-}
-void ABP_BaseCharacter_C::M_SetTicksLeftToCalculateEssentialsVariables(const int32_t& value) {
-	Write((byte*)this + 5676, value);
+	Write((byte*)this + 5768, value);
 }
 // Member Getter and Setter of FallStartTime
 // Declaration: float FallStartTime
 float ABP_BaseCharacter_C::M_GetFallStartTime() const {
-	return Read<float>((byte*)this + 5680);
+	return Read<float>((byte*)this + 5772);
 }
 float* ABP_BaseCharacter_C::M_PtrGetFallStartTime() {
-	return reinterpret_cast<float*>((byte*)this + 5680);
+	return reinterpret_cast<float*>((byte*)this + 5772);
 }
 void ABP_BaseCharacter_C::M_SetFallStartTime(const float& value) {
-	Write((byte*)this + 5680, value);
+	Write((byte*)this + 5772, value);
 }
 // Member Getter and Setter of IsRagdollActivationLocked
 // Declaration: bool IsRagdollActivationLocked
 bool ABP_BaseCharacter_C::M_GetIsRagdollActivationLocked() const {
-	return Read<bool>((byte*)this + 5684);
+	return Read<bool>((byte*)this + 5776);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIsRagdollActivationLocked() {
-	return reinterpret_cast<bool*>((byte*)this + 5684);
+	return reinterpret_cast<bool*>((byte*)this + 5776);
 }
 void ABP_BaseCharacter_C::M_SetIsRagdollActivationLocked(const bool& value) {
-	Write((byte*)this + 5684, value);
+	Write((byte*)this + 5776, value);
 }
 // Member Getter and Setter of InitialRagdollVelocity
 // Declaration: struct FVector InitialRagdollVelocity
 struct FVector ABP_BaseCharacter_C::M_GetInitialRagdollVelocity() const {
-	return Read<struct FVector>((byte*)this + 5688);
+	return Read<struct FVector>((byte*)this + 5780);
 }
 struct FVector* ABP_BaseCharacter_C::M_PtrGetInitialRagdollVelocity() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 5688);
+	return reinterpret_cast<struct FVector*>((byte*)this + 5780);
 }
 void ABP_BaseCharacter_C::M_SetInitialRagdollVelocity(const struct FVector& value) {
-	Write((byte*)this + 5688, value);
+	Write((byte*)this + 5780, value);
 }
 // Member Getter and Setter of ShouldUpdateRateOptimizationsBeEnabled
 // Declaration: bool ShouldUpdateRateOptimizationsBeEnabled
 bool ABP_BaseCharacter_C::M_GetShouldUpdateRateOptimizationsBeEnabled() const {
-	return Read<bool>((byte*)this + 5700);
+	return Read<bool>((byte*)this + 5792);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetShouldUpdateRateOptimizationsBeEnabled() {
-	return reinterpret_cast<bool*>((byte*)this + 5700);
+	return reinterpret_cast<bool*>((byte*)this + 5792);
 }
 void ABP_BaseCharacter_C::M_SetShouldUpdateRateOptimizationsBeEnabled(const bool& value) {
-	Write((byte*)this + 5700, value);
-}
-// Member Getter and Setter of CurrentLookAtTargetLocation
-// Declaration: struct FVector CurrentLookAtTargetLocation
-struct FVector ABP_BaseCharacter_C::M_GetCurrentLookAtTargetLocation() const {
-	return Read<struct FVector>((byte*)this + 5704);
-}
-struct FVector* ABP_BaseCharacter_C::M_PtrGetCurrentLookAtTargetLocation() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 5704);
-}
-void ABP_BaseCharacter_C::M_SetCurrentLookAtTargetLocation(const struct FVector& value) {
-	Write((byte*)this + 5704, value);
-}
-// Member Getter and Setter of CharacterEyesLocation
-// Declaration: struct FVector CharacterEyesLocation
-struct FVector ABP_BaseCharacter_C::M_GetCharacterEyesLocation() const {
-	return Read<struct FVector>((byte*)this + 5716);
-}
-struct FVector* ABP_BaseCharacter_C::M_PtrGetCharacterEyesLocation() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 5716);
-}
-void ABP_BaseCharacter_C::M_SetCharacterEyesLocation(const struct FVector& value) {
-	Write((byte*)this + 5716, value);
+	Write((byte*)this + 5792, value);
 }
 // Member Getter and Setter of IsPickingObject
 // Declaration: bool IsPickingObject
 bool ABP_BaseCharacter_C::M_GetIsPickingObject() const {
-	return Read<bool>((byte*)this + 5728);
+	return Read<bool>((byte*)this + 5793);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIsPickingObject() {
-	return reinterpret_cast<bool*>((byte*)this + 5728);
+	return reinterpret_cast<bool*>((byte*)this + 5793);
 }
 void ABP_BaseCharacter_C::M_SetIsPickingObject(const bool& value) {
-	Write((byte*)this + 5728, value);
+	Write((byte*)this + 5793, value);
 }
 // Member Getter and Setter of CanPush
 // Declaration: bool CanPush
 bool ABP_BaseCharacter_C::M_GetCanPush() const {
-	return Read<bool>((byte*)this + 5729);
+	return Read<bool>((byte*)this + 5794);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetCanPush() {
-	return reinterpret_cast<bool*>((byte*)this + 5729);
+	return reinterpret_cast<bool*>((byte*)this + 5794);
 }
 void ABP_BaseCharacter_C::M_SetCanPush(const bool& value) {
-	Write((byte*)this + 5729, value);
+	Write((byte*)this + 5794, value);
 }
 // Member Getter and Setter of HairDamping
 // Declaration: float HairDamping
 float ABP_BaseCharacter_C::M_GetHairDamping() const {
-	return Read<float>((byte*)this + 5732);
+	return Read<float>((byte*)this + 5796);
 }
 float* ABP_BaseCharacter_C::M_PtrGetHairDamping() {
-	return reinterpret_cast<float*>((byte*)this + 5732);
+	return reinterpret_cast<float*>((byte*)this + 5796);
 }
 void ABP_BaseCharacter_C::M_SetHairDamping(const float& value) {
-	Write((byte*)this + 5732, value);
+	Write((byte*)this + 5796, value);
 }
 // Member Getter and Setter of HairSpring
 // Declaration: float HairSpring
 float ABP_BaseCharacter_C::M_GetHairSpring() const {
-	return Read<float>((byte*)this + 5736);
+	return Read<float>((byte*)this + 5800);
 }
 float* ABP_BaseCharacter_C::M_PtrGetHairSpring() {
-	return reinterpret_cast<float*>((byte*)this + 5736);
+	return reinterpret_cast<float*>((byte*)this + 5800);
 }
 void ABP_BaseCharacter_C::M_SetHairSpring(const float& value) {
-	Write((byte*)this + 5736, value);
+	Write((byte*)this + 5800, value);
 }
 // Member Getter and Setter of IsHairMovementEnabled
 // Declaration: bool IsHairMovementEnabled
 bool ABP_BaseCharacter_C::M_GetIsHairMovementEnabled() const {
-	return Read<bool>((byte*)this + 5740);
+	return Read<bool>((byte*)this + 5804);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIsHairMovementEnabled() {
-	return reinterpret_cast<bool*>((byte*)this + 5740);
+	return reinterpret_cast<bool*>((byte*)this + 5804);
 }
 void ABP_BaseCharacter_C::M_SetIsHairMovementEnabled(const bool& value) {
-	Write((byte*)this + 5740, value);
-}
-// Member Getter and Setter of PushSpeedMultiplier
-// Declaration: float PushSpeedMultiplier
-float ABP_BaseCharacter_C::M_GetPushSpeedMultiplier() const {
-	return Read<float>((byte*)this + 5744);
-}
-float* ABP_BaseCharacter_C::M_PtrGetPushSpeedMultiplier() {
-	return reinterpret_cast<float*>((byte*)this + 5744);
-}
-void ABP_BaseCharacter_C::M_SetPushSpeedMultiplier(const float& value) {
-	Write((byte*)this + 5744, value);
-}
-// Member Getter and Setter of HitSpeedMultiplier
-// Declaration: float HitSpeedMultiplier
-float ABP_BaseCharacter_C::M_GetHitSpeedMultiplier() const {
-	return Read<float>((byte*)this + 5748);
-}
-float* ABP_BaseCharacter_C::M_PtrGetHitSpeedMultiplier() {
-	return reinterpret_cast<float*>((byte*)this + 5748);
-}
-void ABP_BaseCharacter_C::M_SetHitSpeedMultiplier(const float& value) {
-	Write((byte*)this + 5748, value);
+	Write((byte*)this + 5804, value);
 }
 // Member Getter and Setter of SimulatedBodiesBeforeRagdoll
 // Declaration: TArray<bool> SimulatedBodiesBeforeRagdoll
 TArray<bool> ABP_BaseCharacter_C::M_GetSimulatedBodiesBeforeRagdoll() const {
-	return Read<TArray<bool>>((byte*)this + 5752);
+	return Read<TArray<bool>>((byte*)this + 5808);
 }
 TArray<bool>* ABP_BaseCharacter_C::M_PtrGetSimulatedBodiesBeforeRagdoll() {
-	return reinterpret_cast<TArray<bool>*>((byte*)this + 5752);
+	return reinterpret_cast<TArray<bool>*>((byte*)this + 5808);
 }
 void ABP_BaseCharacter_C::M_SetSimulatedBodiesBeforeRagdoll(const TArray<bool>& value) {
-	Write((byte*)this + 5752, value);
+	Write((byte*)this + 5808, value);
 }
 // Member Getter and Setter of IsRagdollOnHitEnabled
 // Declaration: bool IsRagdollOnHitEnabled
 bool ABP_BaseCharacter_C::M_GetIsRagdollOnHitEnabled() const {
-	return Read<bool>((byte*)this + 5768);
+	return Read<bool>((byte*)this + 5824);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetIsRagdollOnHitEnabled() {
-	return reinterpret_cast<bool*>((byte*)this + 5768);
+	return reinterpret_cast<bool*>((byte*)this + 5824);
 }
 void ABP_BaseCharacter_C::M_SetIsRagdollOnHitEnabled(const bool& value) {
-	Write((byte*)this + 5768, value);
+	Write((byte*)this + 5824, value);
 }
 // Member Getter and Setter of HitPhysicsBlendWeight
 // Declaration: float HitPhysicsBlendWeight
 float ABP_BaseCharacter_C::M_GetHitPhysicsBlendWeight() const {
-	return Read<float>((byte*)this + 5772);
+	return Read<float>((byte*)this + 5828);
 }
 float* ABP_BaseCharacter_C::M_PtrGetHitPhysicsBlendWeight() {
-	return reinterpret_cast<float*>((byte*)this + 5772);
+	return reinterpret_cast<float*>((byte*)this + 5828);
 }
 void ABP_BaseCharacter_C::M_SetHitPhysicsBlendWeight(const float& value) {
-	Write((byte*)this + 5772, value);
+	Write((byte*)this + 5828, value);
 }
 // Member Getter and Setter of InactiveInfantPhysicsAsset
 // Declaration: class UPhysicsAsset* InactiveInfantPhysicsAsset
 class UPhysicsAsset* ABP_BaseCharacter_C::M_GetInactiveInfantPhysicsAsset() const {
-	return Read<class UPhysicsAsset*>((byte*)this + 5776);
+	return Read<class UPhysicsAsset*>((byte*)this + 5832);
 }
 class UPhysicsAsset** ABP_BaseCharacter_C::M_PtrGetInactiveInfantPhysicsAsset() {
-	return reinterpret_cast<class UPhysicsAsset**>((byte*)this + 5776);
+	return reinterpret_cast<class UPhysicsAsset**>((byte*)this + 5832);
 }
 void ABP_BaseCharacter_C::M_SetInactiveInfantPhysicsAsset(const class UPhysicsAsset*& value) {
-	Write((byte*)this + 5776, value);
+	Write((byte*)this + 5832, value);
 }
 // Member Getter and Setter of InactiveToddlerPhysicsAsset
 // Declaration: class UPhysicsAsset* InactiveToddlerPhysicsAsset
 class UPhysicsAsset* ABP_BaseCharacter_C::M_GetInactiveToddlerPhysicsAsset() const {
-	return Read<class UPhysicsAsset*>((byte*)this + 5784);
+	return Read<class UPhysicsAsset*>((byte*)this + 5840);
 }
 class UPhysicsAsset** ABP_BaseCharacter_C::M_PtrGetInactiveToddlerPhysicsAsset() {
-	return reinterpret_cast<class UPhysicsAsset**>((byte*)this + 5784);
+	return reinterpret_cast<class UPhysicsAsset**>((byte*)this + 5840);
 }
 void ABP_BaseCharacter_C::M_SetInactiveToddlerPhysicsAsset(const class UPhysicsAsset*& value) {
-	Write((byte*)this + 5784, value);
+	Write((byte*)this + 5840, value);
 }
 // Member Getter and Setter of InactiveGirlPhysicsAsset
 // Declaration: class UPhysicsAsset* InactiveGirlPhysicsAsset
 class UPhysicsAsset* ABP_BaseCharacter_C::M_GetInactiveGirlPhysicsAsset() const {
-	return Read<class UPhysicsAsset*>((byte*)this + 5792);
+	return Read<class UPhysicsAsset*>((byte*)this + 5848);
 }
 class UPhysicsAsset** ABP_BaseCharacter_C::M_PtrGetInactiveGirlPhysicsAsset() {
-	return reinterpret_cast<class UPhysicsAsset**>((byte*)this + 5792);
+	return reinterpret_cast<class UPhysicsAsset**>((byte*)this + 5848);
 }
 void ABP_BaseCharacter_C::M_SetInactiveGirlPhysicsAsset(const class UPhysicsAsset*& value) {
-	Write((byte*)this + 5792, value);
+	Write((byte*)this + 5848, value);
 }
 // Member Getter and Setter of InactiveBoyPhysicsAsset
 // Declaration: class UPhysicsAsset* InactiveBoyPhysicsAsset
 class UPhysicsAsset* ABP_BaseCharacter_C::M_GetInactiveBoyPhysicsAsset() const {
-	return Read<class UPhysicsAsset*>((byte*)this + 5800);
+	return Read<class UPhysicsAsset*>((byte*)this + 5856);
 }
 class UPhysicsAsset** ABP_BaseCharacter_C::M_PtrGetInactiveBoyPhysicsAsset() {
-	return reinterpret_cast<class UPhysicsAsset**>((byte*)this + 5800);
+	return reinterpret_cast<class UPhysicsAsset**>((byte*)this + 5856);
 }
 void ABP_BaseCharacter_C::M_SetInactiveBoyPhysicsAsset(const class UPhysicsAsset*& value) {
-	Write((byte*)this + 5800, value);
+	Write((byte*)this + 5856, value);
 }
 // Member Getter and Setter of InactiveFemalePhysicsAsset
 // Declaration: class UPhysicsAsset* InactiveFemalePhysicsAsset
 class UPhysicsAsset* ABP_BaseCharacter_C::M_GetInactiveFemalePhysicsAsset() const {
-	return Read<class UPhysicsAsset*>((byte*)this + 5808);
+	return Read<class UPhysicsAsset*>((byte*)this + 5864);
 }
 class UPhysicsAsset** ABP_BaseCharacter_C::M_PtrGetInactiveFemalePhysicsAsset() {
-	return reinterpret_cast<class UPhysicsAsset**>((byte*)this + 5808);
+	return reinterpret_cast<class UPhysicsAsset**>((byte*)this + 5864);
 }
 void ABP_BaseCharacter_C::M_SetInactiveFemalePhysicsAsset(const class UPhysicsAsset*& value) {
-	Write((byte*)this + 5808, value);
+	Write((byte*)this + 5864, value);
 }
 // Member Getter and Setter of InactiveMalePhysicsAsset
 // Declaration: class UPhysicsAsset* InactiveMalePhysicsAsset
 class UPhysicsAsset* ABP_BaseCharacter_C::M_GetInactiveMalePhysicsAsset() const {
-	return Read<class UPhysicsAsset*>((byte*)this + 5816);
+	return Read<class UPhysicsAsset*>((byte*)this + 5872);
 }
 class UPhysicsAsset** ABP_BaseCharacter_C::M_PtrGetInactiveMalePhysicsAsset() {
-	return reinterpret_cast<class UPhysicsAsset**>((byte*)this + 5816);
+	return reinterpret_cast<class UPhysicsAsset**>((byte*)this + 5872);
 }
 void ABP_BaseCharacter_C::M_SetInactiveMalePhysicsAsset(const class UPhysicsAsset*& value) {
-	Write((byte*)this + 5816, value);
-}
-// Member Getter and Setter of MeshCollisionDisableTime
-// Declaration: float MeshCollisionDisableTime
-float ABP_BaseCharacter_C::M_GetMeshCollisionDisableTime() const {
-	return Read<float>((byte*)this + 5824);
-}
-float* ABP_BaseCharacter_C::M_PtrGetMeshCollisionDisableTime() {
-	return reinterpret_cast<float*>((byte*)this + 5824);
-}
-void ABP_BaseCharacter_C::M_SetMeshCollisionDisableTime(const float& value) {
-	Write((byte*)this + 5824, value);
-}
-// Member Getter and Setter of TargetMeshCollisionType
-// Declaration: TEnumAsByte<ECollisionEnabled> TargetMeshCollisionType
-TEnumAsByte<ECollisionEnabled> ABP_BaseCharacter_C::M_GetTargetMeshCollisionType() const {
-	return Read<TEnumAsByte<ECollisionEnabled>>((byte*)this + 5828);
-}
-TEnumAsByte<ECollisionEnabled>* ABP_BaseCharacter_C::M_PtrGetTargetMeshCollisionType() {
-	return reinterpret_cast<TEnumAsByte<ECollisionEnabled>*>((byte*)this + 5828);
-}
-void ABP_BaseCharacter_C::M_SetTargetMeshCollisionType(const TEnumAsByte<ECollisionEnabled>& value) {
-	Write((byte*)this + 5828, value);
-}
-// Member Getter and Setter of PreviousMeshCollisionType
-// Declaration: TEnumAsByte<ECollisionEnabled> PreviousMeshCollisionType
-TEnumAsByte<ECollisionEnabled> ABP_BaseCharacter_C::M_GetPreviousMeshCollisionType() const {
-	return Read<TEnumAsByte<ECollisionEnabled>>((byte*)this + 5829);
-}
-TEnumAsByte<ECollisionEnabled>* ABP_BaseCharacter_C::M_PtrGetPreviousMeshCollisionType() {
-	return reinterpret_cast<TEnumAsByte<ECollisionEnabled>*>((byte*)this + 5829);
-}
-void ABP_BaseCharacter_C::M_SetPreviousMeshCollisionType(const TEnumAsByte<ECollisionEnabled>& value) {
-	Write((byte*)this + 5829, value);
-}
-// Member Getter and Setter of IsDistanceMeshCollisionOptimizationEnabled
-// Declaration: bool IsDistanceMeshCollisionOptimizationEnabled
-bool ABP_BaseCharacter_C::M_GetIsDistanceMeshCollisionOptimizationEnabled() const {
-	return Read<bool>((byte*)this + 5830);
-}
-bool* ABP_BaseCharacter_C::M_PtrGetIsDistanceMeshCollisionOptimizationEnabled() {
-	return reinterpret_cast<bool*>((byte*)this + 5830);
-}
-void ABP_BaseCharacter_C::M_SetIsDistanceMeshCollisionOptimizationEnabled(const bool& value) {
-	Write((byte*)this + 5830, value);
-}
-// Member Getter and Setter of IsPhysicsAssetSwitchingEnabled
-// Declaration: bool IsPhysicsAssetSwitchingEnabled
-bool ABP_BaseCharacter_C::M_GetIsPhysicsAssetSwitchingEnabled() const {
-	return Read<bool>((byte*)this + 5831);
-}
-bool* ABP_BaseCharacter_C::M_PtrGetIsPhysicsAssetSwitchingEnabled() {
-	return reinterpret_cast<bool*>((byte*)this + 5831);
-}
-void ABP_BaseCharacter_C::M_SetIsPhysicsAssetSwitchingEnabled(const bool& value) {
-	Write((byte*)this + 5831, value);
+	Write((byte*)this + 5872, value);
 }
 // Member Getter and Setter of ImplementsPlayerInterface
 // Declaration: bool ImplementsPlayerInterface
 bool ABP_BaseCharacter_C::M_GetImplementsPlayerInterface() const {
-	return Read<bool>((byte*)this + 5832);
+	return Read<bool>((byte*)this + 5880);
 }
 bool* ABP_BaseCharacter_C::M_PtrGetImplementsPlayerInterface() {
-	return reinterpret_cast<bool*>((byte*)this + 5832);
+	return reinterpret_cast<bool*>((byte*)this + 5880);
 }
 void ABP_BaseCharacter_C::M_SetImplementsPlayerInterface(const bool& value) {
-	Write((byte*)this + 5832, value);
+	Write((byte*)this + 5880, value);
 }
 #pragma endregion
 #pragma region Functions
@@ -4008,13 +3381,13 @@ void ABP_BaseCharacter_C::Set_ALS_Aiming_Event(bool ALS_Aiming) {
 // Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_RotationMode Event
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
-// Name: New_ALS_RotationMode	Type: TEnumAsByte<E_RotationMode>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: New_ALS_RotationMode	Type: ECharacterRotationMode	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Set_ALS_RotationMode_Event(TEnumAsByte<E_RotationMode> New_ALS_RotationMode) {
+void ABP_BaseCharacter_C::Set_ALS_RotationMode_Event(ECharacterRotationMode New_ALS_RotationMode) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_RotationMode Event");
 
 	struct ABP_BaseCharacter_C_Set_ALS_RotationMode_Event_Params {
-		TEnumAsByte<E_RotationMode> New_ALS_RotationMode;			//Offset: 0 | ElementSize: 1
+		ECharacterRotationMode New_ALS_RotationMode;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_Set_ALS_RotationMode_Event_Params params;
 	params.New_ALS_RotationMode = New_ALS_RotationMode;
@@ -4026,13 +3399,13 @@ void ABP_BaseCharacter_C::Set_ALS_RotationMode_Event(TEnumAsByte<E_RotationMode>
 // Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_Stance Event
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
-// Name: New_ALS_Stance	Type: TEnumAsByte<E_Stance>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: New_ALS_Stance	Type: ECharacterStance	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Set_ALS_Stance_Event(TEnumAsByte<E_Stance> New_ALS_Stance) {
+void ABP_BaseCharacter_C::Set_ALS_Stance_Event(ECharacterStance New_ALS_Stance) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_Stance Event");
 
 	struct ABP_BaseCharacter_C_Set_ALS_Stance_Event_Params {
-		TEnumAsByte<E_Stance> New_ALS_Stance;			//Offset: 0 | ElementSize: 1
+		ECharacterStance New_ALS_Stance;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_Set_ALS_Stance_Event_Params params;
 	params.New_ALS_Stance = New_ALS_Stance;
@@ -4044,13 +3417,13 @@ void ABP_BaseCharacter_C::Set_ALS_Stance_Event(TEnumAsByte<E_Stance> New_ALS_Sta
 // Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_Gait Event
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
-// Name: New_ALS_Gait	Type: TEnumAsByte<E_Gait>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: New_ALS_Gait	Type: ECharacterGait	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Set_ALS_Gait_Event(TEnumAsByte<E_Gait> New_ALS_Gait) {
+void ABP_BaseCharacter_C::Set_ALS_Gait_Event(ECharacterGait New_ALS_Gait) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_Gait Event");
 
 	struct ABP_BaseCharacter_C_Set_ALS_Gait_Event_Params {
-		TEnumAsByte<E_Gait> New_ALS_Gait;			//Offset: 0 | ElementSize: 1
+		ECharacterGait New_ALS_Gait;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_Set_ALS_Gait_Event_Params params;
 	params.New_ALS_Gait = New_ALS_Gait;
@@ -4062,14 +3435,14 @@ void ABP_BaseCharacter_C::Set_ALS_Gait_Event(TEnumAsByte<E_Gait> New_ALS_Gait) {
 // Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_MovementMode Event
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
-// Name: New_ALS_MovementMode	Type: TEnumAsByte<E_MovementMode>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: New_ALS_MovementMode	Type: ECharacterMovementMode	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Force	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Set_ALS_MovementMode_Event(TEnumAsByte<E_MovementMode> New_ALS_MovementMode, bool Force) {
+void ABP_BaseCharacter_C::Set_ALS_MovementMode_Event(ECharacterMovementMode New_ALS_MovementMode, bool Force) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_MovementMode Event");
 
 	struct ABP_BaseCharacter_C_Set_ALS_MovementMode_Event_Params {
-		TEnumAsByte<E_MovementMode> New_ALS_MovementMode;			//Offset: 0 | ElementSize: 1
+		ECharacterMovementMode New_ALS_MovementMode;			//Offset: 0 | ElementSize: 1
 		bool Force;			//Offset: 1 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_Set_ALS_MovementMode_Event_Params params;
@@ -4326,16 +3699,16 @@ void ABP_BaseCharacter_C::SetBlocking_Event(bool Blocking) {
 // Function BP_BaseCharacter.BP_BaseCharacter_C.Set MovementInput Event ( SERVER )
 // Flags: Net, NetServer, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: MovementInput	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: movementInput	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Set_MovementInput_Event___SERVER__(struct FVector MovementInput) {
+void ABP_BaseCharacter_C::Set_MovementInput_Event___SERVER__(struct FVector movementInput) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Set MovementInput Event ( SERVER )");
 
 	struct ABP_BaseCharacter_C_Set_MovementInput_Event___SERVER___Params {
-		struct FVector MovementInput;			//Offset: 0 | ElementSize: 12
+		struct FVector movementInput;			//Offset: 0 | ElementSize: 12
 	};
 	ABP_BaseCharacter_C_Set_MovementInput_Event___SERVER___Params params;
-	params.MovementInput = MovementInput;
+	params.movementInput = movementInput;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -4344,16 +3717,16 @@ void ABP_BaseCharacter_C::Set_MovementInput_Event___SERVER__(struct FVector Move
 // Function BP_BaseCharacter.BP_BaseCharacter_C.Set LookingRotation Event ( SERVER )
 // Flags: Net, NetServer, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: LookingRotation	Type: struct FRotator	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: lookingRotation	Type: struct FRotator	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Set_LookingRotation_Event___SERVER__(struct FRotator LookingRotation) {
+void ABP_BaseCharacter_C::Set_LookingRotation_Event___SERVER__(struct FRotator lookingRotation) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Set LookingRotation Event ( SERVER )");
 
 	struct ABP_BaseCharacter_C_Set_LookingRotation_Event___SERVER___Params {
-		struct FRotator LookingRotation;			//Offset: 0 | ElementSize: 12
+		struct FRotator lookingRotation;			//Offset: 0 | ElementSize: 12
 	};
 	ABP_BaseCharacter_C_Set_LookingRotation_Event___SERVER___Params params;
-	params.LookingRotation = LookingRotation;
+	params.lookingRotation = lookingRotation;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -4363,18 +3736,18 @@ void ABP_BaseCharacter_C::Set_LookingRotation_Event___SERVER__(struct FRotator L
 // Flags: Net, NetServer, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: TargetRotation	Type: struct FRotator	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-// Name: characterRotation	Type: struct FRotator	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: CharacterRotation	Type: struct FRotator	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Set_CharacterRotation_Event___SERVER__(struct FRotator TargetRotation, struct FRotator characterRotation) {
+void ABP_BaseCharacter_C::Set_CharacterRotation_Event___SERVER__(struct FRotator TargetRotation, struct FRotator CharacterRotation) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Set CharacterRotation Event ( SERVER )");
 
 	struct ABP_BaseCharacter_C_Set_CharacterRotation_Event___SERVER___Params {
 		struct FRotator TargetRotation;			//Offset: 0 | ElementSize: 12
-		struct FRotator characterRotation;			//Offset: 12 | ElementSize: 12
+		struct FRotator CharacterRotation;			//Offset: 12 | ElementSize: 12
 	};
 	ABP_BaseCharacter_C_Set_CharacterRotation_Event___SERVER___Params params;
 	params.TargetRotation = TargetRotation;
-	params.characterRotation = characterRotation;
+	params.CharacterRotation = CharacterRotation;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -4473,13 +3846,13 @@ void ABP_BaseCharacter_C::Set_ALS_Aiming_Event___SERVER__(bool ALS_Aiming) {
 // Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_RotationMode Event ( MULTICAST )
 // Flags: Net, NetMulticast, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: ALS_RotationMode	Type: TEnumAsByte<E_RotationMode>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ALS_RotationMode	Type: ECharacterRotationMode	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Set_ALS_RotationMode_Event___MULTICAST__(TEnumAsByte<E_RotationMode> ALS_RotationMode) {
+void ABP_BaseCharacter_C::Set_ALS_RotationMode_Event___MULTICAST__(ECharacterRotationMode ALS_RotationMode) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_RotationMode Event ( MULTICAST )");
 
 	struct ABP_BaseCharacter_C_Set_ALS_RotationMode_Event___MULTICAST___Params {
-		TEnumAsByte<E_RotationMode> ALS_RotationMode;			//Offset: 0 | ElementSize: 1
+		ECharacterRotationMode ALS_RotationMode;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_Set_ALS_RotationMode_Event___MULTICAST___Params params;
 	params.ALS_RotationMode = ALS_RotationMode;
@@ -4491,13 +3864,13 @@ void ABP_BaseCharacter_C::Set_ALS_RotationMode_Event___MULTICAST__(TEnumAsByte<E
 // Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_RotationMode Event ( SERVER )
 // Flags: Net, NetServer, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: ALS_RotationMode	Type: TEnumAsByte<E_RotationMode>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ALS_RotationMode	Type: ECharacterRotationMode	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Set_ALS_RotationMode_Event___SERVER__(TEnumAsByte<E_RotationMode> ALS_RotationMode) {
+void ABP_BaseCharacter_C::Set_ALS_RotationMode_Event___SERVER__(ECharacterRotationMode ALS_RotationMode) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_RotationMode Event ( SERVER )");
 
 	struct ABP_BaseCharacter_C_Set_ALS_RotationMode_Event___SERVER___Params {
-		TEnumAsByte<E_RotationMode> ALS_RotationMode;			//Offset: 0 | ElementSize: 1
+		ECharacterRotationMode ALS_RotationMode;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_Set_ALS_RotationMode_Event___SERVER___Params params;
 	params.ALS_RotationMode = ALS_RotationMode;
@@ -4509,13 +3882,13 @@ void ABP_BaseCharacter_C::Set_ALS_RotationMode_Event___SERVER__(TEnumAsByte<E_Ro
 // Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_Gait Event ( MULTICAST )
 // Flags: Net, NetMulticast, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: ALS_Gait	Type: TEnumAsByte<E_Gait>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ALS_Gait	Type: ECharacterGait	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Set_ALS_Gait_Event___MULTICAST__(TEnumAsByte<E_Gait> ALS_Gait) {
+void ABP_BaseCharacter_C::Set_ALS_Gait_Event___MULTICAST__(ECharacterGait ALS_Gait) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_Gait Event ( MULTICAST )");
 
 	struct ABP_BaseCharacter_C_Set_ALS_Gait_Event___MULTICAST___Params {
-		TEnumAsByte<E_Gait> ALS_Gait;			//Offset: 0 | ElementSize: 1
+		ECharacterGait ALS_Gait;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_Set_ALS_Gait_Event___MULTICAST___Params params;
 	params.ALS_Gait = ALS_Gait;
@@ -4527,13 +3900,13 @@ void ABP_BaseCharacter_C::Set_ALS_Gait_Event___MULTICAST__(TEnumAsByte<E_Gait> A
 // Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_Gait Event ( SERVER )
 // Flags: Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: ALS_Gait	Type: TEnumAsByte<E_Gait>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ALS_Gait	Type: ECharacterGait	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Set_ALS_Gait_Event___SERVER__(TEnumAsByte<E_Gait> ALS_Gait) {
+void ABP_BaseCharacter_C::Set_ALS_Gait_Event___SERVER__(ECharacterGait ALS_Gait) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_Gait Event ( SERVER )");
 
 	struct ABP_BaseCharacter_C_Set_ALS_Gait_Event___SERVER___Params {
-		TEnumAsByte<E_Gait> ALS_Gait;			//Offset: 0 | ElementSize: 1
+		ECharacterGait ALS_Gait;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_Set_ALS_Gait_Event___SERVER___Params params;
 	params.ALS_Gait = ALS_Gait;
@@ -4548,22 +3921,22 @@ void ABP_BaseCharacter_C::Set_ALS_Gait_Event___SERVER__(TEnumAsByte<E_Gait> ALS_
 // Name: RagdollVelocity	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: RagdollLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: ActorRotation	Type: struct FRotator	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-// Name: ActorLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: actorLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::UpdateRagdoll___SERVER__(struct FVector RagdollVelocity, struct FVector RagdollLocation, struct FRotator ActorRotation, struct FVector ActorLocation) {
+void ABP_BaseCharacter_C::UpdateRagdoll___SERVER__(struct FVector RagdollVelocity, struct FVector RagdollLocation, struct FRotator ActorRotation, struct FVector actorLocation) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.UpdateRagdoll ( SERVER )");
 
 	struct ABP_BaseCharacter_C_UpdateRagdoll___SERVER___Params {
 		struct FVector RagdollVelocity;			//Offset: 0 | ElementSize: 12
 		struct FVector RagdollLocation;			//Offset: 12 | ElementSize: 12
 		struct FRotator ActorRotation;			//Offset: 24 | ElementSize: 12
-		struct FVector ActorLocation;			//Offset: 36 | ElementSize: 12
+		struct FVector actorLocation;			//Offset: 36 | ElementSize: 12
 	};
 	ABP_BaseCharacter_C_UpdateRagdoll___SERVER___Params params;
 	params.RagdollVelocity = RagdollVelocity;
 	params.RagdollLocation = RagdollLocation;
 	params.ActorRotation = ActorRotation;
-	params.ActorLocation = ActorLocation;
+	params.actorLocation = actorLocation;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -4572,16 +3945,16 @@ void ABP_BaseCharacter_C::UpdateRagdoll___SERVER__(struct FVector RagdollVelocit
 // Function BP_BaseCharacter.BP_BaseCharacter_C.UpdateRagdoll ( MULTICAST )
 // Flags: Net, NetMulticast, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: ActorLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: actorLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::UpdateRagdoll___MULTICAST__(struct FVector ActorLocation) {
+void ABP_BaseCharacter_C::UpdateRagdoll___MULTICAST__(struct FVector actorLocation) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.UpdateRagdoll ( MULTICAST )");
 
 	struct ABP_BaseCharacter_C_UpdateRagdoll___MULTICAST___Params {
-		struct FVector ActorLocation;			//Offset: 0 | ElementSize: 12
+		struct FVector actorLocation;			//Offset: 0 | ElementSize: 12
 	};
 	ABP_BaseCharacter_C_UpdateRagdoll___MULTICAST___Params params;
-	params.ActorLocation = ActorLocation;
+	params.actorLocation = actorLocation;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -4608,13 +3981,16 @@ void ABP_BaseCharacter_C::Un_Ragdoll___SERVER__(bool OnGround) {
 // Function BP_BaseCharacter.BP_BaseCharacter_C.To_Ragdoll ( SERVER )
 // Flags: Net, NetServer, BlueprintCallable, BlueprintEvent
 // Params:
+// Name: InitialRagdollVelocity	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::To_Ragdoll___SERVER__() {
+void ABP_BaseCharacter_C::To_Ragdoll___SERVER__(struct FVector InitialRagdollVelocity) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.To_Ragdoll ( SERVER )");
 
 	struct ABP_BaseCharacter_C_To_Ragdoll___SERVER___Params {
+		struct FVector InitialRagdollVelocity;			//Offset: 0 | ElementSize: 12
 	};
 	ABP_BaseCharacter_C_To_Ragdoll___SERVER___Params params;
+	params.InitialRagdollVelocity = InitialRagdollVelocity;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -4641,13 +4017,13 @@ void ABP_BaseCharacter_C::AddCharacterRotation_BPI(struct FRotator AddAmount) {
 // Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_Stance BPI
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: ALS_Stance	Type: TEnumAsByte<E_Stance>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ALS_Stance	Type: ECharacterStance	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Set_ALS_Stance_BPI(TEnumAsByte<E_Stance> ALS_Stance) {
+void ABP_BaseCharacter_C::Set_ALS_Stance_BPI(ECharacterStance ALS_Stance) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_Stance BPI");
 
 	struct ABP_BaseCharacter_C_Set_ALS_Stance_BPI_Params {
-		TEnumAsByte<E_Stance> ALS_Stance;			//Offset: 0 | ElementSize: 1
+		ECharacterStance ALS_Stance;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_Set_ALS_Stance_BPI_Params params;
 	params.ALS_Stance = ALS_Stance;
@@ -4659,13 +4035,13 @@ void ABP_BaseCharacter_C::Set_ALS_Stance_BPI(TEnumAsByte<E_Stance> ALS_Stance) {
 // Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_Gait BPI
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: ALS_Gait	Type: TEnumAsByte<E_Gait>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ALS_Gait	Type: ECharacterGait	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Set_ALS_Gait_BPI(TEnumAsByte<E_Gait> ALS_Gait) {
+void ABP_BaseCharacter_C::Set_ALS_Gait_BPI(ECharacterGait ALS_Gait) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_Gait BPI");
 
 	struct ABP_BaseCharacter_C_Set_ALS_Gait_BPI_Params {
-		TEnumAsByte<E_Gait> ALS_Gait;			//Offset: 0 | ElementSize: 1
+		ECharacterGait ALS_Gait;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_Set_ALS_Gait_BPI_Params params;
 	params.ALS_Gait = ALS_Gait;
@@ -4677,14 +4053,14 @@ void ABP_BaseCharacter_C::Set_ALS_Gait_BPI(TEnumAsByte<E_Gait> ALS_Gait) {
 // Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_MovementMode BPI
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: ALS_MovementMode	Type: TEnumAsByte<E_MovementMode>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ALS_MovementMode	Type: ECharacterMovementMode	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Force	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Set_ALS_MovementMode_BPI(TEnumAsByte<E_MovementMode> ALS_MovementMode, bool Force) {
+void ABP_BaseCharacter_C::Set_ALS_MovementMode_BPI(ECharacterMovementMode ALS_MovementMode, bool Force) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_MovementMode BPI");
 
 	struct ABP_BaseCharacter_C_Set_ALS_MovementMode_BPI_Params {
-		TEnumAsByte<E_MovementMode> ALS_MovementMode;			//Offset: 0 | ElementSize: 1
+		ECharacterMovementMode ALS_MovementMode;			//Offset: 0 | ElementSize: 1
 		bool Force;			//Offset: 1 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_Set_ALS_MovementMode_BPI_Params params;
@@ -5360,20 +4736,20 @@ void ABP_BaseCharacter_C::IncreaseTechnology_BPI(TEnumAsByte<E_TechnologyTypes> 
 // Params:
 // Name: Skill	Type: TEnumAsByte<E_Skills>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Value	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: AffectedByGameSettings	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: AffectedbyGameSettings	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::CharacterAddSkills_BPI(TEnumAsByte<E_Skills> Skill, float Value, bool AffectedByGameSettings) {
+void ABP_BaseCharacter_C::CharacterAddSkills_BPI(TEnumAsByte<E_Skills> Skill, float Value, bool AffectedbyGameSettings) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.CharacterAddSkills_BPI");
 
 	struct ABP_BaseCharacter_C_CharacterAddSkills_BPI_Params {
 		TEnumAsByte<E_Skills> Skill;			//Offset: 0 | ElementSize: 1
 		float Value;			//Offset: 4 | ElementSize: 4
-		bool AffectedByGameSettings;			//Offset: 8 | ElementSize: 1
+		bool AffectedbyGameSettings;			//Offset: 8 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_CharacterAddSkills_BPI_Params params;
 	params.Skill = Skill;
 	params.Value = Value;
-	params.AffectedByGameSettings = AffectedByGameSettings;
+	params.AffectedbyGameSettings = AffectedbyGameSettings;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -5487,13 +4863,16 @@ void ABP_BaseCharacter_C::ReceiveEndPlay(TEnumAsByte<EEndPlayReason> EndPlayReas
 // Function BP_BaseCharacter.BP_BaseCharacter_C.To_Ragdoll ( MULTICAST )
 // Flags: Net, NetMulticast, BlueprintCallable, BlueprintEvent
 // Params:
+// Name: InitialRagdollVelocity	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::To_Ragdoll___MULTICAST__() {
+void ABP_BaseCharacter_C::To_Ragdoll___MULTICAST__(struct FVector InitialRagdollVelocity) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.To_Ragdoll ( MULTICAST )");
 
 	struct ABP_BaseCharacter_C_To_Ragdoll___MULTICAST___Params {
+		struct FVector InitialRagdollVelocity;			//Offset: 0 | ElementSize: 12
 	};
 	ABP_BaseCharacter_C_To_Ragdoll___MULTICAST___Params params;
+	params.InitialRagdollVelocity = InitialRagdollVelocity;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -5520,13 +4899,16 @@ void ABP_BaseCharacter_C::Un_Ragdoll___MULTICAST__(bool OnGround) {
 // Function BP_BaseCharacter.BP_BaseCharacter_C.To_Ragdoll Event
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
+// Name: InitialRagdollVelocity	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::To_Ragdoll_Event() {
+void ABP_BaseCharacter_C::To_Ragdoll_Event(struct FVector InitialRagdollVelocity) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.To_Ragdoll Event");
 
 	struct ABP_BaseCharacter_C_To_Ragdoll_Event_Params {
+		struct FVector InitialRagdollVelocity;			//Offset: 0 | ElementSize: 12
 	};
 	ABP_BaseCharacter_C_To_Ragdoll_Event_Params params;
+	params.InitialRagdollVelocity = InitialRagdollVelocity;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -5553,13 +4935,61 @@ void ABP_BaseCharacter_C::Un_Ragdoll_Event(bool SkipAnim) {
 // Function BP_BaseCharacter.BP_BaseCharacter_C.Ragdoll
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
+// Name: InitialRagdollVelocity	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Ragdoll() {
+void ABP_BaseCharacter_C::Ragdoll(struct FVector InitialRagdollVelocity) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Ragdoll");
 
 	struct ABP_BaseCharacter_C_Ragdoll_Params {
+		struct FVector InitialRagdollVelocity;			//Offset: 0 | ElementSize: 12
 	};
 	ABP_BaseCharacter_C_Ragdoll_Params params;
+	params.InitialRagdollVelocity = InitialRagdollVelocity;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_BaseCharacter.BP_BaseCharacter_C.ManageRagdoll
+// Flags: Event, Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_BaseCharacter_C::ManageRagdoll() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.ManageRagdoll");
+
+	struct ABP_BaseCharacter_C_ManageRagdoll_Params {
+	};
+	ABP_BaseCharacter_C_ManageRagdoll_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_BaseCharacter.BP_BaseCharacter_C.SetMesh
+// Flags: HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: NewHeadMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: NewHairMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: NewBodyMeshes	Type: TArray<class USkeletalMesh*>	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm
+// Name: NewClass	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: UpdateOnly	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_BaseCharacter_C::SetMesh(class USkeletalMesh* NewHeadMesh, class USkeletalMesh* NewHairMesh, const TArray<class USkeletalMesh*>& NewBodyMeshes, class UObject* NewClass, bool UpdateOnly) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.SetMesh");
+
+	struct ABP_BaseCharacter_C_SetMesh_Params {
+		class USkeletalMesh* NewHeadMesh;			//Offset: 0 | ElementSize: 8
+		class USkeletalMesh* NewHairMesh;			//Offset: 8 | ElementSize: 8
+		TArray<class USkeletalMesh*> NewBodyMeshes;			//Offset: 16 | ElementSize: 16
+		class UObject* NewClass;			//Offset: 32 | ElementSize: 8
+		bool UpdateOnly;			//Offset: 40 | ElementSize: 1
+	};
+	ABP_BaseCharacter_C_SetMesh_Params params;
+	params.NewHeadMesh = NewHeadMesh;
+	params.NewHairMesh = NewHairMesh;
+	params.NewBodyMeshes = NewBodyMeshes;
+	params.NewClass = NewClass;
+	params.UpdateOnly = UpdateOnly;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -5631,18 +5061,21 @@ void ABP_BaseCharacter_C::Hit(struct FVector HitLocation, struct FVector HitForc
 // Name: Array	Type: TArray<struct FST_NPCItemColors>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm
 // Name: Tattoo	Type: class UTexture2D*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Async	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: DelayLoad	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::PresetLoad(TArray<struct FST_NPCItemColors>* Array, class UTexture2D* Tattoo, bool Async) {
+void ABP_BaseCharacter_C::PresetLoad(TArray<struct FST_NPCItemColors>* Array, class UTexture2D* Tattoo, bool Async, bool DelayLoad) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.PresetLoad");
 
 	struct ABP_BaseCharacter_C_PresetLoad_Params {
 		TArray<struct FST_NPCItemColors> Array;			//Offset: 0 | ElementSize: 16
 		class UTexture2D* Tattoo;			//Offset: 16 | ElementSize: 8
 		bool Async;			//Offset: 24 | ElementSize: 1
+		bool DelayLoad;			//Offset: 25 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_PresetLoad_Params params;
 	params.Tattoo = Tattoo;
 	params.Async = Async;
+	params.DelayLoad = DelayLoad;
 
 	UObject::ProcessEvent(fn, &params);
 	if (Array != nullptr)
@@ -5840,54 +5273,6 @@ void ABP_BaseCharacter_C::ChangePlayerInput(bool DisablePlayerInput) {
 	};
 	ABP_BaseCharacter_C_ChangePlayerInput_Params params;
 	params.DisablePlayerInput = DisablePlayerInput;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_BaseCharacter.BP_BaseCharacter_C.SetMeshAndMaterials
-// Flags: HasOutParms, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: HeadMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: TorsoMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: HandsMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: LegsMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: FeetMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: HatSKMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: HoodMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Backpack	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Pouch	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: AnimClass	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: DynamicMaterials	Type: TArray<struct FST_MeshDynamicMaterials>	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, ContainsInstancedReference
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::SetMeshAndMaterials(class USkeletalMesh* HeadMesh, class USkeletalMesh* TorsoMesh, class USkeletalMesh* HandsMesh, class USkeletalMesh* LegsMesh, class USkeletalMesh* FeetMesh, class USkeletalMesh* HatSKMesh, class USkeletalMesh* HoodMesh, class USkeletalMesh* Backpack, class USkeletalMesh* Pouch, class UObject* AnimClass, const TArray<struct FST_MeshDynamicMaterials>& DynamicMaterials) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.SetMeshAndMaterials");
-
-	struct ABP_BaseCharacter_C_SetMeshAndMaterials_Params {
-		class USkeletalMesh* HeadMesh;			//Offset: 0 | ElementSize: 8
-		class USkeletalMesh* TorsoMesh;			//Offset: 8 | ElementSize: 8
-		class USkeletalMesh* HandsMesh;			//Offset: 16 | ElementSize: 8
-		class USkeletalMesh* LegsMesh;			//Offset: 24 | ElementSize: 8
-		class USkeletalMesh* FeetMesh;			//Offset: 32 | ElementSize: 8
-		class USkeletalMesh* HatSKMesh;			//Offset: 40 | ElementSize: 8
-		class USkeletalMesh* HoodMesh;			//Offset: 48 | ElementSize: 8
-		class USkeletalMesh* Backpack;			//Offset: 56 | ElementSize: 8
-		class USkeletalMesh* Pouch;			//Offset: 64 | ElementSize: 8
-		class UObject* AnimClass;			//Offset: 72 | ElementSize: 8
-		TArray<struct FST_MeshDynamicMaterials> DynamicMaterials;			//Offset: 80 | ElementSize: 16
-	};
-	ABP_BaseCharacter_C_SetMeshAndMaterials_Params params;
-	params.HeadMesh = HeadMesh;
-	params.TorsoMesh = TorsoMesh;
-	params.HandsMesh = HandsMesh;
-	params.LegsMesh = LegsMesh;
-	params.FeetMesh = FeetMesh;
-	params.HatSKMesh = HatSKMesh;
-	params.HoodMesh = HoodMesh;
-	params.Backpack = Backpack;
-	params.Pouch = Pouch;
-	params.AnimClass = AnimClass;
-	params.DynamicMaterials = DynamicMaterials;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -6193,57 +5578,6 @@ void ABP_BaseCharacter_C::SetupStageInteraction(class AActor* InteractedActor, T
 }
 
 /////////////////////////////////////////////
-// Function BP_BaseCharacter.BP_BaseCharacter_C.SetMesh
-// Flags: BlueprintCallable, BlueprintEvent
-// Params:
-// Name: NewHeadMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewTorsoMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewHandsMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewLegsMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewFeetMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewHatSKMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewHoodMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewHairMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewBackpackMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewPouchMesh	Type: class USkeletalMesh*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewClass	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: UpdateOnly	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::SetMesh(class USkeletalMesh* NewHeadMesh, class USkeletalMesh* NewTorsoMesh, class USkeletalMesh* NewHandsMesh, class USkeletalMesh* NewLegsMesh, class USkeletalMesh* NewFeetMesh, class USkeletalMesh* NewHatSKMesh, class USkeletalMesh* NewHoodMesh, class USkeletalMesh* NewHairMesh, class USkeletalMesh* NewBackpackMesh, class USkeletalMesh* NewPouchMesh, class UObject* NewClass, bool UpdateOnly) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.SetMesh");
-
-	struct ABP_BaseCharacter_C_SetMesh_Params {
-		class USkeletalMesh* NewHeadMesh;			//Offset: 0 | ElementSize: 8
-		class USkeletalMesh* NewTorsoMesh;			//Offset: 8 | ElementSize: 8
-		class USkeletalMesh* NewHandsMesh;			//Offset: 16 | ElementSize: 8
-		class USkeletalMesh* NewLegsMesh;			//Offset: 24 | ElementSize: 8
-		class USkeletalMesh* NewFeetMesh;			//Offset: 32 | ElementSize: 8
-		class USkeletalMesh* NewHatSKMesh;			//Offset: 40 | ElementSize: 8
-		class USkeletalMesh* NewHoodMesh;			//Offset: 48 | ElementSize: 8
-		class USkeletalMesh* NewHairMesh;			//Offset: 56 | ElementSize: 8
-		class USkeletalMesh* NewBackpackMesh;			//Offset: 64 | ElementSize: 8
-		class USkeletalMesh* NewPouchMesh;			//Offset: 72 | ElementSize: 8
-		class UObject* NewClass;			//Offset: 80 | ElementSize: 8
-		bool UpdateOnly;			//Offset: 88 | ElementSize: 1
-	};
-	ABP_BaseCharacter_C_SetMesh_Params params;
-	params.NewHeadMesh = NewHeadMesh;
-	params.NewTorsoMesh = NewTorsoMesh;
-	params.NewHandsMesh = NewHandsMesh;
-	params.NewLegsMesh = NewLegsMesh;
-	params.NewFeetMesh = NewFeetMesh;
-	params.NewHatSKMesh = NewHatSKMesh;
-	params.NewHoodMesh = NewHoodMesh;
-	params.NewHairMesh = NewHairMesh;
-	params.NewBackpackMesh = NewBackpackMesh;
-	params.NewPouchMesh = NewPouchMesh;
-	params.NewClass = NewClass;
-	params.UpdateOnly = UpdateOnly;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
 // Function BP_BaseCharacter.BP_BaseCharacter_C.ReceiveBeginPlay
 // Flags: Event, Protected, BlueprintEvent
 // Params:
@@ -6259,34 +5593,16 @@ void ABP_BaseCharacter_C::ReceiveBeginPlay() {
 }
 
 /////////////////////////////////////////////
-// Function BP_BaseCharacter.BP_BaseCharacter_C.ReceiveTick
-// Flags: Event, Public, BlueprintEvent
-// Params:
-// Name: DeltaSeconds	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::ReceiveTick(float DeltaSeconds) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.ReceiveTick");
-
-	struct ABP_BaseCharacter_C_ReceiveTick_Params {
-		float DeltaSeconds;			//Offset: 0 | ElementSize: 4
-	};
-	ABP_BaseCharacter_C_ReceiveTick_Params params;
-	params.DeltaSeconds = DeltaSeconds;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
 // Function BP_BaseCharacter.BP_BaseCharacter_C.GetMountMovementMode_BPI
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: MountMovementMode	Type: TEnumAsByte<E_MovementMode>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: MountMovementMode	Type: EAnimalMovementMode	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::GetMountMovementMode_BPI(TEnumAsByte<E_MovementMode> MountMovementMode) {
+void ABP_BaseCharacter_C::GetMountMovementMode_BPI(EAnimalMovementMode MountMovementMode) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.GetMountMovementMode_BPI");
 
 	struct ABP_BaseCharacter_C_GetMountMovementMode_BPI_Params {
-		TEnumAsByte<E_MovementMode> MountMovementMode;			//Offset: 0 | ElementSize: 1
+		EAnimalMovementMode MountMovementMode;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_GetMountMovementMode_BPI_Params params;
 	params.MountMovementMode = MountMovementMode;
@@ -7186,13 +6502,13 @@ void ABP_BaseCharacter_C::AnimNotify_Pivot_BPI(struct FST_PivotParams PivotParam
 // Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_RotationMode BPI
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: ALS_RotationMode_BPI	Type: TEnumAsByte<E_RotationMode>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ALS_RotationMode_BPI	Type: ECharacterRotationMode	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Set_ALS_RotationMode_BPI(TEnumAsByte<E_RotationMode> ALS_RotationMode_BPI) {
+void ABP_BaseCharacter_C::Set_ALS_RotationMode_BPI(ECharacterRotationMode ALS_RotationMode_BPI) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Set ALS_RotationMode BPI");
 
 	struct ABP_BaseCharacter_C_Set_ALS_RotationMode_BPI_Params {
-		TEnumAsByte<E_RotationMode> ALS_RotationMode_BPI;			//Offset: 0 | ElementSize: 1
+		ECharacterRotationMode ALS_RotationMode_BPI;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_Set_ALS_RotationMode_BPI_Params params;
 	params.ALS_RotationMode_BPI = ALS_RotationMode_BPI;
@@ -7483,18 +6799,18 @@ void ABP_BaseCharacter_C::Interact(class ABP_BaseCharacter_C* BaseCharacter, str
 }
 
 /////////////////////////////////////////////
-// Function BP_BaseCharacter.BP_BaseCharacter_C.OnLoaded_62CC4B9841F5F4A3D73E44B6D98215C9
+// Function BP_BaseCharacter.BP_BaseCharacter_C.OnLoaded_BB91ECF841AA5D58C426EE85AF8BB673
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
 // Name: Loaded	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::OnLoaded_62CC4B9841F5F4A3D73E44B6D98215C9(class UObject* Loaded) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.OnLoaded_62CC4B9841F5F4A3D73E44B6D98215C9");
+void ABP_BaseCharacter_C::OnLoaded_BB91ECF841AA5D58C426EE85AF8BB673(class UObject* Loaded) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.OnLoaded_BB91ECF841AA5D58C426EE85AF8BB673");
 
-	struct ABP_BaseCharacter_C_OnLoaded_62CC4B9841F5F4A3D73E44B6D98215C9_Params {
+	struct ABP_BaseCharacter_C_OnLoaded_BB91ECF841AA5D58C426EE85AF8BB673_Params {
 		class UObject* Loaded;			//Offset: 0 | ElementSize: 8
 	};
-	ABP_BaseCharacter_C_OnLoaded_62CC4B9841F5F4A3D73E44B6D98215C9_Params params;
+	ABP_BaseCharacter_C_OnLoaded_BB91ECF841AA5D58C426EE85AF8BB673_Params params;
 	params.Loaded = Loaded;
 
 	UObject::ProcessEvent(fn, &params);
@@ -7642,21 +6958,6 @@ void ABP_BaseCharacter_C::UserConstructionScript() {
 }
 
 /////////////////////////////////////////////
-// Function BP_BaseCharacter.BP_BaseCharacter_C.Calculate Essential Variables
-// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::Calculate_Essential_Variables() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Calculate Essential Variables");
-
-	struct ABP_BaseCharacter_C_Calculate_Essential_Variables_Params {
-	};
-	ABP_BaseCharacter_C_Calculate_Essential_Variables_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
 // Function BP_BaseCharacter.BP_BaseCharacter_C.On PawnMovementMode Changed
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
@@ -7739,30 +7040,6 @@ void ABP_BaseCharacter_C::On_ALS_RotationMode_Changed() {
 	struct ABP_BaseCharacter_C_On_ALS_RotationMode_Changed_Params {
 	};
 	ABP_BaseCharacter_C_On_ALS_RotationMode_Changed_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_BaseCharacter.BP_BaseCharacter_C.SetCharacterRotation
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: TargetRotation	Type: struct FRotator	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-// Name: interpRotation	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-// Name: interpSpeed	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::SetCharacterRotation(struct FRotator TargetRotation, bool interpRotation, float interpSpeed) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.SetCharacterRotation");
-
-	struct ABP_BaseCharacter_C_SetCharacterRotation_Params {
-		struct FRotator TargetRotation;			//Offset: 0 | ElementSize: 12
-		bool interpRotation;			//Offset: 12 | ElementSize: 1
-		float interpSpeed;			//Offset: 16 | ElementSize: 4
-	};
-	ABP_BaseCharacter_C_SetCharacterRotation_Params params;
-	params.TargetRotation = TargetRotation;
-	params.interpRotation = interpRotation;
-	params.interpSpeed = interpSpeed;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -8020,25 +7297,6 @@ void ABP_BaseCharacter_C::LimitRotation(float AimYawLimit, float interpSpeed) {
 }
 
 /////////////////////////////////////////////
-// Function BP_BaseCharacter.BP_BaseCharacter_C.ChooseVelocity
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
-// Params:
-// Name: Velocity	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::ChooseVelocity(struct FVector* Velocity) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.ChooseVelocity");
-
-	struct ABP_BaseCharacter_C_ChooseVelocity_Params {
-		struct FVector Velocity;			//Offset: 0 | ElementSize: 12
-	};
-	ABP_BaseCharacter_C_ChooseVelocity_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-	if (Velocity != nullptr)
-		*Velocity = params.Velocity;
-}
-
-/////////////////////////////////////////////
 // Function BP_BaseCharacter.BP_BaseCharacter_C.DebugMode
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
@@ -8109,16 +7367,16 @@ void ABP_BaseCharacter_C::CanSprint(bool* CanSprint) {
 // Name: RagdollRotation	Type: struct FRotator	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: RagdollLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: ActorRotation	Type: struct FRotator	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
-// Name: ActorLocation	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: actorLocation	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::CalculateActorLocationAndRotationInRagdoll(struct FRotator RagdollRotation, struct FVector RagdollLocation, struct FRotator* ActorRotation, struct FVector* ActorLocation) {
+void ABP_BaseCharacter_C::CalculateActorLocationAndRotationInRagdoll(struct FRotator RagdollRotation, struct FVector RagdollLocation, struct FRotator* ActorRotation, struct FVector* actorLocation) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.CalculateActorLocationAndRotationInRagdoll");
 
 	struct ABP_BaseCharacter_C_CalculateActorLocationAndRotationInRagdoll_Params {
 		struct FRotator RagdollRotation;			//Offset: 0 | ElementSize: 12
 		struct FVector RagdollLocation;			//Offset: 12 | ElementSize: 12
 		struct FRotator ActorRotation;			//Offset: 24 | ElementSize: 12
-		struct FVector ActorLocation;			//Offset: 36 | ElementSize: 12
+		struct FVector actorLocation;			//Offset: 36 | ElementSize: 12
 	};
 	ABP_BaseCharacter_C_CalculateActorLocationAndRotationInRagdoll_Params params;
 	params.RagdollRotation = RagdollRotation;
@@ -8127,8 +7385,8 @@ void ABP_BaseCharacter_C::CalculateActorLocationAndRotationInRagdoll(struct FRot
 	UObject::ProcessEvent(fn, &params);
 	if (ActorRotation != nullptr)
 		*ActorRotation = params.ActorRotation;
-	if (ActorLocation != nullptr)
-		*ActorLocation = params.ActorLocation;
+	if (actorLocation != nullptr)
+		*actorLocation = params.actorLocation;
 }
 
 /////////////////////////////////////////////
@@ -8440,24 +7698,6 @@ void ABP_BaseCharacter_C::Holster_Weapon(bool IsSwitch, bool* bIsSwitch, bool* I
 		*bIsSwitch = params.bIsSwitch;
 	if (IsValidHeldItem != nullptr)
 		*IsValidHeldItem = params.IsValidHeldItem;
-}
-
-/////////////////////////////////////////////
-// Function BP_BaseCharacter.BP_BaseCharacter_C.GetLookingRotation
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
-// Params:
-// Name: ReturnValue	Type: struct FRotator	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor
-/////////////////////////////////////////////
-struct FRotator ABP_BaseCharacter_C::GetLookingRotation() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.GetLookingRotation");
-
-	struct ABP_BaseCharacter_C_GetLookingRotation_Params {
-		struct FRotator ReturnValue;			//Offset: 0 | ElementSize: 12
-	};
-	ABP_BaseCharacter_C_GetLookingRotation_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-	return params.ReturnValue;
 }
 
 /////////////////////////////////////////////
@@ -8984,24 +8224,24 @@ void ABP_BaseCharacter_C::UpdateCharacterSpeedByCharacterType() {
 // Name: StartVector	Type: struct FVector	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Radius	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: ObjectTypes	Type: TArray<TEnumAsByte<EObjectTypeQuery>>	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm
-// Name: ActorToIgnore	Type: class AActor*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: actorToIgnore	Type: class AActor*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Observed	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::VisibilityCheck(struct FVector StartVector, float Radius, const TArray<TEnumAsByte<EObjectTypeQuery>>& ObjectTypes, class AActor* ActorToIgnore, bool* Observed) {
+void ABP_BaseCharacter_C::VisibilityCheck(struct FVector StartVector, float Radius, const TArray<TEnumAsByte<EObjectTypeQuery>>& ObjectTypes, class AActor* actorToIgnore, bool* Observed) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.VisibilityCheck");
 
 	struct ABP_BaseCharacter_C_VisibilityCheck_Params {
 		struct FVector StartVector;			//Offset: 0 | ElementSize: 12
 		float Radius;			//Offset: 12 | ElementSize: 4
 		TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes;			//Offset: 16 | ElementSize: 16
-		class AActor* ActorToIgnore;			//Offset: 32 | ElementSize: 8
+		class AActor* actorToIgnore;			//Offset: 32 | ElementSize: 8
 		bool Observed;			//Offset: 40 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_VisibilityCheck_Params params;
 	params.StartVector = StartVector;
 	params.Radius = Radius;
 	params.ObjectTypes = ObjectTypes;
-	params.ActorToIgnore = ActorToIgnore;
+	params.actorToIgnore = actorToIgnore;
 
 	UObject::ProcessEvent(fn, &params);
 	if (Observed != nullptr)
@@ -9327,8 +8567,9 @@ void ABP_BaseCharacter_C::GetCurrentCameraFOV(float* FieldOfView) {
 // Name: NewClass	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: UpdateOnly	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: LoadGame	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: DelayPresetLoad	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::SetMeshesFromPreset(TEnumAsByte<E_Profession> Profession, class UObject* NewClass, bool UpdateOnly, bool LoadGame) {
+void ABP_BaseCharacter_C::SetMeshesFromPreset(TEnumAsByte<E_Profession> Profession, class UObject* NewClass, bool UpdateOnly, bool LoadGame, bool DelayPresetLoad) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.SetMeshesFromPreset");
 
 	struct ABP_BaseCharacter_C_SetMeshesFromPreset_Params {
@@ -9336,12 +8577,14 @@ void ABP_BaseCharacter_C::SetMeshesFromPreset(TEnumAsByte<E_Profession> Professi
 		class UObject* NewClass;			//Offset: 8 | ElementSize: 8
 		bool UpdateOnly;			//Offset: 16 | ElementSize: 1
 		bool LoadGame;			//Offset: 17 | ElementSize: 1
+		bool DelayPresetLoad;			//Offset: 18 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_SetMeshesFromPreset_Params params;
 	params.Profession = Profession;
 	params.NewClass = NewClass;
 	params.UpdateOnly = UpdateOnly;
 	params.LoadGame = LoadGame;
+	params.DelayPresetLoad = DelayPresetLoad;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -9675,25 +8918,6 @@ void ABP_BaseCharacter_C::OnWaitForCraftingInteraction(class ABP_MasterFurniture
 }
 
 /////////////////////////////////////////////
-// Function BP_BaseCharacter.BP_BaseCharacter_C.GetDirection
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
-// Params:
-// Name: Direction	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::GetDirection(float* Direction) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.GetDirection");
-
-	struct ABP_BaseCharacter_C_GetDirection_Params {
-		float Direction;			//Offset: 0 | ElementSize: 4
-	};
-	ABP_BaseCharacter_C_GetDirection_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-	if (Direction != nullptr)
-		*Direction = params.Direction;
-}
-
-/////////////////////////////////////////////
 // Function BP_BaseCharacter.BP_BaseCharacter_C.ChangeName
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
@@ -9778,31 +9002,16 @@ void ABP_BaseCharacter_C::OnEndFurnitureInteraction(class ABP_MasterFurniture_C*
 }
 
 /////////////////////////////////////////////
-// Function BP_BaseCharacter.BP_BaseCharacter_C.GroundedRotation
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::GroundedRotation() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.GroundedRotation");
-
-	struct ABP_BaseCharacter_C_GroundedRotation_Params {
-	};
-	ABP_BaseCharacter_C_GroundedRotation_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
 // Function BP_BaseCharacter.BP_BaseCharacter_C.On MountMovementMode Changed
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: NewMountMovementMode	Type: TEnumAsByte<E_MovementMode>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: NewMountMovementMode	Type: EAnimalMovementMode	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::On_MountMovementMode_Changed(TEnumAsByte<E_MovementMode> NewMountMovementMode) {
+void ABP_BaseCharacter_C::On_MountMovementMode_Changed(EAnimalMovementMode NewMountMovementMode) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.On MountMovementMode Changed");
 
 	struct ABP_BaseCharacter_C_On_MountMovementMode_Changed_Params {
-		TEnumAsByte<E_MovementMode> NewMountMovementMode;			//Offset: 0 | ElementSize: 1
+		EAnimalMovementMode NewMountMovementMode;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_On_MountMovementMode_Changed_Params params;
 	params.NewMountMovementMode = NewMountMovementMode;
@@ -9883,31 +9092,6 @@ void ABP_BaseCharacter_C::AddSkillsToApprentices(TEnumAsByte<E_Skills> Skill, fl
 }
 
 /////////////////////////////////////////////
-// Function BP_BaseCharacter.BP_BaseCharacter_C.CheckLocationAvailability
-// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: CheckLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: ActorToIgnore	Type: class AActor*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: CorrectLocation	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::CheckLocationAvailability(struct FVector CheckLocation, class AActor* ActorToIgnore, struct FVector* CorrectLocation) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.CheckLocationAvailability");
-
-	struct ABP_BaseCharacter_C_CheckLocationAvailability_Params {
-		struct FVector CheckLocation;			//Offset: 0 | ElementSize: 12
-		class AActor* ActorToIgnore;			//Offset: 16 | ElementSize: 8
-		struct FVector CorrectLocation;			//Offset: 24 | ElementSize: 12
-	};
-	ABP_BaseCharacter_C_CheckLocationAvailability_Params params;
-	params.CheckLocation = CheckLocation;
-	params.ActorToIgnore = ActorToIgnore;
-
-	UObject::ProcessEvent(fn, &params);
-	if (CorrectLocation != nullptr)
-		*CorrectLocation = params.CorrectLocation;
-}
-
-/////////////////////////////////////////////
 // Function BP_BaseCharacter.BP_BaseCharacter_C.MeshSettings
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
@@ -9956,16 +9140,58 @@ void ABP_BaseCharacter_C::UpdateHairMovement() {
 }
 
 /////////////////////////////////////////////
+// Function BP_BaseCharacter.BP_BaseCharacter_C.CreateMergedMeshMaterials
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: SkeletalMeshComp	Type: class USkeletalMeshComponent*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: MaterialData	Type: TMap<class UMaterialInterface*, struct FST_NPCItemColors>	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm
+// Name: Tattoo	Type: class UTexture2D*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_BaseCharacter_C::CreateMergedMeshMaterials(class USkeletalMeshComponent* SkeletalMeshComp, const TMap<class UMaterialInterface*, struct FST_NPCItemColors>& MaterialData, class UTexture2D* Tattoo) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.CreateMergedMeshMaterials");
+
+	struct ABP_BaseCharacter_C_CreateMergedMeshMaterials_Params {
+		class USkeletalMeshComponent* SkeletalMeshComp;			//Offset: 0 | ElementSize: 8
+		TMap<class UMaterialInterface*, struct FST_NPCItemColors> MaterialData;			//Offset: 8 | ElementSize: 80
+		class UTexture2D* Tattoo;			//Offset: 88 | ElementSize: 8
+	};
+	ABP_BaseCharacter_C_CreateMergedMeshMaterials_Params params;
+	params.SkeletalMeshComp = SkeletalMeshComp;
+	params.MaterialData = MaterialData;
+	params.Tattoo = Tattoo;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_BaseCharacter.BP_BaseCharacter_C.ChooseInactivePhysicsAsset
+// Flags: Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ReturnValue	Type: class UPhysicsAsset*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+class UPhysicsAsset* ABP_BaseCharacter_C::ChooseInactivePhysicsAsset() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.ChooseInactivePhysicsAsset");
+
+	struct ABP_BaseCharacter_C_ChooseInactivePhysicsAsset_Params {
+		class UPhysicsAsset* ReturnValue;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_BaseCharacter_C_ChooseInactivePhysicsAsset_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
 // Function BP_BaseCharacter.BP_BaseCharacter_C.Get ALS_Stance BPI
 // Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: stance	Type: TEnumAsByte<E_Stance>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: stance	Type: ECharacterStance	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_BaseCharacter_C::Get_ALS_Stance_BPI(TEnumAsByte<E_Stance>* stance) {
+void ABP_BaseCharacter_C::Get_ALS_Stance_BPI(ECharacterStance* stance) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_BaseCharacter.BP_BaseCharacter_C.Get ALS_Stance BPI");
 
 	struct ABP_BaseCharacter_C_Get_ALS_Stance_BPI_Params {
-		TEnumAsByte<E_Stance> stance;			//Offset: 0 | ElementSize: 1
+		ECharacterStance stance;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_BaseCharacter_C_Get_ALS_Stance_BPI_Params params;
 
@@ -11991,23 +11217,6 @@ void ABP_BaseCharacter_C::GetOptimalizationStage(int32_t* Stage) {
 	UObject::ProcessEvent(fn, &params);
 	if (Stage != nullptr)
 		*Stage = params.Stage;
-}
-
-/////////////////////////////////////////////
-// InputAxisDelegateBinding BP_BaseCharacter.BP_BaseCharacter_C.InputAxisDelegateBinding_1
-// Flags: NetReliable, Static, NetMulticast, MulticastDelegate, Public, Private, Protected, Delegate, HasOutParms, HasDefaults, NetClient, DLLImport, BlueprintCallable, BlueprintEvent, NetValidate
-// Params:
-/////////////////////////////////////////////
-void ABP_BaseCharacter_C::InputAxisDelegateBinding_1() {
-	static auto fn = UObject::FindObject<UFunction>("InputAxisDelegateBinding BP_BaseCharacter.BP_BaseCharacter_C.InputAxisDelegateBinding_1");
-
-	struct ABP_BaseCharacter_C_InputAxisDelegateBinding_1_Params {
-	};
-	ABP_BaseCharacter_C_InputAxisDelegateBinding_1_Params params;
-
-	static auto Obj = StaticClass()->CreateDefaultObject();
-	Obj->ProcessEvent(fn, &params);
-
 }
 
 #pragma endregion

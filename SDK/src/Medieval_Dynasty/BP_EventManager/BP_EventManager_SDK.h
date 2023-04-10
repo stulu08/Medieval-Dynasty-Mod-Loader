@@ -1,0 +1,13 @@
+#pragma once
+/////////////////////////////////////////////
+// Package BP_EventManager
+// Classes: 1
+// Enums: 0
+// Structs: 0
+// Objects: 24
+/////////////////////////////////////////////
+
+
+#include "Structs.h"
+
+#include "BP_EventManager_C.h"

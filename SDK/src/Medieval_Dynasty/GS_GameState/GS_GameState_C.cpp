@@ -41,10 +41,7 @@ void AGS_GameState_C::ExecuteUbergraph_GS_GameState(int32_t EntryPoint) {
 	AGS_GameState_C_ExecuteUbergraph_GS_GameState_Params params;
 	params.EntryPoint = EntryPoint;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -68,10 +65,7 @@ void AGS_GameState_C::Replicate_RemoveInstance(class UInstancedStaticMeshCompone
 	params.InputPin = InputPin;
 	params.InputPin1 = InputPin1;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -95,10 +89,7 @@ void AGS_GameState_C::RemoveFoliageInstance(class UInstancedStaticMeshComponent*
 	params.InputPin = InputPin;
 	params.InputPin1 = InputPin1;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 #pragma endregion

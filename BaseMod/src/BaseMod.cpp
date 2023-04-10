@@ -270,25 +270,6 @@ namespace MDMLBase {
 					}
 					ImGui::TreePop();
 				}
-				if (ImGui::TreeNodeEx("NPC Presets Female", DEFAULT_TREE_NODE_FLAGS)) {
-					auto tableMap = Utils::GetDataTableItems<UE4::FName, UE4::FST_NPCsPresets*>("DataTable DT_FemaleNPCPresets.DT_FemaleNPCPresets");
-					for (int i = 0; i < tableMap.Num(); i++) {
-						UE4::TPair<UE4::FName, UE4::FST_NPCsPresets*> pair = tableMap.GetPair(i);
-						if (ImGui::TreeNodeEx(pair.Key.GetName().c_str(), DEFAULT_TREE_NODE_FLAGS)) {
-							ImGui::Text("ID: %s", pair.Value->PresetID.GetName().c_str());
-							ImGui::Text("Professions: %d", pair.Value->Profession.Num());
-							if(pair.Value->Meshes.Hat.Mesh.Get())
-								ImGui::Text("BodyMesh: %s", pair.Value->Meshes.Hat.Mesh.Get()->GetName());
-							else
-								ImGui::Text("BodyMesh: { ObjectIndex: %d, ObjectSerialNumber: %d, AssetPathName: %s }", 
-									pair.Value->Meshes.Hat.Mesh.SoftObjectPtr.WeakPtr.ObjectIndex,
-									pair.Value->Meshes.Hat.Mesh.SoftObjectPtr.WeakPtr.ObjectSerialNumber,
-									pair.Value->Meshes.Hat.Mesh.SoftObjectPtr.ObjectID.AssetPathName.GetName().c_str());
-							ImGui::TreePop();
-						}
-					}
-					ImGui::TreePop();
-				}
 			}
 
 		}

@@ -40,8 +40,9 @@ public:
 	UE4::APC_Player_C* getPlayer() const { return PlayerController; }
 	UE4::ABP_PlayerCharacter_C* getPlayerCharacter() const { return PlayerCharacter; }
 	UE4::UGI_MedievalDynasty_C* getMedievalDynastyGameInstance() const { return MedievalDynastyGameInstance; }
-	UE4::AGM_MedievalDynasty_C* getMedievalDynastyGameMode() const { return MedievalDynastyGameMode; }
 	UE4::AGS_GameState_C* getMedievalDynastyGameState() const { return MedievalDynastyGameState; }
+	UE4::ABP_SystemsManager_C* getMainGameManager() const { return MainManager; }
+
 	Ref<Logger> getLogger() const { return logger; }
 protected:
 	virtual void InitializeMod() override;
@@ -72,8 +73,9 @@ protected:
 	UE4::APC_Player_C* PlayerController;
 	UE4::ABP_PlayerCharacter_C* PlayerCharacter;
 	UE4::UGI_MedievalDynasty_C* MedievalDynastyGameInstance;
-	UE4::AGM_MedievalDynasty_C* MedievalDynastyGameMode;
 	UE4::AGS_GameState_C* MedievalDynastyGameState;
+	UE4::ABP_SystemsManager_C* MainManager;
+
 
 	bool TickWhenGamePaused = false;
 	EventsEnabled::EnabledEvents EnabledModEvents = EventsEnabled::EngineOnly;

@@ -56,10 +56,10 @@ public:
 	float* M_PtrGetMusicVolumeValue();
 	void M_SetMusicVolumeValue(const float& value);
 
-	//int32_t	viewDistanceScale;		//Offset: 536	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	int32_t M_GetviewDistanceScale() const;
-	int32_t* M_PtrGetviewDistanceScale();
-	void M_SetviewDistanceScale(const int32_t& value);
+	//int32_t	ViewDistanceScale;		//Offset: 536	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	int32_t M_GetViewDistanceScale() const;
+	int32_t* M_PtrGetViewDistanceScale();
+	void M_SetViewDistanceScale(const int32_t& value);
 
 	//int32_t	PostProcessAAQuality;		//Offset: 540	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	int32_t M_GetPostProcessAAQuality() const;
@@ -943,6 +943,10 @@ public:
 	void SetPerformanceMode(bool PerformanceModeActive);
 
 	void GameSettings();
+
+	void LoadSettingsFile(bool* SuccessfulLoad);
+
+	void ReapplySettingsFromFile();
 
 	void GetBackgroundIndex(int32_t* BackgroundIndex);
 

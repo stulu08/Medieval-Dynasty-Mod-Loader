@@ -82,27 +82,32 @@ void AAIC_NPC_Bandits_C::BndEvt__AIC_NPC_Bandit_AIPerception_K2Node_ComponentBou
 
 /////////////////////////////////////////////
 // ComponentDelegateBinding AIC_NPC_Bandits.AIC_NPC_Bandits_C.ComponentDelegateBinding_1
-// Flags: NetReliable, NetRequest, Exec, Native, NetMulticast, MulticastDelegate, Public, Protected, NetServer, HasOutParms, DLLImport, BlueprintCallable, Const, NetValidate
+// Flags: Final, Net, Private, Protected, HasOutParms
 // Params:
-// Name: nullptr	Type: TAssetPtr<class FNone_1447122241>	Flags: BlueprintReadOnly, Net, EditFixedSize, Parm, ReturnParm, Config, EditConst, GlobalConfig, InstancedReference, DuplicateTransient, SubobjectReference, SaveGame, NoClear, RepSkip, Interp, NonTransactional, NoDestructor, AutoWeak, ContainsInstancedReference, AssetRegistrySearchable, SimpleDisplay, AdvancedDisplay, Protected, BlueprintCallable, BlueprintAuthorityOnly, TextExportTransient
 /////////////////////////////////////////////
-TAssetPtr<class FNone_1447122241> AAIC_NPC_Bandits_C::ComponentDelegateBinding_1()/* const*/ {
+void AAIC_NPC_Bandits_C::ComponentDelegateBinding_1() {
 	static auto fn = UObject::FindObject<UFunction>("ComponentDelegateBinding AIC_NPC_Bandits.AIC_NPC_Bandits_C.ComponentDelegateBinding_1");
 
 	struct AAIC_NPC_Bandits_C_ComponentDelegateBinding_1_Params {
-		TAssetPtr<class FNone_1447122241> out;			//Offset: 32758 | ElementSize: 32758
 	};
 	AAIC_NPC_Bandits_C_ComponentDelegateBinding_1_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
-	uint32_t newFlags = flags;
-	newFlags |= 0x00000400;
-	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// InheritableComponentHandler AIC_NPC_Bandits.AIC_NPC_Bandits_C.InheritableComponentHandler
+// Flags: Final, RequiredAPI, BlueprintAuthorityOnly, BlueprintCosmetic
+// Params:
+/////////////////////////////////////////////
+void AAIC_NPC_Bandits_C::InheritableComponentHandler() {
+	static auto fn = UObject::FindObject<UFunction>("InheritableComponentHandler AIC_NPC_Bandits.AIC_NPC_Bandits_C.InheritableComponentHandler");
+
+	struct AAIC_NPC_Bandits_C_InheritableComponentHandler_Params {
+	};
+	AAIC_NPC_Bandits_C_InheritableComponentHandler_Params params;
 
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
-	return params.out;
 }
 
 /////////////////////////////////////////////
@@ -111,7 +116,7 @@ TAssetPtr<class FNone_1447122241> AAIC_NPC_Bandits_C::ComponentDelegateBinding_1
 // Params:
 // Name: Actor	Type: class AActor*	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void AAIC_NPC_Bandits_C::AI_Start_Combat(class AActor* Actor) {
+void AAIC_NPC_Bandits_C::AI_Start_Combat(class AActor*& Actor) {
 	static auto fn = UObject::FindObject<UFunction>("Function AIC_NPC_Bandits.AIC_NPC_Bandits_C.AI Start Combat");
 
 	struct AAIC_NPC_Bandits_C_AI_Start_Combat_Params {

@@ -560,7 +560,7 @@ void AAIC_NPC_C::AI_SetWaitTask(bool CheckDayActivities) {
 // Params:
 // Name: Actor	Type: class AActor*	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void AAIC_NPC_C::AI_Start_Combat(class AActor* Actor) {
+void AAIC_NPC_C::AI_Start_Combat(class AActor*& Actor) {
 	static auto fn = UObject::FindObject<UFunction>("Function AIC_NPC.AIC_NPC_C.AI Start Combat");
 
 	struct AAIC_NPC_C_AI_Start_Combat_Params {
@@ -576,16 +576,16 @@ void AAIC_NPC_C::AI_Start_Combat(class AActor* Actor) {
 // Function AIC_NPC.AIC_NPC_C.AI_SetRotationManaged
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: IsRotationManaged	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: isRotationManaged	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void AAIC_NPC_C::AI_SetRotationManaged(bool IsRotationManaged) {
+void AAIC_NPC_C::AI_SetRotationManaged(bool isRotationManaged) {
 	static auto fn = UObject::FindObject<UFunction>("Function AIC_NPC.AIC_NPC_C.AI_SetRotationManaged");
 
 	struct AAIC_NPC_C_AI_SetRotationManaged_Params {
-		bool IsRotationManaged;			//Offset: 0 | ElementSize: 1
+		bool isRotationManaged;			//Offset: 0 | ElementSize: 1
 	};
 	AAIC_NPC_C_AI_SetRotationManaged_Params params;
-	params.IsRotationManaged = IsRotationManaged;
+	params.isRotationManaged = isRotationManaged;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -660,6 +660,24 @@ void AAIC_NPC_C::AI_StopFurnitureAnimation(class AActor* Furniture) {
 }
 
 /////////////////////////////////////////////
+// Function AIC_NPC.AIC_NPC_C.AI_DestroyAudioComponent
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: WaitForSoundToFinish	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void AAIC_NPC_C::AI_DestroyAudioComponent(bool WaitForSoundToFinish) {
+	static auto fn = UObject::FindObject<UFunction>("Function AIC_NPC.AIC_NPC_C.AI_DestroyAudioComponent");
+
+	struct AAIC_NPC_C_AI_DestroyAudioComponent_Params {
+		bool WaitForSoundToFinish;			//Offset: 0 | ElementSize: 1
+	};
+	AAIC_NPC_C_AI_DestroyAudioComponent_Params params;
+	params.WaitForSoundToFinish = WaitForSoundToFinish;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
 // Function AIC_NPC.AIC_NPC_C.AI_StopAudio
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
@@ -676,36 +694,24 @@ void AAIC_NPC_C::AI_StopAudio() {
 
 /////////////////////////////////////////////
 // Function AIC_NPC.AIC_NPC_C.AI_PlayAudio
-// Flags: Public, BlueprintCallable, BlueprintEvent
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
+// Name: Audio	Type: class USoundBase*	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: StartTime	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: DestroyAfterPlaying	Type: bool	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void AAIC_NPC_C::AI_PlayAudio(float StartTime) {
+void AAIC_NPC_C::AI_PlayAudio(class USoundBase*& Audio, float StartTime, bool DestroyAfterPlaying) {
 	static auto fn = UObject::FindObject<UFunction>("Function AIC_NPC.AIC_NPC_C.AI_PlayAudio");
 
 	struct AAIC_NPC_C_AI_PlayAudio_Params {
-		float StartTime;			//Offset: 0 | ElementSize: 4
+		class USoundBase* Audio;			//Offset: 0 | ElementSize: 8
+		float StartTime;			//Offset: 8 | ElementSize: 4
+		bool DestroyAfterPlaying;			//Offset: 12 | ElementSize: 1
 	};
 	AAIC_NPC_C_AI_PlayAudio_Params params;
+	params.Audio = Audio;
 	params.StartTime = StartTime;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function AIC_NPC.AIC_NPC_C.AI_SetSound
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Sound	Type: TAssetPtr<class USoundBase>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
-/////////////////////////////////////////////
-void AAIC_NPC_C::AI_SetSound(TAssetPtr<class USoundBase> Sound) {
-	static auto fn = UObject::FindObject<UFunction>("Function AIC_NPC.AIC_NPC_C.AI_SetSound");
-
-	struct AAIC_NPC_C_AI_SetSound_Params {
-		TAssetPtr<class USoundBase> Sound;			//Offset: 0 | ElementSize: 40
-	};
-	AAIC_NPC_C_AI_SetSound_Params params;
-	params.Sound = Sound;
+	params.DestroyAfterPlaying = DestroyAfterPlaying;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -2034,35 +2040,6 @@ void AAIC_NPC_C::OnFail_0A0414E3447604926B5365B0ED2C24D3(TEnumAsByte<EPathFollow
 }
 
 /////////////////////////////////////////////
-// Function AIC_NPC.AIC_NPC_C.GetDistanceAndDirection
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
-// Params:
-// Name: Target_Location	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Current_Location	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Distance	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Direction	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void AAIC_NPC_C::GetDistanceAndDirection(struct FVector Target_Location, struct FVector Current_Location, float* Distance, struct FVector* Direction) {
-	static auto fn = UObject::FindObject<UFunction>("Function AIC_NPC.AIC_NPC_C.GetDistanceAndDirection");
-
-	struct AAIC_NPC_C_GetDistanceAndDirection_Params {
-		struct FVector Target_Location;			//Offset: 0 | ElementSize: 12
-		struct FVector Current_Location;			//Offset: 12 | ElementSize: 12
-		float Distance;			//Offset: 24 | ElementSize: 4
-		struct FVector Direction;			//Offset: 28 | ElementSize: 12
-	};
-	AAIC_NPC_C_GetDistanceAndDirection_Params params;
-	params.Target_Location = Target_Location;
-	params.Current_Location = Current_Location;
-
-	UObject::ProcessEvent(fn, &params);
-	if (Distance != nullptr)
-		*Distance = params.Distance;
-	if (Direction != nullptr)
-		*Direction = params.Direction;
-}
-
-/////////////////////////////////////////////
 // Function AIC_NPC.AIC_NPC_C.SetSceneName
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
@@ -2078,31 +2055,6 @@ void AAIC_NPC_C::SetSceneName(class ABP_NPC_C* NPC) {
 	params.NPC = NPC;
 
 	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function AIC_NPC.AIC_NPC_C.CheckIsBuilding
-// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: CheckLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Destination	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewLocation	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void AAIC_NPC_C::CheckIsBuilding(struct FVector CheckLocation, struct FVector Destination, struct FVector* NewLocation) {
-	static auto fn = UObject::FindObject<UFunction>("Function AIC_NPC.AIC_NPC_C.CheckIsBuilding");
-
-	struct AAIC_NPC_C_CheckIsBuilding_Params {
-		struct FVector CheckLocation;			//Offset: 0 | ElementSize: 12
-		struct FVector Destination;			//Offset: 12 | ElementSize: 12
-		struct FVector NewLocation;			//Offset: 24 | ElementSize: 12
-	};
-	AAIC_NPC_C_CheckIsBuilding_Params params;
-	params.CheckLocation = CheckLocation;
-	params.Destination = Destination;
-
-	UObject::ProcessEvent(fn, &params);
-	if (NewLocation != nullptr)
-		*NewLocation = params.NewLocation;
 }
 
 /////////////////////////////////////////////
@@ -2253,65 +2205,33 @@ void AAIC_NPC_C::AI_FindFoliage(TEnumAsByte<E_Resources> TargetType, struct FVec
 
 /////////////////////////////////////////////
 // Function AIC_NPC.AIC_NPC_C.AI_GetTargetLocation
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: Target	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: MaxDistance	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: MaxDirection	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: DistanceToLastPoint	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: OutsideLastPoint	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: Location	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void AAIC_NPC_C::AI_GetTargetLocation(struct FVector Target, float MaxDistance, float MaxDirection, float DistanceToLastPoint, bool OutsideLastPoint, struct FVector* Location) {
+void AAIC_NPC_C::AI_GetTargetLocation(struct FVector Target, float MaxDistance, float MaxDirection, bool OutsideLastPoint, struct FVector* Location) {
 	static auto fn = UObject::FindObject<UFunction>("Function AIC_NPC.AIC_NPC_C.AI_GetTargetLocation");
 
 	struct AAIC_NPC_C_AI_GetTargetLocation_Params {
 		struct FVector Target;			//Offset: 0 | ElementSize: 12
 		float MaxDistance;			//Offset: 12 | ElementSize: 4
 		float MaxDirection;			//Offset: 16 | ElementSize: 4
-		float DistanceToLastPoint;			//Offset: 20 | ElementSize: 4
-		bool OutsideLastPoint;			//Offset: 24 | ElementSize: 1
-		struct FVector Location;			//Offset: 28 | ElementSize: 12
+		bool OutsideLastPoint;			//Offset: 20 | ElementSize: 1
+		struct FVector Location;			//Offset: 24 | ElementSize: 12
 	};
 	AAIC_NPC_C_AI_GetTargetLocation_Params params;
 	params.Target = Target;
 	params.MaxDistance = MaxDistance;
 	params.MaxDirection = MaxDirection;
-	params.DistanceToLastPoint = DistanceToLastPoint;
 	params.OutsideLastPoint = OutsideLastPoint;
 
 	UObject::ProcessEvent(fn, &params);
 	if (Location != nullptr)
 		*Location = params.Location;
-}
-
-/////////////////////////////////////////////
-// Function AIC_NPC.AIC_NPC_C.AI_GetDistanceAndDirection
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Target_Location	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Current_Location	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Distance	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Direction	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void AAIC_NPC_C::AI_GetDistanceAndDirection(struct FVector Target_Location, struct FVector Current_Location, float* Distance, struct FVector* Direction) {
-	static auto fn = UObject::FindObject<UFunction>("Function AIC_NPC.AIC_NPC_C.AI_GetDistanceAndDirection");
-
-	struct AAIC_NPC_C_AI_GetDistanceAndDirection_Params {
-		struct FVector Target_Location;			//Offset: 0 | ElementSize: 12
-		struct FVector Current_Location;			//Offset: 12 | ElementSize: 12
-		float Distance;			//Offset: 24 | ElementSize: 4
-		struct FVector Direction;			//Offset: 28 | ElementSize: 12
-	};
-	AAIC_NPC_C_AI_GetDistanceAndDirection_Params params;
-	params.Target_Location = Target_Location;
-	params.Current_Location = Current_Location;
-
-	UObject::ProcessEvent(fn, &params);
-	if (Distance != nullptr)
-		*Distance = params.Distance;
-	if (Direction != nullptr)
-		*Direction = params.Direction;
 }
 
 /////////////////////////////////////////////
@@ -2843,21 +2763,21 @@ void AAIC_NPC_C::AI_GetIsChangedTimeOfDay(TEnumAsByte<E_TimeOfDay> TimeOfDay, bo
 // Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: Channel	Type: TEnumAsByte<ECollisionChannel>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Resposne	Type: TEnumAsByte<ECollisionResponse>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Response	Type: TEnumAsByte<ECollisionResponse>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void AAIC_NPC_C::AI_GetCollisionResponse(TEnumAsByte<ECollisionChannel> Channel, TEnumAsByte<ECollisionResponse>* Resposne) {
+void AAIC_NPC_C::AI_GetCollisionResponse(TEnumAsByte<ECollisionChannel> Channel, TEnumAsByte<ECollisionResponse>* Response) {
 	static auto fn = UObject::FindObject<UFunction>("Function AIC_NPC.AIC_NPC_C.AI_GetCollisionResponse");
 
 	struct AAIC_NPC_C_AI_GetCollisionResponse_Params {
 		TEnumAsByte<ECollisionChannel> Channel;			//Offset: 0 | ElementSize: 1
-		TEnumAsByte<ECollisionResponse> Resposne;			//Offset: 1 | ElementSize: 1
+		TEnumAsByte<ECollisionResponse> Response;			//Offset: 1 | ElementSize: 1
 	};
 	AAIC_NPC_C_AI_GetCollisionResponse_Params params;
 	params.Channel = Channel;
 
 	UObject::ProcessEvent(fn, &params);
-	if (Resposne != nullptr)
-		*Resposne = params.Resposne;
+	if (Response != nullptr)
+		*Response = params.Response;
 }
 
 /////////////////////////////////////////////
@@ -2883,19 +2803,19 @@ void AAIC_NPC_C::AI_GetOptimizationBlackboards(struct FST_SAVE_NPC_Blackboards* 
 // Function AIC_NPC.AIC_NPC_C.AI_GetDead
 // Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: IsDead	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: isDead	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void AAIC_NPC_C::AI_GetDead(bool* IsDead) {
+void AAIC_NPC_C::AI_GetDead(bool* isDead) {
 	static auto fn = UObject::FindObject<UFunction>("Function AIC_NPC.AIC_NPC_C.AI_GetDead");
 
 	struct AAIC_NPC_C_AI_GetDead_Params {
-		bool IsDead;			//Offset: 0 | ElementSize: 1
+		bool isDead;			//Offset: 0 | ElementSize: 1
 	};
 	AAIC_NPC_C_AI_GetDead_Params params;
 
 	UObject::ProcessEvent(fn, &params);
-	if (IsDead != nullptr)
-		*IsDead = params.IsDead;
+	if (isDead != nullptr)
+		*isDead = params.isDead;
 }
 
 /////////////////////////////////////////////
@@ -3364,19 +3284,23 @@ void AAIC_NPC_C::AI_GetWhetherAffectNavigation(bool* WhetherAffectNavigation) {
 // Function AIC_NPC.AIC_NPC_C.AI_FindPOIFurniture
 // Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
+// Name: FurnitureTypes	Type: TArray<TEnumAsByte<E_FurnitureType>>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm
 // Name: IsFurniture	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: Destination	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void AAIC_NPC_C::AI_FindPOIFurniture(bool* IsFurniture, struct FVector* Destination) {
+void AAIC_NPC_C::AI_FindPOIFurniture(TArray<TEnumAsByte<E_FurnitureType>>* FurnitureTypes, bool* IsFurniture, struct FVector* Destination) {
 	static auto fn = UObject::FindObject<UFunction>("Function AIC_NPC.AIC_NPC_C.AI_FindPOIFurniture");
 
 	struct AAIC_NPC_C_AI_FindPOIFurniture_Params {
-		bool IsFurniture;			//Offset: 0 | ElementSize: 1
-		struct FVector Destination;			//Offset: 4 | ElementSize: 12
+		TArray<TEnumAsByte<E_FurnitureType>> FurnitureTypes;			//Offset: 0 | ElementSize: 16
+		bool IsFurniture;			//Offset: 16 | ElementSize: 1
+		struct FVector Destination;			//Offset: 20 | ElementSize: 12
 	};
 	AAIC_NPC_C_AI_FindPOIFurniture_Params params;
 
 	UObject::ProcessEvent(fn, &params);
+	if (FurnitureTypes != nullptr)
+		*FurnitureTypes = params.FurnitureTypes;
 	if (IsFurniture != nullptr)
 		*IsFurniture = params.IsFurniture;
 	if (Destination != nullptr)
@@ -4025,19 +3949,19 @@ void AAIC_NPC_C::AI_CheckCanTalk(bool CheckResourceState, bool* CanTalk) {
 // Function AIC_NPC.AIC_NPC_C.AI_GetRotationManaged
 // Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: IsRotationManaged	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: isRotationManaged	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void AAIC_NPC_C::AI_GetRotationManaged(bool* IsRotationManaged) {
+void AAIC_NPC_C::AI_GetRotationManaged(bool* isRotationManaged) {
 	static auto fn = UObject::FindObject<UFunction>("Function AIC_NPC.AIC_NPC_C.AI_GetRotationManaged");
 
 	struct AAIC_NPC_C_AI_GetRotationManaged_Params {
-		bool IsRotationManaged;			//Offset: 0 | ElementSize: 1
+		bool isRotationManaged;			//Offset: 0 | ElementSize: 1
 	};
 	AAIC_NPC_C_AI_GetRotationManaged_Params params;
 
 	UObject::ProcessEvent(fn, &params);
-	if (IsRotationManaged != nullptr)
-		*IsRotationManaged = params.IsRotationManaged;
+	if (isRotationManaged != nullptr)
+		*isRotationManaged = params.isRotationManaged;
 }
 
 /////////////////////////////////////////////
@@ -4136,6 +4060,80 @@ void AAIC_NPC_C::AI_CheckIsField(bool* IsField) {
 	UObject::ProcessEvent(fn, &params);
 	if (IsField != nullptr)
 		*IsField = params.IsField;
+}
+
+/////////////////////////////////////////////
+// Function AIC_NPC.AIC_NPC_C.AI_GoToTeleport
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: OnSuccess	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: Location	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: PathPoints	Type: TArray<struct FVector>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm
+// Name: Success	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void AAIC_NPC_C::AI_GoToTeleport(bool OnSuccess, struct FVector Location, TArray<struct FVector>* PathPoints, bool* Success) {
+	static auto fn = UObject::FindObject<UFunction>("Function AIC_NPC.AIC_NPC_C.AI_GoToTeleport");
+
+	struct AAIC_NPC_C_AI_GoToTeleport_Params {
+		bool OnSuccess;			//Offset: 0 | ElementSize: 1
+		struct FVector Location;			//Offset: 4 | ElementSize: 12
+		TArray<struct FVector> PathPoints;			//Offset: 16 | ElementSize: 16
+		bool Success;			//Offset: 32 | ElementSize: 1
+	};
+	AAIC_NPC_C_AI_GoToTeleport_Params params;
+	params.OnSuccess = OnSuccess;
+	params.Location = Location;
+
+	UObject::ProcessEvent(fn, &params);
+	if (PathPoints != nullptr)
+		*PathPoints = params.PathPoints;
+	if (Success != nullptr)
+		*Success = params.Success;
+}
+
+/////////////////////////////////////////////
+// Function AIC_NPC.AIC_NPC_C.AI_FindPOISpawnPoint
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: IsSpawnPoint	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: Destination	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void AAIC_NPC_C::AI_FindPOISpawnPoint(bool* IsSpawnPoint, struct FVector* Destination) {
+	static auto fn = UObject::FindObject<UFunction>("Function AIC_NPC.AIC_NPC_C.AI_FindPOISpawnPoint");
+
+	struct AAIC_NPC_C_AI_FindPOISpawnPoint_Params {
+		bool IsSpawnPoint;			//Offset: 0 | ElementSize: 1
+		struct FVector Destination;			//Offset: 4 | ElementSize: 12
+	};
+	AAIC_NPC_C_AI_FindPOISpawnPoint_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (IsSpawnPoint != nullptr)
+		*IsSpawnPoint = params.IsSpawnPoint;
+	if (Destination != nullptr)
+		*Destination = params.Destination;
+}
+
+/////////////////////////////////////////////
+// ComponentDelegateBinding AIC_NPC.AIC_NPC_C.ComponentDelegateBinding_1
+// Flags: Native, MulticastDelegate, Public, Protected, NetClient, DLLImport, BlueprintPure, Const
+// Params:
+/////////////////////////////////////////////
+void AAIC_NPC_C::ComponentDelegateBinding_1()/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("ComponentDelegateBinding AIC_NPC.AIC_NPC_C.ComponentDelegateBinding_1");
+
+	struct AAIC_NPC_C_ComponentDelegateBinding_1_Params {
+	};
+	AAIC_NPC_C_ComponentDelegateBinding_1_Params params;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
+	UObject::ProcessEvent(fn, &params);
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
 }
 
 #pragma endregion

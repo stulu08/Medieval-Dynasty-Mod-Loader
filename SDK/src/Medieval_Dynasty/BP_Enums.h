@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 /////////////////////////////////////////////
-// Enums: 178
+// Enums: 164
 /////////////////////////////////////////////
 
 namespace UE4 {
@@ -1063,672 +1063,203 @@ enum class E_GamepadControlType : uint8_t {
 	E_MAX = 4,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_BuildingModifications.E_BuildingModifications
+// UserDefinedEnum E_Cutscenes.E_Cutscenes
 /////////////////////////////////////////////
-enum class E_BuildingModifications : uint8_t {
-	None = 0,
-	Building = 1,
-	Repair = 2,
-	Upgrade = 3,
-	Downgrade = 4,
-	Destroy = 5,
-	E_MAX = 6,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_BagMode.E_BagMode
-/////////////////////////////////////////////
-enum class E_BagMode : uint8_t {
-	Fertilizer = 0,
-	Wheat = 1,
-	Oat = 2,
-	Rye = 3,
-	Flax = 4,
-	Cabbage = 5,
-	Carrot = 6,
-	Beetroot = 7,
-	Onion = 8,
-	Seeds = 9,
-	None = 10,
-	Poppy = 11,
-	Hop = 12,
-	Apple = 13,
-	Pear = 14,
-	Plum = 15,
-	Cherry = 16,
-	E_MAX = 17,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_Fluids.E_Fluids
-/////////////////////////////////////////////
-enum class E_Fluids : uint8_t {
-	None = 0,
-	Water = 1,
-	DirtyWater = 2,
-	Milk = 3,
-	E_MAX = 4,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_Seeds.E_Seeds
-/////////////////////////////////////////////
-enum class E_Seeds : uint8_t {
-	None = 0,
-	WheatSeed = 1,
-	OatSeed = 2,
-	RyeSeed = 3,
-	FlaxSeed = 4,
-	BeetrootSeed = 5,
-	OnionSeed = 6,
-	CabbageSeed = 7,
-	CarrotSeed = 8,
-	AppleSeedling = 9,
-	PearSeedling = 10,
-	PlumSeedling = 11,
-	CherrySeedling = 12,
-	PoppySeed = 13,
-	HopSeedling = 14,
-	E_MAX = 15,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_TimeOfDay.E_TimeOfDay
-/////////////////////////////////////////////
-enum class E_TimeOfDay : uint8_t {
-	Morning = 0,
-	Day = 1,
-	Evening = 2,
-	Night = 3,
-	E_MAX = 4,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_DeathType.E_DeathType
-/////////////////////////////////////////////
-enum class E_DeathType : uint8_t {
-	NoHP = 0,
-	TooOld_NoHeir = 1,
-	Banished = 2,
-	TooOld_Heir = 3,
-	E_MAX = 4,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_DecorationSlotType.E_DecorationSlotType
-/////////////////////////////////////////////
-enum class E_DecorationSlotType : uint8_t {
-	Interior = 0,
-	Exterior = 1,
-	Both = 2,
-	E_MAX = 3,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_Notifications.E_Notifications
-/////////////////////////////////////////////
-enum class E_Notifications : uint8_t {
-	Add_Item = 0,
-	Remove_Item = 1,
-	Consume_Item = 2,
-	Information = 3,
-	Warning = 4,
-	BrokenItem = 5,
-	PoisonedStatus = 6,
-	OverencumberedStatus = 7,
-	HotStatus = 8,
-	ColdStatus = 9,
-	E_MAX = 10,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_Workbenches.E_Workbenches
-/////////////////////////////////////////////
-enum class E_Workbenches : uint8_t {
-	None = 0,
-	Hands = 1,
-	Campfire = 2,
-	Cauldron = 3,
-	SaltingBarrel = 4,
-	DryingRack = 5,
-	HuntingLodgeTable = 6,
-	FishingHutTable = 7,
-	SmithyTable = 8,
-	Forge = 9,
-	ThreshingFloor = 10,
-	BarnTable = 11,
-	SpinningWheels = 12,
-	Loom = 13,
-	DyeingVats = 14,
-	Stove = 15,
-	TailoringTable = 16,
-	Anvil = 17,
-	Grate = 18,
-	Quern = 19,
-	CarpentersTable = 20,
-	WineBarrel = 21,
-	JuicePress = 22,
-	WoodworkingTable = 23,
-	PotteryWheel = 24,
-	BrewingStation = 25,
-	HerbalistTable = 26,
-	Well = 27,
-	Millstone = 28,
-	E_MAX = 29,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_BanditNames.E_BanditNames
-/////////////////////////////////////////////
-enum class E_BanditNames : uint8_t {
-	Bandit = 0,
-	Deserter = 1,
-	Robber = 2,
-	Thug = 3,
-	Mugger = 4,
-	E_MAX = 5,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_BanditType.E_BanditType
-/////////////////////////////////////////////
-enum class E_BanditType : uint8_t {
-	None = 0,
-	Crossbowman = 1,
-	Archer = 2,
-	Spearman = 3,
-	Axeman = 4,
-	Batman = 5,
-	Cutthroat = 6,
-	Bruiser = 7,
-	E_MAX = 8,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_OutsideNPCTypes.E_OutsideNPCTypes
-/////////////////////////////////////////////
-enum class E_OutsideNPCTypes : uint8_t {
-	None = 0,
-	Random = 1,
-	Neighbour = 2,
-	Herald = 3,
-	GiftVendor = 4,
-	Quest = 5,
-	Waggoner = 6,
+enum class E_Cutscenes : uint8_t {
+	Intro = 0,
+	HeirBorn = 1,
+	Wedding = 2,
+	DeathNegative = 3,
+	DeathPositive = 4,
+	ExileNegative = 5,
+	ExilePositive = 6,
 	E_MAX = 7,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_NPCPresetTypes.E_NPCPresetTypes
+// UserDefinedEnum E_InventoryOwnerType.E_InventoryOwnerType
 /////////////////////////////////////////////
-enum class E_NPCPresetTypes : uint8_t {
-	Toddler = 0,
-	Boy = 1,
-	Girl = 2,
-	Male = 3,
-	Female = 4,
-	E_MAX = 5,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_Wealth.E_Wealth
-/////////////////////////////////////////////
-enum class E_Wealth : uint8_t {
+enum class E_InventoryOwnerType : uint8_t {
 	None = 0,
-	Poor = 1,
-	Average = 2,
-	Rich = 3,
-	E_MAX = 4,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_FurnitureSlotType.E_FurnitureSlotType
-/////////////////////////////////////////////
-enum class E_FurnitureSlotType : uint8_t {
-	Front = 0,
-	Left = 1,
-	Right = 2,
-	Back = 3,
-	E_MAX = 4,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_NPC_Bandit_BlackboardBoolean.E_NPC_Bandit_BlackboardBoolean
-/////////////////////////////////////////////
-enum class E_NPC_Bandit_BlackboardBoolean : uint8_t {
-	WaitForAnimation = 0,
-	WaitForBlock = 1,
-	WaitForAttack = 2,
-	WaitForShoot = 3,
-	WaitForDodge = 4,
-	E_NPC_Bandit_MAX = 5,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_AnimDirection.E_AnimDirection
-/////////////////////////////////////////////
-enum class E_AnimDirection : uint8_t {
-	Random = 0,
-	Left = 1,
-	Right = 2,
-	Back = 3,
-	Down = 4,
-	E_MAX = 5,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_AnimMovement.E_AnimMovement
-/////////////////////////////////////////////
-enum class E_AnimMovement : uint8_t {
-	Random = 0,
-	Inplace = 1,
-	RootMotion = 2,
-	E_MAX = 3,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_ActorType.E_ActorType
-/////////////////////////////////////////////
-enum class E_ActorType : uint8_t {
-	NPC = 0,
-	Animal = 1,
-	Item = 2,
-	ChestItems = 3,
-	Furniture = 4,
-	Mesh = 5,
-	Decal = 6,
-	CollectableFurniture = 7,
-	Custom = 8,
-	E_MAX = 9,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_Stance.E_Stance
-/////////////////////////////////////////////
-enum class E_Stance : uint8_t {
-	Standing = 0,
-	Crouching = 1,
-	Sitting = 2,
-	Sleeping = 3,
-	E_MAX = 4,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_POI_Type.E_POI_Type
-/////////////////////////////////////////////
-enum class E_POI_Type : uint8_t {
-	None = 0,
-	Misc = 1,
-	Accident = 2,
-	Vendor = 3,
-	Treasure = 4,
-	Bandits = 5,
-	Animals = 6,
-	Quest = 7,
-	Resources = 8,
-	E_POI_MAX = 9,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_AnimalAgeStage.E_AnimalAgeStage
-/////////////////////////////////////////////
-enum class E_AnimalAgeStage : uint8_t {
-	Immature = 0,
-	Mature = 1,
-	E_MAX = 2,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_FishPoolType.E_FishPoolType
-/////////////////////////////////////////////
-enum class E_FishPoolType : uint8_t {
-	Perch = 0,
-	Pike = 1,
-	Roach = 2,
-	E_MAX = 3,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_BuildingSlotType.E_BuildingSlotType
-/////////////////////////////////////////////
-enum class E_BuildingSlotType : uint8_t {
-	Work_Slot = 0,
-	Break_Slot = 1,
-	Apprentice_Slot = 2,
-	E_MAX = 3,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_AI_RunMode.BP_Enum_AI_RunMode
-/////////////////////////////////////////////
-enum class EBP_Enum_AI_RunMode : uint8_t {
-	Run_on_Proximity = 0,
-	Always_Run = 1,
-	BP_Enum_AI_MAX = 2,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_AIRoamBehavior.BP_Enum_AIRoamBehavior
-/////////////////////////////////////////////
-enum class EBP_Enum_AIRoamBehavior : uint8_t {
-	Stay_In_Place = 0,
-	Go_to_Random_Location_in_NavMesh = 1,
-	Go_to_Random_Location_within_Bounds = 2,
-	Go_to_Random_WayPoint = 3,
-	Follow_WayPoint_Path = 4,
-	Go_to_Nearest_POI = 5,
-	Go_to_Home_Base = 6,
-	BP_Enum_MAX = 7,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_AIState.BP_Enum_AIState
-/////////////////////////////////////////////
-enum class EBP_Enum_AIState : uint8_t {
-	Inactive = 0,
-	Active = 1,
-	Engaged = 2,
-	Found_Bait = 3,
-	Part_of_Group = 4,
-	Dead = 5,
-	Interact = 6,
-	BP_Enum_MAX = 7,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_Animal_BlackboardBoolean.BP_Enum_Animal_BlackboardBoolean
-/////////////////////////////////////////////
-enum class EBP_Enum_Animal_BlackboardBoolean : uint8_t {
-	UseNeedsSystem = 0,
-	UsePredictiveMovement = 1,
-	FoundBait = 2,
-	Resting_ = 3,
-	Stuck = 4,
-	Moving = 5,
-	FearFleeing = 6,
-	Stuned = 7,
-	ShouldBeAwaken = 8,
-	HasWokenUp = 9,
-	LayingDown = 10,
-	Disengaging = 11,
-	HitWhenDisengaging = 12,
-	IsCaveAnimal = 13,
-	BP_Enum_Animal_MAX = 14,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_Animal_BlackboardFloat.BP_Enum_Animal_BlackboardFloat
-/////////////////////////////////////////////
-enum class EBP_Enum_Animal_BlackboardFloat : uint8_t {
-	EatingTime = 0,
-	Aggro = 1,
-	BP_Enum_Animal_MAX = 2,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_Animal_BlackboardInt.BP_Enum_Animal_BlackboardInt
-/////////////////////////////////////////////
-enum class EBP_Enum_Animal_BlackboardInt : uint8_t {
-	EatPointIndex = 0,
-	SleepSlotIndex = 1,
-	BP_Enum_Animal_MAX = 2,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_Animal_BlackboardObject.BP_Enum_Animal_BlackboardObject
-/////////////////////////////////////////////
-enum class EBP_Enum_Animal_BlackboardObject : uint8_t {
-	WayPoint = 0,
-	NearestFood = 1,
-	NearestWater = 2,
-	NearestPath = 3,
-	NearestPOI = 4,
-	NearestBait = 5,
-	EngageActor = 6,
-	SensedActor = 7,
-	Trough = 8,
-	BP_Enum_Animal_MAX = 9,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_Animal_BlackboardVector.BP_Enum_Animal_BlackboardVector
-/////////////////////////////////////////////
-enum class EBP_Enum_Animal_BlackboardVector : uint8_t {
-	FleeLocation = 0,
-	RoamLocation = 1,
-	FoodLocation = 2,
-	FoodRotation = 3,
-	SensedActorLocation = 4,
-	BP_Enum_Animal_MAX = 5,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_AnimType.BP_Enum_AnimType
-/////////////////////////////////////////////
-enum class EBP_Enum_AnimType : uint8_t {
-	Idle = 0,
-	Engage = 1,
-	Attack = 2,
-	Death = 3,
-	Hit = 4,
-	Eat = 5,
-	Drink = 6,
-	Rest = 7,
-	Laying = 8,
-	BP_Enum_MAX = 9,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_DefenseState.BP_Enum_DefenseState
-/////////////////////////////////////////////
-enum class EBP_Enum_DefenseState : uint8_t {
-	Going_to_Defense_Location = 0,
-	Attack_Enemy = 1,
-	BP_Enum_MAX = 2,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_EngageTargetBehavior.BP_Enum_EngageTargetBehavior
-/////////////////////////////////////////////
-enum class EBP_Enum_EngageTargetBehavior : uint8_t {
-	Fixated = 0,
-	Nearest = 1,
-	BP_Enum_MAX = 2,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_FeedingBehavior.BP_Enum_FeedingBehavior
-/////////////////////////////////////////////
-enum class EBP_Enum_FeedingBehavior : uint8_t {
-	Prey = 0,
-	Predator = 1,
-	BP_Enum_MAX = 2,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_GroundEngageBehavior.BP_Enum_GroundEngageBehavior
-/////////////////////////////////////////////
-enum class EBP_Enum_GroundEngageBehavior : uint8_t {
-	Ignore = 0,
-	Flee = 1,
-	Try_to_Hide = 2,
-	Defend = 3,
-	Attack = 4,
-	Encircle = 5,
-	RunAway = 6,
-	BP_Enum_MAX = 7,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_GroundNaturalBehaviors.BP_Enum_GroundNaturalBehaviors
-/////////////////////////////////////////////
-enum class EBP_Enum_GroundNaturalBehaviors : uint8_t {
-	Eat = 0,
-	Drink = 1,
-	Breed = 2,
-	Roam = 3,
-	Rest = 4,
-	Custom_Need = 5,
-	Follow_Parent = 6,
-	BP_Enum_MAX = 7,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_RestState.BP_Enum_RestState
-/////////////////////////////////////////////
-enum class EBP_Enum_RestState : uint8_t {
-	Go_to_Collection_Point = 0,
-	Wait = 1,
-	Go_to_Rest_Point = 2,
-	Rest = 3,
-	BP_Enum_MAX = 4,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_RoamMode.BP_Enum_RoamMode
-/////////////////////////////////////////////
-enum class EBP_Enum_RoamMode : uint8_t {
-	Specific = 0,
-	Random = 1,
-	BP_Enum_MAX = 2,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_StimulusDetected.BP_Enum_StimulusDetected
-/////////////////////////////////////////////
-enum class EBP_Enum_StimulusDetected : uint8_t {
-	Sight = 0,
-	Sound = 1,
-	Touch = 2,
-	Damage = 3,
-	Several_Senses = 4,
-	BP_Enum_MAX = 5,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_Husbandry_Action.E_Husbandry_Action
-/////////////////////////////////////////////
-enum class E_Husbandry_Action : uint8_t {
-	Nothing = 0,
-	Find = 1,
-	Go_to = 2,
-	Close_Move_to = 3,
-	Interact = 4,
-	Wait = 5,
-	E_Husbandry_MAX = 6,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_MeleeDamageType.BP_Enum_MeleeDamageType
-/////////////////////////////////////////////
-enum class EBP_Enum_MeleeDamageType : uint8_t {
-	Single_Damage = 0,
-	Area_of_Effect_Damage = 1,
-	BP_Enum_MAX = 2,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_AnimPlayMode.BP_Enum_AnimPlayMode
-/////////////////////////////////////////////
-enum class EBP_Enum_AnimPlayMode : uint8_t {
-	Single = 0,
-	Random = 1,
-	Sequential = 2,
-	Specific = 3,
-	BP_Enum_MAX = 4,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum BP_Enum_DefenseLocation.BP_Enum_DefenseLocation
-/////////////////////////////////////////////
-enum class EBP_Enum_DefenseLocation : uint8_t {
-	Current_Location = 0,
-	Specific_Location = 1,
-	BP_Enum_MAX = 2,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_BirdMovementMode.E_BirdMovementMode
-/////////////////////////////////////////////
-enum class E_BirdMovementMode : uint8_t {
-	Grounded = 0,
-	Flying = 1,
-	E_MAX = 2,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_DailyCycle.E_DailyCycle
-/////////////////////////////////////////////
-enum class E_DailyCycle : uint8_t {
-	Work = 0,
-	Rest = 1,
-	Sleep = 2,
-	WakeUp = 3,
-	Get_Out = 4,
-	Evening_Life = 5,
-	Illness = 6,
-	War = 7,
-	Homecoming = 8,
-	Lead = 9,
-	Follow = 10,
-	Go_to_Point = 11,
-	Night_Patrol = 12,
-	Dead = 13,
-	Optimization = 14,
-	E_MAX = 15,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_NPCBehavior.E_NPCBehavior
-/////////////////////////////////////////////
-enum class E_NPCBehavior : uint8_t {
-	Nothing = 0,
-	Go_to_Work = 1,
-	Put_Away_Resources = 2,
-	Talk_With_Player = 3,
-	Go_to_Center = 4,
-	Move_Aside = 5,
-	Vendor = 6,
-	Day_Activities = 7,
-	E_MAX = 8,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_NPCStatus.E_NPCStatus
-/////////////////////////////////////////////
-enum class E_NPCStatus : uint8_t {
-	None = 0,
-	No_Work = 1,
-	Working = 2,
-	No_Tool = 3,
-	No_Item = 4,
-	Rest = 5,
-	Sleep = 6,
-	Full_Storages = 7,
-	E_MAX = 8,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_ResourceState.E_ResourceState
-/////////////////////////////////////////////
-enum class E_ResourceState : uint8_t {
-	Nothing = 0,
-	Find_Resource = 1,
-	Go_To_Resource = 2,
-	Close_Move_to_Resource = 3,
-	Interact_Resource = 4,
-	TakeResource = 5,
+	Human = 1,
+	Chest = 2,
+	Shop = 3,
+	Building = 4,
+	Composter = 5,
 	E_MAX = 6,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_TaskState.E_TaskState
+// UserDefinedEnum E_DamageType.E_DamageType
 /////////////////////////////////////////////
-enum class E_TaskState : uint8_t {
-	Go_To_Player = 0,
-	Wait_For_Task = 1,
-	Do_The_Task = 2,
+enum class E_DamageType : uint8_t {
+	Hit = 0,
+	Fall = 1,
+	NoWater = 2,
+	NoFood = 3,
+	Poison = 4,
+	Overheating = 5,
+	Cold = 6,
+	E_MAX = 7,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_Effects.E_Effects
+/////////////////////////////////////////////
+enum class E_Effects : uint8_t {
+	Unpoison = 0,
+	MoreWeight = 1,
+	MoreDamage = 2,
+	AnimalRepel = 3,
+	BetterTemperature = 4,
+	NightVision = 5,
+	SlowerWaterDrop = 6,
+	SlowerHungerDrop = 7,
+	SlowerStaminaDrop = 8,
+	MoreHP = 9,
+	TimeHeal = 10,
+	E_MAX = 11,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_BlinkParameters.E_BlinkParameters
+/////////////////////////////////////////////
+enum class E_BlinkParameters : uint8_t {
+	Food = 0,
+	Water = 1,
+	Poison = 2,
 	E_MAX = 3,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_AnimBreakType.E_AnimBreakType
+// UserDefinedEnum E_LookAtOptions.E_LookAtOptions
 /////////////////////////////////////////////
-enum class E_AnimBreakType : uint8_t {
-	Universal = 0,
-	Profession = 1,
-	NoWork = 2,
-	Apprentice = 3,
+enum class E_LookAtOptions : uint8_t {
+	NoLookAt = 0,
+	LookAtWithPitch = 1,
+	LookAtWithPlayersPitch = 2,
+	LookAtWithResetPitch = 3,
 	E_MAX = 4,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_FieldActivities.E_FieldActivities
+// UserDefinedEnum E_MovementDirection.E_MovementDirection
 /////////////////////////////////////////////
-enum class E_FieldActivities : uint8_t {
-	Plowing_I = 0,
-	Plowing_II = 1,
-	Manuring = 2,
-	Sowing = 3,
-	Harvesting = 4,
-	Collecting_Field = 5,
-	Collecting_Orchard = 6,
-	Nothing = 7,
-	E_MAX = 8,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_SleepingDirection.E_SleepingDirection
-/////////////////////////////////////////////
-enum class E_SleepingDirection : uint8_t {
-	LeftSide = 0,
-	RightSide = 1,
+enum class E_MovementDirection : uint8_t {
+	Forwards = 0,
+	Backwards = 1,
 	E_MAX = 2,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_SittingType.E_SittingType
+// UserDefinedEnum E_NotifyObject.E_NotifyObject
 /////////////////////////////////////////////
-enum class E_SittingType : uint8_t {
-	NoTable = 0,
-	AtTable = 1,
-	E_MAX = 2,
+enum class E_NotifyObject : uint8_t {
+	None = 0,
+	MainHand = 1,
+	OffHand = 2,
+	Workbench = 3,
+	Character = 4,
+	Other = 5,
+	E_MAX = 6,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_SitDownPosition.E_SitDownPosition
+// UserDefinedEnum E_MountAnimType.E_MountAnimType
 /////////////////////////////////////////////
-enum class E_SitDownPosition : uint8_t {
-	Ground = 0,
+enum class E_MountAnimType : uint8_t {
+	Mounting = 0,
+	Dismounting = 1,
+	SeatChange = 2,
+	E_MAX = 3,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_IdleEntryState.E_IdleEntryState
+/////////////////////////////////////////////
+enum class E_IdleEntryState : uint8_t {
+	N_Idle = 0,
+	LF_Idle = 1,
+	RF_Idle = 2,
+	CLF_Idle = 3,
+	CRF_Idle = 4,
+	E_MAX = 5,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_HandsForHolstering.E_HandsForHolstering
+/////////////////////////////////////////////
+enum class E_HandsForHolstering : uint8_t {
+	None = 0,
 	Left = 1,
-	Center = 2,
-	Right = 3,
+	Right = 2,
+	Both = 3,
 	E_MAX = 4,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_InputMode.E_InputMode
+/////////////////////////////////////////////
+enum class E_InputMode : uint8_t {
+	Player = 0,
+	FreeCamera = 1,
+	Horse = 2,
+	E_MAX = 3,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_NPC_BlackboardVector.E_NPC_BlackboardVector
+/////////////////////////////////////////////
+enum class E_NPC_BlackboardVector : uint8_t {
+	TargetLocation = 0,
+	LastLocation = 1,
+	LookAtTarget = 2,
+	WorkRadius = 3,
+	RotationPoint = 4,
+	E_NPC_MAX = 5,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_NPC_BlackboardObject.E_NPC_BlackboardObject
+/////////////////////////////////////////////
+enum class E_NPC_BlackboardObject : uint8_t {
+	Player = 0,
+	Animal = 1,
+	Item = 2,
+	TargetActor = 3,
+	Furniture = 4,
+	E_NPC_MAX = 5,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_NPC_BlackboardInt.E_NPC_BlackboardInt
+/////////////////////////////////////////////
+enum class E_NPC_BlackboardInt : uint8_t {
+	ResourceNumber = 0,
+	ResourceLimit = 1,
+	E_NPC_MAX = 2,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_NPC_BlackboardBoolean.E_NPC_BlackboardBoolean
+/////////////////////////////////////////////
+enum class E_NPC_BlackboardBoolean : uint8_t {
+	Wait = 0,
+	ChangeTask = 1,
+	Find = 2,
+	FindItem = 3,
+	BuildingOccupied = 4,
+	Marker = 5,
+	Follow = 6,
+	Bed = 7,
+	WaitInHouse = 8,
+	QuestBlocking = 9,
+	RotateToPlayer = 10,
+	IsLoadGame = 11,
+	Optimization = 12,
+	E_NPC_MAX = 13,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_Combat.E_Combat
+/////////////////////////////////////////////
+enum class E_Combat : uint8_t {
+	Tension = 0,
+	Combat = 1,
+	E_MAX = 2,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_BaseInteractionStages.E_BaseInteractionStages
+/////////////////////////////////////////////
+enum class E_BaseInteractionStages : uint8_t {
+	Beginning_Stage = 0,
+	Loop_Stage = 1,
+	Ending_Stage = 2,
+	E_MAX = 3,
 };
 /////////////////////////////////////////////
 // UserDefinedEnum E_Gait.E_Gait
@@ -1740,206 +1271,156 @@ enum class E_Gait : uint8_t {
 	E_MAX = 3,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_Talk.E_Talk
+// UserDefinedEnum E_CardinalDirection.E_CardinalDirection
 /////////////////////////////////////////////
-enum class E_Talk : uint8_t {
-	Start_Talk = 0,
-	Wait = 1,
-	End_Talk = 2,
+enum class E_CardinalDirection : uint8_t {
+	North = 0,
+	East = 1,
+	West = 2,
+	South = 3,
+	E_MAX = 4,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_BuildingStatus.E_BuildingStatus
+/////////////////////////////////////////////
+enum class E_BuildingStatus : uint8_t {
+	Built = 0,
+	Unbuilt = 1,
+	Built___Unbuilt = 2,
 	E_MAX = 3,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_AnimInteractionTypes.E_AnimInteractionTypes
+// UserDefinedEnum E_Challenge_Type.E_Challenge_Type
 /////////////////////////////////////////////
-enum class E_AnimInteractionTypes : uint8_t {
-	Basic = 0,
-	Hit = 1,
-	Ground = 2,
-	Interaction = 3,
-	AlternativeInteraction = 4,
+enum class E_Challenge_Type : uint8_t {
+	Food = 0,
+	People = 1,
+	DeliverItems = 2,
+	DeliverItems_Generic = 3,
+	E_Challenge_MAX = 4,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_Challenge_PunishmentType.E_Challenge_PunishmentType
+/////////////////////////////////////////////
+enum class E_Challenge_PunishmentType : uint8_t {
+	KingChange = 0,
+	DynastyReputation = 1,
+	E_Challenge_MAX = 2,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_UISliderType.E_UISliderType
+/////////////////////////////////////////////
+enum class E_UISliderType : uint8_t {
+	Drop = 0,
+	Transfer = 1,
+	Sell = 2,
+	Buy = 3,
+	Crafting = 4,
 	E_MAX = 5,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_HoldableTraceBehavior.E_HoldableTraceBehavior
+// UserDefinedEnum E_SortingUIType.E_SortingUIType
 /////////////////////////////////////////////
-enum class E_HoldableTraceBehavior : uint8_t {
-	ToolBasedHit = 0,
-	TagBasedPlayerHit = 1,
-	ObjectBasedPlayerHit = 2,
-	E_MAX = 3,
+enum class E_SortingUIType : uint8_t {
+	InventoryTradingTransfer = 0,
+	ManagementPeopleDemand = 1,
+	ManagementInhabitants = 2,
+	ManagementBuildings = 3,
+	ManagementFields = 4,
+	E_MAX = 5,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_BuildingWarningType.E_BuildingWarningType
+// UserDefinedEnum E_PeopleDemandSortingType.E_PeopleDemandSortingType
 /////////////////////////////////////////////
-enum class E_BuildingWarningType : uint8_t {
-	None = 0,
-	RestrictedArea = 1,
-	Obstacle = 2,
-	OnTerrain = 3,
-	OnWater = 4,
-	TooUneven = 5,
-	InCave = 6,
-	Cost = 7,
-	SizeLimit = 8,
-	TooShort = 9,
-	BuildingUpgrade = 10,
-	BeyondTheMap = 11,
-	TrapLimit = 12,
-	BuildingLimit = 13,
+enum class E_PeopleDemandSortingType : uint8_t {
+	NameIncreasing = 0,
+	NameDecreasing = 1,
+	StoredIncreasing = 2,
+	StoredDecreasing = 3,
+	ValueIncreasing = 4,
+	ValueDecreasing = 5,
+	ConsumableIncreasing = 6,
+	ConsumableDecreasing = 7,
+	PriorityIncreasing = 8,
+	PriorityDecreasing = 9,
+	E_MAX = 10,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_MapFilters.E_MapFilters
+/////////////////////////////////////////////
+enum class E_MapFilters : uint8_t {
+	Main = 0,
+	People = 1,
+	Quest = 2,
+	AllBuildings = 3,
+	Houses = 4,
+	Extraction = 5,
+	Hunting = 6,
+	Crops = 7,
+	Animals = 8,
+	Crafting = 9,
+	Services = 10,
+	Storages = 11,
+	Traps = 12,
+	AnimalSpawners = 13,
 	E_MAX = 14,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_FieldPlantType.E_FieldPlantType
+// UserDefinedEnum E_InventorySortingType.E_InventorySortingType
 /////////////////////////////////////////////
-enum class E_FieldPlantType : uint8_t {
-	None = 0,
-	Wheat_Spring = 1,
-	Wheat_Autumn = 2,
-	Rye = 3,
-	Oat = 4,
-	Flax = 5,
-	Beetroot = 6,
-	Onion = 7,
-	Cabbage_Spring = 8,
-	Cabbage_Summer = 9,
-	Carrot_Spring = 10,
-	Carrot_Winter = 11,
-	Poppy = 12,
-	Apple = 13,
-	Plum = 14,
-	Pear = 15,
-	Cherry = 16,
-	Hop = 17,
-	E_MAX = 18,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_KingAlignment.E_KingAlignment
-/////////////////////////////////////////////
-enum class E_KingAlignment : uint8_t {
-	Neutral = 0,
-	Evil = 1,
-	Good = 2,
-	E_MAX = 3,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_Kingdoms.E_Kingdoms
-/////////////////////////////////////////////
-enum class E_Kingdoms : uint8_t {
-	None = 0,
-	SoutherKingdom = 1,
-	WesternKingdom = 2,
-	EasternKingdom = 3,
-	E_MAX = 4,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_Directions.E_Directions
-/////////////////////////////////////////////
-enum class E_Directions : uint8_t {
-	Up = 0,
-	Down = 1,
-	Constant = 2,
-	E_MAX = 3,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_Production_SourcePlaces.E_Production_SourcePlaces
-/////////////////////////////////////////////
-enum class E_Production_SourcePlaces : uint8_t {
-	LocalChest = 0,
-	FoodStorage = 1,
-	ResourceStorage = 2,
-	E_Production_MAX = 3,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_ChoiceSegments.E_ChoiceSegments
-/////////////////////////////////////////////
-enum class E_ChoiceSegments : uint8_t {
-	Exit = 0,
-	Road = 1,
-	Building = 2,
-	Fences = 3,
-	Gates = 4,
-	Handcrafting = 5,
-	Furnitures_Decorations = 6,
-	Bridge = 7,
-	None = 8,
-	E_MAX = 9,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_SleepMenuSegments.E_SleepMenuSegments
-/////////////////////////////////////////////
-enum class E_SleepMenuSegments : uint8_t {
-	Exit = 0,
-	SleepDay = 1,
-	SleepSeason = 2,
-	E_MAX = 3,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_DecorationCategories.E_DecorationCategories
-/////////////////////////////////////////////
-enum class E_DecorationCategories : uint8_t {
-	Default = 0,
-	Shelves = 1,
-	Lightning = 2,
-	Trophies = 3,
-	Reliefs = 4,
-	Racks = 5,
-	E_MAX = 6,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_Segments.E_Segments
-/////////////////////////////////////////////
-enum class E_Segments : uint8_t {
-	BuildingMode = 0,
-	Building = 1,
-	Next_Page = 2,
-	Previous_Page = 3,
-	FieldArea = 4,
-	Fence = 5,
-	Gate = 6,
-	Orchard = 7,
-	Furniture = 8,
-	ModuleModification = 9,
-	Road = 10,
-	Exit = 11,
-	None = 12,
-	E_MAX = 13,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_TalentTrance.E_TalentTrance
-/////////////////////////////////////////////
-enum class E_TalentTrance : uint8_t {
-	Woodcutter = 0,
-	Miner = 1,
-	Farmer = 2,
-	Builder = 3,
-	E_MAX = 4,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_CompassMarkerType.E_CompassMarkerType
-/////////////////////////////////////////////
-enum class E_CompassMarkerType : uint8_t {
-	NPC = 0,
-	Goal = 1,
-	Furniture = 2,
-	Home = 3,
-	TalkAreaMarker = 4,
-	E_MAX = 5,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_BuildingsSortingType.E_BuildingsSortingType
-/////////////////////////////////////////////
-enum class E_BuildingsSortingType : uint8_t {
+enum class E_InventorySortingType : uint8_t {
 	NameIncreasing = 0,
 	NameDecreasing = 1,
-	ConditionIncreasing = 2,
-	ConditionDecreasing = 3,
-	PeopleIncreasing = 4,
-	PeopleDecreasing = 5,
-	TaxIncreasing = 6,
-	TaxDecreasing = 7,
-	StatusIncreasing = 8,
-	StatusDecreasing = 9,
+	CountIncreasing = 2,
+	CountDecreasing = 3,
+	ConditionIncreasing = 4,
+	ConditionDecreasing = 5,
+	WeightIncreasing = 6,
+	WeightDecreasing = 7,
+	PriceIncreasing = 8,
+	PriceDecreasing = 9,
 	E_MAX = 10,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_InventoryMainTab.E_InventoryMainTab
+/////////////////////////////////////////////
+enum class E_InventoryMainTab : uint8_t {
+	Inventory = 0,
+	Skills = 1,
+	QuestLog = 2,
+	Map = 3,
+	Management = 4,
+	Technology = 5,
+	Knowledge = 6,
+	E_MAX = 7,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_InhabitantsSortingType.E_InhabitantsSortingType
+/////////////////////////////////////////////
+enum class E_InhabitantsSortingType : uint8_t {
+	NameIncreasing = 0,
+	NameDecreasing = 1,
+	AgeIncreasing = 2,
+	AgeDecreasing = 3,
+	MoodIncreasing = 4,
+	MoodDecreasing = 5,
+	ProfessionIncreasing = 6,
+	ProfessionDecreasing = 7,
+	ExtractionIncreasing = 8,
+	ExtractionDecreasing = 9,
+	HuntingIncreasing = 10,
+	HuntingDecreasing = 11,
+	FarmingIncreasing = 12,
+	FarmingDecreasing = 13,
+	DiplomacyIncreasing = 14,
+	DiplomacyDecreasing = 15,
+	SurvivalIncreasing = 16,
+	SurvivalDecreasing = 17,
+	ProductionIncreasing = 18,
+	ProductionDecreasing = 19,
+	StatusIncreasing = 20,
+	StatusDecreasing = 21,
+	E_MAX = 22,
 };
 /////////////////////////////////////////////
 // UserDefinedEnum E_FieldsSortingType.E_FieldsSortingType
@@ -1982,497 +1463,855 @@ enum class E_FieldsSortingType : uint8_t {
 	E_MAX = 34,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_InhabitantsSortingType.E_InhabitantsSortingType
+// UserDefinedEnum E_BuildingsSortingType.E_BuildingsSortingType
 /////////////////////////////////////////////
-enum class E_InhabitantsSortingType : uint8_t {
+enum class E_BuildingsSortingType : uint8_t {
 	NameIncreasing = 0,
 	NameDecreasing = 1,
-	AgeIncreasing = 2,
-	AgeDecreasing = 3,
-	MoodIncreasing = 4,
-	MoodDecreasing = 5,
-	ProfessionIncreasing = 6,
-	ProfessionDecreasing = 7,
-	ExtractionIncreasing = 8,
-	ExtractionDecreasing = 9,
-	HuntingIncreasing = 10,
-	HuntingDecreasing = 11,
-	FarmingIncreasing = 12,
-	FarmingDecreasing = 13,
-	DiplomacyIncreasing = 14,
-	DiplomacyDecreasing = 15,
-	SurvivalIncreasing = 16,
-	SurvivalDecreasing = 17,
-	ProductionIncreasing = 18,
-	ProductionDecreasing = 19,
-	StatusIncreasing = 20,
-	StatusDecreasing = 21,
-	E_MAX = 22,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_InventoryMainTab.E_InventoryMainTab
-/////////////////////////////////////////////
-enum class E_InventoryMainTab : uint8_t {
-	Inventory = 0,
-	Skills = 1,
-	QuestLog = 2,
-	Map = 3,
-	Management = 4,
-	Technology = 5,
-	Knowledge = 6,
-	E_MAX = 7,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_InventorySortingType.E_InventorySortingType
-/////////////////////////////////////////////
-enum class E_InventorySortingType : uint8_t {
-	NameIncreasing = 0,
-	NameDecreasing = 1,
-	CountIncreasing = 2,
-	CountDecreasing = 3,
-	ConditionIncreasing = 4,
-	ConditionDecreasing = 5,
-	WeightIncreasing = 6,
-	WeightDecreasing = 7,
-	PriceIncreasing = 8,
-	PriceDecreasing = 9,
+	ConditionIncreasing = 2,
+	ConditionDecreasing = 3,
+	PeopleIncreasing = 4,
+	PeopleDecreasing = 5,
+	TaxIncreasing = 6,
+	TaxDecreasing = 7,
+	StatusIncreasing = 8,
+	StatusDecreasing = 9,
 	E_MAX = 10,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_MapFilters.E_MapFilters
+// UserDefinedEnum E_CompassMarkerType.E_CompassMarkerType
 /////////////////////////////////////////////
-enum class E_MapFilters : uint8_t {
-	Main = 0,
-	People = 1,
-	Quest = 2,
-	AllBuildings = 3,
-	Houses = 4,
-	Extraction = 5,
-	Hunting = 6,
-	Crops = 7,
-	Animals = 8,
-	Crafting = 9,
-	Services = 10,
-	Storages = 11,
-	Traps = 12,
-	AnimalSpawners = 13,
+enum class E_CompassMarkerType : uint8_t {
+	NPC = 0,
+	Goal = 1,
+	Furniture = 2,
+	Home = 3,
+	TalkAreaMarker = 4,
+	E_MAX = 5,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_TalentTrance.E_TalentTrance
+/////////////////////////////////////////////
+enum class E_TalentTrance : uint8_t {
+	Woodcutter = 0,
+	Miner = 1,
+	Farmer = 2,
+	Builder = 3,
+	E_MAX = 4,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_Segments.E_Segments
+/////////////////////////////////////////////
+enum class E_Segments : uint8_t {
+	BuildingMode = 0,
+	Building = 1,
+	Next_Page = 2,
+	Previous_Page = 3,
+	FieldArea = 4,
+	Fence = 5,
+	Gate = 6,
+	Orchard = 7,
+	Furniture = 8,
+	ModuleModification = 9,
+	Road = 10,
+	Exit = 11,
+	None = 12,
+	E_MAX = 13,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_DecorationCategories.E_DecorationCategories
+/////////////////////////////////////////////
+enum class E_DecorationCategories : uint8_t {
+	Default = 0,
+	Shelves = 1,
+	Lightning = 2,
+	Trophies = 3,
+	Reliefs = 4,
+	Racks = 5,
+	E_MAX = 6,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_SleepMenuSegments.E_SleepMenuSegments
+/////////////////////////////////////////////
+enum class E_SleepMenuSegments : uint8_t {
+	Exit = 0,
+	SleepDay = 1,
+	SleepSeason = 2,
+	E_MAX = 3,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_ChoiceSegments.E_ChoiceSegments
+/////////////////////////////////////////////
+enum class E_ChoiceSegments : uint8_t {
+	Exit = 0,
+	Road = 1,
+	Building = 2,
+	Fences = 3,
+	Gates = 4,
+	Handcrafting = 5,
+	Furnitures_Decorations = 6,
+	Bridge = 7,
+	None = 8,
+	E_MAX = 9,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_Production_SourcePlaces.E_Production_SourcePlaces
+/////////////////////////////////////////////
+enum class E_Production_SourcePlaces : uint8_t {
+	LocalChest = 0,
+	FoodStorage = 1,
+	ResourceStorage = 2,
+	E_Production_MAX = 3,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_Directions.E_Directions
+/////////////////////////////////////////////
+enum class E_Directions : uint8_t {
+	Up = 0,
+	Down = 1,
+	Constant = 2,
+	E_MAX = 3,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_Kingdoms.E_Kingdoms
+/////////////////////////////////////////////
+enum class E_Kingdoms : uint8_t {
+	None = 0,
+	SoutherKingdom = 1,
+	WesternKingdom = 2,
+	EasternKingdom = 3,
+	E_MAX = 4,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_KingAlignment.E_KingAlignment
+/////////////////////////////////////////////
+enum class E_KingAlignment : uint8_t {
+	Neutral = 0,
+	Evil = 1,
+	Good = 2,
+	E_MAX = 3,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_FieldPlantType.E_FieldPlantType
+/////////////////////////////////////////////
+enum class E_FieldPlantType : uint8_t {
+	None = 0,
+	Wheat_Spring = 1,
+	Wheat_Autumn = 2,
+	Rye = 3,
+	Oat = 4,
+	Flax = 5,
+	Beetroot = 6,
+	Onion = 7,
+	Cabbage_Spring = 8,
+	Cabbage_Summer = 9,
+	Carrot_Spring = 10,
+	Carrot_Winter = 11,
+	Poppy = 12,
+	Apple = 13,
+	Plum = 14,
+	Pear = 15,
+	Cherry = 16,
+	Hop = 17,
+	E_MAX = 18,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_BuildingWarningType.E_BuildingWarningType
+/////////////////////////////////////////////
+enum class E_BuildingWarningType : uint8_t {
+	None = 0,
+	RestrictedArea = 1,
+	Obstacle = 2,
+	OnTerrain = 3,
+	OnWater = 4,
+	TooUneven = 5,
+	InCave = 6,
+	Cost = 7,
+	SizeLimit = 8,
+	TooShort = 9,
+	BuildingUpgrade = 10,
+	BeyondTheMap = 11,
+	TrapLimit = 12,
+	BuildingLimit = 13,
 	E_MAX = 14,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_PeopleDemandSortingType.E_PeopleDemandSortingType
+// UserDefinedEnum E_HoldableTraceBehavior.E_HoldableTraceBehavior
 /////////////////////////////////////////////
-enum class E_PeopleDemandSortingType : uint8_t {
-	NameIncreasing = 0,
-	NameDecreasing = 1,
-	StoredIncreasing = 2,
-	StoredDecreasing = 3,
-	ValueIncreasing = 4,
-	ValueDecreasing = 5,
-	ConsumableIncreasing = 6,
-	ConsumableDecreasing = 7,
-	PriorityIncreasing = 8,
-	PriorityDecreasing = 9,
-	E_MAX = 10,
+enum class E_HoldableTraceBehavior : uint8_t {
+	ToolBasedHit = 0,
+	TagBasedPlayerHit = 1,
+	ObjectBasedPlayerHit = 2,
+	E_MAX = 3,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_Challenge_PunishmentType.E_Challenge_PunishmentType
+// UserDefinedEnum E_AnimInteractionTypes.E_AnimInteractionTypes
 /////////////////////////////////////////////
-enum class E_Challenge_PunishmentType : uint8_t {
-	KingChange = 0,
-	DynastyReputation = 1,
-	E_Challenge_MAX = 2,
+enum class E_AnimInteractionTypes : uint8_t {
+	Basic = 0,
+	Hit = 1,
+	Ground = 2,
+	Interaction = 3,
+	AlternativeInteraction = 4,
+	E_MAX = 5,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_Challenge_Type.E_Challenge_Type
+// UserDefinedEnum E_Talk.E_Talk
 /////////////////////////////////////////////
-enum class E_Challenge_Type : uint8_t {
-	Food = 0,
-	People = 1,
-	DeliverItems = 2,
-	DeliverItems_Generic = 3,
-	E_Challenge_MAX = 4,
+enum class E_Talk : uint8_t {
+	Start_Talk = 0,
+	Wait = 1,
+	End_Talk = 2,
+	E_MAX = 3,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_MovementMode.E_MovementMode
+// UserDefinedEnum E_SitDownPosition.E_SitDownPosition
 /////////////////////////////////////////////
-enum class E_MovementMode : uint8_t {
+enum class E_SitDownPosition : uint8_t {
+	Ground = 0,
+	Left = 1,
+	Center = 2,
+	Right = 3,
+	E_MAX = 4,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_SittingType.E_SittingType
+/////////////////////////////////////////////
+enum class E_SittingType : uint8_t {
+	NoTable = 0,
+	AtTable = 1,
+	E_MAX = 2,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_SleepingDirection.E_SleepingDirection
+/////////////////////////////////////////////
+enum class E_SleepingDirection : uint8_t {
+	LeftSide = 0,
+	RightSide = 1,
+	E_MAX = 2,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_FieldActivities.E_FieldActivities
+/////////////////////////////////////////////
+enum class E_FieldActivities : uint8_t {
+	Plowing_I = 0,
+	Plowing_II = 1,
+	Manuring = 2,
+	Sowing = 3,
+	Harvesting = 4,
+	Collecting_Field = 5,
+	Collecting_Orchard = 6,
+	Nothing = 7,
+	E_MAX = 8,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_AnimBreakType.E_AnimBreakType
+/////////////////////////////////////////////
+enum class E_AnimBreakType : uint8_t {
+	Universal = 0,
+	Profession = 1,
+	NoWork = 2,
+	Apprentice = 3,
+	E_MAX = 4,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_TaskState.E_TaskState
+/////////////////////////////////////////////
+enum class E_TaskState : uint8_t {
+	Go_To_Player = 0,
+	Wait_For_Task = 1,
+	Do_The_Task = 2,
+	E_MAX = 3,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_ResourceState.E_ResourceState
+/////////////////////////////////////////////
+enum class E_ResourceState : uint8_t {
+	Nothing = 0,
+	Find_Resource = 1,
+	Go_To_Resource = 2,
+	Close_Move_to_Resource = 3,
+	Interact_Resource = 4,
+	TakeResource = 5,
+	E_MAX = 6,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_NPCStatus.E_NPCStatus
+/////////////////////////////////////////////
+enum class E_NPCStatus : uint8_t {
 	None = 0,
-	Grounded = 1,
-	Falling = 2,
-	Ragdoll = 3,
-	E_MAX = 4,
+	No_Work = 1,
+	Working = 2,
+	No_Tool = 3,
+	No_Item = 4,
+	Rest = 5,
+	Sleep = 6,
+	Full_Storages = 7,
+	E_MAX = 8,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_SortingUIType.E_SortingUIType
+// UserDefinedEnum E_NPCBehavior.E_NPCBehavior
 /////////////////////////////////////////////
-enum class E_SortingUIType : uint8_t {
-	InventoryTradingTransfer = 0,
-	ManagementPeopleDemand = 1,
-	ManagementInhabitants = 2,
-	ManagementBuildings = 3,
-	ManagementFields = 4,
-	E_MAX = 5,
+enum class E_NPCBehavior : uint8_t {
+	Nothing = 0,
+	Go_to_Work = 1,
+	Put_Away_Resources = 2,
+	Talk_With_Player = 3,
+	Go_to_Center = 4,
+	Move_Aside = 5,
+	Vendor = 6,
+	Day_Activities = 7,
+	E_MAX = 8,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_UISliderType.E_UISliderType
+// UserDefinedEnum E_DailyCycle.E_DailyCycle
 /////////////////////////////////////////////
-enum class E_UISliderType : uint8_t {
-	Drop = 0,
-	Transfer = 1,
-	Sell = 2,
-	Buy = 3,
-	Crafting = 4,
-	E_MAX = 5,
+enum class E_DailyCycle : uint8_t {
+	Work = 0,
+	Rest = 1,
+	Sleep = 2,
+	WakeUp = 3,
+	Get_Out = 4,
+	Evening_Life = 5,
+	Illness = 6,
+	War = 7,
+	Homecoming = 8,
+	Lead = 9,
+	Follow = 10,
+	Go_to_Point = 11,
+	Night_Patrol = 12,
+	Dead = 13,
+	Optimization = 14,
+	E_MAX = 15,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_BuildingStatus.E_BuildingStatus
+// UserDefinedEnum BP_Enum_DefenseLocation.BP_Enum_DefenseLocation
 /////////////////////////////////////////////
-enum class E_BuildingStatus : uint8_t {
-	Built = 0,
-	Unbuilt = 1,
-	Built___Unbuilt = 2,
+enum class EBP_Enum_DefenseLocation : uint8_t {
+	Current_Location = 0,
+	Specific_Location = 1,
+	BP_Enum_MAX = 2,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_AnimPlayMode.BP_Enum_AnimPlayMode
+/////////////////////////////////////////////
+enum class EBP_Enum_AnimPlayMode : uint8_t {
+	Single = 0,
+	Random = 1,
+	Sequential = 2,
+	Specific = 3,
+	BP_Enum_MAX = 4,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_MeleeDamageType.BP_Enum_MeleeDamageType
+/////////////////////////////////////////////
+enum class EBP_Enum_MeleeDamageType : uint8_t {
+	Single_Damage = 0,
+	Area_of_Effect_Damage = 1,
+	BP_Enum_MAX = 2,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_Husbandry_Action.E_Husbandry_Action
+/////////////////////////////////////////////
+enum class E_Husbandry_Action : uint8_t {
+	Nothing = 0,
+	Find = 1,
+	Go_to = 2,
+	Close_Move_to = 3,
+	Interact = 4,
+	Wait = 5,
+	E_Husbandry_MAX = 6,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_StimulusDetected.BP_Enum_StimulusDetected
+/////////////////////////////////////////////
+enum class EBP_Enum_StimulusDetected : uint8_t {
+	Sight = 0,
+	Sound = 1,
+	Touch = 2,
+	Damage = 3,
+	Several_Senses = 4,
+	BP_Enum_MAX = 5,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_RoamMode.BP_Enum_RoamMode
+/////////////////////////////////////////////
+enum class EBP_Enum_RoamMode : uint8_t {
+	Specific = 0,
+	Random = 1,
+	BP_Enum_MAX = 2,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_RestState.BP_Enum_RestState
+/////////////////////////////////////////////
+enum class EBP_Enum_RestState : uint8_t {
+	Go_to_Collection_Point = 0,
+	Wait = 1,
+	Go_to_Rest_Point = 2,
+	Rest = 3,
+	BP_Enum_MAX = 4,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_GroundNaturalBehaviors.BP_Enum_GroundNaturalBehaviors
+/////////////////////////////////////////////
+enum class EBP_Enum_GroundNaturalBehaviors : uint8_t {
+	Eat = 0,
+	Drink = 1,
+	Breed = 2,
+	Roam = 3,
+	Rest = 4,
+	Custom_Need = 5,
+	Follow_Parent = 6,
+	BP_Enum_MAX = 7,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_GroundEngageBehavior.BP_Enum_GroundEngageBehavior
+/////////////////////////////////////////////
+enum class EBP_Enum_GroundEngageBehavior : uint8_t {
+	Ignore = 0,
+	Flee = 1,
+	Try_to_Hide = 2,
+	Defend = 3,
+	Attack = 4,
+	Encircle = 5,
+	RunAway = 6,
+	BP_Enum_MAX = 7,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_FeedingBehavior.BP_Enum_FeedingBehavior
+/////////////////////////////////////////////
+enum class EBP_Enum_FeedingBehavior : uint8_t {
+	Prey = 0,
+	Predator = 1,
+	BP_Enum_MAX = 2,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_EngageTargetBehavior.BP_Enum_EngageTargetBehavior
+/////////////////////////////////////////////
+enum class EBP_Enum_EngageTargetBehavior : uint8_t {
+	Fixated = 0,
+	Nearest = 1,
+	BP_Enum_MAX = 2,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_DefenseState.BP_Enum_DefenseState
+/////////////////////////////////////////////
+enum class EBP_Enum_DefenseState : uint8_t {
+	Going_to_Defense_Location = 0,
+	Attack_Enemy = 1,
+	BP_Enum_MAX = 2,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_AnimType.BP_Enum_AnimType
+/////////////////////////////////////////////
+enum class EBP_Enum_AnimType : uint8_t {
+	Idle = 0,
+	Engage = 1,
+	Attack = 2,
+	Death = 3,
+	Hit = 4,
+	Eat = 5,
+	Drink = 6,
+	Rest = 7,
+	Laying = 8,
+	BP_Enum_MAX = 9,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_Animal_BlackboardVector.BP_Enum_Animal_BlackboardVector
+/////////////////////////////////////////////
+enum class EBP_Enum_Animal_BlackboardVector : uint8_t {
+	FleeLocation = 0,
+	RoamLocation = 1,
+	FoodLocation = 2,
+	FoodRotation = 3,
+	SensedActorLocation = 4,
+	BP_Enum_Animal_MAX = 5,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_Animal_BlackboardObject.BP_Enum_Animal_BlackboardObject
+/////////////////////////////////////////////
+enum class EBP_Enum_Animal_BlackboardObject : uint8_t {
+	WayPoint = 0,
+	NearestFood = 1,
+	NearestWater = 2,
+	NearestPath = 3,
+	NearestPOI = 4,
+	NearestBait = 5,
+	EngageActor = 6,
+	SensedActor = 7,
+	Trough = 8,
+	BP_Enum_Animal_MAX = 9,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_Animal_BlackboardInt.BP_Enum_Animal_BlackboardInt
+/////////////////////////////////////////////
+enum class EBP_Enum_Animal_BlackboardInt : uint8_t {
+	EatPointIndex = 0,
+	SleepSlotIndex = 1,
+	BP_Enum_Animal_MAX = 2,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_Animal_BlackboardFloat.BP_Enum_Animal_BlackboardFloat
+/////////////////////////////////////////////
+enum class EBP_Enum_Animal_BlackboardFloat : uint8_t {
+	EatingTime = 0,
+	Aggro = 1,
+	BP_Enum_Animal_MAX = 2,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_Animal_BlackboardBoolean.BP_Enum_Animal_BlackboardBoolean
+/////////////////////////////////////////////
+enum class EBP_Enum_Animal_BlackboardBoolean : uint8_t {
+	UseNeedsSystem = 0,
+	UsePredictiveMovement = 1,
+	FoundBait = 2,
+	Resting_ = 3,
+	Stuck = 4,
+	Moving = 5,
+	FearFleeing = 6,
+	Stuned = 7,
+	ShouldBeAwaken = 8,
+	HasWokenUp = 9,
+	LayingDown = 10,
+	Disengaging = 11,
+	HitWhenDisengaging = 12,
+	IsCaveAnimal = 13,
+	BP_Enum_Animal_MAX = 14,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_AIState.BP_Enum_AIState
+/////////////////////////////////////////////
+enum class EBP_Enum_AIState : uint8_t {
+	Inactive = 0,
+	Active = 1,
+	Engaged = 2,
+	Found_Bait = 3,
+	Part_of_Group = 4,
+	Dead = 5,
+	Interact = 6,
+	BP_Enum_MAX = 7,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_AIRoamBehavior.BP_Enum_AIRoamBehavior
+/////////////////////////////////////////////
+enum class EBP_Enum_AIRoamBehavior : uint8_t {
+	Stay_In_Place = 0,
+	Go_to_Random_Location_in_NavMesh = 1,
+	Go_to_Random_Location_within_Bounds = 2,
+	Go_to_Random_WayPoint = 3,
+	Follow_WayPoint_Path = 4,
+	Go_to_Nearest_POI = 5,
+	Go_to_Home_Base = 6,
+	BP_Enum_MAX = 7,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum BP_Enum_AI_RunMode.BP_Enum_AI_RunMode
+/////////////////////////////////////////////
+enum class EBP_Enum_AI_RunMode : uint8_t {
+	Run_on_Proximity = 0,
+	Always_Run = 1,
+	BP_Enum_AI_MAX = 2,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_BuildingSlotType.E_BuildingSlotType
+/////////////////////////////////////////////
+enum class E_BuildingSlotType : uint8_t {
+	Work_Slot = 0,
+	Break_Slot = 1,
+	Apprentice_Slot = 2,
 	E_MAX = 3,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_CardinalDirection.E_CardinalDirection
+// UserDefinedEnum E_FishPoolType.E_FishPoolType
 /////////////////////////////////////////////
-enum class E_CardinalDirection : uint8_t {
-	North = 0,
-	East = 1,
-	West = 2,
-	South = 3,
-	E_MAX = 4,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_RotationMode.E_RotationMode
-/////////////////////////////////////////////
-enum class E_RotationMode : uint8_t {
-	VelocityDirection = 0,
-	LookingDirection = 1,
-	E_MAX = 2,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_BaseInteractionStages.E_BaseInteractionStages
-/////////////////////////////////////////////
-enum class E_BaseInteractionStages : uint8_t {
-	Beginning_Stage = 0,
-	Loop_Stage = 1,
-	Ending_Stage = 2,
+enum class E_FishPoolType : uint8_t {
+	Perch = 0,
+	Pike = 1,
+	Roach = 2,
 	E_MAX = 3,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_Combat.E_Combat
+// UserDefinedEnum E_AnimalAgeStage.E_AnimalAgeStage
 /////////////////////////////////////////////
-enum class E_Combat : uint8_t {
-	Tension = 0,
-	Combat = 1,
+enum class E_AnimalAgeStage : uint8_t {
+	Immature = 0,
+	Mature = 1,
 	E_MAX = 2,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_NPC_BlackboardBoolean.E_NPC_BlackboardBoolean
+// UserDefinedEnum E_POI_Type.E_POI_Type
 /////////////////////////////////////////////
-enum class E_NPC_BlackboardBoolean : uint8_t {
-	Wait = 0,
-	ChangeTask = 1,
-	Find = 2,
-	FindItem = 3,
-	BuildingOccupied = 4,
-	Marker = 5,
-	Follow = 6,
-	Bed = 7,
-	WaitInHouse = 8,
-	QuestBlocking = 9,
-	RotateToPlayer = 10,
-	IsLoadGame = 11,
-	Optimization = 12,
-	E_NPC_MAX = 13,
+enum class E_POI_Type : uint8_t {
+	None = 0,
+	Misc = 1,
+	Accident = 2,
+	Vendor = 3,
+	Treasure = 4,
+	Bandits = 5,
+	Animals = 6,
+	Quest = 7,
+	Resources = 8,
+	E_POI_MAX = 9,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_NPC_BlackboardInt.E_NPC_BlackboardInt
+// UserDefinedEnum E_ActorType.E_ActorType
 /////////////////////////////////////////////
-enum class E_NPC_BlackboardInt : uint8_t {
-	ResourceNumber = 0,
-	ResourceLimit = 1,
-	E_NPC_MAX = 2,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_NPC_BlackboardObject.E_NPC_BlackboardObject
-/////////////////////////////////////////////
-enum class E_NPC_BlackboardObject : uint8_t {
-	Player = 0,
+enum class E_ActorType : uint8_t {
+	NPC = 0,
 	Animal = 1,
 	Item = 2,
-	TargetActor = 3,
+	ChestItems = 3,
 	Furniture = 4,
-	E_NPC_MAX = 5,
+	Mesh = 5,
+	Decal = 6,
+	CollectableFurniture = 7,
+	Custom = 8,
+	E_MAX = 9,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_NPC_BlackboardVector.E_NPC_BlackboardVector
+// UserDefinedEnum E_AnimMovement.E_AnimMovement
 /////////////////////////////////////////////
-enum class E_NPC_BlackboardVector : uint8_t {
-	TargetLocation = 0,
-	LastLocation = 1,
-	LookAtTarget = 2,
-	WorkRadius = 3,
-	RotationPoint = 4,
-	E_NPC_MAX = 5,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_InputMode.E_InputMode
-/////////////////////////////////////////////
-enum class E_InputMode : uint8_t {
-	Player = 0,
-	FreeCamera = 1,
-	Horse = 2,
+enum class E_AnimMovement : uint8_t {
+	Random = 0,
+	Inplace = 1,
+	RootMotion = 2,
 	E_MAX = 3,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_HandsForHolstering.E_HandsForHolstering
+// UserDefinedEnum E_AnimDirection.E_AnimDirection
 /////////////////////////////////////////////
-enum class E_HandsForHolstering : uint8_t {
-	None = 0,
+enum class E_AnimDirection : uint8_t {
+	Random = 0,
 	Left = 1,
 	Right = 2,
-	Both = 3,
-	E_MAX = 4,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_IdleEntryState.E_IdleEntryState
-/////////////////////////////////////////////
-enum class E_IdleEntryState : uint8_t {
-	N_Idle = 0,
-	LF_Idle = 1,
-	RF_Idle = 2,
-	CLF_Idle = 3,
-	CRF_Idle = 4,
+	Back = 3,
+	Down = 4,
 	E_MAX = 5,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_MountAnimType.E_MountAnimType
+// UserDefinedEnum E_NPC_Bandit_BlackboardBoolean.E_NPC_Bandit_BlackboardBoolean
 /////////////////////////////////////////////
-enum class E_MountAnimType : uint8_t {
-	Mounting = 0,
-	Dismounting = 1,
-	SeatChange = 2,
-	E_MAX = 3,
+enum class E_NPC_Bandit_BlackboardBoolean : uint8_t {
+	WaitForAnimation = 0,
+	WaitForBlock = 1,
+	WaitForAttack = 2,
+	WaitForShoot = 3,
+	WaitForDodge = 4,
+	E_NPC_Bandit_MAX = 5,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_NotifyObject.E_NotifyObject
+// UserDefinedEnum E_FurnitureSlotType.E_FurnitureSlotType
 /////////////////////////////////////////////
-enum class E_NotifyObject : uint8_t {
-	None = 0,
-	MainHand = 1,
-	OffHand = 2,
-	Workbench = 3,
-	Character = 4,
-	Other = 5,
-	E_MAX = 6,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_MovementDirection.E_MovementDirection
-/////////////////////////////////////////////
-enum class E_MovementDirection : uint8_t {
-	Forwards = 0,
-	Backwards = 1,
-	E_MAX = 2,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_LookAtOptions.E_LookAtOptions
-/////////////////////////////////////////////
-enum class E_LookAtOptions : uint8_t {
-	NoLookAt = 0,
-	LookAtWithPitch = 1,
-	LookAtWithPlayersPitch = 2,
-	LookAtWithResetPitch = 3,
+enum class E_FurnitureSlotType : uint8_t {
+	Front = 0,
+	Left = 1,
+	Right = 2,
+	Back = 3,
 	E_MAX = 4,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_BlinkParameters.E_BlinkParameters
+// UserDefinedEnum E_Wealth.E_Wealth
 /////////////////////////////////////////////
-enum class E_BlinkParameters : uint8_t {
-	Food = 0,
-	Water = 1,
-	Poison = 2,
-	E_MAX = 3,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_Effects.E_Effects
-/////////////////////////////////////////////
-enum class E_Effects : uint8_t {
-	Unpoison = 0,
-	MoreWeight = 1,
-	MoreDamage = 2,
-	AnimalRepel = 3,
-	BetterTemperature = 4,
-	NightVision = 5,
-	SlowerWaterDrop = 6,
-	SlowerHungerDrop = 7,
-	SlowerStaminaDrop = 8,
-	MoreHP = 9,
-	TimeHeal = 10,
-	E_MAX = 11,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_DamageType.E_DamageType
-/////////////////////////////////////////////
-enum class E_DamageType : uint8_t {
-	Hit = 0,
-	Fall = 1,
-	NoWater = 2,
-	NoFood = 3,
-	Poison = 4,
-	Overheating = 5,
-	Cold = 6,
-	E_MAX = 7,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_InventoryOwnerType.E_InventoryOwnerType
-/////////////////////////////////////////////
-enum class E_InventoryOwnerType : uint8_t {
+enum class E_Wealth : uint8_t {
 	None = 0,
-	Human = 1,
-	Chest = 2,
-	Shop = 3,
-	Building = 4,
-	Composter = 5,
-	E_MAX = 6,
+	Poor = 1,
+	Average = 2,
+	Rich = 3,
+	E_MAX = 4,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_Cutscenes.E_Cutscenes
+// UserDefinedEnum E_NPCPresetTypes.E_NPCPresetTypes
 /////////////////////////////////////////////
-enum class E_Cutscenes : uint8_t {
-	Intro = 0,
-	HeirBorn = 1,
-	Wedding = 2,
-	DeathNegative = 3,
-	DeathPositive = 4,
-	ExileNegative = 5,
-	ExilePositive = 6,
+enum class E_NPCPresetTypes : uint8_t {
+	Toddler = 0,
+	Boy = 1,
+	Girl = 2,
+	Male = 3,
+	Female = 4,
+	E_MAX = 5,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_OutsideNPCTypes.E_OutsideNPCTypes
+/////////////////////////////////////////////
+enum class E_OutsideNPCTypes : uint8_t {
+	None = 0,
+	Random = 1,
+	Neighbour = 2,
+	Herald = 3,
+	GiftVendor = 4,
+	Quest = 5,
+	Waggoner = 6,
 	E_MAX = 7,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_SignPlateNewVariants.E_SignPlateNewVariants
+// UserDefinedEnum E_BanditType.E_BanditType
 /////////////////////////////////////////////
-enum class E_SignPlateNewVariants : uint8_t {
-	Left_A = 0,
-	Left_B = 1,
-	Left_C = 2,
-	Left_D = 3,
-	Right_A = 4,
-	Right_B = 5,
-	Right_C = 6,
-	Right_D = 7,
-	Neutral_A = 8,
-	Neutral_B = 9,
-	Neutral_C = 10,
-	Neutral_D = 11,
-	E_MAX = 12,
+enum class E_BanditType : uint8_t {
+	None = 0,
+	Crossbowman = 1,
+	Archer = 2,
+	Spearman = 3,
+	Axeman = 4,
+	Batman = 5,
+	Cutthroat = 6,
+	Bruiser = 7,
+	E_MAX = 8,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_SignName.E_SignName
+// UserDefinedEnum E_BanditNames.E_BanditNames
 /////////////////////////////////////////////
-enum class E_SignName : uint8_t {
-	Lesnica = 0,
-	Branica = 1,
-	Baranica = 2,
-	Borowo = 3,
-	Rolnica = 4,
-	Gostovia = 5,
-	Denica = 6,
-	Jezerica = 7,
-	Hornica = 8,
-	Tutki = 9,
+enum class E_BanditNames : uint8_t {
+	Bandit = 0,
+	Deserter = 1,
+	Robber = 2,
+	Thug = 3,
+	Mugger = 4,
+	E_MAX = 5,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_Workbenches.E_Workbenches
+/////////////////////////////////////////////
+enum class E_Workbenches : uint8_t {
+	None = 0,
+	Hands = 1,
+	Campfire = 2,
+	Cauldron = 3,
+	SaltingBarrel = 4,
+	DryingRack = 5,
+	HuntingLodgeTable = 6,
+	FishingHutTable = 7,
+	SmithyTable = 8,
+	Forge = 9,
+	ThreshingFloor = 10,
+	BarnTable = 11,
+	SpinningWheels = 12,
+	Loom = 13,
+	DyeingVats = 14,
+	Stove = 15,
+	TailoringTable = 16,
+	Anvil = 17,
+	Grate = 18,
+	Quern = 19,
+	CarpentersTable = 20,
+	WineBarrel = 21,
+	JuicePress = 22,
+	WoodworkingTable = 23,
+	PotteryWheel = 24,
+	BrewingStation = 25,
+	HerbalistTable = 26,
+	Well = 27,
+	Millstone = 28,
+	E_MAX = 29,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_Notifications.E_Notifications
+/////////////////////////////////////////////
+enum class E_Notifications : uint8_t {
+	Add_Item = 0,
+	Remove_Item = 1,
+	Consume_Item = 2,
+	Information = 3,
+	Warning = 4,
+	BrokenItem = 5,
+	PoisonedStatus = 6,
+	OverencumberedStatus = 7,
+	HotStatus = 8,
+	ColdStatus = 9,
 	E_MAX = 10,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_Switch_Method.E_Switch_Method
+// UserDefinedEnum E_DecorationSlotType.E_DecorationSlotType
 /////////////////////////////////////////////
-enum class E_Switch_Method : uint8_t {
-	Fade_out___Fade_In = 0,
-	Cross_Fade = 1,
-	Instant = 2,
-	Instant_With_stinger_effect_ = 3,
-	E_Switch_MAX = 4,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_FootstepType.E_FootstepType
-/////////////////////////////////////////////
-enum class E_FootstepType : uint8_t {
-	Step = 0,
-	Walk = 1,
-	Run = 2,
-	Sprint = 3,
-	Pivot = 4,
-	Jump = 5,
-	Land = 6,
-	E_MAX = 7,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_SittingPoseMale.E_SittingPoseMale
-/////////////////////////////////////////////
-enum class E_SittingPoseMale : uint8_t {
-	Base = 0,
-	CrossedLegs_L = 1,
-	CrossedLegs_R = 2,
-	Outstretched_L = 3,
-	Outstretched_R = 4,
-	SlightlyAngled_L = 5,
-	SlightlyAngled_R = 6,
-	E_MAX = 7,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_LocomotionState.E_LocomotionState
-/////////////////////////////////////////////
-enum class E_LocomotionState : uint8_t {
-	None = 0,
-	NotMoving = 1,
-	Moving = 2,
-	Pivot = 3,
-	Stopping = 4,
-	E_MAX = 5,
-};
-/////////////////////////////////////////////
-// UserDefinedEnum E_CarriableItemType.E_CarriableItemType
-/////////////////////////////////////////////
-enum class E_CarriableItemType : uint8_t {
-	None = 0,
-	Log = 1,
-	Rock = 2,
+enum class E_DecorationSlotType : uint8_t {
+	Interior = 0,
+	Exterior = 1,
+	Both = 2,
 	E_MAX = 3,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_SittingPoseFemale.E_SittingPoseFemale
+// UserDefinedEnum E_DeathType.E_DeathType
 /////////////////////////////////////////////
-enum class E_SittingPoseFemale : uint8_t {
-	Base = 0,
-	Outstretched = 1,
-	Side_L = 2,
-	Side_R = 3,
-	SlightlyAngled_L = 4,
-	SlightlyAngled_R = 5,
-	E_MAX = 6,
+enum class E_DeathType : uint8_t {
+	NoHP = 0,
+	TooOld_NoHeir = 1,
+	Banished = 2,
+	TooOld_Heir = 3,
+	E_MAX = 4,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_SittingPoseBoy.E_SittingPoseBoy
+// UserDefinedEnum E_TimeOfDay.E_TimeOfDay
 /////////////////////////////////////////////
-enum class E_SittingPoseBoy : uint8_t {
-	Base = 0,
-	CrossedLegs_L = 1,
-	CrossedLegs_R = 2,
-	SlightlyAngled_L = 3,
-	SlightlyAngled_R = 4,
-	Swing = 5,
-	E_MAX = 6,
+enum class E_TimeOfDay : uint8_t {
+	Morning = 0,
+	Day = 1,
+	Evening = 2,
+	Night = 3,
+	E_MAX = 4,
 };
 /////////////////////////////////////////////
-// UserDefinedEnum E_SittingPoseGirl.E_SittingPoseGirl
+// UserDefinedEnum E_Seeds.E_Seeds
 /////////////////////////////////////////////
-enum class E_SittingPoseGirl : uint8_t {
-	Base = 0,
-	Outstreched = 1,
-	Side_L = 2,
-	Side_R = 3,
-	Swing = 4,
-	E_MAX = 5,
+enum class E_Seeds : uint8_t {
+	None = 0,
+	WheatSeed = 1,
+	OatSeed = 2,
+	RyeSeed = 3,
+	FlaxSeed = 4,
+	BeetrootSeed = 5,
+	OnionSeed = 6,
+	CabbageSeed = 7,
+	CarrotSeed = 8,
+	AppleSeedling = 9,
+	PearSeedling = 10,
+	PlumSeedling = 11,
+	CherrySeedling = 12,
+	PoppySeed = 13,
+	HopSeedling = 14,
+	E_MAX = 15,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_Fluids.E_Fluids
+/////////////////////////////////////////////
+enum class E_Fluids : uint8_t {
+	None = 0,
+	Water = 1,
+	DirtyWater = 2,
+	Milk = 3,
+	E_MAX = 4,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_BagMode.E_BagMode
+/////////////////////////////////////////////
+enum class E_BagMode : uint8_t {
+	Fertilizer = 0,
+	Wheat = 1,
+	Oat = 2,
+	Rye = 3,
+	Flax = 4,
+	Cabbage = 5,
+	Carrot = 6,
+	Beetroot = 7,
+	Onion = 8,
+	Seeds = 9,
+	None = 10,
+	Poppy = 11,
+	Hop = 12,
+	Apple = 13,
+	Pear = 14,
+	Plum = 15,
+	Cherry = 16,
+	E_MAX = 17,
+};
+/////////////////////////////////////////////
+// UserDefinedEnum E_BuildingModifications.E_BuildingModifications
+/////////////////////////////////////////////
+enum class E_BuildingModifications : uint8_t {
+	None = 0,
+	Building = 1,
+	Repair = 2,
+	Upgrade = 3,
+	Downgrade = 4,
+	Destroy = 5,
+	E_MAX = 6,
 };
 };

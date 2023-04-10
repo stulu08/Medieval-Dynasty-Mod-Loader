@@ -505,10 +505,10 @@ namespace Utils {
 					}
 				}
 				
-				
 				if (i != 0)
 					head += ", ";
-				if (Const)
+				//dont use const for class ptr's
+				if (Const && !info.cppType._Starts_with("class ") && info.cppType[info.cppType.length() - 1] != '*')
 					head += "const ";
 
 				head += info.cppType;

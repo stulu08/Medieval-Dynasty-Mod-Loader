@@ -446,13 +446,13 @@ void ABP_NPC_Manager_C::SpawnNPC(struct FString ID, struct FST_CustomNPC NPC_Str
 
 	struct ABP_NPC_Manager_C_SpawnNPC_Params {
 		struct FString ID;			//Offset: 0 | ElementSize: 16
-		struct FST_CustomNPC NPC_Structure;			//Offset: 16 | ElementSize: 240
-		bool IsCustomNPC;			//Offset: 256 | ElementSize: 1
-		bool IsNewNeighbour;			//Offset: 257 | ElementSize: 1
-		bool LoadGame;			//Offset: 258 | ElementSize: 1
-		bool Birth;			//Offset: 259 | ElementSize: 1
-		bool Success;			//Offset: 260 | ElementSize: 1
-		class ABP_NPC_C* NPC;			//Offset: 264 | ElementSize: 8
+		struct FST_CustomNPC NPC_Structure;			//Offset: 16 | ElementSize: 256
+		bool IsCustomNPC;			//Offset: 272 | ElementSize: 1
+		bool IsNewNeighbour;			//Offset: 273 | ElementSize: 1
+		bool LoadGame;			//Offset: 274 | ElementSize: 1
+		bool Birth;			//Offset: 275 | ElementSize: 1
+		bool Success;			//Offset: 276 | ElementSize: 1
+		class ABP_NPC_C* NPC;			//Offset: 280 | ElementSize: 8
 	};
 	ABP_NPC_Manager_C_SpawnNPC_Params params;
 	params.ID = ID;
@@ -504,10 +504,10 @@ void ABP_NPC_Manager_C::SetNPCRelations(const struct FST_CustomNPC& NPC_Structur
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC_Manager.BP_NPC_Manager_C.SetNPCRelations");
 
 	struct ABP_NPC_Manager_C_SetNPCRelations_Params {
-		struct FST_CustomNPC NPC_Structure;			//Offset: 0 | ElementSize: 240
-		class ABP_NPC_C* NPCReference;			//Offset: 240 | ElementSize: 8
-		struct FString NPC_ID;			//Offset: 248 | ElementSize: 16
-		TEnumAsByte<E_CharacterType> CharacterType;			//Offset: 264 | ElementSize: 1
+		struct FST_CustomNPC NPC_Structure;			//Offset: 0 | ElementSize: 256
+		class ABP_NPC_C* NPCReference;			//Offset: 256 | ElementSize: 8
+		struct FString NPC_ID;			//Offset: 264 | ElementSize: 16
+		TEnumAsByte<E_CharacterType> CharacterType;			//Offset: 280 | ElementSize: 1
 	};
 	ABP_NPC_Manager_C_SetNPCRelations_Params params;
 	params.NPC_Structure = NPC_Structure;

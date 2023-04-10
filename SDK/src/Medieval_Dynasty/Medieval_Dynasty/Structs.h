@@ -17,33 +17,77 @@ enum class E_MessageReason : uint8_t {
 	E_MAX = 6,
 };
 /////////////////////////////////////////////
-// Enum Medieval_Dynasty.ECardinalDirection
+// Enum Medieval_Dynasty.EBirdMovementMode
 /////////////////////////////////////////////
-enum class ECardinalDirection : uint8_t {
-	North = 0,
-	East = 1,
-	West = 2,
-	South = 3,
-	MAX = 4,
+enum class EBirdMovementMode : uint8_t {
+	BMM_Grounded = 0,
+	BMM_Flying = 1,
+	BMM_MAX = 2,
 };
 /////////////////////////////////////////////
-// Enum Medieval_Dynasty.EGait
+// Enum Medieval_Dynasty.EAnimalRotationMode
 /////////////////////////////////////////////
-enum class EGait : uint8_t {
-	Walking = 0,
-	Running = 1,
-	Sprinting = 2,
-	MAX = 3,
+enum class EAnimalRotationMode : uint8_t {
+	ARM_VelocityDirection = 0,
+	ARM_LookingDirection = 1,
+	ARM_MAX = 2,
 };
 /////////////////////////////////////////////
-// Enum Medieval_Dynasty.EStance
+// Enum Medieval_Dynasty.EAnimalMovementMode
 /////////////////////////////////////////////
-enum class EStance : uint8_t {
-	Standing = 0,
-	Crouching = 1,
-	Sitting = 2,
-	Sleeping = 3,
-	MAX = 4,
+enum class EAnimalMovementMode : uint8_t {
+	AMM_None = 0,
+	AMM_Grounded = 1,
+	AMM_Falling = 2,
+	AMM_Ragdoll = 3,
+	AMM_MAX = 4,
+};
+/////////////////////////////////////////////
+// Enum Medieval_Dynasty.ECharacterCardinalDirection
+/////////////////////////////////////////////
+enum class ECharacterCardinalDirection : uint8_t {
+	CCD_North = 0,
+	CCD_East = 1,
+	CCD_West = 2,
+	CCD_South = 3,
+	CCD_MAX = 4,
+};
+/////////////////////////////////////////////
+// Enum Medieval_Dynasty.ECharacterGait
+/////////////////////////////////////////////
+enum class ECharacterGait : uint8_t {
+	CG_Walking = 0,
+	CG_Running = 1,
+	CG_Sprinting = 2,
+	CG_MAX = 3,
+};
+/////////////////////////////////////////////
+// Enum Medieval_Dynasty.ECharacterStance
+/////////////////////////////////////////////
+enum class ECharacterStance : uint8_t {
+	CS_Standing = 0,
+	CS_Crouching = 1,
+	CS_Sitting = 2,
+	CS_Sleeping = 3,
+	CS_MAX = 4,
+};
+/////////////////////////////////////////////
+// Enum Medieval_Dynasty.ECharacterRotationMode
+/////////////////////////////////////////////
+enum class ECharacterRotationMode : uint8_t {
+	CRM_VelocityDirection = 0,
+	CRM_LookingDirection = 1,
+	CRM_MAX = 2,
+};
+/////////////////////////////////////////////
+// Enum Medieval_Dynasty.ECharacterMovementMode
+/////////////////////////////////////////////
+enum class ECharacterMovementMode : uint8_t {
+	CMM_None = 0,
+	CMM_Grounded = 1,
+	CMM_Falling = 2,
+	CMM_Ragdoll = 3,
+	CMM_MAX = 4,
 };
 /////////////////////////////////////////////
 // Enum Medieval_Dynasty.E_GraphicsRHI
@@ -84,7 +128,16 @@ enum class EMD_GameState : uint8_t {
 #pragma endregion
 
 #pragma region Structs
+struct FST_DoubleActorArray;
 struct FLagContraint;
+/////////////////////////////////////////////
+// ScriptStruct Medieval_Dynasty.ST_DoubleActorArray
+// Size 32
+/////////////////////////////////////////////
+struct FST_DoubleActorArray {
+	TArray<class AActor*>	Actors1;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
+	TArray<class AActor*>	Actors2;		//Offset: 16	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
+};
 /////////////////////////////////////////////
 // ScriptStruct Medieval_Dynasty.LagContraint
 // Size 3

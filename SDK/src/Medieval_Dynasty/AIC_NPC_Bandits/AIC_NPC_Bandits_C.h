@@ -36,9 +36,11 @@ public:
 
 	void BndEvt__AIC_NPC_Bandit_AIPerception_K2Node_ComponentBoundEvent_0_ActorPerceptionUpdatedDelegate__DelegateSignature(class AActor* Actor, struct FAIStimulus Stimulus);
 
-	TAssetPtr<class FNone_1447122241> ComponentDelegateBinding_1()/* const*/;
+	void ComponentDelegateBinding_1();
 
-	void AI_Start_Combat(class AActor* Actor);
+	void InheritableComponentHandler();
+
+	void AI_Start_Combat(class AActor*& Actor);
 
 	void SetSceneName(class ABP_NPC_C* NPC);
 
