@@ -34,6 +34,9 @@
     <Filter Include="Medieval_Dynasty\BP_CharacterStatsComponent">
       <UniqueIdentifier>{E6A61EBF-520C-B245-DBE4-531E4749A7B4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Medieval_Dynasty\BP_DataManager">
+      <UniqueIdentifier>{2C52A9AB-9835-B8EB-A138-E6270D9B7E3C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Medieval_Dynasty\BP_EventManager">
       <UniqueIdentifier>{14AA24CD-00FB-0F0F-295F-FED0150FA378}</UniqueIdentifier>
     </Filter>
@@ -245,6 +248,15 @@
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\BP_CharacterStatsComponent\Structs.h">
       <Filter>Medieval_Dynasty\BP_CharacterStatsComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_DataManager\BP_DataManager_C.h">
+      <Filter>Medieval_Dynasty\BP_DataManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_DataManager\BP_DataManager_SDK.h">
+      <Filter>Medieval_Dynasty\BP_DataManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_DataManager\Structs.h">
+      <Filter>Medieval_Dynasty\BP_DataManager</Filter>
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\BP_Enums.h">
       <Filter>Medieval_Dynasty</Filter>
@@ -1374,6 +1386,9 @@
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\BP_CharacterStatsComponent\BP_CharacterStatsComponent_C.cpp">
       <Filter>Medieval_Dynasty\BP_CharacterStatsComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\BP_DataManager\BP_DataManager_C.cpp">
+      <Filter>Medieval_Dynasty\BP_DataManager</Filter>
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\BP_EventManager\BP_EventManager_C.cpp">
       <Filter>Medieval_Dynasty\BP_EventManager</Filter>

@@ -1,0 +1,13 @@
+#pragma once
+/////////////////////////////////////////////
+// Package BP_DataManager
+// Classes: 1
+// Enums: 0
+// Structs: 0
+// Objects: 103
+/////////////////////////////////////////////
+
+
+#include "Structs.h"
+
+#include "BP_DataManager_C.h"

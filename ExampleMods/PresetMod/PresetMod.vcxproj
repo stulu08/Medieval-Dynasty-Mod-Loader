@@ -7,10 +7,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A066E1C6-0C46-6062-155E-EB3881BCC6C3}</ProjectGuid>
+    <ProjectGuid>{B87CB000-24E7-6477-6D25-161DD9CE42CC}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>BaseMod</RootNamespace>
+    <RootNamespace>PresetMod</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -30,9 +30,9 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\bin\Release-windows-x86_64\Mods\BaseMod\</OutDir>
+    <OutDir>..\..\bin\Release-windows-x86_64\Mods\PresetMod\</OutDir>
     <IntDir>bin-int\Release-windows-x86_64\</IntDir>
-    <TargetName>BaseMod</TargetName>
+    <TargetName>PresetMod</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -40,8 +40,8 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <PreprocessorDefinitions>NDEBUG;BaseMod_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ModLoader\vendor\spdlog;..\ModLoader\vendor\MinHook;..\ModLoader\src;..\ModLoader\vendor\INI;..\ModLoader\vendor\glm;src;..\ModLoader\vendor\ImGui;..\SDK\src\UE4;..\SDK\src;..\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;PresetMod_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\ModLoader\vendor\spdlog;..\..\ModLoader\vendor\MinHook;..\..\ModLoader\src;..\..\ModLoader\vendor\INI;..\..\ModLoader\vendor\glm;..\..\ModLoader\vendor\ImGui;..\..\BaseMod\src;..\..\SDK\src\UE4;..\..\SDK\src;..\..\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -58,34 +58,33 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>..\ModLoader\vendor\MinHook\lib\libMinHook-x64-v141-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ImportLibrary>..\bin\Release-windows-x86_64\Mods\BaseMod\BaseMod.lib</ImportLibrary>
+      <AdditionalDependencies>..\..\ModLoader\vendor\MinHook\lib\libMinHook-x64-v141-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>..\..\bin\Release-windows-x86_64\Mods\PresetMod\PresetMod.lib</ImportLibrary>
       <AdditionalOptions>/ignore:4006 /ignore:4099 /ignore:4251 %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Q /E /Y /I "$(SolutionDir)\BaseMod\Config" "$(SolutionDir)\bin\Release-windows-x86_64\Mods\BaseMod"</Command>
+      <Command>xcopy /Q /E /Y /I "$(SolutionDir)\ExampleMods\PresetMod\Config" "$(SolutionDir)\bin\Release-windows-x86_64\Mods\PresetMod"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\BaseMod.h" />
-    <ClInclude Include="src\Defs.h" />
-    <ClInclude Include="src\GameMod.h" />
-    <ClInclude Include="src\Utils.h" />
+    <ClInclude Include="Mod.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Mod.cpp" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="src\BaseMod.cpp" />
-    <ClCompile Include="src\GameMod.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ModLoader\MedievalDynastyModLoader.vcxproj">
-      <Project>{0F4A9865-FB6E-E7E5-24BA-CC75103EE603}</Project>
+    <ProjectReference Include="..\..\BaseMod\BaseMod.vcxproj">
+      <Project>{A066E1C6-0C46-6062-155E-EB3881BCC6C3}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\SDK\SDK.vcxproj">
+    <ProjectReference Include="..\..\SDK\SDK.vcxproj">
       <Project>{071D880B-7326-887C-FCA1-9E7C68AA937C}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\LoaderAutoInjector\LoaderAutoInjector.vcxproj">
+    <ProjectReference Include="..\..\LoaderAutoInjector\LoaderAutoInjector.vcxproj">
       <Project>{33873803-1F6B-F958-88CB-F3AB74CEE3DA}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ModLoader\MedievalDynastyModLoader.vcxproj">
+      <Project>{0F4A9865-FB6E-E7E5-24BA-CC75103EE603}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -164,7 +164,7 @@ void ShowLogicMods()
 		std::string str(modName.length(), 0);
 		std::transform(modName.begin(), modName.end(), str.begin(), [](wchar_t c) { return (char)c; });
 
-		std::string ModLabel = str + "##" + std::to_string(i);
+		std::string ModLabel = str + "##lm" + std::to_string(i);
 		if (ImGui::TreeNode(ModLabel.c_str()))
 		{
 			std::string Author = "Created By: " + Global::GetGlobals()->ModInfoList[i].ModAuthor;
@@ -240,7 +240,7 @@ void ShowOverrideMods() {
 
 	for (size_t i = 0; i < Global::GetGlobals()->OverwriteMods.size(); i++) {
 		auto Mod = Global::GetGlobals()->OverwriteMods[i];
-		std::string ModLabel = Mod.Name + "##cm" + std::to_string(i);
+		std::string ModLabel = Mod.Name + "##om" + std::to_string(i);
 		if (ImGui::TreeNode(ModLabel.c_str())) {
 			std::string Author = "Created By: " + Mod.Author;
 			ImGui::Text(Author.c_str());
@@ -295,8 +295,8 @@ void DrawImGui()
 {
 	if (ImGui::Begin("MDML", NULL, NULL)) {
 		ImGui::Spacing();
-		ImGui::Text("Medieval Dynasty Mod Loader Version: %s", MEDIEVAL_VERSION);
-		ImGui::Text("Unreal Mod Loader Version: %s", MODLOADER_VERSION);
+		ImGui::Text("Medieval Dynasty Mod Loader Version: %s", MODLOADER_VERSION);
+		ImGui::Text("Medieval Dynasty Version: %s", MEDIEVAL_VERSION);
 		ShowLogicMods();
 		ShowCoreMods();
 		ShowOverrideMods();

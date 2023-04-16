@@ -1,22 +1,22 @@
-#include "ExampleMod.h"
+#include "Mod.h"
 #include "Utilities/MinHook.h"
 
 #include "BaseMod.h"
 
-BPFUNCTION(WriteToFile)
-{
-	std::cout << "WriteToFile" << std::endl;
-	struct InputParams
-	{
-		UE4::FString NameTest;
-	};
-	auto Inputs = stack->GetInputParams<InputParams>();
-	stack->SetOutput<UE4::FString>("OutPutString", L"KboyGang");
-	stack->SetOutput<bool>("ReturnValue", true);
-}
+//BPFUNCTION(WriteToFile)
+//{
+//	std::cout << "WriteToFile" << std::endl;
+//	struct InputParams
+//	{
+//		UE4::FString NameTest;
+//	};
+//	auto Inputs = stack->GetInputParams<InputParams>();
+//	stack->SetOutput<UE4::FString>("OutPutString", L"KboyGang");
+//	stack->SetOutput<bool>("ReturnValue", true);
+//}
 
 void ExampleMod::OnModInitilize() {
-	REGISTER_FUNCTION(WriteToFile);
+	//REGISTER_FUNCTION(WriteToFile);
 	//if you want to name them on your own do this
 	//REGISTER_FUNCTION_NAMED(WriteToFile, "WriteToFile");
 
@@ -59,6 +59,11 @@ bool ExampleMod::GameInit()
 	return false;
 }
 
+bool ExampleMod::Tick(UE4::ELevelTick tick, float DelatTime) {
+
+	return GameMod::Tick(tick, DelatTime);
+}
+
 static bool showWindow = true;
 void ExampleMod::OnModMenuButtonPressed() {
 	showWindow = !showWindow;
@@ -66,12 +71,10 @@ void ExampleMod::OnModMenuButtonPressed() {
 
 bool ExampleMod::DrawImGui() {
 	if (showWindow) {
-		if (ImGui::Begin("Theme Changed", &showWindow)) {
-			static int currentTheme = 0;
-			if (ImGui::MDML_Combo("Color Theme", currentTheme, {"PhotoshopDark", "Dark", "AmoledDark", "OceanDark", "ImGuiClassic", "ImGuiDark", "ImGuiLight"}))
-				LoaderUI::setColorTheme((ImGuiColorTheme)currentTheme);
+		if (ImGui::Begin("Your Mod", &showWindow)) {
+			ImGui::Text("Hello World!");
+			ImGui::End();
 		}
-		ImGui::End();
+		return false;
 	}
-	return false;
 }

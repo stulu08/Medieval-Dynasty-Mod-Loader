@@ -1,26 +1,25 @@
-project "BaseMod"
+project "PresetMod"
 	kind "SharedLib"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "off"
-	targetname ("BaseMod");
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Mods/BaseMod")
+	targetname ("PresetMod");
+	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Mods/PresetMod")
 	objdir ("bin-int/" .. outputdir .. "")
-	dependson { "MedievalDynastyModLoader" }
+	dependson { "MedievalDynastyModLoader", "BaseMod" }
 	defines
 	{
 		"NDEBUG",
-		"BaseMod_EXPORTS",
+		"PresetMod_EXPORTS",
 		"_WINDOWS",
 		"_USRDLL",
 		"_CRT_SECURE_NO_WARNINGS"
 	}
 	files
 	{
-		"dllmain.cpp",
-		"src/**.h",
-		"src/**.cpp",
-		"src/**.hpp",
+		"**.h",
+		"**.cpp",
+		"**.hpp",
 	}
 
 	includedirs
@@ -30,20 +29,21 @@ project "BaseMod"
 		"%{IncludeDir.ModLoader}",
 		"%{IncludeDir.INI}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.BaseMod}",
 		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.BaseMod}",
 		"%{IncludeDir.UE4}",
 		"%{IncludeDir.SDK}",
 		"%{IncludeDir.MedievalDynasty}",
 	}
 	postbuildcommands {
-		"{COPYDIR} \"%{ProjectDir.BaseMod}/Config\" \"%{wks.location}/bin/" .. outputdir .. "/Mods/BaseMod\"",
+		"{COPYDIR} \"%{ProjectDir.PresetMod}/Config\" \"%{wks.location}/bin/" .. outputdir .. "/Mods/PresetMod\"",
 	}
 	links
 	{
-		"MedievalDynastyModLoader",
+		"BaseMod",
 		"SDK",
 		"LoaderAutoInjector",
+		"MedievalDynastyModLoader",
 		"%{IncludeDir.MinHook}/lib/libMinHook-x64-v141-mtd.lib"
 	}
 	filter "system:windows"

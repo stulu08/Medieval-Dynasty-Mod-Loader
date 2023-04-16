@@ -6,9 +6,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Config/ModLoaderInfo.ini = Config/ModLoaderInfo.ini
 		Config/NoOverwrite.ini = Config/NoOverwrite.ini
 		README.md = README.md
+		Modding.md = Modding.md
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExampleMod", "ExampleMod\ExampleMod.vcxproj", "{7152763F-5D0A-B88C-C611-91E8B2E8527D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example-Mods", "Example-Mods", "{B81C44FC-A400-0552-0D61-FFA4F963EFD3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PresetMod", "ExampleMods\PresetMod\PresetMod.vcxproj", "{B87CB000-24E7-6477-6D25-161DD9CE42CC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F4A9865-FB6E-E7E5-24BA-CC75103EE603} = {0F4A9865-FB6E-E7E5-24BA-CC75103EE603}
+		{A066E1C6-0C46-6062-155E-EB3881BCC6C3} = {A066E1C6-0C46-6062-155E-EB3881BCC6C3}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TimeWeatherChanger", "ExampleMods\TimeWeatherChanger\TimeWeatherChanger.vcxproj", "{5C9D86B2-4881-4708-B1E1-415B9DE4318A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0F4A9865-FB6E-E7E5-24BA-CC75103EE603} = {0F4A9865-FB6E-E7E5-24BA-CC75103EE603}
 		{A066E1C6-0C46-6062-155E-EB3881BCC6C3} = {A066E1C6-0C46-6062-155E-EB3881BCC6C3}
@@ -32,8 +41,10 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7152763F-5D0A-B88C-C611-91E8B2E8527D}.Release|x64.ActiveCfg = Release|x64
-		{7152763F-5D0A-B88C-C611-91E8B2E8527D}.Release|x64.Build.0 = Release|x64
+		{B87CB000-24E7-6477-6D25-161DD9CE42CC}.Release|x64.ActiveCfg = Release|x64
+		{B87CB000-24E7-6477-6D25-161DD9CE42CC}.Release|x64.Build.0 = Release|x64
+		{5C9D86B2-4881-4708-B1E1-415B9DE4318A}.Release|x64.ActiveCfg = Release|x64
+		{5C9D86B2-4881-4708-B1E1-415B9DE4318A}.Release|x64.Build.0 = Release|x64
 		{A066E1C6-0C46-6062-155E-EB3881BCC6C3}.Release|x64.ActiveCfg = Release|x64
 		{A066E1C6-0C46-6062-155E-EB3881BCC6C3}.Release|x64.Build.0 = Release|x64
 		{33873803-1F6B-F958-88CB-F3AB74CEE3DA}.Release|x64.ActiveCfg = Release|x64
@@ -47,6 +58,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{B87CB000-24E7-6477-6D25-161DD9CE42CC} = {B81C44FC-A400-0552-0D61-FFA4F963EFD3}
+		{5C9D86B2-4881-4708-B1E1-415B9DE4318A} = {B81C44FC-A400-0552-0D61-FFA4F963EFD3}
 		{A066E1C6-0C46-6062-155E-EB3881BCC6C3} = {1660C85D-0218-0AAB-6B1F-E30657F6A49B}
 		{33873803-1F6B-F958-88CB-F3AB74CEE3DA} = {1660C85D-0218-0AAB-6B1F-E30657F6A49B}
 		{0F4A9865-FB6E-E7E5-24BA-CC75103EE603} = {1660C85D-0218-0AAB-6B1F-E30657F6A49B}

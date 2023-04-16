@@ -8,7 +8,7 @@ namespace MDMLBase {
 		Mod(HMODULE handle = nullptr) 
 			: GameMod(handle) {
 			ModName = "BaseMod";
-			ModVersion = "1.1.0";
+			ModVersion = "1.1.2";
 			ModDescription = "Base Mod of MDML";
 			ModAuthors = "Stulu";
 			EnabledModEvents = EventsEnabled::All;
@@ -32,8 +32,6 @@ namespace MDMLBase {
 		void ShowINIBrowser();
 
 		bool m_enableCheatsMenu = false;
-
-		UE4::ABP_NPC_Manager_C* m_NPCManager;
 
 		static Mod* s_instance;
 		friend class DLLHandler;

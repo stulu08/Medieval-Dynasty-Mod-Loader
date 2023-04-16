@@ -93,6 +93,9 @@
     <ClInclude Include="src\Medieval_Dynasty\BP_CharacterStatsComponent\BP_CharacterStatsComponent_C.h" />
     <ClInclude Include="src\Medieval_Dynasty\BP_CharacterStatsComponent\BP_CharacterStatsComponent_SDK.h" />
     <ClInclude Include="src\Medieval_Dynasty\BP_CharacterStatsComponent\Structs.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BP_DataManager\BP_DataManager_C.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BP_DataManager\BP_DataManager_SDK.h" />
+    <ClInclude Include="src\Medieval_Dynasty\BP_DataManager\Structs.h" />
     <ClInclude Include="src\Medieval_Dynasty\BP_Enums.h" />
     <ClInclude Include="src\Medieval_Dynasty\BP_EventManager\BP_EventManager_C.h" />
     <ClInclude Include="src\Medieval_Dynasty\BP_EventManager\BP_EventManager_SDK.h" />
@@ -472,6 +475,7 @@
     <ClCompile Include="src\Medieval_Dynasty\BP_CameraManager\BP_CameraManager_C.cpp" />
     <ClCompile Include="src\Medieval_Dynasty\BP_CharacterRelationsComponent\BP_CharacterRelationsComponent_C.cpp" />
     <ClCompile Include="src\Medieval_Dynasty\BP_CharacterStatsComponent\BP_CharacterStatsComponent_C.cpp" />
+    <ClCompile Include="src\Medieval_Dynasty\BP_DataManager\BP_DataManager_C.cpp" />
     <ClCompile Include="src\Medieval_Dynasty\BP_EventManager\BP_EventManager_C.cpp" />
     <ClCompile Include="src\Medieval_Dynasty\BP_FlyingAnimalBase\BP_FlyingAnimalBase_C.cpp" />
     <ClCompile Include="src\Medieval_Dynasty\BP_MasterHoldableItem\BP_MasterHoldableItem_C.cpp" />

@@ -68,7 +68,6 @@ namespace MDMLBase {
 
 	bool Mod::InitGameState() {
 		static int count = 0;
-		m_NPCManager = nullptr;
 		needObjectReload = true;
 		GameMod::InitGameState();
 		if (MedievalDynastyGameInstance && m_enableCheatsMenu) {
@@ -94,8 +93,6 @@ namespace MDMLBase {
 	}
 
 	bool Mod::BeginPlay(UE4::AActor* Actor) {
-		Utils::ValidateBPObjectBeginPlay(Actor, &m_NPCManager, "BlueprintGeneratedClass BP_NPC_Manager.BP_NPC_Manager_C");
-
 		return GameMod::BeginPlay(Actor);
 	}
 
@@ -241,22 +238,6 @@ namespace MDMLBase {
 								ImGui::Text(comp->GetFullName().c_str());
 								ImGui::Separator();
 							}
-						}
-					}
-				}
-				ImGui::TreePop();
-			}
-			if (ImGui::TreeNodeEx("##NPCManager", DEFAULT_TREE_NODE_FLAGS, m_NPCManager ? ("NPC Manager: " + m_NPCManager->GetName()).c_str() : "NPC Manager : Not found")) {
-				if (m_NPCManager != nullptr) {
-					auto Presets = m_NPCManager->M_GetAvailableFemalePresets();
-					for (int i = 0; i < Presets.Num(); i++) {
-						UE4::FST_NPCsPresets Preset = Presets[i];
-						if (ImGui::TreeNodeEx(Preset.PresetID.GetName().c_str(), DEFAULT_TREE_NODE_FLAGS)) {
-							if (Preset.Meshes.Torso.Mesh.Get()) {
-								ImGui::Text("Body Mesh: %s", Preset.Meshes.Torso.Mesh.Get()->GetName());
-							}
-							ImGui::Text("Body Mesh: %d", Preset.Meshes.Torso.Mesh.SoftObjectPtr.WeakPtr.ObjectIndex);
-							ImGui::TreePop();
 						}
 					}
 				}

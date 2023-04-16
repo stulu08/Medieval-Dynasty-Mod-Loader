@@ -14,7 +14,8 @@ workspace "MDML"
 	{
 		"Config/ModLoaderInfo.ini",
 		"Config/NoOverwrite.ini",
-		"README.md"
+		"README.md",
+		"Modding.md"
 	}
 	architecture "x86_64"
 
@@ -58,9 +59,8 @@ ProjectDir = {}
 ProjectDir["BaseMod"] = "%{wks.location}/BaseMod"
 ProjectDir["Injector"] = "%{wks.location}/LoaderAutoInjector"
 ProjectDir["Loader"] = "%{wks.location}/ModLoader"
-ProjectDir["ExampleMod"] = "%{wks.location}/ExampleMod"
 
-include "ExampleMod"
+include "ExampleMods"
 group "MDML"
 include "LoaderAutoInjector"
 include "ModLoader"

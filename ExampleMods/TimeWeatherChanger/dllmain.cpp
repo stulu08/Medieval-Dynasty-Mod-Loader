@@ -1,11 +1,11 @@
 #include <windows.h>
-#include "ExampleMod.h"
+#include "TimeWeatherChanger.h"
 
 class DLLHandler {
 public:
     static inline Mod* Mod = nullptr;
     static void CreateMod(HMODULE hModule) {
-        Mod = new ExampleMod(hModule);
+        Mod = new TimeWeatherChanger(hModule);
     }
 };
 

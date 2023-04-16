@@ -12,6 +12,7 @@
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "D3dcompiler.lib")
 #define DEFAULT_TREE_NODE_FLAGS ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick
+#define IMGUI_TREE_CONTINUE { ImGui::TreePop(); continue; }
 enum class ImGuiColorTheme {
 	PhotoshopDark, Dark, AmoledDark, OceanDark, ImGuiClassic, ImGuiDark, ImGuiLight
 };
