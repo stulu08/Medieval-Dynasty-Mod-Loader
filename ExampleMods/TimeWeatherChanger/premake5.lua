@@ -1,16 +1,16 @@
-project "ExampleMod"
+project "TimeWeatherChanger"
 	kind "SharedLib"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "off"
-	targetname ("ExampleMod");
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "/ExampleMod")
+	targetname ("TimeWeatherChanger");
+	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Mods/TimeWeatherChanger")
 	objdir ("bin-int/" .. outputdir .. "")
 	dependson { "MedievalDynastyModLoader", "BaseMod" }
 	defines
 	{
 		"NDEBUG",
-		"EXAMPLEMOD_EXPORTS",
+		"TimeWeatherChanger_EXPORTS",
 		"_WINDOWS",
 		"_USRDLL",
 		"_CRT_SECURE_NO_WARNINGS"
@@ -36,7 +36,7 @@ project "ExampleMod"
 		"%{IncludeDir.MedievalDynasty}",
 	}
 	postbuildcommands {
-		"{COPYDIR} \"%{ProjectDir.ExampleMod}/Config\" \"%{wks.location}/bin/" .. outputdir .. "/ExampleMod\"",
+		"{COPYDIR} \"%{ProjectDir.TimeWeatherChanger}/Config\" \"%{wks.location}/bin/" .. outputdir .. "/Mods/TimeWeatherChanger\"",
 	}
 	links
 	{

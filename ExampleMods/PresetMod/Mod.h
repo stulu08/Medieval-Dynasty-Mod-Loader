@@ -9,11 +9,11 @@ public:
 	//Basic Mod Info
 	ExampleMod(HMODULE handle = nullptr)
 		: GameMod(handle) {
-		ModName = "GuiThemeChanger"; // Mod Name -- If Using BP ModActor, Should Be The Same Name As Your Pak
-		ModVersion = "1.0.1"; // Mod Version
-		ModDescription = "Changes the gui theme"; // Mod Description
-		ModAuthors = "Stulu"; // Mod Author
-		EnabledModEvents = EventsEnabled::All;// You can enable specific events here to improve performance
+		ModName = "Your Mod"; // Mod Name -- If Using BP ModActor, Should Be The Same Name As Your Pak
+		ModVersion = "1.0.0"; // Mod Version
+		ModDescription = ""; // Mod Description
+		ModAuthors = "You"; // Mod Author
+		EnabledModEvents = EventsEnabled::Default;// You can enable specific events here to improve performance
 		CompleteModCreation();
 	}
 
@@ -36,6 +36,8 @@ public:
 	virtual bool MenuInit();
 	//Called when the Game gets the init call
 	virtual bool GameInit();
+
+	virtual bool Tick(UE4::ELevelTick tick, float DelatTime) override;
 
 	virtual void OnModMenuButtonPressed() override;
 
