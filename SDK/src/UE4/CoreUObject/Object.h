@@ -284,6 +284,21 @@ namespace UE4 {
 
 		void ProcessEvent_Save_impl(class UFunction* function, void* parms, bool checkClass = true, bool checkParamSize = true, size_t parmsSize = 0);
 
+/**
+ * Find or load an object by string name with optional outer and filename specifications.
+ * These are optional because the InName can contain all of the necessary information.
+ *
+ * @param Class			The class (or a superclass) of the object to be loaded.
+ * @param InOuter		An optional object to narrow where to find/load the object from
+ * @param Name			String name of the object. If it's not fully qualified, InOuter and/or Filename will be needed
+ * @param Filename		An optional file to load from (Deprecated parameter)
+ * @param LoadFlags		Flags controlling how to handle loading from disk, from the ELoadFlags enum
+ * @param Sandbox		A list of packages to restrict the search for the object (Deprecated parameter)
+ * @param bAllowObjectReconciliation	Whether to allow the object to be found via FindObject before forcing a load (Deprecated parameter)
+ * @param InstancingContext				InstancingContext used to remap imports when loading a package under a new name
+ *
+ * @return The object that was loaded or found. nullptr for a failure.
+ */
 		static UObject* StaticLoadObject(class UClass* uclass, UObject* InOuter, const wchar_t* InName, const wchar_t* Filename = nullptr, ELoadFlags LoadFlags = ELoadFlags::None, void* Sandbox = nullptr, bool bAllowObjectReconciliation = true, const void* InstancingContext = nullptr);
 
 		static UObject* StaticFindObject(class UClass* uclass, UObject* InOuter, const wchar_t* Name, bool ExactClass = true);

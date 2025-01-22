@@ -107,16 +107,29 @@ namespace HooksManager
 			return false;
 		}
 		
-		// 0000000142505EB0 : UE4Game-Win64-Shipping.exe/pdb
-		// 00000001425ED830 : Medieval_Dynasty-Win64-Shipping.exe
-		// __int64 __fastcall FPakPlatformFile::FindFileInPakFiles(__int64 a1, _WORD *a2, __int64 *a3, __int64 a4)
+		/* 
+		(discord message by me): 
+			in the originial ue 4.27.2 there are 2 versions of FindFileInPakFiles, 
+			i tried locating this function now for around an hour.
+			But the variant i dont need was easy to locate, after looking at the pseudo code 
+			i noticed that the two functions were merged together
+
+		static bool FPakPlatformFile::FindFileInPakFiles(
+			TArray<FPakListEntry>& Paks, const TCHAR* Filename,
+			TRefCountPtr<FPakFile>* OutPakFile, FPakEntry* OutEntry = nullptr)
+		
 		PVOID(*origFindFileInPakFiles)(UE4::TArray<FPakListEntry>&, const TCHAR*, void**,void*);
-		bool __fastcall hookFindFileInPakFiles(UE4::TArray<FPakListEntry>& Paks, const TCHAR* Filename, void** OutPakFile, void* OutEntry) {
+		*/
+
+
+		// bool FPakPlatformFile::FindFileInPakFiles(const TCHAR* Filename, TRefCountPtr<FPakFile>* OutPakFile = nullptr, FPakEntry* OutEntry = nullptr)
+		PVOID(*origFindFileInPakFiles)(void* ptrThis, const TCHAR* Filename, void** OutPakFile, struct FPakEntry* OutEntry);
+		bool __fastcall hookFindFileInPakFiles(void* ptrThis, const TCHAR* Filename, void** OutPakFile, struct FPakEntry* OutEntry) {
 			if (Filename) {
 				std::wstring wstring(&Filename[0]);
 				std::filesystem::path file(wstring);
 				if (isPakOverridePathValid(file)) {
-					if(OutPakFile)
+					if (OutPakFile)
 						*OutPakFile = nullptr;
 					OutEntry = nullptr;
 					Log::Trace_MDML("Accepted FindFileInPakFiles: {0}", MDML::FormatPath(file.string()));
@@ -124,11 +137,12 @@ namespace HooksManager
 				}
 				//Log::Info_MDML("Refused IsNonPakFilenameAllowed: {0}", MDML::FormatPath(file.string()));
 			}
-			return origFindFileInPakFiles(Paks, Filename, OutPakFile, OutEntry);
+			//return origFindFileInPakFiles(Paks, Filename, OutPakFile, OutEntry); old
+			return origFindFileInPakFiles(ptrThis, Filename, OutPakFile, OutEntry);
 		}
-		// 000000014250A8D0 : UE4Game-Win64-Shipping.exe/pdb
-		// 00000001425F2250 : Medieval_Dynasty-Win64-Shipping.exe
-		// __int64 __fastcall FPakPlatformFile::IsNonPakFilenameAllowed(FPakPlatformFile *this, const struct FString *a2)
+
+
+		// bool FPakPlatformFile::IsNonPakFilenameAllowed(FPakPlatformFile *this, const struct FString *a2)
 		PVOID(*origIsNonPakFilenameAllowed)(void* ptrThis, const struct UE4::FString* InFileName);
 		bool __fastcall hookIsNonPakFilenameAllowed(void* ptrThis, const struct UE4::FString* InFileName) {
 			//return 1;

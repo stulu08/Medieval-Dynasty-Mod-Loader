@@ -4,7 +4,9 @@
 void Log::Init(const std::string& dir) {
 	s_logDir = dir;
 	s_mdmlLogger = Logger::Create("MDML", getLogFile("MDML-log.txt"));
-	s_umlLogger = Logger::Create("UnrealModLoader", getLogFile("UML-log.txt"));
+	// moved from seperate logs to distinguishe between mdml and uml to one log
+	//s_umlLogger = Logger::Create("UnrealModLoader", getLogFile("UML-log.txt"));
+	s_umlLogger = s_mdmlLogger;
 };
 Ref<Logger> Log::ModLogger() {
     return Logger::getLogger(Mod::ModRef->ModName);
