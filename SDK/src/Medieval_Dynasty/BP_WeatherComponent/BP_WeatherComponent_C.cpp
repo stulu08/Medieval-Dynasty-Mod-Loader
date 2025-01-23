@@ -72,7 +72,7 @@ void UBP_WeatherComponent_C::M_SetCave(const bool& value) {
 #pragma region Functions
 /////////////////////////////////////////////
 // Function BP_WeatherComponent.BP_WeatherComponent_C.ExecuteUbergraph_BP_WeatherComponent
-// Flags: Final, HasDefaults
+// Flags: Final
 // Params:
 // Name: EntryPoint	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
@@ -84,6 +84,21 @@ void UBP_WeatherComponent_C::ExecuteUbergraph_BP_WeatherComponent(int32_t EntryP
 	};
 	UBP_WeatherComponent_C_ExecuteUbergraph_BP_WeatherComponent_Params params;
 	params.EntryPoint = EntryPoint;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_WeatherComponent.BP_WeatherComponent_C.InitWeatherComponent
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void UBP_WeatherComponent_C::InitWeatherComponent() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_WeatherComponent.BP_WeatherComponent_C.InitWeatherComponent");
+
+	struct UBP_WeatherComponent_C_InitWeatherComponent_Params {
+	};
+	UBP_WeatherComponent_C_InitWeatherComponent_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }

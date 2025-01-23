@@ -123,15 +123,15 @@ class ABP_MasterGate_C** UBP_PlayerBuildingComponent_C::M_PtrGetGhost_Gate() {
 void UBP_PlayerBuildingComponent_C::M_SetGhost_Gate(const class ABP_MasterGate_C*& value) {
 	Write((byte*)this + 256, value);
 }
-// Member Getter and Setter of Ghost_Bridge
-// Declaration: class ABP_MasterBridge_C* Ghost_Bridge
-class ABP_MasterBridge_C* UBP_PlayerBuildingComponent_C::M_GetGhost_Bridge() const {
-	return Read<class ABP_MasterBridge_C*>((byte*)this + 264);
+// Member Getter and Setter of Ghost_Platform
+// Declaration: class ABP_MasterPlatform_C* Ghost_Platform
+class ABP_MasterPlatform_C* UBP_PlayerBuildingComponent_C::M_GetGhost_Platform() const {
+	return Read<class ABP_MasterPlatform_C*>((byte*)this + 264);
 }
-class ABP_MasterBridge_C** UBP_PlayerBuildingComponent_C::M_PtrGetGhost_Bridge() {
-	return reinterpret_cast<class ABP_MasterBridge_C**>((byte*)this + 264);
+class ABP_MasterPlatform_C** UBP_PlayerBuildingComponent_C::M_PtrGetGhost_Platform() {
+	return reinterpret_cast<class ABP_MasterPlatform_C**>((byte*)this + 264);
 }
-void UBP_PlayerBuildingComponent_C::M_SetGhost_Bridge(const class ABP_MasterBridge_C*& value) {
+void UBP_PlayerBuildingComponent_C::M_SetGhost_Platform(const class ABP_MasterPlatform_C*& value) {
 	Write((byte*)this + 264, value);
 }
 // Member Getter and Setter of TempRotation
@@ -144,6 +144,28 @@ float* UBP_PlayerBuildingComponent_C::M_PtrGetTempRotation() {
 }
 void UBP_PlayerBuildingComponent_C::M_SetTempRotation(const float& value) {
 	Write((byte*)this + 272, value);
+}
+// Member Getter and Setter of TempHeightOffset
+// Declaration: float TempHeightOffset
+float UBP_PlayerBuildingComponent_C::M_GetTempHeightOffset() const {
+	return Read<float>((byte*)this + 276);
+}
+float* UBP_PlayerBuildingComponent_C::M_PtrGetTempHeightOffset() {
+	return reinterpret_cast<float*>((byte*)this + 276);
+}
+void UBP_PlayerBuildingComponent_C::M_SetTempHeightOffset(const float& value) {
+	Write((byte*)this + 276, value);
+}
+// Member Getter and Setter of TempControlMode
+// Declaration: bool TempControlMode
+bool UBP_PlayerBuildingComponent_C::M_GetTempControlMode() const {
+	return Read<bool>((byte*)this + 280);
+}
+bool* UBP_PlayerBuildingComponent_C::M_PtrGetTempControlMode() {
+	return reinterpret_cast<bool*>((byte*)this + 280);
+}
+void UBP_PlayerBuildingComponent_C::M_SetTempControlMode(const bool& value) {
+	Write((byte*)this + 280, value);
 }
 #pragma endregion
 #pragma region Functions
@@ -166,41 +188,41 @@ void UBP_PlayerBuildingComponent_C::ExecuteUbergraph_BP_PlayerBuildingComponent(
 }
 
 /////////////////////////////////////////////
-// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnBridgeGhost
-// Flags: BlueprintCallable, BlueprintEvent
+// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnPlatformGhostServer
+// Flags: Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: BridgeType	Type: struct FDataTableRowHandle	Flags: BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor
+// Name: PlatformType	Type: struct FDataTableRowHandle	Flags: BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor
 // Name: Continue	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void UBP_PlayerBuildingComponent_C::SpawnBridgeGhost(struct FDataTableRowHandle BridgeType, bool Continue) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnBridgeGhost");
+void UBP_PlayerBuildingComponent_C::SpawnPlatformGhostServer(struct FDataTableRowHandle PlatformType, bool Continue) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnPlatformGhostServer");
 
-	struct UBP_PlayerBuildingComponent_C_SpawnBridgeGhost_Params {
-		struct FDataTableRowHandle BridgeType;			//Offset: 0 | ElementSize: 16
+	struct UBP_PlayerBuildingComponent_C_SpawnPlatformGhostServer_Params {
+		struct FDataTableRowHandle PlatformType;			//Offset: 0 | ElementSize: 16
 		bool Continue;			//Offset: 16 | ElementSize: 1
 	};
-	UBP_PlayerBuildingComponent_C_SpawnBridgeGhost_Params params;
-	params.BridgeType = BridgeType;
+	UBP_PlayerBuildingComponent_C_SpawnPlatformGhostServer_Params params;
+	params.PlatformType = PlatformType;
 	params.Continue = Continue;
 
 	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
-// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnGateGhost
-// Flags: BlueprintCallable, BlueprintEvent
+// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnGateGhostServer
+// Flags: Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: GateType	Type: struct FDataTableRowHandle	Flags: BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor
 // Name: Continue	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void UBP_PlayerBuildingComponent_C::SpawnGateGhost(struct FDataTableRowHandle GateType, bool Continue) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnGateGhost");
+void UBP_PlayerBuildingComponent_C::SpawnGateGhostServer(struct FDataTableRowHandle GateType, bool Continue) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnGateGhostServer");
 
-	struct UBP_PlayerBuildingComponent_C_SpawnGateGhost_Params {
+	struct UBP_PlayerBuildingComponent_C_SpawnGateGhostServer_Params {
 		struct FDataTableRowHandle GateType;			//Offset: 0 | ElementSize: 16
 		bool Continue;			//Offset: 16 | ElementSize: 1
 	};
-	UBP_PlayerBuildingComponent_C_SpawnGateGhost_Params params;
+	UBP_PlayerBuildingComponent_C_SpawnGateGhostServer_Params params;
 	params.GateType = GateType;
 	params.Continue = Continue;
 
@@ -208,24 +230,24 @@ void UBP_PlayerBuildingComponent_C::SpawnGateGhost(struct FDataTableRowHandle Ga
 }
 
 /////////////////////////////////////////////
-// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnRoadGhost
-// Flags: BlueprintCallable, BlueprintEvent
+// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnRoadGhostServer
+// Flags: Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: RoadType	Type: struct FDataTableRowHandle	Flags: BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor
 // Name: Continue	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: StartPoint	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: EndPoint	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void UBP_PlayerBuildingComponent_C::SpawnRoadGhost(struct FDataTableRowHandle RoadType, bool Continue, struct FVector StartPoint, struct FVector EndPoint) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnRoadGhost");
+void UBP_PlayerBuildingComponent_C::SpawnRoadGhostServer(struct FDataTableRowHandle RoadType, bool Continue, struct FVector StartPoint, struct FVector EndPoint) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnRoadGhostServer");
 
-	struct UBP_PlayerBuildingComponent_C_SpawnRoadGhost_Params {
+	struct UBP_PlayerBuildingComponent_C_SpawnRoadGhostServer_Params {
 		struct FDataTableRowHandle RoadType;			//Offset: 0 | ElementSize: 16
 		bool Continue;			//Offset: 16 | ElementSize: 1
 		struct FVector StartPoint;			//Offset: 20 | ElementSize: 12
 		struct FVector EndPoint;			//Offset: 32 | ElementSize: 12
 	};
-	UBP_PlayerBuildingComponent_C_SpawnRoadGhost_Params params;
+	UBP_PlayerBuildingComponent_C_SpawnRoadGhostServer_Params params;
 	params.RoadType = RoadType;
 	params.Continue = Continue;
 	params.StartPoint = StartPoint;
@@ -235,20 +257,20 @@ void UBP_PlayerBuildingComponent_C::SpawnRoadGhost(struct FDataTableRowHandle Ro
 }
 
 /////////////////////////////////////////////
-// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnFurnitureGhost
-// Flags: HasOutParms, BlueprintCallable, BlueprintEvent
+// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnFurnitureGhostServer
+// Flags: Net, NetReliable, NetServer, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: FurnitureType	Type: struct FDataTableRowHandle	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, NoDestructor
 // Name: Continue	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void UBP_PlayerBuildingComponent_C::SpawnFurnitureGhost(const struct FDataTableRowHandle& FurnitureType, bool Continue) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnFurnitureGhost");
+void UBP_PlayerBuildingComponent_C::SpawnFurnitureGhostServer(const struct FDataTableRowHandle& FurnitureType, bool Continue) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnFurnitureGhostServer");
 
-	struct UBP_PlayerBuildingComponent_C_SpawnFurnitureGhost_Params {
+	struct UBP_PlayerBuildingComponent_C_SpawnFurnitureGhostServer_Params {
 		struct FDataTableRowHandle FurnitureType;			//Offset: 0 | ElementSize: 16
 		bool Continue;			//Offset: 16 | ElementSize: 1
 	};
-	UBP_PlayerBuildingComponent_C_SpawnFurnitureGhost_Params params;
+	UBP_PlayerBuildingComponent_C_SpawnFurnitureGhostServer_Params params;
 	params.FurnitureType = FurnitureType;
 	params.Continue = Continue;
 
@@ -256,8 +278,8 @@ void UBP_PlayerBuildingComponent_C::SpawnFurnitureGhost(const struct FDataTableR
 }
 
 /////////////////////////////////////////////
-// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnSplineGhost
-// Flags: BlueprintCallable, BlueprintEvent
+// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnSplineGhostServer
+// Flags: Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: FenceType	Type: struct FDataTableRowHandle	Flags: BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor
 // Name: Continue	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
@@ -265,17 +287,17 @@ void UBP_PlayerBuildingComponent_C::SpawnFurnitureGhost(const struct FDataTableR
 // Name: EndPoint	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Invert	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void UBP_PlayerBuildingComponent_C::SpawnSplineGhost(struct FDataTableRowHandle FenceType, bool Continue, struct FVector StartPoint, struct FVector EndPoint, bool Invert) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnSplineGhost");
+void UBP_PlayerBuildingComponent_C::SpawnSplineGhostServer(struct FDataTableRowHandle FenceType, bool Continue, struct FVector StartPoint, struct FVector EndPoint, bool Invert) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnSplineGhostServer");
 
-	struct UBP_PlayerBuildingComponent_C_SpawnSplineGhost_Params {
+	struct UBP_PlayerBuildingComponent_C_SpawnSplineGhostServer_Params {
 		struct FDataTableRowHandle FenceType;			//Offset: 0 | ElementSize: 16
 		bool Continue;			//Offset: 16 | ElementSize: 1
 		struct FVector StartPoint;			//Offset: 20 | ElementSize: 12
 		struct FVector EndPoint;			//Offset: 32 | ElementSize: 12
 		bool Invert;			//Offset: 44 | ElementSize: 1
 	};
-	UBP_PlayerBuildingComponent_C_SpawnSplineGhost_Params params;
+	UBP_PlayerBuildingComponent_C_SpawnSplineGhostServer_Params params;
 	params.FenceType = FenceType;
 	params.Continue = Continue;
 	params.StartPoint = StartPoint;
@@ -286,36 +308,36 @@ void UBP_PlayerBuildingComponent_C::SpawnSplineGhost(struct FDataTableRowHandle 
 }
 
 /////////////////////////////////////////////
-// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnMasterFieldGhost
-// Flags: BlueprintCallable, BlueprintEvent
+// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnMasterFieldGhost_Server
+// Flags: Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: FieldType	Type: TEnumAsByte<E_FieldCategories>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void UBP_PlayerBuildingComponent_C::SpawnMasterFieldGhost(TEnumAsByte<E_FieldCategories> FieldType) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnMasterFieldGhost");
+void UBP_PlayerBuildingComponent_C::SpawnMasterFieldGhost_Server(TEnumAsByte<E_FieldCategories> FieldType) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnMasterFieldGhost_Server");
 
-	struct UBP_PlayerBuildingComponent_C_SpawnMasterFieldGhost_Params {
+	struct UBP_PlayerBuildingComponent_C_SpawnMasterFieldGhost_Server_Params {
 		TEnumAsByte<E_FieldCategories> FieldType;			//Offset: 0 | ElementSize: 1
 	};
-	UBP_PlayerBuildingComponent_C_SpawnMasterFieldGhost_Params params;
+	UBP_PlayerBuildingComponent_C_SpawnMasterFieldGhost_Server_Params params;
 	params.FieldType = FieldType;
 
 	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
-// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnBuildingGhost
-// Flags: BlueprintCallable, BlueprintEvent
+// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnBuildingGhostServer
+// Flags: Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: BuildingType	Type: struct FDataTableRowHandle	Flags: BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor
 /////////////////////////////////////////////
-void UBP_PlayerBuildingComponent_C::SpawnBuildingGhost(struct FDataTableRowHandle BuildingType) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnBuildingGhost");
+void UBP_PlayerBuildingComponent_C::SpawnBuildingGhostServer(struct FDataTableRowHandle BuildingType) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.SpawnBuildingGhostServer");
 
-	struct UBP_PlayerBuildingComponent_C_SpawnBuildingGhost_Params {
+	struct UBP_PlayerBuildingComponent_C_SpawnBuildingGhostServer_Params {
 		struct FDataTableRowHandle BuildingType;			//Offset: 0 | ElementSize: 16
 	};
-	UBP_PlayerBuildingComponent_C_SpawnBuildingGhost_Params params;
+	UBP_PlayerBuildingComponent_C_SpawnBuildingGhostServer_Params params;
 	params.BuildingType = BuildingType;
 
 	UObject::ProcessEvent(fn, &params);
@@ -389,6 +411,111 @@ void UBP_PlayerBuildingComponent_C::GetBuildingDistanceFromPlayer(float* Distanc
 	UObject::ProcessEvent(fn, &params);
 	if (Distance != nullptr)
 		*Distance = params.Distance;
+}
+
+/////////////////////////////////////////////
+// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.OnRep_Ghost_Building
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void UBP_PlayerBuildingComponent_C::OnRep_Ghost_Building() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.OnRep_Ghost_Building");
+
+	struct UBP_PlayerBuildingComponent_C_OnRep_Ghost_Building_Params {
+	};
+	UBP_PlayerBuildingComponent_C_OnRep_Ghost_Building_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.OnRep_Ghost_Spline
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void UBP_PlayerBuildingComponent_C::OnRep_Ghost_Spline() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.OnRep_Ghost_Spline");
+
+	struct UBP_PlayerBuildingComponent_C_OnRep_Ghost_Spline_Params {
+	};
+	UBP_PlayerBuildingComponent_C_OnRep_Ghost_Spline_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.OnRep_Ghost_Furniture
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void UBP_PlayerBuildingComponent_C::OnRep_Ghost_Furniture() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.OnRep_Ghost_Furniture");
+
+	struct UBP_PlayerBuildingComponent_C_OnRep_Ghost_Furniture_Params {
+	};
+	UBP_PlayerBuildingComponent_C_OnRep_Ghost_Furniture_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.OnRep_Ghost_Gate
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void UBP_PlayerBuildingComponent_C::OnRep_Ghost_Gate() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.OnRep_Ghost_Gate");
+
+	struct UBP_PlayerBuildingComponent_C_OnRep_Ghost_Gate_Params {
+	};
+	UBP_PlayerBuildingComponent_C_OnRep_Ghost_Gate_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.OnRep_Ghost_Road
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void UBP_PlayerBuildingComponent_C::OnRep_Ghost_Road() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.OnRep_Ghost_Road");
+
+	struct UBP_PlayerBuildingComponent_C_OnRep_Ghost_Road_Params {
+	};
+	UBP_PlayerBuildingComponent_C_OnRep_Ghost_Road_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.OnRep_Ghost_Field
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void UBP_PlayerBuildingComponent_C::OnRep_Ghost_Field() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.OnRep_Ghost_Field");
+
+	struct UBP_PlayerBuildingComponent_C_OnRep_Ghost_Field_Params {
+	};
+	UBP_PlayerBuildingComponent_C_OnRep_Ghost_Field_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.OnRep_Ghost_Platform
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void UBP_PlayerBuildingComponent_C::OnRep_Ghost_Platform() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_PlayerBuildingComponent.BP_PlayerBuildingComponent_C.OnRep_Ghost_Platform");
+
+	struct UBP_PlayerBuildingComponent_C_OnRep_Ghost_Platform_Params {
+	};
+	UBP_PlayerBuildingComponent_C_OnRep_Ghost_Platform_Params params;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 #pragma endregion

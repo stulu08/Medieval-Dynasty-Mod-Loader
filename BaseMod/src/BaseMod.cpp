@@ -153,7 +153,7 @@ namespace MDMLBase {
 				ImGui::Separator();
 			}
 			
-			if (ImGui::TreeNodeEx("##PlayerCharacter", DEFAULT_TREE_NODE_FLAGS, PlayerCharacter ? ("Player Character: " + PlayerCharacter->GetName()).c_str() : "Player Character: Not found")) {
+			if (ImGui::TreeNodeEx("##PlayerCharacter", DEFAULT_TREE_NODE_FLAGS, "Player Character")) {
 				if (PlayerCharacter != nullptr) {
 					if (ImGui::CollapsingHeader("Transform")) {
 						Utils::Gui::UE4ActorTransformEdit(PlayerCharacter);
@@ -361,6 +361,8 @@ namespace MDMLBase {
 			}
 			index = 0;
 			static std::vector<UE4::UPackage*> exportList;
+			static std::vector<std::string> needAddList;
+
 			if (ImGui::CollapsingHeader(std::string(std::to_string(packages.size()) + " Packages").c_str())) {
 				bool selectAll = false;
 				bool deselectAll = false;
@@ -395,11 +397,42 @@ namespace MDMLBase {
 				if (ImGui::Button("Export BP Enums")) {
 					Utils::Export::StartThreadBPEnums("Export");
 				}
+				{// export file
+					static std::string profile = "Default.export";
+					ImGui::InputText("##Export_Profile", &profile);
+					if (ImGui::Button("Save selected to file")) {
+						std::stringstream content;
+						for (auto& entry : exportList) {
+							content << entry->GetName() << std::endl;
+						}
+						Utils::SaveString(content.str(), profile + ".export");
+					}
+					ImGui::SameLine();
+					if (ImGui::Button("Load from File")) {
+						std::ifstream file(profile + ".export");
+						std::string line;
+						while (file >> line) {
+							needAddList.push_back(line);
+						}
+						file.close();
+					}
+
+				}
+
 				for (auto object : packages) {
-					if (!object)
+					if (!object) {
 						continue;
+					}
+
+					const auto loc = std::find(needAddList.begin(), needAddList.end(), object->GetName());
+					if (loc != needAddList.end()) {
+						needAddList.erase(loc);
+						exportList.push_back((UE4::UPackage*)object);
+					}
+
 					if (!Utils::Gui::FilterSearch(object, search))
 						continue;
+
 					float x = ImGui::GetContentRegionAvail().x;
 					if (ImGui::TreeNodeEx(("Packages_" + std::to_string(index++)).c_str(), ImGuiTreeNodeFlags_OpenOnArrow, object->GetName().c_str())) {
 						static std::unordered_map<UE4::UObject*, int32_t> counts;

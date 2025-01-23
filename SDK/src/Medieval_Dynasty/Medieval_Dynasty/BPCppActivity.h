@@ -20,15 +20,15 @@ public:
 	}
 
 #pragma region Functions
-	static void FinishActivity(class APlayerController* PC, struct FString ActivityId, bool ActivityCompletedSuccessfully, bool HideFinishedActivity, bool StartNextActivity, struct FString NewActivityId);
+	static void FinishActivity(struct FString ActivityId, bool ActivityCompletedSuccessfully, bool HideFinishedActivity, bool StartNextActivity, struct FString NewActivityId);
 
-	static void ResetAllActiveActivities(class APlayerController* PC);
+	static void ResetAllActiveActivities();
 
-	static void ResumeActivity(class APlayerController* PC, struct FString ActivityId, TArray<struct FString> CompletedTasks, TArray<struct FString> InProgressTasks, bool ToggleVisibility);
+	static void ResumeActivity(struct FString ActivityId, TArray<struct FString> CompletedTasks, TArray<struct FString> InProgressTasks, bool ToggleVisibility);
 
-	static void SetActivityAvailability(class APlayerController* PC, struct FString ActivityId, bool ToggleVisibility);
+	static void SetActivityAvailability(struct FString ActivityId, bool ToggleVisibility);
 
-	static void StartActivity(class APlayerController* PC, struct FString ActivityId);
+	static void StartActivity(struct FString ActivityId);
 
 #pragma endregion
 };

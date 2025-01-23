@@ -5,420 +5,464 @@ namespace UE4 {
 // Member Getter and Setter of UberGraphFrame
 // Declaration: struct FPointerToUberGraphFrame UberGraphFrame
 struct FPointerToUberGraphFrame ABP_MasterItem_C::M_GetUberGraphFrame() const {
-	return Read<struct FPointerToUberGraphFrame>((byte*)this + 544);
+	return Read<struct FPointerToUberGraphFrame>((byte*)this + 560);
 }
 struct FPointerToUberGraphFrame* ABP_MasterItem_C::M_PtrGetUberGraphFrame() {
-	return reinterpret_cast<struct FPointerToUberGraphFrame*>((byte*)this + 544);
+	return reinterpret_cast<struct FPointerToUberGraphFrame*>((byte*)this + 560);
 }
 void ABP_MasterItem_C::M_SetUberGraphFrame(const struct FPointerToUberGraphFrame& value) {
-	Write((byte*)this + 544, value);
+	Write((byte*)this + 560, value);
 }
 // Member Getter and Setter of InspectorPoint
 // Declaration: class USphereComponent* InspectorPoint
 class USphereComponent* ABP_MasterItem_C::M_GetInspectorPoint() const {
-	return Read<class USphereComponent*>((byte*)this + 552);
+	return Read<class USphereComponent*>((byte*)this + 568);
 }
 class USphereComponent** ABP_MasterItem_C::M_PtrGetInspectorPoint() {
-	return reinterpret_cast<class USphereComponent**>((byte*)this + 552);
+	return reinterpret_cast<class USphereComponent**>((byte*)this + 568);
 }
 void ABP_MasterItem_C::M_SetInspectorPoint(const class USphereComponent*& value) {
-	Write((byte*)this + 552, value);
+	Write((byte*)this + 568, value);
 }
 // Member Getter and Setter of AquaticBoyuancy
 // Declaration: class UBP_AquaticBuoyancy_C* AquaticBoyuancy
 class UBP_AquaticBuoyancy_C* ABP_MasterItem_C::M_GetAquaticBoyuancy() const {
-	return Read<class UBP_AquaticBuoyancy_C*>((byte*)this + 560);
+	return Read<class UBP_AquaticBuoyancy_C*>((byte*)this + 576);
 }
 class UBP_AquaticBuoyancy_C** ABP_MasterItem_C::M_PtrGetAquaticBoyuancy() {
-	return reinterpret_cast<class UBP_AquaticBuoyancy_C**>((byte*)this + 560);
+	return reinterpret_cast<class UBP_AquaticBuoyancy_C**>((byte*)this + 576);
 }
 void ABP_MasterItem_C::M_SetAquaticBoyuancy(const class UBP_AquaticBuoyancy_C*& value) {
-	Write((byte*)this + 560, value);
+	Write((byte*)this + 576, value);
 }
 // Member Getter and Setter of UI_Inspector
 // Declaration: class UWidgetComponent* UI_Inspector
 class UWidgetComponent* ABP_MasterItem_C::M_GetUI_Inspector() const {
-	return Read<class UWidgetComponent*>((byte*)this + 568);
+	return Read<class UWidgetComponent*>((byte*)this + 584);
 }
 class UWidgetComponent** ABP_MasterItem_C::M_PtrGetUI_Inspector() {
-	return reinterpret_cast<class UWidgetComponent**>((byte*)this + 568);
+	return reinterpret_cast<class UWidgetComponent**>((byte*)this + 584);
 }
 void ABP_MasterItem_C::M_SetUI_Inspector(const class UWidgetComponent*& value) {
-	Write((byte*)this + 568, value);
+	Write((byte*)this + 584, value);
 }
 // Member Getter and Setter of StaticMesh
 // Declaration: class UStaticMeshComponent* StaticMesh
 class UStaticMeshComponent* ABP_MasterItem_C::M_GetStaticMesh() const {
-	return Read<class UStaticMeshComponent*>((byte*)this + 576);
+	return Read<class UStaticMeshComponent*>((byte*)this + 592);
 }
 class UStaticMeshComponent** ABP_MasterItem_C::M_PtrGetStaticMesh() {
-	return reinterpret_cast<class UStaticMeshComponent**>((byte*)this + 576);
+	return reinterpret_cast<class UStaticMeshComponent**>((byte*)this + 592);
 }
 void ABP_MasterItem_C::M_SetStaticMesh(const class UStaticMeshComponent*& value) {
-	Write((byte*)this + 576, value);
+	Write((byte*)this + 592, value);
 }
 // Member Getter and Setter of AquaticInteraction
 // Declaration: class UBP_AquaticInteraction_C* AquaticInteraction
 class UBP_AquaticInteraction_C* ABP_MasterItem_C::M_GetAquaticInteraction() const {
-	return Read<class UBP_AquaticInteraction_C*>((byte*)this + 584);
+	return Read<class UBP_AquaticInteraction_C*>((byte*)this + 600);
 }
 class UBP_AquaticInteraction_C** ABP_MasterItem_C::M_PtrGetAquaticInteraction() {
-	return reinterpret_cast<class UBP_AquaticInteraction_C**>((byte*)this + 584);
+	return reinterpret_cast<class UBP_AquaticInteraction_C**>((byte*)this + 600);
 }
 void ABP_MasterItem_C::M_SetAquaticInteraction(const class UBP_AquaticInteraction_C*& value) {
-	Write((byte*)this + 584, value);
+	Write((byte*)this + 600, value);
 }
 // Member Getter and Setter of Item
 // Declaration: struct FDataTableRowHandle Item
 struct FDataTableRowHandle ABP_MasterItem_C::M_GetItem() const {
-	return Read<struct FDataTableRowHandle>((byte*)this + 592);
+	return Read<struct FDataTableRowHandle>((byte*)this + 608);
 }
 struct FDataTableRowHandle* ABP_MasterItem_C::M_PtrGetItem() {
-	return reinterpret_cast<struct FDataTableRowHandle*>((byte*)this + 592);
+	return reinterpret_cast<struct FDataTableRowHandle*>((byte*)this + 608);
 }
 void ABP_MasterItem_C::M_SetItem(const struct FDataTableRowHandle& value) {
-	Write((byte*)this + 592, value);
+	Write((byte*)this + 608, value);
 }
 // Member Getter and Setter of ResourceCount
 // Declaration: int32_t ResourceCount
 int32_t ABP_MasterItem_C::M_GetResourceCount() const {
-	return Read<int32_t>((byte*)this + 608);
+	return Read<int32_t>((byte*)this + 624);
 }
 int32_t* ABP_MasterItem_C::M_PtrGetResourceCount() {
-	return reinterpret_cast<int32_t*>((byte*)this + 608);
+	return reinterpret_cast<int32_t*>((byte*)this + 624);
 }
 void ABP_MasterItem_C::M_SetResourceCount(const int32_t& value) {
-	Write((byte*)this + 608, value);
+	Write((byte*)this + 624, value);
 }
 // Member Getter and Setter of CharacterReference
 // Declaration: class APawn* CharacterReference
 class APawn* ABP_MasterItem_C::M_GetCharacterReference() const {
-	return Read<class APawn*>((byte*)this + 616);
+	return Read<class APawn*>((byte*)this + 632);
 }
 class APawn** ABP_MasterItem_C::M_PtrGetCharacterReference() {
-	return reinterpret_cast<class APawn**>((byte*)this + 616);
+	return reinterpret_cast<class APawn**>((byte*)this + 632);
 }
 void ABP_MasterItem_C::M_SetCharacterReference(const class APawn*& value) {
-	Write((byte*)this + 616, value);
+	Write((byte*)this + 632, value);
 }
 // Member Getter and Setter of ItemDetails
 // Declaration: struct FST_ItemDetails ItemDetails
 struct FST_ItemDetails ABP_MasterItem_C::M_GetItemDetails() const {
-	return Read<struct FST_ItemDetails>((byte*)this + 624);
+	return Read<struct FST_ItemDetails>((byte*)this + 640);
 }
 struct FST_ItemDetails* ABP_MasterItem_C::M_PtrGetItemDetails() {
-	return reinterpret_cast<struct FST_ItemDetails*>((byte*)this + 624);
+	return reinterpret_cast<struct FST_ItemDetails*>((byte*)this + 640);
 }
 void ABP_MasterItem_C::M_SetItemDetails(const struct FST_ItemDetails& value) {
-	Write((byte*)this + 624, value);
-}
-// Member Getter and Setter of ItemName
-// Declaration: struct FName ItemName
-struct FName ABP_MasterItem_C::M_GetItemName() const {
-	return Read<struct FName>((byte*)this + 1472);
-}
-struct FName* ABP_MasterItem_C::M_PtrGetItemName() {
-	return reinterpret_cast<struct FName*>((byte*)this + 1472);
-}
-void ABP_MasterItem_C::M_SetItemName(const struct FName& value) {
-	Write((byte*)this + 1472, value);
+	Write((byte*)this + 640, value);
 }
 // Member Getter and Setter of CurrentHP
 // Declaration: float CurrentHP
 float ABP_MasterItem_C::M_GetCurrentHP() const {
-	return Read<float>((byte*)this + 1480);
+	return Read<float>((byte*)this + 1608);
 }
 float* ABP_MasterItem_C::M_PtrGetCurrentHP() {
-	return reinterpret_cast<float*>((byte*)this + 1480);
+	return reinterpret_cast<float*>((byte*)this + 1608);
 }
 void ABP_MasterItem_C::M_SetCurrentHP(const float& value) {
-	Write((byte*)this + 1480, value);
+	Write((byte*)this + 1608, value);
 }
 // Member Getter and Setter of SimulatePhysicsOverride
 // Declaration: bool SimulatePhysicsOverride
 bool ABP_MasterItem_C::M_GetSimulatePhysicsOverride() const {
-	return Read<bool>((byte*)this + 1484);
+	return Read<bool>((byte*)this + 1612);
 }
 bool* ABP_MasterItem_C::M_PtrGetSimulatePhysicsOverride() {
-	return reinterpret_cast<bool*>((byte*)this + 1484);
+	return reinterpret_cast<bool*>((byte*)this + 1612);
 }
 void ABP_MasterItem_C::M_SetSimulatePhysicsOverride(const bool& value) {
-	Write((byte*)this + 1484, value);
+	Write((byte*)this + 1612, value);
 }
 // Member Getter and Setter of SimulatePhysics
 // Declaration: bool SimulatePhysics
 bool ABP_MasterItem_C::M_GetSimulatePhysics() const {
-	return Read<bool>((byte*)this + 1485);
+	return Read<bool>((byte*)this + 1613);
 }
 bool* ABP_MasterItem_C::M_PtrGetSimulatePhysics() {
-	return reinterpret_cast<bool*>((byte*)this + 1485);
+	return reinterpret_cast<bool*>((byte*)this + 1613);
 }
 void ABP_MasterItem_C::M_SetSimulatePhysics(const bool& value) {
-	Write((byte*)this + 1485, value);
+	Write((byte*)this + 1613, value);
 }
 // Member Getter and Setter of LifeTime
 // Declaration: float LifeTime
 float ABP_MasterItem_C::M_GetLifeTime() const {
-	return Read<float>((byte*)this + 1488);
+	return Read<float>((byte*)this + 1616);
 }
 float* ABP_MasterItem_C::M_PtrGetLifeTime() {
-	return reinterpret_cast<float*>((byte*)this + 1488);
+	return reinterpret_cast<float*>((byte*)this + 1616);
 }
 void ABP_MasterItem_C::M_SetLifeTime(const float& value) {
-	Write((byte*)this + 1488, value);
+	Write((byte*)this + 1616, value);
 }
 // Member Getter and Setter of InteractingActorReference
 // Declaration: class ABP_BaseCharacter_C* InteractingActorReference
 class ABP_BaseCharacter_C* ABP_MasterItem_C::M_GetInteractingActorReference() const {
-	return Read<class ABP_BaseCharacter_C*>((byte*)this + 1496);
+	return Read<class ABP_BaseCharacter_C*>((byte*)this + 1624);
 }
 class ABP_BaseCharacter_C** ABP_MasterItem_C::M_PtrGetInteractingActorReference() {
-	return reinterpret_cast<class ABP_BaseCharacter_C**>((byte*)this + 1496);
+	return reinterpret_cast<class ABP_BaseCharacter_C**>((byte*)this + 1624);
 }
 void ABP_MasterItem_C::M_SetInteractingActorReference(const class ABP_BaseCharacter_C*& value) {
-	Write((byte*)this + 1496, value);
+	Write((byte*)this + 1624, value);
 }
 // Member Getter and Setter of Capacity
 // Declaration: int32_t Capacity
 int32_t ABP_MasterItem_C::M_GetCapacity() const {
-	return Read<int32_t>((byte*)this + 1504);
+	return Read<int32_t>((byte*)this + 1632);
 }
 int32_t* ABP_MasterItem_C::M_PtrGetCapacity() {
-	return reinterpret_cast<int32_t*>((byte*)this + 1504);
+	return reinterpret_cast<int32_t*>((byte*)this + 1632);
 }
 void ABP_MasterItem_C::M_SetCapacity(const int32_t& value) {
-	Write((byte*)this + 1504, value);
+	Write((byte*)this + 1632, value);
 }
 // Member Getter and Setter of found
 // Declaration: bool found
 bool ABP_MasterItem_C::M_Getfound() const {
-	return Read<bool>((byte*)this + 1508);
+	return Read<bool>((byte*)this + 1636);
 }
 bool* ABP_MasterItem_C::M_PtrGetfound() {
-	return reinterpret_cast<bool*>((byte*)this + 1508);
+	return reinterpret_cast<bool*>((byte*)this + 1636);
 }
 void ABP_MasterItem_C::M_Setfound(const bool& value) {
-	Write((byte*)this + 1508, value);
+	Write((byte*)this + 1636, value);
 }
 // Member Getter and Setter of PickUpTimerHandle
 // Declaration: struct FTimerHandle PickUpTimerHandle
 struct FTimerHandle ABP_MasterItem_C::M_GetPickUpTimerHandle() const {
-	return Read<struct FTimerHandle>((byte*)this + 1512);
+	return Read<struct FTimerHandle>((byte*)this + 1640);
 }
 struct FTimerHandle* ABP_MasterItem_C::M_PtrGetPickUpTimerHandle() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 1512);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 1640);
 }
 void ABP_MasterItem_C::M_SetPickUpTimerHandle(const struct FTimerHandle& value) {
-	Write((byte*)this + 1512, value);
+	Write((byte*)this + 1640, value);
 }
 // Member Getter and Setter of Freshness
 // Declaration: float Freshness
 float ABP_MasterItem_C::M_GetFreshness() const {
-	return Read<float>((byte*)this + 1520);
+	return Read<float>((byte*)this + 1648);
 }
 float* ABP_MasterItem_C::M_PtrGetFreshness() {
-	return reinterpret_cast<float*>((byte*)this + 1520);
+	return reinterpret_cast<float*>((byte*)this + 1648);
 }
 void ABP_MasterItem_C::M_SetFreshness(const float& value) {
-	Write((byte*)this + 1520, value);
+	Write((byte*)this + 1648, value);
 }
 // Member Getter and Setter of UI_InspectorReference
 // Declaration: class UUI_Inspector_Item_C* UI_InspectorReference
 class UUI_Inspector_Item_C* ABP_MasterItem_C::M_GetUI_InspectorReference() const {
-	return Read<class UUI_Inspector_Item_C*>((byte*)this + 1528);
+	return Read<class UUI_Inspector_Item_C*>((byte*)this + 1656);
 }
 class UUI_Inspector_Item_C** ABP_MasterItem_C::M_PtrGetUI_InspectorReference() {
-	return reinterpret_cast<class UUI_Inspector_Item_C**>((byte*)this + 1528);
+	return reinterpret_cast<class UUI_Inspector_Item_C**>((byte*)this + 1656);
 }
 void ABP_MasterItem_C::M_SetUI_InspectorReference(const class UUI_Inspector_Item_C*& value) {
-	Write((byte*)this + 1528, value);
+	Write((byte*)this + 1656, value);
 }
 // Member Getter and Setter of Ownership
 // Declaration: TEnumAsByte<E_Ownership> Ownership
 TEnumAsByte<E_Ownership> ABP_MasterItem_C::M_GetOwnership() const {
-	return Read<TEnumAsByte<E_Ownership>>((byte*)this + 1536);
+	return Read<TEnumAsByte<E_Ownership>>((byte*)this + 1664);
 }
 TEnumAsByte<E_Ownership>* ABP_MasterItem_C::M_PtrGetOwnership() {
-	return reinterpret_cast<TEnumAsByte<E_Ownership>*>((byte*)this + 1536);
+	return reinterpret_cast<TEnumAsByte<E_Ownership>*>((byte*)this + 1664);
 }
 void ABP_MasterItem_C::M_SetOwnership(const TEnumAsByte<E_Ownership>& value) {
-	Write((byte*)this + 1536, value);
+	Write((byte*)this + 1664, value);
 }
 // Member Getter and Setter of SeasonalRemoveOverride
 // Declaration: bool SeasonalRemoveOverride
 bool ABP_MasterItem_C::M_GetSeasonalRemoveOverride() const {
-	return Read<bool>((byte*)this + 1537);
+	return Read<bool>((byte*)this + 1665);
 }
 bool* ABP_MasterItem_C::M_PtrGetSeasonalRemoveOverride() {
-	return reinterpret_cast<bool*>((byte*)this + 1537);
+	return reinterpret_cast<bool*>((byte*)this + 1665);
 }
 void ABP_MasterItem_C::M_SetSeasonalRemoveOverride(const bool& value) {
-	Write((byte*)this + 1537, value);
+	Write((byte*)this + 1665, value);
 }
 // Member Getter and Setter of SeasonalRemove
 // Declaration: bool SeasonalRemove
 bool ABP_MasterItem_C::M_GetSeasonalRemove() const {
-	return Read<bool>((byte*)this + 1538);
+	return Read<bool>((byte*)this + 1666);
 }
 bool* ABP_MasterItem_C::M_PtrGetSeasonalRemove() {
-	return reinterpret_cast<bool*>((byte*)this + 1538);
+	return reinterpret_cast<bool*>((byte*)this + 1666);
 }
 void ABP_MasterItem_C::M_SetSeasonalRemove(const bool& value) {
-	Write((byte*)this + 1538, value);
+	Write((byte*)this + 1666, value);
 }
 // Member Getter and Setter of UsePickingAnimation
 // Declaration: bool UsePickingAnimation
 bool ABP_MasterItem_C::M_GetUsePickingAnimation() const {
-	return Read<bool>((byte*)this + 1539);
+	return Read<bool>((byte*)this + 1667);
 }
 bool* ABP_MasterItem_C::M_PtrGetUsePickingAnimation() {
-	return reinterpret_cast<bool*>((byte*)this + 1539);
+	return reinterpret_cast<bool*>((byte*)this + 1667);
 }
 void ABP_MasterItem_C::M_SetUsePickingAnimation(const bool& value) {
-	Write((byte*)this + 1539, value);
+	Write((byte*)this + 1667, value);
 }
 // Member Getter and Setter of PreferTwoHandedAnimation
 // Declaration: bool PreferTwoHandedAnimation
 bool ABP_MasterItem_C::M_GetPreferTwoHandedAnimation() const {
-	return Read<bool>((byte*)this + 1540);
+	return Read<bool>((byte*)this + 1668);
 }
 bool* ABP_MasterItem_C::M_PtrGetPreferTwoHandedAnimation() {
-	return reinterpret_cast<bool*>((byte*)this + 1540);
+	return reinterpret_cast<bool*>((byte*)this + 1668);
 }
 void ABP_MasterItem_C::M_SetPreferTwoHandedAnimation(const bool& value) {
-	Write((byte*)this + 1540, value);
+	Write((byte*)this + 1668, value);
 }
 // Member Getter and Setter of UseAdditionalMesh
 // Declaration: bool UseAdditionalMesh
 bool ABP_MasterItem_C::M_GetUseAdditionalMesh() const {
-	return Read<bool>((byte*)this + 1541);
+	return Read<bool>((byte*)this + 1669);
 }
 bool* ABP_MasterItem_C::M_PtrGetUseAdditionalMesh() {
-	return reinterpret_cast<bool*>((byte*)this + 1541);
+	return reinterpret_cast<bool*>((byte*)this + 1669);
 }
 void ABP_MasterItem_C::M_SetUseAdditionalMesh(const bool& value) {
-	Write((byte*)this + 1541, value);
+	Write((byte*)this + 1669, value);
 }
 // Member Getter and Setter of Guid
 // Declaration: struct FGuid Guid
 struct FGuid ABP_MasterItem_C::M_GetGuid() const {
-	return Read<struct FGuid>((byte*)this + 1544);
+	return Read<struct FGuid>((byte*)this + 1672);
 }
 struct FGuid* ABP_MasterItem_C::M_PtrGetGuid() {
-	return reinterpret_cast<struct FGuid*>((byte*)this + 1544);
+	return reinterpret_cast<struct FGuid*>((byte*)this + 1672);
 }
 void ABP_MasterItem_C::M_SetGuid(const struct FGuid& value) {
-	Write((byte*)this + 1544, value);
+	Write((byte*)this + 1672, value);
 }
 // Member Getter and Setter of Dropped
 // Declaration: bool Dropped
 bool ABP_MasterItem_C::M_GetDropped() const {
-	return Read<bool>((byte*)this + 1560);
+	return Read<bool>((byte*)this + 1688);
 }
 bool* ABP_MasterItem_C::M_PtrGetDropped() {
-	return reinterpret_cast<bool*>((byte*)this + 1560);
+	return reinterpret_cast<bool*>((byte*)this + 1688);
 }
 void ABP_MasterItem_C::M_SetDropped(const bool& value) {
-	Write((byte*)this + 1560, value);
+	Write((byte*)this + 1688, value);
 }
 // Member Getter and Setter of AttachedActors
 // Declaration: TArray<class AActor*> AttachedActors
 TArray<class AActor*> ABP_MasterItem_C::M_GetAttachedActors() const {
-	return Read<TArray<class AActor*>>((byte*)this + 1568);
+	return Read<TArray<class AActor*>>((byte*)this + 1696);
 }
 TArray<class AActor*>* ABP_MasterItem_C::M_PtrGetAttachedActors() {
-	return reinterpret_cast<TArray<class AActor*>*>((byte*)this + 1568);
+	return reinterpret_cast<TArray<class AActor*>*>((byte*)this + 1696);
 }
 void ABP_MasterItem_C::M_SetAttachedActors(const TArray<class AActor*>& value) {
-	Write((byte*)this + 1568, value);
+	Write((byte*)this + 1696, value);
 }
 // Member Getter and Setter of Rotate_Left
 // Declaration: bool Rotate_Left
 bool ABP_MasterItem_C::M_GetRotate_Left() const {
-	return Read<bool>((byte*)this + 1584);
+	return Read<bool>((byte*)this + 1712);
 }
 bool* ABP_MasterItem_C::M_PtrGetRotate_Left() {
-	return reinterpret_cast<bool*>((byte*)this + 1584);
+	return reinterpret_cast<bool*>((byte*)this + 1712);
 }
 void ABP_MasterItem_C::M_SetRotate_Left(const bool& value) {
-	Write((byte*)this + 1584, value);
+	Write((byte*)this + 1712, value);
 }
 // Member Getter and Setter of Rotate_Right
 // Declaration: bool Rotate_Right
 bool ABP_MasterItem_C::M_GetRotate_Right() const {
-	return Read<bool>((byte*)this + 1585);
+	return Read<bool>((byte*)this + 1713);
 }
 bool* ABP_MasterItem_C::M_PtrGetRotate_Right() {
-	return reinterpret_cast<bool*>((byte*)this + 1585);
+	return reinterpret_cast<bool*>((byte*)this + 1713);
 }
 void ABP_MasterItem_C::M_SetRotate_Right(const bool& value) {
-	Write((byte*)this + 1585, value);
+	Write((byte*)this + 1713, value);
 }
 // Member Getter and Setter of PrecisionGrab
 // Declaration: bool PrecisionGrab
 bool ABP_MasterItem_C::M_GetPrecisionGrab() const {
-	return Read<bool>((byte*)this + 1586);
+	return Read<bool>((byte*)this + 1714);
 }
 bool* ABP_MasterItem_C::M_PtrGetPrecisionGrab() {
-	return reinterpret_cast<bool*>((byte*)this + 1586);
+	return reinterpret_cast<bool*>((byte*)this + 1714);
 }
 void ABP_MasterItem_C::M_SetPrecisionGrab(const bool& value) {
-	Write((byte*)this + 1586, value);
+	Write((byte*)this + 1714, value);
+}
+// Member Getter and Setter of IsGrabbed
+// Declaration: bool IsGrabbed
+bool ABP_MasterItem_C::M_GetIsGrabbed() const {
+	return Read<bool>((byte*)this + 1715);
+}
+bool* ABP_MasterItem_C::M_PtrGetIsGrabbed() {
+	return reinterpret_cast<bool*>((byte*)this + 1715);
+}
+void ABP_MasterItem_C::M_SetIsGrabbed(const bool& value) {
+	Write((byte*)this + 1715, value);
 }
 // Member Getter and Setter of ImpaledTimerHandle
 // Declaration: struct FTimerHandle ImpaledTimerHandle
 struct FTimerHandle ABP_MasterItem_C::M_GetImpaledTimerHandle() const {
-	return Read<struct FTimerHandle>((byte*)this + 1592);
+	return Read<struct FTimerHandle>((byte*)this + 1720);
 }
 struct FTimerHandle* ABP_MasterItem_C::M_PtrGetImpaledTimerHandle() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 1592);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 1720);
 }
 void ABP_MasterItem_C::M_SetImpaledTimerHandle(const struct FTimerHandle& value) {
-	Write((byte*)this + 1592, value);
+	Write((byte*)this + 1720, value);
 }
 // Member Getter and Setter of RotationRoll
 // Declaration: float RotationRoll
 float ABP_MasterItem_C::M_GetRotationRoll() const {
-	return Read<float>((byte*)this + 1600);
+	return Read<float>((byte*)this + 1728);
 }
 float* ABP_MasterItem_C::M_PtrGetRotationRoll() {
-	return reinterpret_cast<float*>((byte*)this + 1600);
+	return reinterpret_cast<float*>((byte*)this + 1728);
 }
 void ABP_MasterItem_C::M_SetRotationRoll(const float& value) {
-	Write((byte*)this + 1600, value);
+	Write((byte*)this + 1728, value);
 }
 // Member Getter and Setter of RotationYaw
 // Declaration: float RotationYaw
 float ABP_MasterItem_C::M_GetRotationYaw() const {
-	return Read<float>((byte*)this + 1604);
+	return Read<float>((byte*)this + 1732);
 }
 float* ABP_MasterItem_C::M_PtrGetRotationYaw() {
-	return reinterpret_cast<float*>((byte*)this + 1604);
+	return reinterpret_cast<float*>((byte*)this + 1732);
 }
 void ABP_MasterItem_C::M_SetRotationYaw(const float& value) {
-	Write((byte*)this + 1604, value);
+	Write((byte*)this + 1732, value);
 }
 // Member Getter and Setter of FinalRotation
 // Declaration: struct FRotator FinalRotation
 struct FRotator ABP_MasterItem_C::M_GetFinalRotation() const {
-	return Read<struct FRotator>((byte*)this + 1608);
+	return Read<struct FRotator>((byte*)this + 1736);
 }
 struct FRotator* ABP_MasterItem_C::M_PtrGetFinalRotation() {
-	return reinterpret_cast<struct FRotator*>((byte*)this + 1608);
+	return reinterpret_cast<struct FRotator*>((byte*)this + 1736);
 }
 void ABP_MasterItem_C::M_SetFinalRotation(const struct FRotator& value) {
-	Write((byte*)this + 1608, value);
+	Write((byte*)this + 1736, value);
 }
 // Member Getter and Setter of BaseYaw
 // Declaration: float BaseYaw
 float ABP_MasterItem_C::M_GetBaseYaw() const {
-	return Read<float>((byte*)this + 1620);
+	return Read<float>((byte*)this + 1748);
 }
 float* ABP_MasterItem_C::M_PtrGetBaseYaw() {
-	return reinterpret_cast<float*>((byte*)this + 1620);
+	return reinterpret_cast<float*>((byte*)this + 1748);
 }
 void ABP_MasterItem_C::M_SetBaseYaw(const float& value) {
-	Write((byte*)this + 1620, value);
+	Write((byte*)this + 1748, value);
+}
+// Member Getter and Setter of ShouldWakeOnSpawn
+// Declaration: bool ShouldWakeOnSpawn
+bool ABP_MasterItem_C::M_GetShouldWakeOnSpawn() const {
+	return Read<bool>((byte*)this + 1752);
+}
+bool* ABP_MasterItem_C::M_PtrGetShouldWakeOnSpawn() {
+	return reinterpret_cast<bool*>((byte*)this + 1752);
+}
+void ABP_MasterItem_C::M_SetShouldWakeOnSpawn(const bool& value) {
+	Write((byte*)this + 1752, value);
+}
+// Member Getter and Setter of ServerLocation
+// Declaration: struct FVector ServerLocation
+struct FVector ABP_MasterItem_C::M_GetServerLocation() const {
+	return Read<struct FVector>((byte*)this + 1756);
+}
+struct FVector* ABP_MasterItem_C::M_PtrGetServerLocation() {
+	return reinterpret_cast<struct FVector*>((byte*)this + 1756);
+}
+void ABP_MasterItem_C::M_SetServerLocation(const struct FVector& value) {
+	Write((byte*)this + 1756, value);
+}
+// Member Getter and Setter of ServerRotation
+// Declaration: struct FRotator ServerRotation
+struct FRotator ABP_MasterItem_C::M_GetServerRotation() const {
+	return Read<struct FRotator>((byte*)this + 1768);
+}
+struct FRotator* ABP_MasterItem_C::M_PtrGetServerRotation() {
+	return reinterpret_cast<struct FRotator*>((byte*)this + 1768);
+}
+void ABP_MasterItem_C::M_SetServerRotation(const struct FRotator& value) {
+	Write((byte*)this + 1768, value);
+}
+// Member Getter and Setter of IgnoreDebug
+// Declaration: bool IgnoreDebug
+bool ABP_MasterItem_C::M_GetIgnoreDebug() const {
+	return Read<bool>((byte*)this + 1780);
+}
+bool* ABP_MasterItem_C::M_PtrGetIgnoreDebug() {
+	return reinterpret_cast<bool*>((byte*)this + 1780);
+}
+void ABP_MasterItem_C::M_SetIgnoreDebug(const bool& value) {
+	Write((byte*)this + 1780, value);
 }
 #pragma endregion
 #pragma region Functions
@@ -436,6 +480,345 @@ void ABP_MasterItem_C::ExecuteUbergraph_BP_MasterItem(int32_t EntryPoint) {
 	};
 	ABP_MasterItem_C_ExecuteUbergraph_BP_MasterItem_Params params;
 	params.EntryPoint = EntryPoint;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.AfterAttachmentReplication
+// Flags: Event, Protected, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_MasterItem_C::AfterAttachmentReplication() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.AfterAttachmentReplication");
+
+	struct ABP_MasterItem_C_AfterAttachmentReplication_Params {
+	};
+	ABP_MasterItem_C_AfterAttachmentReplication_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.BeforeAttachmentReplication
+// Flags: Event, Protected, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_MasterItem_C::BeforeAttachmentReplication() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.BeforeAttachmentReplication");
+
+	struct ABP_MasterItem_C_BeforeAttachmentReplication_Params {
+	};
+	ABP_MasterItem_C_BeforeAttachmentReplication_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.BndEvt__BP_MasterItem_StaticMesh_K2Node_ComponentBoundEvent_1_ComponentSleepSignature__DelegateSignature
+// Flags: BlueprintEvent
+// Params:
+// Name: SleepingComponent	Type: class UPrimitiveComponent*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: BoneName	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_MasterItem_C::BndEvt__BP_MasterItem_StaticMesh_K2Node_ComponentBoundEvent_1_ComponentSleepSignature__DelegateSignature(class UPrimitiveComponent* SleepingComponent, struct FName BoneName) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.BndEvt__BP_MasterItem_StaticMesh_K2Node_ComponentBoundEvent_1_ComponentSleepSignature__DelegateSignature");
+
+	struct ABP_MasterItem_C_BndEvt__BP_MasterItem_StaticMesh_K2Node_ComponentBoundEvent_1_ComponentSleepSignature__DelegateSignature_Params {
+		class UPrimitiveComponent* SleepingComponent;			//Offset: 0 | ElementSize: 8
+		struct FName BoneName;			//Offset: 8 | ElementSize: 8
+	};
+	ABP_MasterItem_C_BndEvt__BP_MasterItem_StaticMesh_K2Node_ComponentBoundEvent_1_ComponentSleepSignature__DelegateSignature_Params params;
+	params.SleepingComponent = SleepingComponent;
+	params.BoneName = BoneName;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.BndEvt__BP_MasterItem_StaticMesh_K2Node_ComponentBoundEvent_0_ComponentWakeSignature__DelegateSignature
+// Flags: BlueprintEvent
+// Params:
+// Name: WakingComponent	Type: class UPrimitiveComponent*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: BoneName	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_MasterItem_C::BndEvt__BP_MasterItem_StaticMesh_K2Node_ComponentBoundEvent_0_ComponentWakeSignature__DelegateSignature(class UPrimitiveComponent* WakingComponent, struct FName BoneName) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.BndEvt__BP_MasterItem_StaticMesh_K2Node_ComponentBoundEvent_0_ComponentWakeSignature__DelegateSignature");
+
+	struct ABP_MasterItem_C_BndEvt__BP_MasterItem_StaticMesh_K2Node_ComponentBoundEvent_0_ComponentWakeSignature__DelegateSignature_Params {
+		class UPrimitiveComponent* WakingComponent;			//Offset: 0 | ElementSize: 8
+		struct FName BoneName;			//Offset: 8 | ElementSize: 8
+	};
+	ABP_MasterItem_C_BndEvt__BP_MasterItem_StaticMesh_K2Node_ComponentBoundEvent_0_ComponentWakeSignature__DelegateSignature_Params params;
+	params.WakingComponent = WakingComponent;
+	params.BoneName = BoneName;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.AttachActor_Server
+// Flags: Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Parent	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: SocketName	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_MasterItem_C::AttachActor_Server(class UObject* Parent, struct FName SocketName) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.AttachActor_Server");
+
+	struct ABP_MasterItem_C_AttachActor_Server_Params {
+		class UObject* Parent;			//Offset: 0 | ElementSize: 8
+		struct FName SocketName;			//Offset: 8 | ElementSize: 8
+	};
+	ABP_MasterItem_C_AttachActor_Server_Params params;
+	params.Parent = Parent;
+	params.SocketName = SocketName;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.UpdateItemLocationAndRotation_BPI
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_MasterItem_C::UpdateItemLocationAndRotation_BPI() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.UpdateItemLocationAndRotation_BPI");
+
+	struct ABP_MasterItem_C_UpdateItemLocationAndRotation_BPI_Params {
+	};
+	ABP_MasterItem_C_UpdateItemLocationAndRotation_BPI_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.UpdateItemVelocity_BPI
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_MasterItem_C::UpdateItemVelocity_BPI() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.UpdateItemVelocity_BPI");
+
+	struct ABP_MasterItem_C_UpdateItemVelocity_BPI_Params {
+	};
+	ABP_MasterItem_C_UpdateItemVelocity_BPI_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.SetActorTick_Server
+// Flags: Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Enabled	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_MasterItem_C::SetActorTick_Server(bool Enabled) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.SetActorTick_Server");
+
+	struct ABP_MasterItem_C_SetActorTick_Server_Params {
+		bool Enabled;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_MasterItem_C_SetActorTick_Server_Params params;
+	params.Enabled = Enabled;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.SetItemTick_BPI
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Enabled	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_MasterItem_C::SetItemTick_BPI(bool Enabled) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.SetItemTick_BPI");
+
+	struct ABP_MasterItem_C_SetItemTick_BPI_Params {
+		bool Enabled;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_MasterItem_C_SetItemTick_BPI_Params params;
+	params.Enabled = Enabled;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.SimulatePhysics_Server
+// Flags: Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: bSimulate	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_MasterItem_C::SimulatePhysics_Server(bool bSimulate) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.SimulatePhysics_Server");
+
+	struct ABP_MasterItem_C_SimulatePhysics_Server_Params {
+		bool bSimulate;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_MasterItem_C_SimulatePhysics_Server_Params params;
+	params.bSimulate = bSimulate;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.ChangePhysicsSimulation_BPI
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: SimulatePhysics	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_MasterItem_C::ChangePhysicsSimulation_BPI(bool SimulatePhysics) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.ChangePhysicsSimulation_BPI");
+
+	struct ABP_MasterItem_C_ChangePhysicsSimulation_BPI_Params {
+		bool SimulatePhysics;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_MasterItem_C_ChangePhysicsSimulation_BPI_Params params;
+	params.SimulatePhysics = SimulatePhysics;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.SimulatePhysics_Multicast
+// Flags: Net, NetMulticast, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: bSimulate	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_MasterItem_C::SimulatePhysics_Multicast(bool bSimulate) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.SimulatePhysics_Multicast");
+
+	struct ABP_MasterItem_C_SimulatePhysics_Multicast_Params {
+		bool bSimulate;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_MasterItem_C_SimulatePhysics_Multicast_Params params;
+	params.bSimulate = bSimulate;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.UpdateTransform_Multicast
+// Flags: Net, NetMulticast, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: NewLocationX	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: NewLocationY	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: NewLocationZ	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: NewRotationX	Type: unsigned char	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: NewRotationY	Type: unsigned char	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: NewRotationZ	Type: unsigned char	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_MasterItem_C::UpdateTransform_Multicast(int32_t NewLocationX, int32_t NewLocationY, int32_t NewLocationZ, unsigned char NewRotationX, unsigned char NewRotationY, unsigned char NewRotationZ) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.UpdateTransform_Multicast");
+
+	struct ABP_MasterItem_C_UpdateTransform_Multicast_Params {
+		int32_t NewLocationX;			//Offset: 0 | ElementSize: 4
+		int32_t NewLocationY;			//Offset: 4 | ElementSize: 4
+		int32_t NewLocationZ;			//Offset: 8 | ElementSize: 4
+		unsigned char NewRotationX;			//Offset: 12 | ElementSize: 1
+		unsigned char NewRotationY;			//Offset: 13 | ElementSize: 1
+		unsigned char NewRotationZ;			//Offset: 14 | ElementSize: 1
+	};
+	ABP_MasterItem_C_UpdateTransform_Multicast_Params params;
+	params.NewLocationX = NewLocationX;
+	params.NewLocationY = NewLocationY;
+	params.NewLocationZ = NewLocationZ;
+	params.NewRotationX = NewRotationX;
+	params.NewRotationY = NewRotationY;
+	params.NewRotationZ = NewRotationZ;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.UpdateTransform_Server
+// Flags: Net, NetServer, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_MasterItem_C::UpdateTransform_Server() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.UpdateTransform_Server");
+
+	struct ABP_MasterItem_C_UpdateTransform_Server_Params {
+	};
+	ABP_MasterItem_C_UpdateTransform_Server_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.SetIsGrabbed_BPI
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: IsGrabbed	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_MasterItem_C::SetIsGrabbed_BPI(bool IsGrabbed) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.SetIsGrabbed_BPI");
+
+	struct ABP_MasterItem_C_SetIsGrabbed_BPI_Params {
+		bool IsGrabbed;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_MasterItem_C_SetIsGrabbed_BPI_Params params;
+	params.IsGrabbed = IsGrabbed;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.SetIsGrabbed
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+// Name: IsGrabbed	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_MasterItem_C::SetIsGrabbed(bool IsGrabbed) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.SetIsGrabbed");
+
+	struct ABP_MasterItem_C_SetIsGrabbed_Params {
+		bool IsGrabbed;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_MasterItem_C_SetIsGrabbed_Params params;
+	params.IsGrabbed = IsGrabbed;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.Interact_Client
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: BaseCharacter	Type: class ABP_BaseCharacter_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: HitLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: HitItem	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Timer	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_MasterItem_C::Interact_Client(class ABP_BaseCharacter_C* BaseCharacter, struct FVector HitLocation, int32_t HitItem, bool Timer) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.Interact_Client");
+
+	struct ABP_MasterItem_C_Interact_Client_Params {
+		class ABP_BaseCharacter_C* BaseCharacter;			//Offset: 0 | ElementSize: 8
+		struct FVector HitLocation;			//Offset: 8 | ElementSize: 12
+		int32_t HitItem;			//Offset: 20 | ElementSize: 4
+		bool Timer;			//Offset: 24 | ElementSize: 1
+	};
+	ABP_MasterItem_C_Interact_Client_Params params;
+	params.BaseCharacter = BaseCharacter;
+	params.HitLocation = HitLocation;
+	params.HitItem = HitItem;
+	params.Timer = Timer;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.OnSpawned
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_MasterItem_C::OnSpawned() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.OnSpawned");
+
+	struct ABP_MasterItem_C_OnSpawned_Params {
+	};
+	ABP_MasterItem_C_OnSpawned_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -586,20 +969,23 @@ void ABP_MasterItem_C::PerformActorInteraction() {
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: BaseCharacter	Type: class ABP_BaseCharacter_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Hit	Type: struct FHitResult	Flags: BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor, ContainsInstancedReference
+// Name: HitLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: HitItem	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Timer	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_MasterItem_C::Interact(class ABP_BaseCharacter_C* BaseCharacter, struct FHitResult Hit, bool Timer) {
+void ABP_MasterItem_C::Interact(class ABP_BaseCharacter_C* BaseCharacter, struct FVector HitLocation, int32_t HitItem, bool Timer) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.Interact");
 
 	struct ABP_MasterItem_C_Interact_Params {
 		class ABP_BaseCharacter_C* BaseCharacter;			//Offset: 0 | ElementSize: 8
-		struct FHitResult Hit;			//Offset: 8 | ElementSize: 136
-		bool Timer;			//Offset: 144 | ElementSize: 1
+		struct FVector HitLocation;			//Offset: 8 | ElementSize: 12
+		int32_t HitItem;			//Offset: 20 | ElementSize: 4
+		bool Timer;			//Offset: 24 | ElementSize: 1
 	};
 	ABP_MasterItem_C_Interact_Params params;
 	params.BaseCharacter = BaseCharacter;
-	params.Hit = Hit;
+	params.HitLocation = HitLocation;
+	params.HitItem = HitItem;
 	params.Timer = Timer;
 
 	UObject::ProcessEvent(fn, &params);
@@ -798,22 +1184,22 @@ void ABP_MasterItem_C::IsLookedAt(bool Active) {
 // Name: BaseCharacter	Type: class ABP_BaseCharacter_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Hit	Type: struct FHitResult	Flags: BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor, ContainsInstancedReference
 // Name: UseChunkData	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-// Name: ChunkData	Type: struct FST_Chunks	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ContainsInstancedReference, HasGetValueTypeHash
+// Name: ChunkID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_MasterItem_C::ToolInteract(class ABP_BaseCharacter_C* BaseCharacter, struct FHitResult Hit, bool UseChunkData, struct FST_Chunks ChunkData) {
+void ABP_MasterItem_C::ToolInteract(class ABP_BaseCharacter_C* BaseCharacter, struct FHitResult Hit, bool UseChunkData, int32_t ChunkID) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.ToolInteract");
 
 	struct ABP_MasterItem_C_ToolInteract_Params {
 		class ABP_BaseCharacter_C* BaseCharacter;			//Offset: 0 | ElementSize: 8
 		struct FHitResult Hit;			//Offset: 8 | ElementSize: 136
 		bool UseChunkData;			//Offset: 144 | ElementSize: 1
-		struct FST_Chunks ChunkData;			//Offset: 152 | ElementSize: 520
+		int32_t ChunkID;			//Offset: 148 | ElementSize: 4
 	};
 	ABP_MasterItem_C_ToolInteract_Params params;
 	params.BaseCharacter = BaseCharacter;
 	params.Hit = Hit;
 	params.UseChunkData = UseChunkData;
-	params.ChunkData = ChunkData;
+	params.ChunkID = ChunkID;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -922,20 +1308,20 @@ void ABP_MasterItem_C::PickUpAttachedActors() {
 }
 
 /////////////////////////////////////////////
-// Function BP_MasterItem.BP_MasterItem_C.SetMesh
-// Flags: Public, BlueprintCallable, BlueprintEvent
+// Function BP_MasterItem.BP_MasterItem_C.Set Mesh
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: WorldMesh	Type: TAssetPtr<class UObject>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, UObjectWrapper, HasGetValueTypeHash
 // Name: AdditionaWorldMesh	Type: TAssetPtr<class UObject>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, UObjectWrapper, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_MasterItem_C::SetMesh(TAssetPtr<class UObject> WorldMesh, TAssetPtr<class UObject> AdditionaWorldMesh) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.SetMesh");
+void ABP_MasterItem_C::Set_Mesh(TAssetPtr<class UObject> WorldMesh, TAssetPtr<class UObject> AdditionaWorldMesh) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.Set Mesh");
 
-	struct ABP_MasterItem_C_SetMesh_Params {
+	struct ABP_MasterItem_C_Set_Mesh_Params {
 		TAssetPtr<class UObject> WorldMesh;			//Offset: 0 | ElementSize: 40
 		TAssetPtr<class UObject> AdditionaWorldMesh;			//Offset: 40 | ElementSize: 40
 	};
-	ABP_MasterItem_C_SetMesh_Params params;
+	ABP_MasterItem_C_Set_Mesh_Params params;
 	params.WorldMesh = WorldMesh;
 	params.AdditionaWorldMesh = AdditionaWorldMesh;
 
@@ -943,22 +1329,19 @@ void ABP_MasterItem_C::SetMesh(TAssetPtr<class UObject> WorldMesh, TAssetPtr<cla
 }
 
 /////////////////////////////////////////////
-// Function BP_MasterItem.BP_MasterItem_C.Grab
+// Function BP_MasterItem.BP_MasterItem_C.Grab_Server
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: InteractigActor	Type: class ABP_BaseCharacter_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Hit	Type: struct FHitResult	Flags: BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor, ContainsInstancedReference
 /////////////////////////////////////////////
-void ABP_MasterItem_C::Grab(class ABP_BaseCharacter_C* InteractigActor, struct FHitResult Hit) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.Grab");
+void ABP_MasterItem_C::Grab_Server(class ABP_BaseCharacter_C* InteractigActor) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.Grab_Server");
 
-	struct ABP_MasterItem_C_Grab_Params {
+	struct ABP_MasterItem_C_Grab_Server_Params {
 		class ABP_BaseCharacter_C* InteractigActor;			//Offset: 0 | ElementSize: 8
-		struct FHitResult Hit;			//Offset: 8 | ElementSize: 136
 	};
-	ABP_MasterItem_C_Grab_Params params;
+	ABP_MasterItem_C_Grab_Server_Params params;
 	params.InteractigActor = InteractigActor;
-	params.Hit = Hit;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -1038,17 +1421,65 @@ void ABP_MasterItem_C::CheckIfUnderground() {
 // Params:
 // Name: Sound	Type: TAssetPtr<class USoundBase>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, UObjectWrapper, HasGetValueTypeHash
 // Name: Location	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: InteractingActor	Type: class ABP_BaseCharacter_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_MasterItem_C::PlaySoundOnInteraction(TAssetPtr<class USoundBase> Sound, struct FVector Location) {
+void ABP_MasterItem_C::PlaySoundOnInteraction(TAssetPtr<class USoundBase> Sound, struct FVector Location, class ABP_BaseCharacter_C* InteractingActor) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.PlaySoundOnInteraction");
 
 	struct ABP_MasterItem_C_PlaySoundOnInteraction_Params {
 		TAssetPtr<class USoundBase> Sound;			//Offset: 0 | ElementSize: 40
 		struct FVector Location;			//Offset: 40 | ElementSize: 12
+		class ABP_BaseCharacter_C* InteractingActor;			//Offset: 56 | ElementSize: 8
 	};
 	ABP_MasterItem_C_PlaySoundOnInteraction_Params params;
 	params.Sound = Sound;
 	params.Location = Location;
+	params.InteractingActor = InteractingActor;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.OnItemReplicatedToClient
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_MasterItem_C::OnItemReplicatedToClient() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.OnItemReplicatedToClient");
+
+	struct ABP_MasterItem_C_OnItemReplicatedToClient_Params {
+	};
+	ABP_MasterItem_C_OnItemReplicatedToClient_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.OnRep_Item
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_MasterItem_C::OnRep_Item() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.OnRep_Item");
+
+	struct ABP_MasterItem_C_OnRep_Item_Params {
+	};
+	ABP_MasterItem_C_OnRep_Item_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.OnRep_IsGrabbed
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_MasterItem_C::OnRep_IsGrabbed() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.OnRep_IsGrabbed");
+
+	struct ABP_MasterItem_C_OnRep_IsGrabbed_Params {
+	};
+	ABP_MasterItem_C_OnRep_IsGrabbed_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -1103,17 +1534,20 @@ void ABP_MasterItem_C::IsInteractable(class ABP_BaseCharacter_C* BaseCharacter, 
 // Function BP_MasterItem.BP_MasterItem_C.GetInteractAction
 // Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
+// Name: BaseCharacter	Type: class ABP_BaseCharacter_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: InteractActionText	Type: struct FText	Flags: Parm, OutParm
 // Name: InteractSecondActionText	Type: struct FText	Flags: Parm, OutParm
 /////////////////////////////////////////////
-void ABP_MasterItem_C::GetInteractAction(struct FText* InteractActionText, struct FText* InteractSecondActionText) {
+void ABP_MasterItem_C::GetInteractAction(class ABP_BaseCharacter_C* BaseCharacter, struct FText* InteractActionText, struct FText* InteractSecondActionText) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.GetInteractAction");
 
 	struct ABP_MasterItem_C_GetInteractAction_Params {
-		struct FText InteractActionText;			//Offset: 0 | ElementSize: 24
-		struct FText InteractSecondActionText;			//Offset: 24 | ElementSize: 24
+		class ABP_BaseCharacter_C* BaseCharacter;			//Offset: 0 | ElementSize: 8
+		struct FText InteractActionText;			//Offset: 8 | ElementSize: 24
+		struct FText InteractSecondActionText;			//Offset: 32 | ElementSize: 24
 	};
 	ABP_MasterItem_C_GetInteractAction_Params params;
+	params.BaseCharacter = BaseCharacter;
 
 	UObject::ProcessEvent(fn, &params);
 	if (InteractActionText != nullptr)
@@ -1266,25 +1700,6 @@ void ABP_MasterItem_C::IsToolInteractable(class ABP_BaseCharacter_C* BaseCharact
 		*Interactable = params.Interactable;
 	if (Possibility != nullptr)
 		*Possibility = params.Possibility;
-}
-
-/////////////////////////////////////////////
-// Function BP_MasterItem.BP_MasterItem_C.GetNPCInteractTime
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Time	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_MasterItem_C::GetNPCInteractTime(float* Time) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.GetNPCInteractTime");
-
-	struct ABP_MasterItem_C_GetNPCInteractTime_Params {
-		float Time;			//Offset: 0 | ElementSize: 4
-	};
-	ABP_MasterItem_C_GetNPCInteractTime_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-	if (Time != nullptr)
-		*Time = params.Time;
 }
 
 /////////////////////////////////////////////
@@ -1803,6 +2218,126 @@ void ABP_MasterItem_C::GetNPC_Interactable(TArray<bool>* NPC_Interactable) {
 	UObject::ProcessEvent(fn, &params);
 	if (NPC_Interactable != nullptr)
 		*NPC_Interactable = params.NPC_Interactable;
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.GetInteractAnimationForViewmode_BPI
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ViewMode	Type: TEnumAsByte<E_ViewMode>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: InteractionAnimationMontage	Type: class UAnimMontage*	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_MasterItem_C::GetInteractAnimationForViewmode_BPI(TEnumAsByte<E_ViewMode> ViewMode, class UAnimMontage** InteractionAnimationMontage) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.GetInteractAnimationForViewmode_BPI");
+
+	struct ABP_MasterItem_C_GetInteractAnimationForViewmode_BPI_Params {
+		TEnumAsByte<E_ViewMode> ViewMode;			//Offset: 0 | ElementSize: 1
+		class UAnimMontage* InteractionAnimationMontage;			//Offset: 8 | ElementSize: 8
+	};
+	ABP_MasterItem_C_GetInteractAnimationForViewmode_BPI_Params params;
+	params.ViewMode = ViewMode;
+
+	UObject::ProcessEvent(fn, &params);
+	if (InteractionAnimationMontage != nullptr)
+		*InteractionAnimationMontage = params.InteractionAnimationMontage;
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.IsInRestrictedArea
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Location	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: bLocked	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_MasterItem_C::IsInRestrictedArea(struct FVector Location, bool* bLocked) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.IsInRestrictedArea");
+
+	struct ABP_MasterItem_C_IsInRestrictedArea_Params {
+		struct FVector Location;			//Offset: 0 | ElementSize: 12
+		bool bLocked;			//Offset: 12 | ElementSize: 1
+	};
+	ABP_MasterItem_C_IsInRestrictedArea_Params params;
+	params.Location = Location;
+
+	UObject::ProcessEvent(fn, &params);
+	if (bLocked != nullptr)
+		*bLocked = params.bLocked;
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.GetIsGrabbed_BPI
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: IsGrabbed	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_MasterItem_C::GetIsGrabbed_BPI(bool* IsGrabbed) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.GetIsGrabbed_BPI");
+
+	struct ABP_MasterItem_C_GetIsGrabbed_BPI_Params {
+		bool IsGrabbed;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_MasterItem_C_GetIsGrabbed_BPI_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (IsGrabbed != nullptr)
+		*IsGrabbed = params.IsGrabbed;
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.GetItemID_BPI
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ItemId	Type: struct FName	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_MasterItem_C::GetItemID_BPI(struct FName* ItemId) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.GetItemID_BPI");
+
+	struct ABP_MasterItem_C_GetItemID_BPI_Params {
+		struct FName ItemId;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_MasterItem_C_GetItemID_BPI_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (ItemId != nullptr)
+		*ItemId = params.ItemId;
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.GetName
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: Name	Type: struct FName	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_MasterItem_C::GetName(struct FName* Name)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.GetName");
+
+	struct ABP_MasterItem_C_GetName_Params {
+		struct FName Name;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_MasterItem_C_GetName_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Name != nullptr)
+		*Name = params.Name;
+}
+
+/////////////////////////////////////////////
+// Function BP_MasterItem.BP_MasterItem_C.GetDisplayName
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: DisplayName	Type: struct FText	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_MasterItem_C::GetDisplayName(struct FText* DisplayName)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_MasterItem.BP_MasterItem_C.GetDisplayName");
+
+	struct ABP_MasterItem_C_GetDisplayName_Params {
+		struct FText DisplayName;			//Offset: 0 | ElementSize: 24
+	};
+	ABP_MasterItem_C_GetDisplayName_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (DisplayName != nullptr)
+		*DisplayName = params.DisplayName;
 }
 
 #pragma endregion

@@ -1,0 +1,13 @@
+#pragma once
+/////////////////////////////////////////////
+// Package BP_PlayerManager
+// Classes: 1
+// Enums: 0
+// Structs: 0
+// Objects: 62
+/////////////////////////////////////////////
+
+
+#include "Structs.h"
+
+#include "BP_PlayerManager_C.h"

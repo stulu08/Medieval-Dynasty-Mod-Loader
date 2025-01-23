@@ -5,1487 +5,1531 @@ namespace UE4 {
 // Member Getter and Setter of UberGraphFrame
 // Declaration: struct FPointerToUberGraphFrame UberGraphFrame
 struct FPointerToUberGraphFrame ABP_AnimalBase_C::M_GetUberGraphFrame() const {
-	return Read<struct FPointerToUberGraphFrame>((byte*)this + 1408);
+	return Read<struct FPointerToUberGraphFrame>((byte*)this + 1664);
 }
 struct FPointerToUberGraphFrame* ABP_AnimalBase_C::M_PtrGetUberGraphFrame() {
-	return reinterpret_cast<struct FPointerToUberGraphFrame*>((byte*)this + 1408);
+	return reinterpret_cast<struct FPointerToUberGraphFrame*>((byte*)this + 1664);
 }
 void ABP_AnimalBase_C::M_SetUberGraphFrame(const struct FPointerToUberGraphFrame& value) {
-	Write((byte*)this + 1408, value);
+	Write((byte*)this + 1664, value);
 }
-// Member Getter and Setter of PushDetector
-// Declaration: class UBoxComponent* PushDetector
-class UBoxComponent* ABP_AnimalBase_C::M_GetPushDetector() const {
-	return Read<class UBoxComponent*>((byte*)this + 1416);
+// Member Getter and Setter of Collision
+// Declaration: class UCollisionComponent* Collision
+class UCollisionComponent* ABP_AnimalBase_C::M_GetCollision() const {
+	return Read<class UCollisionComponent*>((byte*)this + 1672);
 }
-class UBoxComponent** ABP_AnimalBase_C::M_PtrGetPushDetector() {
-	return reinterpret_cast<class UBoxComponent**>((byte*)this + 1416);
+class UCollisionComponent** ABP_AnimalBase_C::M_PtrGetCollision() {
+	return reinterpret_cast<class UCollisionComponent**>((byte*)this + 1672);
 }
-void ABP_AnimalBase_C::M_SetPushDetector(const class UBoxComponent*& value) {
-	Write((byte*)this + 1416, value);
+void ABP_AnimalBase_C::M_SetCollision(const class UCollisionComponent*& value) {
+	Write((byte*)this + 1672, value);
+}
+// Member Getter and Setter of PerceptionStimuliSource
+// Declaration: class UPerceptionStimuliSourceComponent* PerceptionStimuliSource
+class UPerceptionStimuliSourceComponent* ABP_AnimalBase_C::M_GetPerceptionStimuliSource() const {
+	return Read<class UPerceptionStimuliSourceComponent*>((byte*)this + 1680);
+}
+class UPerceptionStimuliSourceComponent** ABP_AnimalBase_C::M_PtrGetPerceptionStimuliSource() {
+	return reinterpret_cast<class UPerceptionStimuliSourceComponent**>((byte*)this + 1680);
+}
+void ABP_AnimalBase_C::M_SetPerceptionStimuliSource(const class UPerceptionStimuliSourceComponent*& value) {
+	Write((byte*)this + 1680, value);
+}
+// Member Getter and Setter of Perception
+// Declaration: class UPerceptionComponent* Perception
+class UPerceptionComponent* ABP_AnimalBase_C::M_GetPerception() const {
+	return Read<class UPerceptionComponent*>((byte*)this + 1688);
+}
+class UPerceptionComponent** ABP_AnimalBase_C::M_PtrGetPerception() {
+	return reinterpret_cast<class UPerceptionComponent**>((byte*)this + 1688);
+}
+void ABP_AnimalBase_C::M_SetPerception(const class UPerceptionComponent*& value) {
+	Write((byte*)this + 1688, value);
+}
+// Member Getter and Setter of CollisionShape
+// Declaration: class UBoxComponent* CollisionShape
+class UBoxComponent* ABP_AnimalBase_C::M_GetCollisionShape() const {
+	return Read<class UBoxComponent*>((byte*)this + 1696);
+}
+class UBoxComponent** ABP_AnimalBase_C::M_PtrGetCollisionShape() {
+	return reinterpret_cast<class UBoxComponent**>((byte*)this + 1696);
+}
+void ABP_AnimalBase_C::M_SetCollisionShape(const class UBoxComponent*& value) {
+	Write((byte*)this + 1696, value);
 }
 // Member Getter and Setter of BP_AnimalRelationsComponent
 // Declaration: class UBP_AnimalRelationsComponent_C* BP_AnimalRelationsComponent
 class UBP_AnimalRelationsComponent_C* ABP_AnimalBase_C::M_GetBP_AnimalRelationsComponent() const {
-	return Read<class UBP_AnimalRelationsComponent_C*>((byte*)this + 1424);
+	return Read<class UBP_AnimalRelationsComponent_C*>((byte*)this + 1704);
 }
 class UBP_AnimalRelationsComponent_C** ABP_AnimalBase_C::M_PtrGetBP_AnimalRelationsComponent() {
-	return reinterpret_cast<class UBP_AnimalRelationsComponent_C**>((byte*)this + 1424);
+	return reinterpret_cast<class UBP_AnimalRelationsComponent_C**>((byte*)this + 1704);
 }
 void ABP_AnimalBase_C::M_SetBP_AnimalRelationsComponent(const class UBP_AnimalRelationsComponent_C*& value) {
-	Write((byte*)this + 1424, value);
+	Write((byte*)this + 1704, value);
 }
 // Member Getter and Setter of BP_AnimalStatsComponent
 // Declaration: class UBP_AnimalStatsComponent_C* BP_AnimalStatsComponent
 class UBP_AnimalStatsComponent_C* ABP_AnimalBase_C::M_GetBP_AnimalStatsComponent() const {
-	return Read<class UBP_AnimalStatsComponent_C*>((byte*)this + 1432);
+	return Read<class UBP_AnimalStatsComponent_C*>((byte*)this + 1712);
 }
 class UBP_AnimalStatsComponent_C** ABP_AnimalBase_C::M_PtrGetBP_AnimalStatsComponent() {
-	return reinterpret_cast<class UBP_AnimalStatsComponent_C**>((byte*)this + 1432);
+	return reinterpret_cast<class UBP_AnimalStatsComponent_C**>((byte*)this + 1712);
 }
 void ABP_AnimalBase_C::M_SetBP_AnimalStatsComponent(const class UBP_AnimalStatsComponent_C*& value) {
-	Write((byte*)this + 1432, value);
+	Write((byte*)this + 1712, value);
 }
 // Member Getter and Setter of BP_BoostComponent
 // Declaration: class UBP_BoostComponent_C* BP_BoostComponent
 class UBP_BoostComponent_C* ABP_AnimalBase_C::M_GetBP_BoostComponent() const {
-	return Read<class UBP_BoostComponent_C*>((byte*)this + 1440);
+	return Read<class UBP_BoostComponent_C*>((byte*)this + 1720);
 }
 class UBP_BoostComponent_C** ABP_AnimalBase_C::M_PtrGetBP_BoostComponent() {
-	return reinterpret_cast<class UBP_BoostComponent_C**>((byte*)this + 1440);
+	return reinterpret_cast<class UBP_BoostComponent_C**>((byte*)this + 1720);
 }
 void ABP_AnimalBase_C::M_SetBP_BoostComponent(const class UBP_BoostComponent_C*& value) {
-	Write((byte*)this + 1440, value);
+	Write((byte*)this + 1720, value);
 }
 // Member Getter and Setter of BP_AquaticBoyuancy
 // Declaration: class UBP_AquaticBuoyancy_C* BP_AquaticBoyuancy
 class UBP_AquaticBuoyancy_C* ABP_AnimalBase_C::M_GetBP_AquaticBoyuancy() const {
-	return Read<class UBP_AquaticBuoyancy_C*>((byte*)this + 1448);
+	return Read<class UBP_AquaticBuoyancy_C*>((byte*)this + 1728);
 }
 class UBP_AquaticBuoyancy_C** ABP_AnimalBase_C::M_PtrGetBP_AquaticBoyuancy() {
-	return reinterpret_cast<class UBP_AquaticBuoyancy_C**>((byte*)this + 1448);
+	return reinterpret_cast<class UBP_AquaticBuoyancy_C**>((byte*)this + 1728);
 }
 void ABP_AnimalBase_C::M_SetBP_AquaticBoyuancy(const class UBP_AquaticBuoyancy_C*& value) {
-	Write((byte*)this + 1448, value);
+	Write((byte*)this + 1728, value);
 }
 // Member Getter and Setter of Engaged
 // Declaration: bool Engaged
 bool ABP_AnimalBase_C::M_GetEngaged() const {
-	return Read<bool>((byte*)this + 1456);
+	return Read<bool>((byte*)this + 1736);
 }
 bool* ABP_AnimalBase_C::M_PtrGetEngaged() {
-	return reinterpret_cast<bool*>((byte*)this + 1456);
+	return reinterpret_cast<bool*>((byte*)this + 1736);
 }
 void ABP_AnimalBase_C::M_SetEngaged(const bool& value) {
-	Write((byte*)this + 1456, value);
+	Write((byte*)this + 1736, value);
 }
 // Member Getter and Setter of SystemsManagerReference
 // Declaration: class ABP_SystemsManager_C* SystemsManagerReference
 class ABP_SystemsManager_C* ABP_AnimalBase_C::M_GetSystemsManagerReference() const {
-	return Read<class ABP_SystemsManager_C*>((byte*)this + 1464);
+	return Read<class ABP_SystemsManager_C*>((byte*)this + 1744);
 }
 class ABP_SystemsManager_C** ABP_AnimalBase_C::M_PtrGetSystemsManagerReference() {
-	return reinterpret_cast<class ABP_SystemsManager_C**>((byte*)this + 1464);
+	return reinterpret_cast<class ABP_SystemsManager_C**>((byte*)this + 1744);
 }
 void ABP_AnimalBase_C::M_SetSystemsManagerReference(const class ABP_SystemsManager_C*& value) {
-	Write((byte*)this + 1464, value);
+	Write((byte*)this + 1744, value);
 }
 // Member Getter and Setter of AnimalHandler
 // Declaration: struct FDataTableRowHandle AnimalHandler
 struct FDataTableRowHandle ABP_AnimalBase_C::M_GetAnimalHandler() const {
-	return Read<struct FDataTableRowHandle>((byte*)this + 1472);
+	return Read<struct FDataTableRowHandle>((byte*)this + 1752);
 }
 struct FDataTableRowHandle* ABP_AnimalBase_C::M_PtrGetAnimalHandler() {
-	return reinterpret_cast<struct FDataTableRowHandle*>((byte*)this + 1472);
+	return reinterpret_cast<struct FDataTableRowHandle*>((byte*)this + 1752);
 }
 void ABP_AnimalBase_C::M_SetAnimalHandler(const struct FDataTableRowHandle& value) {
-	Write((byte*)this + 1472, value);
+	Write((byte*)this + 1752, value);
 }
 // Member Getter and Setter of Ownership
 // Declaration: TEnumAsByte<E_Ownership> Ownership
 TEnumAsByte<E_Ownership> ABP_AnimalBase_C::M_GetOwnership() const {
-	return Read<TEnumAsByte<E_Ownership>>((byte*)this + 1488);
+	return Read<TEnumAsByte<E_Ownership>>((byte*)this + 1768);
 }
 TEnumAsByte<E_Ownership>* ABP_AnimalBase_C::M_PtrGetOwnership() {
-	return reinterpret_cast<TEnumAsByte<E_Ownership>*>((byte*)this + 1488);
+	return reinterpret_cast<TEnumAsByte<E_Ownership>*>((byte*)this + 1768);
 }
 void ABP_AnimalBase_C::M_SetOwnership(const TEnumAsByte<E_Ownership>& value) {
-	Write((byte*)this + 1488, value);
+	Write((byte*)this + 1768, value);
 }
 // Member Getter and Setter of ActorTags
 // Declaration: TArray<struct FName> ActorTags
 TArray<struct FName> ABP_AnimalBase_C::M_GetActorTags() const {
-	return Read<TArray<struct FName>>((byte*)this + 1496);
+	return Read<TArray<struct FName>>((byte*)this + 1776);
 }
 TArray<struct FName>* ABP_AnimalBase_C::M_PtrGetActorTags() {
-	return reinterpret_cast<TArray<struct FName>*>((byte*)this + 1496);
+	return reinterpret_cast<TArray<struct FName>*>((byte*)this + 1776);
 }
 void ABP_AnimalBase_C::M_SetActorTags(const TArray<struct FName>& value) {
-	Write((byte*)this + 1496, value);
+	Write((byte*)this + 1776, value);
 }
-// Member Getter and Setter of Awake
-// Declaration: bool Awake
-bool ABP_AnimalBase_C::M_GetAwake() const {
-	return Read<bool>((byte*)this + 1512);
+// Member Getter and Setter of Resting
+// Declaration: bool Resting
+bool ABP_AnimalBase_C::M_GetResting() const {
+	return Read<bool>((byte*)this + 1792);
 }
-bool* ABP_AnimalBase_C::M_PtrGetAwake() {
-	return reinterpret_cast<bool*>((byte*)this + 1512);
+bool* ABP_AnimalBase_C::M_PtrGetResting() {
+	return reinterpret_cast<bool*>((byte*)this + 1792);
 }
-void ABP_AnimalBase_C::M_SetAwake(const bool& value) {
-	Write((byte*)this + 1512, value);
+void ABP_AnimalBase_C::M_SetResting(const bool& value) {
+	Write((byte*)this + 1792, value);
 }
 // Member Getter and Setter of AllowDamage
 // Declaration: bool AllowDamage
 bool ABP_AnimalBase_C::M_GetAllowDamage() const {
-	return Read<bool>((byte*)this + 1513);
+	return Read<bool>((byte*)this + 1793);
 }
 bool* ABP_AnimalBase_C::M_PtrGetAllowDamage() {
-	return reinterpret_cast<bool*>((byte*)this + 1513);
+	return reinterpret_cast<bool*>((byte*)this + 1793);
 }
 void ABP_AnimalBase_C::M_SetAllowDamage(const bool& value) {
-	Write((byte*)this + 1513, value);
+	Write((byte*)this + 1793, value);
 }
 // Member Getter and Setter of DamageCauser
 // Declaration: class AActor* DamageCauser
 class AActor* ABP_AnimalBase_C::M_GetDamageCauser() const {
-	return Read<class AActor*>((byte*)this + 1520);
+	return Read<class AActor*>((byte*)this + 1800);
 }
 class AActor** ABP_AnimalBase_C::M_PtrGetDamageCauser() {
-	return reinterpret_cast<class AActor**>((byte*)this + 1520);
+	return reinterpret_cast<class AActor**>((byte*)this + 1800);
 }
 void ABP_AnimalBase_C::M_SetDamageCauser(const class AActor*& value) {
-	Write((byte*)this + 1520, value);
-}
-// Member Getter and Setter of AnimalDamage
-// Declaration: float AnimalDamage
-float ABP_AnimalBase_C::M_GetAnimalDamage() const {
-	return Read<float>((byte*)this + 1528);
-}
-float* ABP_AnimalBase_C::M_PtrGetAnimalDamage() {
-	return reinterpret_cast<float*>((byte*)this + 1528);
-}
-void ABP_AnimalBase_C::M_SetAnimalDamage(const float& value) {
-	Write((byte*)this + 1528, value);
+	Write((byte*)this + 1800, value);
 }
 // Member Getter and Setter of Attacking
 // Declaration: bool Attacking
 bool ABP_AnimalBase_C::M_GetAttacking() const {
-	return Read<bool>((byte*)this + 1532);
+	return Read<bool>((byte*)this + 1808);
 }
 bool* ABP_AnimalBase_C::M_PtrGetAttacking() {
-	return reinterpret_cast<bool*>((byte*)this + 1532);
+	return reinterpret_cast<bool*>((byte*)this + 1808);
 }
 void ABP_AnimalBase_C::M_SetAttacking(const bool& value) {
-	Write((byte*)this + 1532, value);
-}
-// Member Getter and Setter of CanTakeDamage
-// Declaration: bool CanTakeDamage
-bool ABP_AnimalBase_C::M_GetCanTakeDamage() const {
-	return Read<bool>((byte*)this + 1533);
-}
-bool* ABP_AnimalBase_C::M_PtrGetCanTakeDamage() {
-	return reinterpret_cast<bool*>((byte*)this + 1533);
-}
-void ABP_AnimalBase_C::M_SetCanTakeDamage(const bool& value) {
-	Write((byte*)this + 1533, value);
-}
-// Member Getter and Setter of Breeding
-// Declaration: bool Breeding
-bool ABP_AnimalBase_C::M_GetBreeding() const {
-	return Read<bool>((byte*)this + 1534);
-}
-bool* ABP_AnimalBase_C::M_PtrGetBreeding() {
-	return reinterpret_cast<bool*>((byte*)this + 1534);
-}
-void ABP_AnimalBase_C::M_SetBreeding(const bool& value) {
-	Write((byte*)this + 1534, value);
-}
-// Member Getter and Setter of DamageAmount
-// Declaration: float DamageAmount
-float ABP_AnimalBase_C::M_GetDamageAmount() const {
-	return Read<float>((byte*)this + 1536);
-}
-float* ABP_AnimalBase_C::M_PtrGetDamageAmount() {
-	return reinterpret_cast<float*>((byte*)this + 1536);
-}
-void ABP_AnimalBase_C::M_SetDamageAmount(const float& value) {
-	Write((byte*)this + 1536, value);
-}
-// Member Getter and Setter of InteractableLife
-// Declaration: bool InteractableLife
-bool ABP_AnimalBase_C::M_GetInteractableLife() const {
-	return Read<bool>((byte*)this + 1540);
-}
-bool* ABP_AnimalBase_C::M_PtrGetInteractableLife() {
-	return reinterpret_cast<bool*>((byte*)this + 1540);
-}
-void ABP_AnimalBase_C::M_SetInteractableLife(const bool& value) {
-	Write((byte*)this + 1540, value);
-}
-// Member Getter and Setter of InteractActionLifeText
-// Declaration: struct FText InteractActionLifeText
-struct FText ABP_AnimalBase_C::M_GetInteractActionLifeText() const {
-	return Read<struct FText>((byte*)this + 1544);
-}
-struct FText* ABP_AnimalBase_C::M_PtrGetInteractActionLifeText() {
-	return reinterpret_cast<struct FText*>((byte*)this + 1544);
-}
-void ABP_AnimalBase_C::M_SetInteractActionLifeText(const struct FText& value) {
-	Write((byte*)this + 1544, value);
-}
-// Member Getter and Setter of InteractableDead
-// Declaration: bool InteractableDead
-bool ABP_AnimalBase_C::M_GetInteractableDead() const {
-	return Read<bool>((byte*)this + 1568);
-}
-bool* ABP_AnimalBase_C::M_PtrGetInteractableDead() {
-	return reinterpret_cast<bool*>((byte*)this + 1568);
-}
-void ABP_AnimalBase_C::M_SetInteractableDead(const bool& value) {
-	Write((byte*)this + 1568, value);
-}
-// Member Getter and Setter of InteractActionDeadText
-// Declaration: struct FText InteractActionDeadText
-struct FText ABP_AnimalBase_C::M_GetInteractActionDeadText() const {
-	return Read<struct FText>((byte*)this + 1576);
-}
-struct FText* ABP_AnimalBase_C::M_PtrGetInteractActionDeadText() {
-	return reinterpret_cast<struct FText*>((byte*)this + 1576);
-}
-void ABP_AnimalBase_C::M_SetInteractActionDeadText(const struct FText& value) {
-	Write((byte*)this + 1576, value);
-}
-// Member Getter and Setter of InteractAnimationMontageLife
-// Declaration: class UAnimMontage* InteractAnimationMontageLife
-class UAnimMontage* ABP_AnimalBase_C::M_GetInteractAnimationMontageLife() const {
-	return Read<class UAnimMontage*>((byte*)this + 1600);
-}
-class UAnimMontage** ABP_AnimalBase_C::M_PtrGetInteractAnimationMontageLife() {
-	return reinterpret_cast<class UAnimMontage**>((byte*)this + 1600);
-}
-void ABP_AnimalBase_C::M_SetInteractAnimationMontageLife(const class UAnimMontage*& value) {
-	Write((byte*)this + 1600, value);
-}
-// Member Getter and Setter of InteractAnimationMontageDead
-// Declaration: class UAnimMontage* InteractAnimationMontageDead
-class UAnimMontage* ABP_AnimalBase_C::M_GetInteractAnimationMontageDead() const {
-	return Read<class UAnimMontage*>((byte*)this + 1608);
-}
-class UAnimMontage** ABP_AnimalBase_C::M_PtrGetInteractAnimationMontageDead() {
-	return reinterpret_cast<class UAnimMontage**>((byte*)this + 1608);
-}
-void ABP_AnimalBase_C::M_SetInteractAnimationMontageDead(const class UAnimMontage*& value) {
-	Write((byte*)this + 1608, value);
+	Write((byte*)this + 1808, value);
 }
 // Member Getter and Setter of ViewmodeInteractionMontages
 // Declaration: TMap<TEnumAsByte<E_ViewMode>, struct FST_InteractionMontages> ViewmodeInteractionMontages
 TMap<TEnumAsByte<E_ViewMode>, struct FST_InteractionMontages> ABP_AnimalBase_C::M_GetViewmodeInteractionMontages() const {
-	return Read<TMap<TEnumAsByte<E_ViewMode>, struct FST_InteractionMontages>>((byte*)this + 1616);
+	return Read<TMap<TEnumAsByte<E_ViewMode>, struct FST_InteractionMontages>>((byte*)this + 1816);
 }
 TMap<TEnumAsByte<E_ViewMode>, struct FST_InteractionMontages>* ABP_AnimalBase_C::M_PtrGetViewmodeInteractionMontages() {
-	return reinterpret_cast<TMap<TEnumAsByte<E_ViewMode>, struct FST_InteractionMontages>*>((byte*)this + 1616);
+	return reinterpret_cast<TMap<TEnumAsByte<E_ViewMode>, struct FST_InteractionMontages>*>((byte*)this + 1816);
 }
 void ABP_AnimalBase_C::M_SetViewmodeInteractionMontages(const TMap<TEnumAsByte<E_ViewMode>, struct FST_InteractionMontages>& value) {
-	Write((byte*)this + 1616, value);
-}
-// Member Getter and Setter of UseInteractTimeLife
-// Declaration: bool UseInteractTimeLife
-bool ABP_AnimalBase_C::M_GetUseInteractTimeLife() const {
-	return Read<bool>((byte*)this + 1696);
-}
-bool* ABP_AnimalBase_C::M_PtrGetUseInteractTimeLife() {
-	return reinterpret_cast<bool*>((byte*)this + 1696);
-}
-void ABP_AnimalBase_C::M_SetUseInteractTimeLife(const bool& value) {
-	Write((byte*)this + 1696, value);
-}
-// Member Getter and Setter of TimingTimeLife
-// Declaration: float TimingTimeLife
-float ABP_AnimalBase_C::M_GetTimingTimeLife() const {
-	return Read<float>((byte*)this + 1700);
-}
-float* ABP_AnimalBase_C::M_PtrGetTimingTimeLife() {
-	return reinterpret_cast<float*>((byte*)this + 1700);
-}
-void ABP_AnimalBase_C::M_SetTimingTimeLife(const float& value) {
-	Write((byte*)this + 1700, value);
-}
-// Member Getter and Setter of UseInteractTimeDead
-// Declaration: bool UseInteractTimeDead
-bool ABP_AnimalBase_C::M_GetUseInteractTimeDead() const {
-	return Read<bool>((byte*)this + 1704);
-}
-bool* ABP_AnimalBase_C::M_PtrGetUseInteractTimeDead() {
-	return reinterpret_cast<bool*>((byte*)this + 1704);
-}
-void ABP_AnimalBase_C::M_SetUseInteractTimeDead(const bool& value) {
-	Write((byte*)this + 1704, value);
-}
-// Member Getter and Setter of TimingTimeDead
-// Declaration: float TimingTimeDead
-float ABP_AnimalBase_C::M_GetTimingTimeDead() const {
-	return Read<float>((byte*)this + 1708);
-}
-float* ABP_AnimalBase_C::M_PtrGetTimingTimeDead() {
-	return reinterpret_cast<float*>((byte*)this + 1708);
-}
-void ABP_AnimalBase_C::M_SetTimingTimeDead(const float& value) {
-	Write((byte*)this + 1708, value);
-}
-// Member Getter and Setter of CheckToolInInventoryLife
-// Declaration: bool CheckToolInInventoryLife
-bool ABP_AnimalBase_C::M_GetCheckToolInInventoryLife() const {
-	return Read<bool>((byte*)this + 1712);
-}
-bool* ABP_AnimalBase_C::M_PtrGetCheckToolInInventoryLife() {
-	return reinterpret_cast<bool*>((byte*)this + 1712);
-}
-void ABP_AnimalBase_C::M_SetCheckToolInInventoryLife(const bool& value) {
-	Write((byte*)this + 1712, value);
+	Write((byte*)this + 1816, value);
 }
 // Member Getter and Setter of InteractToolTypeLife
 // Declaration: TEnumAsByte<E_Tools> InteractToolTypeLife
 TEnumAsByte<E_Tools> ABP_AnimalBase_C::M_GetInteractToolTypeLife() const {
-	return Read<TEnumAsByte<E_Tools>>((byte*)this + 1713);
+	return Read<TEnumAsByte<E_Tools>>((byte*)this + 1896);
 }
 TEnumAsByte<E_Tools>* ABP_AnimalBase_C::M_PtrGetInteractToolTypeLife() {
-	return reinterpret_cast<TEnumAsByte<E_Tools>*>((byte*)this + 1713);
+	return reinterpret_cast<TEnumAsByte<E_Tools>*>((byte*)this + 1896);
 }
 void ABP_AnimalBase_C::M_SetInteractToolTypeLife(const TEnumAsByte<E_Tools>& value) {
-	Write((byte*)this + 1713, value);
-}
-// Member Getter and Setter of SpawnLocation
-// Declaration: class ABP_SpawnPointWildAnimal_C* SpawnLocation
-class ABP_SpawnPointWildAnimal_C* ABP_AnimalBase_C::M_GetSpawnLocation() const {
-	return Read<class ABP_SpawnPointWildAnimal_C*>((byte*)this + 1720);
-}
-class ABP_SpawnPointWildAnimal_C** ABP_AnimalBase_C::M_PtrGetSpawnLocation() {
-	return reinterpret_cast<class ABP_SpawnPointWildAnimal_C**>((byte*)this + 1720);
-}
-void ABP_AnimalBase_C::M_SetSpawnLocation(const class ABP_SpawnPointWildAnimal_C*& value) {
-	Write((byte*)this + 1720, value);
-}
-// Member Getter and Setter of CheckToolInInventoryDead
-// Declaration: bool CheckToolInInventoryDead
-bool ABP_AnimalBase_C::M_GetCheckToolInInventoryDead() const {
-	return Read<bool>((byte*)this + 1728);
-}
-bool* ABP_AnimalBase_C::M_PtrGetCheckToolInInventoryDead() {
-	return reinterpret_cast<bool*>((byte*)this + 1728);
-}
-void ABP_AnimalBase_C::M_SetCheckToolInInventoryDead(const bool& value) {
-	Write((byte*)this + 1728, value);
+	Write((byte*)this + 1896, value);
 }
 // Member Getter and Setter of InteractToolTypeDead
 // Declaration: TEnumAsByte<E_Tools> InteractToolTypeDead
 TEnumAsByte<E_Tools> ABP_AnimalBase_C::M_GetInteractToolTypeDead() const {
-	return Read<TEnumAsByte<E_Tools>>((byte*)this + 1729);
+	return Read<TEnumAsByte<E_Tools>>((byte*)this + 1897);
 }
 TEnumAsByte<E_Tools>* ABP_AnimalBase_C::M_PtrGetInteractToolTypeDead() {
-	return reinterpret_cast<TEnumAsByte<E_Tools>*>((byte*)this + 1729);
+	return reinterpret_cast<TEnumAsByte<E_Tools>*>((byte*)this + 1897);
 }
 void ABP_AnimalBase_C::M_SetInteractToolTypeDead(const TEnumAsByte<E_Tools>& value) {
-	Write((byte*)this + 1729, value);
+	Write((byte*)this + 1897, value);
+}
+// Member Getter and Setter of InteractActionLifeText
+// Declaration: struct FText InteractActionLifeText
+struct FText ABP_AnimalBase_C::M_GetInteractActionLifeText() const {
+	return Read<struct FText>((byte*)this + 1904);
+}
+struct FText* ABP_AnimalBase_C::M_PtrGetInteractActionLifeText() {
+	return reinterpret_cast<struct FText*>((byte*)this + 1904);
+}
+void ABP_AnimalBase_C::M_SetInteractActionLifeText(const struct FText& value) {
+	Write((byte*)this + 1904, value);
+}
+// Member Getter and Setter of InteractActionDeadText
+// Declaration: struct FText InteractActionDeadText
+struct FText ABP_AnimalBase_C::M_GetInteractActionDeadText() const {
+	return Read<struct FText>((byte*)this + 1928);
+}
+struct FText* ABP_AnimalBase_C::M_PtrGetInteractActionDeadText() {
+	return reinterpret_cast<struct FText*>((byte*)this + 1928);
+}
+void ABP_AnimalBase_C::M_SetInteractActionDeadText(const struct FText& value) {
+	Write((byte*)this + 1928, value);
+}
+// Member Getter and Setter of InteractableLife
+// Declaration: bool InteractableLife
+bool ABP_AnimalBase_C::M_GetInteractableLife() const {
+	return Read<bool>((byte*)this + 1952);
+}
+bool* ABP_AnimalBase_C::M_PtrGetInteractableLife() {
+	return reinterpret_cast<bool*>((byte*)this + 1952);
+}
+void ABP_AnimalBase_C::M_SetInteractableLife(const bool& value) {
+	Write((byte*)this + 1952, value);
+}
+// Member Getter and Setter of InteractableDead
+// Declaration: bool InteractableDead
+bool ABP_AnimalBase_C::M_GetInteractableDead() const {
+	return Read<bool>((byte*)this + 1953);
+}
+bool* ABP_AnimalBase_C::M_PtrGetInteractableDead() {
+	return reinterpret_cast<bool*>((byte*)this + 1953);
+}
+void ABP_AnimalBase_C::M_SetInteractableDead(const bool& value) {
+	Write((byte*)this + 1953, value);
+}
+// Member Getter and Setter of UseInteractTimeLife
+// Declaration: bool UseInteractTimeLife
+bool ABP_AnimalBase_C::M_GetUseInteractTimeLife() const {
+	return Read<bool>((byte*)this + 1954);
+}
+bool* ABP_AnimalBase_C::M_PtrGetUseInteractTimeLife() {
+	return reinterpret_cast<bool*>((byte*)this + 1954);
+}
+void ABP_AnimalBase_C::M_SetUseInteractTimeLife(const bool& value) {
+	Write((byte*)this + 1954, value);
+}
+// Member Getter and Setter of UseInteractTimeDead
+// Declaration: bool UseInteractTimeDead
+bool ABP_AnimalBase_C::M_GetUseInteractTimeDead() const {
+	return Read<bool>((byte*)this + 1955);
+}
+bool* ABP_AnimalBase_C::M_PtrGetUseInteractTimeDead() {
+	return reinterpret_cast<bool*>((byte*)this + 1955);
+}
+void ABP_AnimalBase_C::M_SetUseInteractTimeDead(const bool& value) {
+	Write((byte*)this + 1955, value);
+}
+// Member Getter and Setter of QueryTemplateFlee
+// Declaration: class UEnvQuery* QueryTemplateFlee
+class UEnvQuery* ABP_AnimalBase_C::M_GetQueryTemplateFlee() const {
+	return Read<class UEnvQuery*>((byte*)this + 1960);
+}
+class UEnvQuery** ABP_AnimalBase_C::M_PtrGetQueryTemplateFlee() {
+	return reinterpret_cast<class UEnvQuery**>((byte*)this + 1960);
+}
+void ABP_AnimalBase_C::M_SetQueryTemplateFlee(const class UEnvQuery*& value) {
+	Write((byte*)this + 1960, value);
+}
+// Member Getter and Setter of QueryTemplateRoam
+// Declaration: class UEnvQuery* QueryTemplateRoam
+class UEnvQuery* ABP_AnimalBase_C::M_GetQueryTemplateRoam() const {
+	return Read<class UEnvQuery*>((byte*)this + 1968);
+}
+class UEnvQuery** ABP_AnimalBase_C::M_PtrGetQueryTemplateRoam() {
+	return reinterpret_cast<class UEnvQuery**>((byte*)this + 1968);
+}
+void ABP_AnimalBase_C::M_SetQueryTemplateRoam(const class UEnvQuery*& value) {
+	Write((byte*)this + 1968, value);
+}
+// Member Getter and Setter of NavigationFilterClass
+// Declaration: class UNavigationQueryFilter* NavigationFilterClass
+class UNavigationQueryFilter* ABP_AnimalBase_C::M_GetNavigationFilterClass() const {
+	return Read<class UNavigationQueryFilter*>((byte*)this + 1976);
+}
+class UNavigationQueryFilter** ABP_AnimalBase_C::M_PtrGetNavigationFilterClass() {
+	return reinterpret_cast<class UNavigationQueryFilter**>((byte*)this + 1976);
+}
+void ABP_AnimalBase_C::M_SetNavigationFilterClass(const class UNavigationQueryFilter*& value) {
+	Write((byte*)this + 1976, value);
+}
+// Member Getter and Setter of NavigationFilterExcludedClass
+// Declaration: class UNavigationQueryFilter* NavigationFilterExcludedClass
+class UNavigationQueryFilter* ABP_AnimalBase_C::M_GetNavigationFilterExcludedClass() const {
+	return Read<class UNavigationQueryFilter*>((byte*)this + 1984);
+}
+class UNavigationQueryFilter** ABP_AnimalBase_C::M_PtrGetNavigationFilterExcludedClass() {
+	return reinterpret_cast<class UNavigationQueryFilter**>((byte*)this + 1984);
+}
+void ABP_AnimalBase_C::M_SetNavigationFilterExcludedClass(const class UNavigationQueryFilter*& value) {
+	Write((byte*)this + 1984, value);
+}
+// Member Getter and Setter of SpawnPoint
+// Declaration: class ABP_SpawnPointWildAnimal_C* SpawnPoint
+class ABP_SpawnPointWildAnimal_C* ABP_AnimalBase_C::M_GetSpawnPoint() const {
+	return Read<class ABP_SpawnPointWildAnimal_C*>((byte*)this + 1992);
+}
+class ABP_SpawnPointWildAnimal_C** ABP_AnimalBase_C::M_PtrGetSpawnPoint() {
+	return reinterpret_cast<class ABP_SpawnPointWildAnimal_C**>((byte*)this + 1992);
+}
+void ABP_AnimalBase_C::M_SetSpawnPoint(const class ABP_SpawnPointWildAnimal_C*& value) {
+	Write((byte*)this + 1992, value);
 }
 // Member Getter and Setter of SpawnDead
 // Declaration: bool SpawnDead
 bool ABP_AnimalBase_C::M_GetSpawnDead() const {
-	return Read<bool>((byte*)this + 1730);
+	return Read<bool>((byte*)this + 2000);
 }
 bool* ABP_AnimalBase_C::M_PtrGetSpawnDead() {
-	return reinterpret_cast<bool*>((byte*)this + 1730);
+	return reinterpret_cast<bool*>((byte*)this + 2000);
 }
 void ABP_AnimalBase_C::M_SetSpawnDead(const bool& value) {
-	Write((byte*)this + 1730, value);
+	Write((byte*)this + 2000, value);
 }
 // Member Getter and Setter of SkillForKillValue
 // Declaration: float SkillForKillValue
 float ABP_AnimalBase_C::M_GetSkillForKillValue() const {
-	return Read<float>((byte*)this + 1732);
+	return Read<float>((byte*)this + 2004);
 }
 float* ABP_AnimalBase_C::M_PtrGetSkillForKillValue() {
-	return reinterpret_cast<float*>((byte*)this + 1732);
+	return reinterpret_cast<float*>((byte*)this + 2004);
 }
 void ABP_AnimalBase_C::M_SetSkillForKillValue(const float& value) {
-	Write((byte*)this + 1732, value);
+	Write((byte*)this + 2004, value);
 }
 // Member Getter and Setter of SkillForSkinningValue
 // Declaration: float SkillForSkinningValue
 float ABP_AnimalBase_C::M_GetSkillForSkinningValue() const {
-	return Read<float>((byte*)this + 1736);
+	return Read<float>((byte*)this + 2008);
 }
 float* ABP_AnimalBase_C::M_PtrGetSkillForSkinningValue() {
-	return reinterpret_cast<float*>((byte*)this + 1736);
+	return reinterpret_cast<float*>((byte*)this + 2008);
 }
 void ABP_AnimalBase_C::M_SetSkillForSkinningValue(const float& value) {
-	Write((byte*)this + 1736, value);
+	Write((byte*)this + 2008, value);
 }
 // Member Getter and Setter of SkillForHusbandryValue
 // Declaration: float SkillForHusbandryValue
 float ABP_AnimalBase_C::M_GetSkillForHusbandryValue() const {
-	return Read<float>((byte*)this + 1740);
+	return Read<float>((byte*)this + 2012);
 }
 float* ABP_AnimalBase_C::M_PtrGetSkillForHusbandryValue() {
-	return reinterpret_cast<float*>((byte*)this + 1740);
+	return reinterpret_cast<float*>((byte*)this + 2012);
 }
 void ABP_AnimalBase_C::M_SetSkillForHusbandryValue(const float& value) {
-	Write((byte*)this + 1740, value);
+	Write((byte*)this + 2012, value);
 }
 // Member Getter and Setter of InteractedCharacter
 // Declaration: class ABP_BaseCharacter_C* InteractedCharacter
 class ABP_BaseCharacter_C* ABP_AnimalBase_C::M_GetInteractedCharacter() const {
-	return Read<class ABP_BaseCharacter_C*>((byte*)this + 1744);
+	return Read<class ABP_BaseCharacter_C*>((byte*)this + 2016);
 }
 class ABP_BaseCharacter_C** ABP_AnimalBase_C::M_PtrGetInteractedCharacter() {
-	return reinterpret_cast<class ABP_BaseCharacter_C**>((byte*)this + 1744);
+	return reinterpret_cast<class ABP_BaseCharacter_C**>((byte*)this + 2016);
 }
 void ABP_AnimalBase_C::M_SetInteractedCharacter(const class ABP_BaseCharacter_C*& value) {
-	Write((byte*)this + 1744, value);
+	Write((byte*)this + 2016, value);
 }
 // Member Getter and Setter of FearFactor
 // Declaration: int32_t FearFactor
 int32_t ABP_AnimalBase_C::M_GetFearFactor() const {
-	return Read<int32_t>((byte*)this + 1752);
+	return Read<int32_t>((byte*)this + 2024);
 }
 int32_t* ABP_AnimalBase_C::M_PtrGetFearFactor() {
-	return reinterpret_cast<int32_t*>((byte*)this + 1752);
+	return reinterpret_cast<int32_t*>((byte*)this + 2024);
 }
 void ABP_AnimalBase_C::M_SetFearFactor(const int32_t& value) {
-	Write((byte*)this + 1752, value);
+	Write((byte*)this + 2024, value);
 }
 // Member Getter and Setter of IsFear
 // Declaration: bool IsFear
 bool ABP_AnimalBase_C::M_GetIsFear() const {
-	return Read<bool>((byte*)this + 1756);
+	return Read<bool>((byte*)this + 2028);
 }
 bool* ABP_AnimalBase_C::M_PtrGetIsFear() {
-	return reinterpret_cast<bool*>((byte*)this + 1756);
+	return reinterpret_cast<bool*>((byte*)this + 2028);
 }
 void ABP_AnimalBase_C::M_SetIsFear(const bool& value) {
-	Write((byte*)this + 1756, value);
+	Write((byte*)this + 2028, value);
 }
 // Member Getter and Setter of FleeingTimer
 // Declaration: struct FTimerHandle FleeingTimer
 struct FTimerHandle ABP_AnimalBase_C::M_GetFleeingTimer() const {
-	return Read<struct FTimerHandle>((byte*)this + 1760);
+	return Read<struct FTimerHandle>((byte*)this + 2032);
 }
 struct FTimerHandle* ABP_AnimalBase_C::M_PtrGetFleeingTimer() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 1760);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 2032);
 }
 void ABP_AnimalBase_C::M_SetFleeingTimer(const struct FTimerHandle& value) {
-	Write((byte*)this + 1760, value);
+	Write((byte*)this + 2032, value);
 }
 // Member Getter and Setter of FearFactorIncreaser
 // Declaration: int32_t FearFactorIncreaser
 int32_t ABP_AnimalBase_C::M_GetFearFactorIncreaser() const {
-	return Read<int32_t>((byte*)this + 1768);
+	return Read<int32_t>((byte*)this + 2040);
 }
 int32_t* ABP_AnimalBase_C::M_PtrGetFearFactorIncreaser() {
-	return reinterpret_cast<int32_t*>((byte*)this + 1768);
+	return reinterpret_cast<int32_t*>((byte*)this + 2040);
 }
 void ABP_AnimalBase_C::M_SetFearFactorIncreaser(const int32_t& value) {
-	Write((byte*)this + 1768, value);
-}
-// Member Getter and Setter of SpawnPosition
-// Declaration: struct FVector SpawnPosition
-struct FVector ABP_AnimalBase_C::M_GetSpawnPosition() const {
-	return Read<struct FVector>((byte*)this + 1772);
-}
-struct FVector* ABP_AnimalBase_C::M_PtrGetSpawnPosition() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 1772);
-}
-void ABP_AnimalBase_C::M_SetSpawnPosition(const struct FVector& value) {
-	Write((byte*)this + 1772, value);
-}
-// Member Getter and Setter of cardinalDirection
-// Declaration: TEnumAsByte<E_CardinalDirection> cardinalDirection
-TEnumAsByte<E_CardinalDirection> ABP_AnimalBase_C::M_GetcardinalDirection() const {
-	return Read<TEnumAsByte<E_CardinalDirection>>((byte*)this + 1784);
-}
-TEnumAsByte<E_CardinalDirection>* ABP_AnimalBase_C::M_PtrGetcardinalDirection() {
-	return reinterpret_cast<TEnumAsByte<E_CardinalDirection>*>((byte*)this + 1784);
-}
-void ABP_AnimalBase_C::M_SetcardinalDirection(const TEnumAsByte<E_CardinalDirection>& value) {
-	Write((byte*)this + 1784, value);
+	Write((byte*)this + 2040, value);
 }
 // Member Getter and Setter of GaitType
 // Declaration: TEnumAsByte<E_Gait> GaitType
 TEnumAsByte<E_Gait> ABP_AnimalBase_C::M_GetGaitType() const {
-	return Read<TEnumAsByte<E_Gait>>((byte*)this + 1785);
+	return Read<TEnumAsByte<E_Gait>>((byte*)this + 2044);
 }
 TEnumAsByte<E_Gait>* ABP_AnimalBase_C::M_PtrGetGaitType() {
-	return reinterpret_cast<TEnumAsByte<E_Gait>*>((byte*)this + 1785);
+	return reinterpret_cast<TEnumAsByte<E_Gait>*>((byte*)this + 2044);
 }
 void ABP_AnimalBase_C::M_SetGaitType(const TEnumAsByte<E_Gait>& value) {
-	Write((byte*)this + 1785, value);
-}
-// Member Getter and Setter of RotationOffset
-// Declaration: float RotationOffset
-float ABP_AnimalBase_C::M_GetRotationOffset() const {
-	return Read<float>((byte*)this + 1788);
-}
-float* ABP_AnimalBase_C::M_PtrGetRotationOffset() {
-	return reinterpret_cast<float*>((byte*)this + 1788);
-}
-void ABP_AnimalBase_C::M_SetRotationOffset(const float& value) {
-	Write((byte*)this + 1788, value);
-}
-// Member Getter and Setter of Target_CharacterRotationDifference
-// Declaration: float Target_CharacterRotationDifference
-float ABP_AnimalBase_C::M_GetTarget_CharacterRotationDifference() const {
-	return Read<float>((byte*)this + 1792);
-}
-float* ABP_AnimalBase_C::M_PtrGetTarget_CharacterRotationDifference() {
-	return reinterpret_cast<float*>((byte*)this + 1792);
-}
-void ABP_AnimalBase_C::M_SetTarget_CharacterRotationDifference(const float& value) {
-	Write((byte*)this + 1792, value);
+	Write((byte*)this + 2044, value);
 }
 // Member Getter and Setter of BleedTimerHandle
 // Declaration: struct FTimerHandle BleedTimerHandle
 struct FTimerHandle ABP_AnimalBase_C::M_GetBleedTimerHandle() const {
-	return Read<struct FTimerHandle>((byte*)this + 1800);
+	return Read<struct FTimerHandle>((byte*)this + 2048);
 }
 struct FTimerHandle* ABP_AnimalBase_C::M_PtrGetBleedTimerHandle() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 1800);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 2048);
 }
 void ABP_AnimalBase_C::M_SetBleedTimerHandle(const struct FTimerHandle& value) {
-	Write((byte*)this + 1800, value);
+	Write((byte*)this + 2048, value);
 }
 // Member Getter and Setter of Technology_ForKill
 // Declaration: TEnumAsByte<E_TechnologyTypes> Technology_ForKill
 TEnumAsByte<E_TechnologyTypes> ABP_AnimalBase_C::M_GetTechnology_ForKill() const {
-	return Read<TEnumAsByte<E_TechnologyTypes>>((byte*)this + 1808);
+	return Read<TEnumAsByte<E_TechnologyTypes>>((byte*)this + 2056);
 }
 TEnumAsByte<E_TechnologyTypes>* ABP_AnimalBase_C::M_PtrGetTechnology_ForKill() {
-	return reinterpret_cast<TEnumAsByte<E_TechnologyTypes>*>((byte*)this + 1808);
+	return reinterpret_cast<TEnumAsByte<E_TechnologyTypes>*>((byte*)this + 2056);
 }
 void ABP_AnimalBase_C::M_SetTechnology_ForKill(const TEnumAsByte<E_TechnologyTypes>& value) {
-	Write((byte*)this + 1808, value);
+	Write((byte*)this + 2056, value);
 }
 // Member Getter and Setter of ValueTechnology_ForKill
 // Declaration: float ValueTechnology_ForKill
 float ABP_AnimalBase_C::M_GetValueTechnology_ForKill() const {
-	return Read<float>((byte*)this + 1812);
+	return Read<float>((byte*)this + 2060);
 }
 float* ABP_AnimalBase_C::M_PtrGetValueTechnology_ForKill() {
-	return reinterpret_cast<float*>((byte*)this + 1812);
+	return reinterpret_cast<float*>((byte*)this + 2060);
 }
 void ABP_AnimalBase_C::M_SetValueTechnology_ForKill(const float& value) {
-	Write((byte*)this + 1812, value);
+	Write((byte*)this + 2060, value);
 }
 // Member Getter and Setter of Technology_ForSkinning
 // Declaration: TEnumAsByte<E_TechnologyTypes> Technology_ForSkinning
 TEnumAsByte<E_TechnologyTypes> ABP_AnimalBase_C::M_GetTechnology_ForSkinning() const {
-	return Read<TEnumAsByte<E_TechnologyTypes>>((byte*)this + 1816);
+	return Read<TEnumAsByte<E_TechnologyTypes>>((byte*)this + 2064);
 }
 TEnumAsByte<E_TechnologyTypes>* ABP_AnimalBase_C::M_PtrGetTechnology_ForSkinning() {
-	return reinterpret_cast<TEnumAsByte<E_TechnologyTypes>*>((byte*)this + 1816);
+	return reinterpret_cast<TEnumAsByte<E_TechnologyTypes>*>((byte*)this + 2064);
 }
 void ABP_AnimalBase_C::M_SetTechnology_ForSkinning(const TEnumAsByte<E_TechnologyTypes>& value) {
-	Write((byte*)this + 1816, value);
+	Write((byte*)this + 2064, value);
 }
 // Member Getter and Setter of ValueTechnology_ForSkinning
 // Declaration: float ValueTechnology_ForSkinning
 float ABP_AnimalBase_C::M_GetValueTechnology_ForSkinning() const {
-	return Read<float>((byte*)this + 1820);
+	return Read<float>((byte*)this + 2068);
 }
 float* ABP_AnimalBase_C::M_PtrGetValueTechnology_ForSkinning() {
-	return reinterpret_cast<float*>((byte*)this + 1820);
+	return reinterpret_cast<float*>((byte*)this + 2068);
 }
 void ABP_AnimalBase_C::M_SetValueTechnology_ForSkinning(const float& value) {
-	Write((byte*)this + 1820, value);
+	Write((byte*)this + 2068, value);
 }
 // Member Getter and Setter of Technology_ForMilkingAndSheering
 // Declaration: TEnumAsByte<E_TechnologyTypes> Technology_ForMilkingAndSheering
 TEnumAsByte<E_TechnologyTypes> ABP_AnimalBase_C::M_GetTechnology_ForMilkingAndSheering() const {
-	return Read<TEnumAsByte<E_TechnologyTypes>>((byte*)this + 1824);
+	return Read<TEnumAsByte<E_TechnologyTypes>>((byte*)this + 2072);
 }
 TEnumAsByte<E_TechnologyTypes>* ABP_AnimalBase_C::M_PtrGetTechnology_ForMilkingAndSheering() {
-	return reinterpret_cast<TEnumAsByte<E_TechnologyTypes>*>((byte*)this + 1824);
+	return reinterpret_cast<TEnumAsByte<E_TechnologyTypes>*>((byte*)this + 2072);
 }
 void ABP_AnimalBase_C::M_SetTechnology_ForMilkingAndSheering(const TEnumAsByte<E_TechnologyTypes>& value) {
-	Write((byte*)this + 1824, value);
+	Write((byte*)this + 2072, value);
 }
 // Member Getter and Setter of ValueTechnology_ForMilkingAndSheering
 // Declaration: float ValueTechnology_ForMilkingAndSheering
 float ABP_AnimalBase_C::M_GetValueTechnology_ForMilkingAndSheering() const {
-	return Read<float>((byte*)this + 1828);
+	return Read<float>((byte*)this + 2076);
 }
 float* ABP_AnimalBase_C::M_PtrGetValueTechnology_ForMilkingAndSheering() {
-	return reinterpret_cast<float*>((byte*)this + 1828);
+	return reinterpret_cast<float*>((byte*)this + 2076);
 }
 void ABP_AnimalBase_C::M_SetValueTechnology_ForMilkingAndSheering(const float& value) {
-	Write((byte*)this + 1828, value);
+	Write((byte*)this + 2076, value);
 }
 // Member Getter and Setter of ImpaledItems
 // Declaration: TArray<class AActor*> ImpaledItems
 TArray<class AActor*> ABP_AnimalBase_C::M_GetImpaledItems() const {
-	return Read<TArray<class AActor*>>((byte*)this + 1832);
+	return Read<TArray<class AActor*>>((byte*)this + 2080);
 }
 TArray<class AActor*>* ABP_AnimalBase_C::M_PtrGetImpaledItems() {
-	return reinterpret_cast<TArray<class AActor*>*>((byte*)this + 1832);
+	return reinterpret_cast<TArray<class AActor*>*>((byte*)this + 2080);
 }
 void ABP_AnimalBase_C::M_SetImpaledItems(const TArray<class AActor*>& value) {
-	Write((byte*)this + 1832, value);
+	Write((byte*)this + 2080, value);
 }
 // Member Getter and Setter of BleedTimerCancel
 // Declaration: struct FTimerHandle BleedTimerCancel
 struct FTimerHandle ABP_AnimalBase_C::M_GetBleedTimerCancel() const {
-	return Read<struct FTimerHandle>((byte*)this + 1848);
+	return Read<struct FTimerHandle>((byte*)this + 2096);
 }
 struct FTimerHandle* ABP_AnimalBase_C::M_PtrGetBleedTimerCancel() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 1848);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 2096);
 }
 void ABP_AnimalBase_C::M_SetBleedTimerCancel(const struct FTimerHandle& value) {
-	Write((byte*)this + 1848, value);
+	Write((byte*)this + 2096, value);
 }
 // Member Getter and Setter of BleedDamage
 // Declaration: float BleedDamage
 float ABP_AnimalBase_C::M_GetBleedDamage() const {
-	return Read<float>((byte*)this + 1856);
+	return Read<float>((byte*)this + 2104);
 }
 float* ABP_AnimalBase_C::M_PtrGetBleedDamage() {
-	return reinterpret_cast<float*>((byte*)this + 1856);
+	return reinterpret_cast<float*>((byte*)this + 2104);
 }
 void ABP_AnimalBase_C::M_SetBleedDamage(const float& value) {
-	Write((byte*)this + 1856, value);
+	Write((byte*)this + 2104, value);
 }
 // Member Getter and Setter of StuckCounter
 // Declaration: int32_t StuckCounter
 int32_t ABP_AnimalBase_C::M_GetStuckCounter() const {
-	return Read<int32_t>((byte*)this + 1860);
+	return Read<int32_t>((byte*)this + 2108);
 }
 int32_t* ABP_AnimalBase_C::M_PtrGetStuckCounter() {
-	return reinterpret_cast<int32_t*>((byte*)this + 1860);
+	return reinterpret_cast<int32_t*>((byte*)this + 2108);
 }
 void ABP_AnimalBase_C::M_SetStuckCounter(const int32_t& value) {
-	Write((byte*)this + 1860, value);
-}
-// Member Getter and Setter of ReputationPunishmentForKill
-// Declaration: int32_t ReputationPunishmentForKill
-int32_t ABP_AnimalBase_C::M_GetReputationPunishmentForKill() const {
-	return Read<int32_t>((byte*)this + 1864);
-}
-int32_t* ABP_AnimalBase_C::M_PtrGetReputationPunishmentForKill() {
-	return reinterpret_cast<int32_t*>((byte*)this + 1864);
-}
-void ABP_AnimalBase_C::M_SetReputationPunishmentForKill(const int32_t& value) {
-	Write((byte*)this + 1864, value);
+	Write((byte*)this + 2108, value);
 }
 // Member Getter and Setter of DamageCausers
 // Declaration: TMap<class AActor*, struct FST_CauserTimer> DamageCausers
 TMap<class AActor*, struct FST_CauserTimer> ABP_AnimalBase_C::M_GetDamageCausers() const {
-	return Read<TMap<class AActor*, struct FST_CauserTimer>>((byte*)this + 1872);
+	return Read<TMap<class AActor*, struct FST_CauserTimer>>((byte*)this + 2112);
 }
 TMap<class AActor*, struct FST_CauserTimer>* ABP_AnimalBase_C::M_PtrGetDamageCausers() {
-	return reinterpret_cast<TMap<class AActor*, struct FST_CauserTimer>*>((byte*)this + 1872);
+	return reinterpret_cast<TMap<class AActor*, struct FST_CauserTimer>*>((byte*)this + 2112);
 }
 void ABP_AnimalBase_C::M_SetDamageCausers(const TMap<class AActor*, struct FST_CauserTimer>& value) {
-	Write((byte*)this + 1872, value);
+	Write((byte*)this + 2112, value);
 }
 // Member Getter and Setter of DamageCausersHandle
 // Declaration: struct FTimerHandle DamageCausersHandle
 struct FTimerHandle ABP_AnimalBase_C::M_GetDamageCausersHandle() const {
-	return Read<struct FTimerHandle>((byte*)this + 1952);
+	return Read<struct FTimerHandle>((byte*)this + 2192);
 }
 struct FTimerHandle* ABP_AnimalBase_C::M_PtrGetDamageCausersHandle() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 1952);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 2192);
 }
 void ABP_AnimalBase_C::M_SetDamageCausersHandle(const struct FTimerHandle& value) {
-	Write((byte*)this + 1952, value);
+	Write((byte*)this + 2192, value);
 }
 // Member Getter and Setter of SpawnedBlood
 // Declaration: bool SpawnedBlood
 bool ABP_AnimalBase_C::M_GetSpawnedBlood() const {
-	return Read<bool>((byte*)this + 1960);
+	return Read<bool>((byte*)this + 2200);
 }
 bool* ABP_AnimalBase_C::M_PtrGetSpawnedBlood() {
-	return reinterpret_cast<bool*>((byte*)this + 1960);
+	return reinterpret_cast<bool*>((byte*)this + 2200);
 }
 void ABP_AnimalBase_C::M_SetSpawnedBlood(const bool& value) {
-	Write((byte*)this + 1960, value);
-}
-// Member Getter and Setter of IKFPSLimit
-// Declaration: float IKFPSLimit
-float ABP_AnimalBase_C::M_GetIKFPSLimit() const {
-	return Read<float>((byte*)this + 1964);
-}
-float* ABP_AnimalBase_C::M_PtrGetIKFPSLimit() {
-	return reinterpret_cast<float*>((byte*)this + 1964);
-}
-void ABP_AnimalBase_C::M_SetIKFPSLimit(const float& value) {
-	Write((byte*)this + 1964, value);
-}
-// Member Getter and Setter of IKFPSRestore
-// Declaration: float IKFPSRestore
-float ABP_AnimalBase_C::M_GetIKFPSRestore() const {
-	return Read<float>((byte*)this + 1968);
-}
-float* ABP_AnimalBase_C::M_PtrGetIKFPSRestore() {
-	return reinterpret_cast<float*>((byte*)this + 1968);
-}
-void ABP_AnimalBase_C::M_SetIKFPSRestore(const float& value) {
-	Write((byte*)this + 1968, value);
-}
-// Member Getter and Setter of AdrenalineRush
-// Declaration: bool AdrenalineRush
-bool ABP_AnimalBase_C::M_GetAdrenalineRush() const {
-	return Read<bool>((byte*)this + 1972);
-}
-bool* ABP_AnimalBase_C::M_PtrGetAdrenalineRush() {
-	return reinterpret_cast<bool*>((byte*)this + 1972);
-}
-void ABP_AnimalBase_C::M_SetAdrenalineRush(const bool& value) {
-	Write((byte*)this + 1972, value);
-}
-// Member Getter and Setter of GameInstanceReference
-// Declaration: class UGI_MedievalDynasty_C* GameInstanceReference
-class UGI_MedievalDynasty_C* ABP_AnimalBase_C::M_GetGameInstanceReference() const {
-	return Read<class UGI_MedievalDynasty_C*>((byte*)this + 1976);
-}
-class UGI_MedievalDynasty_C** ABP_AnimalBase_C::M_PtrGetGameInstanceReference() {
-	return reinterpret_cast<class UGI_MedievalDynasty_C**>((byte*)this + 1976);
-}
-void ABP_AnimalBase_C::M_SetGameInstanceReference(const class UGI_MedievalDynasty_C*& value) {
-	Write((byte*)this + 1976, value);
+	Write((byte*)this + 2200, value);
 }
 // Member Getter and Setter of AIControllerRef
 // Declaration: class AController* AIControllerRef
 class AController* ABP_AnimalBase_C::M_GetAIControllerRef() const {
-	return Read<class AController*>((byte*)this + 1984);
+	return Read<class AController*>((byte*)this + 2208);
 }
 class AController** ABP_AnimalBase_C::M_PtrGetAIControllerRef() {
-	return reinterpret_cast<class AController**>((byte*)this + 1984);
+	return reinterpret_cast<class AController**>((byte*)this + 2208);
 }
 void ABP_AnimalBase_C::M_SetAIControllerRef(const class AController*& value) {
-	Write((byte*)this + 1984, value);
+	Write((byte*)this + 2208, value);
 }
 // Member Getter and Setter of AnimalData
 // Declaration: struct FST_Animal AnimalData
 struct FST_Animal ABP_AnimalBase_C::M_GetAnimalData() const {
-	return Read<struct FST_Animal>((byte*)this + 1992);
+	return Read<struct FST_Animal>((byte*)this + 2216);
 }
 struct FST_Animal* ABP_AnimalBase_C::M_PtrGetAnimalData() {
-	return reinterpret_cast<struct FST_Animal*>((byte*)this + 1992);
+	return reinterpret_cast<struct FST_Animal*>((byte*)this + 2216);
 }
 void ABP_AnimalBase_C::M_SetAnimalData(const struct FST_Animal& value) {
-	Write((byte*)this + 1992, value);
-}
-// Member Getter and Setter of Ragdoll
-// Declaration: bool Ragdoll
-bool ABP_AnimalBase_C::M_GetRagdoll() const {
-	return Read<bool>((byte*)this + 2176);
-}
-bool* ABP_AnimalBase_C::M_PtrGetRagdoll() {
-	return reinterpret_cast<bool*>((byte*)this + 2176);
-}
-void ABP_AnimalBase_C::M_SetRagdoll(const bool& value) {
-	Write((byte*)this + 2176, value);
-}
-// Member Getter and Setter of Dead
-// Declaration: bool Dead
-bool ABP_AnimalBase_C::M_GetDead() const {
-	return Read<bool>((byte*)this + 2177);
-}
-bool* ABP_AnimalBase_C::M_PtrGetDead() {
-	return reinterpret_cast<bool*>((byte*)this + 2177);
-}
-void ABP_AnimalBase_C::M_SetDead(const bool& value) {
-	Write((byte*)this + 2177, value);
+	Write((byte*)this + 2216, value);
 }
 // Member Getter and Setter of Variation
 // Declaration: int32_t Variation
 int32_t ABP_AnimalBase_C::M_GetVariation() const {
-	return Read<int32_t>((byte*)this + 2180);
+	return Read<int32_t>((byte*)this + 2488);
 }
 int32_t* ABP_AnimalBase_C::M_PtrGetVariation() {
-	return reinterpret_cast<int32_t*>((byte*)this + 2180);
+	return reinterpret_cast<int32_t*>((byte*)this + 2488);
 }
 void ABP_AnimalBase_C::M_SetVariation(const int32_t& value) {
-	Write((byte*)this + 2180, value);
+	Write((byte*)this + 2488, value);
 }
 // Member Getter and Setter of FallingTimerHandle
 // Declaration: struct FTimerHandle FallingTimerHandle
 struct FTimerHandle ABP_AnimalBase_C::M_GetFallingTimerHandle() const {
-	return Read<struct FTimerHandle>((byte*)this + 2184);
+	return Read<struct FTimerHandle>((byte*)this + 2496);
 }
 struct FTimerHandle* ABP_AnimalBase_C::M_PtrGetFallingTimerHandle() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 2184);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 2496);
 }
 void ABP_AnimalBase_C::M_SetFallingTimerHandle(const struct FTimerHandle& value) {
-	Write((byte*)this + 2184, value);
+	Write((byte*)this + 2496, value);
 }
 // Member Getter and Setter of HasLanded
 // Declaration: bool HasLanded
 bool ABP_AnimalBase_C::M_GetHasLanded() const {
-	return Read<bool>((byte*)this + 2192);
+	return Read<bool>((byte*)this + 2504);
 }
 bool* ABP_AnimalBase_C::M_PtrGetHasLanded() {
-	return reinterpret_cast<bool*>((byte*)this + 2192);
+	return reinterpret_cast<bool*>((byte*)this + 2504);
 }
 void ABP_AnimalBase_C::M_SetHasLanded(const bool& value) {
-	Write((byte*)this + 2192, value);
+	Write((byte*)this + 2504, value);
 }
-// Member Getter and Setter of FallZVelocity
-// Declaration: float FallZVelocity
-float ABP_AnimalBase_C::M_GetFallZVelocity() const {
-	return Read<float>((byte*)this + 2196);
+// Member Getter and Setter of FallVelocityZ
+// Declaration: float FallVelocityZ
+float ABP_AnimalBase_C::M_GetFallVelocityZ() const {
+	return Read<float>((byte*)this + 2508);
 }
-float* ABP_AnimalBase_C::M_PtrGetFallZVelocity() {
-	return reinterpret_cast<float*>((byte*)this + 2196);
+float* ABP_AnimalBase_C::M_PtrGetFallVelocityZ() {
+	return reinterpret_cast<float*>((byte*)this + 2508);
 }
-void ABP_AnimalBase_C::M_SetFallZVelocity(const float& value) {
-	Write((byte*)this + 2196, value);
+void ABP_AnimalBase_C::M_SetFallVelocityZ(const float& value) {
+	Write((byte*)this + 2508, value);
 }
 // Member Getter and Setter of ShouldTakeFallDamage
 // Declaration: bool ShouldTakeFallDamage
 bool ABP_AnimalBase_C::M_GetShouldTakeFallDamage() const {
-	return Read<bool>((byte*)this + 2200);
+	return Read<bool>((byte*)this + 2512);
 }
 bool* ABP_AnimalBase_C::M_PtrGetShouldTakeFallDamage() {
-	return reinterpret_cast<bool*>((byte*)this + 2200);
+	return reinterpret_cast<bool*>((byte*)this + 2512);
 }
 void ABP_AnimalBase_C::M_SetShouldTakeFallDamage(const bool& value) {
-	Write((byte*)this + 2200, value);
+	Write((byte*)this + 2512, value);
 }
 // Member Getter and Setter of FallVelocityThreshold
 // Declaration: float FallVelocityThreshold
 float ABP_AnimalBase_C::M_GetFallVelocityThreshold() const {
-	return Read<float>((byte*)this + 2204);
+	return Read<float>((byte*)this + 2516);
 }
 float* ABP_AnimalBase_C::M_PtrGetFallVelocityThreshold() {
-	return reinterpret_cast<float*>((byte*)this + 2204);
+	return reinterpret_cast<float*>((byte*)this + 2516);
 }
 void ABP_AnimalBase_C::M_SetFallVelocityThreshold(const float& value) {
-	Write((byte*)this + 2204, value);
+	Write((byte*)this + 2516, value);
 }
 // Member Getter and Setter of FallDamageToApply
 // Declaration: float FallDamageToApply
 float ABP_AnimalBase_C::M_GetFallDamageToApply() const {
-	return Read<float>((byte*)this + 2208);
+	return Read<float>((byte*)this + 2520);
 }
 float* ABP_AnimalBase_C::M_PtrGetFallDamageToApply() {
-	return reinterpret_cast<float*>((byte*)this + 2208);
+	return reinterpret_cast<float*>((byte*)this + 2520);
 }
 void ABP_AnimalBase_C::M_SetFallDamageToApply(const float& value) {
-	Write((byte*)this + 2208, value);
+	Write((byte*)this + 2520, value);
 }
 // Member Getter and Setter of CanTakeFallDamage
 // Declaration: bool CanTakeFallDamage
 bool ABP_AnimalBase_C::M_GetCanTakeFallDamage() const {
-	return Read<bool>((byte*)this + 2212);
+	return Read<bool>((byte*)this + 2524);
 }
 bool* ABP_AnimalBase_C::M_PtrGetCanTakeFallDamage() {
-	return reinterpret_cast<bool*>((byte*)this + 2212);
+	return reinterpret_cast<bool*>((byte*)this + 2524);
 }
 void ABP_AnimalBase_C::M_SetCanTakeFallDamage(const bool& value) {
-	Write((byte*)this + 2212, value);
+	Write((byte*)this + 2524, value);
 }
 // Member Getter and Setter of VoiceSocket
 // Declaration: struct FName VoiceSocket
 struct FName ABP_AnimalBase_C::M_GetVoiceSocket() const {
-	return Read<struct FName>((byte*)this + 2216);
+	return Read<struct FName>((byte*)this + 2528);
 }
 struct FName* ABP_AnimalBase_C::M_PtrGetVoiceSocket() {
-	return reinterpret_cast<struct FName*>((byte*)this + 2216);
+	return reinterpret_cast<struct FName*>((byte*)this + 2528);
 }
 void ABP_AnimalBase_C::M_SetVoiceSocket(const struct FName& value) {
-	Write((byte*)this + 2216, value);
+	Write((byte*)this + 2528, value);
 }
 // Member Getter and Setter of MountedWalkSpeed
 // Declaration: float MountedWalkSpeed
 float ABP_AnimalBase_C::M_GetMountedWalkSpeed() const {
-	return Read<float>((byte*)this + 2224);
+	return Read<float>((byte*)this + 2536);
 }
 float* ABP_AnimalBase_C::M_PtrGetMountedWalkSpeed() {
-	return reinterpret_cast<float*>((byte*)this + 2224);
+	return reinterpret_cast<float*>((byte*)this + 2536);
 }
 void ABP_AnimalBase_C::M_SetMountedWalkSpeed(const float& value) {
-	Write((byte*)this + 2224, value);
+	Write((byte*)this + 2536, value);
 }
 // Member Getter and Setter of MountedRunningSpeed
 // Declaration: float MountedRunningSpeed
 float ABP_AnimalBase_C::M_GetMountedRunningSpeed() const {
-	return Read<float>((byte*)this + 2228);
+	return Read<float>((byte*)this + 2540);
 }
 float* ABP_AnimalBase_C::M_PtrGetMountedRunningSpeed() {
-	return reinterpret_cast<float*>((byte*)this + 2228);
+	return reinterpret_cast<float*>((byte*)this + 2540);
 }
 void ABP_AnimalBase_C::M_SetMountedRunningSpeed(const float& value) {
-	Write((byte*)this + 2228, value);
+	Write((byte*)this + 2540, value);
 }
 // Member Getter and Setter of MountedSprintingSpeed
 // Declaration: float MountedSprintingSpeed
 float ABP_AnimalBase_C::M_GetMountedSprintingSpeed() const {
-	return Read<float>((byte*)this + 2232);
+	return Read<float>((byte*)this + 2544);
 }
 float* ABP_AnimalBase_C::M_PtrGetMountedSprintingSpeed() {
-	return reinterpret_cast<float*>((byte*)this + 2232);
+	return reinterpret_cast<float*>((byte*)this + 2544);
 }
 void ABP_AnimalBase_C::M_SetMountedSprintingSpeed(const float& value) {
-	Write((byte*)this + 2232, value);
+	Write((byte*)this + 2544, value);
 }
 // Member Getter and Setter of isInWater
 // Declaration: bool isInWater
 bool ABP_AnimalBase_C::M_GetisInWater() const {
-	return Read<bool>((byte*)this + 2236);
+	return Read<bool>((byte*)this + 2548);
 }
 bool* ABP_AnimalBase_C::M_PtrGetisInWater() {
-	return reinterpret_cast<bool*>((byte*)this + 2236);
+	return reinterpret_cast<bool*>((byte*)this + 2548);
 }
 void ABP_AnimalBase_C::M_SetisInWater(const bool& value) {
-	Write((byte*)this + 2236, value);
+	Write((byte*)this + 2548, value);
 }
-// Member Getter and Setter of InWaterSpeedReduction
-// Declaration: float InWaterSpeedReduction
-float ABP_AnimalBase_C::M_GetInWaterSpeedReduction() const {
-	return Read<float>((byte*)this + 2240);
+// Member Getter and Setter of inWaterSpeedMultiplier
+// Declaration: float inWaterSpeedMultiplier
+float ABP_AnimalBase_C::M_GetinWaterSpeedMultiplier() const {
+	return Read<float>((byte*)this + 2552);
 }
-float* ABP_AnimalBase_C::M_PtrGetInWaterSpeedReduction() {
-	return reinterpret_cast<float*>((byte*)this + 2240);
+float* ABP_AnimalBase_C::M_PtrGetinWaterSpeedMultiplier() {
+	return reinterpret_cast<float*>((byte*)this + 2552);
 }
-void ABP_AnimalBase_C::M_SetInWaterSpeedReduction(const float& value) {
-	Write((byte*)this + 2240, value);
+void ABP_AnimalBase_C::M_SetinWaterSpeedMultiplier(const float& value) {
+	Write((byte*)this + 2552, value);
 }
 // Member Getter and Setter of EncumberedSpeedMultiplier
 // Declaration: float EncumberedSpeedMultiplier
 float ABP_AnimalBase_C::M_GetEncumberedSpeedMultiplier() const {
-	return Read<float>((byte*)this + 2244);
+	return Read<float>((byte*)this + 2556);
 }
 float* ABP_AnimalBase_C::M_PtrGetEncumberedSpeedMultiplier() {
-	return reinterpret_cast<float*>((byte*)this + 2244);
+	return reinterpret_cast<float*>((byte*)this + 2556);
 }
 void ABP_AnimalBase_C::M_SetEncumberedSpeedMultiplier(const float& value) {
-	Write((byte*)this + 2244, value);
+	Write((byte*)this + 2556, value);
 }
 // Member Getter and Setter of NightRiderTalentValue
 // Declaration: float NightRiderTalentValue
 float ABP_AnimalBase_C::M_GetNightRiderTalentValue() const {
-	return Read<float>((byte*)this + 2248);
+	return Read<float>((byte*)this + 2560);
 }
 float* ABP_AnimalBase_C::M_PtrGetNightRiderTalentValue() {
-	return reinterpret_cast<float*>((byte*)this + 2248);
+	return reinterpret_cast<float*>((byte*)this + 2560);
 }
 void ABP_AnimalBase_C::M_SetNightRiderTalentValue(const float& value) {
-	Write((byte*)this + 2248, value);
+	Write((byte*)this + 2560, value);
 }
 // Member Getter and Setter of MountBehaviorTree
 // Declaration: class UBehaviorTree* MountBehaviorTree
 class UBehaviorTree* ABP_AnimalBase_C::M_GetMountBehaviorTree() const {
-	return Read<class UBehaviorTree*>((byte*)this + 2256);
+	return Read<class UBehaviorTree*>((byte*)this + 2568);
 }
 class UBehaviorTree** ABP_AnimalBase_C::M_PtrGetMountBehaviorTree() {
-	return reinterpret_cast<class UBehaviorTree**>((byte*)this + 2256);
+	return reinterpret_cast<class UBehaviorTree**>((byte*)this + 2568);
 }
 void ABP_AnimalBase_C::M_SetMountBehaviorTree(const class UBehaviorTree*& value) {
-	Write((byte*)this + 2256, value);
+	Write((byte*)this + 2568, value);
 }
 // Member Getter and Setter of Waypoints
 // Declaration: TArray<struct FVector> Waypoints
 TArray<struct FVector> ABP_AnimalBase_C::M_GetWaypoints() const {
-	return Read<TArray<struct FVector>>((byte*)this + 2264);
+	return Read<TArray<struct FVector>>((byte*)this + 2576);
 }
 TArray<struct FVector>* ABP_AnimalBase_C::M_PtrGetWaypoints() {
-	return reinterpret_cast<TArray<struct FVector>*>((byte*)this + 2264);
+	return reinterpret_cast<TArray<struct FVector>*>((byte*)this + 2576);
 }
 void ABP_AnimalBase_C::M_SetWaypoints(const TArray<struct FVector>& value) {
-	Write((byte*)this + 2264, value);
+	Write((byte*)this + 2576, value);
 }
 // Member Getter and Setter of ImpaledItemsBleedTimerHandle
 // Declaration: struct FTimerHandle ImpaledItemsBleedTimerHandle
 struct FTimerHandle ABP_AnimalBase_C::M_GetImpaledItemsBleedTimerHandle() const {
-	return Read<struct FTimerHandle>((byte*)this + 2280);
+	return Read<struct FTimerHandle>((byte*)this + 2592);
 }
 struct FTimerHandle* ABP_AnimalBase_C::M_PtrGetImpaledItemsBleedTimerHandle() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 2280);
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 2592);
 }
 void ABP_AnimalBase_C::M_SetImpaledItemsBleedTimerHandle(const struct FTimerHandle& value) {
-	Write((byte*)this + 2280, value);
+	Write((byte*)this + 2592, value);
 }
 // Member Getter and Setter of DieCue
 // Declaration: class USoundBase* DieCue
 class USoundBase* ABP_AnimalBase_C::M_GetDieCue() const {
-	return Read<class USoundBase*>((byte*)this + 2288);
+	return Read<class USoundBase*>((byte*)this + 2600);
 }
 class USoundBase** ABP_AnimalBase_C::M_PtrGetDieCue() {
-	return reinterpret_cast<class USoundBase**>((byte*)this + 2288);
+	return reinterpret_cast<class USoundBase**>((byte*)this + 2600);
 }
 void ABP_AnimalBase_C::M_SetDieCue(const class USoundBase*& value) {
-	Write((byte*)this + 2288, value);
-}
-// Member Getter and Setter of Animal_Audio
-// Declaration: int32_t Animal_Audio
-int32_t ABP_AnimalBase_C::M_GetAnimal_Audio() const {
-	return Read<int32_t>((byte*)this + 2296);
-}
-int32_t* ABP_AnimalBase_C::M_PtrGetAnimal_Audio() {
-	return reinterpret_cast<int32_t*>((byte*)this + 2296);
-}
-void ABP_AnimalBase_C::M_SetAnimal_Audio(const int32_t& value) {
-	Write((byte*)this + 2296, value);
-}
-// Member Getter and Setter of Animal
-// Declaration: struct FName Animal
-struct FName ABP_AnimalBase_C::M_GetAnimal() const {
-	return Read<struct FName>((byte*)this + 2300);
-}
-struct FName* ABP_AnimalBase_C::M_PtrGetAnimal() {
-	return reinterpret_cast<struct FName*>((byte*)this + 2300);
-}
-void ABP_AnimalBase_C::M_SetAnimal(const struct FName& value) {
-	Write((byte*)this + 2300, value);
+	Write((byte*)this + 2600, value);
 }
 // Member Getter and Setter of DieCuePitch
 // Declaration: float DieCuePitch
 float ABP_AnimalBase_C::M_GetDieCuePitch() const {
-	return Read<float>((byte*)this + 2308);
+	return Read<float>((byte*)this + 2608);
 }
 float* ABP_AnimalBase_C::M_PtrGetDieCuePitch() {
-	return reinterpret_cast<float*>((byte*)this + 2308);
+	return reinterpret_cast<float*>((byte*)this + 2608);
 }
 void ABP_AnimalBase_C::M_SetDieCuePitch(const float& value) {
-	Write((byte*)this + 2308, value);
+	Write((byte*)this + 2608, value);
 }
 // Member Getter and Setter of AllowMountedInteraction
 // Declaration: bool AllowMountedInteraction
 bool ABP_AnimalBase_C::M_GetAllowMountedInteraction() const {
-	return Read<bool>((byte*)this + 2312);
+	return Read<bool>((byte*)this + 2612);
 }
 bool* ABP_AnimalBase_C::M_PtrGetAllowMountedInteraction() {
-	return reinterpret_cast<bool*>((byte*)this + 2312);
+	return reinterpret_cast<bool*>((byte*)this + 2612);
 }
 void ABP_AnimalBase_C::M_SetAllowMountedInteraction(const bool& value) {
-	Write((byte*)this + 2312, value);
+	Write((byte*)this + 2612, value);
 }
 // Member Getter and Setter of IsTeleported
 // Declaration: bool IsTeleported
 bool ABP_AnimalBase_C::M_GetIsTeleported() const {
-	return Read<bool>((byte*)this + 2313);
+	return Read<bool>((byte*)this + 2613);
 }
 bool* ABP_AnimalBase_C::M_PtrGetIsTeleported() {
-	return reinterpret_cast<bool*>((byte*)this + 2313);
+	return reinterpret_cast<bool*>((byte*)this + 2613);
 }
 void ABP_AnimalBase_C::M_SetIsTeleported(const bool& value) {
-	Write((byte*)this + 2313, value);
+	Write((byte*)this + 2613, value);
 }
 // Member Getter and Setter of OccupyByNPC
 // Declaration: bool OccupyByNPC
 bool ABP_AnimalBase_C::M_GetOccupyByNPC() const {
-	return Read<bool>((byte*)this + 2314);
+	return Read<bool>((byte*)this + 2614);
 }
 bool* ABP_AnimalBase_C::M_PtrGetOccupyByNPC() {
-	return reinterpret_cast<bool*>((byte*)this + 2314);
+	return reinterpret_cast<bool*>((byte*)this + 2614);
 }
 void ABP_AnimalBase_C::M_SetOccupyByNPC(const bool& value) {
-	Write((byte*)this + 2314, value);
+	Write((byte*)this + 2614, value);
 }
 // Member Getter and Setter of Save
 // Declaration: bool Save
 bool ABP_AnimalBase_C::M_GetSave() const {
-	return Read<bool>((byte*)this + 2315);
+	return Read<bool>((byte*)this + 2615);
 }
 bool* ABP_AnimalBase_C::M_PtrGetSave() {
-	return reinterpret_cast<bool*>((byte*)this + 2315);
+	return reinterpret_cast<bool*>((byte*)this + 2615);
 }
 void ABP_AnimalBase_C::M_SetSave(const bool& value) {
-	Write((byte*)this + 2315, value);
-}
-// Member Getter and Setter of IsLeftRightAxisInput
-// Declaration: bool IsLeftRightAxisInput
-bool ABP_AnimalBase_C::M_GetIsLeftRightAxisInput() const {
-	return Read<bool>((byte*)this + 2316);
-}
-bool* ABP_AnimalBase_C::M_PtrGetIsLeftRightAxisInput() {
-	return reinterpret_cast<bool*>((byte*)this + 2316);
-}
-void ABP_AnimalBase_C::M_SetIsLeftRightAxisInput(const bool& value) {
-	Write((byte*)this + 2316, value);
-}
-// Member Getter and Setter of TicksDelayToUpdatePush
-// Declaration: int32_t TicksDelayToUpdatePush
-int32_t ABP_AnimalBase_C::M_GetTicksDelayToUpdatePush() const {
-	return Read<int32_t>((byte*)this + 2320);
-}
-int32_t* ABP_AnimalBase_C::M_PtrGetTicksDelayToUpdatePush() {
-	return reinterpret_cast<int32_t*>((byte*)this + 2320);
-}
-void ABP_AnimalBase_C::M_SetTicksDelayToUpdatePush(const int32_t& value) {
-	Write((byte*)this + 2320, value);
-}
-// Member Getter and Setter of TicksLeftToUpdatePush
-// Declaration: int32_t TicksLeftToUpdatePush
-int32_t ABP_AnimalBase_C::M_GetTicksLeftToUpdatePush() const {
-	return Read<int32_t>((byte*)this + 2324);
-}
-int32_t* ABP_AnimalBase_C::M_PtrGetTicksLeftToUpdatePush() {
-	return reinterpret_cast<int32_t*>((byte*)this + 2324);
-}
-void ABP_AnimalBase_C::M_SetTicksLeftToUpdatePush(const int32_t& value) {
-	Write((byte*)this + 2324, value);
+	Write((byte*)this + 2615, value);
 }
 // Member Getter and Setter of IsRagdollActivationLocked
 // Declaration: bool IsRagdollActivationLocked
 bool ABP_AnimalBase_C::M_GetIsRagdollActivationLocked() const {
-	return Read<bool>((byte*)this + 2328);
+	return Read<bool>((byte*)this + 2616);
 }
 bool* ABP_AnimalBase_C::M_PtrGetIsRagdollActivationLocked() {
-	return reinterpret_cast<bool*>((byte*)this + 2328);
+	return reinterpret_cast<bool*>((byte*)this + 2616);
 }
 void ABP_AnimalBase_C::M_SetIsRagdollActivationLocked(const bool& value) {
-	Write((byte*)this + 2328, value);
-}
-// Member Getter and Setter of InitialRagdollVelocity
-// Declaration: struct FVector InitialRagdollVelocity
-struct FVector ABP_AnimalBase_C::M_GetInitialRagdollVelocity() const {
-	return Read<struct FVector>((byte*)this + 2332);
-}
-struct FVector* ABP_AnimalBase_C::M_PtrGetInitialRagdollVelocity() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 2332);
-}
-void ABP_AnimalBase_C::M_SetInitialRagdollVelocity(const struct FVector& value) {
-	Write((byte*)this + 2332, value);
-}
-// Member Getter and Setter of TargetRagdollVelocity
-// Declaration: struct FVector TargetRagdollVelocity
-struct FVector ABP_AnimalBase_C::M_GetTargetRagdollVelocity() const {
-	return Read<struct FVector>((byte*)this + 2344);
-}
-struct FVector* ABP_AnimalBase_C::M_PtrGetTargetRagdollVelocity() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 2344);
-}
-void ABP_AnimalBase_C::M_SetTargetRagdollVelocity(const struct FVector& value) {
-	Write((byte*)this + 2344, value);
+	Write((byte*)this + 2616, value);
 }
 // Member Getter and Setter of RagdollStartTime
 // Declaration: float RagdollStartTime
 float ABP_AnimalBase_C::M_GetRagdollStartTime() const {
-	return Read<float>((byte*)this + 2356);
+	return Read<float>((byte*)this + 2620);
 }
 float* ABP_AnimalBase_C::M_PtrGetRagdollStartTime() {
-	return reinterpret_cast<float*>((byte*)this + 2356);
+	return reinterpret_cast<float*>((byte*)this + 2620);
 }
 void ABP_AnimalBase_C::M_SetRagdollStartTime(const float& value) {
-	Write((byte*)this + 2356, value);
+	Write((byte*)this + 2620, value);
 }
 // Member Getter and Setter of ShouldUpdateRateOptimizationsBeEnabled
 // Declaration: bool ShouldUpdateRateOptimizationsBeEnabled
 bool ABP_AnimalBase_C::M_GetShouldUpdateRateOptimizationsBeEnabled() const {
-	return Read<bool>((byte*)this + 2360);
+	return Read<bool>((byte*)this + 2624);
 }
 bool* ABP_AnimalBase_C::M_PtrGetShouldUpdateRateOptimizationsBeEnabled() {
-	return reinterpret_cast<bool*>((byte*)this + 2360);
+	return reinterpret_cast<bool*>((byte*)this + 2624);
 }
 void ABP_AnimalBase_C::M_SetShouldUpdateRateOptimizationsBeEnabled(const bool& value) {
-	Write((byte*)this + 2360, value);
+	Write((byte*)this + 2624, value);
 }
 // Member Getter and Setter of RagdollPoseSnapshot
 // Declaration: struct FName RagdollPoseSnapshot
 struct FName ABP_AnimalBase_C::M_GetRagdollPoseSnapshot() const {
-	return Read<struct FName>((byte*)this + 2364);
+	return Read<struct FName>((byte*)this + 2628);
 }
 struct FName* ABP_AnimalBase_C::M_PtrGetRagdollPoseSnapshot() {
-	return reinterpret_cast<struct FName*>((byte*)this + 2364);
+	return reinterpret_cast<struct FName*>((byte*)this + 2628);
 }
 void ABP_AnimalBase_C::M_SetRagdollPoseSnapshot(const struct FName& value) {
-	Write((byte*)this + 2364, value);
-}
-// Member Getter and Setter of RagdollLocation
-// Declaration: struct FVector RagdollLocation
-struct FVector ABP_AnimalBase_C::M_GetRagdollLocation() const {
-	return Read<struct FVector>((byte*)this + 2372);
-}
-struct FVector* ABP_AnimalBase_C::M_PtrGetRagdollLocation() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 2372);
-}
-void ABP_AnimalBase_C::M_SetRagdollLocation(const struct FVector& value) {
-	Write((byte*)this + 2372, value);
+	Write((byte*)this + 2628, value);
 }
 // Member Getter and Setter of RagdollBaseBone
 // Declaration: struct FName RagdollBaseBone
 struct FName ABP_AnimalBase_C::M_GetRagdollBaseBone() const {
-	return Read<struct FName>((byte*)this + 2384);
+	return Read<struct FName>((byte*)this + 2636);
 }
 struct FName* ABP_AnimalBase_C::M_PtrGetRagdollBaseBone() {
-	return reinterpret_cast<struct FName*>((byte*)this + 2384);
+	return reinterpret_cast<struct FName*>((byte*)this + 2636);
 }
 void ABP_AnimalBase_C::M_SetRagdollBaseBone(const struct FName& value) {
-	Write((byte*)this + 2384, value);
-}
-// Member Getter and Setter of RagdollVelocity
-// Declaration: struct FVector RagdollVelocity
-struct FVector ABP_AnimalBase_C::M_GetRagdollVelocity() const {
-	return Read<struct FVector>((byte*)this + 2392);
-}
-struct FVector* ABP_AnimalBase_C::M_PtrGetRagdollVelocity() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 2392);
-}
-void ABP_AnimalBase_C::M_SetRagdollVelocity(const struct FVector& value) {
-	Write((byte*)this + 2392, value);
+	Write((byte*)this + 2636, value);
 }
 // Member Getter and Setter of RagdollOnGround
 // Declaration: bool RagdollOnGround
 bool ABP_AnimalBase_C::M_GetRagdollOnGround() const {
-	return Read<bool>((byte*)this + 2404);
+	return Read<bool>((byte*)this + 2644);
 }
 bool* ABP_AnimalBase_C::M_PtrGetRagdollOnGround() {
-	return reinterpret_cast<bool*>((byte*)this + 2404);
+	return reinterpret_cast<bool*>((byte*)this + 2644);
 }
 void ABP_AnimalBase_C::M_SetRagdollOnGround(const bool& value) {
-	Write((byte*)this + 2404, value);
+	Write((byte*)this + 2644, value);
 }
 // Member Getter and Setter of RagdollStartMinHitSpeed
 // Declaration: float RagdollStartMinHitSpeed
 float ABP_AnimalBase_C::M_GetRagdollStartMinHitSpeed() const {
-	return Read<float>((byte*)this + 2408);
+	return Read<float>((byte*)this + 2648);
 }
 float* ABP_AnimalBase_C::M_PtrGetRagdollStartMinHitSpeed() {
-	return reinterpret_cast<float*>((byte*)this + 2408);
+	return reinterpret_cast<float*>((byte*)this + 2648);
 }
 void ABP_AnimalBase_C::M_SetRagdollStartMinHitSpeed(const float& value) {
-	Write((byte*)this + 2408, value);
+	Write((byte*)this + 2648, value);
 }
 // Member Getter and Setter of RagdollStartMinHitAcceleration
 // Declaration: float RagdollStartMinHitAcceleration
 float ABP_AnimalBase_C::M_GetRagdollStartMinHitAcceleration() const {
-	return Read<float>((byte*)this + 2412);
+	return Read<float>((byte*)this + 2652);
 }
 float* ABP_AnimalBase_C::M_PtrGetRagdollStartMinHitAcceleration() {
-	return reinterpret_cast<float*>((byte*)this + 2412);
+	return reinterpret_cast<float*>((byte*)this + 2652);
 }
 void ABP_AnimalBase_C::M_SetRagdollStartMinHitAcceleration(const float& value) {
-	Write((byte*)this + 2412, value);
+	Write((byte*)this + 2652, value);
 }
 // Member Getter and Setter of UnragdollTargetBone
 // Declaration: struct FName UnragdollTargetBone
 struct FName ABP_AnimalBase_C::M_GetUnragdollTargetBone() const {
-	return Read<struct FName>((byte*)this + 2416);
+	return Read<struct FName>((byte*)this + 2656);
 }
 struct FName* ABP_AnimalBase_C::M_PtrGetUnragdollTargetBone() {
-	return reinterpret_cast<struct FName*>((byte*)this + 2416);
+	return reinterpret_cast<struct FName*>((byte*)this + 2656);
 }
 void ABP_AnimalBase_C::M_SetUnragdollTargetBone(const struct FName& value) {
-	Write((byte*)this + 2416, value);
-}
-// Member Getter and Setter of RagdollRootBone
-// Declaration: struct FName RagdollRootBone
-struct FName ABP_AnimalBase_C::M_GetRagdollRootBone() const {
-	return Read<struct FName>((byte*)this + 2424);
-}
-struct FName* ABP_AnimalBase_C::M_PtrGetRagdollRootBone() {
-	return reinterpret_cast<struct FName*>((byte*)this + 2424);
-}
-void ABP_AnimalBase_C::M_SetRagdollRootBone(const struct FName& value) {
-	Write((byte*)this + 2424, value);
-}
-// Member Getter and Setter of RagdollCounter
-// Declaration: int32_t RagdollCounter
-int32_t ABP_AnimalBase_C::M_GetRagdollCounter() const {
-	return Read<int32_t>((byte*)this + 2432);
-}
-int32_t* ABP_AnimalBase_C::M_PtrGetRagdollCounter() {
-	return reinterpret_cast<int32_t*>((byte*)this + 2432);
-}
-void ABP_AnimalBase_C::M_SetRagdollCounter(const int32_t& value) {
-	Write((byte*)this + 2432, value);
-}
-// Member Getter and Setter of RagdollStoppedCounter
-// Declaration: int32_t RagdollStoppedCounter
-int32_t ABP_AnimalBase_C::M_GetRagdollStoppedCounter() const {
-	return Read<int32_t>((byte*)this + 2436);
-}
-int32_t* ABP_AnimalBase_C::M_PtrGetRagdollStoppedCounter() {
-	return reinterpret_cast<int32_t*>((byte*)this + 2436);
-}
-void ABP_AnimalBase_C::M_SetRagdollStoppedCounter(const int32_t& value) {
-	Write((byte*)this + 2436, value);
-}
-// Member Getter and Setter of Push
-// Declaration: struct FVector Push
-struct FVector ABP_AnimalBase_C::M_GetPush() const {
-	return Read<struct FVector>((byte*)this + 2440);
-}
-struct FVector* ABP_AnimalBase_C::M_PtrGetPush() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 2440);
-}
-void ABP_AnimalBase_C::M_SetPush(const struct FVector& value) {
-	Write((byte*)this + 2440, value);
-}
-// Member Getter and Setter of CanPush
-// Declaration: bool CanPush
-bool ABP_AnimalBase_C::M_GetCanPush() const {
-	return Read<bool>((byte*)this + 2452);
-}
-bool* ABP_AnimalBase_C::M_PtrGetCanPush() {
-	return reinterpret_cast<bool*>((byte*)this + 2452);
-}
-void ABP_AnimalBase_C::M_SetCanPush(const bool& value) {
-	Write((byte*)this + 2452, value);
-}
-// Member Getter and Setter of CanBePushed
-// Declaration: bool CanBePushed
-bool ABP_AnimalBase_C::M_GetCanBePushed() const {
-	return Read<bool>((byte*)this + 2453);
-}
-bool* ABP_AnimalBase_C::M_PtrGetCanBePushed() {
-	return reinterpret_cast<bool*>((byte*)this + 2453);
-}
-void ABP_AnimalBase_C::M_SetCanBePushed(const bool& value) {
-	Write((byte*)this + 2453, value);
-}
-// Member Getter and Setter of L_PushDetectorSensedActorClosestLocation
-// Declaration: struct FVector L_PushDetectorSensedActorClosestLocation
-struct FVector ABP_AnimalBase_C::M_GetL_PushDetectorSensedActorClosestLocation() const {
-	return Read<struct FVector>((byte*)this + 2456);
-}
-struct FVector* ABP_AnimalBase_C::M_PtrGetL_PushDetectorSensedActorClosestLocation() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 2456);
-}
-void ABP_AnimalBase_C::M_SetL_PushDetectorSensedActorClosestLocation(const struct FVector& value) {
-	Write((byte*)this + 2456, value);
-}
-// Member Getter and Setter of L_PushDetectorSensedActorSmallestDistance
-// Declaration: float L_PushDetectorSensedActorSmallestDistance
-float ABP_AnimalBase_C::M_GetL_PushDetectorSensedActorSmallestDistance() const {
-	return Read<float>((byte*)this + 2468);
-}
-float* ABP_AnimalBase_C::M_PtrGetL_PushDetectorSensedActorSmallestDistance() {
-	return reinterpret_cast<float*>((byte*)this + 2468);
-}
-void ABP_AnimalBase_C::M_SetL_PushDetectorSensedActorSmallestDistance(const float& value) {
-	Write((byte*)this + 2468, value);
-}
-// Member Getter and Setter of SimulatedBodiesBeforeRagdoll
-// Declaration: TArray<bool> SimulatedBodiesBeforeRagdoll
-TArray<bool> ABP_AnimalBase_C::M_GetSimulatedBodiesBeforeRagdoll() const {
-	return Read<TArray<bool>>((byte*)this + 2472);
-}
-TArray<bool>* ABP_AnimalBase_C::M_PtrGetSimulatedBodiesBeforeRagdoll() {
-	return reinterpret_cast<TArray<bool>*>((byte*)this + 2472);
-}
-void ABP_AnimalBase_C::M_SetSimulatedBodiesBeforeRagdoll(const TArray<bool>& value) {
-	Write((byte*)this + 2472, value);
+	Write((byte*)this + 2656, value);
 }
 // Member Getter and Setter of IsRagdollOnHitEnabled
 // Declaration: bool IsRagdollOnHitEnabled
 bool ABP_AnimalBase_C::M_GetIsRagdollOnHitEnabled() const {
-	return Read<bool>((byte*)this + 2488);
+	return Read<bool>((byte*)this + 2664);
 }
 bool* ABP_AnimalBase_C::M_PtrGetIsRagdollOnHitEnabled() {
-	return reinterpret_cast<bool*>((byte*)this + 2488);
+	return reinterpret_cast<bool*>((byte*)this + 2664);
 }
 void ABP_AnimalBase_C::M_SetIsRagdollOnHitEnabled(const bool& value) {
-	Write((byte*)this + 2488, value);
-}
-// Member Getter and Setter of DamageTooSmall
-// Declaration: bool DamageTooSmall
-bool ABP_AnimalBase_C::M_GetDamageTooSmall() const {
-	return Read<bool>((byte*)this + 2489);
-}
-bool* ABP_AnimalBase_C::M_PtrGetDamageTooSmall() {
-	return reinterpret_cast<bool*>((byte*)this + 2489);
-}
-void ABP_AnimalBase_C::M_SetDamageTooSmall(const bool& value) {
-	Write((byte*)this + 2489, value);
+	Write((byte*)this + 2664, value);
 }
 // Member Getter and Setter of DamageParticles
 // Declaration: class UParticleSystem* DamageParticles
 class UParticleSystem* ABP_AnimalBase_C::M_GetDamageParticles() const {
-	return Read<class UParticleSystem*>((byte*)this + 2496);
+	return Read<class UParticleSystem*>((byte*)this + 2672);
 }
 class UParticleSystem** ABP_AnimalBase_C::M_PtrGetDamageParticles() {
-	return reinterpret_cast<class UParticleSystem**>((byte*)this + 2496);
+	return reinterpret_cast<class UParticleSystem**>((byte*)this + 2672);
 }
 void ABP_AnimalBase_C::M_SetDamageParticles(const class UParticleSystem*& value) {
-	Write((byte*)this + 2496, value);
+	Write((byte*)this + 2672, value);
 }
 // Member Getter and Setter of IsRagdollOnFallEnabled
 // Declaration: bool IsRagdollOnFallEnabled
 bool ABP_AnimalBase_C::M_GetIsRagdollOnFallEnabled() const {
-	return Read<bool>((byte*)this + 2504);
+	return Read<bool>((byte*)this + 2680);
 }
 bool* ABP_AnimalBase_C::M_PtrGetIsRagdollOnFallEnabled() {
-	return reinterpret_cast<bool*>((byte*)this + 2504);
+	return reinterpret_cast<bool*>((byte*)this + 2680);
 }
 void ABP_AnimalBase_C::M_SetIsRagdollOnFallEnabled(const bool& value) {
-	Write((byte*)this + 2504, value);
+	Write((byte*)this + 2680, value);
 }
 // Member Getter and Setter of RagdollMinFallDamage
 // Declaration: float RagdollMinFallDamage
 float ABP_AnimalBase_C::M_GetRagdollMinFallDamage() const {
-	return Read<float>((byte*)this + 2508);
+	return Read<float>((byte*)this + 2684);
 }
 float* ABP_AnimalBase_C::M_PtrGetRagdollMinFallDamage() {
-	return reinterpret_cast<float*>((byte*)this + 2508);
+	return reinterpret_cast<float*>((byte*)this + 2684);
 }
 void ABP_AnimalBase_C::M_SetRagdollMinFallDamage(const float& value) {
-	Write((byte*)this + 2508, value);
+	Write((byte*)this + 2684, value);
 }
 // Member Getter and Setter of InactivePhysicsAsset
 // Declaration: class UPhysicsAsset* InactivePhysicsAsset
 class UPhysicsAsset* ABP_AnimalBase_C::M_GetInactivePhysicsAsset() const {
-	return Read<class UPhysicsAsset*>((byte*)this + 2512);
+	return Read<class UPhysicsAsset*>((byte*)this + 2688);
 }
 class UPhysicsAsset** ABP_AnimalBase_C::M_PtrGetInactivePhysicsAsset() {
-	return reinterpret_cast<class UPhysicsAsset**>((byte*)this + 2512);
+	return reinterpret_cast<class UPhysicsAsset**>((byte*)this + 2688);
 }
 void ABP_AnimalBase_C::M_SetInactivePhysicsAsset(const class UPhysicsAsset*& value) {
-	Write((byte*)this + 2512, value);
+	Write((byte*)this + 2688, value);
 }
-// Member Getter and Setter of meshCollisionDisableTime
-// Declaration: float meshCollisionDisableTime
-float ABP_AnimalBase_C::M_GetmeshCollisionDisableTime() const {
-	return Read<float>((byte*)this + 2520);
+// Member Getter and Setter of MeshCollisionDisableTime
+// Declaration: float MeshCollisionDisableTime
+float ABP_AnimalBase_C::M_GetMeshCollisionDisableTime() const {
+	return Read<float>((byte*)this + 2696);
 }
-float* ABP_AnimalBase_C::M_PtrGetmeshCollisionDisableTime() {
-	return reinterpret_cast<float*>((byte*)this + 2520);
+float* ABP_AnimalBase_C::M_PtrGetMeshCollisionDisableTime() {
+	return reinterpret_cast<float*>((byte*)this + 2696);
 }
-void ABP_AnimalBase_C::M_SetmeshCollisionDisableTime(const float& value) {
-	Write((byte*)this + 2520, value);
+void ABP_AnimalBase_C::M_SetMeshCollisionDisableTime(const float& value) {
+	Write((byte*)this + 2696, value);
 }
-// Member Getter and Setter of targetMeshCollisionType
-// Declaration: TEnumAsByte<ECollisionEnabled> targetMeshCollisionType
-TEnumAsByte<ECollisionEnabled> ABP_AnimalBase_C::M_GettargetMeshCollisionType() const {
-	return Read<TEnumAsByte<ECollisionEnabled>>((byte*)this + 2524);
+// Member Getter and Setter of TargetMeshCollisionType
+// Declaration: TEnumAsByte<ECollisionEnabled> TargetMeshCollisionType
+TEnumAsByte<ECollisionEnabled> ABP_AnimalBase_C::M_GetTargetMeshCollisionType() const {
+	return Read<TEnumAsByte<ECollisionEnabled>>((byte*)this + 2700);
 }
-TEnumAsByte<ECollisionEnabled>* ABP_AnimalBase_C::M_PtrGettargetMeshCollisionType() {
-	return reinterpret_cast<TEnumAsByte<ECollisionEnabled>*>((byte*)this + 2524);
+TEnumAsByte<ECollisionEnabled>* ABP_AnimalBase_C::M_PtrGetTargetMeshCollisionType() {
+	return reinterpret_cast<TEnumAsByte<ECollisionEnabled>*>((byte*)this + 2700);
 }
-void ABP_AnimalBase_C::M_SettargetMeshCollisionType(const TEnumAsByte<ECollisionEnabled>& value) {
-	Write((byte*)this + 2524, value);
+void ABP_AnimalBase_C::M_SetTargetMeshCollisionType(const TEnumAsByte<ECollisionEnabled>& value) {
+	Write((byte*)this + 2700, value);
 }
-// Member Getter and Setter of previousMeshCollisionType
-// Declaration: TEnumAsByte<ECollisionEnabled> previousMeshCollisionType
-TEnumAsByte<ECollisionEnabled> ABP_AnimalBase_C::M_GetpreviousMeshCollisionType() const {
-	return Read<TEnumAsByte<ECollisionEnabled>>((byte*)this + 2525);
+// Member Getter and Setter of PreviousMeshCollisionType
+// Declaration: TEnumAsByte<ECollisionEnabled> PreviousMeshCollisionType
+TEnumAsByte<ECollisionEnabled> ABP_AnimalBase_C::M_GetPreviousMeshCollisionType() const {
+	return Read<TEnumAsByte<ECollisionEnabled>>((byte*)this + 2701);
 }
-TEnumAsByte<ECollisionEnabled>* ABP_AnimalBase_C::M_PtrGetpreviousMeshCollisionType() {
-	return reinterpret_cast<TEnumAsByte<ECollisionEnabled>*>((byte*)this + 2525);
+TEnumAsByte<ECollisionEnabled>* ABP_AnimalBase_C::M_PtrGetPreviousMeshCollisionType() {
+	return reinterpret_cast<TEnumAsByte<ECollisionEnabled>*>((byte*)this + 2701);
 }
-void ABP_AnimalBase_C::M_SetpreviousMeshCollisionType(const TEnumAsByte<ECollisionEnabled>& value) {
-	Write((byte*)this + 2525, value);
+void ABP_AnimalBase_C::M_SetPreviousMeshCollisionType(const TEnumAsByte<ECollisionEnabled>& value) {
+	Write((byte*)this + 2701, value);
 }
-// Member Getter and Setter of isPhysicsAssetSwitchingEnabled
-// Declaration: bool isPhysicsAssetSwitchingEnabled
-bool ABP_AnimalBase_C::M_GetisPhysicsAssetSwitchingEnabled() const {
-	return Read<bool>((byte*)this + 2526);
+// Member Getter and Setter of IsPhysicsAssetSwitchingEnabled
+// Declaration: bool IsPhysicsAssetSwitchingEnabled
+bool ABP_AnimalBase_C::M_GetIsPhysicsAssetSwitchingEnabled() const {
+	return Read<bool>((byte*)this + 2702);
 }
-bool* ABP_AnimalBase_C::M_PtrGetisPhysicsAssetSwitchingEnabled() {
-	return reinterpret_cast<bool*>((byte*)this + 2526);
+bool* ABP_AnimalBase_C::M_PtrGetIsPhysicsAssetSwitchingEnabled() {
+	return reinterpret_cast<bool*>((byte*)this + 2702);
 }
-void ABP_AnimalBase_C::M_SetisPhysicsAssetSwitchingEnabled(const bool& value) {
-	Write((byte*)this + 2526, value);
+void ABP_AnimalBase_C::M_SetIsPhysicsAssetSwitchingEnabled(const bool& value) {
+	Write((byte*)this + 2702, value);
 }
-// Member Getter and Setter of isDistanceMeshCollisionOptimizationEnabled
-// Declaration: bool isDistanceMeshCollisionOptimizationEnabled
-bool ABP_AnimalBase_C::M_GetisDistanceMeshCollisionOptimizationEnabled() const {
-	return Read<bool>((byte*)this + 2527);
+// Member Getter and Setter of IsDistanceMeshCollisionOptimizationEnabled
+// Declaration: bool IsDistanceMeshCollisionOptimizationEnabled
+bool ABP_AnimalBase_C::M_GetIsDistanceMeshCollisionOptimizationEnabled() const {
+	return Read<bool>((byte*)this + 2703);
 }
-bool* ABP_AnimalBase_C::M_PtrGetisDistanceMeshCollisionOptimizationEnabled() {
-	return reinterpret_cast<bool*>((byte*)this + 2527);
+bool* ABP_AnimalBase_C::M_PtrGetIsDistanceMeshCollisionOptimizationEnabled() {
+	return reinterpret_cast<bool*>((byte*)this + 2703);
 }
-void ABP_AnimalBase_C::M_SetisDistanceMeshCollisionOptimizationEnabled(const bool& value) {
-	Write((byte*)this + 2527, value);
+void ABP_AnimalBase_C::M_SetIsDistanceMeshCollisionOptimizationEnabled(const bool& value) {
+	Write((byte*)this + 2703, value);
+}
+// Member Getter and Setter of IsBloodDecalsDecayEnabled
+// Declaration: bool IsBloodDecalsDecayEnabled
+bool ABP_AnimalBase_C::M_GetIsBloodDecalsDecayEnabled() const {
+	return Read<bool>((byte*)this + 2704);
+}
+bool* ABP_AnimalBase_C::M_PtrGetIsBloodDecalsDecayEnabled() {
+	return reinterpret_cast<bool*>((byte*)this + 2704);
+}
+void ABP_AnimalBase_C::M_SetIsBloodDecalsDecayEnabled(const bool& value) {
+	Write((byte*)this + 2704, value);
+}
+// Member Getter and Setter of BloodDecalsDecayTick
+// Declaration: float BloodDecalsDecayTick
+float ABP_AnimalBase_C::M_GetBloodDecalsDecayTick() const {
+	return Read<float>((byte*)this + 2708);
+}
+float* ABP_AnimalBase_C::M_PtrGetBloodDecalsDecayTick() {
+	return reinterpret_cast<float*>((byte*)this + 2708);
+}
+void ABP_AnimalBase_C::M_SetBloodDecalsDecayTick(const float& value) {
+	Write((byte*)this + 2708, value);
+}
+// Member Getter and Setter of BloodDecalsLifeTime
+// Declaration: float BloodDecalsLifeTime
+float ABP_AnimalBase_C::M_GetBloodDecalsLifeTime() const {
+	return Read<float>((byte*)this + 2712);
+}
+float* ABP_AnimalBase_C::M_PtrGetBloodDecalsLifeTime() {
+	return reinterpret_cast<float*>((byte*)this + 2712);
+}
+void ABP_AnimalBase_C::M_SetBloodDecalsLifeTime(const float& value) {
+	Write((byte*)this + 2712, value);
+}
+// Member Getter and Setter of BloodDecals
+// Declaration: TArray<class UDecalComponent*> BloodDecals
+TArray<class UDecalComponent*> ABP_AnimalBase_C::M_GetBloodDecals() const {
+	return Read<TArray<class UDecalComponent*>>((byte*)this + 2720);
+}
+TArray<class UDecalComponent*>* ABP_AnimalBase_C::M_PtrGetBloodDecals() {
+	return reinterpret_cast<TArray<class UDecalComponent*>*>((byte*)this + 2720);
+}
+void ABP_AnimalBase_C::M_SetBloodDecals(const TArray<class UDecalComponent*>& value) {
+	Write((byte*)this + 2720, value);
+}
+// Member Getter and Setter of BloodDecalsDecayTimer
+// Declaration: struct FTimerHandle BloodDecalsDecayTimer
+struct FTimerHandle ABP_AnimalBase_C::M_GetBloodDecalsDecayTimer() const {
+	return Read<struct FTimerHandle>((byte*)this + 2736);
+}
+struct FTimerHandle* ABP_AnimalBase_C::M_PtrGetBloodDecalsDecayTimer() {
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 2736);
+}
+void ABP_AnimalBase_C::M_SetBloodDecalsDecayTimer(const struct FTimerHandle& value) {
+	Write((byte*)this + 2736, value);
+}
+// Member Getter and Setter of NextPossibleIdleTypes
+// Declaration: TArray<TEnumAsByte<E_MultiplayerAnimalIdleType>> NextPossibleIdleTypes
+TArray<TEnumAsByte<E_MultiplayerAnimalIdleType>> ABP_AnimalBase_C::M_GetNextPossibleIdleTypes() const {
+	return Read<TArray<TEnumAsByte<E_MultiplayerAnimalIdleType>>>((byte*)this + 2744);
+}
+TArray<TEnumAsByte<E_MultiplayerAnimalIdleType>>* ABP_AnimalBase_C::M_PtrGetNextPossibleIdleTypes() {
+	return reinterpret_cast<TArray<TEnumAsByte<E_MultiplayerAnimalIdleType>>*>((byte*)this + 2744);
+}
+void ABP_AnimalBase_C::M_SetNextPossibleIdleTypes(const TArray<TEnumAsByte<E_MultiplayerAnimalIdleType>>& value) {
+	Write((byte*)this + 2744, value);
+}
+// Member Getter and Setter of AITarget
+// Declaration: class AActor* AITarget
+class AActor* ABP_AnimalBase_C::M_GetAITarget() const {
+	return Read<class AActor*>((byte*)this + 2760);
+}
+class AActor** ABP_AnimalBase_C::M_PtrGetAITarget() {
+	return reinterpret_cast<class AActor**>((byte*)this + 2760);
+}
+void ABP_AnimalBase_C::M_SetAITarget(const class AActor*& value) {
+	Write((byte*)this + 2760, value);
+}
+// Member Getter and Setter of InitialMeshRelativeTransform
+// Declaration: struct FTransform InitialMeshRelativeTransform
+struct FTransform ABP_AnimalBase_C::M_GetInitialMeshRelativeTransform() const {
+	return Read<struct FTransform>((byte*)this + 2768);
+}
+struct FTransform* ABP_AnimalBase_C::M_PtrGetInitialMeshRelativeTransform() {
+	return reinterpret_cast<struct FTransform*>((byte*)this + 2768);
+}
+void ABP_AnimalBase_C::M_SetInitialMeshRelativeTransform(const struct FTransform& value) {
+	Write((byte*)this + 2768, value);
+}
+// Member Getter and Setter of CombatActors
+// Declaration: TMap<class AActor*, float> CombatActors
+TMap<class AActor*, float> ABP_AnimalBase_C::M_GetCombatActors() const {
+	return Read<TMap<class AActor*, float>>((byte*)this + 2816);
+}
+TMap<class AActor*, float>* ABP_AnimalBase_C::M_PtrGetCombatActors() {
+	return reinterpret_cast<TMap<class AActor*, float>*>((byte*)this + 2816);
+}
+void ABP_AnimalBase_C::M_SetCombatActors(const TMap<class AActor*, float>& value) {
+	Write((byte*)this + 2816, value);
+}
+// Member Getter and Setter of UpdateCombatActorsTimer
+// Declaration: struct FTimerHandle UpdateCombatActorsTimer
+struct FTimerHandle ABP_AnimalBase_C::M_GetUpdateCombatActorsTimer() const {
+	return Read<struct FTimerHandle>((byte*)this + 2896);
+}
+struct FTimerHandle* ABP_AnimalBase_C::M_PtrGetUpdateCombatActorsTimer() {
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 2896);
+}
+void ABP_AnimalBase_C::M_SetUpdateCombatActorsTimer(const struct FTimerHandle& value) {
+	Write((byte*)this + 2896, value);
+}
+// Member Getter and Setter of IsStuck
+// Declaration: bool IsStuck
+bool ABP_AnimalBase_C::M_GetIsStuck() const {
+	return Read<bool>((byte*)this + 2904);
+}
+bool* ABP_AnimalBase_C::M_PtrGetIsStuck() {
+	return reinterpret_cast<bool*>((byte*)this + 2904);
+}
+void ABP_AnimalBase_C::M_SetIsStuck(const bool& value) {
+	Write((byte*)this + 2904, value);
+}
+// Member Getter and Setter of PreviousStuckLocation
+// Declaration: struct FVector PreviousStuckLocation
+struct FVector ABP_AnimalBase_C::M_GetPreviousStuckLocation() const {
+	return Read<struct FVector>((byte*)this + 2908);
+}
+struct FVector* ABP_AnimalBase_C::M_PtrGetPreviousStuckLocation() {
+	return reinterpret_cast<struct FVector*>((byte*)this + 2908);
+}
+void ABP_AnimalBase_C::M_SetPreviousStuckLocation(const struct FVector& value) {
+	Write((byte*)this + 2908, value);
+}
+// Member Getter and Setter of IsUnstuckLocationReady
+// Declaration: bool IsUnstuckLocationReady
+bool ABP_AnimalBase_C::M_GetIsUnstuckLocationReady() const {
+	return Read<bool>((byte*)this + 2920);
+}
+bool* ABP_AnimalBase_C::M_PtrGetIsUnstuckLocationReady() {
+	return reinterpret_cast<bool*>((byte*)this + 2920);
+}
+void ABP_AnimalBase_C::M_SetIsUnstuckLocationReady(const bool& value) {
+	Write((byte*)this + 2920, value);
+}
+// Member Getter and Setter of UnstuckLocation
+// Declaration: struct FVector UnstuckLocation
+struct FVector ABP_AnimalBase_C::M_GetUnstuckLocation() const {
+	return Read<struct FVector>((byte*)this + 2924);
+}
+struct FVector* ABP_AnimalBase_C::M_PtrGetUnstuckLocation() {
+	return reinterpret_cast<struct FVector*>((byte*)this + 2924);
+}
+void ABP_AnimalBase_C::M_SetUnstuckLocation(const struct FVector& value) {
+	Write((byte*)this + 2924, value);
+}
+// Member Getter and Setter of UnstuckQuery
+// Declaration: class UEnvQueryInstanceBlueprintWrapper* UnstuckQuery
+class UEnvQueryInstanceBlueprintWrapper* ABP_AnimalBase_C::M_GetUnstuckQuery() const {
+	return Read<class UEnvQueryInstanceBlueprintWrapper*>((byte*)this + 2936);
+}
+class UEnvQueryInstanceBlueprintWrapper** ABP_AnimalBase_C::M_PtrGetUnstuckQuery() {
+	return reinterpret_cast<class UEnvQueryInstanceBlueprintWrapper**>((byte*)this + 2936);
+}
+void ABP_AnimalBase_C::M_SetUnstuckQuery(const class UEnvQueryInstanceBlueprintWrapper*& value) {
+	Write((byte*)this + 2936, value);
+}
+// Member Getter and Setter of DebugMovementOffset
+// Declaration: float DebugMovementOffset
+float ABP_AnimalBase_C::M_GetDebugMovementOffset() const {
+	return Read<float>((byte*)this + 2944);
+}
+float* ABP_AnimalBase_C::M_PtrGetDebugMovementOffset() {
+	return reinterpret_cast<float*>((byte*)this + 2944);
+}
+void ABP_AnimalBase_C::M_SetDebugMovementOffset(const float& value) {
+	Write((byte*)this + 2944, value);
+}
+// Member Getter and Setter of DebugMovementStartLocation
+// Declaration: struct FVector DebugMovementStartLocation
+struct FVector ABP_AnimalBase_C::M_GetDebugMovementStartLocation() const {
+	return Read<struct FVector>((byte*)this + 2948);
+}
+struct FVector* ABP_AnimalBase_C::M_PtrGetDebugMovementStartLocation() {
+	return reinterpret_cast<struct FVector*>((byte*)this + 2948);
+}
+void ABP_AnimalBase_C::M_SetDebugMovementStartLocation(const struct FVector& value) {
+	Write((byte*)this + 2948, value);
+}
+// Member Getter and Setter of DebugMovementTimer
+// Declaration: struct FTimerHandle DebugMovementTimer
+struct FTimerHandle ABP_AnimalBase_C::M_GetDebugMovementTimer() const {
+	return Read<struct FTimerHandle>((byte*)this + 2960);
+}
+struct FTimerHandle* ABP_AnimalBase_C::M_PtrGetDebugMovementTimer() {
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 2960);
+}
+void ABP_AnimalBase_C::M_SetDebugMovementTimer(const struct FTimerHandle& value) {
+	Write((byte*)this + 2960, value);
+}
+// Member Getter and Setter of DefaultReaction
+// Declaration: TEnumAsByte<E_AIPerceptionReaction> DefaultReaction
+TEnumAsByte<E_AIPerceptionReaction> ABP_AnimalBase_C::M_GetDefaultReaction() const {
+	return Read<TEnumAsByte<E_AIPerceptionReaction>>((byte*)this + 2968);
+}
+TEnumAsByte<E_AIPerceptionReaction>* ABP_AnimalBase_C::M_PtrGetDefaultReaction() {
+	return reinterpret_cast<TEnumAsByte<E_AIPerceptionReaction>*>((byte*)this + 2968);
+}
+void ABP_AnimalBase_C::M_SetDefaultReaction(const TEnumAsByte<E_AIPerceptionReaction>& value) {
+	Write((byte*)this + 2968, value);
+}
+// Member Getter and Setter of DefaultReactionCombat
+// Declaration: TEnumAsByte<E_AIPerceptionReaction> DefaultReactionCombat
+TEnumAsByte<E_AIPerceptionReaction> ABP_AnimalBase_C::M_GetDefaultReactionCombat() const {
+	return Read<TEnumAsByte<E_AIPerceptionReaction>>((byte*)this + 2969);
+}
+TEnumAsByte<E_AIPerceptionReaction>* ABP_AnimalBase_C::M_PtrGetDefaultReactionCombat() {
+	return reinterpret_cast<TEnumAsByte<E_AIPerceptionReaction>*>((byte*)this + 2969);
+}
+void ABP_AnimalBase_C::M_SetDefaultReactionCombat(const TEnumAsByte<E_AIPerceptionReaction>& value) {
+	Write((byte*)this + 2969, value);
+}
+// Member Getter and Setter of ReactionsToTypes
+// Declaration: TMap<struct FName, TEnumAsByte<E_AIPerceptionReaction>> ReactionsToTypes
+TMap<struct FName, TEnumAsByte<E_AIPerceptionReaction>> ABP_AnimalBase_C::M_GetReactionsToTypes() const {
+	return Read<TMap<struct FName, TEnumAsByte<E_AIPerceptionReaction>>>((byte*)this + 2976);
+}
+TMap<struct FName, TEnumAsByte<E_AIPerceptionReaction>>* ABP_AnimalBase_C::M_PtrGetReactionsToTypes() {
+	return reinterpret_cast<TMap<struct FName, TEnumAsByte<E_AIPerceptionReaction>>*>((byte*)this + 2976);
+}
+void ABP_AnimalBase_C::M_SetReactionsToTypes(const TMap<struct FName, TEnumAsByte<E_AIPerceptionReaction>>& value) {
+	Write((byte*)this + 2976, value);
+}
+// Member Getter and Setter of ReactionProvoked
+// Declaration: TEnumAsByte<E_AIPerceptionReaction> ReactionProvoked
+TEnumAsByte<E_AIPerceptionReaction> ABP_AnimalBase_C::M_GetReactionProvoked() const {
+	return Read<TEnumAsByte<E_AIPerceptionReaction>>((byte*)this + 3056);
+}
+TEnumAsByte<E_AIPerceptionReaction>* ABP_AnimalBase_C::M_PtrGetReactionProvoked() {
+	return reinterpret_cast<TEnumAsByte<E_AIPerceptionReaction>*>((byte*)this + 3056);
+}
+void ABP_AnimalBase_C::M_SetReactionProvoked(const TEnumAsByte<E_AIPerceptionReaction>& value) {
+	Write((byte*)this + 3056, value);
+}
+// Member Getter and Setter of IsProvoked
+// Declaration: bool IsProvoked
+bool ABP_AnimalBase_C::M_GetIsProvoked() const {
+	return Read<bool>((byte*)this + 3057);
+}
+bool* ABP_AnimalBase_C::M_PtrGetIsProvoked() {
+	return reinterpret_cast<bool*>((byte*)this + 3057);
+}
+void ABP_AnimalBase_C::M_SetIsProvoked(const bool& value) {
+	Write((byte*)this + 3057, value);
+}
+// Member Getter and Setter of DefaultSpawnLocation
+// Declaration: struct FVector DefaultSpawnLocation
+struct FVector ABP_AnimalBase_C::M_GetDefaultSpawnLocation() const {
+	return Read<struct FVector>((byte*)this + 3060);
+}
+struct FVector* ABP_AnimalBase_C::M_PtrGetDefaultSpawnLocation() {
+	return reinterpret_cast<struct FVector*>((byte*)this + 3060);
+}
+void ABP_AnimalBase_C::M_SetDefaultSpawnLocation(const struct FVector& value) {
+	Write((byte*)this + 3060, value);
+}
+// Member Getter and Setter of DefaultSpawnRadius
+// Declaration: float DefaultSpawnRadius
+float ABP_AnimalBase_C::M_GetDefaultSpawnRadius() const {
+	return Read<float>((byte*)this + 3072);
+}
+float* ABP_AnimalBase_C::M_PtrGetDefaultSpawnRadius() {
+	return reinterpret_cast<float*>((byte*)this + 3072);
+}
+void ABP_AnimalBase_C::M_SetDefaultSpawnRadius(const float& value) {
+	Write((byte*)this + 3072, value);
+}
+// Member Getter and Setter of IsDebugEnabled_
+// Declaration: bool IsDebugEnabled_
+bool ABP_AnimalBase_C::M_GetIsDebugEnabled_() const {
+	return Read<bool>((byte*)this + 3076);
+}
+bool* ABP_AnimalBase_C::M_PtrGetIsDebugEnabled_() {
+	return reinterpret_cast<bool*>((byte*)this + 3076);
+}
+void ABP_AnimalBase_C::M_SetIsDebugEnabled_(const bool& value) {
+	Write((byte*)this + 3076, value);
+}
+// Member Getter and Setter of ActorType
+// Declaration: struct FName ActorType
+struct FName ABP_AnimalBase_C::M_GetActorType() const {
+	return Read<struct FName>((byte*)this + 3080);
+}
+struct FName* ABP_AnimalBase_C::M_PtrGetActorType() {
+	return reinterpret_cast<struct FName*>((byte*)this + 3080);
+}
+void ABP_AnimalBase_C::M_SetActorType(const struct FName& value) {
+	Write((byte*)this + 3080, value);
+}
+// Member Getter and Setter of Intimidation
+// Declaration: float Intimidation
+float ABP_AnimalBase_C::M_GetIntimidation() const {
+	return Read<float>((byte*)this + 3088);
+}
+float* ABP_AnimalBase_C::M_PtrGetIntimidation() {
+	return reinterpret_cast<float*>((byte*)this + 3088);
+}
+void ABP_AnimalBase_C::M_SetIntimidation(const float& value) {
+	Write((byte*)this + 3088, value);
+}
+// Member Getter and Setter of IntimidationDecayTick
+// Declaration: float IntimidationDecayTick
+float ABP_AnimalBase_C::M_GetIntimidationDecayTick() const {
+	return Read<float>((byte*)this + 3092);
+}
+float* ABP_AnimalBase_C::M_PtrGetIntimidationDecayTick() {
+	return reinterpret_cast<float*>((byte*)this + 3092);
+}
+void ABP_AnimalBase_C::M_SetIntimidationDecayTick(const float& value) {
+	Write((byte*)this + 3092, value);
+}
+// Member Getter and Setter of IntimidationDecaySpeed
+// Declaration: float IntimidationDecaySpeed
+float ABP_AnimalBase_C::M_GetIntimidationDecaySpeed() const {
+	return Read<float>((byte*)this + 3096);
+}
+float* ABP_AnimalBase_C::M_PtrGetIntimidationDecaySpeed() {
+	return reinterpret_cast<float*>((byte*)this + 3096);
+}
+void ABP_AnimalBase_C::M_SetIntimidationDecaySpeed(const float& value) {
+	Write((byte*)this + 3096, value);
+}
+// Member Getter and Setter of IntimidationDecayTimer
+// Declaration: struct FTimerHandle IntimidationDecayTimer
+struct FTimerHandle ABP_AnimalBase_C::M_GetIntimidationDecayTimer() const {
+	return Read<struct FTimerHandle>((byte*)this + 3104);
+}
+struct FTimerHandle* ABP_AnimalBase_C::M_PtrGetIntimidationDecayTimer() {
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 3104);
+}
+void ABP_AnimalBase_C::M_SetIntimidationDecayTimer(const struct FTimerHandle& value) {
+	Write((byte*)this + 3104, value);
+}
+// Member Getter and Setter of AttackDamage
+// Declaration: float AttackDamage
+float ABP_AnimalBase_C::M_GetAttackDamage() const {
+	return Read<float>((byte*)this + 3112);
+}
+float* ABP_AnimalBase_C::M_PtrGetAttackDamage() {
+	return reinterpret_cast<float*>((byte*)this + 3112);
+}
+void ABP_AnimalBase_C::M_SetAttackDamage(const float& value) {
+	Write((byte*)this + 3112, value);
+}
+// Member Getter and Setter of FirstReactionDistance
+// Declaration: float FirstReactionDistance
+float ABP_AnimalBase_C::M_GetFirstReactionDistance() const {
+	return Read<float>((byte*)this + 3116);
+}
+float* ABP_AnimalBase_C::M_PtrGetFirstReactionDistance() {
+	return reinterpret_cast<float*>((byte*)this + 3116);
+}
+void ABP_AnimalBase_C::M_SetFirstReactionDistance(const float& value) {
+	Write((byte*)this + 3116, value);
+}
+// Member Getter and Setter of ActorsSensedBySight
+// Declaration: TMap<class AActor*, struct FVector> ActorsSensedBySight
+TMap<class AActor*, struct FVector> ABP_AnimalBase_C::M_GetActorsSensedBySight() const {
+	return Read<TMap<class AActor*, struct FVector>>((byte*)this + 3120);
+}
+TMap<class AActor*, struct FVector>* ABP_AnimalBase_C::M_PtrGetActorsSensedBySight() {
+	return reinterpret_cast<TMap<class AActor*, struct FVector>*>((byte*)this + 3120);
+}
+void ABP_AnimalBase_C::M_SetActorsSensedBySight(const TMap<class AActor*, struct FVector>& value) {
+	Write((byte*)this + 3120, value);
+}
+// Member Getter and Setter of ActorsSensedByHearing
+// Declaration: TMap<class AActor*, struct FVector> ActorsSensedByHearing
+TMap<class AActor*, struct FVector> ABP_AnimalBase_C::M_GetActorsSensedByHearing() const {
+	return Read<TMap<class AActor*, struct FVector>>((byte*)this + 3200);
+}
+TMap<class AActor*, struct FVector>* ABP_AnimalBase_C::M_PtrGetActorsSensedByHearing() {
+	return reinterpret_cast<TMap<class AActor*, struct FVector>*>((byte*)this + 3200);
+}
+void ABP_AnimalBase_C::M_SetActorsSensedByHearing(const TMap<class AActor*, struct FVector>& value) {
+	Write((byte*)this + 3200, value);
+}
+// Member Getter and Setter of PotentialAgitators
+// Declaration: TMap<class AActor*, float> PotentialAgitators
+TMap<class AActor*, float> ABP_AnimalBase_C::M_GetPotentialAgitators() const {
+	return Read<TMap<class AActor*, float>>((byte*)this + 3280);
+}
+TMap<class AActor*, float>* ABP_AnimalBase_C::M_PtrGetPotentialAgitators() {
+	return reinterpret_cast<TMap<class AActor*, float>*>((byte*)this + 3280);
+}
+void ABP_AnimalBase_C::M_SetPotentialAgitators(const TMap<class AActor*, float>& value) {
+	Write((byte*)this + 3280, value);
+}
+// Member Getter and Setter of LastEventInstigator
+// Declaration: class AController* LastEventInstigator
+class AController* ABP_AnimalBase_C::M_GetLastEventInstigator() const {
+	return Read<class AController*>((byte*)this + 3360);
+}
+class AController** ABP_AnimalBase_C::M_PtrGetLastEventInstigator() {
+	return reinterpret_cast<class AController**>((byte*)this + 3360);
+}
+void ABP_AnimalBase_C::M_SetLastEventInstigator(const class AController*& value) {
+	Write((byte*)this + 3360, value);
 }
 #pragma endregion
 #pragma region Functions
@@ -1508,127 +1552,454 @@ void ABP_AnimalBase_C::ExecuteUbergraph_BP_AnimalBase(int32_t EntryPoint) {
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.Set Animal_MovementMode Event
-// Flags: BlueprintCallable, BlueprintEvent
+// Function BP_AnimalBase.BP_AnimalBase_C.Heal
+// Flags: Event, Public, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: New_ALS_MovementMode	Type: EAnimalMovementMode	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::Set_Animal_MovementMode_Event(EAnimalMovementMode New_ALS_MovementMode) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Set Animal_MovementMode Event");
+void ABP_AnimalBase_C::Heal() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Heal");
 
-	struct ABP_AnimalBase_C_Set_Animal_MovementMode_Event_Params {
-		EAnimalMovementMode New_ALS_MovementMode;			//Offset: 0 | ElementSize: 1
+	struct ABP_AnimalBase_C_Heal_Params {
 	};
-	ABP_AnimalBase_C_Set_Animal_MovementMode_Event_Params params;
-	params.New_ALS_MovementMode = New_ALS_MovementMode;
+	ABP_AnimalBase_C_Heal_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.K2_OnMovementModeChanged
+// Function BP_AnimalBase.BP_AnimalBase_C.SetHealth
+// Flags: Event, Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: newHealth	Type: float	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SetHealth(float newHealth) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetHealth");
+
+	struct ABP_AnimalBase_C_SetHealth_Params {
+		float newHealth;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_SetHealth_Params params;
+	params.newHealth = newHealth;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SetHealthNormalized
+// Flags: Event, Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: newHealthNormalized	Type: float	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SetHealthNormalized(float newHealthNormalized) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetHealthNormalized");
+
+	struct ABP_AnimalBase_C_SetHealthNormalized_Params {
+		float newHealthNormalized;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_SetHealthNormalized_Params params;
+	params.newHealthNormalized = newHealthNormalized;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SetMaxHealth
+// Flags: Event, Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: newMaxHealth	Type: float	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SetMaxHealth(float newMaxHealth) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetMaxHealth");
+
+	struct ABP_AnimalBase_C_SetMaxHealth_Params {
+		float newMaxHealth;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_SetMaxHealth_Params params;
+	params.newMaxHealth = newMaxHealth;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.Kill
+// Flags: Event, Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::Kill() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Kill");
+
+	struct ABP_AnimalBase_C_Kill_Params {
+	};
+	ABP_AnimalBase_C_Kill_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.OnUnstuckQueryFinished
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QueryInstance	Type: class UEnvQueryInstanceBlueprintWrapper*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QueryStatus	Type: TEnumAsByte<EEnvQueryStatus>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::OnUnstuckQueryFinished(class UEnvQueryInstanceBlueprintWrapper* QueryInstance, TEnumAsByte<EEnvQueryStatus> QueryStatus) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.OnUnstuckQueryFinished");
+
+	struct ABP_AnimalBase_C_OnUnstuckQueryFinished_Params {
+		class UEnvQueryInstanceBlueprintWrapper* QueryInstance;			//Offset: 0 | ElementSize: 8
+		TEnumAsByte<EEnvQueryStatus> QueryStatus;			//Offset: 8 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_OnUnstuckQueryFinished_Params params;
+	params.QueryInstance = QueryInstance;
+	params.QueryStatus = QueryStatus;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.NotifyAttack
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: AttackerActor	Type: class AActor*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::NotifyAttack(class AActor* AttackerActor) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.NotifyAttack");
+
+	struct ABP_AnimalBase_C_NotifyAttack_Params {
+		class AActor* AttackerActor;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_AnimalBase_C_NotifyAttack_Params params;
+	params.AttackerActor = AttackerActor;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.UpdateMountCameraFoV
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: FieldOfView	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::UpdateMountCameraFoV(float FieldOfView) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.UpdateMountCameraFoV");
+
+	struct ABP_AnimalBase_C_UpdateMountCameraFoV_Params {
+		float FieldOfView;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_UpdateMountCameraFoV_Params params;
+	params.FieldOfView = FieldOfView;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.Backwards_Axis
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Axis_Value	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::Backwards_Axis(float Axis_Value) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Backwards_Axis");
+
+	struct ABP_AnimalBase_C_Backwards_Axis_Params {
+		float Axis_Value;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_Backwards_Axis_Params params;
+	params.Axis_Value = Axis_Value;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.Left_Axis
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Axis_Value	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::Left_Axis(float Axis_Value) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Left_Axis");
+
+	struct ABP_AnimalBase_C_Left_Axis_Params {
+		float Axis_Value;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_Left_Axis_Params params;
+	params.Axis_Value = Axis_Value;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.JumpPressed
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::JumpPressed(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.JumpPressed");
+
+	struct ABP_AnimalBase_C_JumpPressed_Params {
+		struct FKey Key;			//Offset: 0 | ElementSize: 24
+	};
+	ABP_AnimalBase_C_JumpPressed_Params params;
+	params.Key = Key;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.JumpReleased
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::JumpReleased(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.JumpReleased");
+
+	struct ABP_AnimalBase_C_JumpReleased_Params {
+		struct FKey Key;			//Offset: 0 | ElementSize: 24
+	};
+	ABP_AnimalBase_C_JumpReleased_Params params;
+	params.Key = Key;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.MountSpecial
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::MountSpecial() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.MountSpecial");
+
+	struct ABP_AnimalBase_C_MountSpecial_Params {
+	};
+	ABP_AnimalBase_C_MountSpecial_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SprintPressed
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SprintPressed(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SprintPressed");
+
+	struct ABP_AnimalBase_C_SprintPressed_Params {
+		struct FKey Key;			//Offset: 0 | ElementSize: 24
+	};
+	ABP_AnimalBase_C_SprintPressed_Params params;
+	params.Key = Key;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SprintReleased
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SprintReleased(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SprintReleased");
+
+	struct ABP_AnimalBase_C_SprintReleased_Params {
+		struct FKey Key;			//Offset: 0 | ElementSize: 24
+	};
+	ABP_AnimalBase_C_SprintReleased_Params params;
+	params.Key = Key;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.OnRagdollStopped
 // Flags: Event, Public, BlueprintEvent
 // Params:
-// Name: PrevMovementMode	Type: TEnumAsByte<EMovementMode>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewMovementMode	Type: TEnumAsByte<EMovementMode>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: PrevCustomMode	Type: unsigned char	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewCustomMode	Type: unsigned char	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::K2_OnMovementModeChanged(TEnumAsByte<EMovementMode> PrevMovementMode, TEnumAsByte<EMovementMode> NewMovementMode, unsigned char PrevCustomMode, unsigned char NewCustomMode) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.K2_OnMovementModeChanged");
+void ABP_AnimalBase_C::OnRagdollStopped() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.OnRagdollStopped");
 
-	struct ABP_AnimalBase_C_K2_OnMovementModeChanged_Params {
-		TEnumAsByte<EMovementMode> PrevMovementMode;			//Offset: 0 | ElementSize: 1
-		TEnumAsByte<EMovementMode> NewMovementMode;			//Offset: 1 | ElementSize: 1
-		unsigned char PrevCustomMode;			//Offset: 2 | ElementSize: 1
-		unsigned char NewCustomMode;			//Offset: 3 | ElementSize: 1
+	struct ABP_AnimalBase_C_OnRagdollStopped_Params {
 	};
-	ABP_AnimalBase_C_K2_OnMovementModeChanged_Params params;
-	params.PrevMovementMode = PrevMovementMode;
-	params.NewMovementMode = NewMovementMode;
-	params.PrevCustomMode = PrevCustomMode;
-	params.NewCustomMode = NewCustomMode;
+	ABP_AnimalBase_C_OnRagdollStopped_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.Set Animal_Gait Event
-// Flags: BlueprintCallable, BlueprintEvent
+// Function BP_AnimalBase.BP_AnimalBase_C.OnRagdollStarted
+// Flags: Event, Public, BlueprintEvent
 // Params:
-// Name: New_ALS_Gait	Type: TEnumAsByte<E_Gait>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::Set_Animal_Gait_Event(TEnumAsByte<E_Gait> New_ALS_Gait) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Set Animal_Gait Event");
+void ABP_AnimalBase_C::OnRagdollStarted() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.OnRagdollStarted");
 
-	struct ABP_AnimalBase_C_Set_Animal_Gait_Event_Params {
-		TEnumAsByte<E_Gait> New_ALS_Gait;			//Offset: 0 | ElementSize: 1
+	struct ABP_AnimalBase_C_OnRagdollStarted_Params {
 	};
-	ABP_AnimalBase_C_Set_Animal_Gait_Event_Params params;
-	params.New_ALS_Gait = New_ALS_Gait;
+	ABP_AnimalBase_C_OnRagdollStarted_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.Set ALS_RotationMode Event
-// Flags: BlueprintCallable, BlueprintEvent
+// Function BP_AnimalBase.BP_AnimalBase_C.OnPreRagdollStop
+// Flags: Event, Public, BlueprintEvent
 // Params:
-// Name: New_ALS_RotationMode	Type: EAnimalRotationMode	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::Set_ALS_RotationMode_Event(EAnimalRotationMode New_ALS_RotationMode) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Set ALS_RotationMode Event");
+void ABP_AnimalBase_C::OnPreRagdollStop() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.OnPreRagdollStop");
 
-	struct ABP_AnimalBase_C_Set_ALS_RotationMode_Event_Params {
-		EAnimalRotationMode New_ALS_RotationMode;			//Offset: 0 | ElementSize: 1
+	struct ABP_AnimalBase_C_OnPreRagdollStop_Params {
 	};
-	ABP_AnimalBase_C_Set_ALS_RotationMode_Event_Params params;
-	params.New_ALS_RotationMode = New_ALS_RotationMode;
+	ABP_AnimalBase_C_OnPreRagdollStop_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.FallingEvent
-// Flags: BlueprintCallable, BlueprintEvent
+// Function BP_AnimalBase.BP_AnimalBase_C.OnPreRagdollStart
+// Flags: Event, Public, BlueprintEvent
 // Params:
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::FallingEvent() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.FallingEvent");
+void ABP_AnimalBase_C::OnPreRagdollStart() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.OnPreRagdollStart");
 
-	struct ABP_AnimalBase_C_FallingEvent_Params {
+	struct ABP_AnimalBase_C_OnPreRagdollStart_Params {
 	};
-	ABP_AnimalBase_C_FallingEvent_Params params;
+	ABP_AnimalBase_C_OnPreRagdollStart_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.StartFalling
+// Function BP_AnimalBase.BP_AnimalBase_C.IntimidationDecay
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::StartFalling() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.StartFalling");
+void ABP_AnimalBase_C::IntimidationDecay() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.IntimidationDecay");
 
-	struct ABP_AnimalBase_C_StartFalling_Params {
+	struct ABP_AnimalBase_C_IntimidationDecay_Params {
 	};
-	ABP_AnimalBase_C_StartFalling_Params params;
+	ABP_AnimalBase_C_IntimidationDecay_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.EndFalling
-// Flags: BlueprintCallable, BlueprintEvent
+// Function BP_AnimalBase.BP_AnimalBase_C.Intimidate
+// Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
+// Name: Intimidator	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: InfluenceMultiplier	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::EndFalling() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.EndFalling");
+void ABP_AnimalBase_C::Intimidate(class UObject* Intimidator, float InfluenceMultiplier) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Intimidate");
 
-	struct ABP_AnimalBase_C_EndFalling_Params {
+	struct ABP_AnimalBase_C_Intimidate_Params {
+		class UObject* Intimidator;			//Offset: 0 | ElementSize: 8
+		float InfluenceMultiplier;			//Offset: 8 | ElementSize: 4
 	};
-	ABP_AnimalBase_C_EndFalling_Params params;
+	ABP_AnimalBase_C_Intimidate_Params params;
+	params.Intimidator = Intimidator;
+	params.InfluenceMultiplier = InfluenceMultiplier;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.ReceiveTick
+// Flags: Event, Public, BlueprintEvent
+// Params:
+// Name: DeltaSeconds	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::ReceiveTick(float DeltaSeconds) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.ReceiveTick");
+
+	struct ABP_AnimalBase_C_ReceiveTick_Params {
+		float DeltaSeconds;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_ReceiveTick_Params params;
+	params.DeltaSeconds = DeltaSeconds;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.OnAnimalMovementModeChanged
+// Flags: Event, Public, BlueprintEvent
+// Params:
+// Name: newAnimalMovementMode	Type: EAnimalMovementMode	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: previousAnimalMovementMode	Type: EAnimalMovementMode	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::OnAnimalMovementModeChanged(EAnimalMovementMode newAnimalMovementMode, EAnimalMovementMode previousAnimalMovementMode) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.OnAnimalMovementModeChanged");
+
+	struct ABP_AnimalBase_C_OnAnimalMovementModeChanged_Params {
+		EAnimalMovementMode newAnimalMovementMode;			//Offset: 0 | ElementSize: 1
+		EAnimalMovementMode previousAnimalMovementMode;			//Offset: 1 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_OnAnimalMovementModeChanged_Params params;
+	params.newAnimalMovementMode = newAnimalMovementMode;
+	params.previousAnimalMovementMode = previousAnimalMovementMode;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.Right_Axis
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Axis_Value	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::Right_Axis(float Axis_Value) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Right_Axis");
+
+	struct ABP_AnimalBase_C_Right_Axis_Params {
+		float Axis_Value;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_Right_Axis_Params params;
+	params.Axis_Value = Axis_Value;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.Down_Axis
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Axis_Value	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::Down_Axis(float Axis_Value) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Down_Axis");
+
+	struct ABP_AnimalBase_C_Down_Axis_Params {
+		float Axis_Value;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_Down_Axis_Params params;
+	params.Axis_Value = Axis_Value;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.DismountPressed
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::DismountPressed(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.DismountPressed");
+
+	struct ABP_AnimalBase_C_DismountPressed_Params {
+		struct FKey Key;			//Offset: 0 | ElementSize: 24
+	};
+	ABP_AnimalBase_C_DismountPressed_Params params;
+	params.Key = Key;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -1820,31 +2191,175 @@ void ABP_AnimalBase_C::ParticleFinished(class UParticleSystemComponent* PSystem)
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.EventDead
-// Flags: Net, NetReliable, NetMulticast, BlueprintCallable, BlueprintEvent
+// Function BP_AnimalBase.BP_AnimalBase_C.SpawnHitParticleEffectsMulticast
+// Flags: Net, NetMulticast, BlueprintCallable, BlueprintEvent
 // Params:
+// Name: DamageCauser	Type: class AActor*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: IsHardHit	Type: bool	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: Location	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Rotation	Type: struct FRotator	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::EventDead() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.EventDead");
+void ABP_AnimalBase_C::SpawnHitParticleEffectsMulticast(class AActor* DamageCauser, bool IsHardHit, struct FVector Location, struct FRotator Rotation) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SpawnHitParticleEffectsMulticast");
 
-	struct ABP_AnimalBase_C_EventDead_Params {
+	struct ABP_AnimalBase_C_SpawnHitParticleEffectsMulticast_Params {
+		class AActor* DamageCauser;			//Offset: 0 | ElementSize: 8
+		bool IsHardHit;			//Offset: 8 | ElementSize: 1
+		struct FVector Location;			//Offset: 12 | ElementSize: 12
+		struct FRotator Rotation;			//Offset: 24 | ElementSize: 12
 	};
-	ABP_AnimalBase_C_EventDead_Params params;
+	ABP_AnimalBase_C_SpawnHitParticleEffectsMulticast_Params params;
+	params.DamageCauser = DamageCauser;
+	params.IsHardHit = IsHardHit;
+	params.Location = Location;
+	params.Rotation = Rotation;
 
 	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.UpdateMovementSettings
-// Flags: Event, Public, BlueprintCallable, BlueprintEvent
+// Function BP_AnimalBase.BP_AnimalBase_C.Set Animal_Gait Event
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+// Name: New_ALS_Gait	Type: TEnumAsByte<E_Gait>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::Set_Animal_Gait_Event(TEnumAsByte<E_Gait> New_ALS_Gait) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Set Animal_Gait Event");
+
+	struct ABP_AnimalBase_C_Set_Animal_Gait_Event_Params {
+		TEnumAsByte<E_Gait> New_ALS_Gait;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_Set_Animal_Gait_Event_Params params;
+	params.New_ALS_Gait = New_ALS_Gait;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.FallingEvent
+// Flags: BlueprintCallable, BlueprintEvent
 // Params:
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::UpdateMovementSettings() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.UpdateMovementSettings");
+void ABP_AnimalBase_C::FallingEvent() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.FallingEvent");
 
-	struct ABP_AnimalBase_C_UpdateMovementSettings_Params {
+	struct ABP_AnimalBase_C_FallingEvent_Params {
 	};
-	ABP_AnimalBase_C_UpdateMovementSettings_Params params;
+	ABP_AnimalBase_C_FallingEvent_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.StartFalling
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::StartFalling() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.StartFalling");
+
+	struct ABP_AnimalBase_C_StartFalling_Params {
+	};
+	ABP_AnimalBase_C_StartFalling_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.EndFalling
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::EndFalling() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.EndFalling");
+
+	struct ABP_AnimalBase_C_EndFalling_Params {
+	};
+	ABP_AnimalBase_C_EndFalling_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SetIdleTypeServer
+// Flags: Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: idleType	Type: TEnumAsByte<E_MultiplayerAnimalIdleType>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SetIdleTypeServer(TEnumAsByte<E_MultiplayerAnimalIdleType> idleType) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetIdleTypeServer");
+
+	struct ABP_AnimalBase_C_SetIdleTypeServer_Params {
+		TEnumAsByte<E_MultiplayerAnimalIdleType> idleType;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_SetIdleTypeServer_Params params;
+	params.idleType = idleType;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.BloodDecalDecay
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::BloodDecalDecay() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.BloodDecalDecay");
+
+	struct ABP_AnimalBase_C_BloodDecalDecay_Params {
+	};
+	ABP_AnimalBase_C_BloodDecalDecay_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SetOccupied
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Character	Type: class APawn*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SetOccupied(class APawn* Character) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetOccupied");
+
+	struct ABP_AnimalBase_C_SetOccupied_Params {
+		class APawn* Character;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_AnimalBase_C_SetOccupied_Params params;
+	params.Character = Character;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.DismountReleased
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::DismountReleased(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.DismountReleased");
+
+	struct ABP_AnimalBase_C_DismountReleased_Params {
+		struct FKey Key;			//Offset: 0 | ElementSize: 24
+	};
+	ABP_AnimalBase_C_DismountReleased_Params params;
+	params.Key = Key;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.MountStop
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::MountStop() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.MountStop");
+
+	struct ABP_AnimalBase_C_MountStop_Params {
+	};
+	ABP_AnimalBase_C_MountStop_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -1863,6 +2378,183 @@ void ABP_AnimalBase_C::SetMeshCollisionKeepTime_BPI(float Keep_Time) {
 	};
 	ABP_AnimalBase_C_SetMeshCollisionKeepTime_BPI_Params params;
 	params.Keep_Time = Keep_Time;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.WalkPressed
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::WalkPressed(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.WalkPressed");
+
+	struct ABP_AnimalBase_C_WalkPressed_Params {
+		struct FKey Key;			//Offset: 0 | ElementSize: 24
+	};
+	ABP_AnimalBase_C_WalkPressed_Params params;
+	params.Key = Key;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.WalkReleased
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::WalkReleased(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.WalkReleased");
+
+	struct ABP_AnimalBase_C_WalkReleased_Params {
+		struct FKey Key;			//Offset: 0 | ElementSize: 24
+	};
+	ABP_AnimalBase_C_WalkReleased_Params params;
+	params.Key = Key;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SetShouldSprint
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ShouldSprint	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SetShouldSprint(bool ShouldSprint) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetShouldSprint");
+
+	struct ABP_AnimalBase_C_SetShouldSprint_Params {
+		bool ShouldSprint;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_SetShouldSprint_Params params;
+	params.ShouldSprint = ShouldSprint;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.LookAtOnMount
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Rotation	Type: struct FRotator	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::LookAtOnMount(struct FRotator Rotation) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.LookAtOnMount");
+
+	struct ABP_AnimalBase_C_LookAtOnMount_Params {
+		struct FRotator Rotation;			//Offset: 0 | ElementSize: 12
+	};
+	ABP_AnimalBase_C_LookAtOnMount_Params params;
+	params.Rotation = Rotation;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.CameraActionPressed
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::CameraActionPressed(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CameraActionPressed");
+
+	struct ABP_AnimalBase_C_CameraActionPressed_Params {
+		struct FKey Key;			//Offset: 0 | ElementSize: 24
+	};
+	ABP_AnimalBase_C_CameraActionPressed_Params params;
+	params.Key = Key;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.CameraActionReleased
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::CameraActionReleased(struct FKey Key) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CameraActionReleased");
+
+	struct ABP_AnimalBase_C_CameraActionReleased_Params {
+		struct FKey Key;			//Offset: 0 | ElementSize: 24
+	};
+	ABP_AnimalBase_C_CameraActionReleased_Params params;
+	params.Key = Key;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.MouseWheel_Axis
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Axis_Value	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::MouseWheel_Axis(float Axis_Value) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.MouseWheel_Axis");
+
+	struct ABP_AnimalBase_C_MouseWheel_Axis_Params {
+		float Axis_Value;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_MouseWheel_Axis_Params params;
+	params.Axis_Value = Axis_Value;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SetPlayerID_BPI
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: PlayerId	Type: struct FGuid	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SetPlayerID_BPI(struct FGuid PlayerId) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetPlayerID_BPI");
+
+	struct ABP_AnimalBase_C_SetPlayerID_BPI_Params {
+		struct FGuid PlayerId;			//Offset: 0 | ElementSize: 16
+	};
+	ABP_AnimalBase_C_SetPlayerID_BPI_Params params;
+	params.PlayerId = PlayerId;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.MountSummon_BPI
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::MountSummon_BPI() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.MountSummon_BPI");
+
+	struct ABP_AnimalBase_C_MountSummon_BPI_Params {
+	};
+	ABP_AnimalBase_C_MountSummon_BPI_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.ChangeMountBehvaiorTree_BPI
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ToHusbandry	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::ChangeMountBehvaiorTree_BPI(bool ToHusbandry) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.ChangeMountBehvaiorTree_BPI");
+
+	struct ABP_AnimalBase_C_ChangeMountBehvaiorTree_BPI_Params {
+		bool ToHusbandry;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_ChangeMountBehvaiorTree_BPI_Params params;
+	params.ToHusbandry = ToHusbandry;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -1916,49 +2608,16 @@ void ABP_AnimalBase_C::OnCapsuleComponentHit(class UPrimitiveComponent* HitCompo
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.RagdollTimer
-// Flags: BlueprintCallable, BlueprintEvent
+// Function BP_AnimalBase.BP_AnimalBase_C.UnstuckMount_BPI
+// Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::RagdollTimer() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.RagdollTimer");
+void ABP_AnimalBase_C::UnstuckMount_BPI() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.UnstuckMount_BPI");
 
-	struct ABP_AnimalBase_C_RagdollTimer_Params {
+	struct ABP_AnimalBase_C_UnstuckMount_BPI_Params {
 	};
-	ABP_AnimalBase_C_RagdollTimer_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.StopRagdoll
-// Flags: BlueprintCallable, BlueprintEvent
-// Params:
-// Name: SkipAnim	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::StopRagdoll(bool SkipAnim) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.StopRagdoll");
-
-	struct ABP_AnimalBase_C_StopRagdoll_Params {
-		bool SkipAnim;			//Offset: 0 | ElementSize: 1
-	};
-	ABP_AnimalBase_C_StopRagdoll_Params params;
-	params.SkipAnim = SkipAnim;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.StartRagdoll
-// Flags: BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::StartRagdoll() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.StartRagdoll");
-
-	struct ABP_AnimalBase_C_StartRagdoll_Params {
-	};
-	ABP_AnimalBase_C_StartRagdoll_Params params;
+	ABP_AnimalBase_C_UnstuckMount_BPI_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -2061,6 +2720,33 @@ void ABP_AnimalBase_C::MediumOptimization() {
 	struct ABP_AnimalBase_C_MediumOptimization_Params {
 	};
 	ABP_AnimalBase_C_MediumOptimization_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.ToolInteract
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: BaseCharacter	Type: class ABP_BaseCharacter_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Hit	Type: struct FHitResult	Flags: BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor, ContainsInstancedReference
+// Name: UseChunkData	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: ChunkID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::ToolInteract(class ABP_BaseCharacter_C* BaseCharacter, struct FHitResult Hit, bool UseChunkData, int32_t ChunkID) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.ToolInteract");
+
+	struct ABP_AnimalBase_C_ToolInteract_Params {
+		class ABP_BaseCharacter_C* BaseCharacter;			//Offset: 0 | ElementSize: 8
+		struct FHitResult Hit;			//Offset: 8 | ElementSize: 136
+		bool UseChunkData;			//Offset: 144 | ElementSize: 1
+		int32_t ChunkID;			//Offset: 148 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_ToolInteract_Params params;
+	params.BaseCharacter = BaseCharacter;
+	params.Hit = Hit;
+	params.UseChunkData = UseChunkData;
+	params.ChunkID = ChunkID;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -2195,6 +2881,24 @@ void ABP_AnimalBase_C::InteractInput(bool KeyDown) {
 }
 
 /////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SetNightRiderTalent_BPI
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Value	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SetNightRiderTalent_BPI(float Value) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetNightRiderTalent_BPI");
+
+	struct ABP_AnimalBase_C_SetNightRiderTalent_BPI_Params {
+		float Value;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_SetNightRiderTalent_BPI_Params params;
+	params.Value = Value;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
 // Function BP_AnimalBase.BP_AnimalBase_C.OnMoveForSkinningFinished
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
@@ -2295,39 +2999,24 @@ void ABP_AnimalBase_C::InteractStart(class ABP_BaseCharacter_C* BaseCharacter) {
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: BaseCharacter	Type: class ABP_BaseCharacter_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Hit	Type: struct FHitResult	Flags: BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor, ContainsInstancedReference
+// Name: HitLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: HitItem	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Timer	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::Interact(class ABP_BaseCharacter_C* BaseCharacter, struct FHitResult Hit, bool Timer) {
+void ABP_AnimalBase_C::Interact(class ABP_BaseCharacter_C* BaseCharacter, struct FVector HitLocation, int32_t HitItem, bool Timer) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Interact");
 
 	struct ABP_AnimalBase_C_Interact_Params {
 		class ABP_BaseCharacter_C* BaseCharacter;			//Offset: 0 | ElementSize: 8
-		struct FHitResult Hit;			//Offset: 8 | ElementSize: 136
-		bool Timer;			//Offset: 144 | ElementSize: 1
+		struct FVector HitLocation;			//Offset: 8 | ElementSize: 12
+		int32_t HitItem;			//Offset: 20 | ElementSize: 4
+		bool Timer;			//Offset: 24 | ElementSize: 1
 	};
 	ABP_AnimalBase_C_Interact_Params params;
 	params.BaseCharacter = BaseCharacter;
-	params.Hit = Hit;
+	params.HitLocation = HitLocation;
+	params.HitItem = HitItem;
 	params.Timer = Timer;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.ReceiveTick
-// Flags: Event, Public, BlueprintEvent
-// Params:
-// Name: DeltaSeconds	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::ReceiveTick(float DeltaSeconds) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.ReceiveTick");
-
-	struct ABP_AnimalBase_C_ReceiveTick_Params {
-		float DeltaSeconds;			//Offset: 0 | ElementSize: 4
-	};
-	ABP_AnimalBase_C_ReceiveTick_Params params;
-	params.DeltaSeconds = DeltaSeconds;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -2343,6 +3032,141 @@ void ABP_AnimalBase_C::ReceiveBeginPlay() {
 	struct ABP_AnimalBase_C_ReceiveBeginPlay_Params {
 	};
 	ABP_AnimalBase_C_ReceiveBeginPlay_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SetStaminaConsumptionModificator_BPI
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Value	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SetStaminaConsumptionModificator_BPI(float Value) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetStaminaConsumptionModificator_BPI");
+
+	struct ABP_AnimalBase_C_SetStaminaConsumptionModificator_BPI_Params {
+		float Value;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_SetStaminaConsumptionModificator_BPI_Params params;
+	params.Value = Value;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SetAnimalLocationAllPlayers_BPI
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Location	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SetAnimalLocationAllPlayers_BPI(struct FVector Location) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetAnimalLocationAllPlayers_BPI");
+
+	struct ABP_AnimalBase_C_SetAnimalLocationAllPlayers_BPI_Params {
+		struct FVector Location;			//Offset: 0 | ElementSize: 12
+	};
+	ABP_AnimalBase_C_SetAnimalLocationAllPlayers_BPI_Params params;
+	params.Location = Location;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SetAnimalLocation_Multicast
+// Flags: Net, NetReliable, NetMulticast, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Location	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SetAnimalLocation_Multicast(struct FVector Location) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetAnimalLocation_Multicast");
+
+	struct ABP_AnimalBase_C_SetAnimalLocation_Multicast_Params {
+		struct FVector Location;			//Offset: 0 | ElementSize: 12
+	};
+	ABP_AnimalBase_C_SetAnimalLocation_Multicast_Params params;
+	params.Location = Location;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SetAnimalLocation_Server
+// Flags: Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Location	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SetAnimalLocation_Server(struct FVector Location) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetAnimalLocation_Server");
+
+	struct ABP_AnimalBase_C_SetAnimalLocation_Server_Params {
+		struct FVector Location;			//Offset: 0 | ElementSize: 12
+	};
+	ABP_AnimalBase_C_SetAnimalLocation_Server_Params params;
+	params.Location = Location;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SetAnimalLocationAndRotation_Multicast
+// Flags: Net, NetReliable, NetMulticast, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Location	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Rotation	Type: struct FRotator	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SetAnimalLocationAndRotation_Multicast(struct FVector Location, struct FRotator Rotation) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetAnimalLocationAndRotation_Multicast");
+
+	struct ABP_AnimalBase_C_SetAnimalLocationAndRotation_Multicast_Params {
+		struct FVector Location;			//Offset: 0 | ElementSize: 12
+		struct FRotator Rotation;			//Offset: 12 | ElementSize: 12
+	};
+	ABP_AnimalBase_C_SetAnimalLocationAndRotation_Multicast_Params params;
+	params.Location = Location;
+	params.Rotation = Rotation;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SetAnimalLocationAndRotation_Server
+// Flags: Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Location	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Rotation	Type: struct FRotator	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SetAnimalLocationAndRotation_Server(struct FVector Location, struct FRotator Rotation) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetAnimalLocationAndRotation_Server");
+
+	struct ABP_AnimalBase_C_SetAnimalLocationAndRotation_Server_Params {
+		struct FVector Location;			//Offset: 0 | ElementSize: 12
+		struct FRotator Rotation;			//Offset: 12 | ElementSize: 12
+	};
+	ABP_AnimalBase_C_SetAnimalLocationAndRotation_Server_Params params;
+	params.Location = Location;
+	params.Rotation = Rotation;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SetAnimalLocationAndRotationAllPlayers_BPI
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Location	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Rotation	Type: struct FRotator	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SetAnimalLocationAndRotationAllPlayers_BPI(struct FVector Location, struct FRotator Rotation) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetAnimalLocationAndRotationAllPlayers_BPI");
+
+	struct ABP_AnimalBase_C_SetAnimalLocationAndRotationAllPlayers_BPI_Params {
+		struct FVector Location;			//Offset: 0 | ElementSize: 12
+		struct FRotator Rotation;			//Offset: 12 | ElementSize: 12
+	};
+	ABP_AnimalBase_C_SetAnimalLocationAndRotationAllPlayers_BPI_Params params;
+	params.Location = Location;
+	params.Rotation = Rotation;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -2406,6 +3230,21 @@ void ABP_AnimalBase_C::ReceivePossessed(class AController* NewController) {
 	};
 	ABP_AnimalBase_C_ReceivePossessed_Params params;
 	params.NewController = NewController;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.DestroyToolMesh_BPI
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::DestroyToolMesh_BPI() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.DestroyToolMesh_BPI");
+
+	struct ABP_AnimalBase_C_DestroyToolMesh_BPI_Params {
+	};
+	ABP_AnimalBase_C_DestroyToolMesh_BPI_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -2483,16 +3322,16 @@ void ABP_AnimalBase_C::Play_GetUp_Anim_BPI(bool FromLeftSide) {
 // Function BP_AnimalBase.BP_AnimalBase_C.SetBirdTypeBPI
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: isWaterType	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: IsWaterType	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::SetBirdTypeBPI(bool isWaterType) {
+void ABP_AnimalBase_C::SetBirdTypeBPI(bool IsWaterType) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetBirdTypeBPI");
 
 	struct ABP_AnimalBase_C_SetBirdTypeBPI_Params {
-		bool isWaterType;			//Offset: 0 | ElementSize: 1
+		bool IsWaterType;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_AnimalBase_C_SetBirdTypeBPI_Params params;
-	params.isWaterType = isWaterType;
+	params.IsWaterType = IsWaterType;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -2545,7 +3384,7 @@ void ABP_AnimalBase_C::UpdateMountEquipment(bool Unequip, struct FST_ItemOutfit 
 
 	struct ABP_AnimalBase_C_UpdateMountEquipment_Params {
 		bool Unequip;			//Offset: 0 | ElementSize: 1
-		struct FST_ItemOutfit ItemData;			//Offset: 8 | ElementSize: 240
+		struct FST_ItemOutfit ItemData;			//Offset: 8 | ElementSize: 312
 	};
 	ABP_AnimalBase_C_UpdateMountEquipment_Params params;
 	params.Unequip = Unequip;
@@ -2573,18 +3412,18 @@ void ABP_AnimalBase_C::SetForSale(bool ForSale) {
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.SetAnimalMovementMode BPI
+// Function BP_AnimalBase.BP_AnimalBase_C.Set Animal Movement Mode BPI
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: MovementMode	Type: EAnimalMovementMode	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::SetAnimalMovementMode_BPI(EAnimalMovementMode MovementMode) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetAnimalMovementMode BPI");
+void ABP_AnimalBase_C::Set_Animal_Movement_Mode_BPI(EAnimalMovementMode MovementMode) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Set Animal Movement Mode BPI");
 
-	struct ABP_AnimalBase_C_SetAnimalMovementMode_BPI_Params {
+	struct ABP_AnimalBase_C_Set_Animal_Movement_Mode_BPI_Params {
 		EAnimalMovementMode MovementMode;			//Offset: 0 | ElementSize: 1
 	};
-	ABP_AnimalBase_C_SetAnimalMovementMode_BPI_Params params;
+	ABP_AnimalBase_C_Set_Animal_Movement_Mode_BPI_Params params;
 	params.MovementMode = MovementMode;
 
 	UObject::ProcessEvent(fn, &params);
@@ -2637,6 +3476,33 @@ void ABP_AnimalBase_C::AddItemToHouse() {
 	struct ABP_AnimalBase_C_AddItemToHouse_Params {
 	};
 	ABP_AnimalBase_C_AddItemToHouse_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.Interact_Client
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: BaseCharacter	Type: class ABP_BaseCharacter_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: HitLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: HitItem	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Timer	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::Interact_Client(class ABP_BaseCharacter_C* BaseCharacter, struct FVector HitLocation, int32_t HitItem, bool Timer) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Interact_Client");
+
+	struct ABP_AnimalBase_C_Interact_Client_Params {
+		class ABP_BaseCharacter_C* BaseCharacter;			//Offset: 0 | ElementSize: 8
+		struct FVector HitLocation;			//Offset: 8 | ElementSize: 12
+		int32_t HitItem;			//Offset: 20 | ElementSize: 4
+		bool Timer;			//Offset: 24 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_Interact_Client_Params params;
+	params.BaseCharacter = BaseCharacter;
+	params.HitLocation = HitLocation;
+	params.HitItem = HitItem;
+	params.Timer = Timer;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -2801,405 +3667,6 @@ void ABP_AnimalBase_C::IsLookedAt(bool Active) {
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.ToolInteract
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: BaseCharacter	Type: class ABP_BaseCharacter_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Hit	Type: struct FHitResult	Flags: BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor, ContainsInstancedReference
-// Name: UseChunkData	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-// Name: ChunkData	Type: struct FST_Chunks	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ContainsInstancedReference, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::ToolInteract(class ABP_BaseCharacter_C* BaseCharacter, struct FHitResult Hit, bool UseChunkData, struct FST_Chunks ChunkData) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.ToolInteract");
-
-	struct ABP_AnimalBase_C_ToolInteract_Params {
-		class ABP_BaseCharacter_C* BaseCharacter;			//Offset: 0 | ElementSize: 8
-		struct FHitResult Hit;			//Offset: 8 | ElementSize: 136
-		bool UseChunkData;			//Offset: 144 | ElementSize: 1
-		struct FST_Chunks ChunkData;			//Offset: 152 | ElementSize: 520
-	};
-	ABP_AnimalBase_C_ToolInteract_Params params;
-	params.BaseCharacter = BaseCharacter;
-	params.Hit = Hit;
-	params.UseChunkData = UseChunkData;
-	params.ChunkData = ChunkData;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.SetOccupied
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Character	Type: class APawn*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::SetOccupied(class APawn* Character) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetOccupied");
-
-	struct ABP_AnimalBase_C_SetOccupied_Params {
-		class APawn* Character;			//Offset: 0 | ElementSize: 8
-	};
-	ABP_AnimalBase_C_SetOccupied_Params params;
-	params.Character = Character;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.MouseWheel_Axis
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Axis_Value	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::MouseWheel_Axis(float Axis_Value) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.MouseWheel_Axis");
-
-	struct ABP_AnimalBase_C_MouseWheel_Axis_Params {
-		float Axis_Value;			//Offset: 0 | ElementSize: 4
-	};
-	ABP_AnimalBase_C_MouseWheel_Axis_Params params;
-	params.Axis_Value = Axis_Value;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.CameraActionReleased
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::CameraActionReleased(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CameraActionReleased");
-
-	struct ABP_AnimalBase_C_CameraActionReleased_Params {
-		struct FKey Key;			//Offset: 0 | ElementSize: 24
-	};
-	ABP_AnimalBase_C_CameraActionReleased_Params params;
-	params.Key = Key;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.CameraActionPressed
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::CameraActionPressed(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CameraActionPressed");
-
-	struct ABP_AnimalBase_C_CameraActionPressed_Params {
-		struct FKey Key;			//Offset: 0 | ElementSize: 24
-	};
-	ABP_AnimalBase_C_CameraActionPressed_Params params;
-	params.Key = Key;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.LookAtOnMount
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Rotation	Type: struct FRotator	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::LookAtOnMount(struct FRotator Rotation) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.LookAtOnMount");
-
-	struct ABP_AnimalBase_C_LookAtOnMount_Params {
-		struct FRotator Rotation;			//Offset: 0 | ElementSize: 12
-	};
-	ABP_AnimalBase_C_LookAtOnMount_Params params;
-	params.Rotation = Rotation;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.SetShouldSprint
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: ShouldSprint	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::SetShouldSprint(bool ShouldSprint) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetShouldSprint");
-
-	struct ABP_AnimalBase_C_SetShouldSprint_Params {
-		bool ShouldSprint;			//Offset: 0 | ElementSize: 1
-	};
-	ABP_AnimalBase_C_SetShouldSprint_Params params;
-	params.ShouldSprint = ShouldSprint;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.WalkReleased
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::WalkReleased(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.WalkReleased");
-
-	struct ABP_AnimalBase_C_WalkReleased_Params {
-		struct FKey Key;			//Offset: 0 | ElementSize: 24
-	};
-	ABP_AnimalBase_C_WalkReleased_Params params;
-	params.Key = Key;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.WalkPressed
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::WalkPressed(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.WalkPressed");
-
-	struct ABP_AnimalBase_C_WalkPressed_Params {
-		struct FKey Key;			//Offset: 0 | ElementSize: 24
-	};
-	ABP_AnimalBase_C_WalkPressed_Params params;
-	params.Key = Key;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.MountStop
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::MountStop() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.MountStop");
-
-	struct ABP_AnimalBase_C_MountStop_Params {
-	};
-	ABP_AnimalBase_C_MountStop_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.DismountReleased
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::DismountReleased(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.DismountReleased");
-
-	struct ABP_AnimalBase_C_DismountReleased_Params {
-		struct FKey Key;			//Offset: 0 | ElementSize: 24
-	};
-	ABP_AnimalBase_C_DismountReleased_Params params;
-	params.Key = Key;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.DismountPressed
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::DismountPressed(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.DismountPressed");
-
-	struct ABP_AnimalBase_C_DismountPressed_Params {
-		struct FKey Key;			//Offset: 0 | ElementSize: 24
-	};
-	ABP_AnimalBase_C_DismountPressed_Params params;
-	params.Key = Key;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.Down_Axis
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Axis_Value	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::Down_Axis(float Axis_Value) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Down_Axis");
-
-	struct ABP_AnimalBase_C_Down_Axis_Params {
-		float Axis_Value;			//Offset: 0 | ElementSize: 4
-	};
-	ABP_AnimalBase_C_Down_Axis_Params params;
-	params.Axis_Value = Axis_Value;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.Right_Axis
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Axis_Value	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::Right_Axis(float Axis_Value) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Right_Axis");
-
-	struct ABP_AnimalBase_C_Right_Axis_Params {
-		float Axis_Value;			//Offset: 0 | ElementSize: 4
-	};
-	ABP_AnimalBase_C_Right_Axis_Params params;
-	params.Axis_Value = Axis_Value;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.SprintReleased
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::SprintReleased(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SprintReleased");
-
-	struct ABP_AnimalBase_C_SprintReleased_Params {
-		struct FKey Key;			//Offset: 0 | ElementSize: 24
-	};
-	ABP_AnimalBase_C_SprintReleased_Params params;
-	params.Key = Key;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.SprintPressed
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::SprintPressed(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SprintPressed");
-
-	struct ABP_AnimalBase_C_SprintPressed_Params {
-		struct FKey Key;			//Offset: 0 | ElementSize: 24
-	};
-	ABP_AnimalBase_C_SprintPressed_Params params;
-	params.Key = Key;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.MountSpecial
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::MountSpecial() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.MountSpecial");
-
-	struct ABP_AnimalBase_C_MountSpecial_Params {
-	};
-	ABP_AnimalBase_C_MountSpecial_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.JumpReleased
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::JumpReleased(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.JumpReleased");
-
-	struct ABP_AnimalBase_C_JumpReleased_Params {
-		struct FKey Key;			//Offset: 0 | ElementSize: 24
-	};
-	ABP_AnimalBase_C_JumpReleased_Params params;
-	params.Key = Key;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.JumpPressed
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Key	Type: struct FKey	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::JumpPressed(struct FKey Key) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.JumpPressed");
-
-	struct ABP_AnimalBase_C_JumpPressed_Params {
-		struct FKey Key;			//Offset: 0 | ElementSize: 24
-	};
-	ABP_AnimalBase_C_JumpPressed_Params params;
-	params.Key = Key;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.Left_Axis
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Axis_Value	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::Left_Axis(float Axis_Value) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Left_Axis");
-
-	struct ABP_AnimalBase_C_Left_Axis_Params {
-		float Axis_Value;			//Offset: 0 | ElementSize: 4
-	};
-	ABP_AnimalBase_C_Left_Axis_Params params;
-	params.Axis_Value = Axis_Value;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.Backwards_Axis
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Axis_Value	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::Backwards_Axis(float Axis_Value) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Backwards_Axis");
-
-	struct ABP_AnimalBase_C_Backwards_Axis_Params {
-		float Axis_Value;			//Offset: 0 | ElementSize: 4
-	};
-	ABP_AnimalBase_C_Backwards_Axis_Params params;
-	params.Axis_Value = Axis_Value;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.UpdateMountCameraFoV
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: FieldOfView	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::UpdateMountCameraFoV(float FieldOfView) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.UpdateMountCameraFoV");
-
-	struct ABP_AnimalBase_C_UpdateMountCameraFoV_Params {
-		float FieldOfView;			//Offset: 0 | ElementSize: 4
-	};
-	ABP_AnimalBase_C_UpdateMountCameraFoV_Params params;
-	params.FieldOfView = FieldOfView;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
 // Function BP_AnimalBase.BP_AnimalBase_C.UserConstructionScript
 // Flags: Event, Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
@@ -3210,194 +3677,6 @@ void ABP_AnimalBase_C::UserConstructionScript() {
 	struct ABP_AnimalBase_C_UserConstructionScript_Params {
 	};
 	ABP_AnimalBase_C_UserConstructionScript_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.fnGetAuthority
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
-// Params:
-// Name: HasAuthority	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::fnGetAuthority(bool* HasAuthority) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.fnGetAuthority");
-
-	struct ABP_AnimalBase_C_fnGetAuthority_Params {
-		bool HasAuthority;			//Offset: 0 | ElementSize: 1
-	};
-	ABP_AnimalBase_C_fnGetAuthority_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-	if (HasAuthority != nullptr)
-		*HasAuthority = params.HasAuthority;
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.OnAnimalMovementModeChanged
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::OnAnimalMovementModeChanged() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.OnAnimalMovementModeChanged");
-
-	struct ABP_AnimalBase_C_OnAnimalMovementModeChanged_Params {
-	};
-	ABP_AnimalBase_C_OnAnimalMovementModeChanged_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.GetAnimInstance
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
-// Params:
-// Name: ReturnValue	Type: class UAnimInstance*	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-class UAnimInstance* ABP_AnimalBase_C::GetAnimInstance() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetAnimInstance");
-
-	struct ABP_AnimalBase_C_GetAnimInstance_Params {
-		class UAnimInstance* ReturnValue;			//Offset: 0 | ElementSize: 8
-	};
-	ABP_AnimalBase_C_GetAnimInstance_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-	return params.ReturnValue;
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.OnAnimalPawnMovementModeChanged
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Selection	Type: TEnumAsByte<EMovementMode>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::OnAnimalPawnMovementModeChanged(TEnumAsByte<EMovementMode> Selection) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.OnAnimalPawnMovementModeChanged");
-
-	struct ABP_AnimalBase_C_OnAnimalPawnMovementModeChanged_Params {
-		TEnumAsByte<EMovementMode> Selection;			//Offset: 0 | ElementSize: 1
-	};
-	ABP_AnimalBase_C_OnAnimalPawnMovementModeChanged_Params params;
-	params.Selection = Selection;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.CalculateAnimalRotationRate
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
-// Params:
-// Name: SlowSpeed	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: SlowSpeedRate	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: FastSpeed	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: FastSpeedRate	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-float ABP_AnimalBase_C::CalculateAnimalRotationRate(float SlowSpeed, float SlowSpeedRate, float FastSpeed, float FastSpeedRate) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CalculateAnimalRotationRate");
-
-	struct ABP_AnimalBase_C_CalculateAnimalRotationRate_Params {
-		float SlowSpeed;			//Offset: 0 | ElementSize: 4
-		float SlowSpeedRate;			//Offset: 4 | ElementSize: 4
-		float FastSpeed;			//Offset: 8 | ElementSize: 4
-		float FastSpeedRate;			//Offset: 12 | ElementSize: 4
-		float ReturnValue;			//Offset: 16 | ElementSize: 4
-	};
-	ABP_AnimalBase_C_CalculateAnimalRotationRate_Params params;
-	params.SlowSpeed = SlowSpeed;
-	params.SlowSpeedRate = SlowSpeedRate;
-	params.FastSpeed = FastSpeed;
-	params.FastSpeedRate = FastSpeedRate;
-
-	UObject::ProcessEvent(fn, &params);
-	return params.ReturnValue;
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.LookingDirectionWithOffset
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: OffsetInterpSpeed	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NE_Angle	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NW_Angle	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: SE_Angle	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: SW_Angle	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Buffer	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: TargetRotation	Type: struct FRotator	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::LookingDirectionWithOffset(float OffsetInterpSpeed, float NE_Angle, float NW_Angle, float SE_Angle, float SW_Angle, float Buffer, struct FRotator* TargetRotation) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.LookingDirectionWithOffset");
-
-	struct ABP_AnimalBase_C_LookingDirectionWithOffset_Params {
-		float OffsetInterpSpeed;			//Offset: 0 | ElementSize: 4
-		float NE_Angle;			//Offset: 4 | ElementSize: 4
-		float NW_Angle;			//Offset: 8 | ElementSize: 4
-		float SE_Angle;			//Offset: 12 | ElementSize: 4
-		float SW_Angle;			//Offset: 16 | ElementSize: 4
-		float Buffer;			//Offset: 20 | ElementSize: 4
-		struct FRotator TargetRotation;			//Offset: 24 | ElementSize: 12
-	};
-	ABP_AnimalBase_C_LookingDirectionWithOffset_Params params;
-	params.OffsetInterpSpeed = OffsetInterpSpeed;
-	params.NE_Angle = NE_Angle;
-	params.NW_Angle = NW_Angle;
-	params.SE_Angle = SE_Angle;
-	params.SW_Angle = SW_Angle;
-	params.Buffer = Buffer;
-
-	UObject::ProcessEvent(fn, &params);
-	if (TargetRotation != nullptr)
-		*TargetRotation = params.TargetRotation;
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.OnAnimalGaitModeChanged
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::OnAnimalGaitModeChanged() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.OnAnimalGaitModeChanged");
-
-	struct ABP_AnimalBase_C_OnAnimalGaitModeChanged_Params {
-	};
-	ABP_AnimalBase_C_OnAnimalGaitModeChanged_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.OnAnimalRotationModeChanged
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::OnAnimalRotationModeChanged() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.OnAnimalRotationModeChanged");
-
-	struct ABP_AnimalBase_C_OnAnimalRotationModeChanged_Params {
-	};
-	ABP_AnimalBase_C_OnAnimalRotationModeChanged_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.LimitRotation
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: AimYawLimit	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: interpSpeed	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::LimitRotation(float AimYawLimit, float interpSpeed) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.LimitRotation");
-
-	struct ABP_AnimalBase_C_LimitRotation_Params {
-		float AimYawLimit;			//Offset: 0 | ElementSize: 4
-		float interpSpeed;			//Offset: 4 | ElementSize: 4
-	};
-	ABP_AnimalBase_C_LimitRotation_Params params;
-	params.AimYawLimit = AimYawLimit;
-	params.interpSpeed = interpSpeed;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -3436,43 +3715,21 @@ void ABP_AnimalBase_C::AnimalBleed() {
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.SetMaxWalkSpeed
+// Function BP_AnimalBase.BP_AnimalBase_C.Set Max Walk Speed
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: MaxWalkSpeed	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::SetMaxWalkSpeed(float MaxWalkSpeed) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetMaxWalkSpeed");
+void ABP_AnimalBase_C::Set_Max_Walk_Speed(float MaxWalkSpeed) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Set Max Walk Speed");
 
-	struct ABP_AnimalBase_C_SetMaxWalkSpeed_Params {
+	struct ABP_AnimalBase_C_Set_Max_Walk_Speed_Params {
 		float MaxWalkSpeed;			//Offset: 0 | ElementSize: 4
 	};
-	ABP_AnimalBase_C_SetMaxWalkSpeed_Params params;
+	ABP_AnimalBase_C_Set_Max_Walk_Speed_Params params;
 	params.MaxWalkSpeed = MaxWalkSpeed;
 
 	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.CalculateMaxWalkSpeed
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
-// Params:
-// Name: WalkSpeed	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: MaxWalkSpeed	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::CalculateMaxWalkSpeed(float WalkSpeed, float* MaxWalkSpeed) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CalculateMaxWalkSpeed");
-
-	struct ABP_AnimalBase_C_CalculateMaxWalkSpeed_Params {
-		float WalkSpeed;			//Offset: 0 | ElementSize: 4
-		float MaxWalkSpeed;			//Offset: 4 | ElementSize: 4
-	};
-	ABP_AnimalBase_C_CalculateMaxWalkSpeed_Params params;
-	params.WalkSpeed = WalkSpeed;
-
-	UObject::ProcessEvent(fn, &params);
-	if (MaxWalkSpeed != nullptr)
-		*MaxWalkSpeed = params.MaxWalkSpeed;
 }
 
 /////////////////////////////////////////////
@@ -3569,7 +3826,7 @@ void ABP_AnimalBase_C::GetHusbandryDataToSave(struct FST_SAVE_HusbandryAnimals* 
 	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetHusbandryDataToSave");
 
 	struct ABP_AnimalBase_C_GetHusbandryDataToSave_Params {
-		struct FST_SAVE_HusbandryAnimals HusbandryData;			//Offset: 0 | ElementSize: 112
+		struct FST_SAVE_HusbandryAnimals HusbandryData;			//Offset: 0 | ElementSize: 160
 	};
 	ABP_AnimalBase_C_GetHusbandryDataToSave_Params params;
 
@@ -3588,7 +3845,7 @@ void ABP_AnimalBase_C::SetHusbandryDataFromSave(struct FST_SAVE_HusbandryAnimals
 	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetHusbandryDataFromSave");
 
 	struct ABP_AnimalBase_C_SetHusbandryDataFromSave_Params {
-		struct FST_SAVE_HusbandryAnimals HusbandryData;			//Offset: 0 | ElementSize: 112
+		struct FST_SAVE_HusbandryAnimals HusbandryData;			//Offset: 0 | ElementSize: 160
 	};
 	ABP_AnimalBase_C_SetHusbandryDataFromSave_Params params;
 	params.HusbandryData = HusbandryData;
@@ -3697,25 +3954,6 @@ void ABP_AnimalBase_C::CalculateEncumberedSpeed() {
 	ABP_AnimalBase_C_CalculateEncumberedSpeed_Params params;
 
 	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.ChooseMaxWalkSpeed
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
-// Params:
-// Name: MaxWalkSpeed	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::ChooseMaxWalkSpeed(float* MaxWalkSpeed) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.ChooseMaxWalkSpeed");
-
-	struct ABP_AnimalBase_C_ChooseMaxWalkSpeed_Params {
-		float MaxWalkSpeed;			//Offset: 0 | ElementSize: 4
-	};
-	ABP_AnimalBase_C_ChooseMaxWalkSpeed_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-	if (MaxWalkSpeed != nullptr)
-		*MaxWalkSpeed = params.MaxWalkSpeed;
 }
 
 /////////////////////////////////////////////
@@ -3893,25 +4131,6 @@ void ABP_AnimalBase_C::ResetCausersTime() {
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.GetInteractAnimation
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: InteractAnimationMontage	Type: class UAnimMontage*	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::GetInteractAnimation(class UAnimMontage** InteractAnimationMontage) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetInteractAnimation");
-
-	struct ABP_AnimalBase_C_GetInteractAnimation_Params {
-		class UAnimMontage* InteractAnimationMontage;			//Offset: 0 | ElementSize: 8
-	};
-	ABP_AnimalBase_C_GetInteractAnimation_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-	if (InteractAnimationMontage != nullptr)
-		*InteractAnimationMontage = params.InteractAnimationMontage;
-}
-
-/////////////////////////////////////////////
 // Function BP_AnimalBase.BP_AnimalBase_C.BoostComponentDebug
 // Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
@@ -3975,32 +4194,742 @@ void ABP_AnimalBase_C::UpdateReputationOnHit(float SubtractedHealth) {
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.CalculateActorLocationAndRotationInRagdoll
-// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Function BP_AnimalBase.BP_AnimalBase_C.CalculateRandomBloodEffectSize
+// Flags: Protected, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: RagdollRotation	Type: struct FRotator	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-// Name: RagdollLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: ActorRotation	Type: struct FRotator	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
-// Name: actorLocation	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Size	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::CalculateActorLocationAndRotationInRagdoll(struct FRotator RagdollRotation, struct FVector RagdollLocation, struct FRotator* ActorRotation, struct FVector* actorLocation) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CalculateActorLocationAndRotationInRagdoll");
+void ABP_AnimalBase_C::CalculateRandomBloodEffectSize(struct FVector* Size) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CalculateRandomBloodEffectSize");
 
-	struct ABP_AnimalBase_C_CalculateActorLocationAndRotationInRagdoll_Params {
-		struct FRotator RagdollRotation;			//Offset: 0 | ElementSize: 12
-		struct FVector RagdollLocation;			//Offset: 12 | ElementSize: 12
-		struct FRotator ActorRotation;			//Offset: 24 | ElementSize: 12
-		struct FVector actorLocation;			//Offset: 36 | ElementSize: 12
+	struct ABP_AnimalBase_C_CalculateRandomBloodEffectSize_Params {
+		struct FVector Size;			//Offset: 0 | ElementSize: 12
 	};
-	ABP_AnimalBase_C_CalculateActorLocationAndRotationInRagdoll_Params params;
-	params.RagdollRotation = RagdollRotation;
-	params.RagdollLocation = RagdollLocation;
+	ABP_AnimalBase_C_CalculateRandomBloodEffectSize_Params params;
 
 	UObject::ProcessEvent(fn, &params);
-	if (ActorRotation != nullptr)
-		*ActorRotation = params.ActorRotation;
-	if (actorLocation != nullptr)
-		*actorLocation = params.actorLocation;
+	if (Size != nullptr)
+		*Size = params.Size;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetIdleType
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: idleType	Type: TEnumAsByte<E_MultiplayerAnimalIdleType>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetIdleType(TEnumAsByte<E_MultiplayerAnimalIdleType>* idleType) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetIdleType");
+
+	struct ABP_AnimalBase_C_GetIdleType_Params {
+		TEnumAsByte<E_MultiplayerAnimalIdleType> idleType;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_GetIdleType_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (idleType != nullptr)
+		*idleType = params.idleType;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.OnRep_Variation
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::OnRep_Variation() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.OnRep_Variation");
+
+	struct ABP_AnimalBase_C_OnRep_Variation_Params {
+	};
+	ABP_AnimalBase_C_OnRep_Variation_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.CalculateTargetSpeed
+// Flags: Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+float ABP_AnimalBase_C::CalculateTargetSpeed() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CalculateTargetSpeed");
+
+	struct ABP_AnimalBase_C_CalculateTargetSpeed_Params {
+		float ReturnValue;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_CalculateTargetSpeed_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.DebugValidateCollision
+// Flags: Private, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::DebugValidateCollision() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.DebugValidateCollision");
+
+	struct ABP_AnimalBase_C_DebugValidateCollision_Params {
+	};
+	ABP_AnimalBase_C_DebugValidateCollision_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.CalculateTargetAcceleration
+// Flags: Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+float ABP_AnimalBase_C::CalculateTargetAcceleration() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CalculateTargetAcceleration");
+
+	struct ABP_AnimalBase_C_CalculateTargetAcceleration_Params {
+		float ReturnValue;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_CalculateTargetAcceleration_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.AddCombatActor
+// Flags: Protected, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: CombatActor	Type: class AActor*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ProvokeToAttack	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::AddCombatActor(class AActor* CombatActor, bool ProvokeToAttack) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.AddCombatActor");
+
+	struct ABP_AnimalBase_C_AddCombatActor_Params {
+		class AActor* CombatActor;			//Offset: 0 | ElementSize: 8
+		bool ProvokeToAttack;			//Offset: 8 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_AddCombatActor_Params params;
+	params.CombatActor = CombatActor;
+	params.ProvokeToAttack = ProvokeToAttack;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.RemoveAllCombatActors
+// Flags: Protected, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::RemoveAllCombatActors() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.RemoveAllCombatActors");
+
+	struct ABP_AnimalBase_C_RemoveAllCombatActors_Params {
+	};
+	ABP_AnimalBase_C_RemoveAllCombatActors_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.RemoveCombatActor
+// Flags: Protected, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: CombatActor	Type: class AActor*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::RemoveCombatActor(class AActor* CombatActor) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.RemoveCombatActor");
+
+	struct ABP_AnimalBase_C_RemoveCombatActor_Params {
+		class AActor* CombatActor;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_AnimalBase_C_RemoveCombatActor_Params params;
+	params.CombatActor = CombatActor;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetCombatActors
+// Flags: Protected, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: CombatActors	Type: TArray<class AActor*>	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetCombatActors(TArray<class AActor*>* CombatActors)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetCombatActors");
+
+	struct ABP_AnimalBase_C_GetCombatActors_Params {
+		TArray<class AActor*> CombatActors;			//Offset: 0 | ElementSize: 16
+	};
+	ABP_AnimalBase_C_GetCombatActors_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (CombatActors != nullptr)
+		*CombatActors = params.CombatActors;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.UpdateCombatActors
+// Flags: Private, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::UpdateCombatActors() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.UpdateCombatActors");
+
+	struct ABP_AnimalBase_C_UpdateCombatActors_Params {
+	};
+	ABP_AnimalBase_C_UpdateCombatActors_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.Set Is Stuck
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: IsStuck	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::Set_Is_Stuck(bool IsStuck) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.Set Is Stuck");
+
+	struct ABP_AnimalBase_C_Set_Is_Stuck_Params {
+		bool IsStuck;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_Set_Is_Stuck_Params params;
+	params.IsStuck = IsStuck;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetIsStuck
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure, Const
+// Params:
+// Name: IsStuck	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetIsStuck(bool* IsStuck)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetIsStuck");
+
+	struct ABP_AnimalBase_C_GetIsStuck_Params {
+		bool IsStuck;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_GetIsStuck_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (IsStuck != nullptr)
+		*IsStuck = params.IsStuck;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.DebugMovement
+// Flags: Private, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::DebugMovement() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.DebugMovement");
+
+	struct ABP_AnimalBase_C_DebugMovement_Params {
+	};
+	ABP_AnimalBase_C_DebugMovement_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.DebugMovementStart
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::DebugMovementStart() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.DebugMovementStart");
+
+	struct ABP_AnimalBase_C_DebugMovementStart_Params {
+	};
+	ABP_AnimalBase_C_DebugMovementStart_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.OnRep_Ownership
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::OnRep_Ownership() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.OnRep_Ownership");
+
+	struct ABP_AnimalBase_C_OnRep_Ownership_Params {
+	};
+	ABP_AnimalBase_C_OnRep_Ownership_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.SetDefaultSpawn
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: DefaultSpawnLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: DefaultSpawnRadius	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::SetDefaultSpawn(struct FVector DefaultSpawnLocation, float DefaultSpawnRadius) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.SetDefaultSpawn");
+
+	struct ABP_AnimalBase_C_SetDefaultSpawn_Params {
+		struct FVector DefaultSpawnLocation;			//Offset: 0 | ElementSize: 12
+		float DefaultSpawnRadius;			//Offset: 12 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_SetDefaultSpawn_Params params;
+	params.DefaultSpawnLocation = DefaultSpawnLocation;
+	params.DefaultSpawnRadius = DefaultSpawnRadius;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetSpawn
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: SpawnLocation	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: SpawnRotation	Type: struct FRotator	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: SpawnRadius	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: SpawnExtent	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetSpawn(struct FVector* SpawnLocation, struct FRotator* SpawnRotation, float* SpawnRadius, struct FVector* SpawnExtent)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetSpawn");
+
+	struct ABP_AnimalBase_C_GetSpawn_Params {
+		struct FVector SpawnLocation;			//Offset: 0 | ElementSize: 12
+		struct FRotator SpawnRotation;			//Offset: 12 | ElementSize: 12
+		float SpawnRadius;			//Offset: 24 | ElementSize: 4
+		struct FVector SpawnExtent;			//Offset: 28 | ElementSize: 12
+	};
+	ABP_AnimalBase_C_GetSpawn_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (SpawnLocation != nullptr)
+		*SpawnLocation = params.SpawnLocation;
+	if (SpawnRotation != nullptr)
+		*SpawnRotation = params.SpawnRotation;
+	if (SpawnRadius != nullptr)
+		*SpawnRadius = params.SpawnRadius;
+	if (SpawnExtent != nullptr)
+		*SpawnExtent = params.SpawnExtent;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.IsInSpawnRadius
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure, Const
+// Params:
+// Name: IsInSpawnRadius	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::IsInSpawnRadius(bool* IsInSpawnRadius)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.IsInSpawnRadius");
+
+	struct ABP_AnimalBase_C_IsInSpawnRadius_Params {
+		bool IsInSpawnRadius;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_IsInSpawnRadius_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (IsInSpawnRadius != nullptr)
+		*IsInSpawnRadius = params.IsInSpawnRadius;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.DetermineSize
+// Flags: Private, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::DetermineSize() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.DetermineSize");
+
+	struct ABP_AnimalBase_C_DetermineSize_Params {
+	};
+	ABP_AnimalBase_C_DetermineSize_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetAttackDamage
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure, Const
+// Params:
+// Name: AttackDamage	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetAttackDamage(float* AttackDamage)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetAttackDamage");
+
+	struct ABP_AnimalBase_C_GetAttackDamage_Params {
+		float AttackDamage;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_GetAttackDamage_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (AttackDamage != nullptr)
+		*AttackDamage = params.AttackDamage;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.UpdateSettings
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::UpdateSettings() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.UpdateSettings");
+
+	struct ABP_AnimalBase_C_UpdateSettings_Params {
+	};
+	ABP_AnimalBase_C_UpdateSettings_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.CanStartRagdoll
+// Flags: Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+bool ABP_AnimalBase_C::CanStartRagdoll() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CanStartRagdoll");
+
+	struct ABP_AnimalBase_C_CanStartRagdoll_Params {
+		bool ReturnValue;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_CanStartRagdoll_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.UnlockAchievementForCausers
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Achievement	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::UnlockAchievementForCausers(struct FName Achievement) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.UnlockAchievementForCausers");
+
+	struct ABP_AnimalBase_C_UnlockAchievementForCausers_Params {
+		struct FName Achievement;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_AnimalBase_C_UnlockAchievementForCausers_Params params;
+	params.Achievement = Achievement;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.AddStatProgressForCausers
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: StatName	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: StatValue	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: TreatAsSet	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::AddStatProgressForCausers(struct FName StatName, int32_t StatValue, bool TreatAsSet) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.AddStatProgressForCausers");
+
+	struct ABP_AnimalBase_C_AddStatProgressForCausers_Params {
+		struct FName StatName;			//Offset: 0 | ElementSize: 8
+		int32_t StatValue;			//Offset: 8 | ElementSize: 4
+		bool TreatAsSet;			//Offset: 12 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_AddStatProgressForCausers_Params params;
+	params.StatName = StatName;
+	params.StatValue = StatValue;
+	params.TreatAsSet = TreatAsSet;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetFirstReactionDistance
+// Flags: Protected, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure, Const
+// Params:
+// Name: FirstReactionDistance	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetFirstReactionDistance(float* FirstReactionDistance)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetFirstReactionDistance");
+
+	struct ABP_AnimalBase_C_GetFirstReactionDistance_Params {
+		float FirstReactionDistance;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_GetFirstReactionDistance_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (FirstReactionDistance != nullptr)
+		*FirstReactionDistance = params.FirstReactionDistance;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.CheckIfNPC_HasSeenAnimalAbuse
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: StartVector	Type: struct FVector	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Radius	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ObjectTypes	Type: TArray<TEnumAsByte<EObjectTypeQuery>>	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm
+// Name: Observed	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::CheckIfNPC_HasSeenAnimalAbuse(struct FVector StartVector, float Radius, const TArray<TEnumAsByte<EObjectTypeQuery>>& ObjectTypes, bool* Observed) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CheckIfNPC_HasSeenAnimalAbuse");
+
+	struct ABP_AnimalBase_C_CheckIfNPC_HasSeenAnimalAbuse_Params {
+		struct FVector StartVector;			//Offset: 0 | ElementSize: 12
+		float Radius;			//Offset: 12 | ElementSize: 4
+		TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes;			//Offset: 16 | ElementSize: 16
+		bool Observed;			//Offset: 32 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_CheckIfNPC_HasSeenAnimalAbuse_Params params;
+	params.StartVector = StartVector;
+	params.Radius = Radius;
+	params.ObjectTypes = ObjectTypes;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Observed != nullptr)
+		*Observed = params.Observed;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.CalculateDamageToReceive
+// Flags: Event, Protected, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: appliedDamage	Type: float	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: hitFromDirection	Type: struct FVector	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: hits	Type: TArray<struct FHitResult>	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, ContainsInstancedReference
+// Name: damageInstigator	Type: class AController*	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: DamageCauser	Type: class AActor*	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: DamageTypeClass	Type: class UDamageType*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash
+// Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+float ABP_AnimalBase_C::CalculateDamageToReceive(float appliedDamage, const struct FVector& hitFromDirection, const TArray<struct FHitResult>& hits, class AController* damageInstigator, class AActor* DamageCauser, class UDamageType* DamageTypeClass)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CalculateDamageToReceive");
+
+	struct ABP_AnimalBase_C_CalculateDamageToReceive_Params {
+		float appliedDamage;			//Offset: 0 | ElementSize: 4
+		struct FVector hitFromDirection;			//Offset: 4 | ElementSize: 12
+		TArray<struct FHitResult> hits;			//Offset: 16 | ElementSize: 16
+		class AController* damageInstigator;			//Offset: 32 | ElementSize: 8
+		class AActor* DamageCauser;			//Offset: 40 | ElementSize: 8
+		class UDamageType* DamageTypeClass;			//Offset: 48 | ElementSize: 8
+		float ReturnValue;			//Offset: 56 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_CalculateDamageToReceive_Params params;
+	params.appliedDamage = appliedDamage;
+	params.hitFromDirection = hitFromDirection;
+	params.hits = hits;
+	params.damageInstigator = damageInstigator;
+	params.DamageCauser = DamageCauser;
+	params.DamageTypeClass = DamageTypeClass;
+
+	UObject::ProcessEvent(fn, &params);
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetDamageResistance
+// Flags: Private, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: DamageTypeClass	Type: class UDamageType*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: DamageResistance	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetDamageResistance(class UDamageType* DamageTypeClass, float* DamageResistance)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetDamageResistance");
+
+	struct ABP_AnimalBase_C_GetDamageResistance_Params {
+		class UDamageType* DamageTypeClass;			//Offset: 0 | ElementSize: 8
+		float DamageResistance;			//Offset: 8 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_GetDamageResistance_Params params;
+	params.DamageTypeClass = DamageTypeClass;
+
+	UObject::ProcessEvent(fn, &params);
+	if (DamageResistance != nullptr)
+		*DamageResistance = params.DamageResistance;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.IsAlive
+// Flags: Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure, Const
+// Params:
+// Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+bool ABP_AnimalBase_C::IsAlive()/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.IsAlive");
+
+	struct ABP_AnimalBase_C_IsAlive_Params {
+		bool ReturnValue;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_IsAlive_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetMaxHealth
+// Flags: Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure, Const
+// Params:
+// Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+float ABP_AnimalBase_C::GetMaxHealth()/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetMaxHealth");
+
+	struct ABP_AnimalBase_C_GetMaxHealth_Params {
+		float ReturnValue;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_GetMaxHealth_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.HasFullHealth
+// Flags: Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure, Const
+// Params:
+// Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+bool ABP_AnimalBase_C::HasFullHealth()/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.HasFullHealth");
+
+	struct ABP_AnimalBase_C_HasFullHealth_Params {
+		bool ReturnValue;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_HasFullHealth_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetHealthNormalized
+// Flags: Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure, Const
+// Params:
+// Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+float ABP_AnimalBase_C::GetHealthNormalized()/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetHealthNormalized");
+
+	struct ABP_AnimalBase_C_GetHealthNormalized_Params {
+		float ReturnValue;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_GetHealthNormalized_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetHealth
+// Flags: Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure, Const
+// Params:
+// Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+float ABP_AnimalBase_C::GetHealth()/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetHealth");
+
+	struct ABP_AnimalBase_C_GetHealth_Params {
+		float ReturnValue;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_GetHealth_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.OnHealthChanged
+// Flags: Private, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::OnHealthChanged() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.OnHealthChanged");
+
+	struct ABP_AnimalBase_C_OnHealthChanged_Params {
+	};
+	ABP_AnimalBase_C_OnHealthChanged_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.OnDeath
+// Flags: Protected, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::OnDeath() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.OnDeath");
+
+	struct ABP_AnimalBase_C_OnDeath_Params {
+	};
+	ABP_AnimalBase_C_OnDeath_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.OnAnyDamageReceived
+// Flags: Protected, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ReceivedDamage	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: EventInstigator	Type: class AController*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: DamageCauser	Type: class AActor*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: DamageType	Type: class UDamageType*	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::OnAnyDamageReceived(float ReceivedDamage, class AController* EventInstigator, class AActor* DamageCauser, class UDamageType* DamageType) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.OnAnyDamageReceived");
+
+	struct ABP_AnimalBase_C_OnAnyDamageReceived_Params {
+		float ReceivedDamage;			//Offset: 0 | ElementSize: 4
+		class AController* EventInstigator;			//Offset: 8 | ElementSize: 8
+		class AActor* DamageCauser;			//Offset: 16 | ElementSize: 8
+		class UDamageType* DamageType;			//Offset: 24 | ElementSize: 8
+	};
+	ABP_AnimalBase_C_OnAnyDamageReceived_Params params;
+	params.ReceivedDamage = ReceivedDamage;
+	params.EventInstigator = EventInstigator;
+	params.DamageCauser = DamageCauser;
+	params.DamageType = DamageType;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.OnPointDamageReceived
+// Flags: Protected, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ReceivedDamage	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: hitFromDirection	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Hit	Type: struct FHitResult	Flags: BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor, ContainsInstancedReference
+// Name: EventInstigator	Type: class AController*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: DamageCauser	Type: class AActor*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: DamageType	Type: class UDamageType*	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::OnPointDamageReceived(float ReceivedDamage, struct FVector hitFromDirection, struct FHitResult Hit, class AController* EventInstigator, class AActor* DamageCauser, class UDamageType* DamageType) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.OnPointDamageReceived");
+
+	struct ABP_AnimalBase_C_OnPointDamageReceived_Params {
+		float ReceivedDamage;			//Offset: 0 | ElementSize: 4
+		struct FVector hitFromDirection;			//Offset: 4 | ElementSize: 12
+		struct FHitResult Hit;			//Offset: 16 | ElementSize: 136
+		class AController* EventInstigator;			//Offset: 152 | ElementSize: 8
+		class AActor* DamageCauser;			//Offset: 160 | ElementSize: 8
+		class UDamageType* DamageType;			//Offset: 168 | ElementSize: 8
+	};
+	ABP_AnimalBase_C_OnPointDamageReceived_Params params;
+	params.ReceivedDamage = ReceivedDamage;
+	params.hitFromDirection = hitFromDirection;
+	params.Hit = Hit;
+	params.EventInstigator = EventInstigator;
+	params.DamageCauser = DamageCauser;
+	params.DamageType = DamageType;
+
+	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
@@ -4083,15 +5012,18 @@ void ABP_AnimalBase_C::GetForSale(bool* ForSale) {
 // Function BP_AnimalBase.BP_AnimalBase_C.GetPrice_Buy
 // Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
+// Name: Trading	Type: TScriptInterface<class UBPI_Trading_C>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: Price	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::GetPrice_Buy(int32_t* Price) {
+void ABP_AnimalBase_C::GetPrice_Buy(TScriptInterface<class UBPI_Trading_C> Trading, int32_t* Price) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetPrice_Buy");
 
 	struct ABP_AnimalBase_C_GetPrice_Buy_Params {
-		int32_t Price;			//Offset: 0 | ElementSize: 4
+		TScriptInterface<class UBPI_Trading_C> Trading;			//Offset: 0 | ElementSize: 16
+		int32_t Price;			//Offset: 16 | ElementSize: 4
 	};
 	ABP_AnimalBase_C_GetPrice_Buy_Params params;
+	params.Trading = Trading;
 
 	UObject::ProcessEvent(fn, &params);
 	if (Price != nullptr)
@@ -4102,15 +5034,18 @@ void ABP_AnimalBase_C::GetPrice_Buy(int32_t* Price) {
 // Function BP_AnimalBase.BP_AnimalBase_C.GetPrice_Sell
 // Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
+// Name: Trading	Type: TScriptInterface<class UBPI_Trading_C>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: Price	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::GetPrice_Sell(int32_t* Price) {
+void ABP_AnimalBase_C::GetPrice_Sell(TScriptInterface<class UBPI_Trading_C> Trading, int32_t* Price) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetPrice_Sell");
 
 	struct ABP_AnimalBase_C_GetPrice_Sell_Params {
-		int32_t Price;			//Offset: 0 | ElementSize: 4
+		TScriptInterface<class UBPI_Trading_C> Trading;			//Offset: 0 | ElementSize: 16
+		int32_t Price;			//Offset: 16 | ElementSize: 4
 	};
 	ABP_AnimalBase_C_GetPrice_Sell_Params params;
+	params.Trading = Trading;
 
 	UObject::ProcessEvent(fn, &params);
 	if (Price != nullptr)
@@ -4220,18 +5155,26 @@ void ABP_AnimalBase_C::WarnAnimal(class AActor* EngageActor, bool* Success) {
 // Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: CustomName	Type: struct FString	Flags: Parm, OutParm, ZeroConstructor, HasGetValueTypeHash
+// Name: CustomName_PlayerNickname	Type: struct FString	Flags: Parm, OutParm, ZeroConstructor, HasGetValueTypeHash
+// Name: CustomName_PlayerNetID	Type: struct FString	Flags: Parm, OutParm, ZeroConstructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::GetAnimalCustomName(struct FString* CustomName) {
+void ABP_AnimalBase_C::GetAnimalCustomName(struct FString* CustomName, struct FString* CustomName_PlayerNickname, struct FString* CustomName_PlayerNetID) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetAnimalCustomName");
 
 	struct ABP_AnimalBase_C_GetAnimalCustomName_Params {
 		struct FString CustomName;			//Offset: 0 | ElementSize: 16
+		struct FString CustomName_PlayerNickname;			//Offset: 16 | ElementSize: 16
+		struct FString CustomName_PlayerNetID;			//Offset: 32 | ElementSize: 16
 	};
 	ABP_AnimalBase_C_GetAnimalCustomName_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 	if (CustomName != nullptr)
 		*CustomName = params.CustomName;
+	if (CustomName_PlayerNickname != nullptr)
+		*CustomName_PlayerNickname = params.CustomName_PlayerNickname;
+	if (CustomName_PlayerNetID != nullptr)
+		*CustomName_PlayerNetID = params.CustomName_PlayerNetID;
 }
 
 /////////////////////////////////////////////
@@ -4274,11 +5217,11 @@ void ABP_AnimalBase_C::GetSkinningSocketLocation(struct FVector* SkinningSocketL
 
 /////////////////////////////////////////////
 // Function BP_AnimalBase.BP_AnimalBase_C.GetAnimalType
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, Const
 // Params:
 // Name: AnimalType	Type: TEnumAsByte<E_AnimalType>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::GetAnimalType(TEnumAsByte<E_AnimalType>* AnimalType) {
+void ABP_AnimalBase_C::GetAnimalType(TEnumAsByte<E_AnimalType>* AnimalType)/* const*/ {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetAnimalType");
 
 	struct ABP_AnimalBase_C_GetAnimalType_Params {
@@ -4308,25 +5251,6 @@ void ABP_AnimalBase_C::GetMass(float* Mass) {
 	UObject::ProcessEvent(fn, &params);
 	if (Mass != nullptr)
 		*Mass = params.Mass;
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.CanPushOthers
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: CanPushOthers	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::CanPushOthers(bool* CanPushOthers) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CanPushOthers");
-
-	struct ABP_AnimalBase_C_CanPushOthers_Params {
-		bool CanPushOthers;			//Offset: 0 | ElementSize: 1
-	};
-	ABP_AnimalBase_C_CanPushOthers_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-	if (CanPushOthers != nullptr)
-		*CanPushOthers = params.CanPushOthers;
 }
 
 /////////////////////////////////////////////
@@ -4501,6 +5425,81 @@ void ABP_AnimalBase_C::GetAnimalRadius(float* Radius) {
 }
 
 /////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetAnimalName_BPI
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ReturnValue	Type: struct FText	Flags: Parm, OutParm, ReturnParm
+/////////////////////////////////////////////
+struct FText ABP_AnimalBase_C::GetAnimalName_BPI() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetAnimalName_BPI");
+
+	struct ABP_AnimalBase_C_GetAnimalName_BPI_Params {
+		struct FText ReturnValue;			//Offset: 0 | ElementSize: 24
+	};
+	ABP_AnimalBase_C_GetAnimalName_BPI_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetStatsComponent_AnimalBPI
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: StatsComponent	Type: class UActorComponent*	Flags: Parm, OutParm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetStatsComponent_AnimalBPI(class UActorComponent** StatsComponent) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetStatsComponent_AnimalBPI");
+
+	struct ABP_AnimalBase_C_GetStatsComponent_AnimalBPI_Params {
+		class UActorComponent* StatsComponent;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_AnimalBase_C_GetStatsComponent_AnimalBPI_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (StatsComponent != nullptr)
+		*StatsComponent = params.StatsComponent;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetIsInWater
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Value	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetIsInWater(bool* Value) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetIsInWater");
+
+	struct ABP_AnimalBase_C_GetIsInWater_Params {
+		bool Value;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_GetIsInWater_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Value != nullptr)
+		*Value = params.Value;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetInteractedCharacter_BPI
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Actor	Type: class AActor*	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetInteractedCharacter_BPI(class AActor** Actor) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetInteractedCharacter_BPI");
+
+	struct ABP_AnimalBase_C_GetInteractedCharacter_BPI_Params {
+		class AActor* Actor;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_AnimalBase_C_GetInteractedCharacter_BPI_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Actor != nullptr)
+		*Actor = params.Actor;
+}
+
+/////////////////////////////////////////////
 // Function BP_AnimalBase.BP_AnimalBase_C.IsInteractable
 // Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
@@ -4550,17 +5549,20 @@ void ABP_AnimalBase_C::IsInteractable(class ABP_BaseCharacter_C* BaseCharacter, 
 // Function BP_AnimalBase.BP_AnimalBase_C.GetInteractAction
 // Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
+// Name: BaseCharacter	Type: class ABP_BaseCharacter_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: InteractActionText	Type: struct FText	Flags: Parm, OutParm
 // Name: InteractSecondActionText	Type: struct FText	Flags: Parm, OutParm
 /////////////////////////////////////////////
-void ABP_AnimalBase_C::GetInteractAction(struct FText* InteractActionText, struct FText* InteractSecondActionText) {
+void ABP_AnimalBase_C::GetInteractAction(class ABP_BaseCharacter_C* BaseCharacter, struct FText* InteractActionText, struct FText* InteractSecondActionText) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetInteractAction");
 
 	struct ABP_AnimalBase_C_GetInteractAction_Params {
-		struct FText InteractActionText;			//Offset: 0 | ElementSize: 24
-		struct FText InteractSecondActionText;			//Offset: 24 | ElementSize: 24
+		class ABP_BaseCharacter_C* BaseCharacter;			//Offset: 0 | ElementSize: 8
+		struct FText InteractActionText;			//Offset: 8 | ElementSize: 24
+		struct FText InteractSecondActionText;			//Offset: 32 | ElementSize: 24
 	};
 	ABP_AnimalBase_C_GetInteractAction_Params params;
+	params.BaseCharacter = BaseCharacter;
 
 	UObject::ProcessEvent(fn, &params);
 	if (InteractActionText != nullptr)
@@ -4713,25 +5715,6 @@ void ABP_AnimalBase_C::IsToolInteractable(class ABP_BaseCharacter_C* BaseCharact
 		*Interactable = params.Interactable;
 	if (Possibility != nullptr)
 		*Possibility = params.Possibility;
-}
-
-/////////////////////////////////////////////
-// Function BP_AnimalBase.BP_AnimalBase_C.GetNPCInteractTime
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Time	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_AnimalBase_C::GetNPCInteractTime(float* Time) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetNPCInteractTime");
-
-	struct ABP_AnimalBase_C_GetNPCInteractTime_Params {
-		float Time;			//Offset: 0 | ElementSize: 4
-	};
-	ABP_AnimalBase_C_GetNPCInteractTime_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-	if (Time != nullptr)
-		*Time = params.Time;
 }
 
 /////////////////////////////////////////////
@@ -5250,6 +6233,50 @@ void ABP_AnimalBase_C::GetNPC_Interactable(TArray<bool>* NPC_Interactable) {
 	UObject::ProcessEvent(fn, &params);
 	if (NPC_Interactable != nullptr)
 		*NPC_Interactable = params.NPC_Interactable;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetInteractAnimationForViewmode_BPI
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ViewMode	Type: TEnumAsByte<E_ViewMode>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: InteractionAnimationMontage	Type: class UAnimMontage*	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetInteractAnimationForViewmode_BPI(TEnumAsByte<E_ViewMode> ViewMode, class UAnimMontage** InteractionAnimationMontage) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetInteractAnimationForViewmode_BPI");
+
+	struct ABP_AnimalBase_C_GetInteractAnimationForViewmode_BPI_Params {
+		TEnumAsByte<E_ViewMode> ViewMode;			//Offset: 0 | ElementSize: 1
+		class UAnimMontage* InteractionAnimationMontage;			//Offset: 8 | ElementSize: 8
+	};
+	ABP_AnimalBase_C_GetInteractAnimationForViewmode_BPI_Params params;
+	params.ViewMode = ViewMode;
+
+	UObject::ProcessEvent(fn, &params);
+	if (InteractionAnimationMontage != nullptr)
+		*InteractionAnimationMontage = params.InteractionAnimationMontage;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.IsInRestrictedArea
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Location	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: bLocked	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::IsInRestrictedArea(struct FVector Location, bool* bLocked) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.IsInRestrictedArea");
+
+	struct ABP_AnimalBase_C_IsInRestrictedArea_Params {
+		struct FVector Location;			//Offset: 0 | ElementSize: 12
+		bool bLocked;			//Offset: 12 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_IsInRestrictedArea_Params params;
+	params.Location = Location;
+
+	UObject::ProcessEvent(fn, &params);
+	if (bLocked != nullptr)
+		*bLocked = params.bLocked;
 }
 
 /////////////////////////////////////////////
@@ -6081,6 +7108,122 @@ void ABP_AnimalBase_C::GetMountCameraAndArm(bool* IsValid, class UCameraComponen
 }
 
 /////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetMountID_BPI
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: MountID	Type: struct FGuid	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetMountID_BPI(struct FGuid* MountID) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetMountID_BPI");
+
+	struct ABP_AnimalBase_C_GetMountID_BPI_Params {
+		struct FGuid MountID;			//Offset: 0 | ElementSize: 16
+	};
+	ABP_AnimalBase_C_GetMountID_BPI_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (MountID != nullptr)
+		*MountID = params.MountID;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetMountEncumberedSpeedMultiplier_BPI
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: EncumberedSpeedMultiplier	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetMountEncumberedSpeedMultiplier_BPI(float* EncumberedSpeedMultiplier) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetMountEncumberedSpeedMultiplier_BPI");
+
+	struct ABP_AnimalBase_C_GetMountEncumberedSpeedMultiplier_BPI_Params {
+		float EncumberedSpeedMultiplier;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_GetMountEncumberedSpeedMultiplier_BPI_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (EncumberedSpeedMultiplier != nullptr)
+		*EncumberedSpeedMultiplier = params.EncumberedSpeedMultiplier;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.IsSomeonesMount_BPI
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+bool ABP_AnimalBase_C::IsSomeonesMount_BPI() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.IsSomeonesMount_BPI");
+
+	struct ABP_AnimalBase_C_IsSomeonesMount_BPI_Params {
+		bool ReturnValue;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_IsSomeonesMount_BPI_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.WasMounted_BPI
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ReturnValue	Type: bool	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+bool ABP_AnimalBase_C::WasMounted_BPI() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.WasMounted_BPI");
+
+	struct ABP_AnimalBase_C_WasMounted_BPI_Params {
+		bool ReturnValue;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_WasMounted_BPI_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetMountTalentValues_BPI
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: CurrentTalentLevel	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: TalentValues	Type: TArray<float>	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetMountTalentValues_BPI(int32_t* CurrentTalentLevel, TArray<float>* TalentValues) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetMountTalentValues_BPI");
+
+	struct ABP_AnimalBase_C_GetMountTalentValues_BPI_Params {
+		int32_t CurrentTalentLevel;			//Offset: 0 | ElementSize: 4
+		TArray<float> TalentValues;			//Offset: 8 | ElementSize: 16
+	};
+	ABP_AnimalBase_C_GetMountTalentValues_BPI_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (CurrentTalentLevel != nullptr)
+		*CurrentTalentLevel = params.CurrentTalentLevel;
+	if (TalentValues != nullptr)
+		*TalentValues = params.TalentValues;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetOwnerID_BPI
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: OwnerID	Type: struct FGuid	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetOwnerID_BPI(struct FGuid* OwnerID) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetOwnerID_BPI");
+
+	struct ABP_AnimalBase_C_GetOwnerID_BPI_Params {
+		struct FGuid OwnerID;			//Offset: 0 | ElementSize: 16
+	};
+	ABP_AnimalBase_C_GetOwnerID_BPI_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (OwnerID != nullptr)
+		*OwnerID = params.OwnerID;
+}
+
+/////////////////////////////////////////////
 // Function BP_AnimalBase.BP_AnimalBase_C.GetDistance
 // Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
@@ -6116,6 +7259,215 @@ void ABP_AnimalBase_C::GetOptimalizationStage(int32_t* Stage) {
 	UObject::ProcessEvent(fn, &params);
 	if (Stage != nullptr)
 		*Stage = params.Stage;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetReaction
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: OtherObject	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Reaction	Type: TEnumAsByte<E_AIPerceptionReaction>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ReactionPriority	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetReaction(class UObject* OtherObject, TEnumAsByte<E_AIPerceptionReaction>* Reaction, int32_t* ReactionPriority)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetReaction");
+
+	struct ABP_AnimalBase_C_GetReaction_Params {
+		class UObject* OtherObject;			//Offset: 0 | ElementSize: 8
+		TEnumAsByte<E_AIPerceptionReaction> Reaction;			//Offset: 8 | ElementSize: 1
+		int32_t ReactionPriority;			//Offset: 12 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_GetReaction_Params params;
+	params.OtherObject = OtherObject;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Reaction != nullptr)
+		*Reaction = params.Reaction;
+	if (ReactionPriority != nullptr)
+		*ReactionPriority = params.ReactionPriority;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetActorType
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: ActorType	Type: struct FName	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetActorType(struct FName* ActorType)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetActorType");
+
+	struct ABP_AnimalBase_C_GetActorType_Params {
+		struct FName ActorType;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_AnimalBase_C_GetActorType_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (ActorType != nullptr)
+		*ActorType = params.ActorType;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.CanSenseOthers
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: CanSenseOthers	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::CanSenseOthers(bool* CanSenseOthers)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CanSenseOthers");
+
+	struct ABP_AnimalBase_C_CanSenseOthers_Params {
+		bool CanSenseOthers;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_CanSenseOthers_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (CanSenseOthers != nullptr)
+		*CanSenseOthers = params.CanSenseOthers;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.CanBeSensed
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: CanBeSensed	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::CanBeSensed(bool* CanBeSensed)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CanBeSensed");
+
+	struct ABP_AnimalBase_C_CanBeSensed_Params {
+		bool CanBeSensed;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_CanBeSensed_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (CanBeSensed != nullptr)
+		*CanBeSensed = params.CanBeSensed;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetCurrentAttackers
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: ActorsType	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: CurrentAttackerActors	Type: TArray<class AActor*>	Flags: Parm, OutParm
+// Name: MaxConcurrentAttackersCount	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetCurrentAttackers(struct FName ActorsType, TArray<class AActor*>* CurrentAttackerActors, int32_t* MaxConcurrentAttackersCount)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetCurrentAttackers");
+
+	struct ABP_AnimalBase_C_GetCurrentAttackers_Params {
+		struct FName ActorsType;			//Offset: 0 | ElementSize: 8
+		TArray<class AActor*> CurrentAttackerActors;			//Offset: 8 | ElementSize: 16
+		int32_t MaxConcurrentAttackersCount;			//Offset: 24 | ElementSize: 4
+	};
+	ABP_AnimalBase_C_GetCurrentAttackers_Params params;
+	params.ActorsType = ActorsType;
+
+	UObject::ProcessEvent(fn, &params);
+	if (CurrentAttackerActors != nullptr)
+		*CurrentAttackerActors = params.CurrentAttackerActors;
+	if (MaxConcurrentAttackersCount != nullptr)
+		*MaxConcurrentAttackersCount = params.MaxConcurrentAttackersCount;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetName
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: Name	Type: struct FName	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetName(struct FName* Name)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetName");
+
+	struct ABP_AnimalBase_C_GetName_Params {
+		struct FName Name;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_AnimalBase_C_GetName_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Name != nullptr)
+		*Name = params.Name;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.GetDisplayName
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: DisplayName	Type: struct FText	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::GetDisplayName(struct FText* DisplayName)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.GetDisplayName");
+
+	struct ABP_AnimalBase_C_GetDisplayName_Params {
+		struct FText DisplayName;			//Offset: 0 | ElementSize: 24
+	};
+	ABP_AnimalBase_C_GetDisplayName_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (DisplayName != nullptr)
+		*DisplayName = params.DisplayName;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.ConvertHit
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: damageToApply	Type: float	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: hitFromDirection	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Hit	Type: struct FHitResult	Flags: BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, IsPlainOldData, NoDestructor, ContainsInstancedReference
+// Name: EventInstigator	Type: class AController*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: DamageCauser	Type: class AActor*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: DamageTypeClass	Type: class UDamageType*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::ConvertHit(float damageToApply, struct FVector hitFromDirection, struct FHitResult* Hit, class AController* EventInstigator, class AActor* DamageCauser, class UDamageType* DamageTypeClass)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.ConvertHit");
+
+	struct ABP_AnimalBase_C_ConvertHit_Params {
+		float damageToApply;			//Offset: 0 | ElementSize: 4
+		struct FVector hitFromDirection;			//Offset: 4 | ElementSize: 12
+		struct FHitResult Hit;			//Offset: 16 | ElementSize: 136
+		class AController* EventInstigator;			//Offset: 152 | ElementSize: 8
+		class AActor* DamageCauser;			//Offset: 160 | ElementSize: 8
+		class UDamageType* DamageTypeClass;			//Offset: 168 | ElementSize: 8
+	};
+	ABP_AnimalBase_C_ConvertHit_Params params;
+	params.damageToApply = damageToApply;
+	params.hitFromDirection = hitFromDirection;
+	params.EventInstigator = EventInstigator;
+	params.DamageCauser = DamageCauser;
+	params.DamageTypeClass = DamageTypeClass;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Hit != nullptr)
+		*Hit = params.Hit;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalBase.BP_AnimalBase_C.CanDamage
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: Hit	Type: struct FHitResult	Flags: BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor, ContainsInstancedReference
+// Name: EventInstigator	Type: class AController*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: DamageCauser	Type: class AActor*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: CanDamage	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalBase_C::CanDamage(struct FHitResult Hit, class AController* EventInstigator, class AActor* DamageCauser, bool* CanDamage)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalBase.BP_AnimalBase_C.CanDamage");
+
+	struct ABP_AnimalBase_C_CanDamage_Params {
+		struct FHitResult Hit;			//Offset: 0 | ElementSize: 136
+		class AController* EventInstigator;			//Offset: 136 | ElementSize: 8
+		class AActor* DamageCauser;			//Offset: 144 | ElementSize: 8
+		bool CanDamage;			//Offset: 152 | ElementSize: 1
+	};
+	ABP_AnimalBase_C_CanDamage_Params params;
+	params.Hit = Hit;
+	params.EventInstigator = EventInstigator;
+	params.DamageCauser = DamageCauser;
+
+	UObject::ProcessEvent(fn, &params);
+	if (CanDamage != nullptr)
+		*CanDamage = params.CanDamage;
 }
 
 #pragma endregion

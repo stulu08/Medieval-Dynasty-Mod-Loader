@@ -4,7 +4,7 @@
 //The version of the medieval dynasty mod loader
 #define MODLOADER_VERSION "2.3.1"
 //The version of medieval dynasty
-#define MEDIEVAL_VERSION "1.5.1.3"
+#define MEDIEVAL_VERSION "2.2.0.8"
 
 #define ModLoaderConfigFile "Config/ModLoaderInfo.ini"
 #define DEFAULT_LOG_DIR "Logs"

@@ -5,298 +5,474 @@ namespace UE4 {
 // Member Getter and Setter of UberGraphFrame
 // Declaration: struct FPointerToUberGraphFrame UberGraphFrame
 struct FPointerToUberGraphFrame ABP_NPC_C::M_GetUberGraphFrame() const {
-	return Read<struct FPointerToUberGraphFrame>((byte*)this + 5888);
+	return Read<struct FPointerToUberGraphFrame>((byte*)this + 5584);
 }
 struct FPointerToUberGraphFrame* ABP_NPC_C::M_PtrGetUberGraphFrame() {
-	return reinterpret_cast<struct FPointerToUberGraphFrame*>((byte*)this + 5888);
+	return reinterpret_cast<struct FPointerToUberGraphFrame*>((byte*)this + 5584);
 }
 void ABP_NPC_C::M_SetUberGraphFrame(const struct FPointerToUberGraphFrame& value) {
-	Write((byte*)this + 5888, value);
+	Write((byte*)this + 5584, value);
 }
 // Member Getter and Setter of ShadowCaster
 // Declaration: class USkeletalMeshComponent* ShadowCaster
 class USkeletalMeshComponent* ABP_NPC_C::M_GetShadowCaster() const {
-	return Read<class USkeletalMeshComponent*>((byte*)this + 5896);
+	return Read<class USkeletalMeshComponent*>((byte*)this + 5592);
 }
 class USkeletalMeshComponent** ABP_NPC_C::M_PtrGetShadowCaster() {
-	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 5896);
+	return reinterpret_cast<class USkeletalMeshComponent**>((byte*)this + 5592);
 }
 void ABP_NPC_C::M_SetShadowCaster(const class USkeletalMeshComponent*& value) {
-	Write((byte*)this + 5896, value);
+	Write((byte*)this + 5592, value);
 }
 // Member Getter and Setter of BP_BoostComponent
 // Declaration: class UBP_BoostComponent_C* BP_BoostComponent
 class UBP_BoostComponent_C* ABP_NPC_C::M_GetBP_BoostComponent() const {
-	return Read<class UBP_BoostComponent_C*>((byte*)this + 5904);
+	return Read<class UBP_BoostComponent_C*>((byte*)this + 5600);
 }
 class UBP_BoostComponent_C** ABP_NPC_C::M_PtrGetBP_BoostComponent() {
-	return reinterpret_cast<class UBP_BoostComponent_C**>((byte*)this + 5904);
+	return reinterpret_cast<class UBP_BoostComponent_C**>((byte*)this + 5600);
 }
 void ABP_NPC_C::M_SetBP_BoostComponent(const class UBP_BoostComponent_C*& value) {
-	Write((byte*)this + 5904, value);
+	Write((byte*)this + 5600, value);
 }
 // Member Getter and Setter of NavigationInvoker
 // Declaration: class UNavigationInvokerComponent* NavigationInvoker
 class UNavigationInvokerComponent* ABP_NPC_C::M_GetNavigationInvoker() const {
-	return Read<class UNavigationInvokerComponent*>((byte*)this + 5912);
+	return Read<class UNavigationInvokerComponent*>((byte*)this + 5608);
 }
 class UNavigationInvokerComponent** ABP_NPC_C::M_PtrGetNavigationInvoker() {
-	return reinterpret_cast<class UNavigationInvokerComponent**>((byte*)this + 5912);
+	return reinterpret_cast<class UNavigationInvokerComponent**>((byte*)this + 5608);
 }
 void ABP_NPC_C::M_SetNavigationInvoker(const class UNavigationInvokerComponent*& value) {
-	Write((byte*)this + 5912, value);
+	Write((byte*)this + 5608, value);
 }
 // Member Getter and Setter of ProfessionState
 // Declaration: unsigned char ProfessionState
 unsigned char ABP_NPC_C::M_GetProfessionState() const {
-	return Read<unsigned char>((byte*)this + 5920);
+	return Read<unsigned char>((byte*)this + 5616);
 }
 unsigned char* ABP_NPC_C::M_PtrGetProfessionState() {
-	return reinterpret_cast<unsigned char*>((byte*)this + 5920);
+	return reinterpret_cast<unsigned char*>((byte*)this + 5616);
 }
 void ABP_NPC_C::M_SetProfessionState(const unsigned char& value) {
-	Write((byte*)this + 5920, value);
+	Write((byte*)this + 5616, value);
 }
 // Member Getter and Setter of BreakAnimID
 // Declaration: unsigned char BreakAnimID
 unsigned char ABP_NPC_C::M_GetBreakAnimID() const {
-	return Read<unsigned char>((byte*)this + 5921);
+	return Read<unsigned char>((byte*)this + 5617);
 }
 unsigned char* ABP_NPC_C::M_PtrGetBreakAnimID() {
-	return reinterpret_cast<unsigned char*>((byte*)this + 5921);
+	return reinterpret_cast<unsigned char*>((byte*)this + 5617);
 }
 void ABP_NPC_C::M_SetBreakAnimID(const unsigned char& value) {
-	Write((byte*)this + 5921, value);
+	Write((byte*)this + 5617, value);
 }
 // Member Getter and Setter of BreakAnimType
 // Declaration: TEnumAsByte<E_AnimBreakType> BreakAnimType
 TEnumAsByte<E_AnimBreakType> ABP_NPC_C::M_GetBreakAnimType() const {
-	return Read<TEnumAsByte<E_AnimBreakType>>((byte*)this + 5922);
+	return Read<TEnumAsByte<E_AnimBreakType>>((byte*)this + 5618);
 }
 TEnumAsByte<E_AnimBreakType>* ABP_NPC_C::M_PtrGetBreakAnimType() {
-	return reinterpret_cast<TEnumAsByte<E_AnimBreakType>*>((byte*)this + 5922);
+	return reinterpret_cast<TEnumAsByte<E_AnimBreakType>*>((byte*)this + 5618);
 }
 void ABP_NPC_C::M_SetBreakAnimType(const TEnumAsByte<E_AnimBreakType>& value) {
-	Write((byte*)this + 5922, value);
+	Write((byte*)this + 5618, value);
+}
+// Member Getter and Setter of ActivityAnimID
+// Declaration: unsigned char ActivityAnimID
+unsigned char ABP_NPC_C::M_GetActivityAnimID() const {
+	return Read<unsigned char>((byte*)this + 5619);
+}
+unsigned char* ABP_NPC_C::M_PtrGetActivityAnimID() {
+	return reinterpret_cast<unsigned char*>((byte*)this + 5619);
+}
+void ABP_NPC_C::M_SetActivityAnimID(const unsigned char& value) {
+	Write((byte*)this + 5619, value);
+}
+// Member Getter and Setter of ActivityAnimType
+// Declaration: TEnumAsByte<E_AnimActivityType> ActivityAnimType
+TEnumAsByte<E_AnimActivityType> ABP_NPC_C::M_GetActivityAnimType() const {
+	return Read<TEnumAsByte<E_AnimActivityType>>((byte*)this + 5620);
+}
+TEnumAsByte<E_AnimActivityType>* ABP_NPC_C::M_PtrGetActivityAnimType() {
+	return reinterpret_cast<TEnumAsByte<E_AnimActivityType>*>((byte*)this + 5620);
+}
+void ABP_NPC_C::M_SetActivityAnimType(const TEnumAsByte<E_AnimActivityType>& value) {
+	Write((byte*)this + 5620, value);
 }
 // Member Getter and Setter of WorkStateLoops
 // Declaration: int32_t WorkStateLoops
 int32_t ABP_NPC_C::M_GetWorkStateLoops() const {
-	return Read<int32_t>((byte*)this + 5924);
+	return Read<int32_t>((byte*)this + 5624);
 }
 int32_t* ABP_NPC_C::M_PtrGetWorkStateLoops() {
-	return reinterpret_cast<int32_t*>((byte*)this + 5924);
+	return reinterpret_cast<int32_t*>((byte*)this + 5624);
 }
 void ABP_NPC_C::M_SetWorkStateLoops(const int32_t& value) {
-	Write((byte*)this + 5924, value);
+	Write((byte*)this + 5624, value);
 }
 // Member Getter and Setter of CurrentWorkStateLoop
 // Declaration: int32_t CurrentWorkStateLoop
 int32_t ABP_NPC_C::M_GetCurrentWorkStateLoop() const {
-	return Read<int32_t>((byte*)this + 5928);
+	return Read<int32_t>((byte*)this + 5628);
 }
 int32_t* ABP_NPC_C::M_PtrGetCurrentWorkStateLoop() {
-	return reinterpret_cast<int32_t*>((byte*)this + 5928);
+	return reinterpret_cast<int32_t*>((byte*)this + 5628);
 }
 void ABP_NPC_C::M_SetCurrentWorkStateLoop(const int32_t& value) {
-	Write((byte*)this + 5928, value);
+	Write((byte*)this + 5628, value);
 }
 // Member Getter and Setter of Spawned
 // Declaration: bool Spawned
 bool ABP_NPC_C::M_GetSpawned() const {
-	return Read<bool>((byte*)this + 5932);
+	return Read<bool>((byte*)this + 5632);
 }
 bool* ABP_NPC_C::M_PtrGetSpawned() {
-	return reinterpret_cast<bool*>((byte*)this + 5932);
+	return reinterpret_cast<bool*>((byte*)this + 5632);
 }
 void ABP_NPC_C::M_SetSpawned(const bool& value) {
-	Write((byte*)this + 5932, value);
+	Write((byte*)this + 5632, value);
 }
 // Member Getter and Setter of IsStoryNPC
 // Declaration: bool IsStoryNPC
 bool ABP_NPC_C::M_GetIsStoryNPC() const {
-	return Read<bool>((byte*)this + 5933);
+	return Read<bool>((byte*)this + 5633);
 }
 bool* ABP_NPC_C::M_PtrGetIsStoryNPC() {
-	return reinterpret_cast<bool*>((byte*)this + 5933);
+	return reinterpret_cast<bool*>((byte*)this + 5633);
 }
 void ABP_NPC_C::M_SetIsStoryNPC(const bool& value) {
-	Write((byte*)this + 5933, value);
+	Write((byte*)this + 5633, value);
 }
 // Member Getter and Setter of NightPatrol
 // Declaration: bool NightPatrol
 bool ABP_NPC_C::M_GetNightPatrol() const {
-	return Read<bool>((byte*)this + 5934);
+	return Read<bool>((byte*)this + 5634);
 }
 bool* ABP_NPC_C::M_PtrGetNightPatrol() {
-	return reinterpret_cast<bool*>((byte*)this + 5934);
+	return reinterpret_cast<bool*>((byte*)this + 5634);
 }
 void ABP_NPC_C::M_SetNightPatrol(const bool& value) {
-	Write((byte*)this + 5934, value);
+	Write((byte*)this + 5634, value);
 }
 // Member Getter and Setter of HasInfant
 // Declaration: bool HasInfant
 bool ABP_NPC_C::M_GetHasInfant() const {
-	return Read<bool>((byte*)this + 5935);
+	return Read<bool>((byte*)this + 5635);
 }
 bool* ABP_NPC_C::M_PtrGetHasInfant() {
-	return reinterpret_cast<bool*>((byte*)this + 5935);
+	return reinterpret_cast<bool*>((byte*)this + 5635);
 }
 void ABP_NPC_C::M_SetHasInfant(const bool& value) {
-	Write((byte*)this + 5935, value);
+	Write((byte*)this + 5635, value);
 }
 // Member Getter and Setter of ChangeCollision
 // Declaration: bool ChangeCollision
 bool ABP_NPC_C::M_GetChangeCollision() const {
-	return Read<bool>((byte*)this + 5936);
+	return Read<bool>((byte*)this + 5636);
 }
 bool* ABP_NPC_C::M_PtrGetChangeCollision() {
-	return reinterpret_cast<bool*>((byte*)this + 5936);
+	return reinterpret_cast<bool*>((byte*)this + 5636);
 }
 void ABP_NPC_C::M_SetChangeCollision(const bool& value) {
-	Write((byte*)this + 5936, value);
+	Write((byte*)this + 5636, value);
 }
 // Member Getter and Setter of IsComponent
 // Declaration: bool IsComponent
 bool ABP_NPC_C::M_GetIsComponent() const {
-	return Read<bool>((byte*)this + 5937);
+	return Read<bool>((byte*)this + 5637);
 }
 bool* ABP_NPC_C::M_PtrGetIsComponent() {
-	return reinterpret_cast<bool*>((byte*)this + 5937);
+	return reinterpret_cast<bool*>((byte*)this + 5637);
 }
 void ABP_NPC_C::M_SetIsComponent(const bool& value) {
-	Write((byte*)this + 5937, value);
+	Write((byte*)this + 5637, value);
 }
 // Member Getter and Setter of Interactable
 // Declaration: bool Interactable
 bool ABP_NPC_C::M_GetInteractable() const {
-	return Read<bool>((byte*)this + 5938);
+	return Read<bool>((byte*)this + 5638);
 }
 bool* ABP_NPC_C::M_PtrGetInteractable() {
-	return reinterpret_cast<bool*>((byte*)this + 5938);
+	return reinterpret_cast<bool*>((byte*)this + 5638);
 }
 void ABP_NPC_C::M_SetInteractable(const bool& value) {
-	Write((byte*)this + 5938, value);
+	Write((byte*)this + 5638, value);
+}
+// Member Getter and Setter of IsLookAtTargetRotation
+// Declaration: bool IsLookAtTargetRotation
+bool ABP_NPC_C::M_GetIsLookAtTargetRotation() const {
+	return Read<bool>((byte*)this + 5639);
+}
+bool* ABP_NPC_C::M_PtrGetIsLookAtTargetRotation() {
+	return reinterpret_cast<bool*>((byte*)this + 5639);
+}
+void ABP_NPC_C::M_SetIsLookAtTargetRotation(const bool& value) {
+	Write((byte*)this + 5639, value);
 }
 // Member Getter and Setter of InspectorVisibility
 // Declaration: bool InspectorVisibility
 bool ABP_NPC_C::M_GetInspectorVisibility() const {
-	return Read<bool>((byte*)this + 5939);
+	return Read<bool>((byte*)this + 5640);
 }
 bool* ABP_NPC_C::M_PtrGetInspectorVisibility() {
-	return reinterpret_cast<bool*>((byte*)this + 5939);
+	return reinterpret_cast<bool*>((byte*)this + 5640);
 }
 void ABP_NPC_C::M_SetInspectorVisibility(const bool& value) {
-	Write((byte*)this + 5939, value);
+	Write((byte*)this + 5640, value);
 }
 // Member Getter and Setter of IsLost
 // Declaration: bool IsLost
 bool ABP_NPC_C::M_GetIsLost() const {
-	return Read<bool>((byte*)this + 5940);
+	return Read<bool>((byte*)this + 5641);
 }
 bool* ABP_NPC_C::M_PtrGetIsLost() {
-	return reinterpret_cast<bool*>((byte*)this + 5940);
+	return reinterpret_cast<bool*>((byte*)this + 5641);
 }
 void ABP_NPC_C::M_SetIsLost(const bool& value) {
-	Write((byte*)this + 5940, value);
+	Write((byte*)this + 5641, value);
 }
 // Member Getter and Setter of IsTargetOfTalkGoal
 // Declaration: bool IsTargetOfTalkGoal
 bool ABP_NPC_C::M_GetIsTargetOfTalkGoal() const {
-	return Read<bool>((byte*)this + 5941);
+	return Read<bool>((byte*)this + 5642);
 }
 bool* ABP_NPC_C::M_PtrGetIsTargetOfTalkGoal() {
-	return reinterpret_cast<bool*>((byte*)this + 5941);
+	return reinterpret_cast<bool*>((byte*)this + 5642);
 }
 void ABP_NPC_C::M_SetIsTargetOfTalkGoal(const bool& value) {
-	Write((byte*)this + 5941, value);
+	Write((byte*)this + 5642, value);
 }
 // Member Getter and Setter of QuestIndex
 // Declaration: int32_t QuestIndex
 int32_t ABP_NPC_C::M_GetQuestIndex() const {
-	return Read<int32_t>((byte*)this + 5944);
+	return Read<int32_t>((byte*)this + 5644);
 }
 int32_t* ABP_NPC_C::M_PtrGetQuestIndex() {
-	return reinterpret_cast<int32_t*>((byte*)this + 5944);
+	return reinterpret_cast<int32_t*>((byte*)this + 5644);
 }
 void ABP_NPC_C::M_SetQuestIndex(const int32_t& value) {
-	Write((byte*)this + 5944, value);
-}
-// Member Getter and Setter of Vendor
-// Declaration: bool Vendor
-bool ABP_NPC_C::M_GetVendor() const {
-	return Read<bool>((byte*)this + 5948);
-}
-bool* ABP_NPC_C::M_PtrGetVendor() {
-	return reinterpret_cast<bool*>((byte*)this + 5948);
-}
-void ABP_NPC_C::M_SetVendor(const bool& value) {
-	Write((byte*)this + 5948, value);
+	Write((byte*)this + 5644, value);
 }
 // Member Getter and Setter of BedIndex
 // Declaration: int32_t BedIndex
 int32_t ABP_NPC_C::M_GetBedIndex() const {
-	return Read<int32_t>((byte*)this + 5952);
+	return Read<int32_t>((byte*)this + 5648);
 }
 int32_t* ABP_NPC_C::M_PtrGetBedIndex() {
-	return reinterpret_cast<int32_t*>((byte*)this + 5952);
+	return reinterpret_cast<int32_t*>((byte*)this + 5648);
 }
 void ABP_NPC_C::M_SetBedIndex(const int32_t& value) {
-	Write((byte*)this + 5952, value);
+	Write((byte*)this + 5648, value);
 }
 // Member Getter and Setter of BedSlotIndex
 // Declaration: int32_t BedSlotIndex
 int32_t ABP_NPC_C::M_GetBedSlotIndex() const {
-	return Read<int32_t>((byte*)this + 5956);
+	return Read<int32_t>((byte*)this + 5652);
 }
 int32_t* ABP_NPC_C::M_PtrGetBedSlotIndex() {
-	return reinterpret_cast<int32_t*>((byte*)this + 5956);
+	return reinterpret_cast<int32_t*>((byte*)this + 5652);
 }
 void ABP_NPC_C::M_SetBedSlotIndex(const int32_t& value) {
-	Write((byte*)this + 5956, value);
+	Write((byte*)this + 5652, value);
 }
 // Member Getter and Setter of WorkSlotIndex
 // Declaration: int32_t WorkSlotIndex
 int32_t ABP_NPC_C::M_GetWorkSlotIndex() const {
-	return Read<int32_t>((byte*)this + 5960);
+	return Read<int32_t>((byte*)this + 5656);
 }
 int32_t* ABP_NPC_C::M_PtrGetWorkSlotIndex() {
-	return reinterpret_cast<int32_t*>((byte*)this + 5960);
+	return reinterpret_cast<int32_t*>((byte*)this + 5656);
 }
 void ABP_NPC_C::M_SetWorkSlotIndex(const int32_t& value) {
-	Write((byte*)this + 5960, value);
+	Write((byte*)this + 5656, value);
+}
+// Member Getter and Setter of FoliageLocation
+// Declaration: struct FVector FoliageLocation
+struct FVector ABP_NPC_C::M_GetFoliageLocation() const {
+	return Read<struct FVector>((byte*)this + 5660);
+}
+struct FVector* ABP_NPC_C::M_PtrGetFoliageLocation() {
+	return reinterpret_cast<struct FVector*>((byte*)this + 5660);
+}
+void ABP_NPC_C::M_SetFoliageLocation(const struct FVector& value) {
+	Write((byte*)this + 5660, value);
+}
+// Member Getter and Setter of Paths
+// Declaration: TArray<struct FVector> Paths
+TArray<struct FVector> ABP_NPC_C::M_GetPaths() const {
+	return Read<TArray<struct FVector>>((byte*)this + 5672);
+}
+TArray<struct FVector>* ABP_NPC_C::M_PtrGetPaths() {
+	return reinterpret_cast<TArray<struct FVector>*>((byte*)this + 5672);
+}
+void ABP_NPC_C::M_SetPaths(const TArray<struct FVector>& value) {
+	Write((byte*)this + 5672, value);
+}
+// Member Getter and Setter of SpawnPoint
+// Declaration: struct FTransform SpawnPoint
+struct FTransform ABP_NPC_C::M_GetSpawnPoint() const {
+	return Read<struct FTransform>((byte*)this + 5696);
+}
+struct FTransform* ABP_NPC_C::M_PtrGetSpawnPoint() {
+	return reinterpret_cast<struct FTransform*>((byte*)this + 5696);
+}
+void ABP_NPC_C::M_SetSpawnPoint(const struct FTransform& value) {
+	Write((byte*)this + 5696, value);
+}
+// Member Getter and Setter of Building
+// Declaration: class AActor* Building
+class AActor* ABP_NPC_C::M_GetBuilding() const {
+	return Read<class AActor*>((byte*)this + 5744);
+}
+class AActor** ABP_NPC_C::M_PtrGetBuilding() {
+	return reinterpret_cast<class AActor**>((byte*)this + 5744);
+}
+void ABP_NPC_C::M_SetBuilding(const class AActor*& value) {
+	Write((byte*)this + 5744, value);
+}
+// Member Getter and Setter of Vendor
+// Declaration: bool Vendor
+bool ABP_NPC_C::M_GetVendor() const {
+	return Read<bool>((byte*)this + 5752);
+}
+bool* ABP_NPC_C::M_PtrGetVendor() {
+	return reinterpret_cast<bool*>((byte*)this + 5752);
+}
+void ABP_NPC_C::M_SetVendor(const bool& value) {
+	Write((byte*)this + 5752, value);
+}
+// Member Getter and Setter of LastFurniture
+// Declaration: class AActor* LastFurniture
+class AActor* ABP_NPC_C::M_GetLastFurniture() const {
+	return Read<class AActor*>((byte*)this + 5760);
+}
+class AActor** ABP_NPC_C::M_PtrGetLastFurniture() {
+	return reinterpret_cast<class AActor**>((byte*)this + 5760);
+}
+void ABP_NPC_C::M_SetLastFurniture(const class AActor*& value) {
+	Write((byte*)this + 5760, value);
+}
+// Member Getter and Setter of Spawner
+// Declaration: class AActor* Spawner
+class AActor* ABP_NPC_C::M_GetSpawner() const {
+	return Read<class AActor*>((byte*)this + 5768);
+}
+class AActor** ABP_NPC_C::M_PtrGetSpawner() {
+	return reinterpret_cast<class AActor**>((byte*)this + 5768);
+}
+void ABP_NPC_C::M_SetSpawner(const class AActor*& value) {
+	Write((byte*)this + 5768, value);
+}
+// Member Getter and Setter of AnimalsReferences
+// Declaration: TArray<class UObject*> AnimalsReferences
+TArray<class UObject*> ABP_NPC_C::M_GetAnimalsReferences() const {
+	return Read<TArray<class UObject*>>((byte*)this + 5776);
+}
+TArray<class UObject*>* ABP_NPC_C::M_PtrGetAnimalsReferences() {
+	return reinterpret_cast<TArray<class UObject*>*>((byte*)this + 5776);
+}
+void ABP_NPC_C::M_SetAnimalsReferences(const TArray<class UObject*>& value) {
+	Write((byte*)this + 5776, value);
+}
+// Member Getter and Setter of FoliageTarget
+// Declaration: struct FST_FoliageTarget FoliageTarget
+struct FST_FoliageTarget ABP_NPC_C::M_GetFoliageTarget() const {
+	return Read<struct FST_FoliageTarget>((byte*)this + 5792);
+}
+struct FST_FoliageTarget* ABP_NPC_C::M_PtrGetFoliageTarget() {
+	return reinterpret_cast<struct FST_FoliageTarget*>((byte*)this + 5792);
+}
+void ABP_NPC_C::M_SetFoliageTarget(const struct FST_FoliageTarget& value) {
+	Write((byte*)this + 5792, value);
+}
+// Member Getter and Setter of QuestActivitiesIndex
+// Declaration: int32_t QuestActivitiesIndex
+int32_t ABP_NPC_C::M_GetQuestActivitiesIndex() const {
+	return Read<int32_t>((byte*)this + 5872);
+}
+int32_t* ABP_NPC_C::M_PtrGetQuestActivitiesIndex() {
+	return reinterpret_cast<int32_t*>((byte*)this + 5872);
+}
+void ABP_NPC_C::M_SetQuestActivitiesIndex(const int32_t& value) {
+	Write((byte*)this + 5872, value);
+}
+// Member Getter and Setter of QuestNameID
+// Declaration: struct FString QuestNameID
+struct FString ABP_NPC_C::M_GetQuestNameID() const {
+	return Read<struct FString>((byte*)this + 5880);
+}
+struct FString* ABP_NPC_C::M_PtrGetQuestNameID() {
+	return reinterpret_cast<struct FString*>((byte*)this + 5880);
+}
+void ABP_NPC_C::M_SetQuestNameID(const struct FString& value) {
+	Write((byte*)this + 5880, value);
+}
+// Member Getter and Setter of QuestToGiveDTHandle
+// Declaration: struct FDataTableRowHandle QuestToGiveDTHandle
+struct FDataTableRowHandle ABP_NPC_C::M_GetQuestToGiveDTHandle() const {
+	return Read<struct FDataTableRowHandle>((byte*)this + 5896);
+}
+struct FDataTableRowHandle* ABP_NPC_C::M_PtrGetQuestToGiveDTHandle() {
+	return reinterpret_cast<struct FDataTableRowHandle*>((byte*)this + 5896);
+}
+void ABP_NPC_C::M_SetQuestToGiveDTHandle(const struct FDataTableRowHandle& value) {
+	Write((byte*)this + 5896, value);
 }
 // Member Getter and Setter of QuestAnimation
 // Declaration: struct FST_QuestAnimation QuestAnimation
 struct FST_QuestAnimation ABP_NPC_C::M_GetQuestAnimation() const {
-	return Read<struct FST_QuestAnimation>((byte*)this + 5964);
+	return Read<struct FST_QuestAnimation>((byte*)this + 5912);
 }
 struct FST_QuestAnimation* ABP_NPC_C::M_PtrGetQuestAnimation() {
-	return reinterpret_cast<struct FST_QuestAnimation*>((byte*)this + 5964);
+	return reinterpret_cast<struct FST_QuestAnimation*>((byte*)this + 5912);
 }
 void ABP_NPC_C::M_SetQuestAnimation(const struct FST_QuestAnimation& value) {
-	Write((byte*)this + 5964, value);
+	Write((byte*)this + 5912, value);
 }
 // Member Getter and Setter of QuestToGive
 // Declaration: struct FST_QuestInfos QuestToGive
 struct FST_QuestInfos ABP_NPC_C::M_GetQuestToGive() const {
-	return Read<struct FST_QuestInfos>((byte*)this + 5968);
+	return Read<struct FST_QuestInfos>((byte*)this + 5920);
 }
 struct FST_QuestInfos* ABP_NPC_C::M_PtrGetQuestToGive() {
-	return reinterpret_cast<struct FST_QuestInfos*>((byte*)this + 5968);
+	return reinterpret_cast<struct FST_QuestInfos*>((byte*)this + 5920);
 }
 void ABP_NPC_C::M_SetQuestToGive(const struct FST_QuestInfos& value) {
-	Write((byte*)this + 5968, value);
+	Write((byte*)this + 5920, value);
 }
 // Member Getter and Setter of TalkQuestReference
 // Declaration: TArray<struct FST_QuestInfos> TalkQuestReference
 TArray<struct FST_QuestInfos> ABP_NPC_C::M_GetTalkQuestReference() const {
-	return Read<TArray<struct FST_QuestInfos>>((byte*)this + 6944);
+	return Read<TArray<struct FST_QuestInfos>>((byte*)this + 6912);
 }
 TArray<struct FST_QuestInfos>* ABP_NPC_C::M_PtrGetTalkQuestReference() {
-	return reinterpret_cast<TArray<struct FST_QuestInfos>*>((byte*)this + 6944);
+	return reinterpret_cast<TArray<struct FST_QuestInfos>*>((byte*)this + 6912);
 }
 void ABP_NPC_C::M_SetTalkQuestReference(const TArray<struct FST_QuestInfos>& value) {
+	Write((byte*)this + 6912, value);
+}
+// Member Getter and Setter of WorkMontageLoaded
+// Declaration: TAssetPtr<class FWorkMontageLoaded__DelegateSignature> WorkMontageLoaded
+TAssetPtr<class FWorkMontageLoaded__DelegateSignature> ABP_NPC_C::M_GetWorkMontageLoaded() const {
+	return Read<TAssetPtr<class FWorkMontageLoaded__DelegateSignature>>((byte*)this + 6928);
+}
+TAssetPtr<class FWorkMontageLoaded__DelegateSignature>* ABP_NPC_C::M_PtrGetWorkMontageLoaded() {
+	return reinterpret_cast<TAssetPtr<class FWorkMontageLoaded__DelegateSignature>*>((byte*)this + 6928);
+}
+void ABP_NPC_C::M_SetWorkMontageLoaded(const TAssetPtr<class FWorkMontageLoaded__DelegateSignature>& value) {
+	Write((byte*)this + 6928, value);
+}
+// Member Getter and Setter of WorkLoopsFinished
+// Declaration: TAssetPtr<class FWorkLoopsFinished__DelegateSignature> WorkLoopsFinished
+TAssetPtr<class FWorkLoopsFinished__DelegateSignature> ABP_NPC_C::M_GetWorkLoopsFinished() const {
+	return Read<TAssetPtr<class FWorkLoopsFinished__DelegateSignature>>((byte*)this + 6944);
+}
+TAssetPtr<class FWorkLoopsFinished__DelegateSignature>* ABP_NPC_C::M_PtrGetWorkLoopsFinished() {
+	return reinterpret_cast<TAssetPtr<class FWorkLoopsFinished__DelegateSignature>*>((byte*)this + 6944);
+}
+void ABP_NPC_C::M_SetWorkLoopsFinished(const TAssetPtr<class FWorkLoopsFinished__DelegateSignature>& value) {
 	Write((byte*)this + 6944, value);
 }
 // Member Getter and Setter of WorkMontageComplete
@@ -310,246 +486,224 @@ TAssetPtr<class FWorkMontageComplete__DelegateSignature>* ABP_NPC_C::M_PtrGetWor
 void ABP_NPC_C::M_SetWorkMontageComplete(const TAssetPtr<class FWorkMontageComplete__DelegateSignature>& value) {
 	Write((byte*)this + 6960, value);
 }
-// Member Getter and Setter of WorkLoopsFinished
-// Declaration: TAssetPtr<class FWorkLoopsFinished__DelegateSignature> WorkLoopsFinished
-TAssetPtr<class FWorkLoopsFinished__DelegateSignature> ABP_NPC_C::M_GetWorkLoopsFinished() const {
-	return Read<TAssetPtr<class FWorkLoopsFinished__DelegateSignature>>((byte*)this + 6976);
-}
-TAssetPtr<class FWorkLoopsFinished__DelegateSignature>* ABP_NPC_C::M_PtrGetWorkLoopsFinished() {
-	return reinterpret_cast<TAssetPtr<class FWorkLoopsFinished__DelegateSignature>*>((byte*)this + 6976);
-}
-void ABP_NPC_C::M_SetWorkLoopsFinished(const TAssetPtr<class FWorkLoopsFinished__DelegateSignature>& value) {
-	Write((byte*)this + 6976, value);
-}
 // Member Getter and Setter of Toys
 // Declaration: TArray<struct FName> Toys
 TArray<struct FName> ABP_NPC_C::M_GetToys() const {
-	return Read<TArray<struct FName>>((byte*)this + 6992);
+	return Read<TArray<struct FName>>((byte*)this + 6976);
 }
 TArray<struct FName>* ABP_NPC_C::M_PtrGetToys() {
-	return reinterpret_cast<TArray<struct FName>*>((byte*)this + 6992);
+	return reinterpret_cast<TArray<struct FName>*>((byte*)this + 6976);
 }
 void ABP_NPC_C::M_SetToys(const TArray<struct FName>& value) {
-	Write((byte*)this + 6992, value);
+	Write((byte*)this + 6976, value);
 }
 // Member Getter and Setter of WorkMontage
 // Declaration: class UAnimMontage* WorkMontage
 class UAnimMontage* ABP_NPC_C::M_GetWorkMontage() const {
-	return Read<class UAnimMontage*>((byte*)this + 7008);
+	return Read<class UAnimMontage*>((byte*)this + 6992);
 }
 class UAnimMontage** ABP_NPC_C::M_PtrGetWorkMontage() {
-	return reinterpret_cast<class UAnimMontage**>((byte*)this + 7008);
+	return reinterpret_cast<class UAnimMontage**>((byte*)this + 6992);
 }
 void ABP_NPC_C::M_SetWorkMontage(const class UAnimMontage*& value) {
-	Write((byte*)this + 7008, value);
+	Write((byte*)this + 6992, value);
 }
 // Member Getter and Setter of VendorCat
 // Declaration: struct FDataTableRowHandle VendorCat
 struct FDataTableRowHandle ABP_NPC_C::M_GetVendorCat() const {
-	return Read<struct FDataTableRowHandle>((byte*)this + 7016);
+	return Read<struct FDataTableRowHandle>((byte*)this + 7000);
 }
 struct FDataTableRowHandle* ABP_NPC_C::M_PtrGetVendorCat() {
-	return reinterpret_cast<struct FDataTableRowHandle*>((byte*)this + 7016);
+	return reinterpret_cast<struct FDataTableRowHandle*>((byte*)this + 7000);
 }
 void ABP_NPC_C::M_SetVendorCat(const struct FDataTableRowHandle& value) {
-	Write((byte*)this + 7016, value);
+	Write((byte*)this + 7000, value);
 }
 // Member Getter and Setter of NPC_Status
 // Declaration: TEnumAsByte<E_NPCStatus> NPC_Status
 TEnumAsByte<E_NPCStatus> ABP_NPC_C::M_GetNPC_Status() const {
-	return Read<TEnumAsByte<E_NPCStatus>>((byte*)this + 7032);
+	return Read<TEnumAsByte<E_NPCStatus>>((byte*)this + 7016);
 }
 TEnumAsByte<E_NPCStatus>* ABP_NPC_C::M_PtrGetNPC_Status() {
-	return reinterpret_cast<TEnumAsByte<E_NPCStatus>*>((byte*)this + 7032);
+	return reinterpret_cast<TEnumAsByte<E_NPCStatus>*>((byte*)this + 7016);
 }
 void ABP_NPC_C::M_SetNPC_Status(const TEnumAsByte<E_NPCStatus>& value) {
-	Write((byte*)this + 7032, value);
+	Write((byte*)this + 7016, value);
 }
 // Member Getter and Setter of ToolActivity
 // Declaration: TEnumAsByte<E_Tools_Activity> ToolActivity
 TEnumAsByte<E_Tools_Activity> ABP_NPC_C::M_GetToolActivity() const {
-	return Read<TEnumAsByte<E_Tools_Activity>>((byte*)this + 7033);
+	return Read<TEnumAsByte<E_Tools_Activity>>((byte*)this + 7017);
 }
 TEnumAsByte<E_Tools_Activity>* ABP_NPC_C::M_PtrGetToolActivity() {
-	return reinterpret_cast<TEnumAsByte<E_Tools_Activity>*>((byte*)this + 7033);
+	return reinterpret_cast<TEnumAsByte<E_Tools_Activity>*>((byte*)this + 7017);
 }
 void ABP_NPC_C::M_SetToolActivity(const TEnumAsByte<E_Tools_Activity>& value) {
-	Write((byte*)this + 7033, value);
+	Write((byte*)this + 7017, value);
 }
 // Member Getter and Setter of NeedItem
 // Declaration: struct FName NeedItem
 struct FName ABP_NPC_C::M_GetNeedItem() const {
-	return Read<struct FName>((byte*)this + 7036);
+	return Read<struct FName>((byte*)this + 7020);
 }
 struct FName* ABP_NPC_C::M_PtrGetNeedItem() {
-	return reinterpret_cast<struct FName*>((byte*)this + 7036);
+	return reinterpret_cast<struct FName*>((byte*)this + 7020);
 }
 void ABP_NPC_C::M_SetNeedItem(const struct FName& value) {
-	Write((byte*)this + 7036, value);
+	Write((byte*)this + 7020, value);
 }
 // Member Getter and Setter of AI_Task
 // Declaration: class UBTTask_BlueprintBase* AI_Task
 class UBTTask_BlueprintBase* ABP_NPC_C::M_GetAI_Task() const {
-	return Read<class UBTTask_BlueprintBase*>((byte*)this + 7048);
+	return Read<class UBTTask_BlueprintBase*>((byte*)this + 7032);
 }
 class UBTTask_BlueprintBase** ABP_NPC_C::M_PtrGetAI_Task() {
-	return reinterpret_cast<class UBTTask_BlueprintBase**>((byte*)this + 7048);
+	return reinterpret_cast<class UBTTask_BlueprintBase**>((byte*)this + 7032);
 }
 void ABP_NPC_C::M_SetAI_Task(const class UBTTask_BlueprintBase*& value) {
-	Write((byte*)this + 7048, value);
+	Write((byte*)this + 7032, value);
 }
 // Member Getter and Setter of FieldTask
 // Declaration: struct FST_FieldTasksLists FieldTask
 struct FST_FieldTasksLists ABP_NPC_C::M_GetFieldTask() const {
-	return Read<struct FST_FieldTasksLists>((byte*)this + 7056);
+	return Read<struct FST_FieldTasksLists>((byte*)this + 7040);
 }
 struct FST_FieldTasksLists* ABP_NPC_C::M_PtrGetFieldTask() {
-	return reinterpret_cast<struct FST_FieldTasksLists*>((byte*)this + 7056);
+	return reinterpret_cast<struct FST_FieldTasksLists*>((byte*)this + 7040);
 }
 void ABP_NPC_C::M_SetFieldTask(const struct FST_FieldTasksLists& value) {
-	Write((byte*)this + 7056, value);
-}
-// Member Getter and Setter of OptimizationSetBlackboards
-// Declaration: bool OptimizationSetBlackboards
-bool ABP_NPC_C::M_GetOptimizationSetBlackboards() const {
-	return Read<bool>((byte*)this + 7112);
-}
-bool* ABP_NPC_C::M_PtrGetOptimizationSetBlackboards() {
-	return reinterpret_cast<bool*>((byte*)this + 7112);
-}
-void ABP_NPC_C::M_SetOptimizationSetBlackboards(const bool& value) {
-	Write((byte*)this + 7112, value);
-}
-// Member Getter and Setter of FoliageLocation
-// Declaration: struct FVector FoliageLocation
-struct FVector ABP_NPC_C::M_GetFoliageLocation() const {
-	return Read<struct FVector>((byte*)this + 7116);
-}
-struct FVector* ABP_NPC_C::M_PtrGetFoliageLocation() {
-	return reinterpret_cast<struct FVector*>((byte*)this + 7116);
-}
-void ABP_NPC_C::M_SetFoliageLocation(const struct FVector& value) {
-	Write((byte*)this + 7116, value);
-}
-// Member Getter and Setter of Paths
-// Declaration: TArray<struct FVector> Paths
-TArray<struct FVector> ABP_NPC_C::M_GetPaths() const {
-	return Read<TArray<struct FVector>>((byte*)this + 7128);
-}
-TArray<struct FVector>* ABP_NPC_C::M_PtrGetPaths() {
-	return reinterpret_cast<TArray<struct FVector>*>((byte*)this + 7128);
-}
-void ABP_NPC_C::M_SetPaths(const TArray<struct FVector>& value) {
-	Write((byte*)this + 7128, value);
+	Write((byte*)this + 7040, value);
 }
 // Member Getter and Setter of WhetherAffectNavigation
 // Declaration: bool WhetherAffectNavigation
 bool ABP_NPC_C::M_GetWhetherAffectNavigation() const {
-	return Read<bool>((byte*)this + 7144);
+	return Read<bool>((byte*)this + 7096);
 }
 bool* ABP_NPC_C::M_PtrGetWhetherAffectNavigation() {
-	return reinterpret_cast<bool*>((byte*)this + 7144);
+	return reinterpret_cast<bool*>((byte*)this + 7096);
 }
 void ABP_NPC_C::M_SetWhetherAffectNavigation(const bool& value) {
-	Write((byte*)this + 7144, value);
+	Write((byte*)this + 7096, value);
+}
+// Member Getter and Setter of OptimizationBlackboards
+// Declaration: struct FST_SAVE_NPC_Blackboards OptimizationBlackboards
+struct FST_SAVE_NPC_Blackboards ABP_NPC_C::M_GetOptimizationBlackboards() const {
+	return Read<struct FST_SAVE_NPC_Blackboards>((byte*)this + 7100);
+}
+struct FST_SAVE_NPC_Blackboards* ABP_NPC_C::M_PtrGetOptimizationBlackboards() {
+	return reinterpret_cast<struct FST_SAVE_NPC_Blackboards*>((byte*)this + 7100);
+}
+void ABP_NPC_C::M_SetOptimizationBlackboards(const struct FST_SAVE_NPC_Blackboards& value) {
+	Write((byte*)this + 7100, value);
 }
 // Member Getter and Setter of BreakMontageComplete
 // Declaration: TAssetPtr<class FBreakMontageComplete__DelegateSignature> BreakMontageComplete
 TAssetPtr<class FBreakMontageComplete__DelegateSignature> ABP_NPC_C::M_GetBreakMontageComplete() const {
-	return Read<TAssetPtr<class FBreakMontageComplete__DelegateSignature>>((byte*)this + 7152);
+	return Read<TAssetPtr<class FBreakMontageComplete__DelegateSignature>>((byte*)this + 7144);
 }
 TAssetPtr<class FBreakMontageComplete__DelegateSignature>* ABP_NPC_C::M_PtrGetBreakMontageComplete() {
-	return reinterpret_cast<TAssetPtr<class FBreakMontageComplete__DelegateSignature>*>((byte*)this + 7152);
+	return reinterpret_cast<TAssetPtr<class FBreakMontageComplete__DelegateSignature>*>((byte*)this + 7144);
 }
 void ABP_NPC_C::M_SetBreakMontageComplete(const TAssetPtr<class FBreakMontageComplete__DelegateSignature>& value) {
-	Write((byte*)this + 7152, value);
+	Write((byte*)this + 7144, value);
 }
 // Member Getter and Setter of BreakMontage
 // Declaration: class UAnimMontage* BreakMontage
 class UAnimMontage* ABP_NPC_C::M_GetBreakMontage() const {
-	return Read<class UAnimMontage*>((byte*)this + 7168);
+	return Read<class UAnimMontage*>((byte*)this + 7160);
 }
 class UAnimMontage** ABP_NPC_C::M_PtrGetBreakMontage() {
-	return reinterpret_cast<class UAnimMontage**>((byte*)this + 7168);
+	return reinterpret_cast<class UAnimMontage**>((byte*)this + 7160);
 }
 void ABP_NPC_C::M_SetBreakMontage(const class UAnimMontage*& value) {
-	Write((byte*)this + 7168, value);
+	Write((byte*)this + 7160, value);
 }
 // Member Getter and Setter of CanChangeMovementActive
 // Declaration: bool CanChangeMovementActive
 bool ABP_NPC_C::M_GetCanChangeMovementActive() const {
-	return Read<bool>((byte*)this + 7176);
+	return Read<bool>((byte*)this + 7168);
 }
 bool* ABP_NPC_C::M_PtrGetCanChangeMovementActive() {
-	return reinterpret_cast<bool*>((byte*)this + 7176);
+	return reinterpret_cast<bool*>((byte*)this + 7168);
 }
 void ABP_NPC_C::M_SetCanChangeMovementActive(const bool& value) {
-	Write((byte*)this + 7176, value);
+	Write((byte*)this + 7168, value);
 }
 // Member Getter and Setter of OutsideNPCType
 // Declaration: TEnumAsByte<E_OutsideNPCTypes> OutsideNPCType
 TEnumAsByte<E_OutsideNPCTypes> ABP_NPC_C::M_GetOutsideNPCType() const {
-	return Read<TEnumAsByte<E_OutsideNPCTypes>>((byte*)this + 7177);
+	return Read<TEnumAsByte<E_OutsideNPCTypes>>((byte*)this + 7169);
 }
 TEnumAsByte<E_OutsideNPCTypes>* ABP_NPC_C::M_PtrGetOutsideNPCType() {
-	return reinterpret_cast<TEnumAsByte<E_OutsideNPCTypes>*>((byte*)this + 7177);
+	return reinterpret_cast<TEnumAsByte<E_OutsideNPCTypes>*>((byte*)this + 7169);
 }
 void ABP_NPC_C::M_SetOutsideNPCType(const TEnumAsByte<E_OutsideNPCTypes>& value) {
-	Write((byte*)this + 7177, value);
+	Write((byte*)this + 7169, value);
 }
 // Member Getter and Setter of OutsideNPC_Ownership
 // Declaration: TEnumAsByte<E_Ownership> OutsideNPC_Ownership
 TEnumAsByte<E_Ownership> ABP_NPC_C::M_GetOutsideNPC_Ownership() const {
-	return Read<TEnumAsByte<E_Ownership>>((byte*)this + 7178);
+	return Read<TEnumAsByte<E_Ownership>>((byte*)this + 7170);
 }
 TEnumAsByte<E_Ownership>* ABP_NPC_C::M_PtrGetOutsideNPC_Ownership() {
-	return reinterpret_cast<TEnumAsByte<E_Ownership>*>((byte*)this + 7178);
+	return reinterpret_cast<TEnumAsByte<E_Ownership>*>((byte*)this + 7170);
 }
 void ABP_NPC_C::M_SetOutsideNPC_Ownership(const TEnumAsByte<E_Ownership>& value) {
-	Write((byte*)this + 7178, value);
+	Write((byte*)this + 7170, value);
 }
 // Member Getter and Setter of BanditType
 // Declaration: TEnumAsByte<E_BanditType> BanditType
 TEnumAsByte<E_BanditType> ABP_NPC_C::M_GetBanditType() const {
-	return Read<TEnumAsByte<E_BanditType>>((byte*)this + 7179);
+	return Read<TEnumAsByte<E_BanditType>>((byte*)this + 7171);
 }
 TEnumAsByte<E_BanditType>* ABP_NPC_C::M_PtrGetBanditType() {
-	return reinterpret_cast<TEnumAsByte<E_BanditType>*>((byte*)this + 7179);
+	return reinterpret_cast<TEnumAsByte<E_BanditType>*>((byte*)this + 7171);
 }
 void ABP_NPC_C::M_SetBanditType(const TEnumAsByte<E_BanditType>& value) {
-	Write((byte*)this + 7179, value);
+	Write((byte*)this + 7171, value);
 }
 // Member Getter and Setter of Wealth
 // Declaration: TEnumAsByte<E_Wealth> Wealth
 TEnumAsByte<E_Wealth> ABP_NPC_C::M_GetWealth() const {
-	return Read<TEnumAsByte<E_Wealth>>((byte*)this + 7180);
+	return Read<TEnumAsByte<E_Wealth>>((byte*)this + 7172);
 }
 TEnumAsByte<E_Wealth>* ABP_NPC_C::M_PtrGetWealth() {
-	return reinterpret_cast<TEnumAsByte<E_Wealth>*>((byte*)this + 7180);
+	return reinterpret_cast<TEnumAsByte<E_Wealth>*>((byte*)this + 7172);
 }
 void ABP_NPC_C::M_SetWealth(const TEnumAsByte<E_Wealth>& value) {
-	Write((byte*)this + 7180, value);
+	Write((byte*)this + 7172, value);
 }
 // Member Getter and Setter of ChangedTimeOfDay
 // Declaration: TMap<TEnumAsByte<E_TimeOfDay>, bool> ChangedTimeOfDay
 TMap<TEnumAsByte<E_TimeOfDay>, bool> ABP_NPC_C::M_GetChangedTimeOfDay() const {
-	return Read<TMap<TEnumAsByte<E_TimeOfDay>, bool>>((byte*)this + 7184);
+	return Read<TMap<TEnumAsByte<E_TimeOfDay>, bool>>((byte*)this + 7176);
 }
 TMap<TEnumAsByte<E_TimeOfDay>, bool>* ABP_NPC_C::M_PtrGetChangedTimeOfDay() {
-	return reinterpret_cast<TMap<TEnumAsByte<E_TimeOfDay>, bool>*>((byte*)this + 7184);
+	return reinterpret_cast<TMap<TEnumAsByte<E_TimeOfDay>, bool>*>((byte*)this + 7176);
 }
 void ABP_NPC_C::M_SetChangedTimeOfDay(const TMap<TEnumAsByte<E_TimeOfDay>, bool>& value) {
-	Write((byte*)this + 7184, value);
+	Write((byte*)this + 7176, value);
 }
-// Member Getter and Setter of VoiceID
-// Declaration: struct FName VoiceID
-struct FName ABP_NPC_C::M_GetVoiceID() const {
+// Member Getter and Setter of BehaviorTreeName
+// Declaration: struct FName BehaviorTreeName
+struct FName ABP_NPC_C::M_GetBehaviorTreeName() const {
+	return Read<struct FName>((byte*)this + 7256);
+}
+struct FName* ABP_NPC_C::M_PtrGetBehaviorTreeName() {
+	return reinterpret_cast<struct FName*>((byte*)this + 7256);
+}
+void ABP_NPC_C::M_SetBehaviorTreeName(const struct FName& value) {
+	Write((byte*)this + 7256, value);
+}
+// Member Getter and Setter of BehaviorDT_Name
+// Declaration: struct FName BehaviorDT_Name
+struct FName ABP_NPC_C::M_GetBehaviorDT_Name() const {
 	return Read<struct FName>((byte*)this + 7264);
 }
-struct FName* ABP_NPC_C::M_PtrGetVoiceID() {
+struct FName* ABP_NPC_C::M_PtrGetBehaviorDT_Name() {
 	return reinterpret_cast<struct FName*>((byte*)this + 7264);
 }
-void ABP_NPC_C::M_SetVoiceID(const struct FName& value) {
+void ABP_NPC_C::M_SetBehaviorDT_Name(const struct FName& value) {
 	Write((byte*)this + 7264, value);
 }
 // Member Getter and Setter of ID
@@ -673,126 +827,159 @@ class UAudioComponent** ABP_NPC_C::M_PtrGetVoiceComponentVar() {
 void ABP_NPC_C::M_SetVoiceComponentVar(const class UAudioComponent*& value) {
 	Write((byte*)this + 7448, value);
 }
-// Member Getter and Setter of DestroyAudioAfterPlaying
-// Declaration: bool DestroyAudioAfterPlaying
-bool ABP_NPC_C::M_GetDestroyAudioAfterPlaying() const {
-	return Read<bool>((byte*)this + 7456);
+// Member Getter and Setter of VoiceID
+// Declaration: struct FName VoiceID
+struct FName ABP_NPC_C::M_GetVoiceID() const {
+	return Read<struct FName>((byte*)this + 7456);
 }
-bool* ABP_NPC_C::M_PtrGetDestroyAudioAfterPlaying() {
-	return reinterpret_cast<bool*>((byte*)this + 7456);
+struct FName* ABP_NPC_C::M_PtrGetVoiceID() {
+	return reinterpret_cast<struct FName*>((byte*)this + 7456);
 }
-void ABP_NPC_C::M_SetDestroyAudioAfterPlaying(const bool& value) {
+void ABP_NPC_C::M_SetVoiceID(const struct FName& value) {
 	Write((byte*)this + 7456, value);
 }
-// Member Getter and Setter of SeasonChangeClothes
-// Declaration: bool SeasonChangeClothes
-bool ABP_NPC_C::M_GetSeasonChangeClothes() const {
-	return Read<bool>((byte*)this + 7457);
+// Member Getter and Setter of ChatterTimer
+// Declaration: struct FTimerHandle ChatterTimer
+struct FTimerHandle ABP_NPC_C::M_GetChatterTimer() const {
+	return Read<struct FTimerHandle>((byte*)this + 7464);
 }
-bool* ABP_NPC_C::M_PtrGetSeasonChangeClothes() {
-	return reinterpret_cast<bool*>((byte*)this + 7457);
+struct FTimerHandle* ABP_NPC_C::M_PtrGetChatterTimer() {
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 7464);
 }
-void ABP_NPC_C::M_SetSeasonChangeClothes(const bool& value) {
-	Write((byte*)this + 7457, value);
+void ABP_NPC_C::M_SetChatterTimer(const struct FTimerHandle& value) {
+	Write((byte*)this + 7464, value);
 }
-// Member Getter and Setter of RandomizeMeshes
-// Declaration: bool RandomizeMeshes
-bool ABP_NPC_C::M_GetRandomizeMeshes() const {
-	return Read<bool>((byte*)this + 7458);
+// Member Getter and Setter of ActivityMontage
+// Declaration: class UAnimMontage* ActivityMontage
+class UAnimMontage* ABP_NPC_C::M_GetActivityMontage() const {
+	return Read<class UAnimMontage*>((byte*)this + 7472);
 }
-bool* ABP_NPC_C::M_PtrGetRandomizeMeshes() {
-	return reinterpret_cast<bool*>((byte*)this + 7458);
+class UAnimMontage** ABP_NPC_C::M_PtrGetActivityMontage() {
+	return reinterpret_cast<class UAnimMontage**>((byte*)this + 7472);
 }
-void ABP_NPC_C::M_SetRandomizeMeshes(const bool& value) {
-	Write((byte*)this + 7458, value);
+void ABP_NPC_C::M_SetActivityMontage(const class UAnimMontage*& value) {
+	Write((byte*)this + 7472, value);
 }
-// Member Getter and Setter of OptimizationBlackboards
-// Declaration: struct FST_SAVE_NPC_Blackboards OptimizationBlackboards
-struct FST_SAVE_NPC_Blackboards ABP_NPC_C::M_GetOptimizationBlackboards() const {
-	return Read<struct FST_SAVE_NPC_Blackboards>((byte*)this + 7460);
+// Member Getter and Setter of ActivityMontageLoaded
+// Declaration: TAssetPtr<class FActivityMontageLoaded__DelegateSignature> ActivityMontageLoaded
+TAssetPtr<class FActivityMontageLoaded__DelegateSignature> ABP_NPC_C::M_GetActivityMontageLoaded() const {
+	return Read<TAssetPtr<class FActivityMontageLoaded__DelegateSignature>>((byte*)this + 7480);
 }
-struct FST_SAVE_NPC_Blackboards* ABP_NPC_C::M_PtrGetOptimizationBlackboards() {
-	return reinterpret_cast<struct FST_SAVE_NPC_Blackboards*>((byte*)this + 7460);
+TAssetPtr<class FActivityMontageLoaded__DelegateSignature>* ABP_NPC_C::M_PtrGetActivityMontageLoaded() {
+	return reinterpret_cast<TAssetPtr<class FActivityMontageLoaded__DelegateSignature>*>((byte*)this + 7480);
 }
-void ABP_NPC_C::M_SetOptimizationBlackboards(const struct FST_SAVE_NPC_Blackboards& value) {
-	Write((byte*)this + 7460, value);
+void ABP_NPC_C::M_SetActivityMontageLoaded(const TAssetPtr<class FActivityMontageLoaded__DelegateSignature>& value) {
+	Write((byte*)this + 7480, value);
 }
-// Member Getter and Setter of SpawnPoint
-// Declaration: struct FTransform SpawnPoint
-struct FTransform ABP_NPC_C::M_GetSpawnPoint() const {
-	return Read<struct FTransform>((byte*)this + 7504);
+// Member Getter and Setter of ActivityMontageComplete
+// Declaration: TAssetPtr<class FActivityMontageComplete__DelegateSignature> ActivityMontageComplete
+TAssetPtr<class FActivityMontageComplete__DelegateSignature> ABP_NPC_C::M_GetActivityMontageComplete() const {
+	return Read<TAssetPtr<class FActivityMontageComplete__DelegateSignature>>((byte*)this + 7496);
 }
-struct FTransform* ABP_NPC_C::M_PtrGetSpawnPoint() {
-	return reinterpret_cast<struct FTransform*>((byte*)this + 7504);
+TAssetPtr<class FActivityMontageComplete__DelegateSignature>* ABP_NPC_C::M_PtrGetActivityMontageComplete() {
+	return reinterpret_cast<TAssetPtr<class FActivityMontageComplete__DelegateSignature>*>((byte*)this + 7496);
 }
-void ABP_NPC_C::M_SetSpawnPoint(const struct FTransform& value) {
-	Write((byte*)this + 7504, value);
+void ABP_NPC_C::M_SetActivityMontageComplete(const TAssetPtr<class FActivityMontageComplete__DelegateSignature>& value) {
+	Write((byte*)this + 7496, value);
 }
-// Member Getter and Setter of Building
-// Declaration: class AActor* Building
-class AActor* ABP_NPC_C::M_GetBuilding() const {
-	return Read<class AActor*>((byte*)this + 7552);
+// Member Getter and Setter of ChatterSoundObject
+// Declaration: class UObject* ChatterSoundObject
+class UObject* ABP_NPC_C::M_GetChatterSoundObject() const {
+	return Read<class UObject*>((byte*)this + 7512);
 }
-class AActor** ABP_NPC_C::M_PtrGetBuilding() {
-	return reinterpret_cast<class AActor**>((byte*)this + 7552);
+class UObject** ABP_NPC_C::M_PtrGetChatterSoundObject() {
+	return reinterpret_cast<class UObject**>((byte*)this + 7512);
 }
-void ABP_NPC_C::M_SetBuilding(const class AActor*& value) {
+void ABP_NPC_C::M_SetChatterSoundObject(const class UObject*& value) {
+	Write((byte*)this + 7512, value);
+}
+// Member Getter and Setter of ActualVoiceDTs
+// Declaration: struct FST_VoiceDTs ActualVoiceDTs
+struct FST_VoiceDTs ABP_NPC_C::M_GetActualVoiceDTs() const {
+	return Read<struct FST_VoiceDTs>((byte*)this + 7520);
+}
+struct FST_VoiceDTs* ABP_NPC_C::M_PtrGetActualVoiceDTs() {
+	return reinterpret_cast<struct FST_VoiceDTs*>((byte*)this + 7520);
+}
+void ABP_NPC_C::M_SetActualVoiceDTs(const struct FST_VoiceDTs& value) {
+	Write((byte*)this + 7520, value);
+}
+// Member Getter and Setter of InspectorNPC
+// Declaration: class UUI_Inspector_NPC_C* InspectorNPC
+class UUI_Inspector_NPC_C* ABP_NPC_C::M_GetInspectorNPC() const {
+	return Read<class UUI_Inspector_NPC_C*>((byte*)this + 7544);
+}
+class UUI_Inspector_NPC_C** ABP_NPC_C::M_PtrGetInspectorNPC() {
+	return reinterpret_cast<class UUI_Inspector_NPC_C**>((byte*)this + 7544);
+}
+void ABP_NPC_C::M_SetInspectorNPC(const class UUI_Inspector_NPC_C*& value) {
+	Write((byte*)this + 7544, value);
+}
+// Member Getter and Setter of VoiceIndex
+// Declaration: int32_t VoiceIndex
+int32_t ABP_NPC_C::M_GetVoiceIndex() const {
+	return Read<int32_t>((byte*)this + 7552);
+}
+int32_t* ABP_NPC_C::M_PtrGetVoiceIndex() {
+	return reinterpret_cast<int32_t*>((byte*)this + 7552);
+}
+void ABP_NPC_C::M_SetVoiceIndex(const int32_t& value) {
 	Write((byte*)this + 7552, value);
 }
-// Member Getter and Setter of LastFurniture
-// Declaration: class AActor* LastFurniture
-class AActor* ABP_NPC_C::M_GetLastFurniture() const {
-	return Read<class AActor*>((byte*)this + 7560);
+// Member Getter and Setter of ReplicatedGetOut
+// Declaration: bool ReplicatedGetOut
+bool ABP_NPC_C::M_GetReplicatedGetOut() const {
+	return Read<bool>((byte*)this + 7556);
 }
-class AActor** ABP_NPC_C::M_PtrGetLastFurniture() {
-	return reinterpret_cast<class AActor**>((byte*)this + 7560);
+bool* ABP_NPC_C::M_PtrGetReplicatedGetOut() {
+	return reinterpret_cast<bool*>((byte*)this + 7556);
 }
-void ABP_NPC_C::M_SetLastFurniture(const class AActor*& value) {
+void ABP_NPC_C::M_SetReplicatedGetOut(const bool& value) {
+	Write((byte*)this + 7556, value);
+}
+// Member Getter and Setter of BandMontageComplete
+// Declaration: TAssetPtr<class FBandMontageComplete__DelegateSignature> BandMontageComplete
+TAssetPtr<class FBandMontageComplete__DelegateSignature> ABP_NPC_C::M_GetBandMontageComplete() const {
+	return Read<TAssetPtr<class FBandMontageComplete__DelegateSignature>>((byte*)this + 7560);
+}
+TAssetPtr<class FBandMontageComplete__DelegateSignature>* ABP_NPC_C::M_PtrGetBandMontageComplete() {
+	return reinterpret_cast<TAssetPtr<class FBandMontageComplete__DelegateSignature>*>((byte*)this + 7560);
+}
+void ABP_NPC_C::M_SetBandMontageComplete(const TAssetPtr<class FBandMontageComplete__DelegateSignature>& value) {
 	Write((byte*)this + 7560, value);
 }
-// Member Getter and Setter of Spawner
-// Declaration: class AActor* Spawner
-class AActor* ABP_NPC_C::M_GetSpawner() const {
-	return Read<class AActor*>((byte*)this + 7568);
+// Member Getter and Setter of BardMontage
+// Declaration: class UAnimMontage* BardMontage
+class UAnimMontage* ABP_NPC_C::M_GetBardMontage() const {
+	return Read<class UAnimMontage*>((byte*)this + 7576);
 }
-class AActor** ABP_NPC_C::M_PtrGetSpawner() {
-	return reinterpret_cast<class AActor**>((byte*)this + 7568);
+class UAnimMontage** ABP_NPC_C::M_PtrGetBardMontage() {
+	return reinterpret_cast<class UAnimMontage**>((byte*)this + 7576);
 }
-void ABP_NPC_C::M_SetSpawner(const class AActor*& value) {
-	Write((byte*)this + 7568, value);
-}
-// Member Getter and Setter of AnimalsReferences
-// Declaration: TArray<class UObject*> AnimalsReferences
-TArray<class UObject*> ABP_NPC_C::M_GetAnimalsReferences() const {
-	return Read<TArray<class UObject*>>((byte*)this + 7576);
-}
-TArray<class UObject*>* ABP_NPC_C::M_PtrGetAnimalsReferences() {
-	return reinterpret_cast<TArray<class UObject*>*>((byte*)this + 7576);
-}
-void ABP_NPC_C::M_SetAnimalsReferences(const TArray<class UObject*>& value) {
+void ABP_NPC_C::M_SetBardMontage(const class UAnimMontage*& value) {
 	Write((byte*)this + 7576, value);
 }
-// Member Getter and Setter of FoliageTarget
-// Declaration: struct FST_FoliageTarget FoliageTarget
-struct FST_FoliageTarget ABP_NPC_C::M_GetFoliageTarget() const {
-	return Read<struct FST_FoliageTarget>((byte*)this + 7600);
+// Member Getter and Setter of BardTrackData
+// Declaration: struct FST_TrackData BardTrackData
+struct FST_TrackData ABP_NPC_C::M_GetBardTrackData() const {
+	return Read<struct FST_TrackData>((byte*)this + 7584);
 }
-struct FST_FoliageTarget* ABP_NPC_C::M_PtrGetFoliageTarget() {
-	return reinterpret_cast<struct FST_FoliageTarget*>((byte*)this + 7600);
+struct FST_TrackData* ABP_NPC_C::M_PtrGetBardTrackData() {
+	return reinterpret_cast<struct FST_TrackData*>((byte*)this + 7584);
 }
-void ABP_NPC_C::M_SetFoliageTarget(const struct FST_FoliageTarget& value) {
-	Write((byte*)this + 7600, value);
+void ABP_NPC_C::M_SetBardTrackData(const struct FST_TrackData& value) {
+	Write((byte*)this + 7584, value);
 }
-// Member Getter and Setter of NoiseTimer
-// Declaration: struct FTimerHandle NoiseTimer
-struct FTimerHandle ABP_NPC_C::M_GetNoiseTimer() const {
-	return Read<struct FTimerHandle>((byte*)this + 7680);
+// Member Getter and Setter of IsListeningBard
+// Declaration: bool IsListeningBard
+bool ABP_NPC_C::M_GetIsListeningBard() const {
+	return Read<bool>((byte*)this + 7596);
 }
-struct FTimerHandle* ABP_NPC_C::M_PtrGetNoiseTimer() {
-	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 7680);
+bool* ABP_NPC_C::M_PtrGetIsListeningBard() {
+	return reinterpret_cast<bool*>((byte*)this + 7596);
 }
-void ABP_NPC_C::M_SetNoiseTimer(const struct FTimerHandle& value) {
-	Write((byte*)this + 7680, value);
+void ABP_NPC_C::M_SetIsListeningBard(const bool& value) {
+	Write((byte*)this + 7596, value);
 }
 #pragma endregion
 #pragma region Functions
@@ -867,6 +1054,72 @@ void ABP_NPC_C::BreakMontageComplete__DelegateSignature(TEnumAsByte<E_Profession
 	params.Profession = Profession;
 	params.Montage = Montage;
 	params.BreakAnimID = BreakAnimID;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.WorkMontageLoaded__DelegateSignature
+// Flags: Public, Delegate, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::WorkMontageLoaded__DelegateSignature() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.WorkMontageLoaded__DelegateSignature");
+
+	struct ABP_NPC_C_WorkMontageLoaded__DelegateSignature_Params {
+	};
+	ABP_NPC_C_WorkMontageLoaded__DelegateSignature_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.ActivityMontageLoaded__DelegateSignature
+// Flags: Public, Delegate, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::ActivityMontageLoaded__DelegateSignature() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.ActivityMontageLoaded__DelegateSignature");
+
+	struct ABP_NPC_C_ActivityMontageLoaded__DelegateSignature_Params {
+	};
+	ABP_NPC_C_ActivityMontageLoaded__DelegateSignature_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.ActivityMontageComplete__DelegateSignature
+// Flags: Public, Delegate, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Montage	Type: class UAnimMontage*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ActivityAnimID	Type: unsigned char	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::ActivityMontageComplete__DelegateSignature(class UAnimMontage* Montage, unsigned char ActivityAnimID) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.ActivityMontageComplete__DelegateSignature");
+
+	struct ABP_NPC_C_ActivityMontageComplete__DelegateSignature_Params {
+		class UAnimMontage* Montage;			//Offset: 0 | ElementSize: 8
+		unsigned char ActivityAnimID;			//Offset: 8 | ElementSize: 1
+	};
+	ABP_NPC_C_ActivityMontageComplete__DelegateSignature_Params params;
+	params.Montage = Montage;
+	params.ActivityAnimID = ActivityAnimID;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.BandMontageComplete__DelegateSignature
+// Flags: Public, Delegate, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::BandMontageComplete__DelegateSignature() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.BandMontageComplete__DelegateSignature");
+
+	struct ABP_NPC_C_BandMontageComplete__DelegateSignature_Params {
+	};
+	ABP_NPC_C_BandMontageComplete__DelegateSignature_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -1208,6 +1461,132 @@ void ABP_NPC_C::OnBind_WorkMontage(TEnumAsByte<E_Profession> Profession, class U
 }
 
 /////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_BindEventToWorkMontageLoaded
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: BTTask	Type: class UBTTask_BlueprintBase*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_BindEventToWorkMontageLoaded(class UBTTask_BlueprintBase* BTTask) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_BindEventToWorkMontageLoaded");
+
+	struct ABP_NPC_C_AI_BindEventToWorkMontageLoaded_Params {
+		class UBTTask_BlueprintBase* BTTask;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_NPC_C_AI_BindEventToWorkMontageLoaded_Params params;
+	params.BTTask = BTTask;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.OnBind_WorkLoaded
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::OnBind_WorkLoaded() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnBind_WorkLoaded");
+
+	struct ABP_NPC_C_OnBind_WorkLoaded_Params {
+	};
+	ABP_NPC_C_OnBind_WorkLoaded_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_UnbindEventFromWorkMontageLoaded
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_UnbindEventFromWorkMontageLoaded() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_UnbindEventFromWorkMontageLoaded");
+
+	struct ABP_NPC_C_AI_UnbindEventFromWorkMontageLoaded_Params {
+	};
+	ABP_NPC_C_AI_UnbindEventFromWorkMontageLoaded_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_UnbindAllEventsFromWorkMontageLoaded
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_UnbindAllEventsFromWorkMontageLoaded() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_UnbindAllEventsFromWorkMontageLoaded");
+
+	struct ABP_NPC_C_AI_UnbindAllEventsFromWorkMontageLoaded_Params {
+	};
+	ABP_NPC_C_AI_UnbindAllEventsFromWorkMontageLoaded_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.OnBind_ActivityLoaded
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::OnBind_ActivityLoaded() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnBind_ActivityLoaded");
+
+	struct ABP_NPC_C_OnBind_ActivityLoaded_Params {
+	};
+	ABP_NPC_C_OnBind_ActivityLoaded_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_BindEventToActivityMontageLoaded
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: BTTask	Type: class UBTTask_BlueprintBase*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_BindEventToActivityMontageLoaded(class UBTTask_BlueprintBase* BTTask) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_BindEventToActivityMontageLoaded");
+
+	struct ABP_NPC_C_AI_BindEventToActivityMontageLoaded_Params {
+		class UBTTask_BlueprintBase* BTTask;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_NPC_C_AI_BindEventToActivityMontageLoaded_Params params;
+	params.BTTask = BTTask;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_UnbindEventFromActivityMontageLoaded
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_UnbindEventFromActivityMontageLoaded() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_UnbindEventFromActivityMontageLoaded");
+
+	struct ABP_NPC_C_AI_UnbindEventFromActivityMontageLoaded_Params {
+	};
+	ABP_NPC_C_AI_UnbindEventFromActivityMontageLoaded_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_UnbindAllEventsFromActivityMontageLoaded
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_UnbindAllEventsFromActivityMontageLoaded() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_UnbindAllEventsFromActivityMontageLoaded");
+
+	struct ABP_NPC_C_AI_UnbindAllEventsFromActivityMontageLoaded_Params {
+	};
+	ABP_NPC_C_AI_UnbindAllEventsFromActivityMontageLoaded_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
 // Function BP_NPC.BP_NPC_C.AI_HideHeldItem
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
@@ -1257,15 +1636,18 @@ void ABP_NPC_C::AI_SpawnTool(TEnumAsByte<E_Tools> Tool, bool CheckInInventory, b
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: Item	Type: TEnumAsByte<E_Tools>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: CheckInInventory	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_NPC_C::AI_SpawnOff_HandItem(TEnumAsByte<E_Tools> Item) {
+void ABP_NPC_C::AI_SpawnOff_HandItem(TEnumAsByte<E_Tools> Item, bool CheckInInventory) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_SpawnOff-HandItem");
 
 	struct ABP_NPC_C_AI_SpawnOff_HandItem_Params {
 		TEnumAsByte<E_Tools> Item;			//Offset: 0 | ElementSize: 1
+		bool CheckInInventory;			//Offset: 1 | ElementSize: 1
 	};
 	ABP_NPC_C_AI_SpawnOff_HandItem_Params params;
 	params.Item = Item;
+	params.CheckInInventory = CheckInInventory;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -1673,6 +2055,33 @@ void ABP_NPC_C::AI_DestroyAudioComponent(bool WaitForSoundToFinish) {
 }
 
 /////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_PlayChatter
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ChatterCategory	Type: EChatterSoundType	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterSubCategory	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterData	Type: struct FChatterData	Flags: BlueprintVisible, BlueprintReadOnly, Parm
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_PlayChatter(EChatterSoundType ChatterCategory, struct FName ChatterSubCategory, struct FName ChatterID, struct FChatterData ChatterData) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_PlayChatter");
+
+	struct ABP_NPC_C_AI_PlayChatter_Params {
+		EChatterSoundType ChatterCategory;			//Offset: 0 | ElementSize: 1
+		struct FName ChatterSubCategory;			//Offset: 4 | ElementSize: 8
+		struct FName ChatterID;			//Offset: 12 | ElementSize: 8
+		struct FChatterData ChatterData;			//Offset: 24 | ElementSize: 168
+	};
+	ABP_NPC_C_AI_PlayChatter_Params params;
+	params.ChatterCategory = ChatterCategory;
+	params.ChatterSubCategory = ChatterSubCategory;
+	params.ChatterID = ChatterID;
+	params.ChatterData = ChatterData;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
 // Function BP_NPC.BP_NPC_C.AI_SetBanditType
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
@@ -2059,17 +2468,20 @@ void ABP_NPC_C::AI_EnableDeadMethods() {
 // Params:
 // Name: WorkMontage	Type: class UAnimMontage*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: BreakMontage	Type: class UAnimMontage*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: AcivityMontage	Type: class UAnimMontage*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_NPC_C::AI_SetMontages(class UAnimMontage* WorkMontage, class UAnimMontage* BreakMontage) {
+void ABP_NPC_C::AI_SetMontages(class UAnimMontage* WorkMontage, class UAnimMontage* BreakMontage, class UAnimMontage* AcivityMontage) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_SetMontages");
 
 	struct ABP_NPC_C_AI_SetMontages_Params {
 		class UAnimMontage* WorkMontage;			//Offset: 0 | ElementSize: 8
 		class UAnimMontage* BreakMontage;			//Offset: 8 | ElementSize: 8
+		class UAnimMontage* AcivityMontage;			//Offset: 16 | ElementSize: 8
 	};
 	ABP_NPC_C_AI_SetMontages_Params params;
 	params.WorkMontage = WorkMontage;
 	params.BreakMontage = BreakMontage;
+	params.AcivityMontage = AcivityMontage;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -2187,8 +2599,9 @@ void ABP_NPC_C::AI_SetInteractedActor(class AActor* InteractedActor) {
 // Name: Sitting	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: Working	Type: bool	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: TakingBreak	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: InActivity	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_NPC_C::AI_SetAnimationState(bool Sleeping, bool Sitting, bool Working, bool TakingBreak) {
+void ABP_NPC_C::AI_SetAnimationState(bool Sleeping, bool Sitting, bool Working, bool TakingBreak, bool InActivity) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_SetAnimationState");
 
 	struct ABP_NPC_C_AI_SetAnimationState_Params {
@@ -2196,12 +2609,14 @@ void ABP_NPC_C::AI_SetAnimationState(bool Sleeping, bool Sitting, bool Working, 
 		bool Sitting;			//Offset: 1 | ElementSize: 1
 		bool Working;			//Offset: 2 | ElementSize: 1
 		bool TakingBreak;			//Offset: 3 | ElementSize: 1
+		bool InActivity;			//Offset: 4 | ElementSize: 1
 	};
 	ABP_NPC_C_AI_SetAnimationState_Params params;
 	params.Sleeping = Sleeping;
 	params.Sitting = Sitting;
 	params.Working = Working;
 	params.TakingBreak = TakingBreak;
+	params.InActivity = InActivity;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -2309,16 +2724,16 @@ void ABP_NPC_C::AI_SetID(struct FString ID) {
 // Function BP_NPC.BP_NPC_C.AI_SetRotationManaged
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: isRotationManaged	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: IsRotationManaged	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_NPC_C::AI_SetRotationManaged(bool isRotationManaged) {
+void ABP_NPC_C::AI_SetRotationManaged(bool IsRotationManaged) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_SetRotationManaged");
 
 	struct ABP_NPC_C_AI_SetRotationManaged_Params {
-		bool isRotationManaged;			//Offset: 0 | ElementSize: 1
+		bool IsRotationManaged;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_NPC_C_AI_SetRotationManaged_Params params;
-	params.isRotationManaged = isRotationManaged;
+	params.IsRotationManaged = IsRotationManaged;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -2510,79 +2925,127 @@ void ABP_NPC_C::AI_DestroyOnGetOut() {
 }
 
 /////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.StopNoiseTimer
+// Function BP_NPC.BP_NPC_C.PlayChatterDialogue
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
+// Name: ChatterDialogueID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterDialogueData	Type: struct FChatterData	Flags: BlueprintVisible, BlueprintReadOnly, Parm
 /////////////////////////////////////////////
-void ABP_NPC_C::StopNoiseTimer() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.StopNoiseTimer");
+void ABP_NPC_C::PlayChatterDialogue(struct FName ChatterDialogueID, struct FChatterData ChatterDialogueData) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.PlayChatterDialogue");
 
-	struct ABP_NPC_C_StopNoiseTimer_Params {
+	struct ABP_NPC_C_PlayChatterDialogue_Params {
+		struct FName ChatterDialogueID;			//Offset: 0 | ElementSize: 8
+		struct FChatterData ChatterDialogueData;			//Offset: 8 | ElementSize: 168
 	};
-	ABP_NPC_C_StopNoiseTimer_Params params;
+	ABP_NPC_C_PlayChatterDialogue_Params params;
+	params.ChatterDialogueID = ChatterDialogueID;
+	params.ChatterDialogueData = ChatterDialogueData;
 
 	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.StartNoiseTimer
+// Function BP_NPC.BP_NPC_C.PlayChatter
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
-// Name: Time	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterCategory	Type: EChatterSoundType	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterSubCategory	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterData	Type: struct FChatterData	Flags: BlueprintVisible, BlueprintReadOnly, Parm
 /////////////////////////////////////////////
-void ABP_NPC_C::StartNoiseTimer(float Time) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.StartNoiseTimer");
+void ABP_NPC_C::PlayChatter(EChatterSoundType ChatterCategory, struct FName ChatterSubCategory, struct FName ChatterID, struct FChatterData ChatterData) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.PlayChatter");
 
-	struct ABP_NPC_C_StartNoiseTimer_Params {
-		float Time;			//Offset: 0 | ElementSize: 4
+	struct ABP_NPC_C_PlayChatter_Params {
+		EChatterSoundType ChatterCategory;			//Offset: 0 | ElementSize: 1
+		struct FName ChatterSubCategory;			//Offset: 4 | ElementSize: 8
+		struct FName ChatterID;			//Offset: 12 | ElementSize: 8
+		struct FChatterData ChatterData;			//Offset: 24 | ElementSize: 168
 	};
-	ABP_NPC_C_StartNoiseTimer_Params params;
-	params.Time = Time;
+	ABP_NPC_C_PlayChatter_Params params;
+	params.ChatterCategory = ChatterCategory;
+	params.ChatterSubCategory = ChatterSubCategory;
+	params.ChatterID = ChatterID;
+	params.ChatterData = ChatterData;
 
 	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.ExecuteNoise
-// Flags: BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_NPC_C::ExecuteNoise() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.ExecuteNoise");
-
-	struct ABP_NPC_C_ExecuteNoise_Params {
-	};
-	ABP_NPC_C_ExecuteNoise_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.PushSFX
-// Flags: BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_NPC_C::PushSFX() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.PushSFX");
-
-	struct ABP_NPC_C_PushSFX_Params {
-	};
-	ABP_NPC_C_PushSFX_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.NPCsStartTimer_Stamina_BPI
+// Function BP_NPC.BP_NPC_C.AI_SetChatterByCategoryAndSubCategory
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
+// Name: ChatterCategory	Type: EChatterSoundType	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterSubCategory	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterOption	Type: unsigned char	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: SkipCheckingChatterConditions	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: ShouldPlayChatter	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_NPC_C::NPCsStartTimer_Stamina_BPI() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.NPCsStartTimer_Stamina_BPI");
+void ABP_NPC_C::AI_SetChatterByCategoryAndSubCategory(EChatterSoundType ChatterCategory, struct FName ChatterSubCategory, unsigned char ChatterOption, bool SkipCheckingChatterConditions, bool ShouldPlayChatter) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_SetChatterByCategoryAndSubCategory");
 
-	struct ABP_NPC_C_NPCsStartTimer_Stamina_BPI_Params {
+	struct ABP_NPC_C_AI_SetChatterByCategoryAndSubCategory_Params {
+		EChatterSoundType ChatterCategory;			//Offset: 0 | ElementSize: 1
+		struct FName ChatterSubCategory;			//Offset: 4 | ElementSize: 8
+		unsigned char ChatterOption;			//Offset: 12 | ElementSize: 1
+		bool SkipCheckingChatterConditions;			//Offset: 13 | ElementSize: 1
+		bool ShouldPlayChatter;			//Offset: 14 | ElementSize: 1
 	};
-	ABP_NPC_C_NPCsStartTimer_Stamina_BPI_Params params;
+	ABP_NPC_C_AI_SetChatterByCategoryAndSubCategory_Params params;
+	params.ChatterCategory = ChatterCategory;
+	params.ChatterSubCategory = ChatterSubCategory;
+	params.ChatterOption = ChatterOption;
+	params.SkipCheckingChatterConditions = SkipCheckingChatterConditions;
+	params.ShouldPlayChatter = ShouldPlayChatter;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.BndEvt__BP_NPC_Collision_K2Node_ComponentBoundEvent_1_OnCollision__DelegateSignature
+// Flags: BlueprintEvent
+// Params:
+// Name: CollisionData	Type: struct FCollisionData	Flags: BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor, ContainsInstancedReference
+/////////////////////////////////////////////
+void ABP_NPC_C::BndEvt__BP_NPC_Collision_K2Node_ComponentBoundEvent_1_OnCollision__DelegateSignature(struct FCollisionData CollisionData) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.BndEvt__BP_NPC_Collision_K2Node_ComponentBoundEvent_1_OnCollision__DelegateSignature");
+
+	struct ABP_NPC_C_BndEvt__BP_NPC_Collision_K2Node_ComponentBoundEvent_1_OnCollision__DelegateSignature_Params {
+		struct FCollisionData CollisionData;			//Offset: 0 | ElementSize: 80
+	};
+	ABP_NPC_C_BndEvt__BP_NPC_Collision_K2Node_ComponentBoundEvent_1_OnCollision__DelegateSignature_Params params;
+	params.CollisionData = CollisionData;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.ReceiveDestroyed
+// Flags: Event, Public, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::ReceiveDestroyed() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.ReceiveDestroyed");
+
+	struct ABP_NPC_C_ReceiveDestroyed_Params {
+	};
+	ABP_NPC_C_ReceiveDestroyed_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetChatter
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::SetChatter() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetChatter");
+
+	struct ABP_NPC_C_SetChatter_Params {
+	};
+	ABP_NPC_C_SetChatter_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -2803,9 +3266,9 @@ void ABP_NPC_C::LoadNPCDataFromSave(struct FST_SAVE_NPC NPCData, bool ResetEQ, s
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.LoadNPCDataFromSave");
 
 	struct ABP_NPC_C_LoadNPCDataFromSave_Params {
-		struct FST_SAVE_NPC NPCData;			//Offset: 0 | ElementSize: 1160
-		bool ResetEQ;			//Offset: 1160 | ElementSize: 1
-		struct FString SaveGameVersion;			//Offset: 1168 | ElementSize: 16
+		struct FST_SAVE_NPC NPCData;			//Offset: 0 | ElementSize: 1264
+		bool ResetEQ;			//Offset: 1264 | ElementSize: 1
+		struct FString SaveGameVersion;			//Offset: 1272 | ElementSize: 16
 	};
 	ABP_NPC_C_LoadNPCDataFromSave_Params params;
 	params.NPCData = NPCData;
@@ -2865,6 +3328,78 @@ void ABP_NPC_C::AI_AddSkills(TEnumAsByte<E_Skills> Skill, float Value) {
 	ABP_NPC_C_AI_AddSkills_Params params;
 	params.Skill = Skill;
 	params.Value = Value;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AIPlayAudio_Internal
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Audio	Type: class USoundBase*	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: StartTime	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: DestroyAfterPlaying	Type: bool	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: IsChatter	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::AIPlayAudio_Internal(class USoundBase* Audio, float StartTime, bool DestroyAfterPlaying, bool IsChatter) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AIPlayAudio_Internal");
+
+	struct ABP_NPC_C_AIPlayAudio_Internal_Params {
+		class USoundBase* Audio;			//Offset: 0 | ElementSize: 8
+		float StartTime;			//Offset: 8 | ElementSize: 4
+		bool DestroyAfterPlaying;			//Offset: 12 | ElementSize: 1
+		bool IsChatter;			//Offset: 13 | ElementSize: 1
+	};
+	ABP_NPC_C_AIPlayAudio_Internal_Params params;
+	params.Audio = Audio;
+	params.StartTime = StartTime;
+	params.DestroyAfterPlaying = DestroyAfterPlaying;
+	params.IsChatter = IsChatter;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AIDestroyAudioComponent_Multicast
+// Flags: Net, NetReliable, NetMulticast, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: WaitForSoundToFinish	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::AIDestroyAudioComponent_Multicast(bool WaitForSoundToFinish) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AIDestroyAudioComponent_Multicast");
+
+	struct ABP_NPC_C_AIDestroyAudioComponent_Multicast_Params {
+		bool WaitForSoundToFinish;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_AIDestroyAudioComponent_Multicast_Params params;
+	params.WaitForSoundToFinish = WaitForSoundToFinish;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AIPlayAudio_Multicast
+// Flags: Net, NetMulticast, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Audio	Type: class USoundBase*	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: StartTime	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: DestroyAfterPlaying	Type: bool	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: IsChatter	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::AIPlayAudio_Multicast(class USoundBase* Audio, float StartTime, bool DestroyAfterPlaying, bool IsChatter) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AIPlayAudio_Multicast");
+
+	struct ABP_NPC_C_AIPlayAudio_Multicast_Params {
+		class USoundBase* Audio;			//Offset: 0 | ElementSize: 8
+		float StartTime;			//Offset: 8 | ElementSize: 4
+		bool DestroyAfterPlaying;			//Offset: 12 | ElementSize: 1
+		bool IsChatter;			//Offset: 13 | ElementSize: 1
+	};
+	ABP_NPC_C_AIPlayAudio_Multicast_Params params;
+	params.Audio = Audio;
+	params.StartTime = StartTime;
+	params.DestroyAfterPlaying = DestroyAfterPlaying;
+	params.IsChatter = IsChatter;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -2939,6 +3474,24 @@ void ABP_NPC_C::OnLoaded_10E0287042B5716E06C80D849582D9F5(class UObject* Loaded)
 }
 
 /////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.OnLoaded_B056135441CEA67F35238B9B4B8DC453
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Loaded	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::OnLoaded_B056135441CEA67F35238B9B4B8DC453(class UObject* Loaded) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnLoaded_B056135441CEA67F35238B9B4B8DC453");
+
+	struct ABP_NPC_C_OnLoaded_B056135441CEA67F35238B9B4B8DC453_Params {
+		class UObject* Loaded;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_NPC_C_OnLoaded_B056135441CEA67F35238B9B4B8DC453_Params params;
+	params.Loaded = Loaded;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
 // Function BP_NPC.BP_NPC_C.OnLoaded_BB2717E64866BD380FC9D781DB1EF03A
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
@@ -2975,18 +3528,72 @@ void ABP_NPC_C::OnLoaded_9AA73FD8484CD67355ABCEB05F2C8AB7(class UObject* Loaded)
 }
 
 /////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.OnLoaded_A8D3AB2C48079456925A13A50E8CAB36
+// Function BP_NPC.BP_NPC_C.OnLoaded_6E81A2CF4866CC36C0C84A93506A1E7B
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
 // Name: Loaded	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_NPC_C::OnLoaded_A8D3AB2C48079456925A13A50E8CAB36(class UObject* Loaded) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnLoaded_A8D3AB2C48079456925A13A50E8CAB36");
+void ABP_NPC_C::OnLoaded_6E81A2CF4866CC36C0C84A93506A1E7B(class UObject* Loaded) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnLoaded_6E81A2CF4866CC36C0C84A93506A1E7B");
 
-	struct ABP_NPC_C_OnLoaded_A8D3AB2C48079456925A13A50E8CAB36_Params {
+	struct ABP_NPC_C_OnLoaded_6E81A2CF4866CC36C0C84A93506A1E7B_Params {
 		class UObject* Loaded;			//Offset: 0 | ElementSize: 8
 	};
-	ABP_NPC_C_OnLoaded_A8D3AB2C48079456925A13A50E8CAB36_Params params;
+	ABP_NPC_C_OnLoaded_6E81A2CF4866CC36C0C84A93506A1E7B_Params params;
+	params.Loaded = Loaded;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.OnLoaded_D1FA44FD4C0B06F84B4AB3BA3EA9F50B
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Loaded	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::OnLoaded_D1FA44FD4C0B06F84B4AB3BA3EA9F50B(class UObject* Loaded) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnLoaded_D1FA44FD4C0B06F84B4AB3BA3EA9F50B");
+
+	struct ABP_NPC_C_OnLoaded_D1FA44FD4C0B06F84B4AB3BA3EA9F50B_Params {
+		class UObject* Loaded;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_NPC_C_OnLoaded_D1FA44FD4C0B06F84B4AB3BA3EA9F50B_Params params;
+	params.Loaded = Loaded;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.OnLoaded_717BB17744D17AA5225381AE4EC50813
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Loaded	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::OnLoaded_717BB17744D17AA5225381AE4EC50813(class UObject* Loaded) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnLoaded_717BB17744D17AA5225381AE4EC50813");
+
+	struct ABP_NPC_C_OnLoaded_717BB17744D17AA5225381AE4EC50813_Params {
+		class UObject* Loaded;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_NPC_C_OnLoaded_717BB17744D17AA5225381AE4EC50813_Params params;
+	params.Loaded = Loaded;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.OnLoaded_6CD79C014853EE3E017CBC9D6D33424B
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Loaded	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::OnLoaded_6CD79C014853EE3E017CBC9D6D33424B(class UObject* Loaded) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnLoaded_6CD79C014853EE3E017CBC9D6D33424B");
+
+	struct ABP_NPC_C_OnLoaded_6CD79C014853EE3E017CBC9D6D33424B_Params {
+		class UObject* Loaded;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_NPC_C_OnLoaded_6CD79C014853EE3E017CBC9D6D33424B_Params params;
 	params.Loaded = Loaded;
 
 	UObject::ProcessEvent(fn, &params);
@@ -2996,17 +3603,20 @@ void ABP_NPC_C::OnLoaded_A8D3AB2C48079456925A13A50E8CAB36(class UObject* Loaded)
 // Function BP_NPC.BP_NPC_C.CheckForTalkGoal
 // Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
+// Name: PlayerReference	Type: class ABP_PlayerCharacter_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Dialogue	Type: TAssetPtr<class UDialogue>	Flags: Parm, OutParm, HasGetValueTypeHash
 // Name: found	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_NPC_C::CheckForTalkGoal(TAssetPtr<class UDialogue>* Dialogue, bool* found) {
+void ABP_NPC_C::CheckForTalkGoal(class ABP_PlayerCharacter_C* PlayerReference, TAssetPtr<class UDialogue>* Dialogue, bool* found) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.CheckForTalkGoal");
 
 	struct ABP_NPC_C_CheckForTalkGoal_Params {
-		TAssetPtr<class UDialogue> Dialogue;			//Offset: 0 | ElementSize: 40
-		bool found;			//Offset: 40 | ElementSize: 1
+		class ABP_PlayerCharacter_C* PlayerReference;			//Offset: 0 | ElementSize: 8
+		TAssetPtr<class UDialogue> Dialogue;			//Offset: 8 | ElementSize: 40
+		bool found;			//Offset: 48 | ElementSize: 1
 	};
 	ABP_NPC_C_CheckForTalkGoal_Params params;
+	params.PlayerReference = PlayerReference;
 
 	UObject::ProcessEvent(fn, &params);
 	if (Dialogue != nullptr)
@@ -3306,24 +3916,6 @@ void ABP_NPC_C::SetBlackboardValues_CurrentNPCBehavior(TEnumAsByte<E_NPCBehavior
 }
 
 /////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.SetBlackboardValues_WorkTask
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: WorkTask	Type: TEnumAsByte<E_Tasks>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_NPC_C::SetBlackboardValues_WorkTask(TEnumAsByte<E_Tasks> WorkTask) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetBlackboardValues_WorkTask");
-
-	struct ABP_NPC_C_SetBlackboardValues_WorkTask_Params {
-		TEnumAsByte<E_Tasks> WorkTask;			//Offset: 0 | ElementSize: 1
-	};
-	ABP_NPC_C_SetBlackboardValues_WorkTask_Params params;
-	params.WorkTask = WorkTask;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
 // Function BP_NPC.BP_NPC_C.SetBlackboardValues_Task
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
@@ -3394,25 +3986,6 @@ void ABP_NPC_C::GetBlackboardValues_CurrentNPCBehavior(TEnumAsByte<E_NPCBehavior
 	UObject::ProcessEvent(fn, &params);
 	if (NPCBehavior != nullptr)
 		*NPCBehavior = params.NPCBehavior;
-}
-
-/////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.GetBlackboardValues_WorkTask
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
-// Params:
-// Name: WorkTask	Type: TEnumAsByte<E_Tasks>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_NPC_C::GetBlackboardValues_WorkTask(TEnumAsByte<E_Tasks>* WorkTask) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetBlackboardValues_WorkTask");
-
-	struct ABP_NPC_C_GetBlackboardValues_WorkTask_Params {
-		TEnumAsByte<E_Tasks> WorkTask;			//Offset: 0 | ElementSize: 1
-	};
-	ABP_NPC_C_GetBlackboardValues_WorkTask_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-	if (WorkTask != nullptr)
-		*WorkTask = params.WorkTask;
 }
 
 /////////////////////////////////////////////
@@ -3634,7 +4207,7 @@ void ABP_NPC_C::FindTool(TEnumAsByte<E_Tools> ToolType, bool* Found_, struct FST
 	struct ABP_NPC_C_FindTool_Params {
 		TEnumAsByte<E_Tools> ToolType;			//Offset: 0 | ElementSize: 1
 		bool Found_;			//Offset: 1 | ElementSize: 1
-		struct FST_ItemDetails ItemDetails;			//Offset: 8 | ElementSize: 848
+		struct FST_ItemDetails ItemDetails;			//Offset: 8 | ElementSize: 968
 	};
 	ABP_NPC_C_FindTool_Params params;
 	params.ToolType = ToolType;
@@ -3877,7 +4450,7 @@ void ABP_NPC_C::SetGiftVendorItems(struct FST_VendorCategory VendorCategory) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetGiftVendorItems");
 
 	struct ABP_NPC_C_SetGiftVendorItems_Params {
-		struct FST_VendorCategory VendorCategory;			//Offset: 0 | ElementSize: 16
+		struct FST_VendorCategory VendorCategory;			//Offset: 0 | ElementSize: 24
 	};
 	ABP_NPC_C_SetGiftVendorItems_Params params;
 	params.VendorCategory = VendorCategory;
@@ -3952,33 +4525,36 @@ void ABP_NPC_C::SetMinDeadAge() {
 // Name: NPC_ID	Type: struct FString	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash
 // Name: MeshName	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: BPIndexes	Type: TMap<TEnumAsByte<E_BodyParts>, int32_t>	Flags: BlueprintVisible, BlueprintReadOnly, Parm
-// Name: SkinTone	Type: struct FLinearColor	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: HairColor	Type: struct FLinearColor	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: SkinColorID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: HairColorID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: HeadID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: HairID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: IrisID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: PresetsIDs	Type: TMap<TEnumAsByte<E_Profession>, struct FST_NPCSeasonClothing>	Flags: BlueprintVisible, BlueprintReadOnly, Parm
 /////////////////////////////////////////////
-void ABP_NPC_C::SetSaveMeshPresets(struct FString NPC_ID, struct FName MeshName, TMap<TEnumAsByte<E_BodyParts>, int32_t> BPIndexes, struct FLinearColor SkinTone, struct FLinearColor HairColor, int32_t HeadID, int32_t HairID, TMap<TEnumAsByte<E_Profession>, struct FST_NPCSeasonClothing> PresetsIDs) {
+void ABP_NPC_C::SetSaveMeshPresets(struct FString NPC_ID, struct FName MeshName, TMap<TEnumAsByte<E_BodyParts>, int32_t> BPIndexes, int32_t SkinColorID, int32_t HairColorID, int32_t HeadID, int32_t HairID, int32_t IrisID, TMap<TEnumAsByte<E_Profession>, struct FST_NPCSeasonClothing> PresetsIDs) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetSaveMeshPresets");
 
 	struct ABP_NPC_C_SetSaveMeshPresets_Params {
 		struct FString NPC_ID;			//Offset: 0 | ElementSize: 16
 		struct FName MeshName;			//Offset: 16 | ElementSize: 8
 		TMap<TEnumAsByte<E_BodyParts>, int32_t> BPIndexes;			//Offset: 24 | ElementSize: 80
-		struct FLinearColor SkinTone;			//Offset: 104 | ElementSize: 16
-		struct FLinearColor HairColor;			//Offset: 120 | ElementSize: 16
-		int32_t HeadID;			//Offset: 136 | ElementSize: 4
-		int32_t HairID;			//Offset: 140 | ElementSize: 4
-		TMap<TEnumAsByte<E_Profession>, struct FST_NPCSeasonClothing> PresetsIDs;			//Offset: 144 | ElementSize: 80
+		int32_t SkinColorID;			//Offset: 104 | ElementSize: 4
+		int32_t HairColorID;			//Offset: 108 | ElementSize: 4
+		int32_t HeadID;			//Offset: 112 | ElementSize: 4
+		int32_t HairID;			//Offset: 116 | ElementSize: 4
+		int32_t IrisID;			//Offset: 120 | ElementSize: 4
+		TMap<TEnumAsByte<E_Profession>, struct FST_NPCSeasonClothing> PresetsIDs;			//Offset: 128 | ElementSize: 80
 	};
 	ABP_NPC_C_SetSaveMeshPresets_Params params;
 	params.NPC_ID = NPC_ID;
 	params.MeshName = MeshName;
 	params.BPIndexes = BPIndexes;
-	params.SkinTone = SkinTone;
-	params.HairColor = HairColor;
+	params.SkinColorID = SkinColorID;
+	params.HairColorID = HairColorID;
 	params.HeadID = HeadID;
 	params.HairID = HairID;
+	params.IrisID = IrisID;
 	params.PresetsIDs = PresetsIDs;
 
 	UObject::ProcessEvent(fn, &params);
@@ -4037,21 +4613,6 @@ void ABP_NPC_C::AfterDeath() {
 }
 
 /////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.SetRandomInventory
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_NPC_C::SetRandomInventory() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetRandomInventory");
-
-	struct ABP_NPC_C_SetRandomInventory_Params {
-	};
-	ABP_NPC_C_SetRandomInventory_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
 // Function BP_NPC.BP_NPC_C.ChooseCharacterVoiceID
 // Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
@@ -4064,24 +4625,6 @@ void ABP_NPC_C::ChooseCharacterVoiceID() {
 	ABP_NPC_C_ChooseCharacterVoiceID_Params params;
 
 	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.GetActualDialogue
-// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
-// Params:
-// Name: ReturnValue	Type: TAssetPtr<class UDialogue>	Flags: Parm, OutParm, ReturnParm, UObjectWrapper, HasGetValueTypeHash
-/////////////////////////////////////////////
-TAssetPtr<class UDialogue> ABP_NPC_C::GetActualDialogue() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetActualDialogue");
-
-	struct ABP_NPC_C_GetActualDialogue_Params {
-		TAssetPtr<class UDialogue> ReturnValue;			//Offset: 0 | ElementSize: 40
-	};
-	ABP_NPC_C_GetActualDialogue_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-	return params.ReturnValue;
 }
 
 /////////////////////////////////////////////
@@ -4098,6 +4641,45 @@ void ABP_NPC_C::SetDialogue(class ABP_PlayerCharacter_C* PlayerReference) {
 	};
 	ABP_NPC_C_SetDialogue_Params params;
 	params.PlayerReference = PlayerReference;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetActualDialogue
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: PlayerReference	Type: class ABP_PlayerCharacter_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ReturnValue	Type: TAssetPtr<class UDialogue>	Flags: Parm, OutParm, ReturnParm, UObjectWrapper, HasGetValueTypeHash
+/////////////////////////////////////////////
+TAssetPtr<class UDialogue> ABP_NPC_C::GetActualDialogue(class ABP_PlayerCharacter_C* PlayerReference) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetActualDialogue");
+
+	struct ABP_NPC_C_GetActualDialogue_Params {
+		class ABP_PlayerCharacter_C* PlayerReference;			//Offset: 0 | ElementSize: 8
+		TAssetPtr<class UDialogue> ReturnValue;			//Offset: 8 | ElementSize: 40
+	};
+	ABP_NPC_C_GetActualDialogue_Params params;
+	params.PlayerReference = PlayerReference;
+
+	UObject::ProcessEvent(fn, &params);
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.ResetActualDialogueNPC
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ResetToBasic	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::ResetActualDialogueNPC(bool ResetToBasic) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.ResetActualDialogueNPC");
+
+	struct ABP_NPC_C_ResetActualDialogueNPC_Params {
+		bool ResetToBasic;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_ResetActualDialogueNPC_Params params;
+	params.ResetToBasic = ResetToBasic;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -4287,6 +4869,27 @@ void ABP_NPC_C::FixQuestNPCsPersonality(struct FString SaveGameVersion) {
 }
 
 /////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetQuestToGive
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestToGive	Type: struct FST_QuestInfos	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ContainsInstancedReference, HasGetValueTypeHash
+// Name: QuestDTHandle	Type: struct FDataTableRowHandle	Flags: BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::SetQuestToGive(struct FST_QuestInfos QuestToGive, struct FDataTableRowHandle QuestDTHandle) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetQuestToGive");
+
+	struct ABP_NPC_C_SetQuestToGive_Params {
+		struct FST_QuestInfos QuestToGive;			//Offset: 0 | ElementSize: 992
+		struct FDataTableRowHandle QuestDTHandle;			//Offset: 992 | ElementSize: 16
+	};
+	ABP_NPC_C_SetQuestToGive_Params params;
+	params.QuestToGive = QuestToGive;
+	params.QuestDTHandle = QuestDTHandle;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
 // Function BP_NPC.BP_NPC_C.SetQuestPose
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
@@ -4314,12 +4917,12 @@ void ABP_NPC_C::SetQuestPose(TEnumAsByte<E_IdleStates> IdleState, unsigned char 
 // Function BP_NPC.BP_NPC_C.SpawnSoundComponentAndPlay
 // Flags: Protected, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: Sound	Type: class USoundBase*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Sound	Type: class USoundBase*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: StartTime	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: AutoDestroy	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: AudioComponent	Type: class UAudioComponent*	Flags: Parm, OutParm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_NPC_C::SpawnSoundComponentAndPlay(class USoundBase** Sound, float StartTime, bool AutoDestroy, class UAudioComponent** AudioComponent) {
+void ABP_NPC_C::SpawnSoundComponentAndPlay(class USoundBase* Sound, float StartTime, bool AutoDestroy, class UAudioComponent** AudioComponent) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SpawnSoundComponentAndPlay");
 
 	struct ABP_NPC_C_SpawnSoundComponentAndPlay_Params {
@@ -4329,12 +4932,11 @@ void ABP_NPC_C::SpawnSoundComponentAndPlay(class USoundBase** Sound, float Start
 		class UAudioComponent* AudioComponent;			//Offset: 16 | ElementSize: 8
 	};
 	ABP_NPC_C_SpawnSoundComponentAndPlay_Params params;
+	params.Sound = Sound;
 	params.StartTime = StartTime;
 	params.AutoDestroy = AutoDestroy;
 
 	UObject::ProcessEvent(fn, &params);
-	if (Sound != nullptr)
-		*Sound = params.Sound;
 	if (AudioComponent != nullptr)
 		*AudioComponent = params.AudioComponent;
 }
@@ -4352,57 +4954,6 @@ void ABP_NPC_C::CheckHeraldOrGiftVendorLocation() {
 	ABP_NPC_C_CheckHeraldOrGiftVendorLocation_Params params;
 
 	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.SetClothes
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_NPC_C::SetClothes() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetClothes");
-
-	struct ABP_NPC_C_SetClothes_Params {
-	};
-	ABP_NPC_C_SetClothes_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.CalculateLookingAtCharacterRotation
-// Flags: Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: ReturnValue	Type: struct FRotator	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor
-/////////////////////////////////////////////
-struct FRotator ABP_NPC_C::CalculateLookingAtCharacterRotation() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.CalculateLookingAtCharacterRotation");
-
-	struct ABP_NPC_C_CalculateLookingAtCharacterRotation_Params {
-		struct FRotator ReturnValue;			//Offset: 0 | ElementSize: 12
-	};
-	ABP_NPC_C_CalculateLookingAtCharacterRotation_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-	return params.ReturnValue;
-}
-
-/////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.CalculateLookingAtTargetRotation
-// Flags: Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: ReturnValue	Type: struct FRotator	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor
-/////////////////////////////////////////////
-struct FRotator ABP_NPC_C::CalculateLookingAtTargetRotation() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.CalculateLookingAtTargetRotation");
-
-	struct ABP_NPC_C_CalculateLookingAtTargetRotation_Params {
-		struct FRotator ReturnValue;			//Offset: 0 | ElementSize: 12
-	};
-	ABP_NPC_C_CalculateLookingAtTargetRotation_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-	return params.ReturnValue;
 }
 
 /////////////////////////////////////////////
@@ -4449,6 +5000,948 @@ void ABP_NPC_C::RandMeshesOnCharTypeChanged(TAssetPtr<class UClass> AnimClass) {
 }
 
 /////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.FindChatter
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: IsChatter	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: ChatterCategory	Type: EChatterSoundType	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterSubCategory	Type: struct FName	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterID	Type: struct FName	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterData	Type: struct FChatterData	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_NPC_C::FindChatter(bool* IsChatter, EChatterSoundType* ChatterCategory, struct FName* ChatterSubCategory, struct FName* ChatterID, struct FChatterData* ChatterData) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.FindChatter");
+
+	struct ABP_NPC_C_FindChatter_Params {
+		bool IsChatter;			//Offset: 0 | ElementSize: 1
+		EChatterSoundType ChatterCategory;			//Offset: 1 | ElementSize: 1
+		struct FName ChatterSubCategory;			//Offset: 4 | ElementSize: 8
+		struct FName ChatterID;			//Offset: 12 | ElementSize: 8
+		struct FChatterData ChatterData;			//Offset: 24 | ElementSize: 168
+	};
+	ABP_NPC_C_FindChatter_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (IsChatter != nullptr)
+		*IsChatter = params.IsChatter;
+	if (ChatterCategory != nullptr)
+		*ChatterCategory = params.ChatterCategory;
+	if (ChatterSubCategory != nullptr)
+		*ChatterSubCategory = params.ChatterSubCategory;
+	if (ChatterID != nullptr)
+		*ChatterID = params.ChatterID;
+	if (ChatterData != nullptr)
+		*ChatterData = params.ChatterData;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.FindChatterByCategoryAndSubCategory
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Category	Type: EChatterSoundType	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: SubCategory	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Option	Type: unsigned char	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: SkipAddingToChatterNames	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: IsChatter	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: ChatterCategory	Type: EChatterSoundType	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterSubCategory	Type: struct FName	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterID	Type: struct FName	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterData	Type: struct FChatterData	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_NPC_C::FindChatterByCategoryAndSubCategory(EChatterSoundType Category, struct FName SubCategory, unsigned char Option, bool SkipAddingToChatterNames, bool* IsChatter, EChatterSoundType* ChatterCategory, struct FName* ChatterSubCategory, struct FName* ChatterID, struct FChatterData* ChatterData) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.FindChatterByCategoryAndSubCategory");
+
+	struct ABP_NPC_C_FindChatterByCategoryAndSubCategory_Params {
+		EChatterSoundType Category;			//Offset: 0 | ElementSize: 1
+		struct FName SubCategory;			//Offset: 4 | ElementSize: 8
+		unsigned char Option;			//Offset: 12 | ElementSize: 1
+		bool SkipAddingToChatterNames;			//Offset: 13 | ElementSize: 1
+		bool IsChatter;			//Offset: 14 | ElementSize: 1
+		EChatterSoundType ChatterCategory;			//Offset: 15 | ElementSize: 1
+		struct FName ChatterSubCategory;			//Offset: 16 | ElementSize: 8
+		struct FName ChatterID;			//Offset: 24 | ElementSize: 8
+		struct FChatterData ChatterData;			//Offset: 32 | ElementSize: 168
+	};
+	ABP_NPC_C_FindChatterByCategoryAndSubCategory_Params params;
+	params.Category = Category;
+	params.SubCategory = SubCategory;
+	params.Option = Option;
+	params.SkipAddingToChatterNames = SkipAddingToChatterNames;
+
+	UObject::ProcessEvent(fn, &params);
+	if (IsChatter != nullptr)
+		*IsChatter = params.IsChatter;
+	if (ChatterCategory != nullptr)
+		*ChatterCategory = params.ChatterCategory;
+	if (ChatterSubCategory != nullptr)
+		*ChatterSubCategory = params.ChatterSubCategory;
+	if (ChatterID != nullptr)
+		*ChatterID = params.ChatterID;
+	if (ChatterData != nullptr)
+		*ChatterData = params.ChatterData;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.FindChatterStringTableData
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ChatterCategory	Type: EChatterSoundType	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChatterID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Success	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: StringTableID	Type: struct FString	Flags: Parm, OutParm, ZeroConstructor, HasGetValueTypeHash
+// Name: StringTableKey	Type: struct FString	Flags: Parm, OutParm, ZeroConstructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::FindChatterStringTableData(EChatterSoundType ChatterCategory, struct FName ChatterID, bool* Success, struct FString* StringTableID, struct FString* StringTableKey) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.FindChatterStringTableData");
+
+	struct ABP_NPC_C_FindChatterStringTableData_Params {
+		EChatterSoundType ChatterCategory;			//Offset: 0 | ElementSize: 1
+		struct FName ChatterID;			//Offset: 4 | ElementSize: 8
+		bool Success;			//Offset: 12 | ElementSize: 1
+		struct FString StringTableID;			//Offset: 16 | ElementSize: 16
+		struct FString StringTableKey;			//Offset: 32 | ElementSize: 16
+	};
+	ABP_NPC_C_FindChatterStringTableData_Params params;
+	params.ChatterCategory = ChatterCategory;
+	params.ChatterID = ChatterID;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Success != nullptr)
+		*Success = params.Success;
+	if (StringTableID != nullptr)
+		*StringTableID = params.StringTableID;
+	if (StringTableKey != nullptr)
+		*StringTableKey = params.StringTableKey;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.CheckCanPlayChatter
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: SkipCheckingConditions	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: ShouldPlay	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: CanPlay	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::CheckCanPlayChatter(bool SkipCheckingConditions, bool ShouldPlay, bool* CanPlay) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.CheckCanPlayChatter");
+
+	struct ABP_NPC_C_CheckCanPlayChatter_Params {
+		bool SkipCheckingConditions;			//Offset: 0 | ElementSize: 1
+		bool ShouldPlay;			//Offset: 1 | ElementSize: 1
+		bool CanPlay;			//Offset: 2 | ElementSize: 1
+	};
+	ABP_NPC_C_CheckCanPlayChatter_Params params;
+	params.SkipCheckingConditions = SkipCheckingConditions;
+	params.ShouldPlay = ShouldPlay;
+
+	UObject::ProcessEvent(fn, &params);
+	if (CanPlay != nullptr)
+		*CanPlay = params.CanPlay;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.FinishChatter
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::FinishChatter() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.FinishChatter");
+
+	struct ABP_NPC_C_FinishChatter_Params {
+	};
+	ABP_NPC_C_FinishChatter_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetChatterTimer
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::SetChatterTimer() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetChatterTimer");
+
+	struct ABP_NPC_C_SetChatterTimer_Params {
+	};
+	ABP_NPC_C_SetChatterTimer_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetInfantInCradle
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: IsInfant	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::SetInfantInCradle(bool IsInfant) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetInfantInCradle");
+
+	struct ABP_NPC_C_SetInfantInCradle_Params {
+		bool IsInfant;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_SetInfantInCradle_Params params;
+	params.IsInfant = IsInfant;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetActualVoiceDTs
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::SetActualVoiceDTs() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetActualVoiceDTs");
+
+	struct ABP_NPC_C_SetActualVoiceDTs_Params {
+	};
+	ABP_NPC_C_SetActualVoiceDTs_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetQuestVariables
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::SetQuestVariables() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetQuestVariables");
+
+	struct ABP_NPC_C_SetQuestVariables_Params {
+	};
+	ABP_NPC_C_SetQuestVariables_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.RunQuestBehavior
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestID	Type: struct FString	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash
+// Name: TeleportToLocation	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::RunQuestBehavior(struct FString QuestID, bool TeleportToLocation) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.RunQuestBehavior");
+
+	struct ABP_NPC_C_RunQuestBehavior_Params {
+		struct FString QuestID;			//Offset: 0 | ElementSize: 16
+		bool TeleportToLocation;			//Offset: 16 | ElementSize: 1
+	};
+	ABP_NPC_C_RunQuestBehavior_Params params;
+	params.QuestID = QuestID;
+	params.TeleportToLocation = TeleportToLocation;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetQuestBehavior
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestID	Type: struct FString	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash
+// Name: QuestActivitiesIndex	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: SetMultiState	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::SetQuestBehavior(struct FString QuestID, int32_t QuestActivitiesIndex, bool SetMultiState) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetQuestBehavior");
+
+	struct ABP_NPC_C_SetQuestBehavior_Params {
+		struct FString QuestID;			//Offset: 0 | ElementSize: 16
+		int32_t QuestActivitiesIndex;			//Offset: 16 | ElementSize: 4
+		bool SetMultiState;			//Offset: 20 | ElementSize: 1
+	};
+	ABP_NPC_C_SetQuestBehavior_Params params;
+	params.QuestID = QuestID;
+	params.QuestActivitiesIndex = QuestActivitiesIndex;
+	params.SetMultiState = SetMultiState;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetNextQuestBehavior
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: SetMultiState	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: Success	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::SetNextQuestBehavior(bool SetMultiState, bool* Success) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetNextQuestBehavior");
+
+	struct ABP_NPC_C_SetNextQuestBehavior_Params {
+		bool SetMultiState;			//Offset: 0 | ElementSize: 1
+		bool Success;			//Offset: 1 | ElementSize: 1
+	};
+	ABP_NPC_C_SetNextQuestBehavior_Params params;
+	params.SetMultiState = SetMultiState;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Success != nullptr)
+		*Success = params.Success;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.EndQuestBehavior
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::EndQuestBehavior() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.EndQuestBehavior");
+
+	struct ABP_NPC_C_EndQuestBehavior_Params {
+	};
+	ABP_NPC_C_EndQuestBehavior_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AddChatterForPlayers
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: StringTableID	Type: struct FString	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash
+// Name: StringTableKey	Type: struct FString	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash
+// Name: IsQuest	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::AddChatterForPlayers(struct FString StringTableID, struct FString StringTableKey, bool IsQuest) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AddChatterForPlayers");
+
+	struct ABP_NPC_C_AddChatterForPlayers_Params {
+		struct FString StringTableID;			//Offset: 0 | ElementSize: 16
+		struct FString StringTableKey;			//Offset: 16 | ElementSize: 16
+		bool IsQuest;			//Offset: 32 | ElementSize: 1
+	};
+	ABP_NPC_C_AddChatterForPlayers_Params params;
+	params.StringTableID = StringTableID;
+	params.StringTableKey = StringTableKey;
+	params.IsQuest = IsQuest;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.RemoveChatterForPlayers
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::RemoveChatterForPlayers() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.RemoveChatterForPlayers");
+
+	struct ABP_NPC_C_RemoveChatterForPlayers_Params {
+	};
+	ABP_NPC_C_RemoveChatterForPlayers_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.OnRep_IsTargetOfTalkGoal
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::OnRep_IsTargetOfTalkGoal() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnRep_IsTargetOfTalkGoal");
+
+	struct ABP_NPC_C_OnRep_IsTargetOfTalkGoal_Params {
+	};
+	ABP_NPC_C_OnRep_IsTargetOfTalkGoal_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetBlackboardValues_MultiState
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: MultiState	Type: TEnumAsByte<E_MultiState>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::SetBlackboardValues_MultiState(TEnumAsByte<E_MultiState> MultiState) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetBlackboardValues_MultiState");
+
+	struct ABP_NPC_C_SetBlackboardValues_MultiState_Params {
+		TEnumAsByte<E_MultiState> MultiState;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_SetBlackboardValues_MultiState_Params params;
+	params.MultiState = MultiState;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetBlackboardValues_DailyMode
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: DailyMode	Type: TEnumAsByte<E_DailyMode>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::SetBlackboardValues_DailyMode(TEnumAsByte<E_DailyMode> DailyMode) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetBlackboardValues_DailyMode");
+
+	struct ABP_NPC_C_SetBlackboardValues_DailyMode_Params {
+		TEnumAsByte<E_DailyMode> DailyMode;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_SetBlackboardValues_DailyMode_Params params;
+	params.DailyMode = DailyMode;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetBlackboardValues_TargetRotation
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Rotator	Type: struct FRotator	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::SetBlackboardValues_TargetRotation(struct FRotator Rotator) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetBlackboardValues_TargetRotation");
+
+	struct ABP_NPC_C_SetBlackboardValues_TargetRotation_Params {
+		struct FRotator Rotator;			//Offset: 0 | ElementSize: 12
+	};
+	ABP_NPC_C_SetBlackboardValues_TargetRotation_Params params;
+	params.Rotator = Rotator;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetBlackboardValues_MultiState
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: MultiState	Type: TEnumAsByte<E_MultiState>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::GetBlackboardValues_MultiState(TEnumAsByte<E_MultiState>* MultiState) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetBlackboardValues_MultiState");
+
+	struct ABP_NPC_C_GetBlackboardValues_MultiState_Params {
+		TEnumAsByte<E_MultiState> MultiState;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_GetBlackboardValues_MultiState_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (MultiState != nullptr)
+		*MultiState = params.MultiState;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetBlackboardValues_DailyMode
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: DailyMode	Type: TEnumAsByte<E_DailyMode>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::GetBlackboardValues_DailyMode(TEnumAsByte<E_DailyMode>* DailyMode) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetBlackboardValues_DailyMode");
+
+	struct ABP_NPC_C_GetBlackboardValues_DailyMode_Params {
+		TEnumAsByte<E_DailyMode> DailyMode;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_GetBlackboardValues_DailyMode_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (DailyMode != nullptr)
+		*DailyMode = params.DailyMode;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetBlackboardValues_TargetRotation
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: Rotator	Type: struct FRotator	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::GetBlackboardValues_TargetRotation(struct FRotator* Rotator) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetBlackboardValues_TargetRotation");
+
+	struct ABP_NPC_C_GetBlackboardValues_TargetRotation_Params {
+		struct FRotator Rotator;			//Offset: 0 | ElementSize: 12
+	};
+	ABP_NPC_C_GetBlackboardValues_TargetRotation_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Rotator != nullptr)
+		*Rotator = params.Rotator;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.ChangeDisabledOptimization
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Activate	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::ChangeDisabledOptimization(bool Activate) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.ChangeDisabledOptimization");
+
+	struct ABP_NPC_C_ChangeDisabledOptimization_Params {
+		bool Activate;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_ChangeDisabledOptimization_Params params;
+	params.Activate = Activate;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AddNPCsConversationForPlayers
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Text	Type: struct FText	Flags: BlueprintVisible, BlueprintReadOnly, Parm
+// Name: IsQuest	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::AddNPCsConversationForPlayers(struct FText Text, bool IsQuest) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AddNPCsConversationForPlayers");
+
+	struct ABP_NPC_C_AddNPCsConversationForPlayers_Params {
+		struct FText Text;			//Offset: 0 | ElementSize: 24
+		bool IsQuest;			//Offset: 24 | ElementSize: 1
+	};
+	ABP_NPC_C_AddNPCsConversationForPlayers_Params params;
+	params.Text = Text;
+	params.IsQuest = IsQuest;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.RemoveNPCsConversationForPlayers
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::RemoveNPCsConversationForPlayers() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.RemoveNPCsConversationForPlayers");
+
+	struct ABP_NPC_C_RemoveNPCsConversationForPlayers_Params {
+	};
+	ABP_NPC_C_RemoveNPCsConversationForPlayers_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetWorkChatterRestrictions
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: WorkRestrictions	Type: struct FChatterRestrictions	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_NPC_C::GetWorkChatterRestrictions(struct FChatterRestrictions* WorkRestrictions) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetWorkChatterRestrictions");
+
+	struct ABP_NPC_C_GetWorkChatterRestrictions_Params {
+		struct FChatterRestrictions WorkRestrictions;			//Offset: 0 | ElementSize: 80
+	};
+	ABP_NPC_C_GetWorkChatterRestrictions_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (WorkRestrictions != nullptr)
+		*WorkRestrictions = params.WorkRestrictions;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetSituational&MusicalChatterRestrictions
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: SituationalRestrictions	Type: struct FChatterRestrictions	Flags: Parm, OutParm
+// Name: MusicalRestrictions	Type: struct FChatterRestrictions	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_NPC_C::GetSituational_MusicalChatterRestrictions(struct FChatterRestrictions* SituationalRestrictions, struct FChatterRestrictions* MusicalRestrictions) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetSituational&MusicalChatterRestrictions");
+
+	struct ABP_NPC_C_GetSituational_MusicalChatterRestrictions_Params {
+		struct FChatterRestrictions SituationalRestrictions;			//Offset: 0 | ElementSize: 80
+		struct FChatterRestrictions MusicalRestrictions;			//Offset: 80 | ElementSize: 80
+	};
+	ABP_NPC_C_GetSituational_MusicalChatterRestrictions_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (SituationalRestrictions != nullptr)
+		*SituationalRestrictions = params.SituationalRestrictions;
+	if (MusicalRestrictions != nullptr)
+		*MusicalRestrictions = params.MusicalRestrictions;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetReactionToPlayerChatterRestrictions
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: ReactionToPlayerRestrictions	Type: struct FChatterRestrictions	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_NPC_C::GetReactionToPlayerChatterRestrictions(struct FChatterRestrictions* ReactionToPlayerRestrictions) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetReactionToPlayerChatterRestrictions");
+
+	struct ABP_NPC_C_GetReactionToPlayerChatterRestrictions_Params {
+		struct FChatterRestrictions ReactionToPlayerRestrictions;			//Offset: 0 | ElementSize: 80
+	};
+	ABP_NPC_C_GetReactionToPlayerChatterRestrictions_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (ReactionToPlayerRestrictions != nullptr)
+		*ReactionToPlayerRestrictions = params.ReactionToPlayerRestrictions;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetStatusChatterRestrictions
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: StatusRestrictions	Type: struct FChatterRestrictions	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_NPC_C::GetStatusChatterRestrictions(struct FChatterRestrictions* StatusRestrictions) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetStatusChatterRestrictions");
+
+	struct ABP_NPC_C_GetStatusChatterRestrictions_Params {
+		struct FChatterRestrictions StatusRestrictions;			//Offset: 0 | ElementSize: 80
+	};
+	ABP_NPC_C_GetStatusChatterRestrictions_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (StatusRestrictions != nullptr)
+		*StatusRestrictions = params.StatusRestrictions;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetPlaceChatterRestrictions
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: PlaceRestrictions	Type: struct FChatterRestrictions	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_NPC_C::GetPlaceChatterRestrictions(struct FChatterRestrictions* PlaceRestrictions) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetPlaceChatterRestrictions");
+
+	struct ABP_NPC_C_GetPlaceChatterRestrictions_Params {
+		struct FChatterRestrictions PlaceRestrictions;			//Offset: 0 | ElementSize: 80
+	};
+	ABP_NPC_C_GetPlaceChatterRestrictions_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (PlaceRestrictions != nullptr)
+		*PlaceRestrictions = params.PlaceRestrictions;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetSeasonChatterRestrictions
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: SeasonRestrictions	Type: struct FChatterRestrictions	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_NPC_C::GetSeasonChatterRestrictions(struct FChatterRestrictions* SeasonRestrictions) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetSeasonChatterRestrictions");
+
+	struct ABP_NPC_C_GetSeasonChatterRestrictions_Params {
+		struct FChatterRestrictions SeasonRestrictions;			//Offset: 0 | ElementSize: 80
+	};
+	ABP_NPC_C_GetSeasonChatterRestrictions_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (SeasonRestrictions != nullptr)
+		*SeasonRestrictions = params.SeasonRestrictions;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetFamilyChatterRestrictions
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: FamilyRestrictions	Type: struct FChatterRestrictions	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_NPC_C::GetFamilyChatterRestrictions(struct FChatterRestrictions* FamilyRestrictions) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetFamilyChatterRestrictions");
+
+	struct ABP_NPC_C_GetFamilyChatterRestrictions_Params {
+		struct FChatterRestrictions FamilyRestrictions;			//Offset: 0 | ElementSize: 80
+	};
+	ABP_NPC_C_GetFamilyChatterRestrictions_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (FamilyRestrictions != nullptr)
+		*FamilyRestrictions = params.FamilyRestrictions;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetGenericChatterRestrictions
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: GenericRestrictions	Type: struct FChatterRestrictions	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_NPC_C::GetGenericChatterRestrictions(struct FChatterRestrictions* GenericRestrictions) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetGenericChatterRestrictions");
+
+	struct ABP_NPC_C_GetGenericChatterRestrictions_Params {
+		struct FChatterRestrictions GenericRestrictions;			//Offset: 0 | ElementSize: 80
+	};
+	ABP_NPC_C_GetGenericChatterRestrictions_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (GenericRestrictions != nullptr)
+		*GenericRestrictions = params.GenericRestrictions;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.UnbindAllEvents
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::UnbindAllEvents() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.UnbindAllEvents");
+
+	struct ABP_NPC_C_UnbindAllEvents_Params {
+	};
+	ABP_NPC_C_UnbindAllEvents_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.OnRep_VoiceIndex
+// Flags: HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::OnRep_VoiceIndex() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnRep_VoiceIndex");
+
+	struct ABP_NPC_C_OnRep_VoiceIndex_Params {
+	};
+	ABP_NPC_C_OnRep_VoiceIndex_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.CheckHitConditions
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: CanHit	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::CheckHitConditions(bool* CanHit) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.CheckHitConditions");
+
+	struct ABP_NPC_C_CheckHitConditions_Params {
+		bool CanHit;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_CheckHitConditions_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (CanHit != nullptr)
+		*CanHit = params.CanHit;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.OnRep_QuestAnimation
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::OnRep_QuestAnimation() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnRep_QuestAnimation");
+
+	struct ABP_NPC_C_OnRep_QuestAnimation_Params {
+	};
+	ABP_NPC_C_OnRep_QuestAnimation_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.FixPlayersSpecialQuestWifeDialogue
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::FixPlayersSpecialQuestWifeDialogue() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.FixPlayersSpecialQuestWifeDialogue");
+
+	struct ABP_NPC_C_FixPlayersSpecialQuestWifeDialogue_Params {
+	};
+	ABP_NPC_C_FixPlayersSpecialQuestWifeDialogue_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.OnRep_ReplicatedGetOut
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::OnRep_ReplicatedGetOut() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnRep_ReplicatedGetOut");
+
+	struct ABP_NPC_C_OnRep_ReplicatedGetOut_Params {
+	};
+	ABP_NPC_C_OnRep_ReplicatedGetOut_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.StopLogicOnOptimization
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::StopLogicOnOptimization() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.StopLogicOnOptimization");
+
+	struct ABP_NPC_C_StopLogicOnOptimization_Params {
+	};
+	ABP_NPC_C_StopLogicOnOptimization_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetPOI_Behavior
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::SetPOI_Behavior() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetPOI_Behavior");
+
+	struct ABP_NPC_C_SetPOI_Behavior_Params {
+	};
+	ABP_NPC_C_SetPOI_Behavior_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.OnRep_BardTrackData
+// Flags: HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::OnRep_BardTrackData() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnRep_BardTrackData");
+
+	struct ABP_NPC_C_OnRep_BardTrackData_Params {
+	};
+	ABP_NPC_C_OnRep_BardTrackData_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.EndPOI_Behavior
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::EndPOI_Behavior() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.EndPOI_Behavior");
+
+	struct ABP_NPC_C_EndPOI_Behavior_Params {
+	};
+	ABP_NPC_C_EndPOI_Behavior_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetSpecialNPCsChatter
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: IsSpecialNPCsChatter	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: SubCategoryName	Type: struct FName	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::GetSpecialNPCsChatter(bool* IsSpecialNPCsChatter, struct FName* SubCategoryName) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetSpecialNPCsChatter");
+
+	struct ABP_NPC_C_GetSpecialNPCsChatter_Params {
+		bool IsSpecialNPCsChatter;			//Offset: 0 | ElementSize: 1
+		struct FName SubCategoryName;			//Offset: 4 | ElementSize: 8
+	};
+	ABP_NPC_C_GetSpecialNPCsChatter_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (IsSpecialNPCsChatter != nullptr)
+		*IsSpecialNPCsChatter = params.IsSpecialNPCsChatter;
+	if (SubCategoryName != nullptr)
+		*SubCategoryName = params.SubCategoryName;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetPath
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: CheckDistance	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: Distance	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Destination	Type: struct FVector	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::SetPath(bool CheckDistance, float Distance, struct FVector Destination) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetPath");
+
+	struct ABP_NPC_C_SetPath_Params {
+		bool CheckDistance;			//Offset: 0 | ElementSize: 1
+		float Distance;			//Offset: 4 | ElementSize: 4
+		struct FVector Destination;			//Offset: 8 | ElementSize: 12
+	};
+	ABP_NPC_C_SetPath_Params params;
+	params.CheckDistance = CheckDistance;
+	params.Distance = Distance;
+	params.Destination = Destination;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.FindChatterDialogueStringTableData
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ChatterDialogueID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Success	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: StringTableID	Type: struct FString	Flags: Parm, OutParm, ZeroConstructor, HasGetValueTypeHash
+// Name: StringTableKey	Type: struct FString	Flags: Parm, OutParm, ZeroConstructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::FindChatterDialogueStringTableData(struct FName ChatterDialogueID, bool* Success, struct FString* StringTableID, struct FString* StringTableKey) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.FindChatterDialogueStringTableData");
+
+	struct ABP_NPC_C_FindChatterDialogueStringTableData_Params {
+		struct FName ChatterDialogueID;			//Offset: 0 | ElementSize: 8
+		bool Success;			//Offset: 8 | ElementSize: 1
+		struct FString StringTableID;			//Offset: 16 | ElementSize: 16
+		struct FString StringTableKey;			//Offset: 32 | ElementSize: 16
+	};
+	ABP_NPC_C_FindChatterDialogueStringTableData_Params params;
+	params.ChatterDialogueID = ChatterDialogueID;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Success != nullptr)
+		*Success = params.Success;
+	if (StringTableID != nullptr)
+		*StringTableID = params.StringTableID;
+	if (StringTableKey != nullptr)
+		*StringTableKey = params.StringTableKey;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetCasualClothes
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: LoadGame	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::SetCasualClothes(bool LoadGame) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetCasualClothes");
+
+	struct ABP_NPC_C_SetCasualClothes_Params {
+		bool LoadGame;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_SetCasualClothes_Params params;
+	params.LoadGame = LoadGame;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetProfessionClothes
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: LoadGame	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::SetProfessionClothes(bool LoadGame) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetProfessionClothes");
+
+	struct ABP_NPC_C_SetProfessionClothes_Params {
+		bool LoadGame;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_SetProfessionClothes_Params params;
+	params.LoadGame = LoadGame;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
 // Function BP_NPC.BP_NPC_C.AI_FindFoliage
 // Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
@@ -4480,24 +5973,24 @@ void ABP_NPC_C::AI_FindFoliage(TEnumAsByte<E_Resources> TargetType, struct FVect
 // Params:
 // Name: Target	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: MaxDistance	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: MaxDirection	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: MinDistance	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: OutsideLastPoint	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: Location	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_NPC_C::AI_GetTargetLocation(struct FVector Target, float MaxDistance, float MaxDirection, bool OutsideLastPoint, struct FVector* Location) {
+void ABP_NPC_C::AI_GetTargetLocation(struct FVector Target, float MaxDistance, float MinDistance, bool OutsideLastPoint, struct FVector* Location) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_GetTargetLocation");
 
 	struct ABP_NPC_C_AI_GetTargetLocation_Params {
 		struct FVector Target;			//Offset: 0 | ElementSize: 12
 		float MaxDistance;			//Offset: 12 | ElementSize: 4
-		float MaxDirection;			//Offset: 16 | ElementSize: 4
+		float MinDistance;			//Offset: 16 | ElementSize: 4
 		bool OutsideLastPoint;			//Offset: 20 | ElementSize: 1
 		struct FVector Location;			//Offset: 24 | ElementSize: 12
 	};
 	ABP_NPC_C_AI_GetTargetLocation_Params params;
 	params.Target = Target;
 	params.MaxDistance = MaxDistance;
-	params.MaxDirection = MaxDirection;
+	params.MinDistance = MinDistance;
 	params.OutsideLastPoint = OutsideLastPoint;
 
 	UObject::ProcessEvent(fn, &params);
@@ -4632,15 +6125,15 @@ void ABP_NPC_C::AI_FindAnimal(struct FVector* Destination, bool* Animal) {
 // Params:
 // Name: Destination	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: WorkRadius	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: WorkPlace	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: Workplace	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_NPC_C::AI_FindWorkPlace(struct FVector* Destination, float* WorkRadius, bool* WorkPlace) {
+void ABP_NPC_C::AI_FindWorkPlace(struct FVector* Destination, float* WorkRadius, bool* Workplace) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_FindWorkPlace");
 
 	struct ABP_NPC_C_AI_FindWorkPlace_Params {
 		struct FVector Destination;			//Offset: 0 | ElementSize: 12
 		float WorkRadius;			//Offset: 12 | ElementSize: 4
-		bool WorkPlace;			//Offset: 16 | ElementSize: 1
+		bool Workplace;			//Offset: 16 | ElementSize: 1
 	};
 	ABP_NPC_C_AI_FindWorkPlace_Params params;
 
@@ -4649,8 +6142,8 @@ void ABP_NPC_C::AI_FindWorkPlace(struct FVector* Destination, float* WorkRadius,
 		*Destination = params.Destination;
 	if (WorkRadius != nullptr)
 		*WorkRadius = params.WorkRadius;
-	if (WorkPlace != nullptr)
-		*WorkPlace = params.WorkPlace;
+	if (Workplace != nullptr)
+		*Workplace = params.Workplace;
 }
 
 /////////////////////////////////////////////
@@ -4659,23 +6152,26 @@ void ABP_NPC_C::AI_FindWorkPlace(struct FVector* Destination, float* WorkRadius,
 // Params:
 // Name: Location	Type: TEnumAsByte<E_Ownership>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: FurnitureCategory	Type: TEnumAsByte<E_FurnitureCategories>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: MustBeSittingFurniture	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: IgnoreOwnership	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: Destination	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: IsFurniture	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_NPC_C::AI_FindClosestFurniture(TEnumAsByte<E_Ownership> Location, TEnumAsByte<E_FurnitureCategories> FurnitureCategory, bool IgnoreOwnership, struct FVector* Destination, bool* IsFurniture) {
+void ABP_NPC_C::AI_FindClosestFurniture(TEnumAsByte<E_Ownership> Location, TEnumAsByte<E_FurnitureCategories> FurnitureCategory, bool MustBeSittingFurniture, bool IgnoreOwnership, struct FVector* Destination, bool* IsFurniture) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_FindClosestFurniture");
 
 	struct ABP_NPC_C_AI_FindClosestFurniture_Params {
 		TEnumAsByte<E_Ownership> Location;			//Offset: 0 | ElementSize: 1
 		TEnumAsByte<E_FurnitureCategories> FurnitureCategory;			//Offset: 1 | ElementSize: 1
-		bool IgnoreOwnership;			//Offset: 2 | ElementSize: 1
+		bool MustBeSittingFurniture;			//Offset: 2 | ElementSize: 1
+		bool IgnoreOwnership;			//Offset: 3 | ElementSize: 1
 		struct FVector Destination;			//Offset: 4 | ElementSize: 12
 		bool IsFurniture;			//Offset: 16 | ElementSize: 1
 	};
 	ABP_NPC_C_AI_FindClosestFurniture_Params params;
 	params.Location = Location;
 	params.FurnitureCategory = FurnitureCategory;
+	params.MustBeSittingFurniture = MustBeSittingFurniture;
 	params.IgnoreOwnership = IgnoreOwnership;
 
 	UObject::ProcessEvent(fn, &params);
@@ -4709,16 +6205,16 @@ void ABP_NPC_C::AI_CheckTargetFoliage(bool* IsTargetFoliage) {
 // Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: Name	Type: struct FText	Flags: Parm, OutParm
-// Name: Sex	Type: TEnumAsByte<E_Sex>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: sex	Type: TEnumAsByte<E_Sex>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Age	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: CharacterType	Type: TEnumAsByte<E_CharacterType>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_NPC_C::AI_GetStats(struct FText* Name, TEnumAsByte<E_Sex>* Sex, float* Age, TEnumAsByte<E_CharacterType>* CharacterType) {
+void ABP_NPC_C::AI_GetStats(struct FText* Name, TEnumAsByte<E_Sex>* sex, float* Age, TEnumAsByte<E_CharacterType>* CharacterType) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_GetStats");
 
 	struct ABP_NPC_C_AI_GetStats_Params {
 		struct FText Name;			//Offset: 0 | ElementSize: 24
-		TEnumAsByte<E_Sex> Sex;			//Offset: 24 | ElementSize: 1
+		TEnumAsByte<E_Sex> sex;			//Offset: 24 | ElementSize: 1
 		float Age;			//Offset: 28 | ElementSize: 4
 		TEnumAsByte<E_CharacterType> CharacterType;			//Offset: 32 | ElementSize: 1
 	};
@@ -4727,8 +6223,8 @@ void ABP_NPC_C::AI_GetStats(struct FText* Name, TEnumAsByte<E_Sex>* Sex, float* 
 	UObject::ProcessEvent(fn, &params);
 	if (Name != nullptr)
 		*Name = params.Name;
-	if (Sex != nullptr)
-		*Sex = params.Sex;
+	if (sex != nullptr)
+		*sex = params.sex;
 	if (Age != nullptr)
 		*Age = params.Age;
 	if (CharacterType != nullptr)
@@ -4935,23 +6431,26 @@ void ABP_NPC_C::AI_FindTavernFurniture(bool Occupy, struct FVector* Destination,
 // Params:
 // Name: Location	Type: TEnumAsByte<E_Ownership>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: FurnitureCategory	Type: TEnumAsByte<E_FurnitureCategories>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: MustBeSittingFurniture	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: IgnoreOwnership	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: Destination	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: IsFurniture	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_NPC_C::AI_FindRandomFurniture(TEnumAsByte<E_Ownership> Location, TEnumAsByte<E_FurnitureCategories> FurnitureCategory, bool IgnoreOwnership, struct FVector* Destination, bool* IsFurniture) {
+void ABP_NPC_C::AI_FindRandomFurniture(TEnumAsByte<E_Ownership> Location, TEnumAsByte<E_FurnitureCategories> FurnitureCategory, bool MustBeSittingFurniture, bool IgnoreOwnership, struct FVector* Destination, bool* IsFurniture) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_FindRandomFurniture");
 
 	struct ABP_NPC_C_AI_FindRandomFurniture_Params {
 		TEnumAsByte<E_Ownership> Location;			//Offset: 0 | ElementSize: 1
 		TEnumAsByte<E_FurnitureCategories> FurnitureCategory;			//Offset: 1 | ElementSize: 1
-		bool IgnoreOwnership;			//Offset: 2 | ElementSize: 1
+		bool MustBeSittingFurniture;			//Offset: 2 | ElementSize: 1
+		bool IgnoreOwnership;			//Offset: 3 | ElementSize: 1
 		struct FVector Destination;			//Offset: 4 | ElementSize: 12
 		bool IsFurniture;			//Offset: 16 | ElementSize: 1
 	};
 	ABP_NPC_C_AI_FindRandomFurniture_Params params;
 	params.Location = Location;
 	params.FurnitureCategory = FurnitureCategory;
+	params.MustBeSittingFurniture = MustBeSittingFurniture;
 	params.IgnoreOwnership = IgnoreOwnership;
 
 	UObject::ProcessEvent(fn, &params);
@@ -4988,8 +6487,9 @@ void ABP_NPC_C::AI_GetQuestBlocking(bool* QuestBlocking) {
 // Name: Sitting	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: Working	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: TakingBreak	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: InActivity	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_NPC_C::AI_GetAnimationState(bool* Sleeping, bool* Sitting, bool* Working, bool* TakingBreak) {
+void ABP_NPC_C::AI_GetAnimationState(bool* Sleeping, bool* Sitting, bool* Working, bool* TakingBreak, bool* InActivity) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_GetAnimationState");
 
 	struct ABP_NPC_C_AI_GetAnimationState_Params {
@@ -4997,6 +6497,7 @@ void ABP_NPC_C::AI_GetAnimationState(bool* Sleeping, bool* Sitting, bool* Workin
 		bool Sitting;			//Offset: 1 | ElementSize: 1
 		bool Working;			//Offset: 2 | ElementSize: 1
 		bool TakingBreak;			//Offset: 3 | ElementSize: 1
+		bool InActivity;			//Offset: 4 | ElementSize: 1
 	};
 	ABP_NPC_C_AI_GetAnimationState_Params params;
 
@@ -5009,6 +6510,8 @@ void ABP_NPC_C::AI_GetAnimationState(bool* Sleeping, bool* Sitting, bool* Workin
 		*Working = params.Working;
 	if (TakingBreak != nullptr)
 		*TakingBreak = params.TakingBreak;
+	if (InActivity != nullptr)
+		*InActivity = params.InActivity;
 }
 
 /////////////////////////////////////////////
@@ -5097,19 +6600,19 @@ void ABP_NPC_C::AI_GetOptimizationBlackboards(struct FST_SAVE_NPC_Blackboards* O
 // Function BP_NPC.BP_NPC_C.AI_GetDead
 // Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: isDead	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: IsDead	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_NPC_C::AI_GetDead(bool* isDead) {
+void ABP_NPC_C::AI_GetDead(bool* IsDead) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_GetDead");
 
 	struct ABP_NPC_C_AI_GetDead_Params {
-		bool isDead;			//Offset: 0 | ElementSize: 1
+		bool IsDead;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_NPC_C_AI_GetDead_Params params;
 
 	UObject::ProcessEvent(fn, &params);
-	if (isDead != nullptr)
-		*isDead = params.isDead;
+	if (IsDead != nullptr)
+		*IsDead = params.IsDead;
 }
 
 /////////////////////////////////////////////
@@ -5723,25 +7226,6 @@ void ABP_NPC_C::AI_GetSpawnerLocation(bool* IsValidSpawner, struct FVector* Spaw
 }
 
 /////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.CharacterVoice
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: ST_CharacterVoice	Type: struct FST_CharacterVoiceCues	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_NPC_C::CharacterVoice(struct FST_CharacterVoiceCues* ST_CharacterVoice) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.CharacterVoice");
-
-	struct ABP_NPC_C_CharacterVoice_Params {
-		struct FST_CharacterVoiceCues ST_CharacterVoice;			//Offset: 0 | ElementSize: 24
-	};
-	ABP_NPC_C_CharacterVoice_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-	if (ST_CharacterVoice != nullptr)
-		*ST_CharacterVoice = params.ST_CharacterVoice;
-}
-
-/////////////////////////////////////////////
 // Function BP_NPC.BP_NPC_C.AI_FindBreakSlot
 // Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
@@ -5770,13 +7254,15 @@ void ABP_NPC_C::AI_FindBreakSlot(struct FVector* Destination, bool* BreakSlot) {
 // Params:
 // Name: WorkMontage	Type: class UAnimMontage*	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: BreakMontage	Type: class UAnimMontage*	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ActivityMontage	Type: class UAnimMontage*	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_NPC_C::AI_GetMontages(class UAnimMontage** WorkMontage, class UAnimMontage** BreakMontage) {
+void ABP_NPC_C::AI_GetMontages(class UAnimMontage** WorkMontage, class UAnimMontage** BreakMontage, class UAnimMontage** ActivityMontage) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_GetMontages");
 
 	struct ABP_NPC_C_AI_GetMontages_Params {
 		class UAnimMontage* WorkMontage;			//Offset: 0 | ElementSize: 8
 		class UAnimMontage* BreakMontage;			//Offset: 8 | ElementSize: 8
+		class UAnimMontage* ActivityMontage;			//Offset: 16 | ElementSize: 8
 	};
 	ABP_NPC_C_AI_GetMontages_Params params;
 
@@ -5785,6 +7271,8 @@ void ABP_NPC_C::AI_GetMontages(class UAnimMontage** WorkMontage, class UAnimMont
 		*WorkMontage = params.WorkMontage;
 	if (BreakMontage != nullptr)
 		*BreakMontage = params.BreakMontage;
+	if (ActivityMontage != nullptr)
+		*ActivityMontage = params.ActivityMontage;
 }
 
 /////////////////////////////////////////////
@@ -6055,7 +7543,7 @@ void ABP_NPC_C::AI_CheckIsPlayerPartner(bool* IsPlayerPartner) {
 
 /////////////////////////////////////////////
 // Function BP_NPC.BP_NPC_C.AI_TeleportToHouseOrWorkplace
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: ToHouse	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: Success	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
@@ -6219,19 +7707,19 @@ void ABP_NPC_C::AI_CheckCanTalk(bool CheckResourceState, bool* CanTalk) {
 // Function BP_NPC.BP_NPC_C.AI_GetRotationManaged
 // Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: isRotationManaged	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: IsRotationManaged	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_NPC_C::AI_GetRotationManaged(bool* isRotationManaged) {
+void ABP_NPC_C::AI_GetRotationManaged(bool* IsRotationManaged) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_GetRotationManaged");
 
 	struct ABP_NPC_C_AI_GetRotationManaged_Params {
-		bool isRotationManaged;			//Offset: 0 | ElementSize: 1
+		bool IsRotationManaged;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_NPC_C_AI_GetRotationManaged_Params params;
 
 	UObject::ProcessEvent(fn, &params);
-	if (isRotationManaged != nullptr)
-		*isRotationManaged = params.isRotationManaged;
+	if (IsRotationManaged != nullptr)
+		*IsRotationManaged = params.IsRotationManaged;
 }
 
 /////////////////////////////////////////////
@@ -6385,8 +7873,342 @@ void ABP_NPC_C::AI_FindPOISpawnPoint(bool* IsSpawnPoint, struct FVector* Destina
 }
 
 /////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_GetActivityAnimID
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ActivityAnimID	Type: unsigned char	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_GetActivityAnimID(unsigned char* ActivityAnimID) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_GetActivityAnimID");
+
+	struct ABP_NPC_C_AI_GetActivityAnimID_Params {
+		unsigned char ActivityAnimID;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_AI_GetActivityAnimID_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (ActivityAnimID != nullptr)
+		*ActivityAnimID = params.ActivityAnimID;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_GetActivityAnimType
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ActivityAnimType	Type: TEnumAsByte<E_AnimActivityType>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_GetActivityAnimType(TEnumAsByte<E_AnimActivityType>* ActivityAnimType) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_GetActivityAnimType");
+
+	struct ABP_NPC_C_AI_GetActivityAnimType_Params {
+		TEnumAsByte<E_AnimActivityType> ActivityAnimType;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_AI_GetActivityAnimType_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (ActivityAnimType != nullptr)
+		*ActivityAnimType = params.ActivityAnimType;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_GetActualVoiceDTs
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ActualVoiceDTs	Type: struct FST_VoiceDTs	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_GetActualVoiceDTs(struct FST_VoiceDTs* ActualVoiceDTs) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_GetActualVoiceDTs");
+
+	struct ABP_NPC_C_AI_GetActualVoiceDTs_Params {
+		struct FST_VoiceDTs ActualVoiceDTs;			//Offset: 0 | ElementSize: 24
+	};
+	ABP_NPC_C_AI_GetActualVoiceDTs_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (ActualVoiceDTs != nullptr)
+		*ActualVoiceDTs = params.ActualVoiceDTs;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_CanBeOptimized
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: CanBeOptimized	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_CanBeOptimized(bool* CanBeOptimized) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_CanBeOptimized");
+
+	struct ABP_NPC_C_AI_CanBeOptimized_Params {
+		bool CanBeOptimized;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_AI_CanBeOptimized_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (CanBeOptimized != nullptr)
+		*CanBeOptimized = params.CanBeOptimized;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_FindBandSlot
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Destination	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: BandSlot	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_FindBandSlot(struct FVector* Destination, bool* BandSlot) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_FindBandSlot");
+
+	struct ABP_NPC_C_AI_FindBandSlot_Params {
+		struct FVector Destination;			//Offset: 0 | ElementSize: 12
+		bool BandSlot;			//Offset: 12 | ElementSize: 1
+	};
+	ABP_NPC_C_AI_FindBandSlot_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Destination != nullptr)
+		*Destination = params.Destination;
+	if (BandSlot != nullptr)
+		*BandSlot = params.BandSlot;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_CheckQuestByState
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: CheckObjective	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: ObjectiveID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: CheckIsDone	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: QuestState	Type: TEnumAsByte<E_QuestState>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ObjectiveState	Type: TEnumAsByte<E_ObjectiveState>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Success	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: found	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_CheckQuestByState(struct FName QuestID, bool CheckObjective, int32_t ObjectiveID, bool CheckIsDone, TEnumAsByte<E_QuestState> QuestState, TEnumAsByte<E_ObjectiveState> ObjectiveState, bool* Success, bool* found) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_CheckQuestByState");
+
+	struct ABP_NPC_C_AI_CheckQuestByState_Params {
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
+		bool CheckObjective;			//Offset: 8 | ElementSize: 1
+		int32_t ObjectiveID;			//Offset: 12 | ElementSize: 4
+		bool CheckIsDone;			//Offset: 16 | ElementSize: 1
+		TEnumAsByte<E_QuestState> QuestState;			//Offset: 17 | ElementSize: 1
+		TEnumAsByte<E_ObjectiveState> ObjectiveState;			//Offset: 18 | ElementSize: 1
+		bool Success;			//Offset: 19 | ElementSize: 1
+		bool found;			//Offset: 20 | ElementSize: 1
+	};
+	ABP_NPC_C_AI_CheckQuestByState_Params params;
+	params.QuestID = QuestID;
+	params.CheckObjective = CheckObjective;
+	params.ObjectiveID = ObjectiveID;
+	params.CheckIsDone = CheckIsDone;
+	params.QuestState = QuestState;
+	params.ObjectiveState = ObjectiveState;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Success != nullptr)
+		*Success = params.Success;
+	if (found != nullptr)
+		*found = params.found;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_GetVendorCategory
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: VendorCategory	Type: struct FDataTableRowHandle	Flags: Parm, OutParm, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_GetVendorCategory(struct FDataTableRowHandle* VendorCategory) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_GetVendorCategory");
+
+	struct ABP_NPC_C_AI_GetVendorCategory_Params {
+		struct FDataTableRowHandle VendorCategory;			//Offset: 0 | ElementSize: 16
+	};
+	ABP_NPC_C_AI_GetVendorCategory_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (VendorCategory != nullptr)
+		*VendorCategory = params.VendorCategory;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_GetQuestToGiveCategory
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestToGiveCategory	Type: TEnumAsByte<E_QuestCategories>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_GetQuestToGiveCategory(TEnumAsByte<E_QuestCategories>* QuestToGiveCategory) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_GetQuestToGiveCategory");
+
+	struct ABP_NPC_C_AI_GetQuestToGiveCategory_Params {
+		TEnumAsByte<E_QuestCategories> QuestToGiveCategory;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_AI_GetQuestToGiveCategory_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (QuestToGiveCategory != nullptr)
+		*QuestToGiveCategory = params.QuestToGiveCategory;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_GetIsTargetOfTalkGoal
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: IsTargetOfTalkGoal	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_GetIsTargetOfTalkGoal(bool* IsTargetOfTalkGoal) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_GetIsTargetOfTalkGoal");
+
+	struct ABP_NPC_C_AI_GetIsTargetOfTalkGoal_Params {
+		bool IsTargetOfTalkGoal;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_AI_GetIsTargetOfTalkGoal_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (IsTargetOfTalkGoal != nullptr)
+		*IsTargetOfTalkGoal = params.IsTargetOfTalkGoal;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_GetQuestToGiveID
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestToGiveID	Type: struct FName	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_GetQuestToGiveID(struct FName* QuestToGiveID) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_GetQuestToGiveID");
+
+	struct ABP_NPC_C_AI_GetQuestToGiveID_Params {
+		struct FName QuestToGiveID;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_NPC_C_AI_GetQuestToGiveID_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (QuestToGiveID != nullptr)
+		*QuestToGiveID = params.QuestToGiveID;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_GetProfession
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Profession	Type: TEnumAsByte<E_Profession>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_GetProfession(TEnumAsByte<E_Profession>* Profession) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_GetProfession");
+
+	struct ABP_NPC_C_AI_GetProfession_Params {
+		TEnumAsByte<E_Profession> Profession;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_AI_GetProfession_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Profession != nullptr)
+		*Profession = params.Profession;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_FindActivitySlot
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Building_Type	Type: TEnumAsByte<E_Buildings>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Destination	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ActivitySlot	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_FindActivitySlot(TEnumAsByte<E_Buildings> Building_Type, struct FVector* Destination, bool* ActivitySlot) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_FindActivitySlot");
+
+	struct ABP_NPC_C_AI_FindActivitySlot_Params {
+		TEnumAsByte<E_Buildings> Building_Type;			//Offset: 0 | ElementSize: 1
+		struct FVector Destination;			//Offset: 4 | ElementSize: 12
+		bool ActivitySlot;			//Offset: 16 | ElementSize: 1
+	};
+	ABP_NPC_C_AI_FindActivitySlot_Params params;
+	params.Building_Type = Building_Type;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Destination != nullptr)
+		*Destination = params.Destination;
+	if (ActivitySlot != nullptr)
+		*ActivitySlot = params.ActivitySlot;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_TryToChangePawnCollisionResponse
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Success	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_TryToChangePawnCollisionResponse(bool* Success) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_TryToChangePawnCollisionResponse");
+
+	struct ABP_NPC_C_AI_TryToChangePawnCollisionResponse_Params {
+		bool Success;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_AI_TryToChangePawnCollisionResponse_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Success != nullptr)
+		*Success = params.Success;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AI_Herald_FindTavernFurnitureAtIndex
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Occupy	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: InteractionSlotIndex	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: BenchIndex	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Destination	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Find	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::AI_Herald_FindTavernFurnitureAtIndex(bool Occupy, int32_t InteractionSlotIndex, int32_t BenchIndex, struct FVector* Destination, bool* Find) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AI_Herald_FindTavernFurnitureAtIndex");
+
+	struct ABP_NPC_C_AI_Herald_FindTavernFurnitureAtIndex_Params {
+		bool Occupy;			//Offset: 0 | ElementSize: 1
+		int32_t InteractionSlotIndex;			//Offset: 4 | ElementSize: 4
+		int32_t BenchIndex;			//Offset: 8 | ElementSize: 4
+		struct FVector Destination;			//Offset: 12 | ElementSize: 12
+		bool Find;			//Offset: 24 | ElementSize: 1
+	};
+	ABP_NPC_C_AI_Herald_FindTavernFurnitureAtIndex_Params params;
+	params.Occupy = Occupy;
+	params.InteractionSlotIndex = InteractionSlotIndex;
+	params.BenchIndex = BenchIndex;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Destination != nullptr)
+		*Destination = params.Destination;
+	if (Find != nullptr)
+		*Find = params.Find;
+}
+
+/////////////////////////////////////////////
+// ComponentDelegateBinding BP_NPC.BP_NPC_C.ComponentDelegateBinding_1
+// Flags: Net, NetReliable, NetRequest, Native, NetResponse, NetMulticast, Private, Delegate, HasOutParms, HasDefaults, NetClient, BlueprintCallable, BlueprintEvent, Const
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::ComponentDelegateBinding_1()/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("ComponentDelegateBinding BP_NPC.BP_NPC_C.ComponentDelegateBinding_1");
+
+	struct ABP_NPC_C_ComponentDelegateBinding_1_Params {
+	};
+	ABP_NPC_C_ComponentDelegateBinding_1_Params params;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
+	UObject::ProcessEvent(fn, &params);
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+}
+
+/////////////////////////////////////////////
 // InheritableComponentHandler BP_NPC.BP_NPC_C.InheritableComponentHandler
-// Flags: Final, RequiredAPI, BlueprintCosmetic, Net, MulticastDelegate, Private, NetServer, HasOutParms
+// Flags: Final, RequiredAPI, BlueprintAuthorityOnly
 // Params:
 /////////////////////////////////////////////
 void ABP_NPC_C::InheritableComponentHandler() {
@@ -6395,21 +8217,6 @@ void ABP_NPC_C::InheritableComponentHandler() {
 	struct ABP_NPC_C_InheritableComponentHandler_Params {
 	};
 	ABP_NPC_C_InheritableComponentHandler_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.OnGetUp
-// Flags: BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_NPC_C::OnGetUp() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnGetUp");
-
-	struct ABP_NPC_C_OnGetUp_Params {
-	};
-	ABP_NPC_C_OnGetUp_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -6425,6 +8232,21 @@ void ABP_NPC_C::OnWakeUp() {
 	struct ABP_NPC_C_OnWakeUp_Params {
 	};
 	ABP_NPC_C_OnWakeUp_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.OnGetUp
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::OnGetUp() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnGetUp");
+
+	struct ABP_NPC_C_OnGetUp_Params {
+	};
+	ABP_NPC_C_OnGetUp_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -6529,6 +8351,30 @@ void ABP_NPC_C::SetCharacterMovementActive(bool IsActive, bool IsIKActive) {
 }
 
 /////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.Hit
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: HitLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: hitForce	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: HitBoneName	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::Hit(struct FVector HitLocation, struct FVector hitForce, struct FName HitBoneName) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.Hit");
+
+	struct ABP_NPC_C_Hit_Params {
+		struct FVector HitLocation;			//Offset: 0 | ElementSize: 12
+		struct FVector hitForce;			//Offset: 12 | ElementSize: 12
+		struct FName HitBoneName;			//Offset: 24 | ElementSize: 8
+	};
+	ABP_NPC_C_Hit_Params params;
+	params.HitLocation = HitLocation;
+	params.hitForce = hitForce;
+	params.HitBoneName = HitBoneName;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
 // Function BP_NPC.BP_NPC_C.SetMesh
 // Flags: HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
@@ -6583,30 +8429,6 @@ void ABP_NPC_C::PlayPickingUpMontage(class UObject* Instigator, bool PreferTwoHa
 }
 
 /////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.Hit
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: HitLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: HitForce	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: HitBoneName	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_NPC_C::Hit(struct FVector HitLocation, struct FVector HitForce, struct FName HitBoneName) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.Hit");
-
-	struct ABP_NPC_C_Hit_Params {
-		struct FVector HitLocation;			//Offset: 0 | ElementSize: 12
-		struct FVector HitForce;			//Offset: 12 | ElementSize: 12
-		struct FName HitBoneName;			//Offset: 24 | ElementSize: 8
-	};
-	ABP_NPC_C_Hit_Params params;
-	params.HitLocation = HitLocation;
-	params.HitForce = HitForce;
-	params.HitBoneName = HitBoneName;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
 // Function BP_NPC.BP_NPC_C.ShowInspectorUI
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
@@ -6617,6 +8439,39 @@ void ABP_NPC_C::ShowInspectorUI() {
 	struct ABP_NPC_C_ShowInspectorUI_Params {
 	};
 	ABP_NPC_C_ShowInspectorUI_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.ReceiveTick
+// Flags: Event, Public, BlueprintEvent
+// Params:
+// Name: DeltaSeconds	Type: float	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::ReceiveTick(float DeltaSeconds) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.ReceiveTick");
+
+	struct ABP_NPC_C_ReceiveTick_Params {
+		float DeltaSeconds;			//Offset: 0 | ElementSize: 4
+	};
+	ABP_NPC_C_ReceiveTick_Params params;
+	params.DeltaSeconds = DeltaSeconds;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.ReceiveBeginPlay
+// Flags: Event, Protected, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::ReceiveBeginPlay() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.ReceiveBeginPlay");
+
+	struct ABP_NPC_C_ReceiveBeginPlay_Params {
+	};
+	ABP_NPC_C_ReceiveBeginPlay_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -6635,6 +8490,126 @@ void ABP_NPC_C::SetProfessionData(struct FST_Profession ProfessionData) {
 	};
 	ABP_NPC_C_SetProfessionData_Params params;
 	params.ProfessionData = ProfessionData;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetIsBardCurrentlyPlaying_BPI
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: IsPlaying	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::SetIsBardCurrentlyPlaying_BPI(bool IsPlaying) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetIsBardCurrentlyPlaying_BPI");
+
+	struct ABP_NPC_C_SetIsBardCurrentlyPlaying_BPI_Params {
+		bool IsPlaying;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_SetIsBardCurrentlyPlaying_BPI_Params params;
+	params.IsPlaying = IsPlaying;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetCharacterListeningToBard_BPI
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: IsListening	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::SetCharacterListeningToBard_BPI(bool IsListening) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetCharacterListeningToBard_BPI");
+
+	struct ABP_NPC_C_SetCharacterListeningToBard_BPI_Params {
+		bool IsListening;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_SetCharacterListeningToBard_BPI_Params params;
+	params.IsListening = IsListening;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AnimNotify_BandMontageComplete
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::AnimNotify_BandMontageComplete() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AnimNotify_BandMontageComplete");
+
+	struct ABP_NPC_C_AnimNotify_BandMontageComplete_Params {
+	};
+	ABP_NPC_C_AnimNotify_BandMontageComplete_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AnimNotify_ActivityMontageComplete
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Montage	Type: class UAnimMontage*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ActivityAnimID	Type: unsigned char	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::AnimNotify_ActivityMontageComplete(class UAnimMontage* Montage, unsigned char ActivityAnimID) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AnimNotify_ActivityMontageComplete");
+
+	struct ABP_NPC_C_AnimNotify_ActivityMontageComplete_Params {
+		class UAnimMontage* Montage;			//Offset: 0 | ElementSize: 8
+		unsigned char ActivityAnimID;			//Offset: 8 | ElementSize: 1
+	};
+	ABP_NPC_C_AnimNotify_ActivityMontageComplete_Params params;
+	params.Montage = Montage;
+	params.ActivityAnimID = ActivityAnimID;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AnimNotify_ActivityLoopsFinished
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Montage	Type: class UAnimMontage*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ActivityAnimID	Type: unsigned char	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Loop	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::AnimNotify_ActivityLoopsFinished(class UAnimMontage* Montage, unsigned char ActivityAnimID, int32_t Loop) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AnimNotify_ActivityLoopsFinished");
+
+	struct ABP_NPC_C_AnimNotify_ActivityLoopsFinished_Params {
+		class UAnimMontage* Montage;			//Offset: 0 | ElementSize: 8
+		unsigned char ActivityAnimID;			//Offset: 8 | ElementSize: 1
+		int32_t Loop;			//Offset: 12 | ElementSize: 4
+	};
+	ABP_NPC_C_AnimNotify_ActivityLoopsFinished_Params params;
+	params.Montage = Montage;
+	params.ActivityAnimID = ActivityAnimID;
+	params.Loop = Loop;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AnimNotify_ActivityLoopIncreased
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Montage	Type: class UAnimMontage*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ActivityAnimID	Type: unsigned char	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Loop	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::AnimNotify_ActivityLoopIncreased(class UAnimMontage* Montage, unsigned char ActivityAnimID, int32_t Loop) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AnimNotify_ActivityLoopIncreased");
+
+	struct ABP_NPC_C_AnimNotify_ActivityLoopIncreased_Params {
+		class UAnimMontage* Montage;			//Offset: 0 | ElementSize: 8
+		unsigned char ActivityAnimID;			//Offset: 8 | ElementSize: 1
+		int32_t Loop;			//Offset: 12 | ElementSize: 4
+	};
+	ABP_NPC_C_AnimNotify_ActivityLoopIncreased_Params params;
+	params.Montage = Montage;
+	params.ActivityAnimID = ActivityAnimID;
+	params.Loop = Loop;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -6694,6 +8669,30 @@ void ABP_NPC_C::AnimNotify_BreakLoopsFinished(TEnumAsByte<E_Profession> Professi
 }
 
 /////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.AnimNotify_BreakMontageComplete
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Profession	Type: TEnumAsByte<E_Profession>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Montage	Type: class UAnimMontage*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: BreakAnimID	Type: unsigned char	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::AnimNotify_BreakMontageComplete(TEnumAsByte<E_Profession> Profession, class UAnimMontage* Montage, unsigned char BreakAnimID) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AnimNotify_BreakMontageComplete");
+
+	struct ABP_NPC_C_AnimNotify_BreakMontageComplete_Params {
+		TEnumAsByte<E_Profession> Profession;			//Offset: 0 | ElementSize: 1
+		class UAnimMontage* Montage;			//Offset: 8 | ElementSize: 8
+		unsigned char BreakAnimID;			//Offset: 16 | ElementSize: 1
+	};
+	ABP_NPC_C_AnimNotify_BreakMontageComplete_Params params;
+	params.Profession = Profession;
+	params.Montage = Montage;
+	params.BreakAnimID = BreakAnimID;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
 // Function BP_NPC.BP_NPC_C.AnimNotify_WorkLoopIncreased
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
@@ -6721,30 +8720,6 @@ void ABP_NPC_C::AnimNotify_WorkLoopIncreased(TEnumAsByte<E_Profession> Professio
 }
 
 /////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.AnimNotify_BreakMontageComplete
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Profession	Type: TEnumAsByte<E_Profession>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Montage	Type: class UAnimMontage*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: BreakAnimID	Type: unsigned char	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_NPC_C::AnimNotify_BreakMontageComplete(TEnumAsByte<E_Profession> Profession, class UAnimMontage* Montage, unsigned char BreakAnimID) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.AnimNotify_BreakMontageComplete");
-
-	struct ABP_NPC_C_AnimNotify_BreakMontageComplete_Params {
-		TEnumAsByte<E_Profession> Profession;			//Offset: 0 | ElementSize: 1
-		class UAnimMontage* Montage;			//Offset: 8 | ElementSize: 8
-		unsigned char BreakAnimID;			//Offset: 16 | ElementSize: 1
-	};
-	ABP_NPC_C_AnimNotify_BreakMontageComplete_Params params;
-	params.Profession = Profession;
-	params.Montage = Montage;
-	params.BreakAnimID = BreakAnimID;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
 // Function BP_NPC.BP_NPC_C.AnimNotify_WorkLoopsFinished
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
@@ -6767,21 +8742,6 @@ void ABP_NPC_C::AnimNotify_WorkLoopsFinished(TEnumAsByte<E_Profession> Professio
 	params.Montage = Montage;
 	params.ProfessionState = ProfessionState;
 	params.Loop = Loop;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.ReceiveBeginPlay
-// Flags: Event, Protected, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_NPC_C::ReceiveBeginPlay() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.ReceiveBeginPlay");
-
-	struct ABP_NPC_C_ReceiveBeginPlay_Params {
-	};
-	ABP_NPC_C_ReceiveBeginPlay_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -6815,38 +8775,44 @@ void ABP_NPC_C::AnimNotify_WorkMontageComplete(TEnumAsByte<E_Profession> Profess
 // Flags: Public, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: BaseCharacter	Type: class ABP_BaseCharacter_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Hit	Type: struct FHitResult	Flags: BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor, ContainsInstancedReference
+// Name: HitLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: HitItem	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Timer	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_NPC_C::Interact(class ABP_BaseCharacter_C* BaseCharacter, struct FHitResult Hit, bool Timer) {
+void ABP_NPC_C::Interact(class ABP_BaseCharacter_C* BaseCharacter, struct FVector HitLocation, int32_t HitItem, bool Timer) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.Interact");
 
 	struct ABP_NPC_C_Interact_Params {
 		class ABP_BaseCharacter_C* BaseCharacter;			//Offset: 0 | ElementSize: 8
-		struct FHitResult Hit;			//Offset: 8 | ElementSize: 136
-		bool Timer;			//Offset: 144 | ElementSize: 1
+		struct FVector HitLocation;			//Offset: 8 | ElementSize: 12
+		int32_t HitItem;			//Offset: 20 | ElementSize: 4
+		bool Timer;			//Offset: 24 | ElementSize: 1
 	};
 	ABP_NPC_C_Interact_Params params;
 	params.BaseCharacter = BaseCharacter;
-	params.Hit = Hit;
+	params.HitLocation = HitLocation;
+	params.HitItem = HitItem;
 	params.Timer = Timer;
 
 	UObject::ProcessEvent(fn, &params);
 }
 
 /////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.OnDayChanged
-// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Function BP_NPC.BP_NPC_C.GetLookingRotation
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
 // Params:
+// Name: ReturnValue	Type: struct FRotator	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_NPC_C::OnDayChanged() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnDayChanged");
+struct FRotator ABP_NPC_C::GetLookingRotation() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetLookingRotation");
 
-	struct ABP_NPC_C_OnDayChanged_Params {
+	struct ABP_NPC_C_GetLookingRotation_Params {
+		struct FRotator ReturnValue;			//Offset: 0 | ElementSize: 12
 	};
-	ABP_NPC_C_OnDayChanged_Params params;
+	ABP_NPC_C_GetLookingRotation_Params params;
 
 	UObject::ProcessEvent(fn, &params);
+	return params.ReturnValue;
 }
 
 /////////////////////////////////////////////
@@ -6919,7 +8885,7 @@ void ABP_NPC_C::GetNPCDataToSave(struct FST_SAVE_NPC* NPCData) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetNPCDataToSave");
 
 	struct ABP_NPC_C_GetNPCDataToSave_Params {
-		struct FST_SAVE_NPC NPCData;			//Offset: 0 | ElementSize: 1160
+		struct FST_SAVE_NPC NPCData;			//Offset: 0 | ElementSize: 1264
 	};
 	ABP_NPC_C_GetNPCDataToSave_Params params;
 
@@ -6940,9 +8906,9 @@ void ABP_NPC_C::SetNPCDataFromSave(struct FST_SAVE_NPC NPCData, bool ResetEQ, st
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetNPCDataFromSave");
 
 	struct ABP_NPC_C_SetNPCDataFromSave_Params {
-		struct FST_SAVE_NPC NPCData;			//Offset: 0 | ElementSize: 1160
-		bool ResetEQ;			//Offset: 1160 | ElementSize: 1
-		struct FString SaveGameVersion;			//Offset: 1168 | ElementSize: 16
+		struct FST_SAVE_NPC NPCData;			//Offset: 0 | ElementSize: 1264
+		bool ResetEQ;			//Offset: 1264 | ElementSize: 1
+		struct FString SaveGameVersion;			//Offset: 1272 | ElementSize: 16
 	};
 	ABP_NPC_C_SetNPCDataFromSave_Params params;
 	params.NPCData = NPCData;
@@ -6963,6 +8929,39 @@ void ABP_NPC_C::Destroy_NPC() {
 	struct ABP_NPC_C_Destroy_NPC_Params {
 	};
 	ABP_NPC_C_Destroy_NPC_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.OnDayChanged
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::OnDayChanged() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnDayChanged");
+
+	struct ABP_NPC_C_OnDayChanged_Params {
+	};
+	ABP_NPC_C_OnDayChanged_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.OnPlayerOccupy
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Furniture	Type: class ABP_MasterFurniture_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::OnPlayerOccupy(class ABP_MasterFurniture_C* Furniture) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnPlayerOccupy");
+
+	struct ABP_NPC_C_OnPlayerOccupy_Params {
+		class ABP_MasterFurniture_C* Furniture;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_NPC_C_OnPlayerOccupy_Params params;
+	params.Furniture = Furniture;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -7004,6 +9003,36 @@ void ABP_NPC_C::UnbindFurnitureEvents(class ABP_MasterFurniture_C* Furniture) {
 }
 
 /////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.SetMeshesFromPreset
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Profession	Type: TEnumAsByte<E_Profession>	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: NewClass	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: UpdateOnly	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: LoadGame	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: DontSetIfNotFound	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::SetMeshesFromPreset(TEnumAsByte<E_Profession> Profession, class UObject* NewClass, bool UpdateOnly, bool LoadGame, bool DontSetIfNotFound) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetMeshesFromPreset");
+
+	struct ABP_NPC_C_SetMeshesFromPreset_Params {
+		TEnumAsByte<E_Profession> Profession;			//Offset: 0 | ElementSize: 1
+		class UObject* NewClass;			//Offset: 8 | ElementSize: 8
+		bool UpdateOnly;			//Offset: 16 | ElementSize: 1
+		bool LoadGame;			//Offset: 17 | ElementSize: 1
+		bool DontSetIfNotFound;			//Offset: 18 | ElementSize: 1
+	};
+	ABP_NPC_C_SetMeshesFromPreset_Params params;
+	params.Profession = Profession;
+	params.NewClass = NewClass;
+	params.UpdateOnly = UpdateOnly;
+	params.LoadGame = LoadGame;
+	params.DontSetIfNotFound = DontSetIfNotFound;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
 // Function BP_NPC.BP_NPC_C.OnDestroyFurniture
 // Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
@@ -7019,70 +9048,22 @@ void ABP_NPC_C::OnDestroyFurniture() {
 }
 
 /////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.OnPlayerOccupy
-// Flags: Public, BlueprintCallable, BlueprintEvent
+// Function BP_NPC.BP_NPC_C.GetDirection
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
 // Params:
-// Name: Furniture	Type: class ABP_MasterFurniture_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Direction	Type: float	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_NPC_C::OnPlayerOccupy(class ABP_MasterFurniture_C* Furniture) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnPlayerOccupy");
+void ABP_NPC_C::GetDirection(float* Direction) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetDirection");
 
-	struct ABP_NPC_C_OnPlayerOccupy_Params {
-		class ABP_MasterFurniture_C* Furniture;			//Offset: 0 | ElementSize: 8
+	struct ABP_NPC_C_GetDirection_Params {
+		float Direction;			//Offset: 0 | ElementSize: 4
 	};
-	ABP_NPC_C_OnPlayerOccupy_Params params;
-	params.Furniture = Furniture;
+	ABP_NPC_C_GetDirection_Params params;
 
 	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.SetMeshesFromPreset
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Profession	Type: TEnumAsByte<E_Profession>	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: NewClass	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: UpdateOnly	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-// Name: LoadGame	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-// Name: DelayPresetLoad	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-/////////////////////////////////////////////
-void ABP_NPC_C::SetMeshesFromPreset(TEnumAsByte<E_Profession> Profession, class UObject* NewClass, bool UpdateOnly, bool LoadGame, bool DelayPresetLoad) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.SetMeshesFromPreset");
-
-	struct ABP_NPC_C_SetMeshesFromPreset_Params {
-		TEnumAsByte<E_Profession> Profession;			//Offset: 0 | ElementSize: 1
-		class UObject* NewClass;			//Offset: 8 | ElementSize: 8
-		bool UpdateOnly;			//Offset: 16 | ElementSize: 1
-		bool LoadGame;			//Offset: 17 | ElementSize: 1
-		bool DelayPresetLoad;			//Offset: 18 | ElementSize: 1
-	};
-	ABP_NPC_C_SetMeshesFromPreset_Params params;
-	params.Profession = Profession;
-	params.NewClass = NewClass;
-	params.UpdateOnly = UpdateOnly;
-	params.LoadGame = LoadGame;
-	params.DelayPresetLoad = DelayPresetLoad;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
-// Function BP_NPC.BP_NPC_C.GetProfession
-// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
-// Params:
-// Name: Profession	Type: TEnumAsByte<E_Profession>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-/////////////////////////////////////////////
-void ABP_NPC_C::GetProfession(TEnumAsByte<E_Profession>* Profession) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetProfession");
-
-	struct ABP_NPC_C_GetProfession_Params {
-		TEnumAsByte<E_Profession> Profession;			//Offset: 0 | ElementSize: 1
-	};
-	ABP_NPC_C_GetProfession_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-	if (Profession != nullptr)
-		*Profession = params.Profession;
+	if (Direction != nullptr)
+		*Direction = params.Direction;
 }
 
 /////////////////////////////////////////////
@@ -7105,6 +9086,21 @@ void ABP_NPC_C::ChangeName(struct FName NewRowName, struct FText NewName, bool C
 	params.NewRowName = NewRowName;
 	params.NewName = NewName;
 	params.ChangeSex = ChangeSex;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.OnDayChangedByTimeUpdate
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::OnDayChangedByTimeUpdate() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.OnDayChangedByTimeUpdate");
+
+	struct ABP_NPC_C_OnDayChangedByTimeUpdate_Params {
+	};
+	ABP_NPC_C_OnDayChangedByTimeUpdate_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -7149,6 +9145,62 @@ void ABP_NPC_C::MeshSettings() {
 }
 
 /////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.TrySyncFurnitureAnim
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ActorToSync	Type: class AActor*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Synced	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::TrySyncFurnitureAnim(class AActor* ActorToSync, bool* Synced) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.TrySyncFurnitureAnim");
+
+	struct ABP_NPC_C_TrySyncFurnitureAnim_Params {
+		class AActor* ActorToSync;			//Offset: 0 | ElementSize: 8
+		bool Synced;			//Offset: 8 | ElementSize: 1
+	};
+	ABP_NPC_C_TrySyncFurnitureAnim_Params params;
+	params.ActorToSync = ActorToSync;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Synced != nullptr)
+		*Synced = params.Synced;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.InitInspectorMode
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_NPC_C::InitInspectorMode() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.InitInspectorMode");
+
+	struct ABP_NPC_C_InitInspectorMode_Params {
+	};
+	ABP_NPC_C_InitInspectorMode_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetProfession
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Profession	Type: TEnumAsByte<E_Profession>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::GetProfession(TEnumAsByte<E_Profession>* Profession) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetProfession");
+
+	struct ABP_NPC_C_GetProfession_Params {
+		TEnumAsByte<E_Profession> Profession;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_GetProfession_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Profession != nullptr)
+		*Profession = params.Profession;
+}
+
+/////////////////////////////////////////////
 // Function BP_NPC.BP_NPC_C.GetProfessionData
 // Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
@@ -7165,6 +9217,53 @@ void ABP_NPC_C::GetProfessionData(struct FST_Profession* ProfessionData) {
 	UObject::ProcessEvent(fn, &params);
 	if (ProfessionData != nullptr)
 		*ProfessionData = params.ProfessionData;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetEnableIK_BPI
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: IK_Enabled	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::GetEnableIK_BPI(bool* IK_Enabled) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetEnableIK_BPI");
+
+	struct ABP_NPC_C_GetEnableIK_BPI_Params {
+		bool IK_Enabled;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_NPC_C_GetEnableIK_BPI_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (IK_Enabled != nullptr)
+		*IK_Enabled = params.IK_Enabled;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.PlayOnomatopoeicSound_BPI
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: SoundSubCategory	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: PickRandom	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: SoundId	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Success	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_NPC_C::PlayOnomatopoeicSound_BPI(struct FName SoundSubCategory, bool PickRandom, int32_t SoundId, bool* Success) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.PlayOnomatopoeicSound_BPI");
+
+	struct ABP_NPC_C_PlayOnomatopoeicSound_BPI_Params {
+		struct FName SoundSubCategory;			//Offset: 0 | ElementSize: 8
+		bool PickRandom;			//Offset: 8 | ElementSize: 1
+		int32_t SoundId;			//Offset: 12 | ElementSize: 4
+		bool Success;			//Offset: 16 | ElementSize: 1
+	};
+	ABP_NPC_C_PlayOnomatopoeicSound_BPI_Params params;
+	params.SoundSubCategory = SoundSubCategory;
+	params.PickRandom = PickRandom;
+	params.SoundId = SoundId;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Success != nullptr)
+		*Success = params.Success;
 }
 
 /////////////////////////////////////////////
@@ -7268,6 +9367,51 @@ void ABP_NPC_C::GetOptimalizationStage(int32_t* Stage) {
 	UObject::ProcessEvent(fn, &params);
 	if (Stage != nullptr)
 		*Stage = params.Stage;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetReaction
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: OtherObject	Type: class UObject*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Reaction	Type: TEnumAsByte<E_AIPerceptionReaction>	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ReactionPriority	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::GetReaction(class UObject* OtherObject, TEnumAsByte<E_AIPerceptionReaction>* Reaction, int32_t* ReactionPriority)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetReaction");
+
+	struct ABP_NPC_C_GetReaction_Params {
+		class UObject* OtherObject;			//Offset: 0 | ElementSize: 8
+		TEnumAsByte<E_AIPerceptionReaction> Reaction;			//Offset: 8 | ElementSize: 1
+		int32_t ReactionPriority;			//Offset: 12 | ElementSize: 4
+	};
+	ABP_NPC_C_GetReaction_Params params;
+	params.OtherObject = OtherObject;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Reaction != nullptr)
+		*Reaction = params.Reaction;
+	if (ReactionPriority != nullptr)
+		*ReactionPriority = params.ReactionPriority;
+}
+
+/////////////////////////////////////////////
+// Function BP_NPC.BP_NPC_C.GetActorType
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, Const
+// Params:
+// Name: ActorType	Type: struct FName	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_NPC_C::GetActorType(struct FName* ActorType)/* const*/ {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC.BP_NPC_C.GetActorType");
+
+	struct ABP_NPC_C_GetActorType_Params {
+		struct FName ActorType;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_NPC_C_GetActorType_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (ActorType != nullptr)
+		*ActorType = params.ActorType;
 }
 
 #pragma endregion

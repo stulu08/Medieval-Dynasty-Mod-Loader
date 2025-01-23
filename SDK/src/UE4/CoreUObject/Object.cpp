@@ -10,6 +10,9 @@ namespace UE4 {
 
 	std::string UObject::GetName() const
 	{
+		if (!this)
+			return "";
+
 		auto Name = *reinterpret_cast<FName*>((byte*)this + SDK::SelectedGameProfile.defs.UObject.Name);
 		std::string name(Name.GetName());
 		if (Name.Number > 0)

@@ -159,10 +159,7 @@ void UAnimInstance::BlueprintBeginPlay() {
 	};
 	UAnimInstance_BlueprintBeginPlay_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -177,10 +174,7 @@ void UAnimInstance::BlueprintInitializeAnimation() {
 	};
 	UAnimInstance_BlueprintInitializeAnimation_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -195,10 +189,7 @@ void UAnimInstance::BlueprintLinkedAnimationLayersInitialized() {
 	};
 	UAnimInstance_BlueprintLinkedAnimationLayersInitialized_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -213,10 +204,7 @@ void UAnimInstance::BlueprintPostEvaluateAnimation() {
 	};
 	UAnimInstance_BlueprintPostEvaluateAnimation_Params params;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////
@@ -234,10 +222,7 @@ void UAnimInstance::BlueprintUpdateAnimation(float DeltaTimeX) {
 	UAnimInstance_BlueprintUpdateAnimation_Params params;
 	params.DeltaTimeX = DeltaTimeX;
 
-	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	UObject::ProcessEvent(fn, &params);
-	fn->SetFunctionFlags((EFunctionFlags)flags);
-
 }
 
 /////////////////////////////////////////////

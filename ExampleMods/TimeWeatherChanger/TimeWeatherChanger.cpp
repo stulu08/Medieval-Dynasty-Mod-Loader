@@ -136,10 +136,9 @@ bool TimeWeatherChanger::DrawImGui() {
 			auto* weather = getWeatherManager();
 			if (ImGui::Button("Update Weather Manager")) {
 				weather->UpdateGraphicsSettings();
-				weather->UpdateLightsRotation();
+				weather->UpdateLightsRotation(true);
 				weather->UpdateMaterialCollection();
 				weather->UpdateMaterialVariables();
-				weather->UpdateWorldTemperature();
 
 			}
 			

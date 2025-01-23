@@ -20,7 +20,33 @@ public:
 	}
 
 #pragma region Functions
+	static int32_t BitwiseShiftLeft_IntInt(int32_t A, int32_t B);
+
+	static int32_t BitwiseShiftRight_IntInt(int32_t A, int32_t B);
+
+	static void CompressRotatorToBytes(const struct FRotator& Rotator, unsigned char* X, unsigned char* Y, unsigned char* Z);
+
+	static void CompressVectorToBytes(const struct FVector& Vector, bool IsScale, int32_t* X, int32_t* Y, int32_t* Z);
+
+	static unsigned char Conv_EnumToByte(unsigned char InEnum);
+
+	static struct FTransform_NetQuantize Conv_TransformToTransformNetQuantize(struct FTransform InTransform);
+
+	static struct FVector_NetQuantize Conv_VectorToVectorNetQuantize(struct FVector InVector);
+
+	static struct FVector_NetQuantize10 Conv_VectorToVectorNetQuantize10(struct FVector InVector);
+
+	static struct FVector_NetQuantize100 Conv_VectorToVectorNetQuantize100(struct FVector InVector);
+
+	static float GetDistanceToClosestPlayer(class UObject* WorldContextObject, class AActor** ClosestActor, class AActor* targetActor);
+
+	static float GetSquaredDistanceToClosestPlayer(class UObject* WorldContextObject, class AActor** ClosestActor, class AActor* targetActor);
+
 	static bool IsPointInsidePolygon(TArray<struct FVector> PolygonVertices, struct FVector Point);
+
+	static struct FRotator MakeRotatorFromBytes(const unsigned char& X, const unsigned char& Y, const unsigned char& Z);
+
+	static struct FVector MakeVectorFromBytes(const int32_t& X, const int32_t& Y, const int32_t& Z, bool IsScale);
 
 	static void SortByFloat(TArray<int32_t>* SortedIndices, TArray<float>* Floats, bool Increasing);
 

@@ -13,313 +13,401 @@ struct FPointerToUberGraphFrame* ABP_QuestManager_C::M_PtrGetUberGraphFrame() {
 void ABP_QuestManager_C::M_SetUberGraphFrame(const struct FPointerToUberGraphFrame& value) {
 	Write((byte*)this + 544, value);
 }
+// Member Getter and Setter of QuestInventory
+// Declaration: class UInventoryComponent_C* QuestInventory
+class UInventoryComponent_C* ABP_QuestManager_C::M_GetQuestInventory() const {
+	return Read<class UInventoryComponent_C*>((byte*)this + 552);
+}
+class UInventoryComponent_C** ABP_QuestManager_C::M_PtrGetQuestInventory() {
+	return reinterpret_cast<class UInventoryComponent_C**>((byte*)this + 552);
+}
+void ABP_QuestManager_C::M_SetQuestInventory(const class UInventoryComponent_C*& value) {
+	Write((byte*)this + 552, value);
+}
 // Member Getter and Setter of DefaultSceneRoot
 // Declaration: class USceneComponent* DefaultSceneRoot
 class USceneComponent* ABP_QuestManager_C::M_GetDefaultSceneRoot() const {
-	return Read<class USceneComponent*>((byte*)this + 552);
+	return Read<class USceneComponent*>((byte*)this + 560);
 }
 class USceneComponent** ABP_QuestManager_C::M_PtrGetDefaultSceneRoot() {
-	return reinterpret_cast<class USceneComponent**>((byte*)this + 552);
+	return reinterpret_cast<class USceneComponent**>((byte*)this + 560);
 }
 void ABP_QuestManager_C::M_SetDefaultSceneRoot(const class USceneComponent*& value) {
-	Write((byte*)this + 552, value);
+	Write((byte*)this + 560, value);
 }
 // Member Getter and Setter of SystemsManagerReference
 // Declaration: class ABP_SystemsManager_C* SystemsManagerReference
 class ABP_SystemsManager_C* ABP_QuestManager_C::M_GetSystemsManagerReference() const {
-	return Read<class ABP_SystemsManager_C*>((byte*)this + 560);
+	return Read<class ABP_SystemsManager_C*>((byte*)this + 568);
 }
 class ABP_SystemsManager_C** ABP_QuestManager_C::M_PtrGetSystemsManagerReference() {
-	return reinterpret_cast<class ABP_SystemsManager_C**>((byte*)this + 560);
+	return reinterpret_cast<class ABP_SystemsManager_C**>((byte*)this + 568);
 }
 void ABP_QuestManager_C::M_SetSystemsManagerReference(const class ABP_SystemsManager_C*& value) {
-	Write((byte*)this + 560, value);
+	Write((byte*)this + 568, value);
 }
 // Member Getter and Setter of AmountToHunt
 // Declaration: int32_t AmountToHunt
 int32_t ABP_QuestManager_C::M_GetAmountToHunt() const {
-	return Read<int32_t>((byte*)this + 568);
+	return Read<int32_t>((byte*)this + 576);
 }
 int32_t* ABP_QuestManager_C::M_PtrGetAmountToHunt() {
-	return reinterpret_cast<int32_t*>((byte*)this + 568);
+	return reinterpret_cast<int32_t*>((byte*)this + 576);
 }
 void ABP_QuestManager_C::M_SetAmountToHunt(const int32_t& value) {
-	Write((byte*)this + 568, value);
+	Write((byte*)this + 576, value);
 }
 // Member Getter and Setter of IncreaseHuntedByPlayer
 // Declaration: TAssetPtr<class FIncreaseHuntedByPlayer__DelegateSignature> IncreaseHuntedByPlayer
 TAssetPtr<class FIncreaseHuntedByPlayer__DelegateSignature> ABP_QuestManager_C::M_GetIncreaseHuntedByPlayer() const {
-	return Read<TAssetPtr<class FIncreaseHuntedByPlayer__DelegateSignature>>((byte*)this + 576);
+	return Read<TAssetPtr<class FIncreaseHuntedByPlayer__DelegateSignature>>((byte*)this + 584);
 }
 TAssetPtr<class FIncreaseHuntedByPlayer__DelegateSignature>* ABP_QuestManager_C::M_PtrGetIncreaseHuntedByPlayer() {
-	return reinterpret_cast<TAssetPtr<class FIncreaseHuntedByPlayer__DelegateSignature>*>((byte*)this + 576);
+	return reinterpret_cast<TAssetPtr<class FIncreaseHuntedByPlayer__DelegateSignature>*>((byte*)this + 584);
 }
 void ABP_QuestManager_C::M_SetIncreaseHuntedByPlayer(const TAssetPtr<class FIncreaseHuntedByPlayer__DelegateSignature>& value) {
-	Write((byte*)this + 576, value);
+	Write((byte*)this + 584, value);
 }
 // Member Getter and Setter of AllAcceptedQuests
 // Declaration: TArray<struct FST_QuestInfos> AllAcceptedQuests
 TArray<struct FST_QuestInfos> ABP_QuestManager_C::M_GetAllAcceptedQuests() const {
-	return Read<TArray<struct FST_QuestInfos>>((byte*)this + 592);
+	return Read<TArray<struct FST_QuestInfos>>((byte*)this + 600);
 }
 TArray<struct FST_QuestInfos>* ABP_QuestManager_C::M_PtrGetAllAcceptedQuests() {
-	return reinterpret_cast<TArray<struct FST_QuestInfos>*>((byte*)this + 592);
+	return reinterpret_cast<TArray<struct FST_QuestInfos>*>((byte*)this + 600);
 }
 void ABP_QuestManager_C::M_SetAllAcceptedQuests(const TArray<struct FST_QuestInfos>& value) {
-	Write((byte*)this + 592, value);
+	Write((byte*)this + 600, value);
 }
 // Member Getter and Setter of TmpNPCReference
 // Declaration: class ABP_NPC_C* TmpNPCReference
 class ABP_NPC_C* ABP_QuestManager_C::M_GetTmpNPCReference() const {
-	return Read<class ABP_NPC_C*>((byte*)this + 608);
+	return Read<class ABP_NPC_C*>((byte*)this + 616);
 }
 class ABP_NPC_C** ABP_QuestManager_C::M_PtrGetTmpNPCReference() {
-	return reinterpret_cast<class ABP_NPC_C**>((byte*)this + 608);
+	return reinterpret_cast<class ABP_NPC_C**>((byte*)this + 616);
 }
 void ABP_QuestManager_C::M_SetTmpNPCReference(const class ABP_NPC_C*& value) {
-	Write((byte*)this + 608, value);
+	Write((byte*)this + 616, value);
 }
 // Member Getter and Setter of tmpDynastyReputationToAdd
 // Declaration: int32_t tmpDynastyReputationToAdd
 int32_t ABP_QuestManager_C::M_GettmpDynastyReputationToAdd() const {
-	return Read<int32_t>((byte*)this + 616);
+	return Read<int32_t>((byte*)this + 624);
 }
 int32_t* ABP_QuestManager_C::M_PtrGettmpDynastyReputationToAdd() {
-	return reinterpret_cast<int32_t*>((byte*)this + 616);
+	return reinterpret_cast<int32_t*>((byte*)this + 624);
 }
 void ABP_QuestManager_C::M_SettmpDynastyReputationToAdd(const int32_t& value) {
-	Write((byte*)this + 616, value);
+	Write((byte*)this + 624, value);
 }
 // Member Getter and Setter of GoalActors
 // Declaration: TArray<class ABP_GoalActor_C*> GoalActors
 TArray<class ABP_GoalActor_C*> ABP_QuestManager_C::M_GetGoalActors() const {
-	return Read<TArray<class ABP_GoalActor_C*>>((byte*)this + 624);
+	return Read<TArray<class ABP_GoalActor_C*>>((byte*)this + 632);
 }
 TArray<class ABP_GoalActor_C*>* ABP_QuestManager_C::M_PtrGetGoalActors() {
-	return reinterpret_cast<TArray<class ABP_GoalActor_C*>*>((byte*)this + 624);
+	return reinterpret_cast<TArray<class ABP_GoalActor_C*>*>((byte*)this + 632);
 }
 void ABP_QuestManager_C::M_SetGoalActors(const TArray<class ABP_GoalActor_C*>& value) {
-	Write((byte*)this + 624, value);
+	Write((byte*)this + 632, value);
 }
 // Member Getter and Setter of OnVillageParametersChange
 // Declaration: TAssetPtr<class FOnVillageParametersChange__DelegateSignature> OnVillageParametersChange
 TAssetPtr<class FOnVillageParametersChange__DelegateSignature> ABP_QuestManager_C::M_GetOnVillageParametersChange() const {
-	return Read<TAssetPtr<class FOnVillageParametersChange__DelegateSignature>>((byte*)this + 640);
+	return Read<TAssetPtr<class FOnVillageParametersChange__DelegateSignature>>((byte*)this + 648);
 }
 TAssetPtr<class FOnVillageParametersChange__DelegateSignature>* ABP_QuestManager_C::M_PtrGetOnVillageParametersChange() {
-	return reinterpret_cast<TAssetPtr<class FOnVillageParametersChange__DelegateSignature>*>((byte*)this + 640);
+	return reinterpret_cast<TAssetPtr<class FOnVillageParametersChange__DelegateSignature>*>((byte*)this + 648);
 }
 void ABP_QuestManager_C::M_SetOnVillageParametersChange(const TAssetPtr<class FOnVillageParametersChange__DelegateSignature>& value) {
-	Write((byte*)this + 640, value);
+	Write((byte*)this + 648, value);
 }
 // Member Getter and Setter of tmpTechnologyBuildingsUnlocked
 // Declaration: int32_t tmpTechnologyBuildingsUnlocked
 int32_t ABP_QuestManager_C::M_GettmpTechnologyBuildingsUnlocked() const {
-	return Read<int32_t>((byte*)this + 656);
+	return Read<int32_t>((byte*)this + 664);
 }
 int32_t* ABP_QuestManager_C::M_PtrGettmpTechnologyBuildingsUnlocked() {
-	return reinterpret_cast<int32_t*>((byte*)this + 656);
+	return reinterpret_cast<int32_t*>((byte*)this + 664);
 }
 void ABP_QuestManager_C::M_SettmpTechnologyBuildingsUnlocked(const int32_t& value) {
-	Write((byte*)this + 656, value);
+	Write((byte*)this + 664, value);
 }
 // Member Getter and Setter of tmpBuildingsBuilt
 // Declaration: int32_t tmpBuildingsBuilt
 int32_t ABP_QuestManager_C::M_GettmpBuildingsBuilt() const {
-	return Read<int32_t>((byte*)this + 660);
+	return Read<int32_t>((byte*)this + 668);
 }
 int32_t* ABP_QuestManager_C::M_PtrGettmpBuildingsBuilt() {
-	return reinterpret_cast<int32_t*>((byte*)this + 660);
+	return reinterpret_cast<int32_t*>((byte*)this + 668);
 }
 void ABP_QuestManager_C::M_SettmpBuildingsBuilt(const int32_t& value) {
-	Write((byte*)this + 660, value);
+	Write((byte*)this + 668, value);
 }
 // Member Getter and Setter of OnTalentsChange
 // Declaration: TAssetPtr<class FOnTalentsChange__DelegateSignature> OnTalentsChange
 TAssetPtr<class FOnTalentsChange__DelegateSignature> ABP_QuestManager_C::M_GetOnTalentsChange() const {
-	return Read<TAssetPtr<class FOnTalentsChange__DelegateSignature>>((byte*)this + 664);
+	return Read<TAssetPtr<class FOnTalentsChange__DelegateSignature>>((byte*)this + 672);
 }
 TAssetPtr<class FOnTalentsChange__DelegateSignature>* ABP_QuestManager_C::M_PtrGetOnTalentsChange() {
-	return reinterpret_cast<TAssetPtr<class FOnTalentsChange__DelegateSignature>*>((byte*)this + 664);
+	return reinterpret_cast<TAssetPtr<class FOnTalentsChange__DelegateSignature>*>((byte*)this + 672);
 }
 void ABP_QuestManager_C::M_SetOnTalentsChange(const TAssetPtr<class FOnTalentsChange__DelegateSignature>& value) {
-	Write((byte*)this + 664, value);
+	Write((byte*)this + 672, value);
 }
 // Member Getter and Setter of tmpTalentPointsSpent
 // Declaration: int32_t tmpTalentPointsSpent
 int32_t ABP_QuestManager_C::M_GettmpTalentPointsSpent() const {
-	return Read<int32_t>((byte*)this + 680);
+	return Read<int32_t>((byte*)this + 688);
 }
 int32_t* ABP_QuestManager_C::M_PtrGettmpTalentPointsSpent() {
-	return reinterpret_cast<int32_t*>((byte*)this + 680);
+	return reinterpret_cast<int32_t*>((byte*)this + 688);
 }
 void ABP_QuestManager_C::M_SettmpTalentPointsSpent(const int32_t& value) {
-	Write((byte*)this + 680, value);
+	Write((byte*)this + 688, value);
 }
 // Member Getter and Setter of tmpVillagersAssignedToWork
 // Declaration: int32_t tmpVillagersAssignedToWork
 int32_t ABP_QuestManager_C::M_GettmpVillagersAssignedToWork() const {
-	return Read<int32_t>((byte*)this + 684);
+	return Read<int32_t>((byte*)this + 692);
 }
 int32_t* ABP_QuestManager_C::M_PtrGettmpVillagersAssignedToWork() {
-	return reinterpret_cast<int32_t*>((byte*)this + 684);
+	return reinterpret_cast<int32_t*>((byte*)this + 692);
 }
 void ABP_QuestManager_C::M_SettmpVillagersAssignedToWork(const int32_t& value) {
-	Write((byte*)this + 684, value);
+	Write((byte*)this + 692, value);
 }
 // Member Getter and Setter of OnVillagersProfessionsChange
 // Declaration: TAssetPtr<class FOnVillagersProfessionsChange__DelegateSignature> OnVillagersProfessionsChange
 TAssetPtr<class FOnVillagersProfessionsChange__DelegateSignature> ABP_QuestManager_C::M_GetOnVillagersProfessionsChange() const {
-	return Read<TAssetPtr<class FOnVillagersProfessionsChange__DelegateSignature>>((byte*)this + 688);
+	return Read<TAssetPtr<class FOnVillagersProfessionsChange__DelegateSignature>>((byte*)this + 696);
 }
 TAssetPtr<class FOnVillagersProfessionsChange__DelegateSignature>* ABP_QuestManager_C::M_PtrGetOnVillagersProfessionsChange() {
-	return reinterpret_cast<TAssetPtr<class FOnVillagersProfessionsChange__DelegateSignature>*>((byte*)this + 688);
+	return reinterpret_cast<TAssetPtr<class FOnVillagersProfessionsChange__DelegateSignature>*>((byte*)this + 696);
 }
 void ABP_QuestManager_C::M_SetOnVillagersProfessionsChange(const TAssetPtr<class FOnVillagersProfessionsChange__DelegateSignature>& value) {
-	Write((byte*)this + 688, value);
+	Write((byte*)this + 696, value);
 }
 // Member Getter and Setter of OnDaySeasonChange
 // Declaration: TAssetPtr<class FOnDaySeasonChange__DelegateSignature> OnDaySeasonChange
 TAssetPtr<class FOnDaySeasonChange__DelegateSignature> ABP_QuestManager_C::M_GetOnDaySeasonChange() const {
-	return Read<TAssetPtr<class FOnDaySeasonChange__DelegateSignature>>((byte*)this + 704);
+	return Read<TAssetPtr<class FOnDaySeasonChange__DelegateSignature>>((byte*)this + 712);
 }
 TAssetPtr<class FOnDaySeasonChange__DelegateSignature>* ABP_QuestManager_C::M_PtrGetOnDaySeasonChange() {
-	return reinterpret_cast<TAssetPtr<class FOnDaySeasonChange__DelegateSignature>*>((byte*)this + 704);
+	return reinterpret_cast<TAssetPtr<class FOnDaySeasonChange__DelegateSignature>*>((byte*)this + 712);
 }
 void ABP_QuestManager_C::M_SetOnDaySeasonChange(const TAssetPtr<class FOnDaySeasonChange__DelegateSignature>& value) {
-	Write((byte*)this + 704, value);
+	Write((byte*)this + 712, value);
 }
 // Member Getter and Setter of OnGoalsTimePass
 // Declaration: TAssetPtr<class FOnGoalsTimePass__DelegateSignature> OnGoalsTimePass
 TAssetPtr<class FOnGoalsTimePass__DelegateSignature> ABP_QuestManager_C::M_GetOnGoalsTimePass() const {
-	return Read<TAssetPtr<class FOnGoalsTimePass__DelegateSignature>>((byte*)this + 720);
+	return Read<TAssetPtr<class FOnGoalsTimePass__DelegateSignature>>((byte*)this + 728);
 }
 TAssetPtr<class FOnGoalsTimePass__DelegateSignature>* ABP_QuestManager_C::M_PtrGetOnGoalsTimePass() {
-	return reinterpret_cast<TAssetPtr<class FOnGoalsTimePass__DelegateSignature>*>((byte*)this + 720);
+	return reinterpret_cast<TAssetPtr<class FOnGoalsTimePass__DelegateSignature>*>((byte*)this + 728);
 }
 void ABP_QuestManager_C::M_SetOnGoalsTimePass(const TAssetPtr<class FOnGoalsTimePass__DelegateSignature>& value) {
-	Write((byte*)this + 720, value);
+	Write((byte*)this + 728, value);
 }
 // Member Getter and Setter of OnArcheryContestUpdate
 // Declaration: TAssetPtr<class FOnArcheryContestUpdate__DelegateSignature> OnArcheryContestUpdate
 TAssetPtr<class FOnArcheryContestUpdate__DelegateSignature> ABP_QuestManager_C::M_GetOnArcheryContestUpdate() const {
-	return Read<TAssetPtr<class FOnArcheryContestUpdate__DelegateSignature>>((byte*)this + 736);
+	return Read<TAssetPtr<class FOnArcheryContestUpdate__DelegateSignature>>((byte*)this + 744);
 }
 TAssetPtr<class FOnArcheryContestUpdate__DelegateSignature>* ABP_QuestManager_C::M_PtrGetOnArcheryContestUpdate() {
-	return reinterpret_cast<TAssetPtr<class FOnArcheryContestUpdate__DelegateSignature>*>((byte*)this + 736);
+	return reinterpret_cast<TAssetPtr<class FOnArcheryContestUpdate__DelegateSignature>*>((byte*)this + 744);
 }
 void ABP_QuestManager_C::M_SetOnArcheryContestUpdate(const TAssetPtr<class FOnArcheryContestUpdate__DelegateSignature>& value) {
-	Write((byte*)this + 736, value);
+	Write((byte*)this + 744, value);
 }
 // Member Getter and Setter of OnFoliageRemoved
 // Declaration: TAssetPtr<class FOnFoliageRemoved__DelegateSignature> OnFoliageRemoved
 TAssetPtr<class FOnFoliageRemoved__DelegateSignature> ABP_QuestManager_C::M_GetOnFoliageRemoved() const {
-	return Read<TAssetPtr<class FOnFoliageRemoved__DelegateSignature>>((byte*)this + 752);
+	return Read<TAssetPtr<class FOnFoliageRemoved__DelegateSignature>>((byte*)this + 760);
 }
 TAssetPtr<class FOnFoliageRemoved__DelegateSignature>* ABP_QuestManager_C::M_PtrGetOnFoliageRemoved() {
-	return reinterpret_cast<TAssetPtr<class FOnFoliageRemoved__DelegateSignature>*>((byte*)this + 752);
+	return reinterpret_cast<TAssetPtr<class FOnFoliageRemoved__DelegateSignature>*>((byte*)this + 760);
 }
 void ABP_QuestManager_C::M_SetOnFoliageRemoved(const TAssetPtr<class FOnFoliageRemoved__DelegateSignature>& value) {
-	Write((byte*)this + 752, value);
+	Write((byte*)this + 760, value);
 }
 // Member Getter and Setter of OnQuestCompleted
 // Declaration: TAssetPtr<class FOnQuestCompleted__DelegateSignature> OnQuestCompleted
 TAssetPtr<class FOnQuestCompleted__DelegateSignature> ABP_QuestManager_C::M_GetOnQuestCompleted() const {
-	return Read<TAssetPtr<class FOnQuestCompleted__DelegateSignature>>((byte*)this + 768);
+	return Read<TAssetPtr<class FOnQuestCompleted__DelegateSignature>>((byte*)this + 776);
 }
 TAssetPtr<class FOnQuestCompleted__DelegateSignature>* ABP_QuestManager_C::M_PtrGetOnQuestCompleted() {
-	return reinterpret_cast<TAssetPtr<class FOnQuestCompleted__DelegateSignature>*>((byte*)this + 768);
+	return reinterpret_cast<TAssetPtr<class FOnQuestCompleted__DelegateSignature>*>((byte*)this + 776);
 }
 void ABP_QuestManager_C::M_SetOnQuestCompleted(const TAssetPtr<class FOnQuestCompleted__DelegateSignature>& value) {
-	Write((byte*)this + 768, value);
+	Write((byte*)this + 776, value);
 }
 // Member Getter and Setter of OnFlirtWithNPC
 // Declaration: TAssetPtr<class FOnFlirtWithNPC__DelegateSignature> OnFlirtWithNPC
 TAssetPtr<class FOnFlirtWithNPC__DelegateSignature> ABP_QuestManager_C::M_GetOnFlirtWithNPC() const {
-	return Read<TAssetPtr<class FOnFlirtWithNPC__DelegateSignature>>((byte*)this + 784);
+	return Read<TAssetPtr<class FOnFlirtWithNPC__DelegateSignature>>((byte*)this + 792);
 }
 TAssetPtr<class FOnFlirtWithNPC__DelegateSignature>* ABP_QuestManager_C::M_PtrGetOnFlirtWithNPC() {
-	return reinterpret_cast<TAssetPtr<class FOnFlirtWithNPC__DelegateSignature>*>((byte*)this + 784);
+	return reinterpret_cast<TAssetPtr<class FOnFlirtWithNPC__DelegateSignature>*>((byte*)this + 792);
 }
 void ABP_QuestManager_C::M_SetOnFlirtWithNPC(const TAssetPtr<class FOnFlirtWithNPC__DelegateSignature>& value) {
-	Write((byte*)this + 784, value);
+	Write((byte*)this + 792, value);
 }
 // Member Getter and Setter of CustomGoalsMap
-// Declaration: TMap<TAssetPtr<class UClass>, class UMasterCustomGoal_C*> CustomGoalsMap
-TMap<TAssetPtr<class UClass>, class UMasterCustomGoal_C*> ABP_QuestManager_C::M_GetCustomGoalsMap() const {
-	return Read<TMap<TAssetPtr<class UClass>, class UMasterCustomGoal_C*>>((byte*)this + 800);
+// Declaration: TMap<struct FString, class UMasterCustomGoal_C*> CustomGoalsMap
+TMap<struct FString, class UMasterCustomGoal_C*> ABP_QuestManager_C::M_GetCustomGoalsMap() const {
+	return Read<TMap<struct FString, class UMasterCustomGoal_C*>>((byte*)this + 808);
 }
-TMap<TAssetPtr<class UClass>, class UMasterCustomGoal_C*>* ABP_QuestManager_C::M_PtrGetCustomGoalsMap() {
-	return reinterpret_cast<TMap<TAssetPtr<class UClass>, class UMasterCustomGoal_C*>*>((byte*)this + 800);
+TMap<struct FString, class UMasterCustomGoal_C*>* ABP_QuestManager_C::M_PtrGetCustomGoalsMap() {
+	return reinterpret_cast<TMap<struct FString, class UMasterCustomGoal_C*>*>((byte*)this + 808);
 }
-void ABP_QuestManager_C::M_SetCustomGoalsMap(const TMap<TAssetPtr<class UClass>, class UMasterCustomGoal_C*>& value) {
-	Write((byte*)this + 800, value);
+void ABP_QuestManager_C::M_SetCustomGoalsMap(const TMap<struct FString, class UMasterCustomGoal_C*>& value) {
+	Write((byte*)this + 808, value);
 }
 // Member Getter and Setter of OnChunkToolInteraction
 // Declaration: TAssetPtr<class FOnChunkToolInteraction__DelegateSignature> OnChunkToolInteraction
 TAssetPtr<class FOnChunkToolInteraction__DelegateSignature> ABP_QuestManager_C::M_GetOnChunkToolInteraction() const {
-	return Read<TAssetPtr<class FOnChunkToolInteraction__DelegateSignature>>((byte*)this + 880);
+	return Read<TAssetPtr<class FOnChunkToolInteraction__DelegateSignature>>((byte*)this + 888);
 }
 TAssetPtr<class FOnChunkToolInteraction__DelegateSignature>* ABP_QuestManager_C::M_PtrGetOnChunkToolInteraction() {
-	return reinterpret_cast<TAssetPtr<class FOnChunkToolInteraction__DelegateSignature>*>((byte*)this + 880);
+	return reinterpret_cast<TAssetPtr<class FOnChunkToolInteraction__DelegateSignature>*>((byte*)this + 888);
 }
 void ABP_QuestManager_C::M_SetOnChunkToolInteraction(const TAssetPtr<class FOnChunkToolInteraction__DelegateSignature>& value) {
-	Write((byte*)this + 880, value);
+	Write((byte*)this + 888, value);
 }
 // Member Getter and Setter of HugoBloodStains
 // Declaration: class ABP_MasterQuestScenography_C* HugoBloodStains
 class ABP_MasterQuestScenography_C* ABP_QuestManager_C::M_GetHugoBloodStains() const {
-	return Read<class ABP_MasterQuestScenography_C*>((byte*)this + 896);
+	return Read<class ABP_MasterQuestScenography_C*>((byte*)this + 904);
 }
 class ABP_MasterQuestScenography_C** ABP_QuestManager_C::M_PtrGetHugoBloodStains() {
-	return reinterpret_cast<class ABP_MasterQuestScenography_C**>((byte*)this + 896);
+	return reinterpret_cast<class ABP_MasterQuestScenography_C**>((byte*)this + 904);
 }
 void ABP_QuestManager_C::M_SetHugoBloodStains(const class ABP_MasterQuestScenography_C*& value) {
-	Write((byte*)this + 896, value);
+	Write((byte*)this + 904, value);
 }
 // Member Getter and Setter of KestrelMess
 // Declaration: class ABP_MasterQuestScenography_C* KestrelMess
 class ABP_MasterQuestScenography_C* ABP_QuestManager_C::M_GetKestrelMess() const {
-	return Read<class ABP_MasterQuestScenography_C*>((byte*)this + 904);
+	return Read<class ABP_MasterQuestScenography_C*>((byte*)this + 912);
 }
 class ABP_MasterQuestScenography_C** ABP_QuestManager_C::M_PtrGetKestrelMess() {
-	return reinterpret_cast<class ABP_MasterQuestScenography_C**>((byte*)this + 904);
+	return reinterpret_cast<class ABP_MasterQuestScenography_C**>((byte*)this + 912);
 }
 void ABP_QuestManager_C::M_SetKestrelMess(const class ABP_MasterQuestScenography_C*& value) {
-	Write((byte*)this + 904, value);
+	Write((byte*)this + 912, value);
 }
 // Member Getter and Setter of OnBanditCampCleared
 // Declaration: TAssetPtr<class FOnBanditCampCleared__DelegateSignature> OnBanditCampCleared
 TAssetPtr<class FOnBanditCampCleared__DelegateSignature> ABP_QuestManager_C::M_GetOnBanditCampCleared() const {
-	return Read<TAssetPtr<class FOnBanditCampCleared__DelegateSignature>>((byte*)this + 912);
+	return Read<TAssetPtr<class FOnBanditCampCleared__DelegateSignature>>((byte*)this + 920);
 }
 TAssetPtr<class FOnBanditCampCleared__DelegateSignature>* ABP_QuestManager_C::M_PtrGetOnBanditCampCleared() {
-	return reinterpret_cast<TAssetPtr<class FOnBanditCampCleared__DelegateSignature>*>((byte*)this + 912);
+	return reinterpret_cast<TAssetPtr<class FOnBanditCampCleared__DelegateSignature>*>((byte*)this + 920);
 }
 void ABP_QuestManager_C::M_SetOnBanditCampCleared(const TAssetPtr<class FOnBanditCampCleared__DelegateSignature>& value) {
-	Write((byte*)this + 912, value);
+	Write((byte*)this + 920, value);
 }
 // Member Getter and Setter of AcceptedFamilyQuests
-// Declaration: TAssetPtr<class FNone_574> AcceptedFamilyQuests
-TAssetPtr<class FNone_574> ABP_QuestManager_C::M_GetAcceptedFamilyQuests() const {
-	return Read<TAssetPtr<class FNone_574>>((byte*)this + 928);
+// Declaration: TAssetPtr<class FNone_513> AcceptedFamilyQuests
+TAssetPtr<class FNone_513> ABP_QuestManager_C::M_GetAcceptedFamilyQuests() const {
+	return Read<TAssetPtr<class FNone_513>>((byte*)this + 936);
 }
-TAssetPtr<class FNone_574>* ABP_QuestManager_C::M_PtrGetAcceptedFamilyQuests() {
-	return reinterpret_cast<TAssetPtr<class FNone_574>*>((byte*)this + 928);
+TAssetPtr<class FNone_513>* ABP_QuestManager_C::M_PtrGetAcceptedFamilyQuests() {
+	return reinterpret_cast<TAssetPtr<class FNone_513>*>((byte*)this + 936);
 }
-void ABP_QuestManager_C::M_SetAcceptedFamilyQuests(const TAssetPtr<class FNone_574>& value) {
-	Write((byte*)this + 928, value);
+void ABP_QuestManager_C::M_SetAcceptedFamilyQuests(const TAssetPtr<class FNone_513>& value) {
+	Write((byte*)this + 936, value);
 }
 // Member Getter and Setter of ShouldWaitForSeasonWithFamilyQuest
 // Declaration: bool ShouldWaitForSeasonWithFamilyQuest
 bool ABP_QuestManager_C::M_GetShouldWaitForSeasonWithFamilyQuest() const {
-	return Read<bool>((byte*)this + 1008);
+	return Read<bool>((byte*)this + 1016);
 }
 bool* ABP_QuestManager_C::M_PtrGetShouldWaitForSeasonWithFamilyQuest() {
-	return reinterpret_cast<bool*>((byte*)this + 1008);
+	return reinterpret_cast<bool*>((byte*)this + 1016);
 }
 void ABP_QuestManager_C::M_SetShouldWaitForSeasonWithFamilyQuest(const bool& value) {
-	Write((byte*)this + 1008, value);
+	Write((byte*)this + 1016, value);
+}
+// Member Getter and Setter of DialogueChoices
+// Declaration: TMap<struct FName, int32_t> DialogueChoices
+TMap<struct FName, int32_t> ABP_QuestManager_C::M_GetDialogueChoices() const {
+	return Read<TMap<struct FName, int32_t>>((byte*)this + 1024);
+}
+TMap<struct FName, int32_t>* ABP_QuestManager_C::M_PtrGetDialogueChoices() {
+	return reinterpret_cast<TMap<struct FName, int32_t>*>((byte*)this + 1024);
+}
+void ABP_QuestManager_C::M_SetDialogueChoices(const TMap<struct FName, int32_t>& value) {
+	Write((byte*)this + 1024, value);
+}
+// Member Getter and Setter of NoticeBoardReference
+// Declaration: class AActor* NoticeBoardReference
+class AActor* ABP_QuestManager_C::M_GetNoticeBoardReference() const {
+	return Read<class AActor*>((byte*)this + 1104);
+}
+class AActor** ABP_QuestManager_C::M_PtrGetNoticeBoardReference() {
+	return reinterpret_cast<class AActor**>((byte*)this + 1104);
+}
+void ABP_QuestManager_C::M_SetNoticeBoardReference(const class AActor*& value) {
+	Write((byte*)this + 1104, value);
+}
+// Member Getter and Setter of MultiGenericQuestHistory
+// Declaration: TArray<struct FName> MultiGenericQuestHistory
+TArray<struct FName> ABP_QuestManager_C::M_GetMultiGenericQuestHistory() const {
+	return Read<TArray<struct FName>>((byte*)this + 1112);
+}
+TArray<struct FName>* ABP_QuestManager_C::M_PtrGetMultiGenericQuestHistory() {
+	return reinterpret_cast<TArray<struct FName>*>((byte*)this + 1112);
+}
+void ABP_QuestManager_C::M_SetMultiGenericQuestHistory(const TArray<struct FName>& value) {
+	Write((byte*)this + 1112, value);
+}
+// Member Getter and Setter of AnimalsQuestLoot
+// Declaration: TArray<struct FST_AnimalQuestLoot> AnimalsQuestLoot
+TArray<struct FST_AnimalQuestLoot> ABP_QuestManager_C::M_GetAnimalsQuestLoot() const {
+	return Read<TArray<struct FST_AnimalQuestLoot>>((byte*)this + 1128);
+}
+TArray<struct FST_AnimalQuestLoot>* ABP_QuestManager_C::M_PtrGetAnimalsQuestLoot() {
+	return reinterpret_cast<TArray<struct FST_AnimalQuestLoot>*>((byte*)this + 1128);
+}
+void ABP_QuestManager_C::M_SetAnimalsQuestLoot(const TArray<struct FST_AnimalQuestLoot>& value) {
+	Write((byte*)this + 1128, value);
+}
+// Member Getter and Setter of Co_OpStartSideQuestsList
+// Declaration: TArray<struct FName> Co_OpStartSideQuestsList
+TArray<struct FName> ABP_QuestManager_C::M_GetCo_OpStartSideQuestsList() const {
+	return Read<TArray<struct FName>>((byte*)this + 1144);
+}
+TArray<struct FName>* ABP_QuestManager_C::M_PtrGetCo_OpStartSideQuestsList() {
+	return reinterpret_cast<TArray<struct FName>*>((byte*)this + 1144);
+}
+void ABP_QuestManager_C::M_SetCo_OpStartSideQuestsList(const TArray<struct FName>& value) {
+	Write((byte*)this + 1144, value);
+}
+// Member Getter and Setter of Co_OpEndSideQuestsList
+// Declaration: TArray<struct FName> Co_OpEndSideQuestsList
+TArray<struct FName> ABP_QuestManager_C::M_GetCo_OpEndSideQuestsList() const {
+	return Read<TArray<struct FName>>((byte*)this + 1160);
+}
+TArray<struct FName>* ABP_QuestManager_C::M_PtrGetCo_OpEndSideQuestsList() {
+	return reinterpret_cast<TArray<struct FName>*>((byte*)this + 1160);
+}
+void ABP_QuestManager_C::M_SetCo_OpEndSideQuestsList(const TArray<struct FName>& value) {
+	Write((byte*)this + 1160, value);
+}
+// Member Getter and Setter of SkipGivingNextObjectives
+// Declaration: TMap<struct FName, int32_t> SkipGivingNextObjectives
+TMap<struct FName, int32_t> ABP_QuestManager_C::M_GetSkipGivingNextObjectives() const {
+	return Read<TMap<struct FName, int32_t>>((byte*)this + 1176);
+}
+TMap<struct FName, int32_t>* ABP_QuestManager_C::M_PtrGetSkipGivingNextObjectives() {
+	return reinterpret_cast<TMap<struct FName, int32_t>*>((byte*)this + 1176);
+}
+void ABP_QuestManager_C::M_SetSkipGivingNextObjectives(const TMap<struct FName, int32_t>& value) {
+	Write((byte*)this + 1176, value);
 }
 #pragma endregion
 #pragma region Functions
@@ -499,13 +587,13 @@ void ABP_QuestManager_C::OnFlirtWithNPC__DelegateSignature() {
 // Function BP_QuestManager.BP_QuestManager_C.OnChunkToolInteraction__DelegateSignature
 // Flags: Public, Delegate, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: InteractedChunkFinalState	Type: TEnumAsByte<E_ChunkStates>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: InteractedChunkFinalState	Type: EChunkState	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::OnChunkToolInteraction__DelegateSignature(TEnumAsByte<E_ChunkStates> InteractedChunkFinalState) {
+void ABP_QuestManager_C::OnChunkToolInteraction__DelegateSignature(EChunkState InteractedChunkFinalState) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.OnChunkToolInteraction__DelegateSignature");
 
 	struct ABP_QuestManager_C_OnChunkToolInteraction__DelegateSignature_Params {
-		TEnumAsByte<E_ChunkStates> InteractedChunkFinalState;			//Offset: 0 | ElementSize: 1
+		EChunkState InteractedChunkFinalState;			//Offset: 0 | ElementSize: 1
 	};
 	ABP_QuestManager_C_OnChunkToolInteraction__DelegateSignature_Params params;
 	params.InteractedChunkFinalState = InteractedChunkFinalState;
@@ -518,15 +606,18 @@ void ABP_QuestManager_C::OnChunkToolInteraction__DelegateSignature(TEnumAsByte<E
 // Flags: Public, Delegate, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: CampLocation	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: CampID	Type: struct FGuid	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::OnBanditCampCleared__DelegateSignature(struct FVector CampLocation) {
+void ABP_QuestManager_C::OnBanditCampCleared__DelegateSignature(struct FVector CampLocation, struct FGuid CampID) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.OnBanditCampCleared__DelegateSignature");
 
 	struct ABP_QuestManager_C_OnBanditCampCleared__DelegateSignature_Params {
 		struct FVector CampLocation;			//Offset: 0 | ElementSize: 12
+		struct FGuid CampID;			//Offset: 12 | ElementSize: 16
 	};
 	ABP_QuestManager_C_OnBanditCampCleared__DelegateSignature_Params params;
 	params.CampLocation = CampLocation;
+	params.CampID = CampID;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -797,6 +888,36 @@ void ABP_QuestManager_C::CheckForNeededItems() {
 }
 
 /////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.DoAutosaveOnQuestCompletion
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_QuestManager_C::DoAutosaveOnQuestCompletion() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.DoAutosaveOnQuestCompletion");
+
+	struct ABP_QuestManager_C_DoAutosaveOnQuestCompletion_Params {
+	};
+	ABP_QuestManager_C_DoAutosaveOnQuestCompletion_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.OnQuestInventoryChange
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_QuestManager_C::OnQuestInventoryChange() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.OnQuestInventoryChange");
+
+	struct ABP_QuestManager_C_OnQuestInventoryChange_Params {
+	};
+	ABP_QuestManager_C_OnQuestInventoryChange_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
 // Function BP_QuestManager.BP_QuestManager_C.FixStartingQuestOnLoad
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
@@ -880,17 +1001,20 @@ void ABP_QuestManager_C::ReceiveBeginPlay() {
 // Params:
 // Name: InputPin	Type: struct FST_QuestInfos	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ContainsInstancedReference, HasGetValueTypeHash
 // Name: NPCID	Type: struct FString	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash
+// Name: QuestDataTable	Type: class UDataTable*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::AssignQuestToNPC(struct FST_QuestInfos InputPin, struct FString NPCID) {
+void ABP_QuestManager_C::AssignQuestToNPC(struct FST_QuestInfos InputPin, struct FString NPCID, class UDataTable* QuestDataTable) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.AssignQuestToNPC");
 
 	struct ABP_QuestManager_C_AssignQuestToNPC_Params {
-		struct FST_QuestInfos InputPin;			//Offset: 0 | ElementSize: 976
-		struct FString NPCID;			//Offset: 976 | ElementSize: 16
+		struct FST_QuestInfos InputPin;			//Offset: 0 | ElementSize: 992
+		struct FString NPCID;			//Offset: 992 | ElementSize: 16
+		class UDataTable* QuestDataTable;			//Offset: 1008 | ElementSize: 8
 	};
 	ABP_QuestManager_C_AssignQuestToNPC_Params params;
 	params.InputPin = InputPin;
 	params.NPCID = NPCID;
+	params.QuestDataTable = QuestDataTable;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -899,16 +1023,19 @@ void ABP_QuestManager_C::AssignQuestToNPC(struct FST_QuestInfos InputPin, struct
 // Function BP_QuestManager.BP_QuestManager_C.FailQuest
 // Flags: BlueprintCallable, BlueprintEvent
 // Params:
-// Name: QuestId	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: AllPlayers	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_QuestManager_C::FailQuest(int32_t QuestId) {
+void ABP_QuestManager_C::FailQuest(int32_t QuestID, bool AllPlayers) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.FailQuest");
 
 	struct ABP_QuestManager_C_FailQuest_Params {
-		int32_t QuestId;			//Offset: 0 | ElementSize: 4
+		int32_t QuestID;			//Offset: 0 | ElementSize: 4
+		bool AllPlayers;			//Offset: 4 | ElementSize: 1
 	};
 	ABP_QuestManager_C_FailQuest_Params params;
-	params.QuestId = QuestId;
+	params.QuestID = QuestID;
+	params.AllPlayers = AllPlayers;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -924,6 +1051,102 @@ void ABP_QuestManager_C::Init() {
 	struct ABP_QuestManager_C_Init_Params {
 	};
 	ABP_QuestManager_C_Init_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.AddEmotesToDialogueChoices
+// Flags: HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: UnlockedEmotes	Type: TArray<struct FName>	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm
+/////////////////////////////////////////////
+void ABP_QuestManager_C::AddEmotesToDialogueChoices(const TArray<struct FName>& UnlockedEmotes) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.AddEmotesToDialogueChoices");
+
+	struct ABP_QuestManager_C_AddEmotesToDialogueChoices_Params {
+		TArray<struct FName> UnlockedEmotes;			//Offset: 0 | ElementSize: 16
+	};
+	ABP_QuestManager_C_AddEmotesToDialogueChoices_Params params;
+	params.UnlockedEmotes = UnlockedEmotes;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.AddToDialogueChoice_Multicast
+// Flags: Net, NetReliable, NetMulticast, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ChoiceID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Choice	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::AddToDialogueChoice_Multicast(struct FName ChoiceID, int32_t Choice) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.AddToDialogueChoice_Multicast");
+
+	struct ABP_QuestManager_C_AddToDialogueChoice_Multicast_Params {
+		struct FName ChoiceID;			//Offset: 0 | ElementSize: 8
+		int32_t Choice;			//Offset: 8 | ElementSize: 4
+	};
+	ABP_QuestManager_C_AddToDialogueChoice_Multicast_Params params;
+	params.ChoiceID = ChoiceID;
+	params.Choice = Choice;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.AddToDialogueChoice_Server
+// Flags: Net, NetServer, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ChoiceID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Choice	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::AddToDialogueChoice_Server(struct FName ChoiceID, int32_t Choice) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.AddToDialogueChoice_Server");
+
+	struct ABP_QuestManager_C_AddToDialogueChoice_Server_Params {
+		struct FName ChoiceID;			//Offset: 0 | ElementSize: 8
+		int32_t Choice;			//Offset: 8 | ElementSize: 4
+	};
+	ABP_QuestManager_C_AddToDialogueChoice_Server_Params params;
+	params.ChoiceID = ChoiceID;
+	params.Choice = Choice;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.FailQuest_Server
+// Flags: Net, NetServer, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_QuestManager_C::FailQuest_Server() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.FailQuest_Server");
+
+	struct ABP_QuestManager_C_FailQuest_Server_Params {
+	};
+	ABP_QuestManager_C_FailQuest_Server_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.CompleteQuest_Server
+// Flags: Net, NetServer, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: AllPlayers	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_QuestManager_C::CompleteQuest_Server(int32_t QuestID, bool AllPlayers) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.CompleteQuest_Server");
+
+	struct ABP_QuestManager_C_CompleteQuest_Server_Params {
+		int32_t QuestID;			//Offset: 0 | ElementSize: 4
+		bool AllPlayers;			//Offset: 4 | ElementSize: 1
+	};
+	ABP_QuestManager_C_CompleteQuest_Server_Params params;
+	params.QuestID = QuestID;
+	params.AllPlayers = AllPlayers;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -971,45 +1194,48 @@ void ABP_QuestManager_C::GenerateChallengeValues(const struct FST_Challange& Inp
 // Params:
 // Name: Quest	Type: struct FST_QuestInfos	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ContainsInstancedReference, HasGetValueTypeHash
 // Name: ThroughDialogue_	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-// Name: QuestId	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestID	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::StartQuest(struct FST_QuestInfos Quest, bool ThroughDialogue_, int32_t* QuestId) {
+void ABP_QuestManager_C::StartQuest(struct FST_QuestInfos Quest, bool ThroughDialogue_, int32_t* QuestID) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.StartQuest");
 
 	struct ABP_QuestManager_C_StartQuest_Params {
-		struct FST_QuestInfos Quest;			//Offset: 0 | ElementSize: 976
-		bool ThroughDialogue_;			//Offset: 976 | ElementSize: 1
-		int32_t QuestId;			//Offset: 980 | ElementSize: 4
+		struct FST_QuestInfos Quest;			//Offset: 0 | ElementSize: 992
+		bool ThroughDialogue_;			//Offset: 992 | ElementSize: 1
+		int32_t QuestID;			//Offset: 996 | ElementSize: 4
 	};
 	ABP_QuestManager_C_StartQuest_Params params;
 	params.Quest = Quest;
 	params.ThroughDialogue_ = ThroughDialogue_;
 
 	UObject::ProcessEvent(fn, &params);
-	if (QuestId != nullptr)
-		*QuestId = params.QuestId;
+	if (QuestID != nullptr)
+		*QuestID = params.QuestID;
 }
 
 /////////////////////////////////////////////
 // Function BP_QuestManager.BP_QuestManager_C.CompleteGoal
 // Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: QuestId	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: ObjectiveID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: GoalID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: PlayerId	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::CompleteGoal(int32_t QuestId, int32_t ObjectiveID, int32_t GoalID) {
+void ABP_QuestManager_C::CompleteGoal(int32_t QuestID, int32_t ObjectiveID, int32_t GoalID, int32_t PlayerId) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.CompleteGoal");
 
 	struct ABP_QuestManager_C_CompleteGoal_Params {
-		int32_t QuestId;			//Offset: 0 | ElementSize: 4
+		int32_t QuestID;			//Offset: 0 | ElementSize: 4
 		int32_t ObjectiveID;			//Offset: 4 | ElementSize: 4
 		int32_t GoalID;			//Offset: 8 | ElementSize: 4
+		int32_t PlayerId;			//Offset: 12 | ElementSize: 4
 	};
 	ABP_QuestManager_C_CompleteGoal_Params params;
-	params.QuestId = QuestId;
+	params.QuestID = QuestID;
 	params.ObjectiveID = ObjectiveID;
 	params.GoalID = GoalID;
+	params.PlayerId = PlayerId;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -1033,18 +1259,18 @@ void ABP_QuestManager_C::FindNPCsForTalkGoalAndHideNPCsHeldItem() {
 // Function BP_QuestManager.BP_QuestManager_C.StartObjective
 // Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: QuestId	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: ObjectiveID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::StartObjective(int32_t QuestId, int32_t ObjectiveID) {
+void ABP_QuestManager_C::StartObjective(int32_t QuestID, int32_t ObjectiveID) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.StartObjective");
 
 	struct ABP_QuestManager_C_StartObjective_Params {
-		int32_t QuestId;			//Offset: 0 | ElementSize: 4
+		int32_t QuestID;			//Offset: 0 | ElementSize: 4
 		int32_t ObjectiveID;			//Offset: 4 | ElementSize: 4
 	};
 	ABP_QuestManager_C_StartObjective_Params params;
-	params.QuestId = QuestId;
+	params.QuestID = QuestID;
 	params.ObjectiveID = ObjectiveID;
 
 	UObject::ProcessEvent(fn, &params);
@@ -1054,22 +1280,25 @@ void ABP_QuestManager_C::StartObjective(int32_t QuestId, int32_t ObjectiveID) {
 // Function BP_QuestManager.BP_QuestManager_C.CompleteObjective
 // Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: QuestId	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: ObjectiveID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: GoalID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: PlayerId	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::CompleteObjective(int32_t QuestId, int32_t ObjectiveID, int32_t GoalID) {
+void ABP_QuestManager_C::CompleteObjective(int32_t QuestID, int32_t ObjectiveID, int32_t GoalID, int32_t PlayerId) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.CompleteObjective");
 
 	struct ABP_QuestManager_C_CompleteObjective_Params {
-		int32_t QuestId;			//Offset: 0 | ElementSize: 4
+		int32_t QuestID;			//Offset: 0 | ElementSize: 4
 		int32_t ObjectiveID;			//Offset: 4 | ElementSize: 4
 		int32_t GoalID;			//Offset: 8 | ElementSize: 4
+		int32_t PlayerId;			//Offset: 12 | ElementSize: 4
 	};
 	ABP_QuestManager_C_CompleteObjective_Params params;
-	params.QuestId = QuestId;
+	params.QuestID = QuestID;
 	params.ObjectiveID = ObjectiveID;
 	params.GoalID = GoalID;
+	params.PlayerId = PlayerId;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -1086,9 +1315,9 @@ void ABP_QuestManager_C::CheckNPCForQuestRestrictions(struct FST_QuestInfos Ques
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.CheckNPCForQuestRestrictions");
 
 	struct ABP_QuestManager_C_CheckNPCForQuestRestrictions_Params {
-		struct FST_QuestInfos QuestReference;			//Offset: 0 | ElementSize: 976
-		class ABP_NPC_C* NPCReference;			//Offset: 976 | ElementSize: 8
-		bool NPCValidForQuest;			//Offset: 984 | ElementSize: 1
+		struct FST_QuestInfos QuestReference;			//Offset: 0 | ElementSize: 992
+		class ABP_NPC_C* NPCReference;			//Offset: 992 | ElementSize: 8
+		bool NPCValidForQuest;			//Offset: 1000 | ElementSize: 1
 	};
 	ABP_QuestManager_C_CheckNPCForQuestRestrictions_Params params;
 	params.QuestReference = QuestReference;
@@ -1188,15 +1417,18 @@ void ABP_QuestManager_C::AssignStoryQuests() {
 // Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: InputPin	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: PlayerId	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::GiveQuestReward(int32_t InputPin) {
+void ABP_QuestManager_C::GiveQuestReward(int32_t InputPin, int32_t PlayerId) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.GiveQuestReward");
 
 	struct ABP_QuestManager_C_GiveQuestReward_Params {
 		int32_t InputPin;			//Offset: 0 | ElementSize: 4
+		int32_t PlayerId;			//Offset: 4 | ElementSize: 4
 	};
 	ABP_QuestManager_C_GiveQuestReward_Params params;
 	params.InputPin = InputPin;
+	params.PlayerId = PlayerId;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -1230,18 +1462,18 @@ void ABP_QuestManager_C::CheckNPCForTalk(struct FST_GeneratedQuest_TalkGoalNPCRe
 // Function BP_QuestManager.BP_QuestManager_C.FailObjective
 // Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: QuestId	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: ObjectiveID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::FailObjective(int32_t QuestId, int32_t ObjectiveID) {
+void ABP_QuestManager_C::FailObjective(int32_t QuestID, int32_t ObjectiveID) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.FailObjective");
 
 	struct ABP_QuestManager_C_FailObjective_Params {
-		int32_t QuestId;			//Offset: 0 | ElementSize: 4
+		int32_t QuestID;			//Offset: 0 | ElementSize: 4
 		int32_t ObjectiveID;			//Offset: 4 | ElementSize: 4
 	};
 	ABP_QuestManager_C_FailObjective_Params params;
-	params.QuestId = QuestId;
+	params.QuestID = QuestID;
 	params.ObjectiveID = ObjectiveID;
 
 	UObject::ProcessEvent(fn, &params);
@@ -1320,6 +1552,21 @@ void ABP_QuestManager_C::GenerateQuestObjectives(TArray<struct FST_GenerateObjec
 }
 
 /////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.FixDuplicatedMainMultiQuestsOnLoad
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_QuestManager_C::FixDuplicatedMainMultiQuestsOnLoad() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.FixDuplicatedMainMultiQuestsOnLoad");
+
+	struct ABP_QuestManager_C_FixDuplicatedMainMultiQuestsOnLoad_Params {
+	};
+	ABP_QuestManager_C_FixDuplicatedMainMultiQuestsOnLoad_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
 // Function BP_QuestManager.BP_QuestManager_C.GenerateTaxQuest
 // Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
@@ -1345,6 +1592,36 @@ void ABP_QuestManager_C::CheckDevelopmentStageOnChaptersLoad() {
 	struct ABP_QuestManager_C_CheckDevelopmentStageOnChaptersLoad_Params {
 	};
 	ABP_QuestManager_C_CheckDevelopmentStageOnChaptersLoad_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.FixDuplicatedMainMultiQuestsOnLoad_NPCQuestToGive
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_QuestManager_C::FixDuplicatedMainMultiQuestsOnLoad_NPCQuestToGive() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.FixDuplicatedMainMultiQuestsOnLoad_NPCQuestToGive");
+
+	struct ABP_QuestManager_C_FixDuplicatedMainMultiQuestsOnLoad_NPCQuestToGive_Params {
+	};
+	ABP_QuestManager_C_FixDuplicatedMainMultiQuestsOnLoad_NPCQuestToGive_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.FixListenToConversationGoalsOnLoad
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_QuestManager_C::FixListenToConversationGoalsOnLoad() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.FixListenToConversationGoalsOnLoad");
+
+	struct ABP_QuestManager_C_FixListenToConversationGoalsOnLoad_Params {
+	};
+	ABP_QuestManager_C_FixListenToConversationGoalsOnLoad_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -1467,16 +1744,22 @@ void ABP_QuestManager_C::AssignGeneratedChallenge(class ABP_NPC_C* TmpNPCReferen
 // Function BP_QuestManager.BP_QuestManager_C.CompleteQuest
 // Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: QuestId	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: AllPlayers	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: PlayerId	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::CompleteQuest(int32_t QuestId) {
+void ABP_QuestManager_C::CompleteQuest(int32_t QuestID, bool AllPlayers, int32_t PlayerId) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.CompleteQuest");
 
 	struct ABP_QuestManager_C_CompleteQuest_Params {
-		int32_t QuestId;			//Offset: 0 | ElementSize: 4
+		int32_t QuestID;			//Offset: 0 | ElementSize: 4
+		bool AllPlayers;			//Offset: 4 | ElementSize: 1
+		int32_t PlayerId;			//Offset: 8 | ElementSize: 4
 	};
 	ABP_QuestManager_C_CompleteQuest_Params params;
-	params.QuestId = QuestId;
+	params.QuestID = QuestID;
+	params.AllPlayers = AllPlayers;
+	params.PlayerId = PlayerId;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -1765,16 +2048,16 @@ void ABP_QuestManager_C::CheckQuestsOnNPCRemove(class ABP_NPC_C* RemovedNPCRefer
 // Function BP_QuestManager.BP_QuestManager_C.CancelQuest
 // Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: QuestId	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::CancelQuest(int32_t QuestId) {
+void ABP_QuestManager_C::CancelQuest(int32_t QuestID) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.CancelQuest");
 
 	struct ABP_QuestManager_C_CancelQuest_Params {
-		int32_t QuestId;			//Offset: 0 | ElementSize: 4
+		int32_t QuestID;			//Offset: 0 | ElementSize: 4
 	};
 	ABP_QuestManager_C_CancelQuest_Params params;
-	params.QuestId = QuestId;
+	params.QuestID = QuestID;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -1783,24 +2066,24 @@ void ABP_QuestManager_C::CancelQuest(int32_t QuestId) {
 // Function BP_QuestManager.BP_QuestManager_C.FixQuestEmptyGoal
 // Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: QuestId	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: ObjectiveID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: GoalID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Success	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: Goal	Type: struct FST_MasterGoals	Flags: Parm, OutParm, ContainsInstancedReference, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::FixQuestEmptyGoal(struct FName QuestId, int32_t ObjectiveID, int32_t GoalID, bool* Success, struct FST_MasterGoals* Goal) {
+void ABP_QuestManager_C::FixQuestEmptyGoal(struct FName QuestID, int32_t ObjectiveID, int32_t GoalID, bool* Success, struct FST_MasterGoals* Goal) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.FixQuestEmptyGoal");
 
 	struct ABP_QuestManager_C_FixQuestEmptyGoal_Params {
-		struct FName QuestId;			//Offset: 0 | ElementSize: 8
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
 		int32_t ObjectiveID;			//Offset: 8 | ElementSize: 4
 		int32_t GoalID;			//Offset: 12 | ElementSize: 4
 		bool Success;			//Offset: 16 | ElementSize: 1
-		struct FST_MasterGoals Goal;			//Offset: 24 | ElementSize: 1304
+		struct FST_MasterGoals Goal;			//Offset: 24 | ElementSize: 1416
 	};
 	ABP_QuestManager_C_FixQuestEmptyGoal_Params params;
-	params.QuestId = QuestId;
+	params.QuestID = QuestID;
 	params.ObjectiveID = ObjectiveID;
 	params.GoalID = GoalID;
 
@@ -1815,22 +2098,22 @@ void ABP_QuestManager_C::FixQuestEmptyGoal(struct FName QuestId, int32_t Objecti
 // Function BP_QuestManager.BP_QuestManager_C.FixQuestEmptyObjective
 // Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: QuestId	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: ObjectiveID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Success	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: Objective	Type: struct FST_QuestObjectives	Flags: Parm, OutParm, ContainsInstancedReference, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::FixQuestEmptyObjective(struct FName QuestId, int32_t ObjectiveID, bool* Success, struct FST_QuestObjectives* Objective) {
+void ABP_QuestManager_C::FixQuestEmptyObjective(struct FName QuestID, int32_t ObjectiveID, bool* Success, struct FST_QuestObjectives* Objective) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.FixQuestEmptyObjective");
 
 	struct ABP_QuestManager_C_FixQuestEmptyObjective_Params {
-		struct FName QuestId;			//Offset: 0 | ElementSize: 8
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
 		int32_t ObjectiveID;			//Offset: 8 | ElementSize: 4
 		bool Success;			//Offset: 12 | ElementSize: 1
 		struct FST_QuestObjectives Objective;			//Offset: 16 | ElementSize: 216
 	};
 	ABP_QuestManager_C_FixQuestEmptyObjective_Params params;
-	params.QuestId = QuestId;
+	params.QuestID = QuestID;
 	params.ObjectiveID = ObjectiveID;
 
 	UObject::ProcessEvent(fn, &params);
@@ -1844,18 +2127,18 @@ void ABP_QuestManager_C::FixQuestEmptyObjective(struct FName QuestId, int32_t Ob
 // Function BP_QuestManager.BP_QuestManager_C.CheckAndFixDialogueOnLoad
 // Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: QuestId	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: ObjectiveID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: GoalID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Goal	Type: struct FST_Goal_Talk	Flags: BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash
 // Name: Fixed	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: FixedGoal	Type: struct FST_Goal_Talk	Flags: Parm, OutParm, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::CheckAndFixDialogueOnLoad(struct FName QuestId, int32_t ObjectiveID, int32_t GoalID, struct FST_Goal_Talk Goal, bool* Fixed, struct FST_Goal_Talk* FixedGoal) {
+void ABP_QuestManager_C::CheckAndFixDialogueOnLoad(struct FName QuestID, int32_t ObjectiveID, int32_t GoalID, struct FST_Goal_Talk Goal, bool* Fixed, struct FST_Goal_Talk* FixedGoal) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.CheckAndFixDialogueOnLoad");
 
 	struct ABP_QuestManager_C_CheckAndFixDialogueOnLoad_Params {
-		struct FName QuestId;			//Offset: 0 | ElementSize: 8
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
 		int32_t ObjectiveID;			//Offset: 8 | ElementSize: 4
 		int32_t GoalID;			//Offset: 12 | ElementSize: 4
 		struct FST_Goal_Talk Goal;			//Offset: 16 | ElementSize: 432
@@ -1863,7 +2146,7 @@ void ABP_QuestManager_C::CheckAndFixDialogueOnLoad(struct FName QuestId, int32_t
 		struct FST_Goal_Talk FixedGoal;			//Offset: 456 | ElementSize: 432
 	};
 	ABP_QuestManager_C_CheckAndFixDialogueOnLoad_Params params;
-	params.QuestId = QuestId;
+	params.QuestID = QuestID;
 	params.ObjectiveID = ObjectiveID;
 	params.GoalID = GoalID;
 	params.Goal = Goal;
@@ -1885,7 +2168,7 @@ void ABP_QuestManager_C::SetNPCsObjectivesAndGoals(const struct FST_QuestInfos& 
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.SetNPCsObjectivesAndGoals");
 
 	struct ABP_QuestManager_C_SetNPCsObjectivesAndGoals_Params {
-		struct FST_QuestInfos ST_QuestInfo;			//Offset: 0 | ElementSize: 976
+		struct FST_QuestInfos ST_QuestInfo;			//Offset: 0 | ElementSize: 992
 	};
 	ABP_QuestManager_C_SetNPCsObjectivesAndGoals_Params params;
 	params.ST_QuestInfo = ST_QuestInfo;
@@ -1933,18 +2216,18 @@ void ABP_QuestManager_C::FixChapters0_5_1_1(struct FString SaveGameVersion) {
 // Function BP_QuestManager.BP_QuestManager_C.Stop All Follow for Quest
 // Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: QuestId	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: SeasonChange	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_QuestManager_C::Stop_All_Follow_for_Quest(int32_t QuestId, bool SeasonChange) {
+void ABP_QuestManager_C::Stop_All_Follow_for_Quest(int32_t QuestID, bool SeasonChange) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.Stop All Follow for Quest");
 
 	struct ABP_QuestManager_C_Stop_All_Follow_for_Quest_Params {
-		int32_t QuestId;			//Offset: 0 | ElementSize: 4
+		int32_t QuestID;			//Offset: 0 | ElementSize: 4
 		bool SeasonChange;			//Offset: 4 | ElementSize: 1
 	};
 	ABP_QuestManager_C_Stop_All_Follow_for_Quest_Params params;
-	params.QuestId = QuestId;
+	params.QuestID = QuestID;
 	params.SeasonChange = SeasonChange;
 
 	UObject::ProcessEvent(fn, &params);
@@ -1982,23 +2265,23 @@ void ABP_QuestManager_C::UpdateBuildingQuests(TEnumAsByte<E_Goal_BuildTypes> Typ
 // Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: CustomGoal	Type: struct FST_Goal_Custom	Flags: BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, HasGetValueTypeHash
-// Name: QuestId	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: ObjectiveIndex	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: GoalIndex	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: GoalState	Type: TEnumAsByte<E_GoalState>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::SpawnCustomGoalObject(struct FST_Goal_Custom* CustomGoal, struct FName QuestId, int32_t ObjectiveIndex, int32_t GoalIndex, TEnumAsByte<E_GoalState> GoalState) {
+void ABP_QuestManager_C::SpawnCustomGoalObject(struct FST_Goal_Custom* CustomGoal, struct FName QuestID, int32_t ObjectiveIndex, int32_t GoalIndex, TEnumAsByte<E_GoalState> GoalState) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.SpawnCustomGoalObject");
 
 	struct ABP_QuestManager_C_SpawnCustomGoalObject_Params {
 		struct FST_Goal_Custom CustomGoal;			//Offset: 0 | ElementSize: 64
-		struct FName QuestId;			//Offset: 64 | ElementSize: 8
+		struct FName QuestID;			//Offset: 64 | ElementSize: 8
 		int32_t ObjectiveIndex;			//Offset: 72 | ElementSize: 4
 		int32_t GoalIndex;			//Offset: 76 | ElementSize: 4
 		TEnumAsByte<E_GoalState> GoalState;			//Offset: 80 | ElementSize: 1
 	};
 	ABP_QuestManager_C_SpawnCustomGoalObject_Params params;
-	params.QuestId = QuestId;
+	params.QuestID = QuestID;
 	params.ObjectiveIndex = ObjectiveIndex;
 	params.GoalIndex = GoalIndex;
 	params.GoalState = GoalState;
@@ -2012,20 +2295,20 @@ void ABP_QuestManager_C::SpawnCustomGoalObject(struct FST_Goal_Custom* CustomGoa
 // Function BP_QuestManager.BP_QuestManager_C.FailGoal
 // Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: QuestId	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: ObjectiveID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: GoalID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::FailGoal(int32_t QuestId, int32_t ObjectiveID, int32_t GoalID) {
+void ABP_QuestManager_C::FailGoal(int32_t QuestID, int32_t ObjectiveID, int32_t GoalID) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.FailGoal");
 
 	struct ABP_QuestManager_C_FailGoal_Params {
-		int32_t QuestId;			//Offset: 0 | ElementSize: 4
+		int32_t QuestID;			//Offset: 0 | ElementSize: 4
 		int32_t ObjectiveID;			//Offset: 4 | ElementSize: 4
 		int32_t GoalID;			//Offset: 8 | ElementSize: 4
 	};
 	ABP_QuestManager_C_FailGoal_Params params;
-	params.QuestId = QuestId;
+	params.QuestID = QuestID;
 	params.ObjectiveID = ObjectiveID;
 	params.GoalID = GoalID;
 
@@ -2120,44 +2403,25 @@ void ABP_QuestManager_C::SetKestrelBehavior() {
 }
 
 /////////////////////////////////////////////
-// Function BP_QuestManager.BP_QuestManager_C.CheckQuestByState
-// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Function BP_QuestManager.BP_QuestManager_C.GetActiveQuestIndex
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
 // Params:
-// Name: QuestId	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: CheckObjective	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-// Name: ObjectiveIndex	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: CheckIsDone	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
-// Name: QuestState	Type: TEnumAsByte<E_QuestState>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: ObjectiveState	Type: TEnumAsByte<E_ObjectiveState>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-// Name: Success	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
-// Name: found	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestIndex	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::CheckQuestByState(struct FName QuestId, bool CheckObjective, int32_t ObjectiveIndex, bool CheckIsDone, TEnumAsByte<E_QuestState> QuestState, TEnumAsByte<E_ObjectiveState> ObjectiveState, bool* Success, bool* found) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.CheckQuestByState");
+void ABP_QuestManager_C::GetActiveQuestIndex(struct FName QuestID, int32_t* QuestIndex) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.GetActiveQuestIndex");
 
-	struct ABP_QuestManager_C_CheckQuestByState_Params {
-		struct FName QuestId;			//Offset: 0 | ElementSize: 8
-		bool CheckObjective;			//Offset: 8 | ElementSize: 1
-		int32_t ObjectiveIndex;			//Offset: 12 | ElementSize: 4
-		bool CheckIsDone;			//Offset: 16 | ElementSize: 1
-		TEnumAsByte<E_QuestState> QuestState;			//Offset: 17 | ElementSize: 1
-		TEnumAsByte<E_ObjectiveState> ObjectiveState;			//Offset: 18 | ElementSize: 1
-		bool Success;			//Offset: 19 | ElementSize: 1
-		bool found;			//Offset: 20 | ElementSize: 1
+	struct ABP_QuestManager_C_GetActiveQuestIndex_Params {
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
+		int32_t QuestIndex;			//Offset: 8 | ElementSize: 4
 	};
-	ABP_QuestManager_C_CheckQuestByState_Params params;
-	params.QuestId = QuestId;
-	params.CheckObjective = CheckObjective;
-	params.ObjectiveIndex = ObjectiveIndex;
-	params.CheckIsDone = CheckIsDone;
-	params.QuestState = QuestState;
-	params.ObjectiveState = ObjectiveState;
+	ABP_QuestManager_C_GetActiveQuestIndex_Params params;
+	params.QuestID = QuestID;
 
 	UObject::ProcessEvent(fn, &params);
-	if (Success != nullptr)
-		*Success = params.Success;
-	if (found != nullptr)
-		*found = params.found;
+	if (QuestIndex != nullptr)
+		*QuestIndex = params.QuestIndex;
 }
 
 /////////////////////////////////////////////
@@ -2203,16 +2467,16 @@ void ABP_QuestManager_C::AddSamborFigurinesOnLoad(struct FString SaveGameVersion
 // Function BP_QuestManager.BP_QuestManager_C.FixFindGoalForVengeanceQuest
 // Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
-// Name: QuestId	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 /////////////////////////////////////////////
-void ABP_QuestManager_C::FixFindGoalForVengeanceQuest(int32_t QuestId) {
+void ABP_QuestManager_C::FixFindGoalForVengeanceQuest(int32_t QuestID) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.FixFindGoalForVengeanceQuest");
 
 	struct ABP_QuestManager_C_FixFindGoalForVengeanceQuest_Params {
-		int32_t QuestId;			//Offset: 0 | ElementSize: 4
+		int32_t QuestID;			//Offset: 0 | ElementSize: 4
 	};
 	ABP_QuestManager_C_FixFindGoalForVengeanceQuest_Params params;
-	params.QuestId = QuestId;
+	params.QuestID = QuestID;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -2264,6 +2528,1095 @@ void ABP_QuestManager_C::FixForInvalidQuestItemsRemainingInInventory() {
 	struct ABP_QuestManager_C_FixForInvalidQuestItemsRemainingInInventory_Params {
 	};
 	ABP_QuestManager_C_FixForInvalidQuestItemsRemainingInInventory_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.SetDialogueChoice
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ChoiceID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Choice	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::SetDialogueChoice(struct FName ChoiceID, int32_t Choice) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.SetDialogueChoice");
+
+	struct ABP_QuestManager_C_SetDialogueChoice_Params {
+		struct FName ChoiceID;			//Offset: 0 | ElementSize: 8
+		int32_t Choice;			//Offset: 8 | ElementSize: 4
+	};
+	ABP_QuestManager_C_SetDialogueChoice_Params params;
+	params.ChoiceID = ChoiceID;
+	params.Choice = Choice;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.GetDialogueChoice
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: ChoiceID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Choice	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::GetDialogueChoice(struct FName ChoiceID, int32_t* Choice) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.GetDialogueChoice");
+
+	struct ABP_QuestManager_C_GetDialogueChoice_Params {
+		struct FName ChoiceID;			//Offset: 0 | ElementSize: 8
+		int32_t Choice;			//Offset: 8 | ElementSize: 4
+	};
+	ABP_QuestManager_C_GetDialogueChoice_Params params;
+	params.ChoiceID = ChoiceID;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Choice != nullptr)
+		*Choice = params.Choice;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.GetActiveQuestCurrentObjective
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ObjectiveID	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::GetActiveQuestCurrentObjective(struct FName QuestID, int32_t* ObjectiveID) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.GetActiveQuestCurrentObjective");
+
+	struct ABP_QuestManager_C_GetActiveQuestCurrentObjective_Params {
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
+		int32_t ObjectiveID;			//Offset: 8 | ElementSize: 4
+	};
+	ABP_QuestManager_C_GetActiveQuestCurrentObjective_Params params;
+	params.QuestID = QuestID;
+
+	UObject::ProcessEvent(fn, &params);
+	if (ObjectiveID != nullptr)
+		*ObjectiveID = params.ObjectiveID;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.GetActiveQuestCurrentGoals
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: GoalsIDs	Type: TArray<int32_t>	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_QuestManager_C::GetActiveQuestCurrentGoals(struct FName QuestID, TArray<int32_t>* GoalsIDs) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.GetActiveQuestCurrentGoals");
+
+	struct ABP_QuestManager_C_GetActiveQuestCurrentGoals_Params {
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
+		TArray<int32_t> GoalsIDs;			//Offset: 8 | ElementSize: 16
+	};
+	ABP_QuestManager_C_GetActiveQuestCurrentGoals_Params params;
+	params.QuestID = QuestID;
+
+	UObject::ProcessEvent(fn, &params);
+	if (GoalsIDs != nullptr)
+		*GoalsIDs = params.GoalsIDs;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.GetActiveQuestsAndObjectives
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: ActiveQuestsAndObjectives	Type: TMap<struct FName, int32_t>	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_QuestManager_C::GetActiveQuestsAndObjectives(TMap<struct FName, int32_t>* ActiveQuestsAndObjectives) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.GetActiveQuestsAndObjectives");
+
+	struct ABP_QuestManager_C_GetActiveQuestsAndObjectives_Params {
+		TMap<struct FName, int32_t> ActiveQuestsAndObjectives;			//Offset: 0 | ElementSize: 80
+	};
+	ABP_QuestManager_C_GetActiveQuestsAndObjectives_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (ActiveQuestsAndObjectives != nullptr)
+		*ActiveQuestsAndObjectives = params.ActiveQuestsAndObjectives;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.GetCompletedQuestsIDs
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: CompletedQuestsIDs	Type: TArray<struct FName>	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_QuestManager_C::GetCompletedQuestsIDs(TArray<struct FName>* CompletedQuestsIDs) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.GetCompletedQuestsIDs");
+
+	struct ABP_QuestManager_C_GetCompletedQuestsIDs_Params {
+		TArray<struct FName> CompletedQuestsIDs;			//Offset: 0 | ElementSize: 16
+	};
+	ABP_QuestManager_C_GetCompletedQuestsIDs_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (CompletedQuestsIDs != nullptr)
+		*CompletedQuestsIDs = params.CompletedQuestsIDs;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.CheckQuestByState
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: CheckObjective	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: ObjectiveIndex	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: CheckIsDone	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: QuestState	Type: TEnumAsByte<E_QuestState>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ObjectiveState	Type: TEnumAsByte<E_ObjectiveState>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Success	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: found	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_QuestManager_C::CheckQuestByState(struct FName QuestID, bool CheckObjective, int32_t ObjectiveIndex, bool CheckIsDone, TEnumAsByte<E_QuestState> QuestState, TEnumAsByte<E_ObjectiveState> ObjectiveState, bool* Success, bool* found) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.CheckQuestByState");
+
+	struct ABP_QuestManager_C_CheckQuestByState_Params {
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
+		bool CheckObjective;			//Offset: 8 | ElementSize: 1
+		int32_t ObjectiveIndex;			//Offset: 12 | ElementSize: 4
+		bool CheckIsDone;			//Offset: 16 | ElementSize: 1
+		TEnumAsByte<E_QuestState> QuestState;			//Offset: 17 | ElementSize: 1
+		TEnumAsByte<E_ObjectiveState> ObjectiveState;			//Offset: 18 | ElementSize: 1
+		bool Success;			//Offset: 19 | ElementSize: 1
+		bool found;			//Offset: 20 | ElementSize: 1
+	};
+	ABP_QuestManager_C_CheckQuestByState_Params params;
+	params.QuestID = QuestID;
+	params.CheckObjective = CheckObjective;
+	params.ObjectiveIndex = ObjectiveIndex;
+	params.CheckIsDone = CheckIsDone;
+	params.QuestState = QuestState;
+	params.ObjectiveState = ObjectiveState;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Success != nullptr)
+		*Success = params.Success;
+	if (found != nullptr)
+		*found = params.found;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.ObjectiveIdWhereItemIsUsedInActiveQuest
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ItemId	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: AtObjective	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::ObjectiveIdWhereItemIsUsedInActiveQuest(struct FName QuestID, struct FName ItemId, int32_t* AtObjective) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.ObjectiveIdWhereItemIsUsedInActiveQuest");
+
+	struct ABP_QuestManager_C_ObjectiveIdWhereItemIsUsedInActiveQuest_Params {
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
+		struct FName ItemId;			//Offset: 8 | ElementSize: 8
+		int32_t AtObjective;			//Offset: 16 | ElementSize: 4
+	};
+	ABP_QuestManager_C_ObjectiveIdWhereItemIsUsedInActiveQuest_Params params;
+	params.QuestID = QuestID;
+	params.ItemId = ItemId;
+
+	UObject::ProcessEvent(fn, &params);
+	if (AtObjective != nullptr)
+		*AtObjective = params.AtObjective;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.SeasonalGenerateAndAssignQuestsToNoticeBoard
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_QuestManager_C::SeasonalGenerateAndAssignQuestsToNoticeBoard() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.SeasonalGenerateAndAssignQuestsToNoticeBoard");
+
+	struct ABP_QuestManager_C_SeasonalGenerateAndAssignQuestsToNoticeBoard_Params {
+	};
+	ABP_QuestManager_C_SeasonalGenerateAndAssignQuestsToNoticeBoard_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.UpdateNoticeBoardQuestsOnSeasonChange
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_QuestManager_C::UpdateNoticeBoardQuestsOnSeasonChange() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.UpdateNoticeBoardQuestsOnSeasonChange");
+
+	struct ABP_QuestManager_C_UpdateNoticeBoardQuestsOnSeasonChange_Params {
+	};
+	ABP_QuestManager_C_UpdateNoticeBoardQuestsOnSeasonChange_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.GetQuestHandlerFromID
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestHandler	Type: struct FDataTableRowHandle	Flags: Parm, OutParm, NoDestructor
+/////////////////////////////////////////////
+void ABP_QuestManager_C::GetQuestHandlerFromID(struct FName QuestID, struct FDataTableRowHandle* QuestHandler) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.GetQuestHandlerFromID");
+
+	struct ABP_QuestManager_C_GetQuestHandlerFromID_Params {
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
+		struct FDataTableRowHandle QuestHandler;			//Offset: 8 | ElementSize: 16
+	};
+	ABP_QuestManager_C_GetQuestHandlerFromID_Params params;
+	params.QuestID = QuestID;
+
+	UObject::ProcessEvent(fn, &params);
+	if (QuestHandler != nullptr)
+		*QuestHandler = params.QuestHandler;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.FillQuestDataFromHandler
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestHandler	Type: struct FDataTableRowHandle	Flags: BlueprintVisible, BlueprintReadOnly, Parm, NoDestructor
+// Name: AddedAtIndex	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::FillQuestDataFromHandler(struct FDataTableRowHandle QuestHandler, int32_t* AddedAtIndex) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.FillQuestDataFromHandler");
+
+	struct ABP_QuestManager_C_FillQuestDataFromHandler_Params {
+		struct FDataTableRowHandle QuestHandler;			//Offset: 0 | ElementSize: 16
+		int32_t AddedAtIndex;			//Offset: 16 | ElementSize: 4
+	};
+	ABP_QuestManager_C_FillQuestDataFromHandler_Params params;
+	params.QuestHandler = QuestHandler;
+
+	UObject::ProcessEvent(fn, &params);
+	if (AddedAtIndex != nullptr)
+		*AddedAtIndex = params.AddedAtIndex;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.ReplicateQuestsDataOnClientLoad
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestIndex	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Quest	Type: struct FST_QuestInfo_Save	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ContainsInstancedReference, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::ReplicateQuestsDataOnClientLoad(int32_t QuestIndex, struct FST_QuestInfo_Save Quest) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.ReplicateQuestsDataOnClientLoad");
+
+	struct ABP_QuestManager_C_ReplicateQuestsDataOnClientLoad_Params {
+		int32_t QuestIndex;			//Offset: 0 | ElementSize: 4
+		struct FST_QuestInfo_Save Quest;			//Offset: 8 | ElementSize: 352
+	};
+	ABP_QuestManager_C_ReplicateQuestsDataOnClientLoad_Params params;
+	params.QuestIndex = QuestIndex;
+	params.Quest = Quest;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.GetQuestsDataForReplication
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestsToReplicate	Type: TArray<struct FST_QuestInfo_Save>	Flags: Parm, OutParm, ContainsInstancedReference
+/////////////////////////////////////////////
+void ABP_QuestManager_C::GetQuestsDataForReplication(TArray<struct FST_QuestInfo_Save>* QuestsToReplicate) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.GetQuestsDataForReplication");
+
+	struct ABP_QuestManager_C_GetQuestsDataForReplication_Params {
+		TArray<struct FST_QuestInfo_Save> QuestsToReplicate;			//Offset: 0 | ElementSize: 16
+	};
+	ABP_QuestManager_C_GetQuestsDataForReplication_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (QuestsToReplicate != nullptr)
+		*QuestsToReplicate = params.QuestsToReplicate;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.SetNPC_QuestBehavior
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ObjectiveID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Success	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_QuestManager_C::SetNPC_QuestBehavior(struct FName QuestID, int32_t ObjectiveID, bool* Success) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.SetNPC_QuestBehavior");
+
+	struct ABP_QuestManager_C_SetNPC_QuestBehavior_Params {
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
+		int32_t ObjectiveID;			//Offset: 8 | ElementSize: 4
+		bool Success;			//Offset: 12 | ElementSize: 1
+	};
+	ABP_QuestManager_C_SetNPC_QuestBehavior_Params params;
+	params.QuestID = QuestID;
+	params.ObjectiveID = ObjectiveID;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Success != nullptr)
+		*Success = params.Success;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.SeasonalGenerateAndAssignQuests_MultiPlayerNPCs
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_QuestManager_C::SeasonalGenerateAndAssignQuests_MultiPlayerNPCs() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.SeasonalGenerateAndAssignQuests_MultiPlayerNPCs");
+
+	struct ABP_QuestManager_C_SeasonalGenerateAndAssignQuests_MultiPlayerNPCs_Params {
+	};
+	ABP_QuestManager_C_SeasonalGenerateAndAssignQuests_MultiPlayerNPCs_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.AddQuestToMultiHistory
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestName	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::AddQuestToMultiHistory(struct FName QuestName) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.AddQuestToMultiHistory");
+
+	struct ABP_QuestManager_C_AddQuestToMultiHistory_Params {
+		struct FName QuestName;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_QuestManager_C_AddQuestToMultiHistory_Params params;
+	params.QuestName = QuestName;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.GetSpecialAnimalQuestLoot
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: AnimalType	Type: TEnumAsByte<E_AnimalType>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ItemsToDrop	Type: TArray<struct FST_ItemResource>	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_QuestManager_C::GetSpecialAnimalQuestLoot(TEnumAsByte<E_AnimalType> AnimalType, TArray<struct FST_ItemResource>* ItemsToDrop) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.GetSpecialAnimalQuestLoot");
+
+	struct ABP_QuestManager_C_GetSpecialAnimalQuestLoot_Params {
+		TEnumAsByte<E_AnimalType> AnimalType;			//Offset: 0 | ElementSize: 1
+		TArray<struct FST_ItemResource> ItemsToDrop;			//Offset: 8 | ElementSize: 16
+	};
+	ABP_QuestManager_C_GetSpecialAnimalQuestLoot_Params params;
+	params.AnimalType = AnimalType;
+
+	UObject::ProcessEvent(fn, &params);
+	if (ItemsToDrop != nullptr)
+		*ItemsToDrop = params.ItemsToDrop;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.RunEvent
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ObjectiveID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: GoalID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::RunEvent(struct FName QuestID, int32_t ObjectiveID, int32_t GoalID) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.RunEvent");
+
+	struct ABP_QuestManager_C_RunEvent_Params {
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
+		int32_t ObjectiveID;			//Offset: 8 | ElementSize: 4
+		int32_t GoalID;			//Offset: 12 | ElementSize: 4
+	};
+	ABP_QuestManager_C_RunEvent_Params params;
+	params.QuestID = QuestID;
+	params.ObjectiveID = ObjectiveID;
+	params.GoalID = GoalID;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.RunEventOnGoalCompleted
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ObjectiveID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: GoalID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::RunEventOnGoalCompleted(struct FName QuestID, int32_t ObjectiveID, int32_t GoalID) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.RunEventOnGoalCompleted");
+
+	struct ABP_QuestManager_C_RunEventOnGoalCompleted_Params {
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
+		int32_t ObjectiveID;			//Offset: 8 | ElementSize: 4
+		int32_t GoalID;			//Offset: 12 | ElementSize: 4
+	};
+	ABP_QuestManager_C_RunEventOnGoalCompleted_Params params;
+	params.QuestID = QuestID;
+	params.ObjectiveID = ObjectiveID;
+	params.GoalID = GoalID;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.RunEventIfQuestIsAvailable
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::RunEventIfQuestIsAvailable(struct FName QuestID) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.RunEventIfQuestIsAvailable");
+
+	struct ABP_QuestManager_C_RunEventIfQuestIsAvailable_Params {
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_QuestManager_C_RunEventIfQuestIsAvailable_Params params;
+	params.QuestID = QuestID;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.RunEventOnObjectiveCompleted
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ObjectiveID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::RunEventOnObjectiveCompleted(struct FName QuestID, int32_t ObjectiveID) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.RunEventOnObjectiveCompleted");
+
+	struct ABP_QuestManager_C_RunEventOnObjectiveCompleted_Params {
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
+		int32_t ObjectiveID;			//Offset: 8 | ElementSize: 4
+	};
+	ABP_QuestManager_C_RunEventOnObjectiveCompleted_Params params;
+	params.QuestID = QuestID;
+	params.ObjectiveID = ObjectiveID;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.SkipQuestToObjective
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestRef	Type: struct FDataTableRowHandle	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, NoDestructor
+// Name: ObjectiveIDToSkipTo	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::SkipQuestToObjective(const struct FDataTableRowHandle& QuestRef, int32_t ObjectiveIDToSkipTo) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.SkipQuestToObjective");
+
+	struct ABP_QuestManager_C_SkipQuestToObjective_Params {
+		struct FDataTableRowHandle QuestRef;			//Offset: 0 | ElementSize: 16
+		int32_t ObjectiveIDToSkipTo;			//Offset: 16 | ElementSize: 4
+	};
+	ABP_QuestManager_C_SkipQuestToObjective_Params params;
+	params.QuestRef = QuestRef;
+	params.ObjectiveIDToSkipTo = ObjectiveIDToSkipTo;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.GetActiveObjective
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: Objectives	Type: TArray<struct FST_QuestObjectives>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, ContainsInstancedReference
+// Name: CurrentObjective	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::GetActiveObjective(TArray<struct FST_QuestObjectives>* Objectives, int32_t* CurrentObjective) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.GetActiveObjective");
+
+	struct ABP_QuestManager_C_GetActiveObjective_Params {
+		TArray<struct FST_QuestObjectives> Objectives;			//Offset: 0 | ElementSize: 16
+		int32_t CurrentObjective;			//Offset: 16 | ElementSize: 4
+	};
+	ABP_QuestManager_C_GetActiveObjective_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Objectives != nullptr)
+		*Objectives = params.Objectives;
+	if (CurrentObjective != nullptr)
+		*CurrentObjective = params.CurrentObjective;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.IncrementDialogueChoice
+// Flags: Public, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ChoiceID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ChoiceIncrement	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::IncrementDialogueChoice(struct FName ChoiceID, int32_t ChoiceIncrement) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.IncrementDialogueChoice");
+
+	struct ABP_QuestManager_C_IncrementDialogueChoice_Params {
+		struct FName ChoiceID;			//Offset: 0 | ElementSize: 8
+		int32_t ChoiceIncrement;			//Offset: 8 | ElementSize: 4
+	};
+	ABP_QuestManager_C_IncrementDialogueChoice_Params params;
+	params.ChoiceID = ChoiceID;
+	params.ChoiceIncrement = ChoiceIncrement;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.RemoveDialogueChoice
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ChoiceID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Removed	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_QuestManager_C::RemoveDialogueChoice(struct FName ChoiceID, bool* Removed) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.RemoveDialogueChoice");
+
+	struct ABP_QuestManager_C_RemoveDialogueChoice_Params {
+		struct FName ChoiceID;			//Offset: 0 | ElementSize: 8
+		bool Removed;			//Offset: 8 | ElementSize: 1
+	};
+	ABP_QuestManager_C_RemoveDialogueChoice_Params params;
+	params.ChoiceID = ChoiceID;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Removed != nullptr)
+		*Removed = params.Removed;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.CheckForGoalTalkToDialogue
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: TalkingActor	Type: class ABP_BaseCharacter_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: WhoToTalkToID	Type: struct FString	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash
+// Name: SearchReversed	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: Dialogue	Type: TAssetPtr<class UDialogue>	Flags: Parm, OutParm, HasGetValueTypeHash
+// Name: found	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_QuestManager_C::CheckForGoalTalkToDialogue(class ABP_BaseCharacter_C* TalkingActor, struct FString WhoToTalkToID, bool SearchReversed, TAssetPtr<class UDialogue>* Dialogue, bool* found) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.CheckForGoalTalkToDialogue");
+
+	struct ABP_QuestManager_C_CheckForGoalTalkToDialogue_Params {
+		class ABP_BaseCharacter_C* TalkingActor;			//Offset: 0 | ElementSize: 8
+		struct FString WhoToTalkToID;			//Offset: 8 | ElementSize: 16
+		bool SearchReversed;			//Offset: 24 | ElementSize: 1
+		TAssetPtr<class UDialogue> Dialogue;			//Offset: 32 | ElementSize: 40
+		bool found;			//Offset: 72 | ElementSize: 1
+	};
+	ABP_QuestManager_C_CheckForGoalTalkToDialogue_Params params;
+	params.TalkingActor = TalkingActor;
+	params.WhoToTalkToID = WhoToTalkToID;
+	params.SearchReversed = SearchReversed;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Dialogue != nullptr)
+		*Dialogue = params.Dialogue;
+	if (found != nullptr)
+		*found = params.found;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.CheckIfQuestIsPartOne
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Value	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_QuestManager_C::CheckIfQuestIsPartOne(struct FName QuestID, bool* Value) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.CheckIfQuestIsPartOne");
+
+	struct ABP_QuestManager_C_CheckIfQuestIsPartOne_Params {
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
+		bool Value;			//Offset: 8 | ElementSize: 1
+	};
+	ABP_QuestManager_C_CheckIfQuestIsPartOne_Params params;
+	params.QuestID = QuestID;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Value != nullptr)
+		*Value = params.Value;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.SeasonalGenerateAndAssignQuestsToNoticeBoard_Cheat
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::SeasonalGenerateAndAssignQuestsToNoticeBoard_Cheat(struct FName QuestID) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.SeasonalGenerateAndAssignQuestsToNoticeBoard_Cheat");
+
+	struct ABP_QuestManager_C_SeasonalGenerateAndAssignQuestsToNoticeBoard_Cheat_Params {
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_QuestManager_C_SeasonalGenerateAndAssignQuestsToNoticeBoard_Cheat_Params params;
+	params.QuestID = QuestID;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.SeasonalGenerateAndAssignQuests_MultiPlayerNPCs_Cheat
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestID	Type: struct FName	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::SeasonalGenerateAndAssignQuests_MultiPlayerNPCs_Cheat(const struct FName& QuestID) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.SeasonalGenerateAndAssignQuests_MultiPlayerNPCs_Cheat");
+
+	struct ABP_QuestManager_C_SeasonalGenerateAndAssignQuests_MultiPlayerNPCs_Cheat_Params {
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_QuestManager_C_SeasonalGenerateAndAssignQuests_MultiPlayerNPCs_Cheat_Params params;
+	params.QuestID = QuestID;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.MakeDescriptionFromStringTables
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Array	Type: TArray<struct FST_StringTable_IDKey_Pair>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm
+// Name: Value	Type: struct FText	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_QuestManager_C::MakeDescriptionFromStringTables(TArray<struct FST_StringTable_IDKey_Pair>* Array, struct FText* Value) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.MakeDescriptionFromStringTables");
+
+	struct ABP_QuestManager_C_MakeDescriptionFromStringTables_Params {
+		TArray<struct FST_StringTable_IDKey_Pair> Array;			//Offset: 0 | ElementSize: 16
+		struct FText Value;			//Offset: 16 | ElementSize: 24
+	};
+	ABP_QuestManager_C_MakeDescriptionFromStringTables_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Array != nullptr)
+		*Array = params.Array;
+	if (Value != nullptr)
+		*Value = params.Value;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.CheckIfCoopMainQuestsShouldStart
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_QuestManager_C::CheckIfCoopMainQuestsShouldStart() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.CheckIfCoopMainQuestsShouldStart");
+
+	struct ABP_QuestManager_C_CheckIfCoopMainQuestsShouldStart_Params {
+	};
+	ABP_QuestManager_C_CheckIfCoopMainQuestsShouldStart_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.CompleteGoal_ClientVersion
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: ObjectiveID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: GoalID	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: QuestName	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::CompleteGoal_ClientVersion(int32_t QuestID, int32_t ObjectiveID, int32_t GoalID, struct FName QuestName) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.CompleteGoal_ClientVersion");
+
+	struct ABP_QuestManager_C_CompleteGoal_ClientVersion_Params {
+		int32_t QuestID;			//Offset: 0 | ElementSize: 4
+		int32_t ObjectiveID;			//Offset: 4 | ElementSize: 4
+		int32_t GoalID;			//Offset: 8 | ElementSize: 4
+		struct FName QuestName;			//Offset: 12 | ElementSize: 8
+	};
+	ABP_QuestManager_C_CompleteGoal_ClientVersion_Params params;
+	params.QuestID = QuestID;
+	params.ObjectiveID = ObjectiveID;
+	params.GoalID = GoalID;
+	params.QuestName = QuestName;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.CreateCustomGoalsForClient
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_QuestManager_C::CreateCustomGoalsForClient() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.CreateCustomGoalsForClient");
+
+	struct ABP_QuestManager_C_CreateCustomGoalsForClient_Params {
+	};
+	ABP_QuestManager_C_CreateCustomGoalsForClient_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.AddToDialogueChoice
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: ChoiceID	Type: struct FName	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Choice	Type: int32_t	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::AddToDialogueChoice(const struct FName& ChoiceID, const int32_t& Choice) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.AddToDialogueChoice");
+
+	struct ABP_QuestManager_C_AddToDialogueChoice_Params {
+		struct FName ChoiceID;			//Offset: 0 | ElementSize: 8
+		int32_t Choice;			//Offset: 8 | ElementSize: 4
+	};
+	ABP_QuestManager_C_AddToDialogueChoice_Params params;
+	params.ChoiceID = ChoiceID;
+	params.Choice = Choice;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.GetUnlockedEmotes
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: UnlockedEmotes	Type: TArray<struct FName>	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_QuestManager_C::GetUnlockedEmotes(TArray<struct FName>* UnlockedEmotes) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.GetUnlockedEmotes");
+
+	struct ABP_QuestManager_C_GetUnlockedEmotes_Params {
+		TArray<struct FName> UnlockedEmotes;			//Offset: 0 | ElementSize: 16
+	};
+	ABP_QuestManager_C_GetUnlockedEmotes_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (UnlockedEmotes != nullptr)
+		*UnlockedEmotes = params.UnlockedEmotes;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.GetQuestsDataForReplication_NonGenericQuests
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestsDataForReplication	Type: TArray<struct FST_QuestInfoForReplicationOnPlayerJoin>	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_QuestManager_C::GetQuestsDataForReplication_NonGenericQuests(TArray<struct FST_QuestInfoForReplicationOnPlayerJoin>* QuestsDataForReplication) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.GetQuestsDataForReplication_NonGenericQuests");
+
+	struct ABP_QuestManager_C_GetQuestsDataForReplication_NonGenericQuests_Params {
+		TArray<struct FST_QuestInfoForReplicationOnPlayerJoin> QuestsDataForReplication;			//Offset: 0 | ElementSize: 16
+	};
+	ABP_QuestManager_C_GetQuestsDataForReplication_NonGenericQuests_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (QuestsDataForReplication != nullptr)
+		*QuestsDataForReplication = params.QuestsDataForReplication;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.AddQuestsFromDataReplication_NonGenericQuests
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestsData	Type: TArray<struct FST_QuestInfoForReplicationOnPlayerJoin>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm
+/////////////////////////////////////////////
+void ABP_QuestManager_C::AddQuestsFromDataReplication_NonGenericQuests(TArray<struct FST_QuestInfoForReplicationOnPlayerJoin>* QuestsData) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.AddQuestsFromDataReplication_NonGenericQuests");
+
+	struct ABP_QuestManager_C_AddQuestsFromDataReplication_NonGenericQuests_Params {
+		TArray<struct FST_QuestInfoForReplicationOnPlayerJoin> QuestsData;			//Offset: 0 | ElementSize: 16
+	};
+	ABP_QuestManager_C_AddQuestsFromDataReplication_NonGenericQuests_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (QuestsData != nullptr)
+		*QuestsData = params.QuestsData;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.GetQuestsDataForReplication_GenericQuest
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: GenericQuestInfo	Type: TArray<struct FST_QuestInfoForReplicationGenericQuest>	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_QuestManager_C::GetQuestsDataForReplication_GenericQuest(TArray<struct FST_QuestInfoForReplicationGenericQuest>* GenericQuestInfo) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.GetQuestsDataForReplication_GenericQuest");
+
+	struct ABP_QuestManager_C_GetQuestsDataForReplication_GenericQuest_Params {
+		TArray<struct FST_QuestInfoForReplicationGenericQuest> GenericQuestInfo;			//Offset: 0 | ElementSize: 16
+	};
+	ABP_QuestManager_C_GetQuestsDataForReplication_GenericQuest_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (GenericQuestInfo != nullptr)
+		*GenericQuestInfo = params.GenericQuestInfo;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.SerializeGenericQuestRewards
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: Items	Type: TArray<struct FST_Quest_PickedItemsFromGenerator>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm
+// Name: ParsedItems	Type: TArray<struct FST_QuestItemRewardsForReplication>	Flags: Parm, OutParm
+/////////////////////////////////////////////
+void ABP_QuestManager_C::SerializeGenericQuestRewards(TArray<struct FST_Quest_PickedItemsFromGenerator>* Items, TArray<struct FST_QuestItemRewardsForReplication>* ParsedItems) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.SerializeGenericQuestRewards");
+
+	struct ABP_QuestManager_C_SerializeGenericQuestRewards_Params {
+		TArray<struct FST_Quest_PickedItemsFromGenerator> Items;			//Offset: 0 | ElementSize: 16
+		TArray<struct FST_QuestItemRewardsForReplication> ParsedItems;			//Offset: 16 | ElementSize: 16
+	};
+	ABP_QuestManager_C_SerializeGenericQuestRewards_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Items != nullptr)
+		*Items = params.Items;
+	if (ParsedItems != nullptr)
+		*ParsedItems = params.ParsedItems;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.SerializeGenericQuestGoal
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: Goal	Type: struct FST_MasterGoals	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, ContainsInstancedReference, HasGetValueTypeHash
+// Name: GoalTask	Type: struct FString	Flags: Parm, OutParm, ZeroConstructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::SerializeGenericQuestGoal(const struct FST_MasterGoals& Goal, struct FString* GoalTask) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.SerializeGenericQuestGoal");
+
+	struct ABP_QuestManager_C_SerializeGenericQuestGoal_Params {
+		struct FST_MasterGoals Goal;			//Offset: 0 | ElementSize: 1416
+		struct FString GoalTask;			//Offset: 1416 | ElementSize: 16
+	};
+	ABP_QuestManager_C_SerializeGenericQuestGoal_Params params;
+	params.Goal = Goal;
+
+	UObject::ProcessEvent(fn, &params);
+	if (GoalTask != nullptr)
+		*GoalTask = params.GoalTask;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.AddQuestsFromDataReplication_GenericQuests
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestData	Type: TArray<struct FST_QuestInfoForReplicationGenericQuest>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm
+/////////////////////////////////////////////
+void ABP_QuestManager_C::AddQuestsFromDataReplication_GenericQuests(TArray<struct FST_QuestInfoForReplicationGenericQuest>* QuestData) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.AddQuestsFromDataReplication_GenericQuests");
+
+	struct ABP_QuestManager_C_AddQuestsFromDataReplication_GenericQuests_Params {
+		TArray<struct FST_QuestInfoForReplicationGenericQuest> QuestData;			//Offset: 0 | ElementSize: 16
+	};
+	ABP_QuestManager_C_AddQuestsFromDataReplication_GenericQuests_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+	if (QuestData != nullptr)
+		*QuestData = params.QuestData;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.DeserializeGenericRewards
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: DT_OriginalRewards	Type: struct FST_QuestReward	Flags: ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, HasGetValueTypeHash
+// Name: RewardReputation	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: RewardItems	Type: TArray<struct FST_QuestItemRewardsForReplication>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm
+// Name: ST_QuestReward	Type: struct FST_QuestReward	Flags: Parm, OutParm, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::DeserializeGenericRewards(const struct FST_QuestReward& DT_OriginalRewards, int32_t RewardReputation, TArray<struct FST_QuestItemRewardsForReplication>* RewardItems, struct FST_QuestReward* ST_QuestReward) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.DeserializeGenericRewards");
+
+	struct ABP_QuestManager_C_DeserializeGenericRewards_Params {
+		struct FST_QuestReward DT_OriginalRewards;			//Offset: 0 | ElementSize: 232
+		int32_t RewardReputation;			//Offset: 232 | ElementSize: 4
+		TArray<struct FST_QuestItemRewardsForReplication> RewardItems;			//Offset: 240 | ElementSize: 16
+		struct FST_QuestReward ST_QuestReward;			//Offset: 256 | ElementSize: 232
+	};
+	ABP_QuestManager_C_DeserializeGenericRewards_Params params;
+	params.DT_OriginalRewards = DT_OriginalRewards;
+	params.RewardReputation = RewardReputation;
+
+	UObject::ProcessEvent(fn, &params);
+	if (RewardItems != nullptr)
+		*RewardItems = params.RewardItems;
+	if (ST_QuestReward != nullptr)
+		*ST_QuestReward = params.ST_QuestReward;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.DeserializeGenericQuestGoals
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: DT_OriginalGoal	Type: struct FST_MasterGoals	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ContainsInstancedReference, HasGetValueTypeHash
+// Name: Task	Type: struct FString	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash
+// Name: Goal	Type: struct FST_MasterGoals	Flags: Parm, OutParm, ContainsInstancedReference, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::DeserializeGenericQuestGoals(struct FST_MasterGoals DT_OriginalGoal, struct FString Task, struct FST_MasterGoals* Goal) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.DeserializeGenericQuestGoals");
+
+	struct ABP_QuestManager_C_DeserializeGenericQuestGoals_Params {
+		struct FST_MasterGoals DT_OriginalGoal;			//Offset: 0 | ElementSize: 1416
+		struct FString Task;			//Offset: 1416 | ElementSize: 16
+		struct FST_MasterGoals Goal;			//Offset: 1432 | ElementSize: 1416
+	};
+	ABP_QuestManager_C_DeserializeGenericQuestGoals_Params params;
+	params.DT_OriginalGoal = DT_OriginalGoal;
+	params.Task = Task;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Goal != nullptr)
+		*Goal = params.Goal;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.GetSerializedValues
+// Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure
+// Params:
+// Name: SourceString	Type: struct FString	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash
+// Name: Values	Type: struct FString	Flags: Parm, OutParm, ZeroConstructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::GetSerializedValues(struct FString SourceString, struct FString* Values) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.GetSerializedValues");
+
+	struct ABP_QuestManager_C_GetSerializedValues_Params {
+		struct FString SourceString;			//Offset: 0 | ElementSize: 16
+		struct FString Values;			//Offset: 16 | ElementSize: 16
+	};
+	ABP_QuestManager_C_GetSerializedValues_Params params;
+	params.SourceString = SourceString;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Values != nullptr)
+		*Values = params.Values;
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.FixMissingSwirOnOxbow
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_QuestManager_C::FixMissingSwirOnOxbow() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.FixMissingSwirOnOxbow");
+
+	struct ABP_QuestManager_C_FixMissingSwirOnOxbow_Params {
+	};
+	ABP_QuestManager_C_FixMissingSwirOnOxbow_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.FixMultiNPCsQuestBehavior
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_QuestManager_C::FixMultiNPCsQuestBehavior() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.FixMultiNPCsQuestBehavior");
+
+	struct ABP_QuestManager_C_FixMultiNPCsQuestBehavior_Params {
+	};
+	ABP_QuestManager_C_FixMultiNPCsQuestBehavior_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.FixMPPoisAfter2_0_1_2
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: SaveGameVersion	Type: struct FString	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::FixMPPoisAfter2_0_1_2(struct FString SaveGameVersion) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.FixMPPoisAfter2_0_1_2");
+
+	struct ABP_QuestManager_C_FixMPPoisAfter2_0_1_2_Params {
+		struct FString SaveGameVersion;			//Offset: 0 | ElementSize: 16
+	};
+	ABP_QuestManager_C_FixMPPoisAfter2_0_1_2_Params params;
+	params.SaveGameVersion = SaveGameVersion;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.FindQuestByIDAndSetStatusToCompleted
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: QuestID	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::FindQuestByIDAndSetStatusToCompleted(struct FName QuestID) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.FindQuestByIDAndSetStatusToCompleted");
+
+	struct ABP_QuestManager_C_FindQuestByIDAndSetStatusToCompleted_Params {
+		struct FName QuestID;			//Offset: 0 | ElementSize: 8
+	};
+	ABP_QuestManager_C_FindQuestByIDAndSetStatusToCompleted_Params params;
+	params.QuestID = QuestID;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.FillMissingDescriptionsForClientOnLoad
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_QuestManager_C::FillMissingDescriptionsForClientOnLoad() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.FillMissingDescriptionsForClientOnLoad");
+
+	struct ABP_QuestManager_C_FillMissingDescriptionsForClientOnLoad_Params {
+	};
+	ABP_QuestManager_C_FillMissingDescriptionsForClientOnLoad_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.ClearFamilyQuestsOnSwitchToHeir
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_QuestManager_C::ClearFamilyQuestsOnSwitchToHeir() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.ClearFamilyQuestsOnSwitchToHeir");
+
+	struct ABP_QuestManager_C_ClearFamilyQuestsOnSwitchToHeir_Params {
+	};
+	ABP_QuestManager_C_ClearFamilyQuestsOnSwitchToHeir_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_QuestManager.BP_QuestManager_C.UpdateBuildingQuests_Function
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Type	Type: TEnumAsByte<E_Goal_BuildTypes>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Constructed_	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+// Name: Name	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Location	Type: struct FVector	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+/////////////////////////////////////////////
+void ABP_QuestManager_C::UpdateBuildingQuests_Function(TEnumAsByte<E_Goal_BuildTypes> Type, bool Constructed_, struct FName Name, struct FVector Location) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_QuestManager.BP_QuestManager_C.UpdateBuildingQuests_Function");
+
+	struct ABP_QuestManager_C_UpdateBuildingQuests_Function_Params {
+		TEnumAsByte<E_Goal_BuildTypes> Type;			//Offset: 0 | ElementSize: 1
+		bool Constructed_;			//Offset: 1 | ElementSize: 1
+		struct FName Name;			//Offset: 4 | ElementSize: 8
+		struct FVector Location;			//Offset: 12 | ElementSize: 12
+	};
+	ABP_QuestManager_C_UpdateBuildingQuests_Function_Params params;
+	params.Type = Type;
+	params.Constructed_ = Constructed_;
+	params.Name = Name;
+	params.Location = Location;
 
 	UObject::ProcessEvent(fn, &params);
 }

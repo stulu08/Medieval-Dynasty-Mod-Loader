@@ -4,7 +4,7 @@
 /////////////////////////////////////////////
 // BlueprintGeneratedClass BP_EventManager.BP_EventManager_C
 // Super: Class Engine.Actor
-// Size: 648
+// Size: 784
 // Size inherited: 544
 /////////////////////////////////////////////
 namespace UE4 {
@@ -61,6 +61,51 @@ public:
 	TArray<class ABP_NPC_C*>* M_PtrGetSpecyficNPCs();
 	void M_SetSpecyficNPCs(const TArray<class ABP_NPC_C*>& value);
 
+	//TArray<struct FST_ItemsToRemove>	ItemFoundIn;		//Offset: 648	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance, ContainsInstancedReference
+	TArray<struct FST_ItemsToRemove> M_GetItemFoundIn() const;
+	TArray<struct FST_ItemsToRemove>* M_PtrGetItemFoundIn();
+	void M_SetItemFoundIn(const TArray<struct FST_ItemsToRemove>& value);
+
+	//TArray<struct FE_PlayerVote>	VotingPlayers;		//Offset: 664	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	TArray<struct FE_PlayerVote> M_GetVotingPlayers() const;
+	TArray<struct FE_PlayerVote>* M_PtrGetVotingPlayers();
+	void M_SetVotingPlayers(const TArray<struct FE_PlayerVote>& value);
+
+	//TAssetPtr<class FOnPlayerVoted__DelegateSignature>	OnPlayerVoted;		//Offset: 680	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
+	TAssetPtr<class FOnPlayerVoted__DelegateSignature> M_GetOnPlayerVoted() const;
+	TAssetPtr<class FOnPlayerVoted__DelegateSignature>* M_PtrGetOnPlayerVoted();
+	void M_SetOnPlayerVoted(const TAssetPtr<class FOnPlayerVoted__DelegateSignature>& value);
+
+	//TAssetPtr<class FRemovePlayerVote__DelegateSignature>	RemovePlayerVote;		//Offset: 696	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
+	TAssetPtr<class FRemovePlayerVote__DelegateSignature> M_GetRemovePlayerVote() const;
+	TAssetPtr<class FRemovePlayerVote__DelegateSignature>* M_PtrGetRemovePlayerVote();
+	void M_SetRemovePlayerVote(const TAssetPtr<class FRemovePlayerVote__DelegateSignature>& value);
+
+	//struct FST_Event_PlayerMultipliers	PlayersMultiplliers;		//Offset: 712	Size: 16	Flags: Edit, BlueprintVisible, Net, DisableEditOnInstance, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash
+	struct FST_Event_PlayerMultipliers M_GetPlayersMultiplliers() const;
+	struct FST_Event_PlayerMultipliers* M_PtrGetPlayersMultiplliers();
+	void M_SetPlayersMultiplliers(const struct FST_Event_PlayerMultipliers& value);
+
+	//TAssetPtr<class FOnHostSelectedOption__DelegateSignature>	OnHostSelectedOption;		//Offset: 728	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
+	TAssetPtr<class FOnHostSelectedOption__DelegateSignature> M_GetOnHostSelectedOption() const;
+	TAssetPtr<class FOnHostSelectedOption__DelegateSignature>* M_PtrGetOnHostSelectedOption();
+	void M_SetOnHostSelectedOption(const TAssetPtr<class FOnHostSelectedOption__DelegateSignature>& value);
+
+	//TAssetPtr<class FOnPlayerMultipliersChanged__DelegateSignature>	OnPlayerMultipliersChanged;		//Offset: 744	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
+	TAssetPtr<class FOnPlayerMultipliersChanged__DelegateSignature> M_GetOnPlayerMultipliersChanged() const;
+	TAssetPtr<class FOnPlayerMultipliersChanged__DelegateSignature>* M_PtrGetOnPlayerMultipliersChanged();
+	void M_SetOnPlayerMultipliersChanged(const TAssetPtr<class FOnPlayerMultipliersChanged__DelegateSignature>& value);
+
+	//int32_t	SelectedEventButtonIndex;		//Offset: 760	Size: 4	Flags: Edit, BlueprintVisible, Net, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash
+	int32_t M_GetSelectedEventButtonIndex() const;
+	int32_t* M_PtrGetSelectedEventButtonIndex();
+	void M_SetSelectedEventButtonIndex(const int32_t& value);
+
+	//TAssetPtr<class FWindowCanBeClosed__DelegateSignature>	WindowCanBeClosed;		//Offset: 768	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
+	TAssetPtr<class FWindowCanBeClosed__DelegateSignature> M_GetWindowCanBeClosed() const;
+	TAssetPtr<class FWindowCanBeClosed__DelegateSignature>* M_PtrGetWindowCanBeClosed();
+	void M_SetWindowCanBeClosed(const TAssetPtr<class FWindowCanBeClosed__DelegateSignature>& value);
+
 #pragma endregion
 
 public:
@@ -70,13 +115,33 @@ public:
 	}
 
 #pragma region Functions
+	void OnPlayerVoted__DelegateSignature(struct FE_PlayerVote PlayerVote);
+
+	void RemovePlayerVote__DelegateSignature(struct FE_PlayerVote PlayerVote);
+
+	void OnHostSelectedOption__DelegateSignature(int32_t ChoiceIndex);
+
+	void OnPlayerMultipliersChanged__DelegateSignature();
+
+	void WindowCanBeClosed__DelegateSignature();
+
 	void ExecuteUbergraph_BP_EventManager(int32_t EntryPoint);
+
+	void ListStuff();
 
 	void Init(bool MainMenu);
 
-	void OnSeasonChanged();
-
 	void StartEventSystem(bool LoadGame, bool MainMenu);
+
+	void ReplicateRestrictions_Multicast(const TArray<struct FST_RestrictionData>& RestrictionData);
+
+	void ReplicateConsequences_Multicast(int32_t ButtonIndex, const TArray<struct FST_PlayerEffectData>& PlayerEffectData, const TArray<struct FST_NPCEffectData>& NPCEffectData, const TArray<struct FST_OtherEffectData>& OtherEffectData, struct FST_KingEffectData KingEffectData);
+
+	void OnEventSelected_Multicast(int32_t ChoiceIndex);
+
+	void OnPlayerVoted_Multicast(struct FE_PlayerVote PlayerVote);
+
+	void ToggleEventScreen_Multicast(bool CheatStart, bool CheatEnd, struct FName EventName);
 
 	void AssignEventOnSeasonChange();
 
@@ -109,6 +174,46 @@ public:
 	void SaveDataFromSystemToFile(class USAVE_Game_C* SaveReference);
 
 	void LoadSaveFileIntoSystem(class USAVE_Game_C* SaveReference);
+
+	void SkillRestriction(struct FST_EventButtonRestrictions Restrictions, bool* Available);
+
+	void VillageRestriction(struct FST_EventButtonRestrictions Restrictions, bool* Available);
+
+	void ItemRestriction(struct FST_EventButtonRestrictions Restrictions, bool* Available);
+
+	void RemoveRosourcesFromRestrictions(const struct FST_EventButtonRestrictions& EventButtonRestrictions, TArray<struct FST_EventHistory_Consequences>* EventConsequences);
+
+	void PlayerVoted(struct FE_PlayerVote PlayerVote);
+
+	void OnRep_PlayerMultiplliers();
+
+	void SetPlayerMultipliers(struct FST_Event_PlayerMultipliers PlayerMultiplliers);
+
+	void ExecuteEventEffect_Client(int32_t ButtonIndex, const struct FST_SeasonEvent& Event, const TArray<struct FST_PlayerEffectData>& PlayerEffectData, const TArray<struct FST_NPCEffectData>& NPCEffectData, TArray<struct FST_OtherEffectData>* OtherEffectData, struct FST_KingEffectData KingEffectData, struct FText* Description);
+
+	void ConvertNPCNameToIndex(TEnumAsByte<E_Sex> sex, struct FString Name, int32_t* NameIndex);
+
+	void ConvertIndexToNPCName(TEnumAsByte<E_Sex> sex, int32_t Index, struct FName* Name);
+
+	void AddNPCEffect(const TArray<struct FST_NPCEffectData>& NPCEffectData, struct FST_NPCEffectData NPCEffectNew);
+
+	void GetNPCEffectByEffectType(const TArray<struct FST_NPCEffectData>& NPCEffectData, TEnumAsByte<E_EventEffect_NPCType> NPCEffectType, bool* found, struct FST_NPCEffectData* NPCEffect);
+
+	void GetPlayerEffectByEffectType(const TArray<struct FST_PlayerEffectData>& PlayerEffectData, TEnumAsByte<E_EventEffect_PlayerType> PlayerEffectType, int32_t Value, bool* found, struct FST_PlayerEffectData* PlayerEffect);
+
+	void GetSkillLevelForRestriction(struct FST_EventButtonRestrictions Restrictions, int32_t* Skill);
+
+	void GetOtherEffectByEffectType(const TArray<struct FST_OtherEffectData>& OtherEffectData, TEnumAsByte<E_EventEffect_VillageType> OtherEffectType, bool* found, struct FST_OtherEffectData* OtherEffect);
+
+	void TryToUnlockCrests(struct FName EventId);
+
+	void GatherRestrictionDataForReplication(const TArray<struct FST_EventButtons>& ST_EventButtons, TArray<struct FST_RestrictionData>* GatheredData);
+
+	void OnRep_SelectedEventButtonIndex();
+
+	void ResetSelectedEventButtonIndex();
+
+	void SearchInventoryForItems(class AActor* ActorWithInventory, int32_t Index, const struct FST_ItemRestriction& Items, TArray<bool>* HasAll, bool* FoundAll);
 
 #pragma endregion
 };

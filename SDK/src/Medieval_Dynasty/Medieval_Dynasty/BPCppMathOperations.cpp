@@ -5,6 +5,377 @@ namespace UE4 {
 #pragma endregion
 #pragma region Functions
 /////////////////////////////////////////////
+// Function Medieval_Dynasty.BPCppMathOperations.BitwiseShiftLeft_IntInt
+// Flags: Final, Native, Static, Private, BlueprintCallable, BlueprintPure
+// Params:
+// Name: A	Type: int32_t	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: B	Type: int32_t	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+/////////////////////////////////////////////
+int32_t UBPCppMathOperations::BitwiseShiftLeft_IntInt(int32_t A, int32_t B) {
+	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppMathOperations.BitwiseShiftLeft_IntInt");
+
+	struct UBPCppMathOperations_BitwiseShiftLeft_IntInt_Params {
+		int32_t A;			//Offset: 0 | ElementSize: 4
+		int32_t B;			//Offset: 4 | ElementSize: 4
+		int32_t ReturnValue;			//Offset: 8 | ElementSize: 4
+	};
+	UBPCppMathOperations_BitwiseShiftLeft_IntInt_Params params;
+	params.A = A;
+	params.B = B;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
+	static auto Obj = StaticClass()->CreateDefaultObject();
+	Obj->ProcessEvent(fn, &params);
+
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function Medieval_Dynasty.BPCppMathOperations.BitwiseShiftRight_IntInt
+// Flags: Final, Native, Static, Private, BlueprintCallable, BlueprintPure
+// Params:
+// Name: A	Type: int32_t	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: B	Type: int32_t	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: ReturnValue	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+/////////////////////////////////////////////
+int32_t UBPCppMathOperations::BitwiseShiftRight_IntInt(int32_t A, int32_t B) {
+	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppMathOperations.BitwiseShiftRight_IntInt");
+
+	struct UBPCppMathOperations_BitwiseShiftRight_IntInt_Params {
+		int32_t A;			//Offset: 0 | ElementSize: 4
+		int32_t B;			//Offset: 4 | ElementSize: 4
+		int32_t ReturnValue;			//Offset: 8 | ElementSize: 4
+	};
+	UBPCppMathOperations_BitwiseShiftRight_IntInt_Params params;
+	params.A = A;
+	params.B = B;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
+	static auto Obj = StaticClass()->CreateDefaultObject();
+	Obj->ProcessEvent(fn, &params);
+
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function Medieval_Dynasty.BPCppMathOperations.CompressRotatorToBytes
+// Flags: Final, Native, Static, Private, HasOutParms, HasDefaults, BlueprintCallable
+// Params:
+// Name: Rotator	Type: struct FRotator	Flags: ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+// Name: X	Type: unsigned char	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: Y	Type: unsigned char	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: Z	Type: unsigned char	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+/////////////////////////////////////////////
+void UBPCppMathOperations::CompressRotatorToBytes(const struct FRotator& Rotator, unsigned char* X, unsigned char* Y, unsigned char* Z) {
+	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppMathOperations.CompressRotatorToBytes");
+
+	struct UBPCppMathOperations_CompressRotatorToBytes_Params {
+		struct FRotator Rotator;			//Offset: 0 | ElementSize: 12
+		unsigned char X;			//Offset: 12 | ElementSize: 1
+		unsigned char Y;			//Offset: 13 | ElementSize: 1
+		unsigned char Z;			//Offset: 14 | ElementSize: 1
+	};
+	UBPCppMathOperations_CompressRotatorToBytes_Params params;
+	params.Rotator = Rotator;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
+	static auto Obj = StaticClass()->CreateDefaultObject();
+	Obj->ProcessEvent(fn, &params);
+
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+	if (X != nullptr)
+		*X = params.X;
+	if (Y != nullptr)
+		*Y = params.Y;
+	if (Z != nullptr)
+		*Z = params.Z;
+}
+
+/////////////////////////////////////////////
+// Function Medieval_Dynasty.BPCppMathOperations.CompressVectorToBytes
+// Flags: Final, Native, Static, Private, HasOutParms, HasDefaults, BlueprintCallable
+// Params:
+// Name: Vector	Type: struct FVector	Flags: ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: IsScale	Type: bool	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: X	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: Y	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: Z	Type: int32_t	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+/////////////////////////////////////////////
+void UBPCppMathOperations::CompressVectorToBytes(const struct FVector& Vector, bool IsScale, int32_t* X, int32_t* Y, int32_t* Z) {
+	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppMathOperations.CompressVectorToBytes");
+
+	struct UBPCppMathOperations_CompressVectorToBytes_Params {
+		struct FVector Vector;			//Offset: 0 | ElementSize: 12
+		bool IsScale;			//Offset: 12 | ElementSize: 1
+		int32_t X;			//Offset: 16 | ElementSize: 4
+		int32_t Y;			//Offset: 20 | ElementSize: 4
+		int32_t Z;			//Offset: 24 | ElementSize: 4
+	};
+	UBPCppMathOperations_CompressVectorToBytes_Params params;
+	params.Vector = Vector;
+	params.IsScale = IsScale;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
+	static auto Obj = StaticClass()->CreateDefaultObject();
+	Obj->ProcessEvent(fn, &params);
+
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+	if (X != nullptr)
+		*X = params.X;
+	if (Y != nullptr)
+		*Y = params.Y;
+	if (Z != nullptr)
+		*Z = params.Z;
+}
+
+/////////////////////////////////////////////
+// Function Medieval_Dynasty.BPCppMathOperations.Conv_EnumToByte
+// Flags: Final, Native, Static, Private, BlueprintCallable, BlueprintPure
+// Params:
+// Name: InEnum	Type: unsigned char	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: ReturnValue	Type: unsigned char	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+/////////////////////////////////////////////
+unsigned char UBPCppMathOperations::Conv_EnumToByte(unsigned char InEnum) {
+	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppMathOperations.Conv_EnumToByte");
+
+	struct UBPCppMathOperations_Conv_EnumToByte_Params {
+		unsigned char InEnum;			//Offset: 0 | ElementSize: 1
+		unsigned char ReturnValue;			//Offset: 1 | ElementSize: 1
+	};
+	UBPCppMathOperations_Conv_EnumToByte_Params params;
+	params.InEnum = InEnum;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
+	static auto Obj = StaticClass()->CreateDefaultObject();
+	Obj->ProcessEvent(fn, &params);
+
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function Medieval_Dynasty.BPCppMathOperations.Conv_TransformToTransformNetQuantize
+// Flags: Final, Native, Static, Private, HasDefaults, BlueprintCallable, BlueprintPure
+// Params:
+// Name: InTransform	Type: struct FTransform	Flags: Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+// Name: ReturnValue	Type: struct FTransform_NetQuantize	Flags: Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic
+/////////////////////////////////////////////
+struct FTransform_NetQuantize UBPCppMathOperations::Conv_TransformToTransformNetQuantize(struct FTransform InTransform) {
+	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppMathOperations.Conv_TransformToTransformNetQuantize");
+
+	struct UBPCppMathOperations_Conv_TransformToTransformNetQuantize_Params {
+		struct FTransform InTransform;			//Offset: 0 | ElementSize: 48
+		struct FTransform_NetQuantize ReturnValue;			//Offset: 48 | ElementSize: 36
+	};
+	UBPCppMathOperations_Conv_TransformToTransformNetQuantize_Params params;
+	params.InTransform = InTransform;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
+	static auto Obj = StaticClass()->CreateDefaultObject();
+	Obj->ProcessEvent(fn, &params);
+
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function Medieval_Dynasty.BPCppMathOperations.Conv_VectorToVectorNetQuantize
+// Flags: Final, Native, Static, Private, HasDefaults, BlueprintCallable, BlueprintPure
+// Params:
+// Name: InVector	Type: struct FVector	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: ReturnValue	Type: struct FVector_NetQuantize	Flags: Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+/////////////////////////////////////////////
+struct FVector_NetQuantize UBPCppMathOperations::Conv_VectorToVectorNetQuantize(struct FVector InVector) {
+	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppMathOperations.Conv_VectorToVectorNetQuantize");
+
+	struct UBPCppMathOperations_Conv_VectorToVectorNetQuantize_Params {
+		struct FVector InVector;			//Offset: 0 | ElementSize: 12
+		struct FVector_NetQuantize ReturnValue;			//Offset: 12 | ElementSize: 12
+	};
+	UBPCppMathOperations_Conv_VectorToVectorNetQuantize_Params params;
+	params.InVector = InVector;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
+	static auto Obj = StaticClass()->CreateDefaultObject();
+	Obj->ProcessEvent(fn, &params);
+
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function Medieval_Dynasty.BPCppMathOperations.Conv_VectorToVectorNetQuantize10
+// Flags: Final, Native, Static, Private, HasDefaults, BlueprintCallable, BlueprintPure
+// Params:
+// Name: InVector	Type: struct FVector	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: ReturnValue	Type: struct FVector_NetQuantize10	Flags: Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+/////////////////////////////////////////////
+struct FVector_NetQuantize10 UBPCppMathOperations::Conv_VectorToVectorNetQuantize10(struct FVector InVector) {
+	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppMathOperations.Conv_VectorToVectorNetQuantize10");
+
+	struct UBPCppMathOperations_Conv_VectorToVectorNetQuantize10_Params {
+		struct FVector InVector;			//Offset: 0 | ElementSize: 12
+		struct FVector_NetQuantize10 ReturnValue;			//Offset: 12 | ElementSize: 12
+	};
+	UBPCppMathOperations_Conv_VectorToVectorNetQuantize10_Params params;
+	params.InVector = InVector;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
+	static auto Obj = StaticClass()->CreateDefaultObject();
+	Obj->ProcessEvent(fn, &params);
+
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function Medieval_Dynasty.BPCppMathOperations.Conv_VectorToVectorNetQuantize100
+// Flags: Final, Native, Static, Private, HasDefaults, BlueprintCallable, BlueprintPure
+// Params:
+// Name: InVector	Type: struct FVector	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: ReturnValue	Type: struct FVector_NetQuantize100	Flags: Parm, OutParm, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+/////////////////////////////////////////////
+struct FVector_NetQuantize100 UBPCppMathOperations::Conv_VectorToVectorNetQuantize100(struct FVector InVector) {
+	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppMathOperations.Conv_VectorToVectorNetQuantize100");
+
+	struct UBPCppMathOperations_Conv_VectorToVectorNetQuantize100_Params {
+		struct FVector InVector;			//Offset: 0 | ElementSize: 12
+		struct FVector_NetQuantize100 ReturnValue;			//Offset: 12 | ElementSize: 12
+	};
+	UBPCppMathOperations_Conv_VectorToVectorNetQuantize100_Params params;
+	params.InVector = InVector;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
+	static auto Obj = StaticClass()->CreateDefaultObject();
+	Obj->ProcessEvent(fn, &params);
+
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function Medieval_Dynasty.BPCppMathOperations.GetDistanceToClosestPlayer
+// Flags: Final, Native, Static, Private, HasOutParms, BlueprintCallable, BlueprintPure
+// Params:
+// Name: WorldContextObject	Type: class UObject*	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: ClosestActor	Type: class AActor*	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: targetActor	Type: class AActor*	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+/////////////////////////////////////////////
+float UBPCppMathOperations::GetDistanceToClosestPlayer(class UObject* WorldContextObject, class AActor** ClosestActor, class AActor* targetActor) {
+	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppMathOperations.GetDistanceToClosestPlayer");
+
+	struct UBPCppMathOperations_GetDistanceToClosestPlayer_Params {
+		class UObject* WorldContextObject;			//Offset: 0 | ElementSize: 8
+		class AActor* ClosestActor;			//Offset: 8 | ElementSize: 8
+		class AActor* targetActor;			//Offset: 16 | ElementSize: 8
+		float ReturnValue;			//Offset: 24 | ElementSize: 4
+	};
+	UBPCppMathOperations_GetDistanceToClosestPlayer_Params params;
+	params.WorldContextObject = WorldContextObject;
+	params.targetActor = targetActor;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
+	static auto Obj = StaticClass()->CreateDefaultObject();
+	Obj->ProcessEvent(fn, &params);
+
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+	if (ClosestActor != nullptr)
+		*ClosestActor = params.ClosestActor;
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function Medieval_Dynasty.BPCppMathOperations.GetSquaredDistanceToClosestPlayer
+// Flags: Final, Native, Static, Private, HasOutParms, BlueprintCallable, BlueprintPure
+// Params:
+// Name: WorldContextObject	Type: class UObject*	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: ClosestActor	Type: class AActor*	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: targetActor	Type: class AActor*	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: ReturnValue	Type: float	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+/////////////////////////////////////////////
+float UBPCppMathOperations::GetSquaredDistanceToClosestPlayer(class UObject* WorldContextObject, class AActor** ClosestActor, class AActor* targetActor) {
+	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppMathOperations.GetSquaredDistanceToClosestPlayer");
+
+	struct UBPCppMathOperations_GetSquaredDistanceToClosestPlayer_Params {
+		class UObject* WorldContextObject;			//Offset: 0 | ElementSize: 8
+		class AActor* ClosestActor;			//Offset: 8 | ElementSize: 8
+		class AActor* targetActor;			//Offset: 16 | ElementSize: 8
+		float ReturnValue;			//Offset: 24 | ElementSize: 4
+	};
+	UBPCppMathOperations_GetSquaredDistanceToClosestPlayer_Params params;
+	params.WorldContextObject = WorldContextObject;
+	params.targetActor = targetActor;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
+	static auto Obj = StaticClass()->CreateDefaultObject();
+	Obj->ProcessEvent(fn, &params);
+
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+	if (ClosestActor != nullptr)
+		*ClosestActor = params.ClosestActor;
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
 // Function Medieval_Dynasty.BPCppMathOperations.IsPointInsidePolygon
 // Flags: Final, Native, Static, Private, HasDefaults, BlueprintCallable, BlueprintPure
 // Params:
@@ -23,6 +394,81 @@ bool UBPCppMathOperations::IsPointInsidePolygon(TArray<struct FVector> PolygonVe
 	UBPCppMathOperations_IsPointInsidePolygon_Params params;
 	params.PolygonVertices = PolygonVertices;
 	params.Point = Point;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
+	static auto Obj = StaticClass()->CreateDefaultObject();
+	Obj->ProcessEvent(fn, &params);
+
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function Medieval_Dynasty.BPCppMathOperations.MakeRotatorFromBytes
+// Flags: Final, Native, Static, Private, HasOutParms, HasDefaults, BlueprintCallable
+// Params:
+// Name: X	Type: unsigned char	Flags: ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: Y	Type: unsigned char	Flags: ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: Z	Type: unsigned char	Flags: ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: ReturnValue	Type: struct FRotator	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
+/////////////////////////////////////////////
+struct FRotator UBPCppMathOperations::MakeRotatorFromBytes(const unsigned char& X, const unsigned char& Y, const unsigned char& Z) {
+	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppMathOperations.MakeRotatorFromBytes");
+
+	struct UBPCppMathOperations_MakeRotatorFromBytes_Params {
+		unsigned char X;			//Offset: 0 | ElementSize: 1
+		unsigned char Y;			//Offset: 1 | ElementSize: 1
+		unsigned char Z;			//Offset: 2 | ElementSize: 1
+		struct FRotator ReturnValue;			//Offset: 4 | ElementSize: 12
+	};
+	UBPCppMathOperations_MakeRotatorFromBytes_Params params;
+	params.X = X;
+	params.Y = Y;
+	params.Z = Z;
+
+	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
+	uint32_t newFlags = flags;
+	newFlags |= 0x00000400;
+	fn->SetFunctionFlags((EFunctionFlags)newFlags);
+
+	static auto Obj = StaticClass()->CreateDefaultObject();
+	Obj->ProcessEvent(fn, &params);
+
+	fn->SetFunctionFlags((EFunctionFlags)flags);
+
+	return params.ReturnValue;
+}
+
+/////////////////////////////////////////////
+// Function Medieval_Dynasty.BPCppMathOperations.MakeVectorFromBytes
+// Flags: Final, Native, Static, Private, HasOutParms, HasDefaults, BlueprintCallable
+// Params:
+// Name: X	Type: int32_t	Flags: ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: Y	Type: int32_t	Flags: ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: Z	Type: int32_t	Flags: ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: IsScale	Type: bool	Flags: Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+// Name: ReturnValue	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+/////////////////////////////////////////////
+struct FVector UBPCppMathOperations::MakeVectorFromBytes(const int32_t& X, const int32_t& Y, const int32_t& Z, bool IsScale) {
+	static auto fn = UObject::FindObject<UFunction>("Function Medieval_Dynasty.BPCppMathOperations.MakeVectorFromBytes");
+
+	struct UBPCppMathOperations_MakeVectorFromBytes_Params {
+		int32_t X;			//Offset: 0 | ElementSize: 4
+		int32_t Y;			//Offset: 4 | ElementSize: 4
+		int32_t Z;			//Offset: 8 | ElementSize: 4
+		bool IsScale;			//Offset: 12 | ElementSize: 1
+		struct FVector ReturnValue;			//Offset: 16 | ElementSize: 12
+	};
+	UBPCppMathOperations_MakeVectorFromBytes_Params params;
+	params.X = X;
+	params.Y = Y;
+	params.Z = Z;
+	params.IsScale = IsScale;
 
 	uint32_t flags = (uint32_t)fn->GetFunctionFlags();
 	uint32_t newFlags = flags;

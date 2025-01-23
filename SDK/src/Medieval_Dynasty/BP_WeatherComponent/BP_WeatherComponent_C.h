@@ -52,6 +52,8 @@ public:
 #pragma region Functions
 	void ExecuteUbergraph_BP_WeatherComponent(int32_t EntryPoint);
 
+	void InitWeatherComponent();
+
 	void ReceiveBeginPlay();
 
 	void Stop();

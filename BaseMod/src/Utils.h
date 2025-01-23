@@ -406,7 +406,7 @@ namespace Utils {
 				Defenition, Declaration, Both
 			};
 		inline std::string Function(const std::string& ClassName, const std::string& paramStructName, UE4::UFunction* func, FunctionType type) {
-			if (func->GetName() == "StaticClass") {
+			if (func == nullptr || func->GetName() == "StaticClass") {
 				return "";
 			}
 			std::vector<PInfo> parms;
@@ -437,14 +437,22 @@ namespace Utils {
 					for (UE4::FField* child = childs; child != nullptr; child = child->GetNext()) {
 						if (i >= func->GetNumParms())
 							break;
+
 						UE4::FProperty* prop = child->GetAsProperty();
-						if (!(prop->GetPropertyFlags() & UE4::EPropertyFlags::Parm))
+						
+						if (!(prop->GetPropertyFlags() & UE4::EPropertyFlags::Parm)) {
 							continue;
+						}
+						
 						std::string cppType = prop->GetCppTypeName();
-						if (cppType.empty())
+						if (cppType.empty()) {
+							Log::Warn_MDML("Error getting name of a parameter from {0}::{1}", ClassName, name);
 							continue;
+						}
+						
 						if (prop->GetArrayDim() > 1)
 							cppType += "*";
+						
 						std::string name = NameValidator::MakeValidName(child->GetName());
 						if (prop->GetPropertyFlags() & UE4::EPropertyFlags::ReturnParm) {
 							returnInfo = { cppType, name, prop->GetPropertyFlags(), child };
@@ -569,6 +577,9 @@ namespace Utils {
 			return head + " {\n" + body + "}\n\n";
 		}
 		inline std::string GenClass(UE4::UClass* Class, const std::string& folder) {
+			if (Class == nullptr)
+				return "";
+			
 			std::string ClassName = NameValidator::MakeValidName(Class->GetCPPName());
 			UE4::UStruct* Super = Class->GetSuperField();
 			std::string header;
@@ -678,7 +689,7 @@ namespace Utils {
 			return headerFile;
 		}
 		inline std::string Package(UE4::UPackage* pack, const std::string exportFolder, bool appendToPack = true) {
-			if (!pack->GetFullName()._Starts_with("Package "))
+			if (pack == nullptr || !pack->GetFullName().rfind("Package ", 0) == 0)
 				return "Not a package";
 			//classes
 			std::string packName = NameValidator::MakeValidName(pack->GetName());
@@ -906,7 +917,10 @@ namespace Utils {
 			SaveString(result, file);
 			return file;
 		}
+		
+		
 		static std::vector<std::future<std::string>> workingTasks;
+		
 		inline void StartThreadBPEnums (const std::string& exportFolder) {
 			if (!std::filesystem::exists(exportFolder + "/SDK.h")) {
 				std::string content;

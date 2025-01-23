@@ -4,7 +4,7 @@
 /////////////////////////////////////////////
 // BlueprintGeneratedClass BP_DataManager.BP_DataManager_C
 // Super: Class Engine.Actor
-// Size: 856
+// Size: 936
 // Size inherited: 544
 /////////////////////////////////////////////
 namespace UE4 {
@@ -31,130 +31,140 @@ public:
 	class ABP_SystemsManager_C** M_PtrGetSystemsManagerReference();
 	void M_SetSystemsManagerReference(const class ABP_SystemsManager_C*& value);
 
-	//bool	ShowLogs;		//Offset: 584	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	//TMap<struct FString, class ABP_TalkToActor_C*>	TalkToActorsArray;		//Offset: 584	Size: 80	Flags: Edit, BlueprintVisible
+	TMap<struct FString, class ABP_TalkToActor_C*> M_GetTalkToActorsArray() const;
+	TMap<struct FString, class ABP_TalkToActor_C*>* M_PtrGetTalkToActorsArray();
+	void M_SetTalkToActorsArray(const TMap<struct FString, class ABP_TalkToActor_C*>& value);
+
+	//bool	ShowLogs;		//Offset: 664	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
 	bool M_GetShowLogs() const;
 	bool* M_PtrGetShowLogs();
 	void M_SetShowLogs(const bool& value);
 
-	//TArray<struct FST_FurnitureList>	ListOfFurniture;		//Offset: 592	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	//TArray<struct FST_FurnitureList>	ListOfFurniture;		//Offset: 672	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
 	TArray<struct FST_FurnitureList> M_GetListOfFurniture() const;
 	TArray<struct FST_FurnitureList>* M_PtrGetListOfFurniture();
 	void M_SetListOfFurniture(const TArray<struct FST_FurnitureList>& value);
 
-	//TArray<struct FST_FieldList>	ListOfFields;		//Offset: 608	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	//TArray<struct FST_FieldList>	ListOfFields;		//Offset: 688	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
 	TArray<struct FST_FieldList> M_GetListOfFields() const;
 	TArray<struct FST_FieldList>* M_PtrGetListOfFields();
 	void M_SetListOfFields(const TArray<struct FST_FieldList>& value);
 
-	//TArray<struct FST_CharacterList>	ListOfNPC;		//Offset: 624	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	//TArray<struct FST_CharacterList>	ListOfNPC;		//Offset: 704	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
 	TArray<struct FST_CharacterList> M_GetListOfNPC() const;
 	TArray<struct FST_CharacterList>* M_PtrGetListOfNPC();
 	void M_SetListOfNPC(const TArray<struct FST_CharacterList>& value);
 
-	//TArray<struct FST_AnimalList>	ListOfAnimal;		//Offset: 640	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	//TArray<struct FST_AnimalList>	ListOfAnimal;		//Offset: 720	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
 	TArray<struct FST_AnimalList> M_GetListOfAnimal() const;
 	TArray<struct FST_AnimalList>* M_PtrGetListOfAnimal();
 	void M_SetListOfAnimal(const TArray<struct FST_AnimalList>& value);
 
-	//TArray<struct FST_SplineStructureList>	ListOfSplineStructures;		//Offset: 656	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	//TArray<struct FST_SplineStructureList>	ListOfSplineStructures;		//Offset: 736	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
 	TArray<struct FST_SplineStructureList> M_GetListOfSplineStructures() const;
 	TArray<struct FST_SplineStructureList>* M_PtrGetListOfSplineStructures();
 	void M_SetListOfSplineStructures(const TArray<struct FST_SplineStructureList>& value);
 
-	//TAssetPtr<class FOnPlayerPopulationChange__DelegateSignature>	OnPlayerPopulationChange;		//Offset: 672	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
+	//TAssetPtr<class FOnPlayerPopulationChange__DelegateSignature>	OnPlayerPopulationChange;		//Offset: 752	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
 	TAssetPtr<class FOnPlayerPopulationChange__DelegateSignature> M_GetOnPlayerPopulationChange() const;
 	TAssetPtr<class FOnPlayerPopulationChange__DelegateSignature>* M_PtrGetOnPlayerPopulationChange();
 	void M_SetOnPlayerPopulationChange(const TAssetPtr<class FOnPlayerPopulationChange__DelegateSignature>& value);
 
-	//TAssetPtr<class FOnPlayerBuildingsChange__DelegateSignature>	OnPlayerBuildingsChange;		//Offset: 688	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
+	//TAssetPtr<class FOnPlayerBuildingsChange__DelegateSignature>	OnPlayerBuildingsChange;		//Offset: 768	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
 	TAssetPtr<class FOnPlayerBuildingsChange__DelegateSignature> M_GetOnPlayerBuildingsChange() const;
 	TAssetPtr<class FOnPlayerBuildingsChange__DelegateSignature>* M_PtrGetOnPlayerBuildingsChange();
 	void M_SetOnPlayerBuildingsChange(const TAssetPtr<class FOnPlayerBuildingsChange__DelegateSignature>& value);
 
-	//TAssetPtr<class FOnPlayerAnimalsChange__DelegateSignature>	OnPlayerAnimalsChange;		//Offset: 704	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
+	//TAssetPtr<class FOnPlayerAnimalsChange__DelegateSignature>	OnPlayerAnimalsChange;		//Offset: 784	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable, BlueprintCallable
 	TAssetPtr<class FOnPlayerAnimalsChange__DelegateSignature> M_GetOnPlayerAnimalsChange() const;
 	TAssetPtr<class FOnPlayerAnimalsChange__DelegateSignature>* M_PtrGetOnPlayerAnimalsChange();
 	void M_SetOnPlayerAnimalsChange(const TAssetPtr<class FOnPlayerAnimalsChange__DelegateSignature>& value);
 
-	//TArray<struct FGuid>	ChangedItems;		//Offset: 720	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	//TArray<struct FGuid>	ChangedItems;		//Offset: 800	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
 	TArray<struct FGuid> M_GetChangedItems() const;
 	TArray<struct FGuid>* M_PtrGetChangedItems();
 	void M_SetChangedItems(const TArray<struct FGuid>& value);
 
-	//TArray<struct FST_RoadList>	ListOfRoads;		//Offset: 736	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	//TArray<struct FST_RoadList>	ListOfRoads;		//Offset: 816	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
 	TArray<struct FST_RoadList> M_GetListOfRoads() const;
 	TArray<struct FST_RoadList>* M_PtrGetListOfRoads();
 	void M_SetListOfRoads(const TArray<struct FST_RoadList>& value);
 
-	//TArray<class ABP_BuildingRestrictionArea_C*>	RestrictionAreas;		//Offset: 752	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnTemplate
+	//TArray<class ABP_BuildingRestrictionArea_C*>	RestrictionAreas;		//Offset: 832	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnTemplate
 	TArray<class ABP_BuildingRestrictionArea_C*> M_GetRestrictionAreas() const;
 	TArray<class ABP_BuildingRestrictionArea_C*>* M_PtrGetRestrictionAreas();
 	void M_SetRestrictionAreas(const TArray<class ABP_BuildingRestrictionArea_C*>& value);
 
-	//TArray<struct FST_GateList>	ListOfGates;		//Offset: 768	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	//TArray<struct FST_GateList>	ListOfGates;		//Offset: 848	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
 	TArray<struct FST_GateList> M_GetListOfGates() const;
 	TArray<struct FST_GateList>* M_PtrGetListOfGates();
 	void M_SetListOfGates(const TArray<struct FST_GateList>& value);
 
-	//class UTask_CalculateBoostDistance_C*	NpcsBoostTask;		//Offset: 784	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//class UTask_CalculateBoostDistance_C*	NpcsBoostTask;		//Offset: 864	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	class UTask_CalculateBoostDistance_C* M_GetNpcsBoostTask() const;
 	class UTask_CalculateBoostDistance_C** M_PtrGetNpcsBoostTask();
 	void M_SetNpcsBoostTask(const class UTask_CalculateBoostDistance_C*& value);
 
-	//class UTask_CalculateBoostDistance_Async_C*	AsyncBoostTask;		//Offset: 792	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//class UTask_CalculateBoostDistance_Async_C*	AsyncBoostTask;		//Offset: 872	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	class UTask_CalculateBoostDistance_Async_C* M_GetAsyncBoostTask() const;
 	class UTask_CalculateBoostDistance_Async_C** M_PtrGetAsyncBoostTask();
 	void M_SetAsyncBoostTask(const class UTask_CalculateBoostDistance_Async_C*& value);
 
-	//int32_t	NPCsPerTick;		//Offset: 800	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//int32_t	NPCsPerTick;		//Offset: 880	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	int32_t M_GetNPCsPerTick() const;
 	int32_t* M_PtrGetNPCsPerTick();
 	void M_SetNPCsPerTick(const int32_t& value);
 
-	//int32_t	AnimalsPerTick;		//Offset: 804	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//int32_t	AnimalsPerTick;		//Offset: 884	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	int32_t M_GetAnimalsPerTick() const;
 	int32_t* M_PtrGetAnimalsPerTick();
 	void M_SetAnimalsPerTick(const int32_t& value);
 
-	//int32_t	PlayerBuildingsPerTick;		//Offset: 808	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//int32_t	PlayerBuildingsPerTick;		//Offset: 888	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	int32_t M_GetPlayerBuildingsPerTick() const;
 	int32_t* M_PtrGetPlayerBuildingsPerTick();
 	void M_SetPlayerBuildingsPerTick(const int32_t& value);
 
-	//int32_t	FieldsOrchardsPerTick;		//Offset: 812	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//int32_t	FieldsOrchardsPerTick;		//Offset: 892	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	int32_t M_GetFieldsOrchardsPerTick() const;
 	int32_t* M_PtrGetFieldsOrchardsPerTick();
 	void M_SetFieldsOrchardsPerTick(const int32_t& value);
 
-	//int32_t	SplinesPerTick;		//Offset: 816	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//int32_t	SplinesPerTick;		//Offset: 896	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	int32_t M_GetSplinesPerTick() const;
 	int32_t* M_PtrGetSplinesPerTick();
 	void M_SetSplinesPerTick(const int32_t& value);
 
-	//int32_t	FurnituresPerTick;		//Offset: 820	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//int32_t	FurnituresPerTick;		//Offset: 900	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	int32_t M_GetFurnituresPerTick() const;
 	int32_t* M_PtrGetFurnituresPerTick();
 	void M_SetFurnituresPerTick(const int32_t& value);
 
-	//int32_t	RoadsPerTick;		//Offset: 824	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//int32_t	RoadsPerTick;		//Offset: 904	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	int32_t M_GetRoadsPerTick() const;
 	int32_t* M_PtrGetRoadsPerTick();
 	void M_SetRoadsPerTick(const int32_t& value);
 
-	//int32_t	GatesPerTick;		//Offset: 828	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//int32_t	GatesPerTick;		//Offset: 908	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	int32_t M_GetGatesPerTick() const;
 	int32_t* M_PtrGetGatesPerTick();
 	void M_SetGatesPerTick(const int32_t& value);
 
-	//int32_t	ItemsPerTick;		//Offset: 832	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//int32_t	PlatformsPerTick;		//Offset: 912	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	int32_t M_GetPlatformsPerTick() const;
+	int32_t* M_PtrGetPlatformsPerTick();
+	void M_SetPlatformsPerTick(const int32_t& value);
+
+	//int32_t	ItemsPerTick;		//Offset: 916	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	int32_t M_GetItemsPerTick() const;
 	int32_t* M_PtrGetItemsPerTick();
 	void M_SetItemsPerTick(const int32_t& value);
 
-	//TArray<struct FST_BridgeList>	ListOfBridges;		//Offset: 840	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
-	TArray<struct FST_BridgeList> M_GetListOfBridges() const;
-	TArray<struct FST_BridgeList>* M_PtrGetListOfBridges();
-	void M_SetListOfBridges(const TArray<struct FST_BridgeList>& value);
+	//TArray<struct FST_PlatformList>	ListOfPlatforms;		//Offset: 920	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	TArray<struct FST_PlatformList> M_GetListOfPlatforms() const;
+	TArray<struct FST_PlatformList>* M_PtrGetListOfPlatforms();
+	void M_SetListOfPlatforms(const TArray<struct FST_PlatformList>& value);
 
 #pragma endregion
 
@@ -178,6 +188,8 @@ public:
 	void ReceiveEndPlay(TEnumAsByte<EEndPlayReason> EndPlayReason);
 
 	void ReceiveBeginPlay();
+
+	void LoadPlatforms(class USAVE_Game_C* Save, class UMultiTaskBase* Task);
 
 	void LoadItems(class USAVE_Game_C* Save, class UMultiTaskBase* Task);
 
@@ -231,11 +243,13 @@ public:
 
 	void GetFields(TEnumAsByte<E_Ownership> Ownership, TEnumAsByte<E_FieldCategories> FieldCategory, bool* Success, TArray<class ABP_MasterField_C*>* Fields);
 
-	void FindField(struct FVector Location, bool OnlyCheck, float CheckDistance, TEnumAsByte<E_Ownership> Ownership, bool IgnoreLocationType, bool* Success, class ABP_MasterField_C** Field, struct FST_Chunks* Chunk);
+	void FindField(struct FVector Location, bool OnlyCheck, float CheckDistance, TEnumAsByte<E_Ownership> Ownership, bool IgnoreLocationType, bool* Success, class ABP_MasterField_C** Field, struct FST_ChunkData* Chunk);
 
 	void AddNPC(class ABP_NPC_C*& NPC);
 
 	void RemoveNPC(class ABP_NPC_C*& NPC);
+
+	void RemoveNPCFromOtherOwnerships(class ABP_NPC_C*& NPC);
 
 	void SwapNPC(TEnumAsByte<E_Ownership> to, class ABP_NPC_C*& NPC);
 
@@ -257,7 +271,7 @@ public:
 
 	void GetAnimals(TEnumAsByte<E_Ownership> Ownership, bool IgnoreCategory, TEnumAsByte<E_AnimalType> AnimalCategory, bool* Success, TArray<class ABP_AnimalBase_C*>* Animals);
 
-	void AddSplineStructure(TEnumAsByte<E_Ownership> Ownership, class ABP_MasterSplineStructure_C*& SplineStructure);
+	void AddSplineStructure(TEnumAsByte<E_Ownership> Ownership, class ABP_MasterSplineStructure_C*& SplineStructure, int32_t* Index);
 
 	void RemoveSplineStructure(class ABP_MasterSplineStructure_C*& SplineStructure);
 
@@ -273,11 +287,11 @@ public:
 
 	void LoadSaveFileIntoSystem_Buildings(class USAVE_Game_C* SaveReference, class UMultiTaskBase* Task);
 
-	void FindBuildingWithAvailableSpace(TEnumAsByte<E_Ownership> Ownership, TEnumAsByte<E_Buildings> BuildingCategory, TEnumAsByte<E_BuildingStatus> BuildingStatus, bool FullyEmpty, bool NoFamilyInside, TEnumAsByte<E_Sex> Sex, bool* IsAvailable, class ABP_MasterBuilding_C** Building);
+	void FindBuildingWithAvailableSpace(TEnumAsByte<E_Ownership> Ownership, TEnumAsByte<E_Buildings> BuildingCategory, TEnumAsByte<E_BuildingStatus> BuildingStatus, bool FullyEmpty, bool NoFamilyInside, TEnumAsByte<E_Sex> sex, bool* IsAvailable, class ABP_MasterBuilding_C** Building);
 
-	void GetFurnitureByDistance(TEnumAsByte<E_Ownership> Ownership, TEnumAsByte<E_FurnitureCategories> FurnitureCategory, bool IgnoreOwnership, bool OnlyNonPlayerVillages, struct FVector StartLocation, bool CheckOccupy, class AActor* FurnitureToIgnore, bool* Success, class ABP_MasterFurniture_C** Furniture);
+	void GetFurnitureByDistance(TEnumAsByte<E_Ownership> Ownership, TEnumAsByte<E_FurnitureCategories> FurnitureCategory, bool MustBeSittingFurniture, bool IgnoreOwnership, bool OnlyNonPlayerVillages, struct FVector StartLocation, bool CheckOccupy, class AActor* FurnitureToIgnore, bool* Success, class ABP_MasterFurniture_C** Furniture);
 
-	void GetRandomFurniture(TEnumAsByte<E_Ownership> Ownership, TEnumAsByte<E_FurnitureCategories> FurnitureCategory, bool IgnoreOwnership, bool CheckOccupy, struct FVector StartLocation, float Range, class AActor* FurnitureToIgnore, bool* Success, class ABP_MasterFurniture_C** Furniture);
+	void GetRandomFurniture(TEnumAsByte<E_Ownership> Ownership, TEnumAsByte<E_FurnitureCategories> FurnitureCategory, bool MustBeSittingFurniture, bool IgnoreOwnership, bool CheckOccupy, struct FVector StartLocation, float Range, class AActor* FurnitureToIgnore, bool* Success, class ABP_MasterFurniture_C** Furniture);
 
 	void ChangeItem(struct FGuid Guid);
 
@@ -298,6 +312,8 @@ public:
 	void LoadSaveFileIntoSystem_Fields_Orchards(class USAVE_Game_C* SaveReference, class UMultiTaskBase* Task);
 
 	void LoadSaveFileIntoSystem_Gates(class USAVE_Game_C* SaveReference, class UMultiTaskBase* Task);
+
+	void LoadSaveFileIntoSystem_Platforms(class USAVE_Game_C* SaveReference, class UMultiTaskBase* Task);
 
 	void LoadSaveFileIntoSystem_Roads(class USAVE_Game_C* SaveReference, class UMultiTaskBase* Task);
 
@@ -321,9 +337,9 @@ public:
 
 	void VendorCategorySettings(struct FString ID, struct FName VendorCategoryName, bool IsVendor, TEnumAsByte<E_Profession> Profession, TEnumAsByte<E_Ownership> Ownership, TEnumAsByte<E_OutsideNPCTypes> OutsideNPCType, struct FDataTableRowHandle NPC_RowName, struct FDataTableRowHandle NPC_DT_Handler, bool* CorrectVendor, struct FDataTableRowHandle* VendorCategory, bool* ResetEQ, TEnumAsByte<E_Profession>* CorrectProfession);
 
-	void CheckItemsID();
-
 	void UpdateRestrictionAreas();
+
+	void VendorMP_CategorySettings(struct FString ID, struct FName VendorCategoryName, bool IsVendor, struct FDataTableRowHandle NPC_RowName, bool* CorrectVendor, struct FDataTableRowHandle* VendorCategory);
 
 	void GetRandomOwnerlessNPCsCount(TMap<TEnumAsByte<E_Ownership>, int32_t>* OwnershipCount);
 
@@ -345,6 +361,8 @@ public:
 
 	void UnoccupySlots();
 
+	void CheckItemsID();
+
 	void CheckCollectablesID();
 
 	void StopDataManager();
@@ -353,15 +371,49 @@ public:
 
 	void SpawnFurniture(struct FVector Position, struct FRotator Rotation, struct FName Name, unsigned char Owner, TArray<struct FName>* Tags, class ABP_MasterFurniture_C** Furniture);
 
-	void AddBridge(TEnumAsByte<E_Ownership> Ownership, class ABP_MasterBridge_C*& Bridge);
+	void AddPlatform(TEnumAsByte<E_Ownership> Ownership, class ABP_MasterPlatform_C*& Platform);
 
-	void RemoveBridge(class ABP_MasterBridge_C*& Bridge);
+	void RemovePlatform(class ABP_MasterPlatform_C*& Platform);
 
-	void SwapBridge(TEnumAsByte<E_Ownership> to, class ABP_MasterBridge_C*& Bridge);
+	void SwapPlatform(TEnumAsByte<E_Ownership> to, class ABP_MasterPlatform_C*& Platform);
 
-	void GetBridge(TEnumAsByte<E_Ownership> Ownership, bool* Success, TArray<class ABP_MasterBridge_C*>* SplineStructures);
+	void GetPlatform(TEnumAsByte<E_Ownership> Ownership, bool* Success, TArray<class ABP_MasterPlatform_C*>* Platforms);
 
 	void LoadDataSafely(const TArray<struct FString>& Data, int32_t Index, struct FString InvalidSubstitution, struct FString* LoadedData);
+
+	void UpdateTalkToActors();
+
+	void GetTalkToActorsInteractable(TMap<struct FString, class ABP_TalkToActor_C*>* TalkToActors);
+
+	void GetTalkToActorsNotInteractable(TMap<struct FString, class ABP_TalkToActor_C*>* TalkToActors);
+
+	void GetTalkToActors(TMap<struct FString, class ABP_TalkToActor_C*>* TalkToActors);
+
+	void AddTalkToActor(class ABP_TalkToActor_C*& Actor);
+
+	void RemoveTalkToActor(struct FString ActorId);
+
+	void Load_Talk_to_Actors(class USAVE_Game_C* SaveReference);
+
+	void GetPlayerStartTransformInSedowinsHut(int32_t PlayerIndex, struct FTransform* Transform);
+
+	void UpdateSettings();
+
+	void ConvertOldProductionDataToSeasonalProduction(TArray<struct FST_SAVE_SeasonalProduction_Progress>* SeasonalProduction, TArray<struct FST_SAVE_Production_Progress>* OldProduction, class ABP_MasterBuilding_C** BuildingReference, bool OldSeasonalManagement, TArray<struct FST_SAVE_SeasonalProduction_Progress>* FinalSeasonalProduction, bool* SeasonalManagement);
+
+	void ConvertOldTradingDataToSeasonalTrading(TArray<struct FST_SAVE_SeasonalTrade_Progress>* SeasonalProduction, TArray<struct FST_SAVE_Trade_Progress>* OldProduction, class ABP_MasterBuilding_C** BuildingReference, bool OldSeasonalManagement, TArray<struct FST_SAVE_SeasonalTrade_Progress>* FinalSeasonalProduction, bool* SeasonalManagement);
+
+	void FindQuest_Item();
+
+	void GetNPCVendors(TArray<class ABP_NPC_C*>* VendorNPCs);
+
+	void GetPlayerByID(struct FString UniqueNetID, bool* Success, class ABP_PlayerCharacter_C** PlayerCharacterReference);
+
+	void GetBandNPCs(bool* Success, TArray<class ABP_NPC_C*>* Band);
+
+	void GetNPCWaggoners(TArray<class ABP_NPC_C*>* WaggonerNPCs);
+
+	void ClearNPCsAffectionGiftsAndSmallTalk(struct FString PlayerNetID);
 
 #pragma endregion
 };

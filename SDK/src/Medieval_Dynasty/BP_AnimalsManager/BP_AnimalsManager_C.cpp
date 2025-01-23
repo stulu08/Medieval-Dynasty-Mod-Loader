@@ -90,269 +90,313 @@ TArray<class ABP_SpawnPointWildAnimal_C*>* ABP_AnimalsManager_C::M_PtrGetSpawnPo
 void ABP_AnimalsManager_C::M_SetSpawnPointsWildAnimal(const TArray<class ABP_SpawnPointWildAnimal_C*>& value) {
 	Write((byte*)this + 608, value);
 }
-// Member Getter and Setter of PlayerPawnReference
-// Declaration: class APawn* PlayerPawnReference
-class APawn* ABP_AnimalsManager_C::M_GetPlayerPawnReference() const {
-	return Read<class APawn*>((byte*)this + 624);
-}
-class APawn** ABP_AnimalsManager_C::M_PtrGetPlayerPawnReference() {
-	return reinterpret_cast<class APawn**>((byte*)this + 624);
-}
-void ABP_AnimalsManager_C::M_SetPlayerPawnReference(const class APawn*& value) {
-	Write((byte*)this + 624, value);
-}
 // Member Getter and Setter of DistanceOfBrainActivity
 // Declaration: float DistanceOfBrainActivity
 float ABP_AnimalsManager_C::M_GetDistanceOfBrainActivity() const {
-	return Read<float>((byte*)this + 632);
+	return Read<float>((byte*)this + 624);
 }
 float* ABP_AnimalsManager_C::M_PtrGetDistanceOfBrainActivity() {
-	return reinterpret_cast<float*>((byte*)this + 632);
+	return reinterpret_cast<float*>((byte*)this + 624);
 }
 void ABP_AnimalsManager_C::M_SetDistanceOfBrainActivity(const float& value) {
-	Write((byte*)this + 632, value);
+	Write((byte*)this + 624, value);
 }
 // Member Getter and Setter of DistanceOfBrainActivitySquared
 // Declaration: float DistanceOfBrainActivitySquared
 float ABP_AnimalsManager_C::M_GetDistanceOfBrainActivitySquared() const {
-	return Read<float>((byte*)this + 636);
+	return Read<float>((byte*)this + 628);
 }
 float* ABP_AnimalsManager_C::M_PtrGetDistanceOfBrainActivitySquared() {
-	return reinterpret_cast<float*>((byte*)this + 636);
+	return reinterpret_cast<float*>((byte*)this + 628);
 }
 void ABP_AnimalsManager_C::M_SetDistanceOfBrainActivitySquared(const float& value) {
-	Write((byte*)this + 636, value);
+	Write((byte*)this + 628, value);
 }
 // Member Getter and Setter of HusbandryAnimalsRemovedByEvent
 // Declaration: TMap<TEnumAsByte<E_AnimalType>, int32_t> HusbandryAnimalsRemovedByEvent
 TMap<TEnumAsByte<E_AnimalType>, int32_t> ABP_AnimalsManager_C::M_GetHusbandryAnimalsRemovedByEvent() const {
-	return Read<TMap<TEnumAsByte<E_AnimalType>, int32_t>>((byte*)this + 640);
+	return Read<TMap<TEnumAsByte<E_AnimalType>, int32_t>>((byte*)this + 632);
 }
 TMap<TEnumAsByte<E_AnimalType>, int32_t>* ABP_AnimalsManager_C::M_PtrGetHusbandryAnimalsRemovedByEvent() {
-	return reinterpret_cast<TMap<TEnumAsByte<E_AnimalType>, int32_t>*>((byte*)this + 640);
+	return reinterpret_cast<TMap<TEnumAsByte<E_AnimalType>, int32_t>*>((byte*)this + 632);
 }
 void ABP_AnimalsManager_C::M_SetHusbandryAnimalsRemovedByEvent(const TMap<TEnumAsByte<E_AnimalType>, int32_t>& value) {
-	Write((byte*)this + 640, value);
+	Write((byte*)this + 632, value);
 }
 // Member Getter and Setter of ShowDebugInfo
 // Declaration: bool ShowDebugInfo
 bool ABP_AnimalsManager_C::M_GetShowDebugInfo() const {
-	return Read<bool>((byte*)this + 720);
+	return Read<bool>((byte*)this + 712);
 }
 bool* ABP_AnimalsManager_C::M_PtrGetShowDebugInfo() {
-	return reinterpret_cast<bool*>((byte*)this + 720);
+	return reinterpret_cast<bool*>((byte*)this + 712);
 }
 void ABP_AnimalsManager_C::M_SetShowDebugInfo(const bool& value) {
-	Write((byte*)this + 720, value);
+	Write((byte*)this + 712, value);
 }
 // Member Getter and Setter of AllowSpawnAnimals
 // Declaration: bool AllowSpawnAnimals
 bool ABP_AnimalsManager_C::M_GetAllowSpawnAnimals() const {
-	return Read<bool>((byte*)this + 721);
+	return Read<bool>((byte*)this + 713);
 }
 bool* ABP_AnimalsManager_C::M_PtrGetAllowSpawnAnimals() {
-	return reinterpret_cast<bool*>((byte*)this + 721);
+	return reinterpret_cast<bool*>((byte*)this + 713);
 }
 void ABP_AnimalsManager_C::M_SetAllowSpawnAnimals(const bool& value) {
-	Write((byte*)this + 721, value);
+	Write((byte*)this + 713, value);
 }
 // Member Getter and Setter of Birds
 // Declaration: bool Birds
 bool ABP_AnimalsManager_C::M_GetBirds() const {
-	return Read<bool>((byte*)this + 722);
+	return Read<bool>((byte*)this + 714);
 }
 bool* ABP_AnimalsManager_C::M_PtrGetBirds() {
-	return reinterpret_cast<bool*>((byte*)this + 722);
+	return reinterpret_cast<bool*>((byte*)this + 714);
 }
 void ABP_AnimalsManager_C::M_SetBirds(const bool& value) {
-	Write((byte*)this + 722, value);
+	Write((byte*)this + 714, value);
 }
 // Member Getter and Setter of AnimalsDamageMultiplier
 // Declaration: float AnimalsDamageMultiplier
 float ABP_AnimalsManager_C::M_GetAnimalsDamageMultiplier() const {
-	return Read<float>((byte*)this + 724);
+	return Read<float>((byte*)this + 716);
 }
 float* ABP_AnimalsManager_C::M_PtrGetAnimalsDamageMultiplier() {
-	return reinterpret_cast<float*>((byte*)this + 724);
+	return reinterpret_cast<float*>((byte*)this + 716);
 }
 void ABP_AnimalsManager_C::M_SetAnimalsDamageMultiplier(const float& value) {
-	Write((byte*)this + 724, value);
+	Write((byte*)this + 716, value);
 }
 // Member Getter and Setter of AnimalsHPMultiplier
 // Declaration: float AnimalsHPMultiplier
 float ABP_AnimalsManager_C::M_GetAnimalsHPMultiplier() const {
-	return Read<float>((byte*)this + 728);
+	return Read<float>((byte*)this + 720);
 }
 float* ABP_AnimalsManager_C::M_PtrGetAnimalsHPMultiplier() {
-	return reinterpret_cast<float*>((byte*)this + 728);
+	return reinterpret_cast<float*>((byte*)this + 720);
 }
 void ABP_AnimalsManager_C::M_SetAnimalsHPMultiplier(const float& value) {
-	Write((byte*)this + 728, value);
+	Write((byte*)this + 720, value);
 }
 // Member Getter and Setter of SpawnPointsFishes
 // Declaration: TArray<class ABP_Flock_Fish_C*> SpawnPointsFishes
 TArray<class ABP_Flock_Fish_C*> ABP_AnimalsManager_C::M_GetSpawnPointsFishes() const {
-	return Read<TArray<class ABP_Flock_Fish_C*>>((byte*)this + 736);
+	return Read<TArray<class ABP_Flock_Fish_C*>>((byte*)this + 728);
 }
 TArray<class ABP_Flock_Fish_C*>* ABP_AnimalsManager_C::M_PtrGetSpawnPointsFishes() {
-	return reinterpret_cast<TArray<class ABP_Flock_Fish_C*>*>((byte*)this + 736);
+	return reinterpret_cast<TArray<class ABP_Flock_Fish_C*>*>((byte*)this + 728);
 }
 void ABP_AnimalsManager_C::M_SetSpawnPointsFishes(const TArray<class ABP_Flock_Fish_C*>& value) {
-	Write((byte*)this + 736, value);
+	Write((byte*)this + 728, value);
 }
 // Member Getter and Setter of WasAnimalSpawnUncovered
 // Declaration: TMap<TEnumAsByte<E_AnimalType>, bool> WasAnimalSpawnUncovered
 TMap<TEnumAsByte<E_AnimalType>, bool> ABP_AnimalsManager_C::M_GetWasAnimalSpawnUncovered() const {
-	return Read<TMap<TEnumAsByte<E_AnimalType>, bool>>((byte*)this + 752);
+	return Read<TMap<TEnumAsByte<E_AnimalType>, bool>>((byte*)this + 744);
 }
 TMap<TEnumAsByte<E_AnimalType>, bool>* ABP_AnimalsManager_C::M_PtrGetWasAnimalSpawnUncovered() {
-	return reinterpret_cast<TMap<TEnumAsByte<E_AnimalType>, bool>*>((byte*)this + 752);
+	return reinterpret_cast<TMap<TEnumAsByte<E_AnimalType>, bool>*>((byte*)this + 744);
 }
 void ABP_AnimalsManager_C::M_SetWasAnimalSpawnUncovered(const TMap<TEnumAsByte<E_AnimalType>, bool>& value) {
-	Write((byte*)this + 752, value);
+	Write((byte*)this + 744, value);
 }
 // Member Getter and Setter of SpawnPointsWildAnimalCategorized
 // Declaration: TMap<TEnumAsByte<E_AnimalType>, struct FST_AnimalSpawnerArray> SpawnPointsWildAnimalCategorized
 TMap<TEnumAsByte<E_AnimalType>, struct FST_AnimalSpawnerArray> ABP_AnimalsManager_C::M_GetSpawnPointsWildAnimalCategorized() const {
-	return Read<TMap<TEnumAsByte<E_AnimalType>, struct FST_AnimalSpawnerArray>>((byte*)this + 832);
+	return Read<TMap<TEnumAsByte<E_AnimalType>, struct FST_AnimalSpawnerArray>>((byte*)this + 824);
 }
 TMap<TEnumAsByte<E_AnimalType>, struct FST_AnimalSpawnerArray>* ABP_AnimalsManager_C::M_PtrGetSpawnPointsWildAnimalCategorized() {
-	return reinterpret_cast<TMap<TEnumAsByte<E_AnimalType>, struct FST_AnimalSpawnerArray>*>((byte*)this + 832);
+	return reinterpret_cast<TMap<TEnumAsByte<E_AnimalType>, struct FST_AnimalSpawnerArray>*>((byte*)this + 824);
 }
 void ABP_AnimalsManager_C::M_SetSpawnPointsWildAnimalCategorized(const TMap<TEnumAsByte<E_AnimalType>, struct FST_AnimalSpawnerArray>& value) {
-	Write((byte*)this + 832, value);
+	Write((byte*)this + 824, value);
 }
 // Member Getter and Setter of AnimalTypesToDisable
-// Declaration: TAssetPtr<class FNone_574> AnimalTypesToDisable
-TAssetPtr<class FNone_574> ABP_AnimalsManager_C::M_GetAnimalTypesToDisable() const {
-	return Read<TAssetPtr<class FNone_574>>((byte*)this + 912);
+// Declaration: TAssetPtr<class FNone_513> AnimalTypesToDisable
+TAssetPtr<class FNone_513> ABP_AnimalsManager_C::M_GetAnimalTypesToDisable() const {
+	return Read<TAssetPtr<class FNone_513>>((byte*)this + 904);
 }
-TAssetPtr<class FNone_574>* ABP_AnimalsManager_C::M_PtrGetAnimalTypesToDisable() {
-	return reinterpret_cast<TAssetPtr<class FNone_574>*>((byte*)this + 912);
+TAssetPtr<class FNone_513>* ABP_AnimalsManager_C::M_PtrGetAnimalTypesToDisable() {
+	return reinterpret_cast<TAssetPtr<class FNone_513>*>((byte*)this + 904);
 }
-void ABP_AnimalsManager_C::M_SetAnimalTypesToDisable(const TAssetPtr<class FNone_574>& value) {
-	Write((byte*)this + 912, value);
+void ABP_AnimalsManager_C::M_SetAnimalTypesToDisable(const TAssetPtr<class FNone_513>& value) {
+	Write((byte*)this + 904, value);
 }
 // Member Getter and Setter of SpawnPointsFishCategorized
 // Declaration: TMap<TEnumAsByte<E_FishPoolType>, struct FST_FishSpawnerArray> SpawnPointsFishCategorized
 TMap<TEnumAsByte<E_FishPoolType>, struct FST_FishSpawnerArray> ABP_AnimalsManager_C::M_GetSpawnPointsFishCategorized() const {
-	return Read<TMap<TEnumAsByte<E_FishPoolType>, struct FST_FishSpawnerArray>>((byte*)this + 992);
+	return Read<TMap<TEnumAsByte<E_FishPoolType>, struct FST_FishSpawnerArray>>((byte*)this + 984);
 }
 TMap<TEnumAsByte<E_FishPoolType>, struct FST_FishSpawnerArray>* ABP_AnimalsManager_C::M_PtrGetSpawnPointsFishCategorized() {
-	return reinterpret_cast<TMap<TEnumAsByte<E_FishPoolType>, struct FST_FishSpawnerArray>*>((byte*)this + 992);
+	return reinterpret_cast<TMap<TEnumAsByte<E_FishPoolType>, struct FST_FishSpawnerArray>*>((byte*)this + 984);
 }
 void ABP_AnimalsManager_C::M_SetSpawnPointsFishCategorized(const TMap<TEnumAsByte<E_FishPoolType>, struct FST_FishSpawnerArray>& value) {
-	Write((byte*)this + 992, value);
+	Write((byte*)this + 984, value);
 }
 // Member Getter and Setter of UncoveredSpawners
 // Declaration: TArray<class ABP_SpawnPointWildAnimal_C*> UncoveredSpawners
 TArray<class ABP_SpawnPointWildAnimal_C*> ABP_AnimalsManager_C::M_GetUncoveredSpawners() const {
-	return Read<TArray<class ABP_SpawnPointWildAnimal_C*>>((byte*)this + 1072);
+	return Read<TArray<class ABP_SpawnPointWildAnimal_C*>>((byte*)this + 1064);
 }
 TArray<class ABP_SpawnPointWildAnimal_C*>* ABP_AnimalsManager_C::M_PtrGetUncoveredSpawners() {
-	return reinterpret_cast<TArray<class ABP_SpawnPointWildAnimal_C*>*>((byte*)this + 1072);
+	return reinterpret_cast<TArray<class ABP_SpawnPointWildAnimal_C*>*>((byte*)this + 1064);
 }
 void ABP_AnimalsManager_C::M_SetUncoveredSpawners(const TArray<class ABP_SpawnPointWildAnimal_C*>& value) {
-	Write((byte*)this + 1072, value);
+	Write((byte*)this + 1064, value);
 }
 // Member Getter and Setter of UncoveredFishSpawners
 // Declaration: TArray<class ABP_Flock_Fish_C*> UncoveredFishSpawners
 TArray<class ABP_Flock_Fish_C*> ABP_AnimalsManager_C::M_GetUncoveredFishSpawners() const {
-	return Read<TArray<class ABP_Flock_Fish_C*>>((byte*)this + 1088);
+	return Read<TArray<class ABP_Flock_Fish_C*>>((byte*)this + 1080);
 }
 TArray<class ABP_Flock_Fish_C*>* ABP_AnimalsManager_C::M_PtrGetUncoveredFishSpawners() {
-	return reinterpret_cast<TArray<class ABP_Flock_Fish_C*>*>((byte*)this + 1088);
+	return reinterpret_cast<TArray<class ABP_Flock_Fish_C*>*>((byte*)this + 1080);
 }
 void ABP_AnimalsManager_C::M_SetUncoveredFishSpawners(const TArray<class ABP_Flock_Fish_C*>& value) {
-	Write((byte*)this + 1088, value);
+	Write((byte*)this + 1080, value);
 }
 // Member Getter and Setter of CheckAnimals_Task
 // Declaration: class UMultiThreadTask* CheckAnimals_Task
 class UMultiThreadTask* ABP_AnimalsManager_C::M_GetCheckAnimals_Task() const {
-	return Read<class UMultiThreadTask*>((byte*)this + 1104);
+	return Read<class UMultiThreadTask*>((byte*)this + 1096);
 }
 class UMultiThreadTask** ABP_AnimalsManager_C::M_PtrGetCheckAnimals_Task() {
-	return reinterpret_cast<class UMultiThreadTask**>((byte*)this + 1104);
+	return reinterpret_cast<class UMultiThreadTask**>((byte*)this + 1096);
 }
 void ABP_AnimalsManager_C::M_SetCheckAnimals_Task(const class UMultiThreadTask*& value) {
-	Write((byte*)this + 1104, value);
+	Write((byte*)this + 1096, value);
 }
 // Member Getter and Setter of SpawnersToUncover
-// Declaration: TArray<class ABP_SpawnPointWildAnimal_C*> SpawnersToUncover
-TArray<class ABP_SpawnPointWildAnimal_C*> ABP_AnimalsManager_C::M_GetSpawnersToUncover() const {
-	return Read<TArray<class ABP_SpawnPointWildAnimal_C*>>((byte*)this + 1112);
+// Declaration: TAssetPtr<class FNone_513> SpawnersToUncover
+TAssetPtr<class FNone_513> ABP_AnimalsManager_C::M_GetSpawnersToUncover() const {
+	return Read<TAssetPtr<class FNone_513>>((byte*)this + 1104);
 }
-TArray<class ABP_SpawnPointWildAnimal_C*>* ABP_AnimalsManager_C::M_PtrGetSpawnersToUncover() {
-	return reinterpret_cast<TArray<class ABP_SpawnPointWildAnimal_C*>*>((byte*)this + 1112);
+TAssetPtr<class FNone_513>* ABP_AnimalsManager_C::M_PtrGetSpawnersToUncover() {
+	return reinterpret_cast<TAssetPtr<class FNone_513>*>((byte*)this + 1104);
 }
-void ABP_AnimalsManager_C::M_SetSpawnersToUncover(const TArray<class ABP_SpawnPointWildAnimal_C*>& value) {
-	Write((byte*)this + 1112, value);
+void ABP_AnimalsManager_C::M_SetSpawnersToUncover(const TAssetPtr<class FNone_513>& value) {
+	Write((byte*)this + 1104, value);
 }
 // Member Getter and Setter of SpawnersToActivate
-// Declaration: TArray<class ABP_SpawnPointWildAnimal_C*> SpawnersToActivate
-TArray<class ABP_SpawnPointWildAnimal_C*> ABP_AnimalsManager_C::M_GetSpawnersToActivate() const {
-	return Read<TArray<class ABP_SpawnPointWildAnimal_C*>>((byte*)this + 1128);
+// Declaration: TAssetPtr<class FNone_513> SpawnersToActivate
+TAssetPtr<class FNone_513> ABP_AnimalsManager_C::M_GetSpawnersToActivate() const {
+	return Read<TAssetPtr<class FNone_513>>((byte*)this + 1184);
 }
-TArray<class ABP_SpawnPointWildAnimal_C*>* ABP_AnimalsManager_C::M_PtrGetSpawnersToActivate() {
-	return reinterpret_cast<TArray<class ABP_SpawnPointWildAnimal_C*>*>((byte*)this + 1128);
+TAssetPtr<class FNone_513>* ABP_AnimalsManager_C::M_PtrGetSpawnersToActivate() {
+	return reinterpret_cast<TAssetPtr<class FNone_513>*>((byte*)this + 1184);
 }
-void ABP_AnimalsManager_C::M_SetSpawnersToActivate(const TArray<class ABP_SpawnPointWildAnimal_C*>& value) {
-	Write((byte*)this + 1128, value);
+void ABP_AnimalsManager_C::M_SetSpawnersToActivate(const TAssetPtr<class FNone_513>& value) {
+	Write((byte*)this + 1184, value);
 }
 // Member Getter and Setter of SpawnersToDeactivate
-// Declaration: TArray<class ABP_SpawnPointWildAnimal_C*> SpawnersToDeactivate
-TArray<class ABP_SpawnPointWildAnimal_C*> ABP_AnimalsManager_C::M_GetSpawnersToDeactivate() const {
-	return Read<TArray<class ABP_SpawnPointWildAnimal_C*>>((byte*)this + 1144);
+// Declaration: TAssetPtr<class FNone_513> SpawnersToDeactivate
+TAssetPtr<class FNone_513> ABP_AnimalsManager_C::M_GetSpawnersToDeactivate() const {
+	return Read<TAssetPtr<class FNone_513>>((byte*)this + 1264);
 }
-TArray<class ABP_SpawnPointWildAnimal_C*>* ABP_AnimalsManager_C::M_PtrGetSpawnersToDeactivate() {
-	return reinterpret_cast<TArray<class ABP_SpawnPointWildAnimal_C*>*>((byte*)this + 1144);
+TAssetPtr<class FNone_513>* ABP_AnimalsManager_C::M_PtrGetSpawnersToDeactivate() {
+	return reinterpret_cast<TAssetPtr<class FNone_513>*>((byte*)this + 1264);
 }
-void ABP_AnimalsManager_C::M_SetSpawnersToDeactivate(const TArray<class ABP_SpawnPointWildAnimal_C*>& value) {
-	Write((byte*)this + 1144, value);
+void ABP_AnimalsManager_C::M_SetSpawnersToDeactivate(const TAssetPtr<class FNone_513>& value) {
+	Write((byte*)this + 1264, value);
 }
 // Member Getter and Setter of FlocksToUncover
-// Declaration: TArray<class ABP_Flock_Fish_C*> FlocksToUncover
-TArray<class ABP_Flock_Fish_C*> ABP_AnimalsManager_C::M_GetFlocksToUncover() const {
-	return Read<TArray<class ABP_Flock_Fish_C*>>((byte*)this + 1160);
+// Declaration: TAssetPtr<class FNone_513> FlocksToUncover
+TAssetPtr<class FNone_513> ABP_AnimalsManager_C::M_GetFlocksToUncover() const {
+	return Read<TAssetPtr<class FNone_513>>((byte*)this + 1344);
 }
-TArray<class ABP_Flock_Fish_C*>* ABP_AnimalsManager_C::M_PtrGetFlocksToUncover() {
-	return reinterpret_cast<TArray<class ABP_Flock_Fish_C*>*>((byte*)this + 1160);
+TAssetPtr<class FNone_513>* ABP_AnimalsManager_C::M_PtrGetFlocksToUncover() {
+	return reinterpret_cast<TAssetPtr<class FNone_513>*>((byte*)this + 1344);
 }
-void ABP_AnimalsManager_C::M_SetFlocksToUncover(const TArray<class ABP_Flock_Fish_C*>& value) {
-	Write((byte*)this + 1160, value);
+void ABP_AnimalsManager_C::M_SetFlocksToUncover(const TAssetPtr<class FNone_513>& value) {
+	Write((byte*)this + 1344, value);
 }
 // Member Getter and Setter of FlocksToActivate
-// Declaration: TArray<class ABP_Flock_Fish_C*> FlocksToActivate
-TArray<class ABP_Flock_Fish_C*> ABP_AnimalsManager_C::M_GetFlocksToActivate() const {
-	return Read<TArray<class ABP_Flock_Fish_C*>>((byte*)this + 1176);
+// Declaration: TAssetPtr<class FNone_513> FlocksToActivate
+TAssetPtr<class FNone_513> ABP_AnimalsManager_C::M_GetFlocksToActivate() const {
+	return Read<TAssetPtr<class FNone_513>>((byte*)this + 1424);
 }
-TArray<class ABP_Flock_Fish_C*>* ABP_AnimalsManager_C::M_PtrGetFlocksToActivate() {
-	return reinterpret_cast<TArray<class ABP_Flock_Fish_C*>*>((byte*)this + 1176);
+TAssetPtr<class FNone_513>* ABP_AnimalsManager_C::M_PtrGetFlocksToActivate() {
+	return reinterpret_cast<TAssetPtr<class FNone_513>*>((byte*)this + 1424);
 }
-void ABP_AnimalsManager_C::M_SetFlocksToActivate(const TArray<class ABP_Flock_Fish_C*>& value) {
-	Write((byte*)this + 1176, value);
+void ABP_AnimalsManager_C::M_SetFlocksToActivate(const TAssetPtr<class FNone_513>& value) {
+	Write((byte*)this + 1424, value);
 }
 // Member Getter and Setter of FlocksToDeactivate
-// Declaration: TArray<class ABP_Flock_Fish_C*> FlocksToDeactivate
-TArray<class ABP_Flock_Fish_C*> ABP_AnimalsManager_C::M_GetFlocksToDeactivate() const {
-	return Read<TArray<class ABP_Flock_Fish_C*>>((byte*)this + 1192);
+// Declaration: TAssetPtr<class FNone_513> FlocksToDeactivate
+TAssetPtr<class FNone_513> ABP_AnimalsManager_C::M_GetFlocksToDeactivate() const {
+	return Read<TAssetPtr<class FNone_513>>((byte*)this + 1504);
 }
-TArray<class ABP_Flock_Fish_C*>* ABP_AnimalsManager_C::M_PtrGetFlocksToDeactivate() {
-	return reinterpret_cast<TArray<class ABP_Flock_Fish_C*>*>((byte*)this + 1192);
+TAssetPtr<class FNone_513>* ABP_AnimalsManager_C::M_PtrGetFlocksToDeactivate() {
+	return reinterpret_cast<TAssetPtr<class FNone_513>*>((byte*)this + 1504);
 }
-void ABP_AnimalsManager_C::M_SetFlocksToDeactivate(const TArray<class ABP_Flock_Fish_C*>& value) {
-	Write((byte*)this + 1192, value);
+void ABP_AnimalsManager_C::M_SetFlocksToDeactivate(const TAssetPtr<class FNone_513>& value) {
+	Write((byte*)this + 1504, value);
 }
 // Member Getter and Setter of CheckAnimals_Mutex
 // Declaration: class UMultiTaskMutex* CheckAnimals_Mutex
 class UMultiTaskMutex* ABP_AnimalsManager_C::M_GetCheckAnimals_Mutex() const {
-	return Read<class UMultiTaskMutex*>((byte*)this + 1208);
+	return Read<class UMultiTaskMutex*>((byte*)this + 1584);
 }
 class UMultiTaskMutex** ABP_AnimalsManager_C::M_PtrGetCheckAnimals_Mutex() {
-	return reinterpret_cast<class UMultiTaskMutex**>((byte*)this + 1208);
+	return reinterpret_cast<class UMultiTaskMutex**>((byte*)this + 1584);
 }
 void ABP_AnimalsManager_C::M_SetCheckAnimals_Mutex(const class UMultiTaskMutex*& value) {
-	Write((byte*)this + 1208, value);
+	Write((byte*)this + 1584, value);
+}
+// Member Getter and Setter of ShowVerboseInfo
+// Declaration: bool ShowVerboseInfo
+bool ABP_AnimalsManager_C::M_GetShowVerboseInfo() const {
+	return Read<bool>((byte*)this + 1592);
+}
+bool* ABP_AnimalsManager_C::M_PtrGetShowVerboseInfo() {
+	return reinterpret_cast<bool*>((byte*)this + 1592);
+}
+void ABP_AnimalsManager_C::M_SetShowVerboseInfo(const bool& value) {
+	Write((byte*)this + 1592, value);
+}
+// Member Getter and Setter of RoutinesBuildings
+// Declaration: TArray<struct FST_MultiplayerAnimalRoutineBuilding> RoutinesBuildings
+TArray<struct FST_MultiplayerAnimalRoutineBuilding> ABP_AnimalsManager_C::M_GetRoutinesBuildings() const {
+	return Read<TArray<struct FST_MultiplayerAnimalRoutineBuilding>>((byte*)this + 1600);
+}
+TArray<struct FST_MultiplayerAnimalRoutineBuilding>* ABP_AnimalsManager_C::M_PtrGetRoutinesBuildings() {
+	return reinterpret_cast<TArray<struct FST_MultiplayerAnimalRoutineBuilding>*>((byte*)this + 1600);
+}
+void ABP_AnimalsManager_C::M_SetRoutinesBuildings(const TArray<struct FST_MultiplayerAnimalRoutineBuilding>& value) {
+	Write((byte*)this + 1600, value);
+}
+// Member Getter and Setter of MultiplayerAnimalsUpdateTimer
+// Declaration: struct FTimerHandle MultiplayerAnimalsUpdateTimer
+struct FTimerHandle ABP_AnimalsManager_C::M_GetMultiplayerAnimalsUpdateTimer() const {
+	return Read<struct FTimerHandle>((byte*)this + 1616);
+}
+struct FTimerHandle* ABP_AnimalsManager_C::M_PtrGetMultiplayerAnimalsUpdateTimer() {
+	return reinterpret_cast<struct FTimerHandle*>((byte*)this + 1616);
+}
+void ABP_AnimalsManager_C::M_SetMultiplayerAnimalsUpdateTimer(const struct FTimerHandle& value) {
+	Write((byte*)this + 1616, value);
+}
+// Member Getter and Setter of MinDistanceFromPlayersToUpdateAnimals
+// Declaration: float MinDistanceFromPlayersToUpdateAnimals
+float ABP_AnimalsManager_C::M_GetMinDistanceFromPlayersToUpdateAnimals() const {
+	return Read<float>((byte*)this + 1624);
+}
+float* ABP_AnimalsManager_C::M_PtrGetMinDistanceFromPlayersToUpdateAnimals() {
+	return reinterpret_cast<float*>((byte*)this + 1624);
+}
+void ABP_AnimalsManager_C::M_SetMinDistanceFromPlayersToUpdateAnimals(const float& value) {
+	Write((byte*)this + 1624, value);
+}
+// Member Getter and Setter of MinDistanceFromPlayersToUpdateAnimalsIfNotLooking
+// Declaration: float MinDistanceFromPlayersToUpdateAnimalsIfNotLooking
+float ABP_AnimalsManager_C::M_GetMinDistanceFromPlayersToUpdateAnimalsIfNotLooking() const {
+	return Read<float>((byte*)this + 1628);
+}
+float* ABP_AnimalsManager_C::M_PtrGetMinDistanceFromPlayersToUpdateAnimalsIfNotLooking() {
+	return reinterpret_cast<float*>((byte*)this + 1628);
+}
+void ABP_AnimalsManager_C::M_SetMinDistanceFromPlayersToUpdateAnimalsIfNotLooking(const float& value) {
+	Write((byte*)this + 1628, value);
 }
 #pragma endregion
 #pragma region Functions
@@ -370,6 +414,21 @@ void ABP_AnimalsManager_C::ExecuteUbergraph_BP_AnimalsManager(int32_t EntryPoint
 	};
 	ABP_AnimalsManager_C_ExecuteUbergraph_BP_AnimalsManager_Params params;
 	params.EntryPoint = EntryPoint;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalsManager.BP_AnimalsManager_C.UpdateMultiplayerAnimals
+// Flags: BlueprintCallable, BlueprintEvent
+// Params:
+/////////////////////////////////////////////
+void ABP_AnimalsManager_C::UpdateMultiplayerAnimals() {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalsManager.BP_AnimalsManager_C.UpdateMultiplayerAnimals");
+
+	struct ABP_AnimalsManager_C_UpdateMultiplayerAnimals_Params {
+	};
+	ABP_AnimalsManager_C_UpdateMultiplayerAnimals_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -552,23 +611,8 @@ void ABP_AnimalsManager_C::SetNumberOfAnimalsInSpawners() {
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalsManager.BP_AnimalsManager_C.SetPlayerPawnReference
-// Flags: Public, BlueprintCallable, BlueprintEvent
-// Params:
-/////////////////////////////////////////////
-void ABP_AnimalsManager_C::SetPlayerPawnReference() {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalsManager.BP_AnimalsManager_C.SetPlayerPawnReference");
-
-	struct ABP_AnimalsManager_C_SetPlayerPawnReference_Params {
-	};
-	ABP_AnimalsManager_C_SetPlayerPawnReference_Params params;
-
-	UObject::ProcessEvent(fn, &params);
-}
-
-/////////////////////////////////////////////
 // Function BP_AnimalsManager.BP_AnimalsManager_C.SpawnHusbandryAnimals
-// Flags: Public, BlueprintCallable, BlueprintEvent
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: Name	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Count	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
@@ -579,8 +623,9 @@ void ABP_AnimalsManager_C::SetPlayerPawnReference() {
 // Name: RandomAge	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: RandomVariation	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
 // Name: Variation	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: SpawnedAnimals	Type: TArray<class ABP_AnimalBase_C*>	Flags: Parm, OutParm
 /////////////////////////////////////////////
-void ABP_AnimalsManager_C::SpawnHusbandryAnimals(struct FName Name, int32_t Count, TEnumAsByte<E_Ownership> Ownership, bool UseTransform_Home, struct FTransform SpawnTransform, class ABP_MasterBuilding_C* Home, bool RandomAge, bool RandomVariation, int32_t Variation) {
+void ABP_AnimalsManager_C::SpawnHusbandryAnimals(struct FName Name, int32_t Count, TEnumAsByte<E_Ownership> Ownership, bool UseTransform_Home, struct FTransform SpawnTransform, class ABP_MasterBuilding_C* Home, bool RandomAge, bool RandomVariation, int32_t Variation, TArray<class ABP_AnimalBase_C*>* SpawnedAnimals) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalsManager.BP_AnimalsManager_C.SpawnHusbandryAnimals");
 
 	struct ABP_AnimalsManager_C_SpawnHusbandryAnimals_Params {
@@ -593,6 +638,7 @@ void ABP_AnimalsManager_C::SpawnHusbandryAnimals(struct FName Name, int32_t Coun
 		bool RandomAge;			//Offset: 72 | ElementSize: 1
 		bool RandomVariation;			//Offset: 73 | ElementSize: 1
 		int32_t Variation;			//Offset: 76 | ElementSize: 4
+		TArray<class ABP_AnimalBase_C*> SpawnedAnimals;			//Offset: 80 | ElementSize: 16
 	};
 	ABP_AnimalsManager_C_SpawnHusbandryAnimals_Params params;
 	params.Name = Name;
@@ -606,6 +652,8 @@ void ABP_AnimalsManager_C::SpawnHusbandryAnimals(struct FName Name, int32_t Coun
 	params.Variation = Variation;
 
 	UObject::ProcessEvent(fn, &params);
+	if (SpawnedAnimals != nullptr)
+		*SpawnedAnimals = params.SpawnedAnimals;
 }
 
 /////////////////////////////////////////////
@@ -890,7 +938,7 @@ void ABP_AnimalsManager_C::FindClosestFishesPoints(struct FVector Location, floa
 
 /////////////////////////////////////////////
 // Function BP_AnimalsManager.BP_AnimalsManager_C.SpawnAnimalsToNeighborhoodBuilding
-// Flags: Public, BlueprintCallable, BlueprintEvent
+// Flags: Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: Ownership	Type: TEnumAsByte<E_Ownership>	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: ID	Type: struct FString	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, HasGetValueTypeHash
@@ -903,8 +951,11 @@ void ABP_AnimalsManager_C::FindClosestFishesPoints(struct FVector Location, floa
 // Name: FemaleCount	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: Male	Type: struct FName	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: MaleCount	Type: int32_t	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: SpawnedAnimals	Type: TArray<class ABP_AnimalBase_C*>	Flags: Parm, OutParm
+// Name: Building	Type: class ABP_MasterBuilding_C*	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Success	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_AnimalsManager_C::SpawnAnimalsToNeighborhoodBuilding(TEnumAsByte<E_Ownership> Ownership, struct FString ID, TEnumAsByte<E_AnimalType> Species, struct FName YoungFemale, int32_t YoungFemaleCount, struct FName YoungMale, int32_t YoungMaleCount, struct FName Female, int32_t FemaleCount, struct FName Male, int32_t MaleCount) {
+void ABP_AnimalsManager_C::SpawnAnimalsToNeighborhoodBuilding(TEnumAsByte<E_Ownership> Ownership, struct FString ID, TEnumAsByte<E_AnimalType> Species, struct FName YoungFemale, int32_t YoungFemaleCount, struct FName YoungMale, int32_t YoungMaleCount, struct FName Female, int32_t FemaleCount, struct FName Male, int32_t MaleCount, TArray<class ABP_AnimalBase_C*>* SpawnedAnimals, class ABP_MasterBuilding_C** Building, bool* Success) {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalsManager.BP_AnimalsManager_C.SpawnAnimalsToNeighborhoodBuilding");
 
 	struct ABP_AnimalsManager_C_SpawnAnimalsToNeighborhoodBuilding_Params {
@@ -919,6 +970,9 @@ void ABP_AnimalsManager_C::SpawnAnimalsToNeighborhoodBuilding(TEnumAsByte<E_Owne
 		int32_t FemaleCount;			//Offset: 60 | ElementSize: 4
 		struct FName Male;			//Offset: 64 | ElementSize: 8
 		int32_t MaleCount;			//Offset: 72 | ElementSize: 4
+		TArray<class ABP_AnimalBase_C*> SpawnedAnimals;			//Offset: 80 | ElementSize: 16
+		class ABP_MasterBuilding_C* Building;			//Offset: 96 | ElementSize: 8
+		bool Success;			//Offset: 104 | ElementSize: 1
 	};
 	ABP_AnimalsManager_C_SpawnAnimalsToNeighborhoodBuilding_Params params;
 	params.Ownership = Ownership;
@@ -934,11 +988,17 @@ void ABP_AnimalsManager_C::SpawnAnimalsToNeighborhoodBuilding(TEnumAsByte<E_Owne
 	params.MaleCount = MaleCount;
 
 	UObject::ProcessEvent(fn, &params);
+	if (SpawnedAnimals != nullptr)
+		*SpawnedAnimals = params.SpawnedAnimals;
+	if (Building != nullptr)
+		*Building = params.Building;
+	if (Success != nullptr)
+		*Success = params.Success;
 }
 
 /////////////////////////////////////////////
 // Function BP_AnimalsManager.BP_AnimalsManager_C.SpawnAnimalsToNeighborhoodBuildings
-// Flags: Public, BlueprintCallable, BlueprintEvent
+// Flags: Public, HasDefaults, BlueprintCallable, BlueprintEvent
 // Params:
 /////////////////////////////////////////////
 void ABP_AnimalsManager_C::SpawnAnimalsToNeighborhoodBuildings() {
@@ -989,7 +1049,7 @@ void ABP_AnimalsManager_C::GetAnimalDataByName(struct FName AnimalName, bool* Su
 	struct ABP_AnimalsManager_C_GetAnimalDataByName_Params {
 		struct FName AnimalName;			//Offset: 0 | ElementSize: 8
 		bool Success;			//Offset: 8 | ElementSize: 1
-		struct FST_Animal AnimalData;			//Offset: 16 | ElementSize: 184
+		struct FST_Animal AnimalData;			//Offset: 16 | ElementSize: 272
 	};
 	ABP_AnimalsManager_C_GetAnimalDataByName_Params params;
 	params.AnimalName = AnimalName;
@@ -1235,20 +1295,20 @@ void ABP_AnimalsManager_C::LoadDataSafely(TArray<struct FString>* Data, int32_t 
 }
 
 /////////////////////////////////////////////
-// Function BP_AnimalsManager.BP_AnimalsManager_C.UncoverSpawnerAnimal
+// Function BP_AnimalsManager.BP_AnimalsManager_C.Uncover Spawner Animal
 // Flags: Public, HasOutParms, BlueprintCallable, BlueprintEvent
 // Params:
 // Name: SpawnPointAnimal	Type: class ABP_SpawnPointWildAnimal_C*	Flags: BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 // Name: NewUncover	Type: bool	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
 /////////////////////////////////////////////
-void ABP_AnimalsManager_C::UncoverSpawnerAnimal(class ABP_SpawnPointWildAnimal_C** SpawnPointAnimal, bool* NewUncover) {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalsManager.BP_AnimalsManager_C.UncoverSpawnerAnimal");
+void ABP_AnimalsManager_C::Uncover_Spawner_Animal(class ABP_SpawnPointWildAnimal_C** SpawnPointAnimal, bool* NewUncover) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalsManager.BP_AnimalsManager_C.Uncover Spawner Animal");
 
-	struct ABP_AnimalsManager_C_UncoverSpawnerAnimal_Params {
+	struct ABP_AnimalsManager_C_Uncover_Spawner_Animal_Params {
 		class ABP_SpawnPointWildAnimal_C* SpawnPointAnimal;			//Offset: 0 | ElementSize: 8
 		bool NewUncover;			//Offset: 8 | ElementSize: 1
 	};
-	ABP_AnimalsManager_C_UncoverSpawnerAnimal_Params params;
+	ABP_AnimalsManager_C_Uncover_Spawner_Animal_Params params;
 
 	UObject::ProcessEvent(fn, &params);
 	if (SpawnPointAnimal != nullptr)
@@ -1321,6 +1381,68 @@ void ABP_AnimalsManager_C::InitThreadTask() {
 	struct ABP_AnimalsManager_C_InitThreadTask_Params {
 	};
 	ABP_AnimalsManager_C_InitThreadTask_Params params;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalsManager.BP_AnimalsManager_C.InitializeMultiplayerAnimalRoutines
+// Flags: Private, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: SpawnAnimals	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalsManager_C::InitializeMultiplayerAnimalRoutines(bool SpawnAnimals) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalsManager.BP_AnimalsManager_C.InitializeMultiplayerAnimalRoutines");
+
+	struct ABP_AnimalsManager_C_InitializeMultiplayerAnimalRoutines_Params {
+		bool SpawnAnimals;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalsManager_C_InitializeMultiplayerAnimalRoutines_Params params;
+	params.SpawnAnimals = SpawnAnimals;
+
+	UObject::ProcessEvent(fn, &params);
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalsManager.BP_AnimalsManager_C.CalculateAnimalLocation
+// Flags: Private, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: AnimalLocationData	Type: struct FST_MultiplayerAnimalLocation	Flags: BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Location	Type: struct FVector	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+// Name: Rotation	Type: struct FRotator	Flags: Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalsManager_C::CalculateAnimalLocation(struct FST_MultiplayerAnimalLocation AnimalLocationData, struct FVector* Location, struct FRotator* Rotation) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalsManager.BP_AnimalsManager_C.CalculateAnimalLocation");
+
+	struct ABP_AnimalsManager_C_CalculateAnimalLocation_Params {
+		struct FST_MultiplayerAnimalLocation AnimalLocationData;			//Offset: 0 | ElementSize: 32
+		struct FVector Location;			//Offset: 32 | ElementSize: 12
+		struct FRotator Rotation;			//Offset: 44 | ElementSize: 12
+	};
+	ABP_AnimalsManager_C_CalculateAnimalLocation_Params params;
+	params.AnimalLocationData = AnimalLocationData;
+
+	UObject::ProcessEvent(fn, &params);
+	if (Location != nullptr)
+		*Location = params.Location;
+	if (Rotation != nullptr)
+		*Rotation = params.Rotation;
+}
+
+/////////////////////////////////////////////
+// Function BP_AnimalsManager.BP_AnimalsManager_C.UpdateMultiplayerAnimalsLocations
+// Flags: Private, HasDefaults, BlueprintCallable, BlueprintEvent
+// Params:
+// Name: Force	Type: bool	Flags: BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor
+/////////////////////////////////////////////
+void ABP_AnimalsManager_C::UpdateMultiplayerAnimalsLocations(bool Force) {
+	static auto fn = UObject::FindObject<UFunction>("Function BP_AnimalsManager.BP_AnimalsManager_C.UpdateMultiplayerAnimalsLocations");
+
+	struct ABP_AnimalsManager_C_UpdateMultiplayerAnimalsLocations_Params {
+		bool Force;			//Offset: 0 | ElementSize: 1
+	};
+	ABP_AnimalsManager_C_UpdateMultiplayerAnimalsLocations_Params params;
+	params.Force = Force;
 
 	UObject::ProcessEvent(fn, &params);
 }

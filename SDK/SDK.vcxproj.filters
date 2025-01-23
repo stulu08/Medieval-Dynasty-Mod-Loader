@@ -4,14 +4,11 @@
     <Filter Include="Medieval_Dynasty">
       <UniqueIdentifier>{77AE6B3E-63A7-8A90-8CD9-6F1578316A9C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Medieval_Dynasty\AIC_Husbandry">
-      <UniqueIdentifier>{825B2BB2-6E81-F518-57C7-7AE4438C1AE5}</UniqueIdentifier>
+    <Filter Include="Medieval_Dynasty\BPI_Inventory">
+      <UniqueIdentifier>{CEB8EA65-BADE-B4CC-A324-3A988FE9D998}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Medieval_Dynasty\AIC_NPC">
-      <UniqueIdentifier>{D325ECCE-BF4A-3B4F-E895-20DFD4193A6D}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\AIC_NPC_Bandits">
-      <UniqueIdentifier>{77820769-63D3-F2AA-8C37-E16C78E78514}</UniqueIdentifier>
+    <Filter Include="Medieval_Dynasty\BPI_PC_Player">
+      <UniqueIdentifier>{1FD09CCA-0BF6-6631-F43B-ECFCE0008CFD}</UniqueIdentifier>
     </Filter>
     <Filter Include="Medieval_Dynasty\BP_AnimalBase">
       <UniqueIdentifier>{84DAF7DC-7000-C243-5946-470F450BE70F}</UniqueIdentifier>
@@ -34,23 +31,26 @@
     <Filter Include="Medieval_Dynasty\BP_CharacterStatsComponent">
       <UniqueIdentifier>{E6A61EBF-520C-B245-DBE4-531E4749A7B4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Medieval_Dynasty\BP_CombatComponent">
+      <UniqueIdentifier>{A0E3FBC0-0C9D-666B-95FC-804501B51CDB}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Medieval_Dynasty\BP_DataManager">
       <UniqueIdentifier>{2C52A9AB-9835-B8EB-A138-E6270D9B7E3C}</UniqueIdentifier>
     </Filter>
     <Filter Include="Medieval_Dynasty\BP_EventManager">
       <UniqueIdentifier>{14AA24CD-00FB-0F0F-295F-FED0150FA378}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Medieval_Dynasty\BP_FlyingAnimalBase">
-      <UniqueIdentifier>{8D901C8F-7977-DE86-22C8-44A40E8E57ED}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Medieval_Dynasty\BP_MasterHoldableItem">
-      <UniqueIdentifier>{0D468F3A-F997-662A-E2B6-A33ACEA77F13}</UniqueIdentifier>
+    <Filter Include="Medieval_Dynasty\BP_MasterBuilding">
+      <UniqueIdentifier>{11B1E8F8-FDEC-EB62-66FF-035A525A947D}</UniqueIdentifier>
     </Filter>
     <Filter Include="Medieval_Dynasty\BP_MasterItem">
       <UniqueIdentifier>{52405482-3E66-1EE9-27AC-A3B4137143B5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Medieval_Dynasty\BP_MasterManager">
       <UniqueIdentifier>{BE314E7D-2AA0-A3FC-7389-5EFCDF369998}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medieval_Dynasty\BP_MasterProjectile">
+      <UniqueIdentifier>{94507AA2-8037-3C9A-2988-A2B7154EB500}</UniqueIdentifier>
     </Filter>
     <Filter Include="Medieval_Dynasty\BP_NPC">
       <UniqueIdentifier>{389A18CB-A4D1-6062-ADDB-C4851992875B}</UniqueIdentifier>
@@ -73,6 +73,9 @@
     <Filter Include="Medieval_Dynasty\BP_PlayerCharacter">
       <UniqueIdentifier>{71F3C106-DDAC-2CB1-660C-478BD2C4E220}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Medieval_Dynasty\BP_PlayerManager">
+      <UniqueIdentifier>{7F689039-EBD6-E5B8-34C0-A0B8A06DDB54}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Medieval_Dynasty\BP_QuestManager">
       <UniqueIdentifier>{648A9ED9-50DB-891B-793F-78DD65EF1C85}</UniqueIdentifier>
     </Filter>
@@ -81,6 +84,9 @@
     </Filter>
     <Filter Include="Medieval_Dynasty\BP_TimeManager">
       <UniqueIdentifier>{C16B69A3-2D4F-78E3-3652-A61FA2B43E34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medieval_Dynasty\BP_WeaponDamageComponent">
+      <UniqueIdentifier>{531119C5-BF2B-7C66-084E-8CFA74A7A36D}</UniqueIdentifier>
     </Filter>
     <Filter Include="Medieval_Dynasty\BP_WeatherComponent">
       <UniqueIdentifier>{5A204874-4607-0A6C-EF57-7089DB1D83D2}</UniqueIdentifier>
@@ -118,6 +124,18 @@
     <Filter Include="UE4\AdsMountingSystem">
       <UniqueIdentifier>{30B2C025-9C1E-7C20-6512-147ED13D9E88}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UE4\AnimGraphLibrary">
+      <UniqueIdentifier>{0E1C890D-FAAA-12D7-A3C9-26D28F37237D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\AnimGraphRuntime">
+      <UniqueIdentifier>{3DD03EF8-295F-C8C1-D27D-DCBCBEEBD867}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\AnimPhysics">
+      <UniqueIdentifier>{EA8BE8E5-5617-56AA-5F28-D99ECB32B2AA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\AnimationCore">
+      <UniqueIdentifier>{EB27E5F8-573E-E38E-A0B5-6EB00C0BB416}</UniqueIdentifier>
+    </Filter>
     <Filter Include="UE4\Chaos">
       <UniqueIdentifier>{F0599A62-5CC4-4ED9-A502-007F11AC2C2E}</UniqueIdentifier>
     </Filter>
@@ -132,6 +150,9 @@
     </Filter>
     <Filter Include="UE4\Engine">
       <UniqueIdentifier>{B8ACFFBA-A464-4108-0D6C-1A64F942DCF8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UE4\Foliage">
+      <UniqueIdentifier>{F9EC9E6A-65A2-1760-EE96-11375A4B0E64}</UniqueIdentifier>
     </Filter>
     <Filter Include="UE4\Math">
       <UniqueIdentifier>{4CFECB29-38CB-2635-61E4-14DD4D105CC3}</UniqueIdentifier>
@@ -159,32 +180,23 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Medieval_Dynasty\AIC_Husbandry\AIC_Husbandry_C.h">
-      <Filter>Medieval_Dynasty\AIC_Husbandry</Filter>
+    <ClInclude Include="src\Medieval_Dynasty\BPI_Inventory\BPI_Inventory_C.h">
+      <Filter>Medieval_Dynasty\BPI_Inventory</Filter>
     </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\AIC_Husbandry\AIC_Husbandry_SDK.h">
-      <Filter>Medieval_Dynasty\AIC_Husbandry</Filter>
+    <ClInclude Include="src\Medieval_Dynasty\BPI_Inventory\BPI_Inventory_SDK.h">
+      <Filter>Medieval_Dynasty\BPI_Inventory</Filter>
     </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\AIC_Husbandry\Structs.h">
-      <Filter>Medieval_Dynasty\AIC_Husbandry</Filter>
+    <ClInclude Include="src\Medieval_Dynasty\BPI_Inventory\Structs.h">
+      <Filter>Medieval_Dynasty\BPI_Inventory</Filter>
     </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\AIC_NPC\AIC_NPC_C.h">
-      <Filter>Medieval_Dynasty\AIC_NPC</Filter>
+    <ClInclude Include="src\Medieval_Dynasty\BPI_PC_Player\BPI_PC_Player_C.h">
+      <Filter>Medieval_Dynasty\BPI_PC_Player</Filter>
     </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\AIC_NPC\AIC_NPC_SDK.h">
-      <Filter>Medieval_Dynasty\AIC_NPC</Filter>
+    <ClInclude Include="src\Medieval_Dynasty\BPI_PC_Player\BPI_PC_Player_SDK.h">
+      <Filter>Medieval_Dynasty\BPI_PC_Player</Filter>
     </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\AIC_NPC\Structs.h">
-      <Filter>Medieval_Dynasty\AIC_NPC</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\AIC_NPC_Bandits\AIC_NPC_Bandits_C.h">
-      <Filter>Medieval_Dynasty\AIC_NPC_Bandits</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\AIC_NPC_Bandits\AIC_NPC_Bandits_SDK.h">
-      <Filter>Medieval_Dynasty\AIC_NPC_Bandits</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\AIC_NPC_Bandits\Structs.h">
-      <Filter>Medieval_Dynasty\AIC_NPC_Bandits</Filter>
+    <ClInclude Include="src\Medieval_Dynasty\BPI_PC_Player\Structs.h">
+      <Filter>Medieval_Dynasty\BPI_PC_Player</Filter>
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\BP_AnimalBase\BP_AnimalBase_C.h">
       <Filter>Medieval_Dynasty\BP_AnimalBase</Filter>
@@ -249,6 +261,15 @@
     <ClInclude Include="src\Medieval_Dynasty\BP_CharacterStatsComponent\Structs.h">
       <Filter>Medieval_Dynasty\BP_CharacterStatsComponent</Filter>
     </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_CombatComponent\BP_CombatComponent_C.h">
+      <Filter>Medieval_Dynasty\BP_CombatComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_CombatComponent\BP_CombatComponent_SDK.h">
+      <Filter>Medieval_Dynasty\BP_CombatComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_CombatComponent\Structs.h">
+      <Filter>Medieval_Dynasty\BP_CombatComponent</Filter>
+    </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\BP_DataManager\BP_DataManager_C.h">
       <Filter>Medieval_Dynasty\BP_DataManager</Filter>
     </ClInclude>
@@ -270,23 +291,14 @@
     <ClInclude Include="src\Medieval_Dynasty\BP_EventManager\Structs.h">
       <Filter>Medieval_Dynasty\BP_EventManager</Filter>
     </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\BP_FlyingAnimalBase\BP_FlyingAnimalBase_C.h">
-      <Filter>Medieval_Dynasty\BP_FlyingAnimalBase</Filter>
+    <ClInclude Include="src\Medieval_Dynasty\BP_MasterBuilding\BP_MasterBuilding_C.h">
+      <Filter>Medieval_Dynasty\BP_MasterBuilding</Filter>
     </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\BP_FlyingAnimalBase\BP_FlyingAnimalBase_SDK.h">
-      <Filter>Medieval_Dynasty\BP_FlyingAnimalBase</Filter>
+    <ClInclude Include="src\Medieval_Dynasty\BP_MasterBuilding\BP_MasterBuilding_SDK.h">
+      <Filter>Medieval_Dynasty\BP_MasterBuilding</Filter>
     </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\BP_FlyingAnimalBase\Structs.h">
-      <Filter>Medieval_Dynasty\BP_FlyingAnimalBase</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\BP_MasterHoldableItem\BP_MasterHoldableItem_C.h">
-      <Filter>Medieval_Dynasty\BP_MasterHoldableItem</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\BP_MasterHoldableItem\BP_MasterHoldableItem_SDK.h">
-      <Filter>Medieval_Dynasty\BP_MasterHoldableItem</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\BP_MasterHoldableItem\Structs.h">
-      <Filter>Medieval_Dynasty\BP_MasterHoldableItem</Filter>
+    <ClInclude Include="src\Medieval_Dynasty\BP_MasterBuilding\Structs.h">
+      <Filter>Medieval_Dynasty\BP_MasterBuilding</Filter>
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\BP_MasterItem\BP_MasterItem_C.h">
       <Filter>Medieval_Dynasty\BP_MasterItem</Filter>
@@ -305,6 +317,15 @@
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\BP_MasterManager\Structs.h">
       <Filter>Medieval_Dynasty\BP_MasterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_MasterProjectile\BP_MasterProjectile_C.h">
+      <Filter>Medieval_Dynasty\BP_MasterProjectile</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_MasterProjectile\BP_MasterProjectile_SDK.h">
+      <Filter>Medieval_Dynasty\BP_MasterProjectile</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_MasterProjectile\Structs.h">
+      <Filter>Medieval_Dynasty\BP_MasterProjectile</Filter>
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\BP_NPC\BP_NPC_C.h">
       <Filter>Medieval_Dynasty\BP_NPC</Filter>
@@ -369,6 +390,15 @@
     <ClInclude Include="src\Medieval_Dynasty\BP_PlayerCharacter\Structs.h">
       <Filter>Medieval_Dynasty\BP_PlayerCharacter</Filter>
     </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_PlayerManager\BP_PlayerManager_C.h">
+      <Filter>Medieval_Dynasty\BP_PlayerManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_PlayerManager\BP_PlayerManager_SDK.h">
+      <Filter>Medieval_Dynasty\BP_PlayerManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_PlayerManager\Structs.h">
+      <Filter>Medieval_Dynasty\BP_PlayerManager</Filter>
+    </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\BP_QuestManager\BP_QuestManager_C.h">
       <Filter>Medieval_Dynasty\BP_QuestManager</Filter>
     </ClInclude>
@@ -398,6 +428,15 @@
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\BP_TimeManager\Structs.h">
       <Filter>Medieval_Dynasty\BP_TimeManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_WeaponDamageComponent\BP_WeaponDamageComponent_C.h">
+      <Filter>Medieval_Dynasty\BP_WeaponDamageComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_WeaponDamageComponent\BP_WeaponDamageComponent_SDK.h">
+      <Filter>Medieval_Dynasty\BP_WeaponDamageComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\BP_WeaponDamageComponent\Structs.h">
+      <Filter>Medieval_Dynasty\BP_WeaponDamageComponent</Filter>
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\BP_WeatherComponent\BP_WeatherComponent_C.h">
       <Filter>Medieval_Dynasty\BP_WeatherComponent</Filter>
@@ -459,19 +498,25 @@
     <ClInclude Include="src\Medieval_Dynasty\InventoryComponent\Structs.h">
       <Filter>Medieval_Dynasty\InventoryComponent</Filter>
     </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\AnimInstanceAnimal.h">
-      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\AnimInstanceCharacter.h">
-      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\AnimInstanceFlyingAnimal.h">
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\AnimInstanceGroundAnimal.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\AnimalBase.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\ArrayReplicationManager.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\AttackInterface.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppActivity.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppAnimOperations.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppChatter.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppHelperFunctions.h">
@@ -480,25 +525,130 @@
     <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppMathOperations.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\Boost.h">
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\BaseField.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\CAchievementQueryCallbackProxy.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\CAchievementWriteCallbackProxy.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\CLeaderboardBlueprintLibrary.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\CLeaderboardQueryCallbackProxy.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\CPPI_PlayerState.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\CShowLoginUICallbackProxy.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\CharacterBase.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\CheckMultiplayerPrivilegeCallbackProxy.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\ChromaWrapper.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\FoliageCollisionActor.h">
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\CollisionComponent.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\FoliageInstancedResource.h">
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\CreateSessionCustomCallProxy.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\CrestManager.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\CustomEvent.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\CustomEventCondition.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\CustomEventDA.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\CustomEventNode.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\DamageTypeBleeding.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\DamageTypeFire.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\DamageTypeImpact.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\DamageTypePoison.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\DamageTypeWeapon.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\DamageTypeWeaponBludgeoning.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\DamageTypeWeaponPiercing.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\DamageTypeWeaponSlashing.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\DestroySessionCustomCallProxy.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\EventManager.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\FindSessionCustomCallProxy.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\FoliageTest.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\GI_MedievalDynastyBase.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\GetLoginStatusCallbackProxy.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\HealthInterface.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\HitInterface.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\InterpComp.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\JoinSessionCustomCallProxy.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\LandscapeManager.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\LandscapeSubManager.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\LatentActionLibrary.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\LoginCallbackProxy.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\MDSerializationBPLibrary.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\MD_CheatManager.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\MD_PlayerController.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\MD_PlayerState.h">
@@ -507,10 +657,52 @@
     <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\MD_SpringArmComponent.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\MaterialPlatformSwitch.h">
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\Medieval_Dynasty_SDK.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
-    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\Medieval_Dynasty_SDK.h">
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\NetAdressableActor.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\PerceptionComponent.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\PerceptionSense.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\PerceptionSenseDamage.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\PerceptionSenseHearing.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\PerceptionSenseReport.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\PerceptionSenseSight.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\PerceptionStimuliSourceComponent.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\PerceptionSubsystem.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\ProfanityFilter.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\QueryBlockedPlayersCallbackProxy.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\QueryUserPrivacySettingsForUsersProxy.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\RelationsComponentBase.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\RepActor.h">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\StatsComponentBase.h">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClInclude>
     <ClInclude Include="src\Medieval_Dynasty\Medieval_Dynasty\Structs.h">
@@ -574,6 +766,54 @@
     </ClInclude>
     <ClInclude Include="src\UE4\AdsMountingSystem\Structs.h">
       <Filter>UE4\AdsMountingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AnimGraphLibrary\AnimGraphLibrary_SDK.h">
+      <Filter>UE4\AnimGraphLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AnimGraphLibrary\Structs.h">
+      <Filter>UE4\AnimGraphLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AnimGraphRuntime\AnimGraphRuntime_SDK.h">
+      <Filter>UE4\AnimGraphRuntime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AnimGraphRuntime\AnimNotify_PlayMontageNotify.h">
+      <Filter>UE4\AnimGraphRuntime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AnimGraphRuntime\AnimNotify_PlayMontageNotifyWindow.h">
+      <Filter>UE4\AnimGraphRuntime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AnimGraphRuntime\AnimSequencerInstance.h">
+      <Filter>UE4\AnimGraphRuntime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AnimGraphRuntime\KismetAnimationLibrary.h">
+      <Filter>UE4\AnimGraphRuntime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AnimGraphRuntime\PlayMontageCallbackProxy.h">
+      <Filter>UE4\AnimGraphRuntime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AnimGraphRuntime\SequencerAnimationSupport.h">
+      <Filter>UE4\AnimGraphRuntime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AnimGraphRuntime\Structs.h">
+      <Filter>UE4\AnimGraphRuntime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AnimPhysics\AnimPhysicsLimitsDataAsset.h">
+      <Filter>UE4\AnimPhysics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AnimPhysics\AnimPhysics_SDK.h">
+      <Filter>UE4\AnimPhysics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AnimPhysics\Structs.h">
+      <Filter>UE4\AnimPhysics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AnimationCore\AnimationCore_SDK.h">
+      <Filter>UE4\AnimationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AnimationCore\AnimationDataSourceRegistry.h">
+      <Filter>UE4\AnimationCore</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\AnimationCore\Structs.h">
+      <Filter>UE4\AnimationCore</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Chaos\Chaos_SDK.h">
       <Filter>UE4\Chaos</Filter>
@@ -647,6 +887,12 @@
     <ClInclude Include="src\UE4\Engine\AnimInstance.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="src\UE4\Engine\AnimNotify.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\AnimNotifyState.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
     <ClInclude Include="src\UE4\Engine\BlueprintAsyncActionBase.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
@@ -668,10 +914,22 @@
     <ClInclude Include="src\UE4\Engine\BlueprintSetLibrary.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="src\UE4\Engine\Brush.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
     <ClInclude Include="src\UE4\Engine\Character.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="src\UE4\Engine\CheatManager.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
     <ClInclude Include="src\UE4\Engine\Controller.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\DamageType.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\DataAsset.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Engine\DataTable.h">
@@ -684,6 +942,9 @@
       <Filter>UE4\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Engine\GameInstance.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\GameInstanceSubsystem.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Engine\GameMode.h">
@@ -701,7 +962,13 @@
     <ClInclude Include="src\UE4\Engine\GameStateBase.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="src\UE4\Engine\HierarchicalInstancedStaticMeshComponent.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
     <ClInclude Include="src\UE4\Engine\Info.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\InstancedStaticMeshComponent.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Engine\KismetArrayLibrary.h">
@@ -753,6 +1020,9 @@
       <Filter>UE4\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Engine\ObjectLibrary.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Engine\OnlineBlueprintCallProxyBase.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Engine\Pawn.h">
@@ -821,6 +1091,9 @@
     <ClInclude Include="src\UE4\Engine\Structs.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="src\UE4\Engine\Subsystem.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
     <ClInclude Include="src\UE4\Engine\SubsystemBlueprintLibrary.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
@@ -830,8 +1103,53 @@
     <ClInclude Include="src\UE4\Engine\UserDefinedStruct.h">
       <Filter>UE4\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="src\UE4\Engine\Volume.h">
+      <Filter>UE4\Engine</Filter>
+    </ClInclude>
     <ClInclude Include="src\UE4\Engine\World.h">
       <Filter>UE4\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Foliage\FoliageInstancedStaticMeshComponent.h">
+      <Filter>UE4\Foliage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Foliage\FoliageStatistics.h">
+      <Filter>UE4\Foliage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Foliage\FoliageType.h">
+      <Filter>UE4\Foliage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Foliage\FoliageType_Actor.h">
+      <Filter>UE4\Foliage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Foliage\Foliage_SDK.h">
+      <Filter>UE4\Foliage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Foliage\InstancedFoliageActor.h">
+      <Filter>UE4\Foliage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Foliage\InteractiveFoliageActor.h">
+      <Filter>UE4\Foliage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Foliage\InteractiveFoliageComponent.h">
+      <Filter>UE4\Foliage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Foliage\ProceduralFoliageBlockingVolume.h">
+      <Filter>UE4\Foliage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Foliage\ProceduralFoliageComponent.h">
+      <Filter>UE4\Foliage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Foliage\ProceduralFoliageSpawner.h">
+      <Filter>UE4\Foliage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Foliage\ProceduralFoliageTile.h">
+      <Filter>UE4\Foliage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Foliage\ProceduralFoliageVolume.h">
+      <Filter>UE4\Foliage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UE4\Foliage\Structs.h">
+      <Filter>UE4\Foliage</Filter>
     </ClInclude>
     <ClInclude Include="src\UE4\Math\Box.h">
       <Filter>UE4\Math</Filter>
@@ -1357,14 +1675,11 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Medieval_Dynasty\AIC_Husbandry\AIC_Husbandry_C.cpp">
-      <Filter>Medieval_Dynasty\AIC_Husbandry</Filter>
+    <ClCompile Include="src\Medieval_Dynasty\BPI_Inventory\BPI_Inventory_C.cpp">
+      <Filter>Medieval_Dynasty\BPI_Inventory</Filter>
     </ClCompile>
-    <ClCompile Include="src\Medieval_Dynasty\AIC_NPC\AIC_NPC_C.cpp">
-      <Filter>Medieval_Dynasty\AIC_NPC</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Medieval_Dynasty\AIC_NPC_Bandits\AIC_NPC_Bandits_C.cpp">
-      <Filter>Medieval_Dynasty\AIC_NPC_Bandits</Filter>
+    <ClCompile Include="src\Medieval_Dynasty\BPI_PC_Player\BPI_PC_Player_C.cpp">
+      <Filter>Medieval_Dynasty\BPI_PC_Player</Filter>
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\BP_AnimalBase\BP_AnimalBase_C.cpp">
       <Filter>Medieval_Dynasty\BP_AnimalBase</Filter>
@@ -1387,23 +1702,26 @@
     <ClCompile Include="src\Medieval_Dynasty\BP_CharacterStatsComponent\BP_CharacterStatsComponent_C.cpp">
       <Filter>Medieval_Dynasty\BP_CharacterStatsComponent</Filter>
     </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\BP_CombatComponent\BP_CombatComponent_C.cpp">
+      <Filter>Medieval_Dynasty\BP_CombatComponent</Filter>
+    </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\BP_DataManager\BP_DataManager_C.cpp">
       <Filter>Medieval_Dynasty\BP_DataManager</Filter>
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\BP_EventManager\BP_EventManager_C.cpp">
       <Filter>Medieval_Dynasty\BP_EventManager</Filter>
     </ClCompile>
-    <ClCompile Include="src\Medieval_Dynasty\BP_FlyingAnimalBase\BP_FlyingAnimalBase_C.cpp">
-      <Filter>Medieval_Dynasty\BP_FlyingAnimalBase</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Medieval_Dynasty\BP_MasterHoldableItem\BP_MasterHoldableItem_C.cpp">
-      <Filter>Medieval_Dynasty\BP_MasterHoldableItem</Filter>
+    <ClCompile Include="src\Medieval_Dynasty\BP_MasterBuilding\BP_MasterBuilding_C.cpp">
+      <Filter>Medieval_Dynasty\BP_MasterBuilding</Filter>
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\BP_MasterItem\BP_MasterItem_C.cpp">
       <Filter>Medieval_Dynasty\BP_MasterItem</Filter>
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\BP_MasterManager\BP_MasterManager_C.cpp">
       <Filter>Medieval_Dynasty\BP_MasterManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\BP_MasterProjectile\BP_MasterProjectile_C.cpp">
+      <Filter>Medieval_Dynasty\BP_MasterProjectile</Filter>
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\BP_NPC\BP_NPC_C.cpp">
       <Filter>Medieval_Dynasty\BP_NPC</Filter>
@@ -1426,6 +1744,9 @@
     <ClCompile Include="src\Medieval_Dynasty\BP_PlayerCharacter\BP_PlayerCharacter_C.cpp">
       <Filter>Medieval_Dynasty\BP_PlayerCharacter</Filter>
     </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\BP_PlayerManager\BP_PlayerManager_C.cpp">
+      <Filter>Medieval_Dynasty\BP_PlayerManager</Filter>
+    </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\BP_QuestManager\BP_QuestManager_C.cpp">
       <Filter>Medieval_Dynasty\BP_QuestManager</Filter>
     </ClCompile>
@@ -1434,6 +1755,9 @@
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\BP_TimeManager\BP_TimeManager_C.cpp">
       <Filter>Medieval_Dynasty\BP_TimeManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\BP_WeaponDamageComponent\BP_WeaponDamageComponent_C.cpp">
+      <Filter>Medieval_Dynasty\BP_WeaponDamageComponent</Filter>
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\BP_WeatherComponent\BP_WeatherComponent_C.cpp">
       <Filter>Medieval_Dynasty\BP_WeatherComponent</Filter>
@@ -1453,19 +1777,25 @@
     <ClCompile Include="src\Medieval_Dynasty\InventoryComponent\InventoryComponent_C.cpp">
       <Filter>Medieval_Dynasty\InventoryComponent</Filter>
     </ClCompile>
-    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\AnimInstanceAnimal.cpp">
-      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\AnimInstanceCharacter.cpp">
-      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\AnimInstanceFlyingAnimal.cpp">
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\AnimInstanceGroundAnimal.cpp">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\AnimalBase.cpp">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\ArrayReplicationManager.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\AttackInterface.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppActivity.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppAnimOperations.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppChatter.cpp">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppHelperFunctions.cpp">
@@ -1474,25 +1804,130 @@
     <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\BPCppMathOperations.cpp">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClCompile>
-    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\Boost.cpp">
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\BaseField.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\CAchievementQueryCallbackProxy.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\CAchievementWriteCallbackProxy.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\CLeaderboardBlueprintLibrary.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\CLeaderboardQueryCallbackProxy.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\CPPI_PlayerState.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\CShowLoginUICallbackProxy.cpp">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\CharacterBase.cpp">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\CheckMultiplayerPrivilegeCallbackProxy.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\ChromaWrapper.cpp">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClCompile>
-    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\FoliageCollisionActor.cpp">
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\CollisionComponent.cpp">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClCompile>
-    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\FoliageInstancedResource.cpp">
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\CreateSessionCustomCallProxy.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\CrestManager.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\CustomEvent.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\CustomEventCondition.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\CustomEventDA.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\CustomEventNode.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\DamageTypeBleeding.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\DamageTypeFire.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\DamageTypeImpact.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\DamageTypePoison.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\DamageTypeWeapon.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\DamageTypeWeaponBludgeoning.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\DamageTypeWeaponPiercing.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\DamageTypeWeaponSlashing.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\DestroySessionCustomCallProxy.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\EventManager.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\FindSessionCustomCallProxy.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\FoliageTest.cpp">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\GI_MedievalDynastyBase.cpp">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\GetLoginStatusCallbackProxy.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\HealthInterface.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\HitInterface.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\InterpComp.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\JoinSessionCustomCallProxy.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\LandscapeManager.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\LandscapeSubManager.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\LatentActionLibrary.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\LoginCallbackProxy.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\MDSerializationBPLibrary.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\MD_CheatManager.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\MD_PlayerController.cpp">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\MD_PlayerState.cpp">
@@ -1501,7 +1936,49 @@
     <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\MD_SpringArmComponent.cpp">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClCompile>
-    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\MaterialPlatformSwitch.cpp">
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\NetAdressableActor.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\PerceptionComponent.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\PerceptionSense.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\PerceptionSenseDamage.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\PerceptionSenseHearing.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\PerceptionSenseReport.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\PerceptionSenseSight.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\PerceptionStimuliSourceComponent.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\PerceptionSubsystem.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\ProfanityFilter.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\QueryBlockedPlayersCallbackProxy.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\QueryUserPrivacySettingsForUsersProxy.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\RelationsComponentBase.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\RepActor.cpp">
+      <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\StatsComponentBase.cpp">
       <Filter>Medieval_Dynasty\Medieval_Dynasty</Filter>
     </ClCompile>
     <ClCompile Include="src\Medieval_Dynasty\PC_Player\PC_Player_C.cpp">
@@ -1544,6 +2021,30 @@
     <ClCompile Include="src\UE4\AdsMountingSystem\RiderControllerInterface.cpp">
       <Filter>UE4\AdsMountingSystem</Filter>
     </ClCompile>
+    <ClCompile Include="src\UE4\AnimGraphRuntime\AnimNotify_PlayMontageNotify.cpp">
+      <Filter>UE4\AnimGraphRuntime</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AnimGraphRuntime\AnimNotify_PlayMontageNotifyWindow.cpp">
+      <Filter>UE4\AnimGraphRuntime</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AnimGraphRuntime\AnimSequencerInstance.cpp">
+      <Filter>UE4\AnimGraphRuntime</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AnimGraphRuntime\KismetAnimationLibrary.cpp">
+      <Filter>UE4\AnimGraphRuntime</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AnimGraphRuntime\PlayMontageCallbackProxy.cpp">
+      <Filter>UE4\AnimGraphRuntime</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AnimGraphRuntime\SequencerAnimationSupport.cpp">
+      <Filter>UE4\AnimGraphRuntime</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AnimPhysics\AnimPhysicsLimitsDataAsset.cpp">
+      <Filter>UE4\AnimPhysics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\AnimationCore\AnimationDataSourceRegistry.cpp">
+      <Filter>UE4\AnimationCore</Filter>
+    </ClCompile>
     <ClCompile Include="src\UE4\CoreUObject\Class.cpp">
       <Filter>UE4\CoreUObject</Filter>
     </ClCompile>
@@ -1568,6 +2069,12 @@
     <ClCompile Include="src\UE4\Engine\AnimInstance.cpp">
       <Filter>UE4\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\UE4\Engine\AnimNotify.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\AnimNotifyState.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="src\UE4\Engine\BlueprintAsyncActionBase.cpp">
       <Filter>UE4\Engine</Filter>
     </ClCompile>
@@ -1586,7 +2093,16 @@
     <ClCompile Include="src\UE4\Engine\Character.cpp">
       <Filter>UE4\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\UE4\Engine\CheatManager.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="src\UE4\Engine\Controller.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\DamageType.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\DataAsset.cpp">
       <Filter>UE4\Engine</Filter>
     </ClCompile>
     <ClCompile Include="src\UE4\Engine\DataTable.cpp">
@@ -1607,7 +2123,13 @@
     <ClCompile Include="src\UE4\Engine\GameStateBase.cpp">
       <Filter>UE4\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\UE4\Engine\HierarchicalInstancedStaticMeshComponent.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="src\UE4\Engine\Info.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\InstancedStaticMeshComponent.cpp">
       <Filter>UE4\Engine</Filter>
     </ClCompile>
     <ClCompile Include="src\UE4\Engine\KismetArrayLibrary.cpp">
@@ -1656,6 +2178,9 @@
       <Filter>UE4\Engine</Filter>
     </ClCompile>
     <ClCompile Include="src\UE4\Engine\ObjectLibrary.cpp">
+      <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Engine\OnlineBlueprintCallProxyBase.cpp">
       <Filter>UE4\Engine</Filter>
     </ClCompile>
     <ClCompile Include="src\UE4\Engine\Pawn.cpp">
@@ -1726,6 +2251,42 @@
     </ClCompile>
     <ClCompile Include="src\UE4\Engine\World.cpp">
       <Filter>UE4\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Foliage\FoliageInstancedStaticMeshComponent.cpp">
+      <Filter>UE4\Foliage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Foliage\FoliageStatistics.cpp">
+      <Filter>UE4\Foliage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Foliage\FoliageType.cpp">
+      <Filter>UE4\Foliage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Foliage\FoliageType_Actor.cpp">
+      <Filter>UE4\Foliage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Foliage\InstancedFoliageActor.cpp">
+      <Filter>UE4\Foliage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Foliage\InteractiveFoliageActor.cpp">
+      <Filter>UE4\Foliage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Foliage\InteractiveFoliageComponent.cpp">
+      <Filter>UE4\Foliage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Foliage\ProceduralFoliageBlockingVolume.cpp">
+      <Filter>UE4\Foliage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Foliage\ProceduralFoliageComponent.cpp">
+      <Filter>UE4\Foliage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Foliage\ProceduralFoliageSpawner.cpp">
+      <Filter>UE4\Foliage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Foliage\ProceduralFoliageTile.cpp">
+      <Filter>UE4\Foliage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UE4\Foliage\ProceduralFoliageVolume.cpp">
+      <Filter>UE4\Foliage</Filter>
     </ClCompile>
     <ClCompile Include="src\UE4\MovieScene\MovieScene.cpp">
       <Filter>UE4\MovieScene</Filter>

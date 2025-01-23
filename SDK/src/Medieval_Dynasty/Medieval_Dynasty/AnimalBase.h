@@ -4,172 +4,157 @@
 /////////////////////////////////////////////
 // Class Medieval_Dynasty.AnimalBase
 // Super: Class Engine.Character
-// Size: 1408
+// Size: 1664
 // Size inherited: 1216
 /////////////////////////////////////////////
 namespace UE4 {
 class AAnimalBase : public ACharacter {
 public:
 #pragma region Members
-	//struct FVector	Velocity;		//Offset: 1208	Size: 12	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	struct FVector M_GetVelocity() const;
-	struct FVector* M_PtrGetVelocity();
-	void M_SetVelocity(const struct FVector& value);
+	//struct FVector_NetQuantize	replicatedVelocity;		//Offset: 1232	Size: 12	Flags: Net, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+	struct FVector_NetQuantize M_GetreplicatedVelocity() const;
+	struct FVector_NetQuantize* M_PtrGetreplicatedVelocity();
+	void M_SetreplicatedVelocity(const struct FVector_NetQuantize& value);
 
-	//float	Speed;		//Offset: 1220	Size: 4	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	float M_GetSpeed() const;
-	float* M_PtrGetSpeed();
-	void M_SetSpeed(const float& value);
+	//EAnimalMovementMode	replicatedAnimalMovementMode;		//Offset: 1244	Size: 1	Flags: Net, ZeroConstructor, IsPlainOldData, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+	EAnimalMovementMode M_GetreplicatedAnimalMovementMode() const;
+	EAnimalMovementMode* M_PtrGetreplicatedAnimalMovementMode();
+	void M_SetreplicatedAnimalMovementMode(const EAnimalMovementMode& value);
 
-	//struct FVector	previousVelocity;		//Offset: 1224	Size: 12	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	struct FVector M_GetpreviousVelocity() const;
-	struct FVector* M_PtrGetpreviousVelocity();
-	void M_SetpreviousVelocity(const struct FVector& value);
+	//EAnimalIdleType	replicatedCurrentIdleType;		//Offset: 1245	Size: 1	Flags: Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+	EAnimalIdleType M_GetreplicatedCurrentIdleType() const;
+	EAnimalIdleType* M_PtrGetreplicatedCurrentIdleType();
+	void M_SetreplicatedCurrentIdleType(const EAnimalIdleType& value);
 
-	//float	targetMaxWalkSpeed;		//Offset: 1236	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	float M_GettargetMaxWalkSpeed() const;
-	float* M_PtrGettargetMaxWalkSpeed();
-	void M_SettargetMaxWalkSpeed(const float& value);
+	//bool	replicatedHasMovedRecently;		//Offset: 1246	Size: 1	Flags: Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+	bool M_GetreplicatedHasMovedRecently() const;
+	bool* M_PtrGetreplicatedHasMovedRecently();
+	void M_SetreplicatedHasMovedRecently(const bool& value);
 
-	//float	slopeSpeedMultiplier;		//Offset: 1240	Size: 4	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	float M_GetslopeSpeedMultiplier() const;
-	float* M_PtrGetslopeSpeedMultiplier();
-	void M_SetslopeSpeedMultiplier(const float& value);
+	//struct FVector_NetQuantize	replicatedLocation;		//Offset: 1248	Size: 12	Flags: Net, RepNotify, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+	struct FVector_NetQuantize M_GetreplicatedLocation() const;
+	struct FVector_NetQuantize* M_PtrGetreplicatedLocation();
+	void M_SetreplicatedLocation(const struct FVector_NetQuantize& value);
 
-	//bool	IsMoving;		//Offset: 1244	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	//int32_t	replicatedRotationYaw;		//Offset: 1260	Size: 4	Flags: Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+	int32_t M_GetreplicatedRotationYaw() const;
+	int32_t* M_PtrGetreplicatedRotationYaw();
+	void M_SetreplicatedRotationYaw(const int32_t& value);
+
+	//TArray<class AActor*>	replicatedCollisionActorsToIgnore;		//Offset: 1264	Size: 16	Flags: Net, ZeroConstructor, NativeAccessSpecifierPrivate
+	TArray<class AActor*> M_GetreplicatedCollisionActorsToIgnore() const;
+	TArray<class AActor*>* M_PtrGetreplicatedCollisionActorsToIgnore();
+	void M_SetreplicatedCollisionActorsToIgnore(const TArray<class AActor*>& value);
+
+	//class AActor*	replicatedLookAtTarget;		//Offset: 1280	Size: 8	Flags: Net, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
+	class AActor* M_GetreplicatedLookAtTarget() const;
+	class AActor** M_PtrGetreplicatedLookAtTarget();
+	void M_SetreplicatedLookAtTarget(const class AActor*& value);
+
+	//bool	IsMoving;		//Offset: 1576	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
 	bool M_GetIsMoving() const;
 	bool* M_PtrGetIsMoving();
 	void M_SetIsMoving(const bool& value);
 
-	//struct FRotator	lastVelocityRotation;		//Offset: 1248	Size: 12	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, NativeAccessSpecifierProtected
-	struct FRotator M_GetlastVelocityRotation() const;
-	struct FRotator* M_PtrGetlastVelocityRotation();
-	void M_SetlastVelocityRotation(const struct FRotator& value);
-
-	//EAnimalMovementMode	MovementMode;		//Offset: 1260	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	//EAnimalMovementMode	MovementMode;		//Offset: 1577	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
 	EAnimalMovementMode M_GetMovementMode() const;
 	EAnimalMovementMode* M_PtrGetMovementMode();
 	void M_SetMovementMode(const EAnimalMovementMode& value);
 
-	//EAnimalMovementMode	previousMovementMode;		//Offset: 1261	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	EAnimalMovementMode M_GetpreviousMovementMode() const;
-	EAnimalMovementMode* M_PtrGetpreviousMovementMode();
-	void M_SetpreviousMovementMode(const EAnimalMovementMode& value);
-
-	//EAnimalRotationMode	RotationMode;		//Offset: 1262	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	//EAnimalRotationMode	RotationMode;		//Offset: 1578	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
 	EAnimalRotationMode M_GetRotationMode() const;
 	EAnimalRotationMode* M_PtrGetRotationMode();
 	void M_SetRotationMode(const EAnimalRotationMode& value);
 
-	//struct FRotator	Rotation;		//Offset: 1264	Size: 12	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, NativeAccessSpecifierProtected
-	struct FRotator M_GetRotation() const;
-	struct FRotator* M_PtrGetRotation();
-	void M_SetRotation(const struct FRotator& value);
+	//float	targetRotationSpeed;		//Offset: 1580	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	float M_GettargetRotationSpeed() const;
+	float* M_PtrGettargetRotationSpeed();
+	void M_SettargetRotationSpeed(const float& value);
 
-	//struct FRotator	TargetRotation;		//Offset: 1276	Size: 12	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, NativeAccessSpecifierProtected
-	struct FRotator M_GetTargetRotation() const;
-	struct FRotator* M_PtrGetTargetRotation();
-	void M_SetTargetRotation(const struct FRotator& value);
+	//bool	isMovementReplicated;		//Offset: 1584	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	bool M_GetisMovementReplicated() const;
+	bool* M_PtrGetisMovementReplicated();
+	void M_SetisMovementReplicated(const bool& value);
 
-	//struct FRotator	jumpRotation;		//Offset: 1288	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, NativeAccessSpecifierProtected
-	struct FRotator M_GetjumpRotation() const;
-	struct FRotator* M_PtrGetjumpRotation();
-	void M_SetjumpRotation(const struct FRotator& value);
+	//bool	canMoveBackwards;		//Offset: 1585	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	bool M_GetcanMoveBackwards() const;
+	bool* M_PtrGetcanMoveBackwards();
+	void M_SetcanMoveBackwards(const bool& value);
 
-	//struct FRotator	lookingRotation;		//Offset: 1300	Size: 12	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, NativeAccessSpecifierProtected
-	struct FRotator M_GetlookingRotation() const;
-	struct FRotator* M_PtrGetlookingRotation();
-	void M_SetlookingRotation(const struct FRotator& value);
+	//float	replicatedLocationInterpolationSpeed;		//Offset: 1588	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	float M_GetreplicatedLocationInterpolationSpeed() const;
+	float* M_PtrGetreplicatedLocationInterpolationSpeed();
+	void M_SetreplicatedLocationInterpolationSpeed(const float& value);
 
-	//float	aimYawRate;		//Offset: 1312	Size: 4	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	float M_GetaimYawRate() const;
-	float* M_PtrGetaimYawRate();
-	void M_SetaimYawRate(const float& value);
+	//float	replicatedRotationInterpolationSpeed;		//Offset: 1592	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	float M_GetreplicatedRotationInterpolationSpeed() const;
+	float* M_PtrGetreplicatedRotationInterpolationSpeed();
+	void M_SetreplicatedRotationInterpolationSpeed(const float& value);
 
-	//float	aimYawDelta;		//Offset: 1316	Size: 4	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	float M_GetaimYawDelta() const;
-	float* M_PtrGetaimYawDelta();
-	void M_SetaimYawDelta(const float& value);
+	//float	replicatedVelocityInterpolationSpeed;		//Offset: 1596	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	float M_GetreplicatedVelocityInterpolationSpeed() const;
+	float* M_PtrGetreplicatedVelocityInterpolationSpeed();
+	void M_SetreplicatedVelocityInterpolationSpeed(const float& value);
 
-	//float	rotationRateMultiplier;		//Offset: 1320	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	float M_GetrotationRateMultiplier() const;
-	float* M_PtrGetrotationRateMultiplier();
-	void M_SetrotationRateMultiplier(const float& value);
+	//float	replicatedLocationSnapDistance;		//Offset: 1600	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	float M_GetreplicatedLocationSnapDistance() const;
+	float* M_PtrGetreplicatedLocationSnapDistance();
+	void M_SetreplicatedLocationSnapDistance(const float& value);
 
-	//bool	isRotationManaged;		//Offset: 1324	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	bool M_GetisRotationManaged() const;
-	bool* M_PtrGetisRotationManaged();
-	void M_SetisRotationManaged(const bool& value);
+	//bool	isCollisionEnabled;		//Offset: 1604	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	bool M_GetisCollisionEnabled() const;
+	bool* M_PtrGetisCollisionEnabled();
+	void M_SetisCollisionEnabled(const bool& value);
 
-	//float	ragdollSpeedMultiplier;		//Offset: 1328	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	float M_GetragdollSpeedMultiplier() const;
-	float* M_PtrGetragdollSpeedMultiplier();
-	void M_SetragdollSpeedMultiplier(const float& value);
+	//float	collisionInfluenceSharpness;		//Offset: 1608	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	float M_GetcollisionInfluenceSharpness() const;
+	float* M_PtrGetcollisionInfluenceSharpness();
+	void M_SetcollisionInfluenceSharpness(const float& value);
 
-	//struct FVector	movementInput;		//Offset: 1332	Size: 12	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	struct FVector M_GetmovementInput() const;
-	struct FVector* M_PtrGetmovementInput();
-	void M_SetmovementInput(const struct FVector& value);
+	//float	collisionBaseInfluenceCoefficient;		//Offset: 1612	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	float M_GetcollisionBaseInfluenceCoefficient() const;
+	float* M_PtrGetcollisionBaseInfluenceCoefficient();
+	void M_SetcollisionBaseInfluenceCoefficient(const float& value);
 
-	//bool	hasMovementInput;		//Offset: 1344	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	bool M_GethasMovementInput() const;
-	bool* M_PtrGethasMovementInput();
-	void M_SethasMovementInput(const bool& value);
+	//float	collisionVelocityInfluenceCoefficient;		//Offset: 1616	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	float M_GetcollisionVelocityInfluenceCoefficient() const;
+	float* M_PtrGetcollisionVelocityInfluenceCoefficient();
+	void M_SetcollisionVelocityInfluenceCoefficient(const float& value);
 
-	//struct FRotator	lastMovementInputRotation;		//Offset: 1348	Size: 12	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, NativeAccessSpecifierProtected
-	struct FRotator M_GetlastMovementInputRotation() const;
-	struct FRotator* M_PtrGetlastMovementInputRotation();
-	void M_SetlastMovementInputRotation(const struct FRotator& value);
+	//float	collisionMassInfluenceCoefficient;		//Offset: 1620	Size: 4	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	float M_GetcollisionMassInfluenceCoefficient() const;
+	float* M_PtrGetcollisionMassInfluenceCoefficient();
+	void M_SetcollisionMassInfluenceCoefficient(const float& value);
 
-	//float	movementInputVelocityDifference;		//Offset: 1360	Size: 4	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	float M_GetmovementInputVelocityDifference() const;
-	float* M_PtrGetmovementInputVelocityDifference();
-	void M_SetmovementInputVelocityDifference(const float& value);
+	//TArray<struct FComponentReference>	collisionShapeComponentReferences;		//Offset: 1624	Size: 16	Flags: Edit, ZeroConstructor, Protected, NativeAccessSpecifierProtected
+	TArray<struct FComponentReference> M_GetcollisionShapeComponentReferences() const;
+	TArray<struct FComponentReference>* M_PtrGetcollisionShapeComponentReferences();
+	void M_SetcollisionShapeComponentReferences(const TArray<struct FComponentReference>& value);
 
-	//class AController*	controllerReference;		//Offset: 1368	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	class AController* M_GetcontrollerReference() const;
-	class AController** M_PtrGetcontrollerReference();
-	void M_SetcontrollerReference(const class AController*& value);
+	//struct FName	ragdollGetUpTargetBone;		//Offset: 1640	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	struct FName M_GetragdollGetUpTargetBone() const;
+	struct FName* M_PtrGetragdollGetUpTargetBone();
+	void M_SetragdollGetUpTargetBone(const struct FName& value);
 
-	//bool	isDead;		//Offset: 1376	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	bool M_GetisDead() const;
-	bool* M_PtrGetisDead();
-	void M_SetisDead(const bool& value);
+	//struct FName	ragdollRootBone;		//Offset: 1648	Size: 8	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	struct FName M_GetragdollRootBone() const;
+	struct FName* M_PtrGetragdollRootBone();
+	void M_SetragdollRootBone(const struct FName& value);
 
-	//bool	isResting;		//Offset: 1377	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	bool M_GetisResting() const;
-	bool* M_PtrGetisResting();
-	void M_SetisResting(const bool& value);
+	//TEnumAsByte<ETraceTypeQuery>	ragdollTraceChannel;		//Offset: 1656	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	TEnumAsByte<ETraceTypeQuery> M_GetragdollTraceChannel() const;
+	TEnumAsByte<ETraceTypeQuery>* M_PtrGetragdollTraceChannel();
+	void M_SetragdollTraceChannel(const TEnumAsByte<ETraceTypeQuery>& value);
 
-	//bool	isLayingDown;		//Offset: 1378	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	bool M_GetisLayingDown() const;
-	bool* M_PtrGetisLayingDown();
-	void M_SetisLayingDown(const bool& value);
+	//bool	isRagdollReplicated;		//Offset: 1657	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	bool M_GetisRagdollReplicated() const;
+	bool* M_PtrGetisRagdollReplicated();
+	void M_SetisRagdollReplicated(const bool& value);
 
-	//EBirdMovementMode	birdMovementMode;		//Offset: 1379	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	EBirdMovementMode M_GetbirdMovementMode() const;
-	EBirdMovementMode* M_PtrGetbirdMovementMode();
-	void M_SetbirdMovementMode(const EBirdMovementMode& value);
-
-	//struct FRotator	flyingRotator;		//Offset: 1380	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, NativeAccessSpecifierProtected
-	struct FRotator M_GetflyingRotator() const;
-	struct FRotator* M_PtrGetflyingRotator();
-	void M_SetflyingRotator(const struct FRotator& value);
-
-	//bool	isGliding;		//Offset: 1392	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	bool M_GetisGliding() const;
-	bool* M_PtrGetisGliding();
-	void M_SetisGliding(const bool& value);
-
-	//bool	isLanding;		//Offset: 1393	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	bool M_GetisLanding() const;
-	bool* M_PtrGetisLanding();
-	void M_SetisLanding(const bool& value);
-
-	//bool	isWaterType;		//Offset: 1394	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
-	bool M_GetisWaterType() const;
-	bool* M_PtrGetisWaterType();
-	void M_SetisWaterType(const bool& value);
+	//bool	isDebugEnabled;		//Offset: 1658	Size: 1	Flags: Edit, ZeroConstructor, IsPlainOldData, NoDestructor, Protected, HasGetValueTypeHash, NativeAccessSpecifierProtected
+	bool M_GetisDebugEnabled() const;
+	bool* M_PtrGetisDebugEnabled();
+	void M_SetisDebugEnabled(const bool& value);
 
 #pragma endregion
 
@@ -180,11 +165,93 @@ public:
 	}
 
 #pragma region Functions
-	void CalculateVariables(float DeltaTime);
+	void AddCollisionIgnoredActor(class AActor* Actor);
 
-	void SetRotation(struct FRotator newTargetRotation, bool interpRotation, float interpSpeed);
+	float CalculateDamageToReceive(float appliedDamage, const struct FVector& hitFromDirection, const TArray<struct FHitResult>& hits, class AController* damageInstigator, class AActor* DamageCauser, class UDamageType* DamageTypeClass)/* const*/;
 
-	void UpdateMovementSettings();
+	float CalculateTargetAcceleration();
+
+	float CalculateTargetSpeed();
+
+	bool CanStartRagdoll();
+
+	EAnimalIdleType GetCurrentIdleType()/* const*/;
+
+	float GetForwardSpeed()/* const*/;
+
+	float GetHorizontalSpeed()/* const*/;
+
+	struct FVector2D GetHorizontalVelocityVector()/* const*/;
+
+	class AActor* GetLookAtTarget()/* const*/;
+
+	EAnimalMovementMode GetMovementMode()/* const*/;
+
+	float GetSpeed()/* const*/;
+
+	struct FVector GetVelocityVector()/* const*/;
+
+	float GetVerticalSpeed()/* const*/;
+
+	bool HasMovedRecently()/* const*/;
+
+	bool IsDead()/* const*/;
+
+	bool IsMoving()/* const*/;
+
+	bool IsMovingBackwards()/* const*/;
+
+	bool IsMovingHorizontally()/* const*/;
+
+	bool IsMovingVertically()/* const*/;
+
+	void OnAnimalMovementModeChanged(EAnimalMovementMode newAnimalMovementMode, EAnimalMovementMode previousAnimalMovementMode);
+
+	void OnBeforePointDamageApplied(float damageToApply, const struct FVector& hitFromDirection, const struct FHitResult& Hit, class AController* damageInstigator, class AActor* DamageCauser, class UDamageType* DamageTypeClass)/* const*/;
+
+	void OnBeforeRadialDamageApplied(float damageToApply, const struct FVector& hitFromDirection, const TArray<struct FHitResult>& hits, class AController* damageInstigator, class AActor* DamageCauser, class UDamageType* DamageTypeClass)/* const*/;
+
+	void OnPreRagdollStart();
+
+	void OnPreRagdollStop();
+
+	void OnRagdollStarted();
+
+	void OnRagdollStopped();
+
+	void OnRepLocation();
+
+	void OnRepMovementMode();
+
+	void OverrideRotation(const struct FRotator& NewRotation, float newOverrideRotationStrength);
+
+	void OverrideRotationInstantly(const struct FRotator& NewRotation);
+
+	void RemoveCollisionIgnoredActor(class AActor* Actor);
+
+	void ReplicateAttack();
+
+	void ReplicateHit(struct FVector& HitLocation, struct FVector& hitForce);
+
+	void SetCanCollisionBeDormant(bool newCanCollisionBeDormant);
+
+	void SetCanMoveBackwards(bool newCanMoveBackwards);
+
+	void SetCurrentIdleType(EAnimalIdleType& idleType);
+
+	void SetLookAtTarget(class AActor* newLookAtTarget);
+
+	void SetMovementMode(EAnimalMovementMode newAnimalMovementMode);
+
+	void SetReplicatedMovementMode(EAnimalMovementMode newReplicatedAnimalMovementMode);
+
+	void SetReplicatedMovementParameters(struct FVector_NetQuantize& newReplicatedLocation, int32_t newReplicatedRotationYaw, struct FVector_NetQuantize& newReplicatedVelocity);
+
+	void SetRotationMode(EAnimalRotationMode newRotationMode);
+
+	void TakeAnyDamage(float Damage, class UDamageType* DamageType, class AController* InstigatedBy, class AActor* DamageCauser);
+
+	bool WasRagdollOnGround()/* const*/;
 
 #pragma endregion
 };

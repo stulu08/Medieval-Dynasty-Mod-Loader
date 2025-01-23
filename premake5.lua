@@ -18,7 +18,8 @@ workspace "MDML"
 		"Modding.md"
 	}
 	architecture "x86_64"
-
+	exceptionhandling "SEH"
+	
 	filter "configurations:Release"
 		defines     "NDEBUG"
 

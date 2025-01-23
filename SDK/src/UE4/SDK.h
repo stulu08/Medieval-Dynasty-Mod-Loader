@@ -82,3 +82,7 @@
 #include "UMG/UMG_SDK.h"
 #include "AIModule/Structs.h"
 #include "AdsMountingSystem/AdsMountingSystem_SDK.h"
+#include "AnimationCore/AnimationCore_SDK.h"
+#include "AnimGraphLibrary/AnimGraphLibrary_SDK.h"
+#include "AnimGraphRuntime/AnimGraphRuntime_SDK.h"
+#include "AnimPhysics/AnimPhysics_SDK.h"

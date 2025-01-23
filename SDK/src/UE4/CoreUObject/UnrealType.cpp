@@ -1,5 +1,6 @@
 #include "UnrealType.h"
 #include "GameInfo.h"
+#include "UE_LOG.h"
 
 namespace UE4 {
 	int32_t FProperty::GetArrayDim() const {
@@ -131,12 +132,23 @@ namespace UE4 {
 
 	std::string FFieldClass::GetName() const
 	{
-		auto Name = *reinterpret_cast<FName*>((byte*)this + SDK::SelectedGameProfile.defs.FFieldClass.Name);
-		if (UE4::FName::GetFNamePool().IsValidIndex(Name.ComparisonIndex))
-		{
+		// Helper function with __try block
+		auto SafeGetName = [](const FFieldClass* fieldClass) -> FName {
+			__try {
+				return *reinterpret_cast<FName*>((byte*)fieldClass + SDK::SelectedGameProfile.defs.FFieldClass.Name);
+			}
+			__except (EXCEPTION_EXECUTE_HANDLER) {
+				UE_LOG(LogTemp, Error, "Access violation while dereferencing FName. this: 0x{0:x}, Name Offser: 0x{1:x}", (DWORD64)fieldClass, SDK::SelectedGameProfile.defs.FFieldClass.Name);
+				return FName();
+			}
+			};
+
+		FName Name = SafeGetName(this);
+		if (UE4::FName::GetFNamePool().IsValidIndex(Name.ComparisonIndex)) {
 			return Name.GetName();
 		}
-		return "null";
+
+		return "";
 	}
 
 	uint64_t FFieldClass::GetID() const
@@ -216,7 +228,7 @@ namespace UE4 {
 		{
 			return Name.GetName();
 		}
-		return "nullptr";
+		return "";
 	};
 	
 	UEnum* FByteProperty::GetEnum() const {

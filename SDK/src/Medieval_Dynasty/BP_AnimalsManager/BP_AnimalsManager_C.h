@@ -4,7 +4,7 @@
 /////////////////////////////////////////////
 // BlueprintGeneratedClass BP_AnimalsManager.BP_AnimalsManager_C
 // Super: Class Engine.Actor
-// Size: 1216
+// Size: 1632
 // Size inherited: 544
 /////////////////////////////////////////////
 namespace UE4 {
@@ -51,125 +51,145 @@ public:
 	TArray<class ABP_SpawnPointWildAnimal_C*>* M_PtrGetSpawnPointsWildAnimal();
 	void M_SetSpawnPointsWildAnimal(const TArray<class ABP_SpawnPointWildAnimal_C*>& value);
 
-	//class APawn*	PlayerPawnReference;		//Offset: 624	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
-	class APawn* M_GetPlayerPawnReference() const;
-	class APawn** M_PtrGetPlayerPawnReference();
-	void M_SetPlayerPawnReference(const class APawn*& value);
-
-	//float	DistanceOfBrainActivity;		//Offset: 632	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//float	DistanceOfBrainActivity;		//Offset: 624	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	float M_GetDistanceOfBrainActivity() const;
 	float* M_PtrGetDistanceOfBrainActivity();
 	void M_SetDistanceOfBrainActivity(const float& value);
 
-	//float	DistanceOfBrainActivitySquared;		//Offset: 636	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//float	DistanceOfBrainActivitySquared;		//Offset: 628	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	float M_GetDistanceOfBrainActivitySquared() const;
 	float* M_PtrGetDistanceOfBrainActivitySquared();
 	void M_SetDistanceOfBrainActivitySquared(const float& value);
 
-	//TMap<TEnumAsByte<E_AnimalType>, int32_t>	HusbandryAnimalsRemovedByEvent;		//Offset: 640	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	//TMap<TEnumAsByte<E_AnimalType>, int32_t>	HusbandryAnimalsRemovedByEvent;		//Offset: 632	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnInstance
 	TMap<TEnumAsByte<E_AnimalType>, int32_t> M_GetHusbandryAnimalsRemovedByEvent() const;
 	TMap<TEnumAsByte<E_AnimalType>, int32_t>* M_PtrGetHusbandryAnimalsRemovedByEvent();
 	void M_SetHusbandryAnimalsRemovedByEvent(const TMap<TEnumAsByte<E_AnimalType>, int32_t>& value);
 
-	//bool	ShowDebugInfo;		//Offset: 720	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	//bool	ShowDebugInfo;		//Offset: 712	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
 	bool M_GetShowDebugInfo() const;
 	bool* M_PtrGetShowDebugInfo();
 	void M_SetShowDebugInfo(const bool& value);
 
-	//bool	AllowSpawnAnimals;		//Offset: 721	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	//bool	AllowSpawnAnimals;		//Offset: 713	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
 	bool M_GetAllowSpawnAnimals() const;
 	bool* M_PtrGetAllowSpawnAnimals();
 	void M_SetAllowSpawnAnimals(const bool& value);
 
-	//bool	Birds;		//Offset: 722	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
+	//bool	Birds;		//Offset: 714	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor
 	bool M_GetBirds() const;
 	bool* M_PtrGetBirds();
 	void M_SetBirds(const bool& value);
 
-	//float	AnimalsDamageMultiplier;		//Offset: 724	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//float	AnimalsDamageMultiplier;		//Offset: 716	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	float M_GetAnimalsDamageMultiplier() const;
 	float* M_PtrGetAnimalsDamageMultiplier();
 	void M_SetAnimalsDamageMultiplier(const float& value);
 
-	//float	AnimalsHPMultiplier;		//Offset: 728	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//float	AnimalsHPMultiplier;		//Offset: 720	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	float M_GetAnimalsHPMultiplier() const;
 	float* M_PtrGetAnimalsHPMultiplier();
 	void M_SetAnimalsHPMultiplier(const float& value);
 
-	//TArray<class ABP_Flock_Fish_C*>	SpawnPointsFishes;		//Offset: 736	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnTemplate
+	//TArray<class ABP_Flock_Fish_C*>	SpawnPointsFishes;		//Offset: 728	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnTemplate
 	TArray<class ABP_Flock_Fish_C*> M_GetSpawnPointsFishes() const;
 	TArray<class ABP_Flock_Fish_C*>* M_PtrGetSpawnPointsFishes();
 	void M_SetSpawnPointsFishes(const TArray<class ABP_Flock_Fish_C*>& value);
 
-	//TMap<TEnumAsByte<E_AnimalType>, bool>	WasAnimalSpawnUncovered;		//Offset: 752	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	//TMap<TEnumAsByte<E_AnimalType>, bool>	WasAnimalSpawnUncovered;		//Offset: 744	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnInstance
 	TMap<TEnumAsByte<E_AnimalType>, bool> M_GetWasAnimalSpawnUncovered() const;
 	TMap<TEnumAsByte<E_AnimalType>, bool>* M_PtrGetWasAnimalSpawnUncovered();
 	void M_SetWasAnimalSpawnUncovered(const TMap<TEnumAsByte<E_AnimalType>, bool>& value);
 
-	//TMap<TEnumAsByte<E_AnimalType>, struct FST_AnimalSpawnerArray>	SpawnPointsWildAnimalCategorized;		//Offset: 832	Size: 80	Flags: Edit, BlueprintVisible
+	//TMap<TEnumAsByte<E_AnimalType>, struct FST_AnimalSpawnerArray>	SpawnPointsWildAnimalCategorized;		//Offset: 824	Size: 80	Flags: Edit, BlueprintVisible
 	TMap<TEnumAsByte<E_AnimalType>, struct FST_AnimalSpawnerArray> M_GetSpawnPointsWildAnimalCategorized() const;
 	TMap<TEnumAsByte<E_AnimalType>, struct FST_AnimalSpawnerArray>* M_PtrGetSpawnPointsWildAnimalCategorized();
 	void M_SetSpawnPointsWildAnimalCategorized(const TMap<TEnumAsByte<E_AnimalType>, struct FST_AnimalSpawnerArray>& value);
 
-	//TAssetPtr<class FNone_574>	AnimalTypesToDisable;		//Offset: 912	Size: 80	Flags: Edit, BlueprintVisible
-	TAssetPtr<class FNone_574> M_GetAnimalTypesToDisable() const;
-	TAssetPtr<class FNone_574>* M_PtrGetAnimalTypesToDisable();
-	void M_SetAnimalTypesToDisable(const TAssetPtr<class FNone_574>& value);
+	//TAssetPtr<class FNone_513>	AnimalTypesToDisable;		//Offset: 904	Size: 80	Flags: Edit, BlueprintVisible
+	TAssetPtr<class FNone_513> M_GetAnimalTypesToDisable() const;
+	TAssetPtr<class FNone_513>* M_PtrGetAnimalTypesToDisable();
+	void M_SetAnimalTypesToDisable(const TAssetPtr<class FNone_513>& value);
 
-	//TMap<TEnumAsByte<E_FishPoolType>, struct FST_FishSpawnerArray>	SpawnPointsFishCategorized;		//Offset: 992	Size: 80	Flags: Edit, BlueprintVisible
+	//TMap<TEnumAsByte<E_FishPoolType>, struct FST_FishSpawnerArray>	SpawnPointsFishCategorized;		//Offset: 984	Size: 80	Flags: Edit, BlueprintVisible
 	TMap<TEnumAsByte<E_FishPoolType>, struct FST_FishSpawnerArray> M_GetSpawnPointsFishCategorized() const;
 	TMap<TEnumAsByte<E_FishPoolType>, struct FST_FishSpawnerArray>* M_PtrGetSpawnPointsFishCategorized();
 	void M_SetSpawnPointsFishCategorized(const TMap<TEnumAsByte<E_FishPoolType>, struct FST_FishSpawnerArray>& value);
 
-	//TArray<class ABP_SpawnPointWildAnimal_C*>	UncoveredSpawners;		//Offset: 1072	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnTemplate, DisableEditOnInstance
+	//TArray<class ABP_SpawnPointWildAnimal_C*>	UncoveredSpawners;		//Offset: 1064	Size: 16	Flags: Edit, BlueprintVisible, Net, DisableEditOnTemplate, DisableEditOnInstance
 	TArray<class ABP_SpawnPointWildAnimal_C*> M_GetUncoveredSpawners() const;
 	TArray<class ABP_SpawnPointWildAnimal_C*>* M_PtrGetUncoveredSpawners();
 	void M_SetUncoveredSpawners(const TArray<class ABP_SpawnPointWildAnimal_C*>& value);
 
-	//TArray<class ABP_Flock_Fish_C*>	UncoveredFishSpawners;		//Offset: 1088	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnTemplate, DisableEditOnInstance
+	//TArray<class ABP_Flock_Fish_C*>	UncoveredFishSpawners;		//Offset: 1080	Size: 16	Flags: Edit, BlueprintVisible, Net, DisableEditOnTemplate, DisableEditOnInstance
 	TArray<class ABP_Flock_Fish_C*> M_GetUncoveredFishSpawners() const;
 	TArray<class ABP_Flock_Fish_C*>* M_PtrGetUncoveredFishSpawners();
 	void M_SetUncoveredFishSpawners(const TArray<class ABP_Flock_Fish_C*>& value);
 
-	//class UMultiThreadTask*	CheckAnimals_Task;		//Offset: 1104	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//class UMultiThreadTask*	CheckAnimals_Task;		//Offset: 1096	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	class UMultiThreadTask* M_GetCheckAnimals_Task() const;
 	class UMultiThreadTask** M_PtrGetCheckAnimals_Task();
 	void M_SetCheckAnimals_Task(const class UMultiThreadTask*& value);
 
-	//TArray<class ABP_SpawnPointWildAnimal_C*>	SpawnersToUncover;		//Offset: 1112	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnTemplate, DisableEditOnInstance
-	TArray<class ABP_SpawnPointWildAnimal_C*> M_GetSpawnersToUncover() const;
-	TArray<class ABP_SpawnPointWildAnimal_C*>* M_PtrGetSpawnersToUncover();
-	void M_SetSpawnersToUncover(const TArray<class ABP_SpawnPointWildAnimal_C*>& value);
+	//TAssetPtr<class FNone_513>	SpawnersToUncover;		//Offset: 1104	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnTemplate, DisableEditOnInstance
+	TAssetPtr<class FNone_513> M_GetSpawnersToUncover() const;
+	TAssetPtr<class FNone_513>* M_PtrGetSpawnersToUncover();
+	void M_SetSpawnersToUncover(const TAssetPtr<class FNone_513>& value);
 
-	//TArray<class ABP_SpawnPointWildAnimal_C*>	SpawnersToActivate;		//Offset: 1128	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnTemplate, DisableEditOnInstance
-	TArray<class ABP_SpawnPointWildAnimal_C*> M_GetSpawnersToActivate() const;
-	TArray<class ABP_SpawnPointWildAnimal_C*>* M_PtrGetSpawnersToActivate();
-	void M_SetSpawnersToActivate(const TArray<class ABP_SpawnPointWildAnimal_C*>& value);
+	//TAssetPtr<class FNone_513>	SpawnersToActivate;		//Offset: 1184	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnTemplate, DisableEditOnInstance
+	TAssetPtr<class FNone_513> M_GetSpawnersToActivate() const;
+	TAssetPtr<class FNone_513>* M_PtrGetSpawnersToActivate();
+	void M_SetSpawnersToActivate(const TAssetPtr<class FNone_513>& value);
 
-	//TArray<class ABP_SpawnPointWildAnimal_C*>	SpawnersToDeactivate;		//Offset: 1144	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnTemplate, DisableEditOnInstance
-	TArray<class ABP_SpawnPointWildAnimal_C*> M_GetSpawnersToDeactivate() const;
-	TArray<class ABP_SpawnPointWildAnimal_C*>* M_PtrGetSpawnersToDeactivate();
-	void M_SetSpawnersToDeactivate(const TArray<class ABP_SpawnPointWildAnimal_C*>& value);
+	//TAssetPtr<class FNone_513>	SpawnersToDeactivate;		//Offset: 1264	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnTemplate, DisableEditOnInstance
+	TAssetPtr<class FNone_513> M_GetSpawnersToDeactivate() const;
+	TAssetPtr<class FNone_513>* M_PtrGetSpawnersToDeactivate();
+	void M_SetSpawnersToDeactivate(const TAssetPtr<class FNone_513>& value);
 
-	//TArray<class ABP_Flock_Fish_C*>	FlocksToUncover;		//Offset: 1160	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnTemplate, DisableEditOnInstance
-	TArray<class ABP_Flock_Fish_C*> M_GetFlocksToUncover() const;
-	TArray<class ABP_Flock_Fish_C*>* M_PtrGetFlocksToUncover();
-	void M_SetFlocksToUncover(const TArray<class ABP_Flock_Fish_C*>& value);
+	//TAssetPtr<class FNone_513>	FlocksToUncover;		//Offset: 1344	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnTemplate, DisableEditOnInstance
+	TAssetPtr<class FNone_513> M_GetFlocksToUncover() const;
+	TAssetPtr<class FNone_513>* M_PtrGetFlocksToUncover();
+	void M_SetFlocksToUncover(const TAssetPtr<class FNone_513>& value);
 
-	//TArray<class ABP_Flock_Fish_C*>	FlocksToActivate;		//Offset: 1176	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnTemplate, DisableEditOnInstance
-	TArray<class ABP_Flock_Fish_C*> M_GetFlocksToActivate() const;
-	TArray<class ABP_Flock_Fish_C*>* M_PtrGetFlocksToActivate();
-	void M_SetFlocksToActivate(const TArray<class ABP_Flock_Fish_C*>& value);
+	//TAssetPtr<class FNone_513>	FlocksToActivate;		//Offset: 1424	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnTemplate, DisableEditOnInstance
+	TAssetPtr<class FNone_513> M_GetFlocksToActivate() const;
+	TAssetPtr<class FNone_513>* M_PtrGetFlocksToActivate();
+	void M_SetFlocksToActivate(const TAssetPtr<class FNone_513>& value);
 
-	//TArray<class ABP_Flock_Fish_C*>	FlocksToDeactivate;		//Offset: 1192	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnTemplate, DisableEditOnInstance
-	TArray<class ABP_Flock_Fish_C*> M_GetFlocksToDeactivate() const;
-	TArray<class ABP_Flock_Fish_C*>* M_PtrGetFlocksToDeactivate();
-	void M_SetFlocksToDeactivate(const TArray<class ABP_Flock_Fish_C*>& value);
+	//TAssetPtr<class FNone_513>	FlocksToDeactivate;		//Offset: 1504	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnTemplate, DisableEditOnInstance
+	TAssetPtr<class FNone_513> M_GetFlocksToDeactivate() const;
+	TAssetPtr<class FNone_513>* M_PtrGetFlocksToDeactivate();
+	void M_SetFlocksToDeactivate(const TAssetPtr<class FNone_513>& value);
 
-	//class UMultiTaskMutex*	CheckAnimals_Mutex;		//Offset: 1208	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	//class UMultiTaskMutex*	CheckAnimals_Mutex;		//Offset: 1584	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash
 	class UMultiTaskMutex* M_GetCheckAnimals_Mutex() const;
 	class UMultiTaskMutex** M_PtrGetCheckAnimals_Mutex();
 	void M_SetCheckAnimals_Mutex(const class UMultiTaskMutex*& value);
+
+	//bool	ShowVerboseInfo;		//Offset: 1592	Size: 1	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor
+	bool M_GetShowVerboseInfo() const;
+	bool* M_PtrGetShowVerboseInfo();
+	void M_SetShowVerboseInfo(const bool& value);
+
+	//TArray<struct FST_MultiplayerAnimalRoutineBuilding>	RoutinesBuildings;		//Offset: 1600	Size: 16	Flags: Edit, BlueprintVisible, DisableEditOnInstance
+	TArray<struct FST_MultiplayerAnimalRoutineBuilding> M_GetRoutinesBuildings() const;
+	TArray<struct FST_MultiplayerAnimalRoutineBuilding>* M_PtrGetRoutinesBuildings();
+	void M_SetRoutinesBuildings(const TArray<struct FST_MultiplayerAnimalRoutineBuilding>& value);
+
+	//struct FTimerHandle	MultiplayerAnimalsUpdateTimer;		//Offset: 1616	Size: 8	Flags: Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash
+	struct FTimerHandle M_GetMultiplayerAnimalsUpdateTimer() const;
+	struct FTimerHandle* M_PtrGetMultiplayerAnimalsUpdateTimer();
+	void M_SetMultiplayerAnimalsUpdateTimer(const struct FTimerHandle& value);
+
+	//float	MinDistanceFromPlayersToUpdateAnimals;		//Offset: 1624	Size: 4	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	float M_GetMinDistanceFromPlayersToUpdateAnimals() const;
+	float* M_PtrGetMinDistanceFromPlayersToUpdateAnimals();
+	void M_SetMinDistanceFromPlayersToUpdateAnimals(const float& value);
+
+	//float	MinDistanceFromPlayersToUpdateAnimalsIfNotLooking;		//Offset: 1628	Size: 4	Flags: Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash
+	float M_GetMinDistanceFromPlayersToUpdateAnimalsIfNotLooking() const;
+	float* M_PtrGetMinDistanceFromPlayersToUpdateAnimalsIfNotLooking();
+	void M_SetMinDistanceFromPlayersToUpdateAnimalsIfNotLooking(const float& value);
 
 #pragma endregion
 
@@ -181,6 +201,8 @@ public:
 
 #pragma region Functions
 	void ExecuteUbergraph_BP_AnimalsManager(int32_t EntryPoint);
+
+	void UpdateMultiplayerAnimals();
 
 	void UpdateSpawners_Complete();
 
@@ -204,9 +226,7 @@ public:
 
 	void SetNumberOfAnimalsInSpawners();
 
-	void SetPlayerPawnReference();
-
-	void SpawnHusbandryAnimals(struct FName Name, int32_t Count, TEnumAsByte<E_Ownership> Ownership, bool UseTransform_Home, struct FTransform SpawnTransform, class ABP_MasterBuilding_C* Home, bool RandomAge, bool RandomVariation, int32_t Variation);
+	void SpawnHusbandryAnimals(struct FName Name, int32_t Count, TEnumAsByte<E_Ownership> Ownership, bool UseTransform_Home, struct FTransform SpawnTransform, class ABP_MasterBuilding_C* Home, bool RandomAge, bool RandomVariation, int32_t Variation, TArray<class ABP_AnimalBase_C*>* SpawnedAnimals);
 
 	void SpawnHusbandryAnimal(struct FName Name, TEnumAsByte<E_Ownership> Ownership, bool UseTransform_Home, struct FTransform SpawnTransform, class ABP_MasterBuilding_C* Home, bool RandomAge, bool RandomVariation, int32_t Variation, bool Save, bool* Success, class ABP_AnimalBase_C** Actor);
 
@@ -234,7 +254,7 @@ public:
 
 	void FindClosestFishesPoints(struct FVector Location, float Radius, TArray<class ABP_Flock_Fish_C*>* FishesPoints);
 
-	void SpawnAnimalsToNeighborhoodBuilding(TEnumAsByte<E_Ownership> Ownership, struct FString ID, TEnumAsByte<E_AnimalType> Species, struct FName YoungFemale, int32_t YoungFemaleCount, struct FName YoungMale, int32_t YoungMaleCount, struct FName Female, int32_t FemaleCount, struct FName Male, int32_t MaleCount);
+	void SpawnAnimalsToNeighborhoodBuilding(TEnumAsByte<E_Ownership> Ownership, struct FString ID, TEnumAsByte<E_AnimalType> Species, struct FName YoungFemale, int32_t YoungFemaleCount, struct FName YoungMale, int32_t YoungMaleCount, struct FName Female, int32_t FemaleCount, struct FName Male, int32_t MaleCount, TArray<class ABP_AnimalBase_C*>* SpawnedAnimals, class ABP_MasterBuilding_C** Building, bool* Success);
 
 	void SpawnAnimalsToNeighborhoodBuildings();
 
@@ -270,7 +290,7 @@ public:
 
 	void LoadDataSafely(TArray<struct FString>* Data, int32_t Index, struct FString InvalidSubstitution, struct FString* LoadedData);
 
-	void UncoverSpawnerAnimal(class ABP_SpawnPointWildAnimal_C** SpawnPointAnimal, bool* NewUncover);
+	void Uncover_Spawner_Animal(class ABP_SpawnPointWildAnimal_C** SpawnPointAnimal, bool* NewUncover);
 
 	void UncoverSpawnerFish(class ABP_Flock_Fish_C** SpawnPointFish, bool* NewUncover);
 
@@ -279,6 +299,12 @@ public:
 	void StopAnimalsManager();
 
 	void InitThreadTask();
+
+	void InitializeMultiplayerAnimalRoutines(bool SpawnAnimals);
+
+	void CalculateAnimalLocation(struct FST_MultiplayerAnimalLocation AnimalLocationData, struct FVector* Location, struct FRotator* Rotation);
+
+	void UpdateMultiplayerAnimalsLocations(bool Force);
 
 #pragma endregion
 };

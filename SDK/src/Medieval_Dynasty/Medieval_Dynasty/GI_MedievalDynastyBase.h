@@ -4,7 +4,7 @@
 /////////////////////////////////////////////
 // Class Medieval_Dynasty.GI_MedievalDynastyBase
 // Super: Class Engine.GameInstance
-// Size: 496
+// Size: 648
 // Size inherited: 424
 /////////////////////////////////////////////
 namespace UE4 {
@@ -46,10 +46,30 @@ public:
 	bool* M_PtrGetbIsDX12Supported();
 	void M_SetbIsDX12Supported(const bool& value);
 
-	//TAssetPtr<class FNewMessageDelegate__DelegateSignature>	MessageDelegate;		//Offset: 480	Size: 16	Flags: ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic
+	//bool	bHasInternetConnection;		//Offset: 431	Size: 1	Flags: BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
+	bool M_GetbHasInternetConnection() const;
+	bool* M_PtrGetbHasInternetConnection();
+	void M_SetbHasInternetConnection(const bool& value);
+
+	//TAssetPtr<class FOnPlayerIsLoggedInHandle__DelegateSignature>	OnPlayerIsLoggedInDelegate;		//Offset: 432	Size: 16	Flags: ZeroConstructor, InstancedReference, BlueprintAssignable, BlueprintCallable, NativeAccessSpecifierPublic
+	TAssetPtr<class FOnPlayerIsLoggedInHandle__DelegateSignature> M_GetOnPlayerIsLoggedInDelegate() const;
+	TAssetPtr<class FOnPlayerIsLoggedInHandle__DelegateSignature>* M_PtrGetOnPlayerIsLoggedInDelegate();
+	void M_SetOnPlayerIsLoggedInDelegate(const TAssetPtr<class FOnPlayerIsLoggedInHandle__DelegateSignature>& value);
+
+	//TAssetPtr<class FNewMessageDelegate__DelegateSignature>	MessageDelegate;		//Offset: 448	Size: 16	Flags: ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic
 	TAssetPtr<class FNewMessageDelegate__DelegateSignature> M_GetMessageDelegate() const;
 	TAssetPtr<class FNewMessageDelegate__DelegateSignature>* M_PtrGetMessageDelegate();
 	void M_SetMessageDelegate(const TAssetPtr<class FNewMessageDelegate__DelegateSignature>& value);
+
+	//TAssetPtr<class FConnectionChangedDelegate__DelegateSignature>	ConnectionDelegate;		//Offset: 464	Size: 16	Flags: ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic
+	TAssetPtr<class FConnectionChangedDelegate__DelegateSignature> M_GetConnectionDelegate() const;
+	TAssetPtr<class FConnectionChangedDelegate__DelegateSignature>* M_PtrGetConnectionDelegate();
+	void M_SetConnectionDelegate(const TAssetPtr<class FConnectionChangedDelegate__DelegateSignature>& value);
+
+	//TAssetPtr<class FAppReactivatedDelegate__DelegateSignature>	AppReactivatedDelegate;		//Offset: 480	Size: 16	Flags: ZeroConstructor, InstancedReference, BlueprintAssignable, NativeAccessSpecifierPublic
+	TAssetPtr<class FAppReactivatedDelegate__DelegateSignature> M_GetAppReactivatedDelegate() const;
+	TAssetPtr<class FAppReactivatedDelegate__DelegateSignature>* M_PtrGetAppReactivatedDelegate();
+	void M_SetAppReactivatedDelegate(const TAssetPtr<class FAppReactivatedDelegate__DelegateSignature>& value);
 
 #pragma endregion
 
@@ -60,29 +80,105 @@ public:
 	}
 
 #pragma region Functions
+	bool AddPlayerToRecentPlayers(class APlayerController* PC, class APlayerState* UserStateToBeAdded);
+
+	void CacheBlockList();
+
 	void CheckForDX12Support();
+
+	bool CheckIfPlayerIsBlockedOnService(class APlayerController* PC, class APlayerState* UserToBeChecked);
+
+	TArray<struct FString> CheckWhichPlayersAreBlockedByNetID(class APlayerController* PC, TArray<struct FString> UsersToBeFiltered);
 
 	void ClearPreviousPlayer();
 
+	void DoesCurrentSessionHaveCrossplayEnabled(bool* IsEnabled, bool* SuccessfullyRetrieved);
+
+	void FindSessions(class UObject* WorldContextObject, class APlayerController* PlayerController, struct FString SearchSessionName, int32_t MaxResults, bool bUseLAN);
+
 	TArray<struct FString> GetAccountInfo();
+
+	TArray<struct FString> GetBlockedPlayersIDs(class APlayerController* PC);
+
+	bool GetChatPrivilegeState();
+
+	bool GetCrossplayPrivilegeState();
+
+	struct FString GetCurrentPlayerUniqueId();
 
 	E_GraphicsRHI GetCurrentRHI(bool GetFromFile);
 
+	struct FName GetCurrentSessionName();
+
 	int32_t GetCurrentUserIndex();
 
+	bool GetInternetConnectionStatus();
+
+	class APlayerController* GetLocalPlayerController();
+
+	struct FString GetLocalPlayerUniqueId();
+
+	struct FString GetPasswordForSessionByName(struct FName SessionName, bool* isSuccess);
+
 	int32_t GetPlatformUserID();
+
+	bool GetPlayerBanStateCached();
+
+	void GetPlayerBanStateFromServer(struct FString PlayerId, struct FString PlayerPlatform);
+
+	bool GetUGCPrivilegeState();
+
+	void HandleSessionInvite(bool bWasSuccessful, int32_t LocalUserNum, struct FString UserUNiD, const struct FBlueprintSessionResultCustom& SessionToJoin);
+
+	bool IsLoggedInNative(class APlayerController* PC);
+
+	void OnFindSessionFinished(const TArray<struct FBlueprintSessionResultCustom>& Results);
 
 	void OnFocusGained();
 
 	void OnFocusLost();
 
-	void PrintDebugUser(class APlayerController* LocalPlayer);
+	void PrintDebugUser(struct FString AdditionalMessage, class APlayerController* LocalPlayer);
 
 	bool ReSetController(int32_t ControllerIndex);
 
-	bool SetCurrentPlayer(class ULocalPlayer* LocalPlayer);
+	void SendReportMessage(struct FString ReportingPlayerID, struct FString ReportingPlayerPlatform, struct FString ReportedPlayerID, struct FString ReportedPlayerPlatform, struct FString Message);
+
+	void SetChatPrivilegeState(bool CanUseChat);
+
+	void SetCrossplayInConfig(bool bEnable);
+
+	void SetCrossplayPrivilegeState(bool CanCrossplay);
+
+	bool SetCurrentPlayer(class APlayerController* PlayerController);
+
+	bool SetCurrentPlayerById(int32_t ID, bool reassign);
+
+	void SetCurrentSessionName(struct FName SessionName);
+
+	void SetGameInitializedForSession(bool gameInit, bool* isSuccess);
+
+	void SetPlayerMultiplayerFeatures(class APlayerController* PC, bool NewState);
+
+	void SetPlayerSessionInConfig(struct FString SessionName);
 
 	void SetRHI(E_GraphicsRHI NewRHI);
+
+	void SetUGCPrivilegeState(bool CanDisplayUGC);
+
+	bool ShowAccountUpgradeUI(class APlayerController* PC);
+
+	bool ShowFriendsInviteUI();
+
+	bool ShowSocialFeaturesRestrictedUI(class APlayerController* PC);
+
+	bool ShowUserProfileUI(class APlayerState* UserProfileToShow, class APlayerState* UserViewingProfile);
+
+	bool TryToLoginLocalPlayer(class ULocalPlayer* LocalPlayer);
+
+	bool TryToLogoutLocalPlayer(class ULocalPlayer* LocalPlayer);
+
+	bool VerifyPlayerState(class APlayerController* PC);
 
 	bool WasPlayerLoggedIn(class ULocalPlayer* CurrentLoggedInPlayer);
 
