@@ -577,6 +577,7 @@ bool SetupProfile(const std::string& Path) {
 				SDK::SelectedGameProfile.CallFunctionByNameWithArguments = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "CallFunctionByNameWithArguments", ""));
 				SDK::SelectedGameProfile.ProcessEvent = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "ProcessEvent", ""));
 				SDK::SelectedGameProfile.CreateDefaultObject = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "CreateDefaultObject", ""));
+				SDK::SelectedGameProfile.GetDisplayNameTextByIndex = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "GetDisplayNameTextByIndex", ""));
 				Log::Info_UML("Function Offsets Set!");
 			}
 			else
@@ -590,6 +591,7 @@ bool SetupProfile(const std::string& Path) {
 				SDK::SelectedGameProfile.CallFunctionByNameWithArguments = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "CallFunctionByNameWithArguments", "").c_str());
 				SDK::SelectedGameProfile.ProcessEvent = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "ProcessEvent", "").c_str());
 				SDK::SelectedGameProfile.CreateDefaultObject = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "CreateDefaultObject", "").c_str());
+				SDK::SelectedGameProfile.GetDisplayNameTextByIndex = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "GetDisplayNameTextByIndex", "").c_str());
 			}
 
 			CHECK(SDK::SelectedGameProfile.GameStateInit, "GameStateInit");
@@ -601,6 +603,7 @@ bool SetupProfile(const std::string& Path) {
 			CHECK(SDK::SelectedGameProfile.CallFunctionByNameWithArguments, "CallFunctionByNameWithArguments");
 			CHECK(SDK::SelectedGameProfile.ProcessEvent, "ProcessEvent");
 			CHECK(SDK::SelectedGameProfile.CreateDefaultObject, "CreateDefaultObject");
+			CHECK(SDK::SelectedGameProfile.GetDisplayNameTextByIndex, "GetDisplayNameTextByIndex");
 
 		}
 		else {
@@ -614,6 +617,7 @@ bool SetupProfile(const std::string& Path) {
 			Log::Info_MDML("CallFunctionByNameWithArguments: 0x{0:x}", SDK::SelectedGameProfile.CallFunctionByNameWithArguments);
 			Log::Info_MDML("ProcessEvent: 0x{0:x}", SDK::SelectedGameProfile.ProcessEvent);
 			Log::Info_MDML("CreateDefaultObject: 0x{0:x}", SDK::SelectedGameProfile.CreateDefaultObject);
+			Log::Info_MDML("GetDisplayNameTextByIndex: 0x{0:x}", SDK::SelectedGameProfile.GetDisplayNameTextByIndex);
 		}
 #pragma endregion
 

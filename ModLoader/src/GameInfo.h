@@ -124,6 +124,7 @@ public:
 	DWORD64 StaticLoadObject = 0x0;
 	DWORD64 StaticFindObject = 0x0;
 	DWORD64 SpawnActorFTrans = 0x0;
+	DWORD64 GetDisplayNameTextByIndex = 0x0;
 
 	DWORD64 ProcessInternals = 0x0;
 	DWORD64 StaticConstructObject_Internal = 0x0;

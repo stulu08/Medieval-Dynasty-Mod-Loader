@@ -67,5 +67,7 @@ include "LoaderAutoInjector"
 include "ModLoader"
 include "BaseMod"
 include "SDK"
+group "GUI"
+include "ModManager"
 group ""
 
