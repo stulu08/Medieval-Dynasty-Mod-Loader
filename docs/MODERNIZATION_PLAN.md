@@ -42,12 +42,13 @@ Goal: every hook/function resolves correctly, loader runs in-game, Core + Logic 
 ## Phase 2 — Clean up & restructure ("sortieren")
 Planned as parallel agent work packages (worktrees off `modernize`), each with its own doc update. Order/assignment to be confirmed with the owner.
 
-- **2.1 Repo hygiene** — remove tracked binaries (`libMinHook…lib`, `ModManager/MDML.zip`, `premake5.exe`), `.vs/`, stale files; fix CI (premake → msbuild, artifacts); consistent `.gitignore`.
+- **2.1 Repo hygiene** (agent started 2026-10-09) — remove tracked binaries (`libMinHook…lib`, `ModManager/MDML.zip`, `premake5.exe`), `.vs/`, stale files; fix CI (premake → msbuild, artifacts); consistent `.gitignore`.
+- **2.0 Code inventory** (report agent started 2026-10-09 → `docs/reports/code-inventory.md`) — basis for 2.2/2.3.
 - **2.2 Architecture/module split** — clear layers: Bootstrap (proxy DLL) → Platform (symbols, memory, hooks) → Engine (hand-written UE core types/reflection) → Mod system (core/logic/overwrite mods) → UI. Remove UML leftovers/dead code, consistent naming, C++20.
 - **2.3 Engine core cleanup** — the hand-written SDK core (see below) gets refactored, not regenerated. `EngineDefFinder` (runtime offset scanning) can be validated/simplified with PDB type info (e.g. `UObjectBase` member offsets).
 - **2.4 New SDK generator** — replace the per-class `.h`+`.cpp` getter/setter generator (→ 2.5 GB lib). Target: run against the live game, choose packages via **export lists**, emit header-centric output (real member layout + padding + `static_assert` offsets/sizes, like Dumper-7), function wrappers in one `.cpp` per package, generated output not committed. Mods link only the packages they need.
 - **2.5 BaseMod split** — separate dev tools (object browser, SDK exporter) from the game API helpers.
-- **2.6 Vendor updates** — spdlog, ImGui, MinHook, glm, INI parser, `JSON.h` in ModManager.
+- **2.6 Vendor updates** (research report agent started 2026-10-09 → `docs/reports/libraries.md`) — spdlog, ImGui, MinHook, glm, INI parser, `JSON.h` in ModManager.
 - **2.7 ModManager** — decide fate (see open decisions).
 - **2.8 Documentation** — README, Modding.md, architecture overview, how to update after a game patch.
 
@@ -76,6 +77,8 @@ Lua scripting for mods · live object viewer/editor in ImGui · hot reload · ho
 | 2026-10-09 | C++ standard | C++20 or newer. |
 | 2026-10-09 | D3D12 | Later; fix the core first. |
 | 2026-10-09 | Docs language | English. |
+| 2026-10-09 | SDK generator design | Use Dumper-7 for reflection analysis (offsets, dependencies, collisions, padding) but write an **own MDML generator backend** that emits headers against the owner's hand-written core (`UE4::UObject`, `TArray`, `FName`, …): real member layout, `static_assert`s, export lists. |
+| 2026-10-09 | SDK dump trigger | **Integrated into MDML** as a dev-tool mod: dump started from the ImGui menu, packages chosen there (export lists). |
 
 ## Open decisions (ask the owner)
 - (none right now)
