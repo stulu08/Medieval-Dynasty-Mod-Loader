@@ -14,9 +14,9 @@ bool GameMod::InitGameState() {
 	MedievalDynastyGameMode = Utils::ValidateBPObject<UE4::AGM_MedievalDynasty_C>(UE4::UGameplayStatics::GetGameMode(), "BlueprintGeneratedClass GM_MedievalDynasty.GM_MedievalDynasty_C");
 	
 	if(!MedievalDynastyGameInstance && MedievalDynastyGameMode)
-		MedievalDynastyGameInstance = Utils::ValidateBPObject<UE4::UGI_MedievalDynasty_C>(MedievalDynastyGameMode->M_GetGameInstance(), "BlueprintGeneratedClass GI_MedievalDynasty.GI_MedievalDynasty_C");
+		MedievalDynastyGameInstance = Utils::ValidateBPObject<UE4::UGI_MedievalDynasty_C>(GetMember<UE4::UObject*>(MedievalDynastyGameMode, "GameInstance"), "BlueprintGeneratedClass GI_MedievalDynasty.GI_MedievalDynasty_C");
 	if (MedievalDynastyGameInstance) {
-		switch (MedievalDynastyGameInstance->M_GetMDGameState()) {
+		switch (getMDGameState()) {
 		case UE4::EMD_GameState::MD_GameState__Init:
 			return MenuInit();
 		case UE4::EMD_GameState::MD_GameState__Loading:
@@ -32,7 +32,7 @@ bool GameMod::BeginPlay(UE4::AActor* Actor) {
 	if(!PlayerCharacter)
 		PlayerCharacter = Utils::ValidateBPObject<UE4::ABP_PlayerCharacter_C>(Actor, "BlueprintGeneratedClass BP_PlayerCharacter.BP_PlayerCharacter_C");
 	if (MedievalDynastyGameInstance) {
-		switch (MedievalDynastyGameInstance->M_GetMDGameState()) {
+		switch (getMDGameState()) {
 		case UE4::EMD_GameState::MD_GameState__Init:
 				return MenuBeginPlay(Actor);
 		case UE4::EMD_GameState::MD_GameState__Loading:
@@ -46,7 +46,7 @@ bool GameMod::BeginPlay(UE4::AActor* Actor) {
 
 bool GameMod::Tick(UE4::ELevelTick tick, float deltaTime) {
 	if (MedievalDynastyGameInstance) {
-		switch (MedievalDynastyGameInstance->M_GetMDGameState()) {
+		switch (getMDGameState()) {
 		case UE4::EMD_GameState::MD_GameState__Menu:
 			return MenuTick(deltaTime);
 		case UE4::EMD_GameState::MD_GameState__InGame:

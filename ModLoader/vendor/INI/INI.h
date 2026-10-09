@@ -172,9 +172,11 @@ public:
               if (section.size() == 0) // If no section value, use default section
                   current = this->current;
 
+              // MDML patch: merge duplicate sections instead of throwing (an uncaught throw crashed the game on a bad mod.ini)
               if (sections.find(section) != sections.end()) {
-                  std::cerr << "Error: cpp-feather-ini-parser: Duplicate section '" + section + "':" << i << std::endl;
-                  throw - 1;
+                  std::cerr << "Warning: cpp-feather-ini-parser: Duplicate section '" + section + "' merged:" << i << std::endl;
+                  current = sections[section];
+                  continue;
               }
 
               current = new keys_t;
@@ -187,9 +189,11 @@ public:
                   r_trim(key);
                   l_trim(value);
 
+                  // MDML patch: last value wins instead of throwing
                   if ((*current).find(key) != (*current).end()) {
-                      std::cerr << "Error: cpp-feather-ini-parser: Duplicate key '" + key + "':" << i << std::endl;
-                      throw - 1;
+                      std::cerr << "Warning: cpp-feather-ini-parser: Duplicate key '" + key + "', last value wins:" << i << std::endl;
+                      (*current)[key] = value;
+                      continue;
                   }
 
                   (*current).emplace(key, value);
@@ -256,9 +260,10 @@ public:
   }
   //Create a new section and select it
   void create(fini_string_t section) {
+      // MDML patch: creating an existing section selects it instead of throwing
       if (section != "" && sections.find(section) != sections.end()) {
-          std::cerr << "Error: cpp-feather-ini-parser: Duplicate section '" << section << "'" << std::endl;
-          throw - 1;
+          current = sections[section];
+          return;
       }
 
       current = new keys_t;

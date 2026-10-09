@@ -384,92 +384,52 @@ namespace UE4 {
 		PROPERTY_IMPL_GET_CPP_TYPE("struct FScriptMulticastDelegate")
 	};
 	static UE4::FProperty* _dummy_foobar = nullptr;
+
+	// Finds a reflected property by name on the object's class or any of its super classes
+	// (members declared in a native base class, e.g. UMedievalDynastyGameInstance::MDGameState, live there).
+	inline UE4::FProperty* FindPropertyByName(UE4::UObject* Object, const std::string& Name)
+	{
+		if (!Object)
+			return nullptr;
+		for (UE4::UStruct* Struct = Object->GetClass(); Struct; Struct = Struct->GetSuperField())
+		{
+			if (FProperty::IsFProperty())
+			{
+				for (auto Field = (UE4::FField*)Struct->GetChildren(); Field; Field = Field->GetNext())
+				{
+					if (Field->GetName() == Name)
+						return (UE4::FProperty*)Field;
+				}
+			}
+			else
+			{
+				for (auto Field = (UE4::UField*)Struct->GetChildren(); Field; Field = Field->GetNext())
+				{
+					if (Field->GetName() == Name)
+						return (UE4::FProperty*)Field;
+				}
+			}
+		}
+		return nullptr;
+	}
+
 	template<typename T>
 	bool GetVariable(UE4::UObject* Object, std::string Name, T& Variable, UE4::FProperty*& Property = _dummy_foobar)
 	{
-		UE4::UClass* ObjectClass = Object->GetClass();
-		if (FProperty::IsFProperty())
-		{
-			auto Children = (UE4::FField*)ObjectClass->GetChildren();
-			bool VarFound = false;
-			while (!VarFound)
-			{
-				if (!Children)
-					break;
-				if (Children->GetName() == Name)
-				{
-					VarFound = true;
-					auto varProperty = (UE4::FProperty*)Children;
-					Property = varProperty;
-					Variable = Read<T>((byte*)Object + varProperty->GetOffset());
-					return true;
-				}
-				Children = Children->GetNext();
-			}
-
-		}
-		else
-		{
-			auto Children = (UE4::UField*)ObjectClass->GetChildren();
-			bool VarFound = false;
-			while (!VarFound)
-			{
-				if (!Children)
-					break;
-				if (Children->GetName() == Name)
-				{
-					VarFound = true;
-					auto varProperty = (UE4::FProperty*)Children;
-					Property = varProperty;
-					Variable = Read<T>((byte*)Object + varProperty->GetOffset());
-					return true;
-				}
-				Children = Children->GetNext();
-			}
-		}
-		return false;
+		auto varProperty = FindPropertyByName(Object, Name);
+		if (!varProperty)
+			return false;
+		Property = varProperty;
+		Variable = Read<T>((byte*)Object + varProperty->GetOffset());
+		return true;
 	}
 	template<typename T>
 	bool SetVariable(UE4::UObject* Object, std::string Name, T Value)
 	{
-		UE4::UClass* ObjectClass = Object->GetClass();
-		if (FProperty::IsFProperty())
-		{
-			auto Children = (UE4::FField*)ObjectClass->GetChildren();
-			bool VarFound = false;
-			while (!VarFound)
-			{
-				if (!Children)
-					break;
-				if (Children->GetName() == Name)
-				{
-					VarFound = true;
-					auto varProperty = (UE4::FProperty*)Children;
-					Write<T>((byte*)Object + varProperty->GetOffset(), Value);
-					return true;
-				}
-				Children = Children->GetNext();
-			}
-
-		}
-		else
-		{
-			auto Children = (UE4::UField*)ObjectClass->GetChildren();
-			bool VarFound = false;
-			while (!VarFound)
-			{
-				if (!Children)
-					break;
-				if (Children->GetName() == Name)
-				{
-					VarFound = true;
-					auto varProperty = (UE4::FProperty*)Children;
-					Write<T>((byte*)Object + varProperty->GetOffset(), Value);
-					return true;
-				}
-				Children = Children->GetNext();
-			}
-		}
-		return false;
+		auto varProperty = FindPropertyByName(Object, Name);
+		if (!varProperty)
+			return false;
+		Write<T>((byte*)Object + varProperty->GetOffset(), Value);
+		return true;
 	}
 }

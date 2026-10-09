@@ -70,9 +70,10 @@ namespace MDMLBase {
 		static int count = 0;
 		needObjectReload = true;
 		GameMod::InitGameState();
-		if (MedievalDynastyGameInstance && m_enableCheatsMenu) {
-			MedievalDynastyGameInstance->M_SetCheats(true);
-		}
+		// The old GI "Cheats" flag no longer exists in 2.7.0.4 (cheats moved to UMD_CheatManager); writing the stale
+		// offset corrupted memory. Cheats will come back in the DevTools mod.
+		if (m_enableCheatsMenu)
+			Log::Warn_MDML("EnableCheatsMenu is not supported with this game version yet (waiting for the DevTools mod)");
 		return false;
 	}
 	bool Mod::GameInit() {
@@ -83,7 +84,7 @@ namespace MDMLBase {
 	UE4::NativeTMap<struct UE4::FName, struct UE4::FST_InventoryItemsArray> items;
 	bool Mod::GameTick(float delta) {
 		if (PlayerController) {
-			UE4::UInventoryComponent_C* inv =  PlayerCharacter->M_GetInventoryComponent();
+			auto inv = GetMember<UE4::UInventoryComponent_C*>(PlayerCharacter, "InventoryComponent");
 			if (inv && loadItems) {
 				inv->GetInventoryItems_BPI(items);
 				loadItems = false;
@@ -159,7 +160,13 @@ namespace MDMLBase {
 						Utils::Gui::UE4ActorTransformEdit(PlayerCharacter);
 						ImGui::Separator();
 					}
-					if (ImGui::CollapsingHeader("Items")) {
+					// Item tools use generated parameter/struct layouts from game 2.2.0.8 (FST_InventoryItemsArray,
+					// AddItemToInventory params) that are unverified for 2.7.0.4 -> disabled until the new SDK generator.
+					constexpr bool kItemToolsEnabled = false;
+					if (!kItemToolsEnabled && ImGui::CollapsingHeader("Items")) {
+						ImGui::TextDisabled("Disabled: waiting for the new SDK (item layouts changed with game 2.7.0.4).");
+					}
+					else if (kItemToolsEnabled && ImGui::CollapsingHeader("Items")) {
 						if (ImGui::Button("Load Items"))
 							loadItems = true;
 						for (int i = 0; i < items.Num(); i++) {
@@ -224,7 +231,7 @@ namespace MDMLBase {
 							ImGui::MDML_Bool("CountAsPickUp", CountAsPickUp);
 							ImGui::MDML_Float("NotificationDelay", NotificationDelay);
 							if (ImGui::Button("Add") && !items.empty()) {
-								PlayerCharacter->M_GetInventoryComponent()->AddItemToInventory(items[selectedItem], count, passCondition, CurrentHP, MaxHP, Capacity, Freshness, (UE4::E_Ownership)Ownership, DisplayNotification, UpdateInventory, CountAsPickUp, NotificationDelay, nullptr);
+								GetMember<UE4::UInventoryComponent_C*>(PlayerCharacter, "InventoryComponent")->AddItemToInventory(items[selectedItem], count, passCondition, CurrentHP, MaxHP, Capacity, Freshness, (UE4::E_Ownership)Ownership, DisplayNotification, UpdateInventory, CountAsPickUp, NotificationDelay, nullptr);
 							}
 						}
 						ImGui::Separator();

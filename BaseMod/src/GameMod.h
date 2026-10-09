@@ -42,15 +42,25 @@ public:
 	inline UE4::UGI_MedievalDynasty_C* getMedievalDynastyGameInstance() const { return MedievalDynastyGameInstance; }
 	inline UE4::AGS_GameState_C* getMedievalDynastyGameState() const { return MedievalDynastyGameState; }
 	inline UE4::AGM_MedievalDynasty_C* getMedievalDynastyGameMode() const { return MedievalDynastyGameMode; }
-	inline UE4::ABP_SystemsManager_C* getMainGameManager() const { return getMedievalDynastyGameMode()->M_GetSystemsManagerReference(); }
-	inline UE4::ABP_WeatherManager_C* getWeatherManager() const { return static_cast<UE4::ABP_WeatherManager_C*>(getMainGameManager()->M_GetWeatherSystemReference()); }
-	inline UE4::ABP_AnimalsManager_C* getCameraManager() const { return static_cast<UE4::ABP_AnimalsManager_C*>(getMainGameManager()->M_GetAnimalsManagerReference()); }
-	inline UE4::ABP_QuestManager_C* getQuestManager() const { return static_cast<UE4::ABP_QuestManager_C*>(getMainGameManager()->M_GetQuestManagerReference()); }
-	inline UE4::ABP_DataManager_C* getDataManager() const { return static_cast<UE4::ABP_DataManager_C*>(getMainGameManager()->M_GetDataManagerReference()); }
-	inline UE4::ABP_TimeManager_C* getTimeManager() const { return static_cast<UE4::ABP_TimeManager_C*>(getMainGameManager()->M_GetTimeManagerReference()); }
-	inline UE4::ABP_NPC_Manager_C* getNpcManager () const { return static_cast<UE4::ABP_NPC_Manager_C*>(getMainGameManager()->M_GetNPCManagerReference()); }
-	inline UE4::ABP_EventManager_C* getEventManager () const { return static_cast<UE4::ABP_EventManager_C*>(getMainGameManager()->M_GetEventManagerReference()); }
-	inline UE4::ABP_POI_Manager_C* getPOIManager () const { return static_cast<UE4::ABP_POI_Manager_C*>(getMainGameManager()->M_GetPOI_ManagerReference()); }
+	// Members of Blueprint classes are resolved by name through reflection, so they keep working after game patches
+	// (the generated SDK's fixed offsets went stale with 2.7.0.4). See docs/MODERNIZATION_PLAN.md, SDK decisions.
+	template<typename T>
+	static T GetMember(UE4::UObject* Object, const char* Name) {
+		T value{};
+		if (Object)
+			UE4::GetVariable<T>(Object, Name, value);
+		return value;
+	}
+	inline UE4::ABP_SystemsManager_C* getMainGameManager() const { return GetMember<UE4::ABP_SystemsManager_C*>(getMedievalDynastyGameMode(), "SystemsManagerReference"); }
+	inline UE4::ABP_WeatherManager_C* getWeatherManager() const { return GetMember<UE4::ABP_WeatherManager_C*>(getMainGameManager(), "WeatherSystemReference"); }
+	inline UE4::ABP_AnimalsManager_C* getCameraManager() const { return GetMember<UE4::ABP_AnimalsManager_C*>(getMainGameManager(), "AnimalsManagerReference"); }
+	inline UE4::ABP_QuestManager_C* getQuestManager() const { return GetMember<UE4::ABP_QuestManager_C*>(getMainGameManager(), "QuestManagerReference"); }
+	inline UE4::ABP_DataManager_C* getDataManager() const { return GetMember<UE4::ABP_DataManager_C*>(getMainGameManager(), "DataManagerReference"); }
+	inline UE4::ABP_TimeManager_C* getTimeManager() const { return GetMember<UE4::ABP_TimeManager_C*>(getMainGameManager(), "TimeManagerReference"); }
+	inline UE4::ABP_NPC_Manager_C* getNpcManager () const { return GetMember<UE4::ABP_NPC_Manager_C*>(getMainGameManager(), "NPCManagerReference"); }
+	inline UE4::ABP_EventManager_C* getEventManager () const { return GetMember<UE4::ABP_EventManager_C*>(getMainGameManager(), "EventManagerReference"); }
+	inline UE4::ABP_POI_Manager_C* getPOIManager () const { return GetMember<UE4::ABP_POI_Manager_C*>(getMainGameManager(), "POI_ManagerReference"); }
+	inline UE4::EMD_GameState getMDGameState() const { return (UE4::EMD_GameState)GetMember<uint8_t>(MedievalDynastyGameInstance, "MDGameState"); }
 
 	Ref<Logger> getLogger() const { return logger; }
 protected:
