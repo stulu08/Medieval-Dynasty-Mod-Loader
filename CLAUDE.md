@@ -41,5 +41,5 @@ Read before doing anything:
 - Game: `E:\SteamLibrary\steamapps\common\Medieval Dynasty\Medieval_Dynasty\Binaries\Win64\`
 - **The game ships a full matching PDB** (`Medieval_Dynasty-Win64-Shipping.pdb`, Steam depot 1129581, GUID matches the EXE). Prefer resolving by symbol name over AOB guessing.
 - IDA Pro 7.5 SP3: `C:\Program Files\IDA Pro 7.5 SP3` (use `idat64.exe -A -S<script>` headless; MCP plugins need IDA ≥ 8.3).
-- Reference sources in `C:\dev\MDML\tools\`: `RE-UE4SS-src` (MIT), `Dumper-7` (**no license** on GitHub → all rights reserved; read for ideas only, do not copy code), UE4SS binaries. MDML itself is LGPL-2.1.
+- Reference sources in `C:\dev\MDML\tools\`: `RE-UE4SS-src` (MIT), `Dumper-7` (no license file; maintainer allows use in open-source projects **with proper attribution**, issue #416 — always credit when adapting code), UE4SS binaries. MDML itself is LGPL-2.1.
 - Python 3.13 with pefile, capstone, keystone, lief.

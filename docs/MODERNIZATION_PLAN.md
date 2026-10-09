@@ -84,8 +84,7 @@ Lua scripting for mods · live object viewer/editor in ImGui · hot reload · ho
 | 2026-10-09 | Docs language | English. |
 | 2026-10-09 | SDK generator design | Use Dumper-7 for reflection analysis (offsets, dependencies, collisions, padding) but write an **own MDML generator backend** that emits headers against the owner's hand-written core (`UE4::UObject`, `TArray`, `FName`, …): real member layout, `static_assert`s, export lists. |
 | 2026-10-09 | SDK dump trigger | **Integrated into MDML** as a dev-tool mod: dump started from the ImGui menu, packages chosen there (export lists). |
-| 2026-10-09 | ⚠ License check | Dumper-7 has **no license** (GitHub API `license: null`) → cannot embed/redistribute its code in MDML (LGPL-2.1). UE4SS is MIT (usable with attribution). SDK generator decision must be revisited with the owner. |
+| 2026-10-09 | License check | Dumper-7 has no license file, but the maintainer (Fischsalat) wrote in [issue #416](https://github.com/Encryqed/Dumper-7/issues/416): *"Usage of the Dumper-7 code for your open source project with proper attribution is not an issue at all."* (rights retained, see #492; commercial use only by arrangement). MDML is open source and non-commercial → OK **with clear attribution** (credit in README, file headers of adapted code, THIRD_PARTY_LICENSES). UE4SS is MIT. |
 
 ## Open decisions (ask the owner)
-- SDK generator: Dumper-7 has no license → how do we build the MDML generator backend? (see decisions log)
 - Library decisions from `docs/reports/libraries.md` (INI → mINI wrapper?, ImGui 1.92 docking, spdlog 1.17 with C++20, exported hook API for core mods, THIRD_PARTY_LICENSES) — to be presented together with the code inventory.
