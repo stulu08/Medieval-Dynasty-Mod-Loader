@@ -42,7 +42,11 @@ Goal: every hook/function resolves correctly, loader runs in-game, Core + Logic 
 ## Phase 2 — Clean up & restructure ("sortieren")
 Planned as parallel agent work packages (worktrees off `modernize`), each with its own doc update. Order/assignment to be confirmed with the owner.
 
-- **2.1 Repo hygiene** (agent started 2026-10-09) — remove tracked binaries (`libMinHook…lib`, `ModManager/MDML.zip`, `premake5.exe`), `.vs/`, stale files; fix CI (premake → msbuild, artifacts); consistent `.gitignore`.
+- **2.1 Repo hygiene + CI** ☑ (2026-10-09) — done:
+  - MinHook: prebuilt `libMinHook-x64-v141-mtd.lib` removed; MinHook **v1.3.4** sources vendored in `ModLoader/vendor/MinHook` (`include/MinHook.h` path unchanged) and built as premake `StaticLib` `MinHook` (Release, `staticruntime "off"`, i.e. dynamic CRT like all other projects — the old lib was /MTd). ModLoader, BaseMod and ExampleMods link `"MinHook"`.
+  - `ModManager/MDML.zip` removed: stale release-2.3.1 package (DLLs/PDB inside); ModManager does not read it from the repo, it downloads `MDML.zip` at runtime (`HomeView.cpp`). Now in `.gitignore`.
+  - `scripts/premake/premake5.exe` **kept tracked** (the scripts and CI use it; small, pinned to the version the owner uses). No other tracked build outputs, `.vs/` or `*.user` found; `.gitignore` already covered them.
+  - CI rewritten: windows-latest, `premake5 vs2022` → msbuild Release x64 → upload `bin/Release-windows-x86_64` minus `*.lib/*.pdb/*.exp`. Not runnable here (YAML syntax checked locally only). Caveat: SDK.lib (~2.5 GB) may hit runner disk/time limits; goes away with 2.4.
 - **2.0 Code inventory** (report agent started 2026-10-09 → `docs/reports/code-inventory.md`) — basis for 2.2/2.3.
 - **2.2 Architecture/module split** — clear layers: Bootstrap (proxy DLL) → Platform (symbols, memory, hooks) → Engine (hand-written UE core types/reflection) → Mod system (core/logic/overwrite mods) → UI. Remove UML leftovers/dead code, consistent naming, C++20.
 - **2.3 Engine core cleanup** — the hand-written SDK core (see below) gets refactored, not regenerated. `EngineDefFinder` (runtime offset scanning) can be validated/simplified with PDB type info (e.g. `UObjectBase` member offsets).
@@ -81,4 +85,5 @@ Lua scripting for mods · live object viewer/editor in ImGui · hot reload · ho
 | 2026-10-09 | SDK dump trigger | **Integrated into MDML** as a dev-tool mod: dump started from the ImGui menu, packages chosen there (export lists). |
 
 ## Open decisions (ask the owner)
-- (none right now)
+- 2.1: `premake5.exe` stays tracked (binary in git). Alternative: delete it and download a pinned premake release in the scripts/CI. OK as is?
+- 2.1: MinHook is now built with the Release CRT instead of the old static-debug-CRT lib; behaviour should be identical, but needs one in-game smoke test with the owner (with the next in-game test).
