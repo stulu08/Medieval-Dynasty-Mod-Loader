@@ -11,14 +11,16 @@ The developers could drop it in any patch → MDML must keep a pattern fallback.
 | Tool | Use |
 |---|---|
 | `tools/pdbsym.py <exe> <mask>...` | dbghelp lookup, prints RVA/size/name. Masks support wildcards (`*FindFileInPakFiles*`). PDB load ≈ 30 s → batch masks in one call. |
-| `tools/check_patterns.py [--gen [--write]]` | Checks every fallback pattern in `Config/ModLoaderInfo.ini` like the loader judges it (functions: exactly 1 match; globals/call targets: all matches resolve to the same address) against the PDB address of the **same decorated symbol name the loader uses** (parsed from `namespace Symbols` in `MDML.cpp`). `--gen` builds replacements (capstone-wildcarded, unique), `--write` stores them in the ini. ~10 s. |
+| `tools/check_patterns.py [--gen [--write]]` | Checks every fallback pattern in `Config/ModLoaderInfo.ini` like the loader judges it (functions: exactly 1 match; globals/call targets: all matches resolve to the same address) against the PDB address of the **same decorated symbol name the loader uses** (parsed from `namespace Symbols` in `MDML.cpp`, same lookup strategy as the loader). `--gen` builds replacements (capstone-wildcarded, unique), `--write` stores them in the ini. ~2 s. |
 | IDA 7.5 headless | `idat64.exe -A -S"script.py" <idb/exe>` for batch IDAPython. Load the PDB via the PDB plugin. |
 | Dumper-7 / UE4SS (in `C:\dev\MDML\tools`) | References for engine internals, SDK generation, signatures. |
 
 ## How the loader resolves addresses (since 3.0.0-dev)
 1. `SymbolResolver` (ModLoader/src/Utilities/SymbolResolver.cpp) loads the game PDB via DbgHelp with
    `SYMOPT_EXACT_SYMBOLS` (GUID/age must match the running EXE) and looks up **decorated** names
-   (`namespace Symbols` in `MDML.cpp`). Lookups hit the public-symbol hash table: ~10 ms each, no cache needed.
+   (`namespace Symbols` in `MDML.cpp`). A decorated name looked up directly makes DbgHelp scan all publics
+   (~0.6 s each), so the resolver looks up the undecorated name (hash, ~1 ms) and verifies the decorated public
+   symbol at that address; only a mismatching overload falls back to the slow path. All 17 symbols: ~0.05 s.
    Disable with `[Symbols] UsePdb=0`.
 2. If the PDB is missing/mismatched: the pattern from `Config/ModLoaderInfo.ini`, judged strictly (see tool above).
 3. Every address is logged with its source (`pdb` / `pattern` / `offset`) and RVA.
@@ -70,3 +72,4 @@ Engine defs (offsets) were all found by `EngineDefFinder`; DX11 Present hook wor
 - `MDML::Start()` runs all setup (file I/O, scanning, DbgHelp) inside `DllMain` under the loader lock.
 - `hookFindFileInPakFiles` assigns `OutEntry = nullptr` (no effect, parameter is by value).
 - Game version string (`MEDIEVAL_VERSION`) is not in the EXE (likely in the pak config); the log now prints the EXE build id instead of guessing.
+- BaseMod always installs its `UI_CheatMenu` overwrite (old cooked asset) via `[Overrides] Enable=True`; `[Config] EnableCheatsMenu=0` only hides the menu. Risky with newer game versions.

@@ -12,6 +12,10 @@ namespace SymbolResolver
 	static const HANDLE s_Session = (HANDLE)(ULONG_PTR)0x4D444D4C; // "MDML"
 	static DWORD64 s_ModuleBase = 0;
 	static bool s_Initialized = false;
+	// No UNDNAME by default: decorated names are needed to tell overloads apart.
+	// EXACT_SYMBOLS: refuse a PDB whose GUID/age does not match the EXE (e.g. left over from an older build).
+	// No DEFERRED_LOADS: the PDB must be loaded right away, otherwise SymGetModuleInfo reports SymDeferred.
+	static const DWORD s_BaseOptions = SYMOPT_EXACT_SYMBOLS | SYMOPT_FAIL_CRITICAL_ERRORS | SYMOPT_NO_PROMPTS;
 
 	struct CodeViewInfo {
 		DWORD Signature;	// 'RSDS'
@@ -62,10 +66,7 @@ namespace SymbolResolver
 			return false;
 		}
 
-		// No UNDNAME: decorated names are needed to tell overloads apart.
-		// EXACT_SYMBOLS: refuse a PDB whose GUID/age does not match the EXE (e.g. left over from an older build).
-		// No DEFERRED_LOADS: the PDB must be loaded now, otherwise SymGetModuleInfo reports SymDeferred below.
-		SymSetOptions(SYMOPT_EXACT_SYMBOLS | SYMOPT_FAIL_CRITICAL_ERRORS | SYMOPT_NO_PROMPTS);
+		SymSetOptions(s_BaseOptions);
 		std::wstring searchPath = pdbPath.parent_path().wstring();
 		if (!SymInitializeW(s_Session, searchPath.c_str(), FALSE)) {
 			Log::Error_MDML("SymInitialize failed: {0}", GetLastError());
@@ -103,19 +104,57 @@ namespace SymbolResolver
 		return s_Initialized;
 	}
 
+	static DWORD64 LookupByName(const char* name, DWORD options) {
+		alignas(SYMBOL_INFO) char buffer[sizeof(SYMBOL_INFO) + MAX_SYM_NAME];
+		auto symbol = (SYMBOL_INFO*)buffer;
+		memset(symbol, 0, sizeof(SYMBOL_INFO));
+		symbol->SizeOfStruct = sizeof(SYMBOL_INFO);
+		symbol->MaxNameLen = MAX_SYM_NAME;
+		SymSetOptions(s_BaseOptions | options);
+		return SymFromName(s_Session, name, symbol) ? symbol->Address : 0;
+	}
+
+	// The decorated public symbol that starts exactly at address, or "" if there is none.
+	static std::string DecoratedNameAt(DWORD64 address) {
+		alignas(SYMBOL_INFO) char buffer[sizeof(SYMBOL_INFO) + MAX_SYM_NAME];
+		auto symbol = (SYMBOL_INFO*)buffer;
+		memset(symbol, 0, sizeof(SYMBOL_INFO));
+		symbol->SizeOfStruct = sizeof(SYMBOL_INFO);
+		symbol->MaxNameLen = MAX_SYM_NAME;
+		DWORD64 displacement = 0;
+		SymSetOptions(s_BaseOptions | SYMOPT_PUBLICS_ONLY);
+		if (!SymFromAddr(s_Session, address, &displacement, symbol) || displacement != 0)
+			return "";
+		return std::string(symbol->Name, symbol->NameLen);
+	}
+
+	// Looking up a decorated name directly makes DbgHelp scan all public symbols (~0.6 s per name with this PDB).
+	// Undecorated names go through a hash table (~1 ms), so look up the plain name and confirm the hit by comparing
+	// the decorated public symbol at that address. Only if that picked a different overload, pay for the slow path.
+	static DWORD64 FindOne(const char* name) {
+		if (name[0] != '?')
+			return LookupByName(name, SYMOPT_UNDNAME);
+
+		char plain[MAX_SYM_NAME];
+		if (UnDecorateSymbolName(name, plain, MAX_SYM_NAME, UNDNAME_NAME_ONLY)) {
+			DWORD64 address = LookupByName(plain, SYMOPT_UNDNAME);
+			if (address && DecoratedNameAt(address) == name)
+				return address;
+		}
+		return LookupByName(name, 0);
+	}
+
 	DWORD64 Find(std::initializer_list<const char*> names) {
 		if (!s_Initialized)
 			return 0;
 
-		alignas(SYMBOL_INFO) char buffer[sizeof(SYMBOL_INFO) + MAX_SYM_NAME];
+		DWORD64 address = 0;
 		for (const char* name : names) {
-			auto symbol = (SYMBOL_INFO*)buffer;
-			memset(symbol, 0, sizeof(SYMBOL_INFO));
-			symbol->SizeOfStruct = sizeof(SYMBOL_INFO);
-			symbol->MaxNameLen = MAX_SYM_NAME;
-			if (SymFromName(s_Session, name, symbol) && symbol->Address)
-				return symbol->Address;
+			address = FindOne(name);
+			if (address)
+				break;
 		}
-		return 0;
+		SymSetOptions(s_BaseOptions);
+		return address;
 	}
 }

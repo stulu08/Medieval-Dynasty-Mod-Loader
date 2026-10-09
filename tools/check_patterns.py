@@ -74,7 +74,8 @@ class Pdb:
 
     def __init__(self, exe, image_base):
         self.dbg = ctypes.WinDLL("dbghelp.dll")
-        self.dbg.SymSetOptions(0x4 | 0x400 | 0x200 | 0x2000)  # DEFERRED_LOADS | EXACT_SYMBOLS | FAIL_CRITICAL | NO_PROMPTS
+        self.options = 0x400 | 0x200 | 0x2000  # EXACT_SYMBOLS | FAIL_CRITICAL_ERRORS | NO_PROMPTS
+        self.dbg.SymSetOptions(self.options)
         self.proc = wt.HANDLE(0x4D444D4C)
         if not self.dbg.SymInitializeW(self.proc, os.path.dirname(exe), False):
             raise OSError("SymInitialize failed")
@@ -85,14 +86,40 @@ class Pdb:
         if not self.base:
             raise OSError("SymLoadModuleEx failed (no matching PDB?)")
         self.dbg.SymFromName.argtypes = [wt.HANDLE, ctypes.c_char_p, ctypes.c_void_p]
+        self.dbg.SymFromAddr.argtypes = [wt.HANDLE, ctypes.c_uint64, ctypes.POINTER(ctypes.c_uint64), ctypes.c_void_p]
+        self.dbg.UnDecorateSymbolName.argtypes = [ctypes.c_char_p, ctypes.c_char_p, wt.DWORD, wt.DWORD]
 
-    def rva(self, name):
+    def _lookup(self, name, options):
         s = self.SYMBOL_INFO()
         s.SizeOfStruct = 88  # sizeof(SYMBOL_INFO) in C
         s.MaxNameLen = 2000
-        if self.dbg.SymFromName(self.proc, name.encode(), ctypes.byref(s)) and s.Address:
-            return s.Address - self.base
-        return None
+        self.dbg.SymSetOptions(self.options | options)
+        return s.Address if self.dbg.SymFromName(self.proc, name.encode(), ctypes.byref(s)) and s.Address else 0
+
+    def _decorated_at(self, address):
+        s = self.SYMBOL_INFO()
+        s.SizeOfStruct = 88
+        s.MaxNameLen = 2000
+        disp = ctypes.c_uint64()
+        self.dbg.SymSetOptions(self.options | 0x4000)  # PUBLICS_ONLY
+        ok = self.dbg.SymFromAddr(self.proc, ctypes.c_uint64(address), ctypes.byref(disp), ctypes.byref(s))
+        return s.Name[:s.NameLen].decode() if ok and disp.value == 0 else ""
+
+    def rva(self, name):
+        """Same strategy as SymbolResolver::FindOne: fast plain-name lookup verified by the decorated name,
+        slow decorated lookup only if the plain name picked another overload."""
+        address = 0
+        if not name.startswith("?"):
+            address = self._lookup(name, 0x2)  # UNDNAME
+        else:
+            buf = ctypes.create_string_buffer(2000)
+            if self.dbg.UnDecorateSymbolName(name.encode(), buf, 2000, 0x1000):  # UNDNAME_NAME_ONLY
+                address = self._lookup(buf.value.decode(), 0x2)
+                if address and self._decorated_at(address) != name:
+                    address = 0
+            if not address:
+                address = self._lookup(name, 0)
+        return address - self.base if address else None
 
 
 # ----------------------------------------------------------------------------- PE image

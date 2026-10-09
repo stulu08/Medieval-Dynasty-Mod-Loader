@@ -20,7 +20,7 @@ Status legend: ☐ todo · ◐ in progress · ☑ done
 Goal: every hook/function resolves correctly, loader runs in-game, Core + Logic + Overwrite mods work.
 
 1. ☑ **Symbol resolver** (new module in ModLoader): resolve functions/globals by name.
-   - Source A: game PDB via DbgHelp, decorated names, exact GUID match. Measured ~10 ms per lookup → no cache needed.
+   - Source A: game PDB via DbgHelp, decorated names, exact GUID match. Plain-name lookup + decorated verification: ~0.05 s for all symbols → no cache needed.
    - Source B (fallback when no PDB/cache): AOB patterns from `Config/ModLoaderInfo.ini`.
    - Every resolved address is logged with its source; ambiguous pattern hits are an error, not "first hit wins".
 2. ☑ **Pattern fixes**: replace the 6 failing patterns + SCOI with PDB-generated ones (`check_patterns.py --gen`), delete the stale root `ModLoaderInfo.ini`.
@@ -34,7 +34,9 @@ Goal: every hook/function resolves correctly, loader runs in-game, Core + Logic 
      Cause (strong hypothesis): the **generated SDK is from game 2.2.0.8**; its fixed member offsets on
      `BP_BaseCharacter_C` (StatsComponent +1424, InventoryComponent +1440) are stale, so BaseMod calls inventory BP
      functions on the stats component. Fix = regenerate SDK (2.4). Until then: don't use BaseMod game tools.
-   - Test 2: verify PDB path is used (`(pdb, …)` in log).
+   - Test 2: all 17 resolved via `pdb`, clean shutdown. But lookups took ~12 s total (decorated-name lookups scan
+     all publics) → switched to plain-name lookup verified by decorated name (~0.05 s offline).
+   - Test 3: confirm startup is fast again.
 
 ## Phase 2 — Clean up & restructure ("sortieren")
 Planned as parallel agent work packages (worktrees off `modernize`), each with its own doc update. Order/assignment to be confirmed with the owner.
