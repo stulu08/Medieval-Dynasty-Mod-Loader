@@ -47,12 +47,12 @@ Planned as parallel agent work packages (worktrees off `modernize`), each with i
   - `ModManager/MDML.zip` removed: stale release-2.3.1 package (DLLs/PDB inside); ModManager does not read it from the repo, it downloads `MDML.zip` at runtime (`HomeView.cpp`). Now in `.gitignore`.
   - premake: first kept tracked, then (owner request) replaced by an SEngine-style setup script that downloads pinned 5.0.0-beta7. No other tracked build outputs, `.vs/` or `*.user` found; `.gitignore` already covered them.
   - CI rewritten: windows-latest, `premake5 vs2022` → msbuild Release x64 → upload `bin/Release-windows-x86_64` minus `*.lib/*.pdb/*.exp`. Not runnable here (YAML syntax checked locally only). Caveat: SDK.lib (~2.5 GB) may hit runner disk/time limits; goes away with 2.4.
-- **2.0 Code inventory** (report agent started 2026-10-09 → `docs/reports/code-inventory.md`) — basis for 2.2/2.3.
+- **2.0 Code inventory** ☑ (`docs/reports/code-inventory.md`) — basis for 2.2/2.3.
 - **2.2 Architecture/module split** — clear layers: Bootstrap (proxy DLL) → Platform (symbols, memory, hooks) → Engine (hand-written UE core types/reflection) → Mod system (core/logic/overwrite mods) → UI. Remove UML leftovers/dead code, consistent naming, C++20.
 - **2.3 Engine core cleanup** — the hand-written SDK core (see below) gets refactored, not regenerated. `EngineDefFinder` (runtime offset scanning) can be validated/simplified with PDB type info (e.g. `UObjectBase` member offsets).
 - **2.4 New SDK generator** — replace the per-class `.h`+`.cpp` getter/setter generator (→ 2.5 GB lib). Target: run against the live game, choose packages via **export lists**, emit header-centric output (real member layout + padding + `static_assert` offsets/sizes, like Dumper-7), function wrappers in one `.cpp` per package, generated output not committed. Mods link only the packages they need.
 - **2.5 BaseMod split** — separate dev tools (object browser, SDK exporter) from the game API helpers.
-- **2.6 Vendor updates** (research report agent started 2026-10-09 → `docs/reports/libraries.md`) — spdlog, ImGui, MinHook, glm, INI parser, `JSON.h` in ModManager.
+- **2.6 Vendor updates** (research ☑ `docs/reports/libraries.md`) — spdlog, ImGui, MinHook, glm, INI parser, `JSON.h` in ModManager.
 - **2.7 ModManager** — decide fate (see open decisions).
 - **2.8 Documentation** — README, Modding.md, architecture overview, how to update after a game patch.
 
@@ -84,6 +84,8 @@ Lua scripting for mods · live object viewer/editor in ImGui · hot reload · ho
 | 2026-10-09 | Docs language | English. |
 | 2026-10-09 | SDK generator design | Use Dumper-7 for reflection analysis (offsets, dependencies, collisions, padding) but write an **own MDML generator backend** that emits headers against the owner's hand-written core (`UE4::UObject`, `TArray`, `FName`, …): real member layout, `static_assert`s, export lists. |
 | 2026-10-09 | SDK dump trigger | **Integrated into MDML** as a dev-tool mod: dump started from the ImGui menu, packages chosen there (export lists). |
+| 2026-10-09 | SDK member access | Owner's offset-based core stays. Generator emits **one header per package, no .cpp**; members become accessors (MSVC `__declspec(property)` so they read like fields) whose offset is **resolved by property name via reflection on first use**, dump-time offset only as fallback with a warning → mods survive game patches without regenerating. |
+| 2026-10-09 | SDK function calls | Generated ProcessEvent wrappers **validate** ParamsSize/param offsets against the live UFunction and abort with a log error on mismatch instead of corrupting memory. |
 | 2026-10-09 | License check | Dumper-7 has no license file, but the maintainer (Fischsalat) wrote in [issue #416](https://github.com/Encryqed/Dumper-7/issues/416): *"Usage of the Dumper-7 code for your open source project with proper attribution is not an issue at all."* (rights retained, see #492; commercial use only by arrangement). MDML is open source and non-commercial → OK **with clear attribution** (credit in README, file headers of adapted code, THIRD_PARTY_LICENSES). UE4SS is MIT. |
 
 ## Open decisions (ask the owner)
