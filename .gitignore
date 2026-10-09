@@ -363,3 +363,7 @@ ModManager/Cache/
 
 # Claude Code local state (agent worktrees etc.)
 .claude/
+
+# premake binary is downloaded by scripts/setup.bat (scripts/python/setupPremake.py)
+scripts/premake/premake5.exe
+scripts/premake/LICENSE.txt

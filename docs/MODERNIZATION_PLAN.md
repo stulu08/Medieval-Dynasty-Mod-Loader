@@ -43,9 +43,9 @@ Goal: every hook/function resolves correctly, loader runs in-game, Core + Logic 
 Planned as parallel agent work packages (worktrees off `modernize`), each with its own doc update. Order/assignment to be confirmed with the owner.
 
 - **2.1 Repo hygiene + CI** ☑ (2026-10-09) — done:
-  - MinHook: prebuilt `libMinHook-x64-v141-mtd.lib` removed; MinHook **v1.3.4** sources vendored in `ModLoader/vendor/MinHook` (`include/MinHook.h` path unchanged) and built as premake `StaticLib` `MinHook` (Release, `staticruntime "off"`, i.e. dynamic CRT like all other projects — the old lib was /MTd). ModLoader, BaseMod and ExampleMods link `"MinHook"`.
+  - MinHook: prebuilt `libMinHook-x64-v141-mtd.lib` removed; MinHook **v1.3.4** sources vendored in `ModLoader/vendor/MinHook` (`include/MinHook.h` path unchanged) and built as premake `StaticLib` `MinHook` (Release, `staticruntime "off"`, i.e. dynamic CRT like all other projects — the old lib was /MTd). ModLoader, BaseMod and ExampleMods link `"MinHook"`. In-game smoke test 2026-10-09: all hooks installed, clean shutdown.
   - `ModManager/MDML.zip` removed: stale release-2.3.1 package (DLLs/PDB inside); ModManager does not read it from the repo, it downloads `MDML.zip` at runtime (`HomeView.cpp`). Now in `.gitignore`.
-  - `scripts/premake/premake5.exe` **kept tracked** (the scripts and CI use it; small, pinned to the version the owner uses). No other tracked build outputs, `.vs/` or `*.user` found; `.gitignore` already covered them.
+  - premake: first kept tracked, then (owner request) replaced by an SEngine-style setup script that downloads pinned 5.0.0-beta7. No other tracked build outputs, `.vs/` or `*.user` found; `.gitignore` already covered them.
   - CI rewritten: windows-latest, `premake5 vs2022` → msbuild Release x64 → upload `bin/Release-windows-x86_64` minus `*.lib/*.pdb/*.exp`. Not runnable here (YAML syntax checked locally only). Caveat: SDK.lib (~2.5 GB) may hit runner disk/time limits; goes away with 2.4.
 - **2.0 Code inventory** (report agent started 2026-10-09 → `docs/reports/code-inventory.md`) — basis for 2.2/2.3.
 - **2.2 Architecture/module split** — clear layers: Bootstrap (proxy DLL) → Platform (symbols, memory, hooks) → Engine (hand-written UE core types/reflection) → Mod system (core/logic/overwrite mods) → UI. Remove UML leftovers/dead code, consistent naming, C++20.
@@ -76,7 +76,8 @@ Lua scripting for mods · live object viewer/editor in ImGui · hot reload · ho
 | 2026-10-09 | Hand-written core | `CoreUObject/*` written by the owner based on UE source, with many helpers; worked well → keep & refactor. Rest of the heuristic list unconfirmed (owner unsure) → treat as hand-written unless proven generated. |
 | 2026-10-09 | SDK generator | Use Dumper-7 (MIT). |
 | 2026-10-09 | Build system | Stay on premake. |
-| 2026-10-09 | Hooking | MinHook is fine; owner open to a better library → propose one with reasons in Phase 2.6. |
+| 2026-10-09 | Hooking | **Stay on MinHook** (now 1.3.4 from source). SafetyHook evaluated (needs C++23 + Zydis, pre-1.0) — not worth it now. |
+| 2026-10-09 | premake binary | Not tracked; downloaded by an SEngine-style `scripts/setup.bat` + `scripts/python/setup.py` (pinned 5.0.0-beta7). CI uses the same script. |
 | 2026-10-09 | ModManager | Keep for the future; not part of Phase 1/2 core work. |
 | 2026-10-09 | C++ standard | C++20 or newer. |
 | 2026-10-09 | D3D12 | Later; fix the core first. |
@@ -86,5 +87,5 @@ Lua scripting for mods · live object viewer/editor in ImGui · hot reload · ho
 | 2026-10-09 | ⚠ License check | Dumper-7 has **no license** (GitHub API `license: null`) → cannot embed/redistribute its code in MDML (LGPL-2.1). UE4SS is MIT (usable with attribution). SDK generator decision must be revisited with the owner. |
 
 ## Open decisions (ask the owner)
-- 2.1: `premake5.exe` stays tracked (binary in git). Alternative: delete it and download a pinned premake release in the scripts/CI. OK as is?
-- 2.1: MinHook is now built with the Release CRT instead of the old static-debug-CRT lib; behaviour should be identical, but needs one in-game smoke test with the owner (with the next in-game test).
+- SDK generator: Dumper-7 has no license → how do we build the MDML generator backend? (see decisions log)
+- Library decisions from `docs/reports/libraries.md` (INI → mINI wrapper?, ImGui 1.92 docking, spdlog 1.17 with C++20, exported hook API for core mods, THIRD_PARTY_LICENSES) — to be presented together with the code inventory.

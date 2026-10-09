@@ -32,7 +32,7 @@ Read before doing anything:
 ## Build
 - VS2022 (v143), x64 Release only. Baseline (2026-10-09) builds clean: `MSBuild.exe MDML.sln -m -p:Configuration=Release -p:Platform=x64`
   (`C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe`).
-- Project files come from premake (`premake5.lua`, `scripts/generateProjects - vs2022.bat`). The premake binary is tracked at `scripts/premake/premake5.exe` (on PATH on this machine too): `premake5 vs2022` from the repo root, then MSBuild.
+- Project files come from premake (`premake5.lua`, `scripts/generateProjects - vs2022.bat`). Premake is **not tracked**: `scripts/setup.bat` (→ `scripts/python/setup.py [--yes] [vs2022|vs2026|gmake2|nogen]`, same layout as the owner's SEngine project) downloads the pinned premake 5.0.0-beta7 to `scripts/premake/premake5.exe` and generates the projects. Afterwards `scripts/generateProjects - vs2022.bat` works too.
 - MinHook v1.3.4 is vendored as **source** (`ModLoader/vendor/MinHook`, `VENDORED.txt`) and built as the premake static-lib project `MinHook`; there is no prebuilt `.lib` any more.
 - CI: `.github/workflows/msbuild.yml` (push/PR on `main`, `modernize`): premake vs2022 → msbuild Release x64 → artifact without `*.lib`/`*.pdb`. The 2.5 GB SDK.lib may exceed runner limits until the SDK is replaced (plan 2.4).
 - Output: `bin/Release-windows-x86_64/` (`MDML.dll`, `xinput1_3.dll`, `Mods/…`). SDK.lib is ~2.5 GB — known problem, see plan.
