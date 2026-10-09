@@ -64,7 +64,8 @@ namespace SymbolResolver
 
 		// No UNDNAME: decorated names are needed to tell overloads apart.
 		// EXACT_SYMBOLS: refuse a PDB whose GUID/age does not match the EXE (e.g. left over from an older build).
-		SymSetOptions(SYMOPT_DEFERRED_LOADS | SYMOPT_EXACT_SYMBOLS | SYMOPT_FAIL_CRITICAL_ERRORS | SYMOPT_NO_PROMPTS);
+		// No DEFERRED_LOADS: the PDB must be loaded now, otherwise SymGetModuleInfo reports SymDeferred below.
+		SymSetOptions(SYMOPT_EXACT_SYMBOLS | SYMOPT_FAIL_CRITICAL_ERRORS | SYMOPT_NO_PROMPTS);
 		std::wstring searchPath = pdbPath.parent_path().wstring();
 		if (!SymInitializeW(s_Session, searchPath.c_str(), FALSE)) {
 			Log::Error_MDML("SymInitialize failed: {0}", GetLastError());

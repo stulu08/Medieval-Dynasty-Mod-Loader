@@ -25,8 +25,16 @@ Goal: every hook/function resolves correctly, loader runs in-game, Core + Logic 
    - Every resolved address is logged with its source; ambiguous pattern hits are an error, not "first hit wins".
 2. ☑ **Pattern fixes**: replace the 6 failing patterns + SCOI with PDB-generated ones (`check_patterns.py --gen`), delete the stale root `ModLoaderInfo.ini`.
 3. ☑ **Bug fixes** from `docs/REVERSE_ENGINEERING.md` → "Known loader bugs" (GInfo section, SCOI chain + null deref, `Pattern::Find` restricted to executable sections + uniqueness, null guards before hooking).
-4. ◐ Bump version constants in `ModLoader/src/Core.h` (loader → 3.0.0-dev done; current game version string unknown — ask owner).
-5. ☐ **In-game test with the owner**: loader starts, UI opens (DX11), BaseMod loads, a Logic mod (StaticLoadObject/SpawnActor) and an Overwrite mod (pak hooks) work. Collect `Logs/`.
+4. ☑ Bump version constants in `ModLoader/src/Core.h` (loader 3.0.0-dev, game 2.7.0.4).
+5. ◐ **In-game test with the owner**: loader starts, UI opens (DX11), BaseMod loads, a Logic mod (StaticLoadObject/SpawnActor) and an Overwrite mod (pak hooks) work. Collect `Logs/`.
+   - Test 1 (2026-10-09, game 2.7.0.4): all 17 addresses resolved correctly **via the pattern fallback**; PDB was
+     wrongly rejected (DEFERRED_LOADS → SymType reported as SymDeferred; fixed). Hooks, BaseMod, DX11 UI, overwrite
+     hardlinks and shutdown cleanup work. Crash when using BaseMod's give-item tool and then opening the skill tree:
+     `Failed to find function UpdateWeightOnAdd in BP_CharacterStatsComponent_C` → access violation in GC.
+     Cause (strong hypothesis): the **generated SDK is from game 2.2.0.8**; its fixed member offsets on
+     `BP_BaseCharacter_C` (StatsComponent +1424, InventoryComponent +1440) are stale, so BaseMod calls inventory BP
+     functions on the stats component. Fix = regenerate SDK (2.4). Until then: don't use BaseMod game tools.
+   - Test 2: verify PDB path is used (`(pdb, …)` in log).
 
 ## Phase 2 — Clean up & restructure ("sortieren")
 Planned as parallel agent work packages (worktrees off `modernize`), each with its own doc update. Order/assignment to be confirmed with the owner.
