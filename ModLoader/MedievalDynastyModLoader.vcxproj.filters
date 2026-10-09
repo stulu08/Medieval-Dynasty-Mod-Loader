@@ -129,6 +129,9 @@
     <ClInclude Include="src\Utilities\Pattern.h">
       <Filter>src\Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="src\Utilities\SymbolResolver.h">
+      <Filter>src\Utilities</Filter>
+    </ClInclude>
     <ClInclude Include="vendor\INI\INI.h">
       <Filter>vendor\INI</Filter>
     </ClInclude>
@@ -1329,6 +1332,9 @@
       <Filter>src\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="src\Utilities\Logger.cpp">
+      <Filter>src\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utilities\SymbolResolver.cpp">
       <Filter>src\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="src\dllmain.cpp">

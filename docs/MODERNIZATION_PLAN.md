@@ -19,14 +19,13 @@ Status legend: ☐ todo · ◐ in progress · ☑ done
 ## Phase 1 — Make it run on the current build (25776186)
 Goal: every hook/function resolves correctly, loader runs in-game, Core + Logic + Overwrite mods work.
 
-1. ☐ **Symbol resolver** (new module in ModLoader): resolve functions/globals by name.
-   - Source A: game PDB via DbgHelp. Loading takes ~30 s → resolve once per game build and cache results
-     (e.g. `Config/SymbolCache.ini`, keyed by EXE PDB-GUID); later starts read the cache instantly.
+1. ☑ **Symbol resolver** (new module in ModLoader): resolve functions/globals by name.
+   - Source A: game PDB via DbgHelp, decorated names, exact GUID match. Measured ~10 ms per lookup → no cache needed.
    - Source B (fallback when no PDB/cache): AOB patterns from `Config/ModLoaderInfo.ini`.
    - Every resolved address is logged with its source; ambiguous pattern hits are an error, not "first hit wins".
-2. ☐ **Pattern fixes**: replace the 6 failing patterns + SCOI with PDB-generated ones (`check_patterns.py --gen`), delete the stale root `ModLoaderInfo.ini`.
-3. ☐ **Bug fixes** from `docs/REVERSE_ENGINEERING.md` → "Known loader bugs" (GInfo section, SCOI chain + null deref, `Pattern::Find` restricted to executable sections + uniqueness, null guards before hooking).
-4. ☐ Bump version constants in `ModLoader/src/Core.h` (game version string, loader version).
+2. ☑ **Pattern fixes**: replace the 6 failing patterns + SCOI with PDB-generated ones (`check_patterns.py --gen`), delete the stale root `ModLoaderInfo.ini`.
+3. ☑ **Bug fixes** from `docs/REVERSE_ENGINEERING.md` → "Known loader bugs" (GInfo section, SCOI chain + null deref, `Pattern::Find` restricted to executable sections + uniqueness, null guards before hooking).
+4. ◐ Bump version constants in `ModLoader/src/Core.h` (loader → 3.0.0-dev done; current game version string unknown — ask owner).
 5. ☐ **In-game test with the owner**: loader starts, UI opens (DX11), BaseMod loads, a Logic mod (StaticLoadObject/SpawnActor) and an Overwrite mod (pak hooks) work. Collect `Logs/`.
 
 ## Phase 2 — Clean up & restructure ("sortieren")

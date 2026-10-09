@@ -20,6 +20,11 @@ namespace MinHook
 	template <typename T>
 	static void Add(DWORD_PTR pTarget, LPVOID pDetour, T** ppOriginal, std::string displayName = "")
 	{
+		if (!pTarget)
+		{
+			Log::Error_UML("Skipping hook {0}: target address was not resolved", displayName.c_str());
+			return;
+		}
 		if (MH_CreateHook((LPVOID)pTarget, pDetour, reinterpret_cast<LPVOID*>(ppOriginal)) != MH_OK)
 		{
 			Log::Error_UML("Failed to create hook: {0}", displayName.c_str());

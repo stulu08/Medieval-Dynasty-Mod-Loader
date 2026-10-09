@@ -2,6 +2,7 @@
 #include "MDML.h"
 
 #include "Utilities/HooksManager.h"
+#include "Utilities/SymbolResolver.h"
 #include "Globals.h"
 
 #include "INI.h"
@@ -256,7 +257,98 @@ std::string MDML::GetDataFolder() {
 	}
 	return path.string();
 }
-#define CHECK(var, name) if(!var) {Log::Error_MDML("{0} not found!", name);} else {Log::Info_MDML("{0}: 0x{1:x}", name, var);}
+
+// Decorated names from the game PDB. Decorated names pin the exact overload and still resolve after patches
+// as long as the engine signature does not change.
+namespace Symbols {
+	constexpr const char* NamePoolData = "NamePoolData"; // file-static, has no public symbol
+	constexpr const char* GUObjectArray = "?GUObjectArray@@3VFUObjectArray@@A";
+	constexpr const char* GWorld = "?GWorld@@3VUWorldProxy@@A";
+	constexpr const char* InitGameState = "?InitGameState@AGameModeBase@@UEAAXXZ";
+	constexpr const char* BeginPlay = "?BeginPlay@AActor@@MEAAXXZ";
+	constexpr const char* WorldTick = "?Tick@UWorld@@QEAAXW4ELevelTick@@M@Z";
+	constexpr const char* StaticLoadObject = "?StaticLoadObject@@YAPEAVUObject@@PEAVUClass@@PEAV1@PEB_W2IPEAVUPackageMap@@_NPEBVFLinkerInstancingContext@@@Z";
+	constexpr const char* StaticFindObject = "?StaticFindObject@@YAPEAVUObject@@PEAVUClass@@PEAV1@PEB_W_N@Z";
+	constexpr const char* SpawnActorFTrans = "?SpawnActor@UWorld@@QEAAPEAVAActor@@PEAVUClass@@PEBUFTransform@@AEBUFActorSpawnParameters@@@Z";
+	constexpr const char* CallFunctionByNameWithArguments = "?CallFunctionByNameWithArguments@UObject@@QEAA_NPEB_WAEAVFOutputDevice@@PEAV1@_N@Z";
+	constexpr const char* ProcessEvent = "?ProcessEvent@UObject@@UEAAXPEAVUFunction@@PEAX@Z";
+	constexpr const char* CreateDefaultObject = "?CreateDefaultObject@UClass@@MEAAPEAVUObject@@XZ";
+	constexpr const char* UserDefinedEnumGetDisplayNameTextByIndex = "?GetDisplayNameTextByIndex@UUserDefinedEnum@@UEBA?AVFText@@H@Z";
+	constexpr const char* ProcessLocalScriptFunction = "?ProcessLocalScriptFunction@@YAXPEAVUObject@@AEAUFFrame@@QEAX@Z";
+	constexpr const char* StaticConstructObject_Internal = "?StaticConstructObject_Internal@@YAPEAVUObject@@AEBUFStaticConstructObjectParameters@@@Z";
+	constexpr const char* IsNonPakFilenameAllowed = "?IsNonPakFilenameAllowed@FPakPlatformFile@@AEAA_NAEBVFString@@@Z";
+	// Member overload; the static (TArray<FPakListEntry>&, ...) overload is called from it.
+	constexpr const char* FindFileInPakFiles = "?FindFileInPakFiles@FPakPlatformFile@@QEAA_NPEB_WPEAV?$TRefCountPtr@VFPakFile@@@@PEAUFPakEntry@@@Z";
+}
+
+static void LogResolved(const char* name, DWORD64 address, const char* source) {
+	if (address)
+		Log::Info_MDML("{0}: 0x{1:x} ({2}, rva 0x{3:x})", name, address, source, address - (DWORD64)GetModuleHandleW(nullptr));
+	else
+		Log::Error_MDML("{0} not found!", name);
+}
+
+// A function pattern must match exactly once.
+static DWORD64 ScanFunction(const std::string& pattern, const char* name) {
+	if (pattern.empty())
+		return 0;
+	auto hits = Pattern::FindAll(pattern.c_str());
+	if (hits.size() > 1)
+		Log::Error_MDML("{0}: pattern is ambiguous ({1} matches), ignoring it", name, hits.size());
+	return hits.size() == 1 ? (DWORD64)hits[0] : 0;
+}
+
+// PDB symbol first, then the ini value of section/key, which is a pattern or (isPatterns == false) a module offset.
+static DWORD64 ResolveFunction(INI& ini, bool isPatterns, const char* section, const char* key, std::initializer_list<const char*> symbols) {
+	DWORD64 address = SymbolResolver::Find(symbols);
+	if (address) {
+		LogResolved(key, address, "pdb");
+		return address;
+	}
+	ini.select(section); // INI::get ignores its section argument and reads the selected section
+	std::string value = ini.get(key, "");
+	if (isPatterns) {
+		address = ScanFunction(value, key);
+		LogResolved(key, address, "pattern");
+	}
+	else if (!value.empty()) {
+		address = (DWORD64)GetModuleHandleW(nullptr) + StringToDWord(value);
+		LogResolved(key, address, "offset");
+	}
+	else {
+		LogResolved(key, 0, "");
+	}
+	return address;
+}
+
+// Same for globals; a [GInfo] pattern points at an instruction whose RIP-relative operand is the global.
+static DWORD64 ResolveGlobal(INI& ini, bool isPatterns, bool isSimple, const char* name, std::initializer_list<const char*> symbols, const char* key, size_t dispOffset, size_t instrEnd) {
+	DWORD64 address = SymbolResolver::Find(symbols);
+	if (address) {
+		LogResolved(name, address, "pdb");
+		return address;
+	}
+	ini.select("GInfo"); // INI::get ignores its section argument and reads the selected section
+	std::string value = ini.get(key, "");
+	if (value.empty()) {
+		LogResolved(name, 0, "");
+		return 0;
+	}
+	if (!isPatterns) {
+		address = (DWORD64)GetModuleHandleW(nullptr) + StringToDWord(value);
+		LogResolved(name, address, "offset");
+		return address;
+	}
+	if (!isSimple) {
+		dispOffset = ini.getAs<int>(std::string(key) + "FirstOpCodes", 0);
+		instrEnd = ini.getAs<int>(std::string(key) + "TotalByteInstruction", 0);
+	}
+	address = (DWORD64)Pattern::FindRipTarget(value.c_str(), dispOffset, instrEnd);
+	if (!address && !Pattern::FindAll(value.c_str()).empty())
+		Log::Error_MDML("{0}: pattern matches resolve to different addresses, ignoring it", name);
+	LogResolved(name, address, "pattern");
+	return address;
+}
 
 bool SetupProfile(const std::string& Path) {
 	SDK::SelectedGameProfile.ImGuiFile = Path + "/Config/WindowConfig.ini";
@@ -298,6 +390,7 @@ bool SetupProfile(const std::string& Path) {
 	Log::Info_MDML("Optimized and edited for Medieval Dynasty by Stulu");
 	Log::Info_MDML("Medieval Dynasty Mod Loader Version {0}", MODLOADER_VERSION);
 	Log::Info_MDML("Medieval Dynasty Version {0}", MEDIEVAL_VERSION);
+	Log::Info_MDML("Game executable build {0}", SymbolResolver::GetBuildId());
 
 	MDML::UnrealEngineLoggerInstance = Logger::Create("UE_LOG", Log::getLogFile("UE_LOG-log.txt"));
 	SDK::SelectedGameProfile.UnrealLogger = MDML::UnrealEngineLoggerInstance->getLogger();
@@ -398,6 +491,10 @@ bool SetupProfile(const std::string& Path) {
 		}
 #pragma endregion
 
+		GameInfo.select("Symbols");
+		if (GameInfo.getAs<int>("UsePdb", 1))
+			SymbolResolver::Init();
+
 #pragma region GameInfo
 		GameInfo.select("GameInfo");
 		SDK::SelectedGameProfile.IsUsingFChunkedFixedUObjectArray = GameInfo.getAs<int>("GameInfo", "IsUsingFChunkedFixedUObjectArray", 0);
@@ -414,79 +511,23 @@ bool SetupProfile(const std::string& Path) {
 #pragma endregion
 
 #pragma region GInfo defs
-		if (GameInfo.select("GInfo"))
+		// Globals: PDB symbol first, then the [GInfo] pattern (RIP-relative operand, all hits must agree), then raw offsets.
+		if (GameInfo.select("GInfo") || SymbolResolver::IsAvailable())
 		{
-			if (GameInfo.getAs<int>("GInfo", "IsGInfoPatterns", 0) == 1)
-			{
-				if (GameInfo.getAs<int>("GInfo", "IsSimple", 0) == 1) {
-					if (SDK::SelectedGameProfile.UsesFNamePool)
-					{
-						auto FPoolPat = Pattern::Find(GameInfo.get("GameInfo", "FPool", "74 09 48 8D 15 ? ? ? ? EB 16").c_str());
-						if (FPoolPat != nullptr)
-						{
-							auto FPoolPatoffset = *reinterpret_cast<uint32_t*>(FPoolPat + 5);
-							SDK::SelectedGameProfile.GName = (DWORD64)(FPoolPat + 9 + FPoolPatoffset);
-						}
-						DWORD64 poolPattern = (DWORD64)FPoolPat;
-						CHECK(poolPattern, "FPool");
-					}
-					else
-					{
-						auto GNamePat = Pattern::Find(GameInfo.get("GameInfo", "GName", "E8 ? ? ? ? 48 8B C3 48 89 1D ? ? ? ? 48 8B 5C 24").c_str());
-						if (GNamePat != nullptr)
-						{
-							auto GNamesAddress = *reinterpret_cast<uint32_t*>(GNamePat + 11);
-							SDK::SelectedGameProfile.GName = (DWORD64)(GNamePat + 15 + GNamesAddress);
-						}
-					}
+			const bool isPatterns = GameInfo.getAs<int>("GInfo", "IsGInfoPatterns", 1) == 1;
+			const bool isSimple = GameInfo.getAs<int>("GInfo", "IsSimple", 1) == 1;
 
-					auto GObjectPat = Pattern::Find(GameInfo.get("GameInfo", "GObject", "8B 46 10 3B 46 3C 75 0F 48 8B D6 48 8D 0D ? ? ? ? E8").c_str());
-					if (GObjectPat != nullptr)
-					{
-						auto GObjectOffset = *reinterpret_cast<uint32_t*>(GObjectPat + 14);
-						SDK::SelectedGameProfile.GObject = (DWORD64)(GObjectPat + 18 + GObjectOffset);
-					}
-
-					auto GWorldPat = Pattern::Find(GameInfo.get("GameInfo", "GWorld", "0F 2E ? 74 ? 48 8B 1D ? ? ? ? 48 85 DB 74").c_str());
-					if (GWorldPat != nullptr)
-					{
-						auto GWorldAddress = *reinterpret_cast<uint32_t*>(GWorldPat + 8);
-						SDK::SelectedGameProfile.GWorld = (DWORD64)(GWorldPat + 12 + GWorldAddress);
-					}
-					//auto GEnginePat = Pattern::Find("49EAA58");
-				}
-				else {
-					auto GName = (DWORD64)Pattern::Find(GameInfo.get("GInfo", "GName", "").c_str());
-					auto GNamesOffset = *reinterpret_cast<uint32_t*>(GName + GameInfo.getAs<int>("GInfo", "GNameFirstOpCodes", 0));
-					SDK::SelectedGameProfile.GName = (GName + GameInfo.getAs<int>("GInfo", "GNameTotalByteInstruction", 0) + GNamesOffset);
-
-					auto GObject = (DWORD64)Pattern::Find(GameInfo.get("GInfo", "GObject", "").c_str());
-					auto GObjectOffset = *reinterpret_cast<uint32_t*>(GObject + GameInfo.getAs<int>("GInfo", "GObjectFirstOpCodes", 0));
-					SDK::SelectedGameProfile.GObject = (GObject + GameInfo.getAs<int>("GInfo", "GObjectTotalByteInstruction", 0) + GObjectOffset);
-
-					auto GWorld = (DWORD64)Pattern::Find(GameInfo.get("GInfo", "GWorld", "").c_str());
-					auto GWorldOffset = *reinterpret_cast<uint32_t*>(GWorld + GameInfo.getAs<int>("GInfo", "GWorldFirstOpCodes", 0));
-					SDK::SelectedGameProfile.GWorld = (GWorld + GameInfo.getAs<int>("GInfo", "GWorldTotalByteInstruction", 0) + GWorldOffset);
-
-				}
-				Log::Info_MDML("GInfo Patterns Loaded");
-			}
+			if (SDK::SelectedGameProfile.UsesFNamePool)
+				SDK::SelectedGameProfile.GName = ResolveGlobal(GameInfo, isPatterns, isSimple, "GName", { Symbols::NamePoolData }, "FPool", 5, 9);
 			else
-			{
-				SDK::SelectedGameProfile.GName = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("GInfo", "GName", ""));
-				SDK::SelectedGameProfile.GObject = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("GInfo", "GObject", ""));
-				SDK::SelectedGameProfile.GWorld = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("GInfo", "GWorld", ""));
-				Log::Info_UML("GInfo Offset Loaded");
-			}
+				SDK::SelectedGameProfile.GName = ResolveGlobal(GameInfo, isPatterns, isSimple, "GName", {}, "GName", 11, 15);
+			SDK::SelectedGameProfile.GObject = ResolveGlobal(GameInfo, isPatterns, isSimple, "GObject", { Symbols::GUObjectArray }, "GObject", 14, 18);
+			SDK::SelectedGameProfile.GWorld = ResolveGlobal(GameInfo, isPatterns, isSimple, "GWorld", { Symbols::GWorld }, "GWorld", 8, 12);
 		}
 		else
 		{
 			Log::Error_MDML("GInfo not provided!");
-			//auto GEnginePat = Pattern::Find("49EAA58");
 		}
-		CHECK(SDK::SelectedGameProfile.GName, "GName");
-		CHECK(SDK::SelectedGameProfile.GObject, "GObject");
-		CHECK(SDK::SelectedGameProfile.GWorld, "GWorld");
 #pragma endregion
 
 #pragma region UCore defs
@@ -564,149 +605,70 @@ bool SetupProfile(const std::string& Path) {
 #pragma endregion
 
 #pragma region Function defs
-		if (GameInfo.select("FunctionInfo"))
 		{
-			if (GameInfo.getAs<int>("FunctionInfo", "IsFunctionPatterns", 0) == 0)
-			{
-				SDK::SelectedGameProfile.GameStateInit = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "GameStateInit", ""));
-				SDK::SelectedGameProfile.BeginPlay = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "BeginPlay", ""));
-				SDK::SelectedGameProfile.Tick = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "Tick", ""));
-				SDK::SelectedGameProfile.StaticLoadObject = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "StaticLoadObject", ""));
-				SDK::SelectedGameProfile.StaticFindObject = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "StaticFindObject", ""));
-				SDK::SelectedGameProfile.SpawnActorFTrans = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "SpawnActorFTrans", ""));
-				SDK::SelectedGameProfile.CallFunctionByNameWithArguments = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "CallFunctionByNameWithArguments", ""));
-				SDK::SelectedGameProfile.ProcessEvent = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "ProcessEvent", ""));
-				SDK::SelectedGameProfile.CreateDefaultObject = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "CreateDefaultObject", ""));
-				SDK::SelectedGameProfile.GetDisplayNameTextByIndex = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("FunctionInfo", "GetDisplayNameTextByIndex", ""));
-				Log::Info_UML("Function Offsets Set!");
-			}
-			else
-			{
-				SDK::SelectedGameProfile.GameStateInit = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "GameStateInit", "").c_str());
-				SDK::SelectedGameProfile.BeginPlay = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "BeginPlay", "").c_str());
-				SDK::SelectedGameProfile.Tick = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "Tick", "").c_str());
-				SDK::SelectedGameProfile.StaticLoadObject = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "StaticLoadObject", "").c_str());
-				SDK::SelectedGameProfile.StaticFindObject = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "StaticFindObject", "").c_str());
-				SDK::SelectedGameProfile.SpawnActorFTrans = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "SpawnActorFTrans", "").c_str());
-				SDK::SelectedGameProfile.CallFunctionByNameWithArguments = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "CallFunctionByNameWithArguments", "").c_str());
-				SDK::SelectedGameProfile.ProcessEvent = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "ProcessEvent", "").c_str());
-				SDK::SelectedGameProfile.CreateDefaultObject = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "CreateDefaultObject", "").c_str());
-				SDK::SelectedGameProfile.GetDisplayNameTextByIndex = (DWORD64)Pattern::Find(GameInfo.get("FunctionInfo", "GetDisplayNameTextByIndex", "").c_str());
-			}
-
-			CHECK(SDK::SelectedGameProfile.GameStateInit, "GameStateInit");
-			CHECK(SDK::SelectedGameProfile.BeginPlay, "BeginPlay");
-			CHECK(SDK::SelectedGameProfile.Tick, "Tick");
-			CHECK(SDK::SelectedGameProfile.StaticLoadObject, "StaticLoadObject");
-			CHECK(SDK::SelectedGameProfile.StaticFindObject, "StaticFindObject");
-			CHECK(SDK::SelectedGameProfile.SpawnActorFTrans, "SpawnActorFTrans");
-			CHECK(SDK::SelectedGameProfile.CallFunctionByNameWithArguments, "CallFunctionByNameWithArguments");
-			CHECK(SDK::SelectedGameProfile.ProcessEvent, "ProcessEvent");
-			CHECK(SDK::SelectedGameProfile.CreateDefaultObject, "CreateDefaultObject");
-			CHECK(SDK::SelectedGameProfile.GetDisplayNameTextByIndex, "GetDisplayNameTextByIndex");
-
-		}
-		else {
-			Log::Info_MDML("Function Patterns Not Set!");
-			Log::Info_MDML("GameStateInit: 0x{0:x}", SDK::SelectedGameProfile.GameStateInit);
-			Log::Info_MDML("BeginPlay: 0x{0:x}", SDK::SelectedGameProfile.BeginPlay);
-			Log::Info_MDML("Tick: 0x{0:x}", SDK::SelectedGameProfile.Tick);
-			Log::Info_MDML("StaticLoadObject: 0x{0:x}", SDK::SelectedGameProfile.StaticLoadObject);
-			Log::Info_MDML("StaticFindObject: 0x{0:x}", SDK::SelectedGameProfile.StaticFindObject);
-			Log::Info_MDML("SpawnActorFTrans: 0x{0:x}", SDK::SelectedGameProfile.SpawnActorFTrans);
-			Log::Info_MDML("CallFunctionByNameWithArguments: 0x{0:x}", SDK::SelectedGameProfile.CallFunctionByNameWithArguments);
-			Log::Info_MDML("ProcessEvent: 0x{0:x}", SDK::SelectedGameProfile.ProcessEvent);
-			Log::Info_MDML("CreateDefaultObject: 0x{0:x}", SDK::SelectedGameProfile.CreateDefaultObject);
-			Log::Info_MDML("GetDisplayNameTextByIndex: 0x{0:x}", SDK::SelectedGameProfile.GetDisplayNameTextByIndex);
+			GameInfo.select("FunctionInfo");
+			const bool isPatterns = GameInfo.getAs<int>("FunctionInfo", "IsFunctionPatterns", 1) == 1;
+			auto& profile = SDK::SelectedGameProfile;
+			profile.GameStateInit = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "GameStateInit", { Symbols::InitGameState });
+			profile.BeginPlay = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "BeginPlay", { Symbols::BeginPlay });
+			profile.Tick = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "Tick", { Symbols::WorldTick });
+			profile.StaticLoadObject = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "StaticLoadObject", { Symbols::StaticLoadObject });
+			profile.StaticFindObject = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "StaticFindObject", { Symbols::StaticFindObject });
+			profile.SpawnActorFTrans = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "SpawnActorFTrans", { Symbols::SpawnActorFTrans });
+			profile.CallFunctionByNameWithArguments = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "CallFunctionByNameWithArguments", { Symbols::CallFunctionByNameWithArguments });
+			profile.ProcessEvent = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "ProcessEvent", { Symbols::ProcessEvent });
+			profile.CreateDefaultObject = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "CreateDefaultObject", { Symbols::CreateDefaultObject });
+			profile.GetDisplayNameTextByIndex = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "GetDisplayNameTextByIndex", { Symbols::UserDefinedEnumGetDisplayNameTextByIndex });
 		}
 #pragma endregion
 
 #pragma region ProcessInternal def
-		if (GameInfo.select("ProcessInternalFunction"))
+		// The hook target is ProcessLocalScriptFunction, called from UObject::ProcessInternal.
+		SDK::SelectedGameProfile.ProcessInternals = SymbolResolver::Find({ Symbols::ProcessLocalScriptFunction });
+		if (SDK::SelectedGameProfile.ProcessInternals)
 		{
-			SDK::SelectedGameProfile.ProcessInternals = (DWORD64)Pattern::Find(GameInfo.get("ProcessInternalFunction", "ProcessInternal", "").c_str());
+			LogResolved("ProcessInternals", SDK::SelectedGameProfile.ProcessInternals, "pdb");
 		}
 		else
 		{
-			if (SDK::SelectedGameProfile.UsesFNamePool || SDK::SelectedGameProfile.IsUsing4_22)
-			{
-				DWORD64 ProcessAddy = (DWORD64)Pattern::Find("41 F6 C7 02 74 ? 4C 8B C7 48 8B ? ? 8B ? E8");
-				if (ProcessAddy)
-				{
-					auto ProcessAddyOffset = *reinterpret_cast<uint32_t*>(ProcessAddy + 16);
-					SDK::SelectedGameProfile.ProcessInternals = (ProcessAddy + 20 + ProcessAddyOffset);
-				}
-			}
+			GameInfo.select("ProcessInternalFunction");
+			std::string pattern = GameInfo.get("ProcessInternal", "41 F6 C7 02 74 ? 4C 8B C7 48 8B ? ? 8B ? E8");
+			SDK::SelectedGameProfile.ProcessInternals = (DWORD64)Pattern::FindRipTarget(pattern.c_str(), 16, 20);
+			LogResolved("ProcessInternals", SDK::SelectedGameProfile.ProcessInternals, "pattern");
 		}
-		CHECK(SDK::SelectedGameProfile.ProcessInternals, "ProcessInternals");
-
 #pragma endregion
 
-#pragma region StaticConstructObejct_InternalInfo def
-		if (GameInfo.select("StaticConstructObejct_InternalInfo"))
+#pragma region StaticConstructObject_Internal def
+		// UE 4.26+ takes a single FStaticConstructObjectParameters argument ("updated" signature).
+		SDK::SelectedGameProfile.StaticConstructObject_Internal = SymbolResolver::Find({ Symbols::StaticConstructObject_Internal });
+		if (SDK::SelectedGameProfile.StaticConstructObject_Internal)
 		{
-			SDK::SelectedGameProfile.IsUsingUpdatedStaticConstruct = GameInfo.getAs<int>("StaticConstructObejct_InternalInfo", "IsUsingUpdatedStaticConstruct", 0);
-			SDK::SelectedGameProfile.StaticConstructObject_Internal = (DWORD64)Pattern::Find(GameInfo.get("StaticConstructObejct_InternalInfo", "StaticConstructObject_InternalFunction", "").c_str());
+			SDK::SelectedGameProfile.IsUsingUpdatedStaticConstruct = true;
+			LogResolved("StaticConstructObject_Internal", SDK::SelectedGameProfile.StaticConstructObject_Internal, "pdb");
 		}
 		else
 		{
-			auto StaticConstructObject_Internal = Pattern::Find("48 8B 84 24 ?? ?? 00 00 48 89 44 24 ?? C7 44 24 ?? 00 00 00 00 E8"); // Sig 1
-			if (StaticConstructObject_Internal != nullptr)
-			{
-				StaticConstructObject_Internal += 0x15;
-			}
-			else
-			{
-				StaticConstructObject_Internal = Pattern::Find("48 8B C8 89 7C 24 ?? E8");
-				if (StaticConstructObject_Internal != nullptr)
-				{
-					StaticConstructObject_Internal += 0x7;
-				}
-				else
-				{
-					SDK::SelectedGameProfile.IsUsingUpdatedStaticConstruct = true;
-					StaticConstructObject_Internal = Pattern::Find("E8 ? ? ? ? 45 8B 47 70");
-					if (!StaticConstructObject_Internal)
-					{
-						StaticConstructObject_Internal = Pattern::Find("89 6C 24 38 48 89 74 24 ? E8");
-						if (StaticConstructObject_Internal != nullptr)
-						{
-							StaticConstructObject_Internal += 0x9;
-						}
-						else
-						{
-							Log::Warn_UML("StaticConstructObject_Internal Not Found! This will prevent Mods using the ModObjectInstance from working properly.");
-						}
-					}
-				}
-			}
-			SDK::SelectedGameProfile.StaticConstructObject_Internal = (DWORD64)MEM::GetAddressPTR(StaticConstructObject_Internal, 0x1, 0x5);
-			CHECK(SDK::SelectedGameProfile.StaticConstructObject_Internal, "StaticConstructObject_Internal");
+			GameInfo.select("StaticConstructObject_Internal");
+			SDK::SelectedGameProfile.IsUsingUpdatedStaticConstruct = GameInfo.getAs<int>("IsUsingUpdatedStaticConstruct", 1);
+			SDK::SelectedGameProfile.StaticConstructObject_Internal = ScanFunction(GameInfo.get("Pattern", ""), "StaticConstructObject_Internal");
+			LogResolved("StaticConstructObject_Internal", SDK::SelectedGameProfile.StaticConstructObject_Internal, "pattern");
 		}
+		if (!SDK::SelectedGameProfile.StaticConstructObject_Internal)
+			Log::Warn_MDML("Mods using the ModObjectInstance will not work properly.");
 #pragma endregion
 
 #pragma region PakOverwrite
 		if (GameInfo.select("PakOverwrite")) {
 			SDK::SelectedGameProfile.bPakOverride = GameInfo.getAs<int>("PakOverwrite", "bPakOverwrite", 0);
 			if (SDK::SelectedGameProfile.bPakOverride) {
-				if (GameInfo.getAs<int>("PakOverwrite", "IsFunctionPatterns", 0) == 0)
-				{
-					SDK::SelectedGameProfile.IsNonPakFilenameAllowed = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("PakOverwrite", "IsNonPakFilenameAllowed", ""));
-					SDK::SelectedGameProfile.FindFileInPakFiles = (DWORD64)GetModuleHandleW(0) + StringToDWord(GameInfo.get("PakOverwrite", "FindFileInPakFiles", ""));
-				}
-				else
-				{
-					SDK::SelectedGameProfile.IsNonPakFilenameAllowed = (DWORD64)Pattern::Find(GameInfo.get("PakOverwrite", "IsNonPakFilenameAllowed", "").c_str());
-					SDK::SelectedGameProfile.FindFileInPakFiles = (DWORD64)Pattern::Find(GameInfo.get("PakOverwrite", "FindFileInPakFiles", "").c_str());
-				}
+				const bool isPatterns = GameInfo.getAs<int>("PakOverwrite", "IsFunctionPatterns", 1) == 1;
+				SDK::SelectedGameProfile.IsNonPakFilenameAllowed = ResolveFunction(GameInfo, isPatterns, "PakOverwrite", "IsNonPakFilenameAllowed", { Symbols::IsNonPakFilenameAllowed });
+				SDK::SelectedGameProfile.FindFileInPakFiles = ResolveFunction(GameInfo, isPatterns, "PakOverwrite", "FindFileInPakFiles", { Symbols::FindFileInPakFiles });
 			}
-			else {
-				Log::Error_MDML("PakOverwrite Patterns not provided!");
-			}
-			CHECK(SDK::SelectedGameProfile.IsNonPakFilenameAllowed, "IsNonPakFilenameAllowed")
-			CHECK(SDK::SelectedGameProfile.FindFileInPakFiles, "FindFileInPakFiles")
 		}
 #pragma endregion
+
+		SymbolResolver::Shutdown();
 
 		Log::Info_UML("Setup {0}", MDML::FormatPath(Profile));
 		return true;

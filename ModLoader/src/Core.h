@@ -2,7 +2,7 @@
 //The version of unreal mod loader
 #define UML_VERSION "2.2.1"
 //The version of the medieval dynasty mod loader
-#define MODLOADER_VERSION "2.3.1"
+#define MODLOADER_VERSION "3.0.0-dev"
 //The version of medieval dynasty
 #define MEDIEVAL_VERSION "2.2.0.8"
 

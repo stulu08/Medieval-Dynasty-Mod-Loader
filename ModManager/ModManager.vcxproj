@@ -490,6 +490,7 @@
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\Core.h" />
     <ClInclude Include="src\Downloader.h" />
+    <ClInclude Include="src\JSON.h" />
     <ClInclude Include="src\Renderer.h" />
     <ClInclude Include="src\View.h" />
     <ClInclude Include="src\Views\ContentView.h" />

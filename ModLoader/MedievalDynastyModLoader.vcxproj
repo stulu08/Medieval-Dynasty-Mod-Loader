@@ -87,6 +87,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClInclude Include="src\Utilities\Memory.h" />
     <ClInclude Include="src\Utilities\MinHook.h" />
     <ClInclude Include="src\Utilities\Pattern.h" />
+    <ClInclude Include="src\Utilities\SymbolResolver.h" />
     <ClInclude Include="vendor\INI\INI.h" />
     <ClInclude Include="vendor\ImGui\imgui\imconfig.h" />
     <ClInclude Include="vendor\ImGui\imgui\imgui.h" />
@@ -491,6 +492,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClCompile Include="src\Utilities\EngineDefFinder.cpp" />
     <ClCompile Include="src\Utilities\HooksManager.cpp" />
     <ClCompile Include="src\Utilities\Logger.cpp" />
+    <ClCompile Include="src\Utilities\SymbolResolver.cpp" />
     <ClCompile Include="src\dllmain.cpp" />
     <ClCompile Include="vendor\ImGui\imgui\imgui.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
