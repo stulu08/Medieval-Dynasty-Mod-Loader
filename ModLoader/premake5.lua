@@ -24,6 +24,7 @@ project "MedievalDynastyModLoader"
 		"**.cpp",
 		"**.hpp",
 	}
+	removefiles { "vendor/MinHook/src/**" } -- MinHook is its own project
 	libdirs 
 	{
 		--"%{IncludeDir.MinHook}/lib"
@@ -48,7 +49,7 @@ project "MedievalDynastyModLoader"
 	}
 	links
 	{
-		"%{IncludeDir.MinHook}/lib/libMinHook-x64-v141-mtd.lib",
+		"MinHook",
 		"SDK",
 		"LoaderAutoInjector",
 	}

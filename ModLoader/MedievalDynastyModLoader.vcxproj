@@ -60,7 +60,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>vendor\MinHook\lib\libMinHook-x64-v141-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Release-windows-x86_64\MDML.lib</ImportLibrary>
       <AdditionalOptions>/ignore:4006 /ignore:4099 /ignore:4251 %(AdditionalOptions)</AdditionalOptions>
     </Link>
@@ -523,6 +522,9 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="vendor\MinHook\MinHook.vcxproj">
+      <Project>{1A77E127-8656-60C3-8F6E-EB99FBCCC624}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\SDK\SDK.vcxproj">
       <Project>{071D880B-7326-887C-FCA1-9E7C68AA937C}</Project>
     </ProjectReference>

@@ -44,7 +44,7 @@ project "TimeWeatherChanger"
 		"SDK",
 		"LoaderAutoInjector",
 		"MedievalDynastyModLoader",
-		"%{IncludeDir.MinHook}/lib/libMinHook-x64-v141-mtd.lib"
+		"MinHook"
 	}
 	filter "system:windows"
 		systemversion "latest"
