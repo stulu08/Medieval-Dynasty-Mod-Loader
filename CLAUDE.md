@@ -26,7 +26,7 @@ Read before doing anything:
 | `BaseMod/` | core mod shipped with the loader; also contains the in-game **SDK exporter** (`src/Utils.h` → `Utils::Export`, UI in `src/BaseMod.cpp`) |
 | `ModManager/` | standalone ImGui mod manager app (WIP) |
 | `ExampleMods/` | sample core mods |
-| `Config/ModLoaderInfo.ini` | patterns/offsets the loader reads at runtime (copied next to the DLL). The repo-root `ModLoaderInfo.ini` is a stale duplicate. |
+| `Config/ModLoaderInfo.ini` | patterns/offsets the loader reads at runtime (copied next to the DLL). (the stale repo-root duplicate was removed). |
 | `tools/` | Python RE scripts (`pdbsym.py`, `check_patterns.py`) |
 
 ## Build
