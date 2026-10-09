@@ -83,6 +83,7 @@ Lua scripting for mods · live object viewer/editor in ImGui · hot reload · ho
 | 2026-10-09 | Docs language | English. |
 | 2026-10-09 | SDK generator design | Use Dumper-7 for reflection analysis (offsets, dependencies, collisions, padding) but write an **own MDML generator backend** that emits headers against the owner's hand-written core (`UE4::UObject`, `TArray`, `FName`, …): real member layout, `static_assert`s, export lists. |
 | 2026-10-09 | SDK dump trigger | **Integrated into MDML** as a dev-tool mod: dump started from the ImGui menu, packages chosen there (export lists). |
+| 2026-10-09 | ⚠ License check | Dumper-7 has **no license** (GitHub API `license: null`) → cannot embed/redistribute its code in MDML (LGPL-2.1). UE4SS is MIT (usable with attribution). SDK generator decision must be revisited with the owner. |
 
 ## Open decisions (ask the owner)
 - 2.1: `premake5.exe` stays tracked (binary in git). Alternative: delete it and download a pinned premake release in the scripts/CI. OK as is?
