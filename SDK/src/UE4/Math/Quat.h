@@ -12,8 +12,9 @@ namespace UE4 {
 		float                                              Z;                                                        // 0x0008(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
 		float                                              W;                                                        // 0x000C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
 
+		// Identity rotation (UE's FQuat::Identity); a zero quaternion is not a valid rotation.
 		inline FQuat()
-			: X(0), Y(0), Z(0), W(0)
+			: X(0), Y(0), Z(0), W(1)
 		{ }
 		inline FQuat(glm::quat q)
 			: X(q.x), Y(q.y), Z(q.z), W(q.w)
@@ -25,7 +26,7 @@ namespace UE4 {
 		{
 			const float SingularityTest = Z * X - W * Y;
 			const float YawY = 2.f * (W * Z + X * Y);
-			const float YawX = (1.f - 2.f * (glm::sqrt(Y) + glm::sqrt(Z)));
+			const float YawX = (1.f - 2.f * (Y * Y + Z * Z));
 
 			// reference 
 			// http://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles
@@ -54,7 +55,7 @@ namespace UE4 {
 			{
 				RotatorFromQuat.Pitch = FMath::FastAsin(2.f * (SingularityTest)) * RAD_TO_DEG;
 				RotatorFromQuat.Yaw = FMath::Atan2(YawY, YawX) * RAD_TO_DEG;
-				RotatorFromQuat.Roll = FMath::Atan2(-2.f * (W * X + Y * Z), (1.f - 2.f * (glm::sqrt(X) + glm::sqrt(Y)))) * RAD_TO_DEG;
+				RotatorFromQuat.Roll = FMath::Atan2(-2.f * (W * X + Y * Z), (1.f - 2.f * (X * X + Y * Y))) * RAD_TO_DEG;
 			}
 
 			return RotatorFromQuat;

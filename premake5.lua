@@ -24,7 +24,7 @@ workspace "MDML"
 		defines     "NDEBUG"
 
 	filter { "system:windows", "configurations:Release", "toolset:not mingw" }
-		flags		{ "LinkTimeOptimization" }
+		linktimeoptimization "On"
 	
 	filter "action:vs*"
 		linkoptions {

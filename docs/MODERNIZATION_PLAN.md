@@ -93,5 +93,29 @@ Lua scripting for mods · live object viewer/editor in ImGui · hot reload · ho
 | 2026-10-09 | Defaults taken (owner may veto) | Keep folder names; `mdml::` namespace for new loader internals; direct memory access instead of Read/WriteProcessMemory (explicit safe read only for scanning); ProcessLocalScriptFunction hook installed unconditionally; disable LTCG for SDK.lib until the new generator; keep event-bus semantics for now (revisit in Phase 3); DevTools shipped but disabled by default; hybrid files (`CoreTypes.h`, `GamePlayStatics.*`, `DataTable.*`, `StringTable.*`) treated as hand-written. |
 | 2026-10-09 | License check | Dumper-7 has no license file, but the maintainer (Fischsalat) wrote in [issue #416](https://github.com/Encryqed/Dumper-7/issues/416): *"Usage of the Dumper-7 code for your open source project with proper attribution is not an issue at all."* (rights retained, see #492; commercial use only by arrangement). MDML is open source and non-commercial → OK **with clear attribution** (credit in README, file headers of adapted code, THIRD_PARTY_LICENSES). UE4SS is MIT. |
 
+---
+
+## Handoff — state at end of session 2026-10-09 (read this first)
+Done today: Phase 1 (PDB resolver, verified in-game), 2.0 code inventory, 2.1 hygiene/CI/premake setup, library research,
+Dumper-7 reference dump (crash cause confirmed), SDK generator design draft (`docs/SDK_GENERATOR.md`).
+
+**Committed but NOT yet tested in-game** (deploy + one test run needed; the game folder still has the build from the
+MinHook smoke test):
+- Overwrite mods back up/restore loose original files (`ModLoader.cpp`); BaseMod's cheat-menu overwrite now `Enable=False`.
+  Test: enable it once, check `.mdml-backup` handling only matters for loose files (cheat menu is a pak asset).
+- INI parser no longer throws on duplicate sections/keys.
+- `GetVariable`/`SetVariable` search super classes; BaseMod uses name-resolved members (game state, managers, inventory
+  component); item tools disabled; stale `M_SetCheats` write removed.
+- Core fixes: `FWeakObjectPtr` (C9), `FQuat` identity + `Rotator()` math (C11/C12), `FTransform` ctor.
+- SDK project built without LTCG: SDK.lib 2.69 GB → 222 MB, full rebuild 134 s.
+- Dumper-7 is installed in the game as `Content/Mods/Dumper7/Dumper7.dll` (F7 dumps). Remove the folder when not needed.
+
+**Next steps (in order):**
+1. In-game smoke test of the above (main menu + load save + quit; F1 UI opens).
+2. Wave 2 (serial, see code inventory §7): core compiled into MDML.dll and exported; `SetupProfile` out of `DllMain`;
+   sequential `LoadLibraryW` mod loading; game-thread task queue. Smoke test after each step.
+3. 2.4 SDK generator (`docs/SDK_GENERATOR.md`): MDMLGenerator on Dumper-7, DevTools mod with export lists.
+4. Remaining library decisions (open decisions below), then C++20 + spdlog/ImGui upgrades (Wave 4).
+
 ## Open decisions (ask the owner)
 - Library decisions from `docs/reports/libraries.md`: INI → mINI behind explicit-section wrapper?, ImGui 1.92.9b docking, spdlog 1.17 with the C++20 switch, exported hook API for core mods, THIRD_PARTY_LICENSES file.

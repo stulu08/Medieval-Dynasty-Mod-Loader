@@ -14,6 +14,8 @@ project "SDK"
 		"_USRDLL",
 		"_CRT_SECURE_NO_WARNINGS"
 	}
+	-- LTCG made SDK.lib ~2.7 GB (every generated .cpp includes the whole SDK); off until the new generator (plan 2.4)
+	linktimeoptimization "Off"
 	files
 	{
 		"src/**.h",

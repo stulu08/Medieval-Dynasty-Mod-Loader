@@ -54,7 +54,9 @@ namespace UE4 {
 				ObjectItem = UObject::GObjects->GetAsChunckArray().GetObjectPtr(ObjectIndex);
 			else
 				ObjectItem = UObject::GObjects->GetAsTUArray().GetObjectPtr(ObjectIndex);
-			if (ObjectItem)
+			// Like UE's FWeakObjectPtr::Internal_GetObjectItem: the slot must exist and still hold the same object
+			// generation (serial number), otherwise the weak pointer is stale.
+			if (!ObjectItem || ObjectItem->SerialNumber != ObjectSerialNumber)
 			{
 				return nullptr;
 			}

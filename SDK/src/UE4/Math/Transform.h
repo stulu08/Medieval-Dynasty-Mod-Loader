@@ -13,7 +13,7 @@ namespace UE4 {
 		unsigned char                                      UnknownData01[0x4];                                       // 0x002C(0x0004) MISSED OFFSET
 
 		inline FTransform()
-			: Rotation(FQuat::FQuat()), Translation(FVector::FVector()), Scale3D(FVector::FVector(1, 1, 1)), UnknownData00(""), UnknownData01("")
+			: Rotation(), Translation(), Scale3D(1, 1, 1), UnknownData00(""), UnknownData01("")
 		{ }
 		inline FTransform(FVector Translation, FQuat quat = FQuat(), FVector Scale3D = FVector(1,1,1))
 			: Rotation(quat), Translation(Translation), Scale3D(Scale3D), UnknownData00(""), UnknownData01("")
