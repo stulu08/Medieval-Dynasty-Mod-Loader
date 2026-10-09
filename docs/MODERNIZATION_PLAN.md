@@ -16,7 +16,7 @@ Status legend: ☐ todo · ◐ in progress · ☑ done
 - ☑ Baseline build: all 7 projects build clean on VS2022/v143 (1 warning). `SDK.lib` = 2.5 GB.
 - ☑ Docs: `CLAUDE.md`, `docs/REVERSE_ENGINEERING.md`, this file.
 
-## Phase 1 — Make it run on the current build (25776186)
+## Phase 1 — Make it run on the current build (25776186) ☑
 Goal: every hook/function resolves correctly, loader runs in-game, Core + Logic + Overwrite mods work.
 
 1. ☑ **Symbol resolver** (new module in ModLoader): resolve functions/globals by name.
@@ -26,7 +26,7 @@ Goal: every hook/function resolves correctly, loader runs in-game, Core + Logic 
 2. ☑ **Pattern fixes**: replace the 6 failing patterns + SCOI with PDB-generated ones (`check_patterns.py --gen`), delete the stale root `ModLoaderInfo.ini`.
 3. ☑ **Bug fixes** from `docs/REVERSE_ENGINEERING.md` → "Known loader bugs" (GInfo section, SCOI chain + null deref, `Pattern::Find` restricted to executable sections + uniqueness, null guards before hooking).
 4. ☑ Bump version constants in `ModLoader/src/Core.h` (loader 3.0.0-dev, game 2.7.0.4).
-5. ◐ **In-game test with the owner**: loader starts, UI opens (DX11), BaseMod loads, a Logic mod (StaticLoadObject/SpawnActor) and an Overwrite mod (pak hooks) work. Collect `Logs/`.
+5. ☑ **In-game test with the owner**: loader starts, UI opens (DX11), BaseMod loads, a Logic mod (StaticLoadObject/SpawnActor) and an Overwrite mod (pak hooks) work. Collect `Logs/`.
    - Test 1 (2026-10-09, game 2.7.0.4): all 17 addresses resolved correctly **via the pattern fallback**; PDB was
      wrongly rejected (DEFERRED_LOADS → SymType reported as SymDeferred; fixed). Hooks, BaseMod, DX11 UI, overwrite
      hardlinks and shutdown cleanup work. Crash when using BaseMod's give-item tool and then opening the skill tree:
@@ -36,7 +36,8 @@ Goal: every hook/function resolves correctly, loader runs in-game, Core + Logic 
      functions on the stats component. Fix = regenerate SDK (2.4). Until then: don't use BaseMod game tools.
    - Test 2: all 17 resolved via `pdb`, clean shutdown. But lookups took ~12 s total (decorated-name lookups scan
      all publics) → switched to plain-name lookup verified by decorated name (~0.05 s offline).
-   - Test 3: confirm startup is fast again.
+   - Test 3 (2026-10-09): all 17 via `pdb` within the same second, clean shutdown. **Phase 1 done.**
+   - Not verified in-game yet: Logic mods (no Logic mod installed) and the pak overwrite on an asset that is actually loaded.
 
 ## Phase 2 — Clean up & restructure ("sortieren")
 Planned as parallel agent work packages (worktrees off `modernize`), each with its own doc update. Order/assignment to be confirmed with the owner.
