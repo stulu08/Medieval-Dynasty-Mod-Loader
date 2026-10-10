@@ -29,7 +29,7 @@ hook). Differences only in logging and failure handling:
 ### Binary check (pefile + PDB string scan, Release x64)
 | Binary | before | after |
 |---|---|---|
-| `MDML.dll` | 2,128,384 B, MinHook code | 2,140,160 B, MinHook code + 12 new exports (`mdml::Hooks` members incl. compiler-generated `operator=`, `mdml::ToString`); +11.8 KB for `MH_StatusToString`, registry, logging |
+| `MDML.dll` | 2,128,384 B, MinHook code | 2,141,696 B, MinHook code + 12 new exports (`mdml::Hooks` members incl. compiler-generated `operator=`, `mdml::ToString`); +13.3 KB for `MH_StatusToString`, registry, logging |
 | `BaseMod.dll` | 459,264 B, no MinHook code | 459,264 B, no MinHook code, `MH_*` types gone from PDB |
 | `PresetMod.dll` | 17,920 B | 17,920 B, `MH_*` gone from PDB |
 | `TimeWeatherChanger.dll` | 204,800 B | 204,800 B, `MH_*` gone from PDB |
