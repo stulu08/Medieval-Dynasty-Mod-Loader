@@ -1,6 +1,7 @@
 #include "Core.h"
 #include "UserDefinedEnum.h"
 #include "UE4.h"
+#include "Utilities/Pattern.h"
 
 namespace UE4 {
 	TMap<FName, FText> UE4::UUserDefinedEnum::GetDispalyNames() const {

@@ -1,7 +1,6 @@
 #pragma once
 #include "Utilities/Memory.h"
 #include "Utilities/Math.h"
-#include "Utilities/Pattern.h"
 #include "NameValidator.h"
 #include "GameInfo.h"
 #include "Containers/String.h"
@@ -197,7 +196,7 @@ namespace UE4 {
 		int GetNumElements() const { return Read<int>((byte*)this + 0x8 + 0x4); };
 		FNameEntry** Chunks[];
 	};
-	class FName
+	class MDML_ENGINE_API FName
 	{
 	public:
 		int ComparisonIndex;

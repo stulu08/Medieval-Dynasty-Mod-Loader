@@ -27,6 +27,8 @@ project "PresetMod"
 		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.MinHook}",
 		"%{IncludeDir.ModLoader}",
+		"%{IncludeDir.Engine}",
+		"%{IncludeDir.EngineUE4}",
 		"%{IncludeDir.INI}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.ImGui}",

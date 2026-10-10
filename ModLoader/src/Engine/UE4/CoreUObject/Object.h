@@ -41,7 +41,7 @@ namespace UE4 {
 		GarbageCollectionKeepFlags = Native | Async | AsyncLoading,
 		AllFlags = ReachableInCluster | ClusterRoot | Native | Async | AsyncLoading | Unreachable | PendingKill | RootSet,
 	};
-	class UObject
+	class MDML_ENGINE_API UObject
 	{
 	public:
 		static FUObjectArray* GObjects;
@@ -309,7 +309,7 @@ namespace UE4 {
 
 		void ExecuteUbergraph(int EntryPoint);
 	};
-	class UPackage : public UObject {
+	class MDML_ENGINE_API UPackage : public UObject {
 	public:
 		std::vector<UObject*> GetAllObjectsInPackage(bool filterDefualts) {
 			if (IsChunkedArray())

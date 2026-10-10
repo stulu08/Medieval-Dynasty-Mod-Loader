@@ -50,6 +50,11 @@ IncludeDir["INI"] = "%{wks.location}/ModLoader/vendor/INI"
 IncludeDir["ImGui"] = "%{wks.location}/ModLoader/vendor/ImGui"
 
 IncludeDir["ModLoader"] = "%{wks.location}/ModLoader/src"
+-- hand-written engine core, compiled into MDML.dll and exported (Wave 2.3). Same relative paths as the old SDK/src
+-- layout: Engine = old SDK/src ("UE4.h", "NameValidator.h"), EngineUE4 = old SDK/src/UE4 ("CoreUObject/...", "Math/...").
+IncludeDir["Engine"] = "%{wks.location}/ModLoader/src/Engine"
+IncludeDir["EngineUE4"] = "%{wks.location}/ModLoader/src/Engine/UE4"
+-- generated SDK (static SDK.lib)
 IncludeDir["UE4"] = "%{wks.location}/SDK/src/UE4"
 IncludeDir["MedievalDynasty"] = "%{wks.location}/SDK/src/Medieval_Dynasty"
 IncludeDir["SDK"] = "%{wks.location}/SDK/src"

@@ -1,5 +1,5 @@
 #pragma once
-#include "GameStateBase.h"
+#include "Engine/GameStateBase.h"
 
 namespace UE4 {
 	class AGameState : public AGameStateBase

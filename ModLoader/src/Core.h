@@ -15,6 +15,10 @@
 #else
 #define LOADER_API __declspec(dllimport)
 #endif
+// Hand-written engine core (ModLoader/src/Engine: UObject, FName, UClass, FProperty, UWorld, ...) is compiled into
+// MDML.dll and exported with the same import/export switch. Separate name so engine exports stay greppable and could
+// move to their own DLL later without touching every declaration (Wave 2.3).
+#define MDML_ENGINE_API LOADER_API
 
 #define BPFUNCTION(Function) void Function(UE4::UObject* ContextObject, UE4::FFrame* stack, void* const ret)
 

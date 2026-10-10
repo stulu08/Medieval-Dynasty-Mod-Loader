@@ -1,7 +1,7 @@
 #pragma once
 #include "Structs.h"
-#include "World.h"
-#include "BlueprintFunctionLibrary.h"
+#include "Engine/World.h"
+#include "Engine/BlueprintFunctionLibrary.h"
 
 
 namespace UE4 {

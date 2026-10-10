@@ -40,7 +40,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>SDK_EXPORT;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ModLoader\src;..\ModLoader\vendor\glm;src\UE4;src;..\ModLoader\vendor\spdlog;src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ModLoader\src;..\ModLoader\src\Engine;..\ModLoader\src\Engine\UE4;..\ModLoader\vendor\glm;src\UE4;src;..\ModLoader\vendor\spdlog;src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -244,8 +244,6 @@
     <ClInclude Include="src\Medieval_Dynasty\PC_Player\PC_Player_SDK.h" />
     <ClInclude Include="src\Medieval_Dynasty\PC_Player\Structs.h" />
     <ClInclude Include="src\Medieval_Dynasty\SDK.h" />
-    <ClInclude Include="src\NameValidator.h" />
-    <ClInclude Include="src\UE4.h" />
     <ClInclude Include="src\UE4\AIModule\AIController.h" />
     <ClInclude Include="src\UE4\AIModule\Structs.h" />
     <ClInclude Include="src\UE4\AdsMountingSystem\ADMUnifiedControllerPawn.h" />
@@ -279,22 +277,6 @@
     <ClInclude Include="src\UE4\AnimationCore\Structs.h" />
     <ClInclude Include="src\UE4\Chaos\Chaos_SDK.h" />
     <ClInclude Include="src\UE4\Chaos\Structs.h" />
-    <ClInclude Include="src\UE4\Containers\AlignedBytes.h" />
-    <ClInclude Include="src\UE4\Containers\Array.h" />
-    <ClInclude Include="src\UE4\Containers\Map.h" />
-    <ClInclude Include="src\UE4\Containers\Pointers.h" />
-    <ClInclude Include="src\UE4\Containers\Set.h" />
-    <ClInclude Include="src\UE4\Containers\String.h" />
-    <ClInclude Include="src\UE4\Containers\Templates.h" />
-    <ClInclude Include="src\UE4\Containers\Text.h" />
-    <ClInclude Include="src\UE4\CoreUObject\Class.h" />
-    <ClInclude Include="src\UE4\CoreUObject\CoreTypes.h" />
-    <ClInclude Include="src\UE4\CoreUObject\Interface.h" />
-    <ClInclude Include="src\UE4\CoreUObject\NamePool.h" />
-    <ClInclude Include="src\UE4\CoreUObject\Object.h" />
-    <ClInclude Include="src\UE4\CoreUObject\ObjectsArray.h" />
-    <ClInclude Include="src\UE4\CoreUObject\Stack.h" />
-    <ClInclude Include="src\UE4\CoreUObject\UnrealType.h" />
     <ClInclude Include="src\UE4\DeveloperSettings\DeveloperSettings.h" />
     <ClInclude Include="src\UE4\DeveloperSettings\DeveloperSettings_SDK.h" />
     <ClInclude Include="src\UE4\DeveloperSettings\Structs.h" />
@@ -304,8 +286,6 @@
     <ClInclude Include="src\UE4\Engine\AnimNotify.h" />
     <ClInclude Include="src\UE4\Engine\AnimNotifyState.h" />
     <ClInclude Include="src\UE4\Engine\BlueprintAsyncActionBase.h" />
-    <ClInclude Include="src\UE4\Engine\BlueprintFunctionLibrary.h" />
-    <ClInclude Include="src\UE4\Engine\BlueprintGeneratedClass.h" />
     <ClInclude Include="src\UE4\Engine\BlueprintMapLibrary.h" />
     <ClInclude Include="src\UE4\Engine\BlueprintPathsLibrary.h" />
     <ClInclude Include="src\UE4\Engine\BlueprintPlatformLibrary.h" />
@@ -319,12 +299,10 @@
     <ClInclude Include="src\UE4\Engine\DataTable.h" />
     <ClInclude Include="src\UE4\Engine\DataTableFunctionLibrary.h" />
     <ClInclude Include="src\UE4\Engine\DynamicBlueprintBinding.h" />
-    <ClInclude Include="src\UE4\Engine\GameInstance.h" />
     <ClInclude Include="src\UE4\Engine\GameInstanceSubsystem.h" />
     <ClInclude Include="src\UE4\Engine\GameMode.h" />
     <ClInclude Include="src\UE4\Engine\GameModeBase.h" />
     <ClInclude Include="src\UE4\Engine\GamePlayStatics.h" />
-    <ClInclude Include="src\UE4\Engine\GameState.h" />
     <ClInclude Include="src\UE4\Engine\GameStateBase.h" />
     <ClInclude Include="src\UE4\Engine\HierarchicalInstancedStaticMeshComponent.h" />
     <ClInclude Include="src\UE4\Engine\Info.h" />
@@ -339,7 +317,6 @@
     <ClInclude Include="src\UE4\Engine\KismetStringLibrary.h" />
     <ClInclude Include="src\UE4\Engine\KismetSystemLibrary.h" />
     <ClInclude Include="src\UE4\Engine\KismetTextLibrary.h" />
-    <ClInclude Include="src\UE4\Engine\Level.h" />
     <ClInclude Include="src\UE4\Engine\Material.h" />
     <ClInclude Include="src\UE4\Engine\MaterialInstance.h" />
     <ClInclude Include="src\UE4\Engine\MaterialInterface.h" />
@@ -371,10 +348,7 @@
     <ClInclude Include="src\UE4\Engine\Structs.h" />
     <ClInclude Include="src\UE4\Engine\Subsystem.h" />
     <ClInclude Include="src\UE4\Engine\SubsystemBlueprintLibrary.h" />
-    <ClInclude Include="src\UE4\Engine\UserDefinedEnum.h" />
-    <ClInclude Include="src\UE4\Engine\UserDefinedStruct.h" />
     <ClInclude Include="src\UE4\Engine\Volume.h" />
-    <ClInclude Include="src\UE4\Engine\World.h" />
     <ClInclude Include="src\UE4\Foliage\FoliageInstancedStaticMeshComponent.h" />
     <ClInclude Include="src\UE4\Foliage\FoliageStatistics.h" />
     <ClInclude Include="src\UE4\Foliage\FoliageType.h" />
@@ -389,16 +363,6 @@
     <ClInclude Include="src\UE4\Foliage\ProceduralFoliageTile.h" />
     <ClInclude Include="src\UE4\Foliage\ProceduralFoliageVolume.h" />
     <ClInclude Include="src\UE4\Foliage\Structs.h" />
-    <ClInclude Include="src\UE4\Math\Box.h" />
-    <ClInclude Include="src\UE4\Math\Color.h" />
-    <ClInclude Include="src\UE4\Math\Plane.h" />
-    <ClInclude Include="src\UE4\Math\Quat.h" />
-    <ClInclude Include="src\UE4\Math\Rotator.h" />
-    <ClInclude Include="src\UE4\Math\Transform.h" />
-    <ClInclude Include="src\UE4\Math\UnrealMathUtility.h" />
-    <ClInclude Include="src\UE4\Math\Vector.h" />
-    <ClInclude Include="src\UE4\Math\Vector2.h" />
-    <ClInclude Include="src\UE4\Math\Vector4.h" />
     <ClInclude Include="src\UE4\MovieScene\MovieScene.h" />
     <ClInclude Include="src\UE4\MovieScene\MovieSceneEntitySystem.h" />
     <ClInclude Include="src\UE4\MovieScene\MovieSceneNameableTrack.h" />
@@ -447,7 +411,6 @@
     <ClInclude Include="src\UE4\SlateCore\SlateWidgetStyleContainerBase.h" />
     <ClInclude Include="src\UE4\SlateCore\SlateWidgetStyleContainerInterface.h" />
     <ClInclude Include="src\UE4\SlateCore\Structs.h" />
-    <ClInclude Include="src\UE4\UE_LOG.h" />
     <ClInclude Include="src\UE4\UMG\AsyncTaskDownloadImage.h" />
     <ClInclude Include="src\UE4\UMG\BackgroundBlur.h" />
     <ClInclude Include="src\UE4\UMG\BackgroundBlurSlot.h" />
@@ -668,7 +631,6 @@
     <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\RepActor.cpp" />
     <ClCompile Include="src\Medieval_Dynasty\Medieval_Dynasty\StatsComponentBase.cpp" />
     <ClCompile Include="src\Medieval_Dynasty\PC_Player\PC_Player_C.cpp" />
-    <ClCompile Include="src\NameValidator.cpp" />
     <ClCompile Include="src\UE4\AIModule\AIController.cpp" />
     <ClCompile Include="src\UE4\AdsMountingSystem\ADMUnifiedControllerPawn.cpp" />
     <ClCompile Include="src\UE4\AdsMountingSystem\AdsMountingSystemLibrary.cpp" />
@@ -689,10 +651,6 @@
     <ClCompile Include="src\UE4\AnimGraphRuntime\SequencerAnimationSupport.cpp" />
     <ClCompile Include="src\UE4\AnimPhysics\AnimPhysicsLimitsDataAsset.cpp" />
     <ClCompile Include="src\UE4\AnimationCore\AnimationDataSourceRegistry.cpp" />
-    <ClCompile Include="src\UE4\CoreUObject\Class.cpp" />
-    <ClCompile Include="src\UE4\CoreUObject\CoreTypes.cpp" />
-    <ClCompile Include="src\UE4\CoreUObject\Object.cpp" />
-    <ClCompile Include="src\UE4\CoreUObject\UnrealType.cpp" />
     <ClCompile Include="src\UE4\DeveloperSettings\DeveloperSettings.cpp" />
     <ClCompile Include="src\UE4\Engine\Actor.cpp" />
     <ClCompile Include="src\UE4\Engine\ActorComponent.cpp" />
@@ -756,8 +714,6 @@
     <ClCompile Include="src\UE4\Engine\StreamableRenderAsset.cpp" />
     <ClCompile Include="src\UE4\Engine\StringTable.cpp" />
     <ClCompile Include="src\UE4\Engine\SubsystemBlueprintLibrary.cpp" />
-    <ClCompile Include="src\UE4\Engine\UserDefinedEnum.cpp" />
-    <ClCompile Include="src\UE4\Engine\World.cpp" />
     <ClCompile Include="src\UE4\Foliage\FoliageInstancedStaticMeshComponent.cpp" />
     <ClCompile Include="src\UE4\Foliage\FoliageStatistics.cpp" />
     <ClCompile Include="src\UE4\Foliage\FoliageType.cpp" />

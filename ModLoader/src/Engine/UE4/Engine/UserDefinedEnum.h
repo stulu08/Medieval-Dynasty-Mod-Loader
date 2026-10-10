@@ -3,7 +3,7 @@
 
 
 namespace UE4 {
-	class UUserDefinedEnum : public UEnum {
+	class MDML_ENGINE_API UUserDefinedEnum : public UEnum {
 	public:
 		TMap<FName, FText> GetDispalyNames() const;
 		std::vector<std::string> GetDisplayNamesParsed() const;

@@ -1,9 +1,9 @@
 #pragma once
-#include "Structs.h"
+#include "Engine/Structs.h"
 #include "Engine/Actor.h"
 
 namespace UE4 {
-	class UWorld : public UObject
+	class MDML_ENGINE_API UWorld : public UObject
 	{
 	public:
 		AActor* SpawnActor(UClass* uclass, const  FTransform* transform, const FActorSpawnParameters* params);

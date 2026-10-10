@@ -42,7 +42,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>NDEBUG;UNREALENGINEMODLOADER_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog;vendor\MinHook;src;vendor\INI;vendor\glm;vendor\ImGui;..\SDK\src\UE4;..\SDK\src;..\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog;vendor\MinHook;src;src\Engine;src\Engine\UE4;vendor\INI;vendor\glm;vendor\ImGui;..\SDK\src\UE4;..\SDK\src;..\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -71,6 +71,43 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Core.h" />
+    <ClInclude Include="src\Engine\NameValidator.h" />
+    <ClInclude Include="src\Engine\UE4.h" />
+    <ClInclude Include="src\Engine\UE4\Containers\AlignedBytes.h" />
+    <ClInclude Include="src\Engine\UE4\Containers\Array.h" />
+    <ClInclude Include="src\Engine\UE4\Containers\Map.h" />
+    <ClInclude Include="src\Engine\UE4\Containers\Pointers.h" />
+    <ClInclude Include="src\Engine\UE4\Containers\Set.h" />
+    <ClInclude Include="src\Engine\UE4\Containers\String.h" />
+    <ClInclude Include="src\Engine\UE4\Containers\Templates.h" />
+    <ClInclude Include="src\Engine\UE4\Containers\Text.h" />
+    <ClInclude Include="src\Engine\UE4\CoreUObject\Class.h" />
+    <ClInclude Include="src\Engine\UE4\CoreUObject\CoreTypes.h" />
+    <ClInclude Include="src\Engine\UE4\CoreUObject\Interface.h" />
+    <ClInclude Include="src\Engine\UE4\CoreUObject\NamePool.h" />
+    <ClInclude Include="src\Engine\UE4\CoreUObject\Object.h" />
+    <ClInclude Include="src\Engine\UE4\CoreUObject\ObjectsArray.h" />
+    <ClInclude Include="src\Engine\UE4\CoreUObject\Stack.h" />
+    <ClInclude Include="src\Engine\UE4\CoreUObject\UnrealType.h" />
+    <ClInclude Include="src\Engine\UE4\Engine\BlueprintFunctionLibrary.h" />
+    <ClInclude Include="src\Engine\UE4\Engine\BlueprintGeneratedClass.h" />
+    <ClInclude Include="src\Engine\UE4\Engine\GameInstance.h" />
+    <ClInclude Include="src\Engine\UE4\Engine\GameState.h" />
+    <ClInclude Include="src\Engine\UE4\Engine\Level.h" />
+    <ClInclude Include="src\Engine\UE4\Engine\UserDefinedEnum.h" />
+    <ClInclude Include="src\Engine\UE4\Engine\UserDefinedStruct.h" />
+    <ClInclude Include="src\Engine\UE4\Engine\World.h" />
+    <ClInclude Include="src\Engine\UE4\Math\Box.h" />
+    <ClInclude Include="src\Engine\UE4\Math\Color.h" />
+    <ClInclude Include="src\Engine\UE4\Math\Plane.h" />
+    <ClInclude Include="src\Engine\UE4\Math\Quat.h" />
+    <ClInclude Include="src\Engine\UE4\Math\Rotator.h" />
+    <ClInclude Include="src\Engine\UE4\Math\Transform.h" />
+    <ClInclude Include="src\Engine\UE4\Math\UnrealMathUtility.h" />
+    <ClInclude Include="src\Engine\UE4\Math\Vector.h" />
+    <ClInclude Include="src\Engine\UE4\Math\Vector2.h" />
+    <ClInclude Include="src\Engine\UE4\Math\Vector4.h" />
+    <ClInclude Include="src\Engine\UE4\UE_LOG.h" />
     <ClInclude Include="src\GameInfo.h" />
     <ClInclude Include="src\Globals.h" />
     <ClInclude Include="src\MDML.h" />
@@ -479,8 +516,38 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClInclude Include="vendor\spdlog\spdlog\version.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\SDK\src\UE4\Engine\Actor.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\SDK\src\UE4\Engine\GamePlayStatics.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\SDK\src\UE4\Engine\KismetSystemLibrary.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="src\Core.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\Engine\NameValidator.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\Engine\UE4\CoreUObject\Class.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\Engine\UE4\CoreUObject\CoreTypes.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\Engine\UE4\CoreUObject\Object.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\Engine\UE4\CoreUObject\UnrealType.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\Engine\UE4\Engine\UserDefinedEnum.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\Engine\UE4\Engine\World.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Globals.cpp" />
     <ClCompile Include="src\MDML.cpp" />
@@ -527,9 +594,6 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
   <ItemGroup>
     <ProjectReference Include="vendor\MinHook\MinHook.vcxproj">
       <Project>{1A77E127-8656-60C3-8F6E-EB99FBCCC624}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\SDK\SDK.vcxproj">
-      <Project>{071D880B-7326-887C-FCA1-9E7C68AA937C}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

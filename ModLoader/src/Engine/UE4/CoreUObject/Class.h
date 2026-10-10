@@ -3,7 +3,7 @@
 #include "Object.h"
 
 namespace UE4 {
-	class UField : public UObject
+	class MDML_ENGINE_API UField : public UObject
 	{
 	public:
 		UField* GetNext() const;
@@ -15,7 +15,7 @@ namespace UE4 {
 		}
 	};
 	typedef FText(*FEnumDisplayNameFn)(int32_t);
-	class UEnum : public UField
+	class MDML_ENGINE_API UEnum : public UField
 	{
 	public:
 		enum class ECppForm
@@ -39,7 +39,7 @@ namespace UE4 {
 		}
 	};
 
-	class UStruct : public UField
+	class MDML_ENGINE_API UStruct : public UField
 	{
 	public:
 		UStruct* GetSuperField() const;
@@ -53,7 +53,7 @@ namespace UE4 {
 		}
 
 	};
-	class UScriptStruct : public UStruct
+	class MDML_ENGINE_API UScriptStruct : public UStruct
 	{
 	public:
 		static UClass* StaticClass()
@@ -63,7 +63,7 @@ namespace UE4 {
 		}
 	};
 
-	class UClass : public UStruct
+	class MDML_ENGINE_API UClass : public UStruct
 	{
 	public:
 		template<typename T>
@@ -121,7 +121,7 @@ namespace UE4 {
 	class TScriptInterface : public FScriptInterface
 	{ };
 
-	class UFunction : public UStruct
+	class MDML_ENGINE_API UFunction : public UStruct
 	{
 	public:
 		EFunctionFlags GetFunctionFlags() const;
@@ -138,7 +138,7 @@ namespace UE4 {
 			return ptr;
 		}
 	};
-	class UDynamicClass : public UClass {
+	class MDML_ENGINE_API UDynamicClass : public UClass {
 	public:
 		static UClass* StaticClass() {
 			static auto ptr = UObject::FindClass("Class CoreUObject.DynamicClass");

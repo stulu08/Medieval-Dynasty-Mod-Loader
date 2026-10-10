@@ -163,9 +163,9 @@ namespace UE4 {
 	inline bool operator&(EObjectFlags lhs, EObjectFlags rhs) {
 		return (static_cast<std::underlying_type_t<EObjectFlags>>(lhs) & static_cast<std::underlying_type_t<EObjectFlags>>(rhs)) == static_cast<std::underlying_type_t<EObjectFlags>>(rhs);
 	}
-	std::string StringifyFlags(const EFunctionFlags flags);
-	std::string StringifyFlags(const EPropertyFlags flags);
-	std::string StringifyFlags(const EObjectFlags flags);
+	MDML_ENGINE_API std::string StringifyFlags(const EFunctionFlags flags);
+	MDML_ENGINE_API std::string StringifyFlags(const EPropertyFlags flags);
+	MDML_ENGINE_API std::string StringifyFlags(const EObjectFlags flags);
 
 #pragma region Enums
 	/////////////////////////////////////////////

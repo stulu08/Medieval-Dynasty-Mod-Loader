@@ -9,6 +9,7 @@
 #include "INI.h"
 
 #include "UE4.h"
+#include "Utilities/Pattern.h"
 
 
 DWORD StringToDWord(std::string str);

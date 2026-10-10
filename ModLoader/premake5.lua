@@ -25,6 +25,16 @@ project "MedievalDynastyModLoader"
 		"**.hpp",
 	}
 	removefiles { "vendor/MinHook/src/**" } -- MinHook is its own project
+	-- The few GENERATED SDK functions MDML itself calls (UGameplayStatics::GetGameInstance/GetCurrentLevelName/
+	-- BeginDeferredActorSpawnFromClass/ExecuteConsoleCommand -> UKismetSystemLibrary, AActor::K2_GetActorLocation/...)
+	-- are compiled into MDML.dll from the SDK sources instead of linking SDK.lib (which now depends on MDML.dll).
+	-- Not exported; mods get their own copy from SDK.lib, exactly as before. Goes away with the new generator (plan 2.4).
+	files
+	{
+		"../SDK/src/UE4/Engine/Actor.cpp",
+		"../SDK/src/UE4/Engine/GamePlayStatics.cpp",
+		"../SDK/src/UE4/Engine/KismetSystemLibrary.cpp",
+	}
 	libdirs 
 	{
 		--"%{IncludeDir.MinHook}/lib"
@@ -34,6 +44,8 @@ project "MedievalDynastyModLoader"
 		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.MinHook}",
 		"%{IncludeDir.ModLoader}",
+		"%{IncludeDir.Engine}",
+		"%{IncludeDir.EngineUE4}",
 		"%{IncludeDir.INI}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.ImGui}",
@@ -47,12 +59,13 @@ project "MedievalDynastyModLoader"
 		"{MKDIR} \"%{wks.location}/bin/" .. outputdir .. "/Config\"",
 		"{COPYDIR} \"%{wks.location}/Config\" \"%{wks.location}/bin/" .. outputdir .. "/Config\"",
 	}
+	-- No "SDK" link any more (Wave 2.3): the hand-written engine core (src/Engine) is compiled in here and exported;
+	-- SDK.lib's generated code imports it from MDML.dll, so linking SDK.lib here would be a cycle.
 	links
 	{
 		"MinHook",
-		"SDK",
 	}
-	filter "files:vendor/**.cpp or files:src/UE4/**.cpp"
+	filter "files:vendor/**.cpp or files:src/Engine/**.cpp or files:../SDK/src/**.cpp"
 		flags {"NoPCH"}
 	filter "system:windows"
 		systemversion "latest"

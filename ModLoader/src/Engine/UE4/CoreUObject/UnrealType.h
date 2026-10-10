@@ -19,7 +19,7 @@ namespace UE4 {
 		} Container;
 		bool bIsUObject;
 	};
-	class FFieldClass
+	class MDML_ENGINE_API FFieldClass
 	{
 	public:
 		std::string GetName() const;
@@ -30,7 +30,7 @@ namespace UE4 {
 		static UClass* AsUClass(FFieldClass* Class);
 		UClass* GetUClass() { return AsUClass(this); }
 	};
-	class FField
+	class MDML_ENGINE_API FField
 	{
 	public:
 		FFieldClass* GetClass() const;
@@ -38,7 +38,7 @@ namespace UE4 {
 		std::string GetName() const;
 		FProperty* GetAsProperty() const { return (FProperty*)this; }
 	};
-	class FProperty : public FField
+	class MDML_ENGINE_API FProperty : public FField
 	{
 	public:
 		FField* GetParentFProperty() { return (FField*)this; }
@@ -68,7 +68,7 @@ namespace UE4 {
 		std::string GetCppTypeName();
 	};
 	
-	class FNumericProperty : public FProperty
+	class MDML_ENGINE_API FNumericProperty : public FProperty
 	{
 	public:
 		static UClass* StaticClass()
@@ -77,7 +77,7 @@ namespace UE4 {
 			return ptr;
 		}
 	};
-	class FByteProperty : public FNumericProperty
+	class MDML_ENGINE_API FByteProperty : public FNumericProperty
 	{
 	public:
 		UEnum* GetEnum() const;
@@ -89,7 +89,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE((!IsEnum() ? "unsigned char" : ("TEnumAsByte<" + NameValidator::MakeUniqueCppName(GetEnum()) + ">")))
 	};
-	class FUInt16Property : public FNumericProperty
+	class MDML_ENGINE_API FUInt16Property : public FNumericProperty
 	{
 	public:
 		static UClass* StaticClass()
@@ -99,7 +99,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("uint16_t")
 	};
-	class FUInt32Property : public FNumericProperty
+	class MDML_ENGINE_API FUInt32Property : public FNumericProperty
 	{
 	public:
 		static UClass* StaticClass()
@@ -109,7 +109,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("uint32_t")
 	};
-	class FUInt64Property : public FNumericProperty
+	class MDML_ENGINE_API FUInt64Property : public FNumericProperty
 	{
 	public:
 		static UClass* StaticClass()
@@ -119,7 +119,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("uint64_t")
 	};
-	class FInt8Property : public FNumericProperty
+	class MDML_ENGINE_API FInt8Property : public FNumericProperty
 	{
 	public:
 		static UClass* StaticClass()
@@ -129,7 +129,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("int8_t")
 	};
-	class FInt16Property : public FNumericProperty
+	class MDML_ENGINE_API FInt16Property : public FNumericProperty
 	{
 	public:
 		static UClass* StaticClass()
@@ -139,7 +139,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("int16_t")
 	};
-	class FIntProperty : public FNumericProperty
+	class MDML_ENGINE_API FIntProperty : public FNumericProperty
 	{
 	public:
 		static UClass* StaticClass()
@@ -149,7 +149,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("int32_t")
 	};
-	class FInt64Property : public FNumericProperty
+	class MDML_ENGINE_API FInt64Property : public FNumericProperty
 	{
 	public:
 		static UClass* StaticClass()
@@ -159,7 +159,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("int64_t")
 	};
-	class FFloatProperty : public FNumericProperty
+	class MDML_ENGINE_API FFloatProperty : public FNumericProperty
 	{
 	public:
 		static UClass* StaticClass()
@@ -169,7 +169,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("float")
 	};
-	class FDoubleProperty : public FNumericProperty
+	class MDML_ENGINE_API FDoubleProperty : public FNumericProperty
 	{
 	public:
 		static UClass* StaticClass()
@@ -180,7 +180,7 @@ namespace UE4 {
 		PROPERTY_IMPL_GET_CPP_TYPE("double")
 	};
 	
-	class FBoolProperty : public FProperty
+	class MDML_ENGINE_API FBoolProperty : public FProperty
 	{
 	public:
 		uint8_t GetFieldSize() const;
@@ -198,7 +198,7 @@ namespace UE4 {
 		PROPERTY_IMPL_GET_CPP_TYPE((IsNativeBool() ? "bool" : "unsigned char"));
 	};
 	
-	class FObjectPropertyBase : public FProperty
+	class MDML_ENGINE_API FObjectPropertyBase : public FProperty
 	{
 	public:
 		UClass* GetPropertyClass() const;
@@ -208,7 +208,7 @@ namespace UE4 {
 			return ptr;
 		}
 	};
-	class FObjectProperty : public FObjectPropertyBase
+	class MDML_ENGINE_API FObjectProperty : public FObjectPropertyBase
 	{
 	public:
 		static UClass* StaticClass()
@@ -218,7 +218,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("class " + NameValidator::MakeValidName(GetPropertyClass()->GetCPPName()) + "*")
 	};
-	class FClassProperty : public FObjectProperty
+	class MDML_ENGINE_API FClassProperty : public FObjectProperty
 	{
 	public:
 		UClass* GetMetaClass() const;
@@ -229,7 +229,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("class " + NameValidator::MakeValidName(GetMetaClass()->GetCPPName()) + "*")
 	};
-	class FInterfaceProperty : public FProperty
+	class MDML_ENGINE_API FInterfaceProperty : public FProperty
 	{
 	public:
 		UClass* GetInterfaceClass() const;
@@ -240,7 +240,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("TScriptInterface<class " + NameValidator::MakeValidName(GetInterfaceClass()->GetCPPName()) + ">")
 	};
-	class FWeakObjectProperty : public FObjectPropertyBase
+	class MDML_ENGINE_API FWeakObjectProperty : public FObjectPropertyBase
 	{
 	public:
 		static UClass* StaticClass()
@@ -250,7 +250,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("TWeakObjectPtr<class " + NameValidator::MakeValidName(GetPropertyClass()->GetCPPName()) + ">")
 	};
-	class FLazyObjectProperty : public FObjectPropertyBase
+	class MDML_ENGINE_API FLazyObjectProperty : public FObjectPropertyBase
 	{
 	public:
 		static UClass* StaticClass()
@@ -260,7 +260,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("TLazyObjectPtr<class " + NameValidator::MakeValidName(GetPropertyClass()->GetCPPName()) + ">")
 	};
-	class FAssetObjectProperty : public FObjectPropertyBase
+	class MDML_ENGINE_API FAssetObjectProperty : public FObjectPropertyBase
 	{
 	public:
 		static UClass* StaticClass()
@@ -270,7 +270,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("TAssetPtr<class " + NameValidator::MakeValidName(GetPropertyClass()->GetCPPName()) + ">")
 	};
-	class FAssetClassProperty : public FAssetObjectProperty
+	class MDML_ENGINE_API FAssetClassProperty : public FAssetObjectProperty
 	{
 	public:
 		UClass* GetMetaClass() const;
@@ -281,7 +281,7 @@ namespace UE4 {
 		}
 	};
 	
-	class FNameProperty : public FProperty
+	class MDML_ENGINE_API FNameProperty : public FProperty
 	{
 	public:
 		static UClass* StaticClass()
@@ -291,7 +291,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("struct FName")
 	};
-	class FStrProperty : public FProperty
+	class MDML_ENGINE_API FStrProperty : public FProperty
 	{
 	public:
 		static UClass* StaticClass()
@@ -301,7 +301,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("struct FString")
 	};
-	class FTextProperty : public FProperty
+	class MDML_ENGINE_API FTextProperty : public FProperty
 	{
 	public:
 		static UClass* StaticClass()
@@ -312,7 +312,7 @@ namespace UE4 {
 		PROPERTY_IMPL_GET_CPP_TYPE("struct FText")
 	};
 	
-	class FStructProperty : public FProperty
+	class MDML_ENGINE_API FStructProperty : public FProperty
 	{
 	public:
 		UScriptStruct* GetStruct() const;
@@ -323,7 +323,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("struct " + NameValidator::MakeUniqueCppName(GetStruct()))
 	};
-	class FArrayProperty : public FProperty
+	class MDML_ENGINE_API FArrayProperty : public FProperty
 	{
 	public:
 		FProperty* GetInner() const;
@@ -334,7 +334,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("TArray<" + GetInner()->GetCppTypeName() + ">")
 	};
-	class FEnumProperty : public FProperty
+	class MDML_ENGINE_API FEnumProperty : public FProperty
 	{
 	public:
 		class FNumericProperty* GetUnderlyingProp() const;
@@ -348,7 +348,7 @@ namespace UE4 {
 		PROPERTY_IMPL_GET_CPP_TYPE(NameValidator::MakeUniqueCppName(GetEnum()));
 	};
 	
-	class FMapProperty : public FProperty
+	class MDML_ENGINE_API FMapProperty : public FProperty
 	{
 	public:
 		FProperty* GetKeyProp() const;
@@ -361,7 +361,7 @@ namespace UE4 {
 		PROPERTY_IMPL_GET_CPP_TYPE("TMap<" + GetKeyProp()->GetCppTypeName() + ", " + GetValueProp()->GetCppTypeName() + ">")
 	};
 	
-	class FDelegateProperty : public FProperty
+	class MDML_ENGINE_API FDelegateProperty : public FProperty
 	{
 	public:
 		UFunction* GetSignatureFunction() const;
@@ -372,7 +372,7 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("struct FScriptDelegate")
 	};
-	class FMulticastDelegateProperty : public FProperty
+	class MDML_ENGINE_API FMulticastDelegateProperty : public FProperty
 	{
 	public:
 		UFunction* GetSignatureFunction() const;
