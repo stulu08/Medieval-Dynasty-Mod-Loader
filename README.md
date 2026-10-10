@@ -39,3 +39,8 @@ theory of liability, whether in contract, strict liability, or tort (including n
   * [ImGui](https://github.com/ocornut/imgui)
   * [GLM](https://github.com/g-truc/glm)
   * [spdlog](https://github.com/gabime/spdlog)
+
+# Credits / Third-party
+MDML is licensed under the LGPL-2.1 (see [LICENSE](LICENSE)). It is a fork of [UnrealModLoader](https://github.com/RussellJerome/UnrealModLoader) and uses several third-party libraries (spdlog, Dear ImGui, MinHook, GLM, nlohmann/json, ImGuiColorTextEdit, Feather INI Parser). Their licenses and copyright notices are listed in [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
+- The SDK generator tooling is based on [Dumper-7](https://github.com/Encryqed/Dumper-7) by Encryqed and Fischsalat, used with the maintainer's permission for open source projects with attribution ([issue #416](https://github.com/Encryqed/Dumper-7/issues/416)).
+- [UE4SS](https://github.com/UE4SS-RE/RE-UE4SS) (MIT) served as design inspiration.
