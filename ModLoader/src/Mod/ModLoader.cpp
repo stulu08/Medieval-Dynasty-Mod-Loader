@@ -1,7 +1,6 @@
 #include "Core.h"
 #include "ModLoader.h"
 #include <iostream>
-#include <process.h>
 #include <windows.h>
 #include <filesystem>
 
@@ -38,23 +37,35 @@ std::string Mod::GetContentFolder() {
 }
 namespace ModLoader
 {
-	void InjectDLL(std::string path)
-	{
-		HANDLE hProc = OpenProcess(PROCESS_ALL_ACCESS, 0, _getpid());
-		if (hProc && hProc != INVALID_HANDLE_VALUE)
-		{
-			void* loc = VirtualAllocEx(hProc, 0, MAX_PATH, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
-			WriteProcessMemory(hProc, loc, path.c_str(), strlen(path.c_str()) + 1, 0);
-			HANDLE hThread = CreateRemoteThread(hProc, 0, 0, (LPTHREAD_START_ROUTINE)LoadLibraryA, loc, 0, 0);
-			if (hThread)
-			{
-				CloseHandle(hThread);
-			}
+	// System text for a Win32 error code, e.g. 126 -> "The specified module could not be found."
+	static std::string GetErrorMessage(DWORD error) {
+		char* buffer = nullptr;
+		DWORD length = FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+			nullptr, error, 0, (LPSTR)&buffer, 0, nullptr);
+		std::string message = (length && buffer) ? std::string(buffer, length) : "unknown error";
+		if (buffer)
+			LocalFree(buffer);
+		while (!message.empty() && (message.back() == '\n' || message.back() == '\r' || message.back() == ' ' || message.back() == '.'))
+			message.pop_back();
+		return message;
+	}
+	// Loads a core mod DLL on the calling thread (MDML's init thread). The mod constructs itself in its DllMain
+	// (CompleteModCreation adds it to Global::CoreMods), so it is complete once LoadLibraryW returns.
+	static void LoadModDLL(const std::filesystem::path& path) {
+		Log::Info_MDML("Loading mod {0}", MDML::FormatPath(path));
+		if (LoadLibraryW(path.c_str())) {
+			Log::Info_MDML("Loaded mod {0}", MDML::FormatPath(path));
 		}
-		if (hProc)
-		{
-			CloseHandle(hProc);
+		else {
+			const DWORD error = GetLastError();
+			Log::Error_MDML("Could not load mod {0}: error {1} ({2})", MDML::FormatPath(path), error, GetErrorMessage(error));
 		}
+	}
+	static bool LessNoCase(const std::filesystem::path& a, const std::filesystem::path& b) {
+		return _wcsicmp(a.c_str(), b.c_str()) < 0;
+	}
+	static bool EqualNoCase(const std::filesystem::path& a, const std::filesystem::path& b) {
+		return _wcsicmp(a.c_str(), b.c_str()) == 0;
 	}
 	void LoadLogicMod(std::string modName, const std::filesystem::path& Actor, const std::string& ActorPath, const std::filesystem::path& PeristentObject, const std::string& PersintentObjectPath) {
 		if (!std::filesystem::exists(Actor)) {
@@ -159,25 +170,29 @@ namespace ModLoader
 				mods.push_back(entry.path().string());
 			}
 		}
+		//deterministic load order: normalized paths (backslashes, no "\/" or ".."), sorted case-insensitively, no duplicates
+		for (auto& mod : mods)
+			mod = mod.lexically_normal();
+		std::sort(mods.begin(), mods.end(), LessNoCase);
+		mods.erase(std::unique(mods.begin(), mods.end(), EqualNoCase), mods.end());
+
 		//move basemod to front
-		const std::filesystem::path baseModPath = path + "/BaseMod/BaseMod.dll";
-		auto baseModIt = std::find(mods.begin(), mods.end(), baseModPath);
+		const std::filesystem::path baseModPath = std::filesystem::path(path + "/BaseMod/BaseMod.dll").lexically_normal();
+		auto baseModIt = std::find_if(mods.begin(), mods.end(), [&](const std::filesystem::path& mod) { return EqualNoCase(mod, baseModPath); });
 		if (baseModIt != mods.end()) {
 			Log::Info_MDML("Moved /BaseMod/BaseMod.dll to front");
 			std::rotate(mods.begin(), baseModIt, baseModIt + 1);
 		}
 
-		//inject all mods
-		for (uint32_t i = 0; i < mods.size(); i++) {
-			auto& path = mods[i];
-			if (std::filesystem::exists(path)) {
-				if(path.extension().string() == ".dll")
-					InjectDLL(path.string());
+		//load all mods one after another on this thread, BaseMod first
+		for (const auto& mod : mods) {
+			if (!std::filesystem::exists(mod) || mod.extension().string() != ".dll") {
+				Log::Warn_MDML("Skipping mod {0}: not an existing .dll file", MDML::FormatPath(mod));
+				continue;
 			}
+			LoadModDLL(mod);
 		}
-		
-		if (Global::GetGlobals()->ModInfoList.size() >= 1)
-			bool empty = Global::GetGlobals()->ModInfoList.empty();
+		Log::Info_MDML("Loaded {0} core mod(s)", Global::GetGlobals()->CoreMods.size());
 
 
 		for (const auto& entry : std::filesystem::directory_iterator(path)) {

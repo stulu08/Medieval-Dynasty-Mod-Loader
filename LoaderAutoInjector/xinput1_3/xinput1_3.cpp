@@ -25,9 +25,10 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved) {
 	if (hooked) {
 		return (TRUE);
 	}
+	// The first thread the game creates starts loading MDML.dll (on a thread of its own, see Loader.cpp).
 	if (fdwReason == DLL_THREAD_ATTACH) {
 		hooked = true;
-		Loader::LoadModLoader();
+		Loader::LoadModLoader(hinstDLL);
 		return (TRUE);
 	}
 	return (TRUE);

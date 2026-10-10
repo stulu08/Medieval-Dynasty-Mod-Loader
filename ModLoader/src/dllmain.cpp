@@ -10,7 +10,8 @@ BOOL APIENTRY DllMain(HMODULE hModule,
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
-        MDML::Start();
+        // Runs under the loader lock: Start only creates the init thread, the setup itself runs there.
+        MDML::Start(hModule);
         break;
     case DLL_THREAD_ATTACH:
         break;

@@ -232,15 +232,44 @@ UE4::AActor* MDML::SpawnActor(UE4::UClass* Class, const UE4::FTransform& transfo
 	}
 }
 
-void MDML::Start() {
-	auto Module = GetModuleHandleA("MDML.dll");
-	std::string path = GetModuleFilePath(Module);
-	path = path.substr(0, path.find_last_of("/\\"));
-	if(SetupProfile(path))
-		HooksManager::SetupHooks();
+// The loader's init thread. Everything here used to run inside DllMain under the loader lock.
+// Order: SetupProfile (ini, logs, console, NoOverwrite file, symbols) -> HooksManager::SetupHooks
+// (MinHook, overwrite links, pak hooks, mod loading, game hooks, UI logic thread).
+static DWORD WINAPI InitThread(LPVOID module) {
+	const ULONGLONG start = GetTickCount64();
+	try {
+		std::string path = GetModuleFilePath((HMODULE)module);
+		path = path.substr(0, path.find_last_of("/\\"));
+		const bool setupDone = SetupProfile(path);
+		Log::Info_MDML("Profile setup took {0} ms", GetTickCount64() - start);
+		if (setupDone)
+			HooksManager::SetupHooks();
+	}
+	catch (const std::exception& ex) {
+		if (Log::getMDMLLogger())
+			Log::Critical_MDML("Loader initialization failed: {0}", ex.what());
+		OutputDebugStringA((std::string("MDML: loader initialization failed: ") + ex.what() + "\r\n").c_str());
+	}
+	catch (...) {
+		if (Log::getMDMLLogger())
+			Log::Critical_MDML("Loader initialization failed with an unknown exception");
+		OutputDebugStringA("MDML: loader initialization failed with an unknown exception\r\n");
+	}
+	return 0;
+}
+
+void MDML::Start(HMODULE module) {
+	// DllMain must not load libraries, wait for threads or do heavy I/O, so the setup runs on its own thread.
+	HANDLE thread = CreateThread(nullptr, 0, InitThread, module, 0, nullptr);
+	if (thread)
+		CloseHandle(thread);
+	else
+		OutputDebugStringA("MDML: could not create the init thread, the loader is disabled\r\n");
 }
 void MDML::ShutDown() {
-	Log::Info_MDML("Shutting down");
+	// The logger does not exist yet if the process exits before the init thread got to Log::Init.
+	if (Log::getMDMLLogger())
+		Log::Info_MDML("Shutting down");
 	HooksManager::ShutDown();
 	IsProcessInternalsHooked = false;
 	GameStateClassInitNotRan = true;

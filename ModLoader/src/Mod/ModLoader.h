@@ -3,7 +3,7 @@
 
 namespace ModLoader
 {
-	void InjectDLL(std::string path);
+	// Loads every core mod DLL synchronously (BaseMod first, then alphabetical) and registers logic mods.
 	void LoadMods();
 
 	void CreateSysLinks();

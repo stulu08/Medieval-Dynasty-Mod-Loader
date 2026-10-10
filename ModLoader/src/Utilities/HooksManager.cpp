@@ -158,8 +158,36 @@ namespace HooksManager
 			return origIsNonPakFilenameAllowed(ptrThis, InFileName);
 		}
 	};
-	DWORD __stdcall InitHooks(LPVOID)
+	// Milliseconds since the game process was created, for the startup timing log lines.
+	static unsigned long long MsSinceProcessStart()
 	{
+		FILETIME creation, exitTime, kernel, user, now;
+		if (!GetProcessTimes(GetCurrentProcess(), &creation, &exitTime, &kernel, &user))
+			return 0;
+		GetSystemTimeAsFileTime(&now);
+		ULARGE_INTEGER c, n;
+		c.LowPart = creation.dwLowDateTime;
+		c.HighPart = creation.dwHighDateTime;
+		n.LowPart = now.dwLowDateTime;
+		n.HighPart = now.dwHighDateTime;
+		return n.QuadPart > c.QuadPart ? (n.QuadPart - c.QuadPart) / 10000 : 0;
+	}
+
+	// How many UObjects the engine has created so far: GUObjectArray.ObjObjects.NumElements
+	// (FUObjectArray::ObjObjects at 0x10, FChunkedFixedUObjectArray::NumElements at 0x14, PDB-checked for 4.27).
+	// Only logged, to see how far the engine got when the pak hooks went live.
+	static int GetUObjectCount()
+	{
+		if (!SDK::SelectedGameProfile.GObject || !SDK::SelectedGameProfile.IsUsingFChunkedFixedUObjectArray)
+			return -1;
+		return *(volatile int*)(SDK::SelectedGameProfile.GObject + 0x10 + 0x14);
+	}
+
+	// Runs on MDML's init thread (see MDML::Start) right after SetupProfile. Mods are loaded synchronously,
+	// so every core mod is constructed before the game hooks (InitGameState, BeginPlay, Tick) can fire.
+	void SetupHooks()
+	{
+		Log::Info_UML("Setting Up Loader");
 		MinHook::Init();
 		Log::Info_UML("MinHook Setup");
 		Log::Info_UML("Loading Mods");
@@ -172,7 +200,7 @@ namespace HooksManager
 		if (SDK::SelectedGameProfile.bPakOverride) {
 			MinHook::Add(SDK::SelectedGameProfile.FindFileInPakFiles, &HookedFunctions::hookFindFileInPakFiles, &HookedFunctions::origFindFileInPakFiles, "FPakPlatformFile::FindFileInPakFiles");
 			MinHook::Add(SDK::SelectedGameProfile.IsNonPakFilenameAllowed, &HookedFunctions::hookIsNonPakFilenameAllowed, &HookedFunctions::origIsNonPakFilenameAllowed, "FPakPlatformFile::IsNonPakFilenameAllowed");
-			Log::Info_MDML("Pak overwrites loaded");
+			Log::Info_MDML("Pak overwrites loaded ({0} ms after process start, {1} UObjects exist)", MsSinceProcessStart(), GetUObjectCount());
 		}
 
 		ModLoader::LoadMods();
@@ -186,13 +214,7 @@ namespace HooksManager
 		{
 			LoaderUI::HookDX();
 		}
-		return NULL;
-	}
-
-	void SetupHooks()
-	{
-		Log::Info_UML("Setting Up Loader");
-		CreateThread(0, 0, InitHooks, 0, 0, 0);
+		Log::Info_MDML("Loader setup finished ({0} ms after process start)", MsSinceProcessStart());
 	}
 	void AddProcessInternalHook() {
 		MinHook::Add(SDK::SelectedGameProfile.ProcessInternals, &HookedFunctions::hookProcessFunction, &HookedFunctions::origProcessFunction, "ProcessBlueprintFunctions");

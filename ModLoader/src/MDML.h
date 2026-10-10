@@ -33,7 +33,8 @@ public:
 
 	static class UE4::AActor* SpawnActor(class UE4::UClass* Class, const struct UE4::FTransform& transform, struct UE4::FActorSpawnParameters spawnParams);
 
-	static void Start();
+	// Called from DllMain(DLL_PROCESS_ATTACH): only starts the init thread (profile setup, hooks, mod loading).
+	static void Start(HMODULE module);
 	static void ShutDown();
 
 	static std::string FormatPath(const std::filesystem::path& path);
