@@ -179,6 +179,10 @@ Dumper-7 reference dump (crash cause confirmed), SDK generator design draft (`do
      (`Engine/EngineInit.cpp`), no per-mod `InitSDK`; SDK.lib = generated only and imports the core; MDML compiles
      `Actor`/`GamePlayStatics`/`KismetSystemLibrary.cpp` directly instead of linking SDK (cycle). LNK4286 gone. Awaiting
      in-game test. ☑ Tested 2026-10-10: all engine classes found, BaseMod init, engine-info dump, clean shutdown.
+   - 2.4 ◐ Merged (6af6575..0af5e9a, report `docs/reports/wave2/2.4-gameprofile-split.md`): `GameInfo.h`/`class SDK` gone;
+     `mdml::Layout` (`Engine/EngineLayout.h`), `mdml::Addresses` (`Engine/EngineAddresses.*`, incl. symbol resolution),
+     `mdml::Config` (`Runtime/LoaderConfig.*`), `mdml::UnrealLogger` (`Engine/UE4/UE_LOG.h`). Build green (only C4715).
+     Awaiting in-game test: resolve lines in MDML-log must match the previous run (order + rva). Deploy all DLLs together.
 3. 2.4 SDK generator (`docs/SDK_GENERATOR.md`): MDMLGenerator on Dumper-7, DevTools mod with export lists.
 4. Remaining library decisions (open decisions below), then C++20 + spdlog/ImGui upgrades (Wave 4).
 
