@@ -111,6 +111,9 @@
     <ClInclude Include="src\Utilities\EngineDefFinder.h">
       <Filter>src\Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="src\Utilities\GameThread.h">
+      <Filter>src\Utilities</Filter>
+    </ClInclude>
     <ClInclude Include="src\Utilities\HooksManager.h">
       <Filter>src\Utilities</Filter>
     </ClInclude>
@@ -1326,6 +1329,9 @@
       <Filter>src\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="src\Utilities\EngineDefFinder.cpp">
+      <Filter>src\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utilities\GameThread.cpp">
       <Filter>src\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="src\Utilities\HooksManager.cpp">

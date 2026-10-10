@@ -81,6 +81,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClInclude Include="src\UI\LoaderUI.h" />
     <ClInclude Include="src\Utilities\Dumper.h" />
     <ClInclude Include="src\Utilities\EngineDefFinder.h" />
+    <ClInclude Include="src\Utilities\GameThread.h" />
     <ClInclude Include="src\Utilities\HooksManager.h" />
     <ClInclude Include="src\Utilities\Logger.h" />
     <ClInclude Include="src\Utilities\Math.h" />
@@ -490,6 +491,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClCompile Include="src\UI\LoaderUI.cpp" />
     <ClCompile Include="src\Utilities\Dumper.cpp" />
     <ClCompile Include="src\Utilities\EngineDefFinder.cpp" />
+    <ClCompile Include="src\Utilities\GameThread.cpp" />
     <ClCompile Include="src\Utilities\HooksManager.cpp" />
     <ClCompile Include="src\Utilities\Logger.cpp" />
     <ClCompile Include="src\Utilities\SymbolResolver.cpp" />
