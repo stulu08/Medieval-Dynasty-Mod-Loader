@@ -124,6 +124,15 @@ in-game OK** (see Wave 2 status lines below). Game folder has the build of 8f67f
   Note: agent worktrees were created from old `main` (ef78da9); every agent prompt must start with
   `git reset --hard <modernize head>`.
 
+**Agents started 2026-10-10 ~13:00 (owner asked to use the remaining weekly limit on features; may be cut off —
+their worktree branches `worktree-agent-*` hold WIP commits, check `git log 158ba5e..<branch>` and merge/continue):**
+- SDK generator part 1 (resumed twice; DevTools + vendored Dumper-7 + GeneratedSupport + compile test committed).
+- Exported hook API in MDML (`docs/reports/hook-api.md`), mods stop linking MinHook.
+- Lua scripting: design `docs/design/lua-scripting.md` + isolated spike in `Scripting/` (not in root premake).
+- Phase 3 design docs: `docs/design/{live-view,hot-reload,ufunction-hooks,pak-mods}.md`.
+- `THIRD_PARTY_LICENSES.md` + README credits.
+Also waiting for the owner: in-game test of the deployed build d7835a5 (2.4 + LoadOrder + dump notice).
+
 **Next after those (owner decisions already taken, see decisions log 2026-10-10):**
 1. Merge 2.4 + generator part 1, build, deploy, owner smoke test (+ generate a package in-game via DevTools).
 2. One Sonnet agent: `Config/LoadOrder.ini` (Name = 1/0, auto-append new mods, BaseMod first) in `LoadMods`, and
