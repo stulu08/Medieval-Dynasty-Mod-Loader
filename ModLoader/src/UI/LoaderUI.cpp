@@ -4,6 +4,7 @@
 #include "Utilities/Logger.h"
 #include "Utilities/Memory.h"
 #include "Utilities/Dumper.h"
+#include "Utilities/GameThread.h"
 #include "Utilities/MinHook.h"
 
 #include "Globals.h"
@@ -86,25 +87,27 @@ void UILogicTick()
 		if (TickVars::bDumpObjects)
 		{
 			TickVars::bDumpObjects = false;
-			Dumper::GetDumper()->DumpObjectArray();
+			mdml::GameThread::Enqueue([]() { Dumper::GetDumper()->DumpObjectArray(); });
 		}
 
 		if (TickVars::bDumpEngineInfo)
 		{
 			TickVars::bDumpEngineInfo = false;
-			Dumper::GetDumper()->DumpEngineInfo();
+			mdml::GameThread::Enqueue([]() { Dumper::GetDumper()->DumpEngineInfo(); });
 		}
 
 		if (TickVars::bDumpWorldActors)
 		{
 			TickVars::bDumpWorldActors = false;
-			Dumper::GetDumper()->DumpWorldActors();
+			mdml::GameThread::Enqueue([]() { Dumper::GetDumper()->DumpWorldActors(); });
 		}
 
 		if (TickVars::bExecuteConsoleCommand)
 		{
 			TickVars::bExecuteConsoleCommand = false;
-			UE4::UGameplayStatics::ExecuteConsoleCommand(TickVars::CurrentCommand.c_str(), nullptr);
+			mdml::GameThread::Enqueue([command = TickVars::CurrentCommand]() {
+				UE4::UGameplayStatics::ExecuteConsoleCommand(command.c_str(), nullptr);
+			});
 			TickVars::CurrentCommand = L"";
 		}
 		Sleep(1000 / 60);
@@ -186,8 +189,14 @@ void ShowLogicMods()
 						std::string ButtonLabel = currentmodbutton + "##" + std::to_string(i + bi);
 						if (ImGui::Button(ButtonLabel.c_str()))
 						{
-							std::wstring FuncNameAndArgs = L"ModMenuButtonPressed " + std::to_wstring(bi);
-							Global::GetGlobals()->ModInfoList[i].CurrentModActor->CallFunctionByNameWithArguments(FuncNameAndArgs.c_str(), nullptr, NULL, true);
+							// Runs on the game thread; the mod actor is looked up again there since it may have changed
+							mdml::GameThread::Enqueue([i, bi]() {
+								auto& modList = Global::GetGlobals()->ModInfoList;
+								if (i >= modList.size() || !modList[i].IsEnabled || !modList[i].CurrentModActor)
+									return;
+								std::wstring FuncNameAndArgs = L"ModMenuButtonPressed " + std::to_wstring(bi);
+								modList[i].CurrentModActor->CallFunctionByNameWithArguments(FuncNameAndArgs.c_str(), nullptr, NULL, true);
+							});
 						}
 					}
 					ImGui::Separator();

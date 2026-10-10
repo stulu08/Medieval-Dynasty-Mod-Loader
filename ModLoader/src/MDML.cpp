@@ -3,6 +3,7 @@
 
 #include "Utilities/HooksManager.h"
 #include "Utilities/SymbolResolver.h"
+#include "Utilities/GameThread.h"
 #include "Globals.h"
 
 #include "INI.h"
@@ -81,6 +82,7 @@ void MDML::BeginPlay(UE4::AActor* Actor) {
 }
 
 void MDML::Tick(UE4::ELevelTick tick, float deltaTime) {
+	mdml::GameThread::RunPending();
 	Global::GetGlobals()->CoreMods.callEvent("Tick", tick, deltaTime);
 }
 
