@@ -36,7 +36,13 @@ namespace mdml {
 			wchar_t path[MAX_PATH] = {};
 			if (!GetModuleFileNameW(module, path, MAX_PATH))
 				return "<unknown module>";
-			return std::filesystem::path(path).stem().string();
+			// UTF-8 by hand: path::string() throws for characters outside the ANSI code page
+			const std::wstring stem = std::filesystem::path(path).stem().wstring();
+			const int size = WideCharToMultiByte(CP_UTF8, 0, stem.c_str(), (int)stem.size(), nullptr, 0, nullptr, nullptr);
+			std::string result(size > 0 ? size : 0, '\0');
+			if (size > 0)
+				WideCharToMultiByte(CP_UTF8, 0, stem.c_str(), (int)stem.size(), result.data(), size, nullptr, nullptr);
+			return result.empty() ? "<unknown module>" : result;
 		}
 
 		// "Medieval_Dynasty-Win64-Shipping+0x1A2B3C (0x7FF6...)" or just the absolute address outside of any module.
