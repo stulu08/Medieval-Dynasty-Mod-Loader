@@ -127,13 +127,19 @@ Dumper-7 reference dump (crash cause confirmed), SDK generator design draft (`do
      effect: 7× LNK4286 (SDK.lib objects inside MDML.dll import a local symbol) until 2.3. ☑ In-game test passed 2026-10-10.
    - 2.2 ◐ Merged (5271d85, report `docs/reports/wave2/2.2-startup.md`): proxy uses CreateThread+LoadLibraryW; one MDML init
      thread (DllMain only starts it); mods loaded sequentially (BaseMod first, then alphabetical) before game hooks.
-     Awaiting in-game test (timing lines `Profile setup took`, `Pak overwrites loaded (… ms, … UObjects)`).
+     Test 1 (2026-10-10): pak hooks live 536 ms after process start with 0 UObjects; loader setup 665 ms. **Regression:**
+     'corrupted game files' popup during intro movies — `rootGameDir` came from `current_path()`, which the engine had
+     already switched to `Binaries/Win64`, so NoOverwrite.ini keys stopped matching and loose game files
+     (`Content/Movies/MP_Movies.uasset`) were served as mod overwrites. Fixed in aa0f3c0 (root derived from MDML.dll's
+     path). Lesson: nothing in the loader may depend on the working directory. Awaiting re-test.
    - Game-thread queue ◐ Merged (8b64c75, `docs/reports/wave2/gamethread-queue.md`): `mdml::GameThread::Enqueue`,
      drained in the Tick hook; loader console command, dumps and mod buttons routed. BaseMod `DrawImGui` calls still
-     off-thread (follow-up with the BaseMod/DevTools split). Awaiting in-game test.
+     off-thread (follow-up with the BaseMod/DevTools split). ☑ Console command (`gamma`) works in-game; `stat fps` has no
+     effect because stats are compiled out of Shipping builds.
    - Overwrite backup test fixture ☑ (`tests/mods/OverwriteBackupTest/`, README + read-only `check.py`). Its
      `REVIEW.md` lists 3 HIGH findings in the link/backup code (throwing filesystem calls after the rename, cleanup
-     throws in DLL_PROCESS_DETACH, stale link renamed over an existing backup) → fix before running the fixture.
+     throws in DLL_PROCESS_DETACH, stale link renamed over an existing backup) → fixed in 43fe791 (offline harness, 12
+     scenarios OK; symlink mode untested). Fixture tests A/B still to run in-game.
    - 2.3 ◐ in progress (agent, worktree).
 3. 2.4 SDK generator (`docs/SDK_GENERATOR.md`): MDMLGenerator on Dumper-7, DevTools mod with export lists.
 4. Remaining library decisions (open decisions below), then C++20 + spdlog/ImGui upgrades (Wave 4).
