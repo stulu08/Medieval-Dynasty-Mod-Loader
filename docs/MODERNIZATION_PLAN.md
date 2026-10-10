@@ -127,7 +127,9 @@ in-game OK** (see Wave 2 status lines below). Game folder has the build of 8f67f
 **Agents started 2026-10-10 ~13:00 (owner asked to use the remaining weekly limit on features; may be cut off —
 their worktree branches `worktree-agent-*` hold WIP commits, check `git log 158ba5e..<branch>` and merge/continue):**
 - SDK generator part 1 (resumed twice; DevTools + vendored Dumper-7 + GeneratedSupport + compile test committed).
-- Exported hook API in MDML (`docs/reports/hook-api.md`), mods stop linking MinHook.
+- Exported hook API `mdml::Hooks` ☑ merged cleanly (cherry-picks up to c813afd, `docs/reports/hook-api.md`), but the
+  merged state is **not built yet** (base was 158ba5e; generator/LoadOrder landed in between) → run premake + full build,
+  then deploy + smoke test. DevTools/premake5.lua still lists the MinHook include dir (harmless, remove).
 - Lua scripting: design `docs/design/lua-scripting.md` + isolated spike in `Scripting/` (not in root premake).
 - Phase 3 design docs ☑ merged (a8e11ed..4188591): `docs/design/{live-view,hot-reload,ufunction-hooks,pak-mods}.md` —
   each ends with owner questions (priority of features, pak signing/encryption policy, new mod ABI for hot reload,
