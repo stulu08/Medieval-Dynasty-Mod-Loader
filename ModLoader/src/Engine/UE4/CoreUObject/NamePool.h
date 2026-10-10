@@ -2,7 +2,7 @@
 #include "Utilities/Memory.h"
 #include "Utilities/Math.h"
 #include "NameValidator.h"
-#include "GameInfo.h"
+#include "EngineAddresses.h"
 #include "Containers/String.h"
 #include "Containers/Text.h"
 #ifdef _MSC_VER
@@ -163,7 +163,7 @@ namespace UE4 {
 	public:
 		inline const char* GetAnsiName() const
 		{
-			//return (char*)this + (SDK::SelectedGameProfile.IsUsing4_22 ? 0xC : 0x10);
+			//return (char*)this + (mdml::Addresses.IsUsing4_22 ? 0xC : 0x10);
 			return (char*)this + 0x10;
 		}
 	};
@@ -287,7 +287,7 @@ namespace UE4 {
 
 		static inline bool IsUsingNamePool()
 		{
-			return SDK::SelectedGameProfile.UsesFNamePool;
+			return mdml::Addresses.UsesFNamePool;
 		};
 
 		static inline TNameEntryArray& GetTNameArray()

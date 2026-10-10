@@ -1,5 +1,5 @@
 #pragma once
-#include <GameInfo.h>
+#include "EngineAddresses.h"
 #ifdef _MSC_VER
 #pragma pack(push, 0x8)
 #pragma warning( disable : 4200 )
@@ -76,7 +76,7 @@ namespace UE4 {
 		int MaxObjectsNotConsideredByGC;
 		bool OpenForDisregardForGC;
 		DWORD ObjObjects;
-		static inline bool IsChunkedArray() { return SDK::SelectedGameProfile.IsUsingFChunkedFixedUObjectArray; }
+		static inline bool IsChunkedArray() { return mdml::Addresses.IsUsingFChunkedFixedUObjectArray; }
 
 		inline TUObjectArray GetAsTUArray() const
 		{

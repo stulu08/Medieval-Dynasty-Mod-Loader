@@ -1,5 +1,6 @@
 #include "Class.h"
 #include "UE4.h"
+#include "EngineLayout.h"
 
 namespace UE4 {
 	//---------------------------------------------------------------------------
@@ -8,7 +9,7 @@ namespace UE4 {
 
 	UField* UField::GetNext() const
 	{
-		return Read<UField*>((byte*)this + SDK::SelectedGameProfile.defs.UField.Next);
+		return Read<UField*>((byte*)this + mdml::Layout.UField.Next);
 	};
 
 	//---------------------------------------------------------------------------
@@ -25,23 +26,23 @@ namespace UE4 {
 	//---------------------------------------------------------------------------
 
 	FString UEnum::GetCppType() const {
-		return Read<FString>((byte*)this + SDK::SelectedGameProfile.defs.UEnum.CppType);
+		return Read<FString>((byte*)this + mdml::Layout.UEnum.CppType);
 	}
 
 	TArray<TPair<FName, uint64_t>> UEnum::GetNames() const {
-		return Read<TArray<TPair<FName, uint64_t>>>((byte*)this + SDK::SelectedGameProfile.defs.UEnum.Names);
+		return Read<TArray<TPair<FName, uint64_t>>>((byte*)this + mdml::Layout.UEnum.Names);
 	}
 
 	UEnum::ECppForm UEnum::GetCppForm() const {
-		return Read<UEnum::ECppForm>((byte*)this + SDK::SelectedGameProfile.defs.UEnum.CppForm);
+		return Read<UEnum::ECppForm>((byte*)this + mdml::Layout.UEnum.CppForm);
 	}
 
 	EEnumFlags UEnum::GetEnumFlags() const {
-		return Read<EEnumFlags>((byte*)this + SDK::SelectedGameProfile.defs.UEnum.Flags);
+		return Read<EEnumFlags>((byte*)this + mdml::Layout.UEnum.Flags);
 	}
 
 	FEnumDisplayNameFn UEnum::GetEnumDisplayNameFn() const {
-		return Read<FEnumDisplayNameFn>((byte*)this + SDK::SelectedGameProfile.defs.UEnum.DisplayNameFn);
+		return Read<FEnumDisplayNameFn>((byte*)this + mdml::Layout.UEnum.DisplayNameFn);
 	}
 
 	std::vector<std::string> UEnum::GetNamesParsed() const {
@@ -59,17 +60,17 @@ namespace UE4 {
 
 	UStruct* UStruct::GetSuperField() const
 	{
-		return Read<UStruct*>((byte*)this + SDK::SelectedGameProfile.defs.UStruct.SuperStruct);
+		return Read<UStruct*>((byte*)this + mdml::Layout.UStruct.SuperStruct);
 	};
 
 	UField* UStruct::GetChildren() const
 	{
-		return Read<UField*>((byte*)this + SDK::SelectedGameProfile.defs.UStruct.Children);
+		return Read<UField*>((byte*)this + mdml::Layout.UStruct.Children);
 	};
 
 	int32_t UStruct::GetPropertySize() const
 	{
-		return Read<int32_t>((byte*)this + SDK::SelectedGameProfile.defs.UStruct.PropertiesSize);
+		return Read<int32_t>((byte*)this + mdml::Layout.UStruct.PropertiesSize);
 	};
 
 	//---------------------------------------------------------------------------
@@ -77,23 +78,23 @@ namespace UE4 {
 	//---------------------------------------------------------------------------
 
 	EFunctionFlags UFunction::GetFunctionFlags() const {
-		return Read<EFunctionFlags>((byte*)this + SDK::SelectedGameProfile.defs.UFunction.FunctionFlags);
+		return Read<EFunctionFlags>((byte*)this + mdml::Layout.UFunction.FunctionFlags);
 	}
 	void UFunction::SetFunctionFlags(EFunctionFlags flags) {
-		Write((byte*)this + SDK::SelectedGameProfile.defs.UFunction.FunctionFlags, flags);
+		Write((byte*)this + mdml::Layout.UFunction.FunctionFlags, flags);
 	}
 	uint8_t UFunction::GetNumParms() const {
-		return Read<uint8_t>((byte*)this + SDK::SelectedGameProfile.defs.UFunction.NumParams);
+		return Read<uint8_t>((byte*)this + mdml::Layout.UFunction.NumParams);
 	}
 	uint16_t UFunction::GetParamsSize() const {
-		return Read<uint16_t>((byte*)this + SDK::SelectedGameProfile.defs.UFunction.ParamsSize);
+		return Read<uint16_t>((byte*)this + mdml::Layout.UFunction.ParamsSize);
 	}
 	uint16_t UFunction::GetReturnValueOffset() const {
-		return Read<uint16_t>((byte*)this + SDK::SelectedGameProfile.defs.UFunction.ReturnValueOffset);
+		return Read<uint16_t>((byte*)this + mdml::Layout.UFunction.ReturnValueOffset);
 	}
 	;
-	void* UFunction::GetFunction() const { return Read<void*>((byte*)this + SDK::SelectedGameProfile.defs.UFunction.Func); }
+	void* UFunction::GetFunction() const { return Read<void*>((byte*)this + mdml::Layout.UFunction.Func); }
 	void UFunction::SetFunction(DWORD64 value) const {
-		Write((byte*)this + SDK::SelectedGameProfile.defs.UFunction.Func, value);
+		Write((byte*)this + mdml::Layout.UFunction.Func, value);
 	};
 }

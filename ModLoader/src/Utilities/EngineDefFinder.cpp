@@ -1,6 +1,8 @@
 #include "Core.h"
 #include "UE4.h"
 #include "MDML.h"
+#include "EngineAddresses.h"
+#include "EngineLayout.h"
 
 namespace ClassDefFinder
 {
@@ -11,16 +13,16 @@ namespace ClassDefFinder
 
 		while (HasIndexNotBeenFound)
 		{
-			SDK::SelectedGameProfile.defs.UObject.Index = SDK::SelectedGameProfile.defs.UObject.Index + 0x4;
-			if (Read<int32_t>((byte*)CoreUObject + SDK::SelectedGameProfile.defs.UObject.Index) == 1)
+			mdml::Layout.UObject.Index = mdml::Layout.UObject.Index + 0x4;
+			if (Read<int32_t>((byte*)CoreUObject + mdml::Layout.UObject.Index) == 1)
 			{
-				if (Read<int32_t>((byte*)UEObject + SDK::SelectedGameProfile.defs.UObject.Index) == 2)
+				if (Read<int32_t>((byte*)UEObject + mdml::Layout.UObject.Index) == 2)
 				{
 					HasIndexNotBeenFound = false;
 				}
 			}
 		}
-		Log::Info_UML("UObject Index Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UObject.Index);
+		Log::Info_UML("UObject Index Def located at: 0x{0:x}", mdml::Layout.UObject.Index);
 		return true;
 	};
 
@@ -34,11 +36,11 @@ namespace ClassDefFinder
 			UE4::FName Name;
 			if (HasHardNameCheck == false)
 			{
-				SDK::SelectedGameProfile.defs.UObject.Name = 0x18;
+				mdml::Layout.UObject.Name = 0x18;
 				HasHardNameCheck = true;
 			}
-			Name = *reinterpret_cast<UE4::FName*>((byte*)CoreUObject + SDK::SelectedGameProfile.defs.UObject.Name);
-			if (SDK::SelectedGameProfile.UsesFNamePool)
+			Name = *reinterpret_cast<UE4::FName*>((byte*)CoreUObject + mdml::Layout.UObject.Name);
+			if (mdml::Addresses.UsesFNamePool)
 			{
 				if (UE4::FName::GetFNamePool().IsValidIndex(Name.ComparisonIndex))
 				{
@@ -60,10 +62,10 @@ namespace ClassDefFinder
 			}
 			if (HasNameNotBeenFound == true)
 			{
-				SDK::SelectedGameProfile.defs.UObject.Name = SDK::SelectedGameProfile.defs.UObject.Name + 0x8;
+				mdml::Layout.UObject.Name = mdml::Layout.UObject.Name + 0x8;
 			}
 		}
-		Log::Info_UML("UObject Name Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UObject.Name);
+		Log::Info_UML("UObject Name Def located at: 0x{0:x}", mdml::Layout.UObject.Name);
 		return true;
 	}
 
@@ -77,18 +79,18 @@ namespace ClassDefFinder
 			UE4::UClass* Class;
 			if (HasFinishedHardCheck == false)
 			{
-				SDK::SelectedGameProfile.defs.UObject.Class = 0x10;
-				Class = Read<UE4::UClass*>((byte*)CoreUObject + SDK::SelectedGameProfile.defs.UObject.Class);
+				mdml::Layout.UObject.Class = 0x10;
+				Class = Read<UE4::UClass*>((byte*)CoreUObject + mdml::Layout.UObject.Class);
 				HasFinishedHardCheck = true;
 			}
 			else
 			{
-				Class = Read<UE4::UClass*>((byte*)CoreUObject + SDK::SelectedGameProfile.defs.UObject.Class);
+				Class = Read<UE4::UClass*>((byte*)CoreUObject + mdml::Layout.UObject.Class);
 			}
 			
 			auto ClassIndex = Class->GetIndex();
 			UE4::UObject* ClassCheck;
-			if (SDK::SelectedGameProfile.IsUsingFChunkedFixedUObjectArray)
+			if (mdml::Addresses.IsUsingFChunkedFixedUObjectArray)
 			{
 				ClassCheck = UE4::UObject::GObjects->GetAsChunckArray().GetByIndex(ClassIndex).Object;
 			}
@@ -106,10 +108,10 @@ namespace ClassDefFinder
 			}
 			if (HasClassNotBeenFound)
 			{
-				SDK::SelectedGameProfile.defs.UObject.Class = SDK::SelectedGameProfile.defs.UObject.Class + 0x8;
+				mdml::Layout.UObject.Class = mdml::Layout.UObject.Class + 0x8;
 			}
 		}
-		Log::Info_UML("UObject Class Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UObject.Class);
+		Log::Info_UML("UObject Class Def located at: 0x{0:x}", mdml::Layout.UObject.Class);
 		return true;
 	}
 
@@ -119,9 +121,9 @@ namespace ClassDefFinder
 		Log::Info_UML("Scanning For UObject Outer Def.");
 		while (HasOuterNotBeenFound)
 		{
-			auto Outer = Read<UE4::UObject*>((byte*)CoreUObject + SDK::SelectedGameProfile.defs.UObject.Outer);
+			auto Outer = Read<UE4::UObject*>((byte*)CoreUObject + mdml::Layout.UObject.Outer);
 			UE4::UObject* ObjectCheck;
-			if (SDK::SelectedGameProfile.IsUsingFChunkedFixedUObjectArray)
+			if (mdml::Addresses.IsUsingFChunkedFixedUObjectArray)
 			{
 				ObjectCheck = UE4::UObject::GObjects->GetAsChunckArray().GetByIndex(0).Object;
 			}
@@ -136,10 +138,10 @@ namespace ClassDefFinder
 			}
 			if (HasOuterNotBeenFound)
 			{
-				SDK::SelectedGameProfile.defs.UObject.Outer = SDK::SelectedGameProfile.defs.UObject.Outer + 0x8;
+				mdml::Layout.UObject.Outer = mdml::Layout.UObject.Outer + 0x8;
 			}
 		}
-		Log::Info_UML("UObject Outer Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UObject.Outer);
+		Log::Info_UML("UObject Outer Def located at: 0x{0:x}", mdml::Layout.UObject.Outer);
 		return true;
 	}
 
@@ -162,20 +164,20 @@ namespace ClassDefFinder
 		Log::Info_UML("Scanning For UField Next Def.");
 		bool HasNextNotBeenFound = true;
 		auto UserConstructionScript = UE4::UObject::FindObject<UE4::UFunction>("Function Engine.Actor.UserConstructionScript");
-		SDK::SelectedGameProfile.defs.UField.Next = SDK::SelectedGameProfile.defs.UObject.Outer; // Prevents scanning same area over and over.
+		mdml::Layout.UField.Next = mdml::Layout.UObject.Outer; // Prevents scanning same area over and over.
 		while (HasNextNotBeenFound)
 		{
-			auto NextObject = Read<UE4::UField*>((byte*)UserConstructionScript + SDK::SelectedGameProfile.defs.UField.Next);
+			auto NextObject = Read<UE4::UField*>((byte*)UserConstructionScript + mdml::Layout.UField.Next);
 			if (NextObject && NextObject->GetOuter() == UserConstructionScript->GetOuter())
 			{
 				HasNextNotBeenFound = false;
 			}
 			if (HasNextNotBeenFound)
 			{
-				SDK::SelectedGameProfile.defs.UField.Next = SDK::SelectedGameProfile.defs.UField.Next + 0x8;
+				mdml::Layout.UField.Next = mdml::Layout.UField.Next + 0x8;
 			}
 		}
-		Log::Info_UML("UField Next Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UField.Next);
+		Log::Info_UML("UField Next Def located at: 0x{0:x}", mdml::Layout.UField.Next);
 		return true;
 	}
 
@@ -184,20 +186,20 @@ namespace ClassDefFinder
 	//	Log::Info_UML("Scanning For UField Next Def.");
 	//	bool HasNextNotBeenFound = true;
 	//	auto WasRecentlyRendered = UE4::UObject::FindObject<UE4::UFunction>("Function Engine.Actor.WasRecentlyRendered");
-	//	SDK::SelectedGameProfile.defs.UField.Next = SDK::SelectedGameProfile.defs.UObject.Outer; // Prevents scanning same area over and over.
+	//	mdml::Layout.UField.Next = mdml::Layout.UObject.Outer; // Prevents scanning same area over and over.
 	//	while (HasNextNotBeenFound)
 	//	{
-	//		auto NextObject = Read<UE4::UField*>((byte*)WasRecentlyRendered + SDK::SelectedGameProfile.defs.UField.Next);
+	//		auto NextObject = Read<UE4::UField*>((byte*)WasRecentlyRendered + mdml::Layout.UField.Next);
 	//		if (NextObject && NextObject->GetIndex() == WasRecentlyRendered->GetIndex() - 1)
 	//		{
 	//			HasNextNotBeenFound = false;
 	//		}
 	//		if (HasNextNotBeenFound)
 	//		{
-	//			SDK::SelectedGameProfile.defs.UField.Next = SDK::SelectedGameProfile.defs.UField.Next + 0x8;
+	//			mdml::Layout.UField.Next = mdml::Layout.UField.Next + 0x8;
 	//		}
 	//	}
-	//	Log::Info_UML("UField Next Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UField.Next);
+	//	Log::Info_UML("UField Next Def located at: 0x{0:x}", mdml::Layout.UField.Next);
 	//	return true;
 	//}
 
@@ -219,28 +221,28 @@ namespace ClassDefFinder
 		// UStruct.SuperStruct is at start and both implement UField
 		// Names is behind FString CppType and UStruct.SuperStruct has 10 bytes of uknown data
 		// Result should be 0x40
-		SDK::SelectedGameProfile.defs.UEnum.Names = SDK::SelectedGameProfile.defs.UStruct.SuperStruct;
-		Log::Info_MDML("Enum Names Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UEnum.Names);
+		mdml::Layout.UEnum.Names = mdml::Layout.UStruct.SuperStruct;
+		Log::Info_MDML("Enum Names Def located at: 0x{0:x}", mdml::Layout.UEnum.Names);
 
 		//cpp type is in front of Names
-		SDK::SelectedGameProfile.defs.UEnum.CppType = SDK::SelectedGameProfile.defs.UEnum.Names - sizeof(UE4::FString);
-		Log::Info_MDML("Enum CppType Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UEnum.CppType);
+		mdml::Layout.UEnum.CppType = mdml::Layout.UEnum.Names - sizeof(UE4::FString);
+		Log::Info_MDML("Enum CppType Def located at: 0x{0:x}", mdml::Layout.UEnum.CppType);
 
 		//Cpp form is behind
-		SDK::SelectedGameProfile.defs.UEnum.CppForm = SDK::SelectedGameProfile.defs.UEnum.Names + sizeof(UE4::TArray<UE4::TPair<UE4::FName, uint64_t>>);
-		Log::Info_MDML("Enum CppForm Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UEnum.CppForm);
+		mdml::Layout.UEnum.CppForm = mdml::Layout.UEnum.Names + sizeof(UE4::TArray<UE4::TPair<UE4::FName, uint64_t>>);
+		Log::Info_MDML("Enum CppForm Def located at: 0x{0:x}", mdml::Layout.UEnum.CppForm);
 
-		SDK::SelectedGameProfile.defs.UEnum.Flags = SDK::SelectedGameProfile.defs.UEnum.CppForm + sizeof(UE4::UEnum::ECppForm);
-		Log::Info_MDML("Enum Flags Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UEnum.Flags);
+		mdml::Layout.UEnum.Flags = mdml::Layout.UEnum.CppForm + sizeof(UE4::UEnum::ECppForm);
+		Log::Info_MDML("Enum Flags Def located at: 0x{0:x}", mdml::Layout.UEnum.Flags);
 
-		SDK::SelectedGameProfile.defs.UEnum.DisplayNameFn = SDK::SelectedGameProfile.defs.UEnum.Flags + sizeof(UE4::EEnumFlags);
-		Log::Info_MDML("Enum DisplayNameFn Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UEnum.DisplayNameFn);
+		mdml::Layout.UEnum.DisplayNameFn = mdml::Layout.UEnum.Flags + sizeof(UE4::EEnumFlags);
+		Log::Info_MDML("Enum DisplayNameFn Def located at: 0x{0:x}", mdml::Layout.UEnum.DisplayNameFn);
 		
 		//UUserDefinedEnum implements UEnum and DisplayNameMap , result should be 0x60
-		SDK::SelectedGameProfile.defs.UEnum.UserDefDisplayNameMap = SDK::SelectedGameProfile.defs.UEnum.DisplayNameFn + sizeof(UE4::FEnumDisplayNameFn);
-		Log::Info_MDML("UserDefinedEnum DisplayNameMap Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UEnum.UserDefDisplayNameMap);
+		mdml::Layout.UEnum.UserDefDisplayNameMap = mdml::Layout.UEnum.DisplayNameFn + sizeof(UE4::FEnumDisplayNameFn);
+		Log::Info_MDML("UserDefinedEnum DisplayNameMap Def located at: 0x{0:x}", mdml::Layout.UEnum.UserDefDisplayNameMap);
 
-		return SDK::SelectedGameProfile.defs.UStruct.SuperStruct > 0;
+		return mdml::Layout.UStruct.SuperStruct > 0;
 	}
 	bool FindUEnumDefs() {
 		if (FindUEnumNames())
@@ -260,20 +262,20 @@ namespace ClassDefFinder
 		auto StructObject = UE4::UObject::FindObject<UE4::UStruct>("Class CoreUObject.Struct");
 		auto FieldObject = UE4::UObject::FindObject<UE4::UField>("Class CoreUObject.Field");
 		bool HasSuperFieldNotBeenFound = true;
-		SDK::SelectedGameProfile.defs.UStruct.SuperStruct = SDK::SelectedGameProfile.defs.UField.Next; // Prevents scanning same area over and over.
+		mdml::Layout.UStruct.SuperStruct = mdml::Layout.UField.Next; // Prevents scanning same area over and over.
 		while (HasSuperFieldNotBeenFound)
 		{
-			auto SuperFieldObject = Read<UE4::UObject*>((byte*)StructObject + SDK::SelectedGameProfile.defs.UStruct.SuperStruct);
+			auto SuperFieldObject = Read<UE4::UObject*>((byte*)StructObject + mdml::Layout.UStruct.SuperStruct);
 			if (SuperFieldObject == FieldObject)
 			{
 				HasSuperFieldNotBeenFound = false;
 			}
 			if (HasSuperFieldNotBeenFound)
 			{
-				SDK::SelectedGameProfile.defs.UStruct.SuperStruct = SDK::SelectedGameProfile.defs.UStruct.SuperStruct + 0x8;
+				mdml::Layout.UStruct.SuperStruct = mdml::Layout.UStruct.SuperStruct + 0x8;
 			}
 		}
-		Log::Info_UML("UStruct SuperField Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UStruct.SuperStruct);
+		Log::Info_UML("UStruct SuperField Def located at: 0x{0:x}", mdml::Layout.UStruct.SuperStruct);
 		return true;
 	}
 
@@ -283,10 +285,10 @@ namespace ClassDefFinder
 		auto VectorObject = UE4::UObject::FindObject<UE4::UObject>("ScriptStruct CoreUObject.Vector");
 		auto VectorFirstChildObject = UE4::UObject::FindObject<UE4::UObject>("FloatProperty CoreUObject.Vector.X");
 		bool HasChildrenNotBeenFound = true;
-		SDK::SelectedGameProfile.defs.UStruct.Children = SDK::SelectedGameProfile.defs.UStruct.SuperStruct;
+		mdml::Layout.UStruct.Children = mdml::Layout.UStruct.SuperStruct;
 		while (HasChildrenNotBeenFound)
 		{
-			auto ChildObject = Read<UE4::UObject*>((byte*)VectorObject + SDK::SelectedGameProfile.defs.UStruct.Children);
+			auto ChildObject = Read<UE4::UObject*>((byte*)VectorObject + mdml::Layout.UStruct.Children);
 			if (VectorFirstChildObject)
 			{
 				if (VectorFirstChildObject == ChildObject)
@@ -295,7 +297,7 @@ namespace ClassDefFinder
 				}
 				if (HasChildrenNotBeenFound)
 				{
-					SDK::SelectedGameProfile.defs.UStruct.Children = SDK::SelectedGameProfile.defs.UStruct.Children + 0x8;
+					mdml::Layout.UStruct.Children = mdml::Layout.UStruct.Children + 0x8;
 				}
 			}
 			else
@@ -308,16 +310,16 @@ namespace ClassDefFinder
 					}
 					else
 					{
-						SDK::SelectedGameProfile.defs.UStruct.Children = SDK::SelectedGameProfile.defs.UStruct.Children + 0x8;
+						mdml::Layout.UStruct.Children = mdml::Layout.UStruct.Children + 0x8;
 					}
 				}
 				else
 				{
-					SDK::SelectedGameProfile.defs.UStruct.Children = SDK::SelectedGameProfile.defs.UStruct.Children + 0x8;
+					mdml::Layout.UStruct.Children = mdml::Layout.UStruct.Children + 0x8;
 				}
 			}
 		}
-		Log::Info_UML("UStruct Children Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UStruct.Children);
+		Log::Info_UML("UStruct Children Def located at: 0x{0:x}", mdml::Layout.UStruct.Children);
 		return true;
 	}
 
@@ -325,11 +327,11 @@ namespace ClassDefFinder
 	{
 		Log::Info_UML("Scanning For UStruct PropertySize Def.");
 		auto VectorObject = UE4::UObject::FindObject<UE4::UObject>("ScriptStruct CoreUObject.Vector");
-		while (Read<int32_t>((byte*)VectorObject + SDK::SelectedGameProfile.defs.UStruct.PropertiesSize) != 12)
+		while (Read<int32_t>((byte*)VectorObject + mdml::Layout.UStruct.PropertiesSize) != 12)
 		{
-			SDK::SelectedGameProfile.defs.UStruct.PropertiesSize = SDK::SelectedGameProfile.defs.UStruct.PropertiesSize + 0x4;
+			mdml::Layout.UStruct.PropertiesSize = mdml::Layout.UStruct.PropertiesSize + 0x4;
 		}
-		Log::Info_UML("UStruct PropertySize Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UStruct.PropertiesSize);
+		Log::Info_UML("UStruct PropertySize Def located at: 0x{0:x}", mdml::Layout.UStruct.PropertiesSize);
 		return true;
 	}
 
@@ -347,8 +349,8 @@ namespace ClassDefFinder
 	{
 		if (FindUStructSuperFieldDef() && FindUStructChildrenDef() && FindUStructPropertySizeDef())
 		{
-			SDK::SelectedGameProfile.defs.UStruct.OverallUStructSize = GetOverallUStructSize();
-			Log::Info_UML("UStruct Size: {0}", SDK::SelectedGameProfile.defs.UStruct.OverallUStructSize);
+			mdml::Layout.UStruct.OverallUStructSize = GetOverallUStructSize();
+			Log::Info_UML("UStruct Size: {0}", mdml::Layout.UStruct.OverallUStructSize);
 			Log::Info_UML("UStruct Defined");
 			return true;
 		}
@@ -364,32 +366,32 @@ namespace ClassDefFinder
 		Log::Info_UML("Scanning For UFunction FunctionFlags Def.");
 		bool HasFunctionFlagsNotBeenFound = true;
 		auto WasRecentlyRendered = UE4::UObject::FindObject<UE4::UFunction>("Function Engine.Actor.WasRecentlyRendered");
-		SDK::SelectedGameProfile.defs.UFunction.FunctionFlags = SDK::SelectedGameProfile.defs.UStruct.OverallUStructSize; // Prevents scanning same area over and over.
+		mdml::Layout.UFunction.FunctionFlags = mdml::Layout.UStruct.OverallUStructSize; // Prevents scanning same area over and over.
 		while (HasFunctionFlagsNotBeenFound)
 		{
-			auto FunctionFlags = Read<int>((byte*)WasRecentlyRendered + SDK::SelectedGameProfile.defs.UFunction.FunctionFlags);
+			auto FunctionFlags = Read<int>((byte*)WasRecentlyRendered + mdml::Layout.UFunction.FunctionFlags);
 			if (FunctionFlags == 1409418241)
 			{
 				HasFunctionFlagsNotBeenFound = false;
 			}
 			if (HasFunctionFlagsNotBeenFound)
 			{
-				SDK::SelectedGameProfile.defs.UFunction.FunctionFlags = SDK::SelectedGameProfile.defs.UFunction.FunctionFlags + 0x4;
+				mdml::Layout.UFunction.FunctionFlags = mdml::Layout.UFunction.FunctionFlags + 0x4;
 			}
 		}
-		Log::Info_UML("UFunction FunctionFlags Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UFunction.FunctionFlags);
+		Log::Info_UML("UFunction FunctionFlags Def located at: 0x{0:x}", mdml::Layout.UFunction.FunctionFlags);
 
 		Log::Info_MDML("Scanning For UFunction NumParams Def.");
-		SDK::SelectedGameProfile.defs.UFunction.NumParams = SDK::SelectedGameProfile.defs.UFunction.FunctionFlags + sizeof(UE4::EFunctionFlags);
-		Log::Info_MDML("UFunction NumParams Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UFunction.NumParams);
+		mdml::Layout.UFunction.NumParams = mdml::Layout.UFunction.FunctionFlags + sizeof(UE4::EFunctionFlags);
+		Log::Info_MDML("UFunction NumParams Def located at: 0x{0:x}", mdml::Layout.UFunction.NumParams);
 
 		Log::Info_MDML("Scanning For UFunction ParamsSize Def.");
-		SDK::SelectedGameProfile.defs.UFunction.ParamsSize = SDK::SelectedGameProfile.defs.UFunction.NumParams + sizeof(uint8_t) + 1;
-		Log::Info_MDML("UFunction ParamsSize Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UFunction.ParamsSize);
+		mdml::Layout.UFunction.ParamsSize = mdml::Layout.UFunction.NumParams + sizeof(uint8_t) + 1;
+		Log::Info_MDML("UFunction ParamsSize Def located at: 0x{0:x}", mdml::Layout.UFunction.ParamsSize);
 
 		Log::Info_MDML("Scanning For UFunction ReturnValueOffset Def.");
-		SDK::SelectedGameProfile.defs.UFunction.ReturnValueOffset = SDK::SelectedGameProfile.defs.UFunction.ParamsSize + sizeof(uint16_t);
-		Log::Info_MDML("UFunction ReturnValueOffset Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.UFunction.ReturnValueOffset);
+		mdml::Layout.UFunction.ReturnValueOffset = mdml::Layout.UFunction.ParamsSize + sizeof(uint16_t);
+		Log::Info_MDML("UFunction ReturnValueOffset Def located at: 0x{0:x}", mdml::Layout.UFunction.ReturnValueOffset);
 
 
 		return true;
@@ -400,8 +402,8 @@ namespace ClassDefFinder
 		auto UFunction = UE4::UObject::FindObject<UE4::UFunction>("Class CoreUObject.Function");
 		if (UFunction)
 		{
-			SDK::SelectedGameProfile.defs.UFunction.Func = UFunction->GetPropertySize() - 0x8;
-			Log::Info_UML("UFunction Func: 0x{0:x}", SDK::SelectedGameProfile.defs.UFunction.Func);
+			mdml::Layout.UFunction.Func = UFunction->GetPropertySize() - 0x8;
+			Log::Info_UML("UFunction Func: 0x{0:x}", mdml::Layout.UFunction.Func);
 			return true;
 		}
 		return false;
@@ -429,7 +431,7 @@ namespace ClassDefFinder
 		FFieldClass* SuperClass;
 		FField* DefaultObject;
 		*/
-		auto& defs = SDK::SelectedGameProfile.defs.FFieldClass;
+		auto& defs = mdml::Layout.FFieldClass;
 
 		defs.Name = 0;
 		Log::Info_MDML("FFieldClass Name Def located at: 0x{0:x}", defs.Name);
@@ -453,7 +455,7 @@ namespace ClassDefFinder
 		bool NextFound = false;
 		while (!NameFound)
 		{
-			auto Name = *reinterpret_cast<UE4::FName*>((byte*)FieldChild + SDK::SelectedGameProfile.defs.FField.Name);
+			auto Name = *reinterpret_cast<UE4::FName*>((byte*)FieldChild + mdml::Layout.FField.Name);
 			if (UE4::FName::GetFNamePool().IsValidIndex(Name.ComparisonIndex))
 			{
 				if (Name.GetName() == "X")
@@ -463,34 +465,34 @@ namespace ClassDefFinder
 			}
 			if (NameFound == false)
 			{
-				SDK::SelectedGameProfile.defs.FField.Name = SDK::SelectedGameProfile.defs.FField.Name + 0x8;
+				mdml::Layout.FField.Name = mdml::Layout.FField.Name + 0x8;
 			}
 		}
-		Log::Info_UML("FField Name Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.FField.Name);
+		Log::Info_UML("FField Name Def located at: 0x{0:x}", mdml::Layout.FField.Name);
 		while (!NextFound)
 		{
 			// 9 times out of 10, its right behind the Name, so we do that check to save possible issues
-			auto NextField = Read<UE4::FField*>((byte*)FieldChild + SDK::SelectedGameProfile.defs.FField.Name - 0x8);
+			auto NextField = Read<UE4::FField*>((byte*)FieldChild + mdml::Layout.FField.Name - 0x8);
 			if (NextField && NextField->GetName() == "Y")
 			{
 				NextFound = true;
-				SDK::SelectedGameProfile.defs.FField.Next = SDK::SelectedGameProfile.defs.FField.Name - 0x8;
+				mdml::Layout.FField.Next = mdml::Layout.FField.Name - 0x8;
 				break;
 			}
 
-			NextField = Read<UE4::FField*>((byte*)FieldChild + SDK::SelectedGameProfile.defs.FField.Next);
+			NextField = Read<UE4::FField*>((byte*)FieldChild + mdml::Layout.FField.Next);
 			if (NextField && NextField->GetName() == "Y")
 			{
 				NextFound = true;
 			}
 			if (NextFound == false)
 			{
-				SDK::SelectedGameProfile.defs.FField.Next = SDK::SelectedGameProfile.defs.FField.Next + 0x8;
+				mdml::Layout.FField.Next = mdml::Layout.FField.Next + 0x8;
 			}
 		}
-		Log::Info_UML("FField Next Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.FField.Next);
-		SDK::SelectedGameProfile.defs.FField.ClassPrivate = sizeof(PVOID); //its right at the start behind the vtable, and it inhertis no members so we can start at 0
-		Log::Info_MDML("FField ClassPrivate Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.FField.ClassPrivate);
+		Log::Info_UML("FField Next Def located at: 0x{0:x}", mdml::Layout.FField.Next);
+		mdml::Layout.FField.ClassPrivate = sizeof(PVOID); //its right at the start behind the vtable, and it inhertis no members so we can start at 0
+		Log::Info_MDML("FField ClassPrivate Def located at: 0x{0:x}", mdml::Layout.FField.ClassPrivate);
 		return FindFFieldClassDefs();
 	}
 	bool FindUEPropertyDefs()
@@ -498,38 +500,38 @@ namespace ClassDefFinder
 		auto VectorObject = (UE4::UStruct*)UE4::UObject::FindObject<UE4::UObject>("ScriptStruct CoreUObject.Vector");
 		bool ArrayDimFound = false;
 		bool OffsetFound = false;
-		if (SDK::SelectedGameProfile.bIsFProperty)
+		if (mdml::Addresses.bIsFProperty)
 		{
 			auto FieldChild = (UE4::FField*)VectorObject->GetChildren();
 			while (!ArrayDimFound)
 			{
-				if (Read<int64_t>((byte*)FieldChild + SDK::SelectedGameProfile.defs.Property.ArrayDim) == 17179869185) // Array Dim and Element Size are Side By Side
+				if (Read<int64_t>((byte*)FieldChild + mdml::Layout.Property.ArrayDim) == 17179869185) // Array Dim and Element Size are Side By Side
 				{
 					ArrayDimFound = true;
 				}
 
 				if(ArrayDimFound == false)
 				{ 
-					SDK::SelectedGameProfile.defs.Property.ArrayDim = SDK::SelectedGameProfile.defs.Property.ArrayDim + 0x8;
+					mdml::Layout.Property.ArrayDim = mdml::Layout.Property.ArrayDim + 0x8;
 				}
 			}
-			Log::Info_UML("FProperty Array Dim Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.Property.ArrayDim);
+			Log::Info_UML("FProperty Array Dim Def located at: 0x{0:x}", mdml::Layout.Property.ArrayDim);
 
 			auto FieldChildY = FieldChild->GetNext();
 			auto FieldChildZ = FieldChildY->GetNext();
-			SDK::SelectedGameProfile.defs.Property.Offset = SDK::SelectedGameProfile.defs.Property.ArrayDim + 0x8;
+			mdml::Layout.Property.Offset = mdml::Layout.Property.ArrayDim + 0x8;
 			while (!OffsetFound)
 			{
-				if (Read<int32_t>((byte*)FieldChildY + SDK::SelectedGameProfile.defs.Property.Offset) == 4 && Read<int32_t>((byte*)FieldChildZ + SDK::SelectedGameProfile.defs.Property.Offset) == 8)
+				if (Read<int32_t>((byte*)FieldChildY + mdml::Layout.Property.Offset) == 4 && Read<int32_t>((byte*)FieldChildZ + mdml::Layout.Property.Offset) == 8)
 				{
 					OffsetFound = true;
 				}
 				if (OffsetFound == false)
 				{
-					SDK::SelectedGameProfile.defs.Property.Offset = SDK::SelectedGameProfile.defs.Property.Offset + 0x4;
+					mdml::Layout.Property.Offset = mdml::Layout.Property.Offset + 0x4;
 				}
 			}
-			Log::Info_UML("FProperty Offset Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.Property.Offset);
+			Log::Info_UML("FProperty Offset Def located at: 0x{0:x}", mdml::Layout.Property.Offset);
 			
 		}
 		else
@@ -537,41 +539,41 @@ namespace ClassDefFinder
 			auto FieldChild = (UE4::UField*)VectorObject->GetChildren();
 			while (!ArrayDimFound)
 			{
-				if (Read<int64_t>((byte*)FieldChild + SDK::SelectedGameProfile.defs.Property.ArrayDim) == 17179869185) // Array Dim and Element Size are Side By Side
+				if (Read<int64_t>((byte*)FieldChild + mdml::Layout.Property.ArrayDim) == 17179869185) // Array Dim and Element Size are Side By Side
 				{
 					ArrayDimFound = true;
 				}
 
 				if (ArrayDimFound == false)
 				{
-					SDK::SelectedGameProfile.defs.Property.ArrayDim = SDK::SelectedGameProfile.defs.Property.ArrayDim + 0x8;
+					mdml::Layout.Property.ArrayDim = mdml::Layout.Property.ArrayDim + 0x8;
 				}
 			}
-			Log::Info_UML("UProperty Array Dim Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.Property.ArrayDim);
+			Log::Info_UML("UProperty Array Dim Def located at: 0x{0:x}", mdml::Layout.Property.ArrayDim);
 			auto FieldChildY = FieldChild->GetNext();
 			auto FieldChildZ = FieldChildY->GetNext();
-			SDK::SelectedGameProfile.defs.Property.Offset = SDK::SelectedGameProfile.defs.Property.ArrayDim + 0x8;
+			mdml::Layout.Property.Offset = mdml::Layout.Property.ArrayDim + 0x8;
 			while (!OffsetFound)
 			{
-				if (Read<int32_t>((byte*)FieldChildY + SDK::SelectedGameProfile.defs.Property.Offset) == 4 && Read<int32_t>((byte*)FieldChildZ + SDK::SelectedGameProfile.defs.Property.Offset) == 8)
+				if (Read<int32_t>((byte*)FieldChildY + mdml::Layout.Property.Offset) == 4 && Read<int32_t>((byte*)FieldChildZ + mdml::Layout.Property.Offset) == 8)
 				{
 					OffsetFound = true;
 				}
 				if (OffsetFound == false)
 				{
-					SDK::SelectedGameProfile.defs.Property.Offset = SDK::SelectedGameProfile.defs.Property.Offset + 0x4;
+					mdml::Layout.Property.Offset = mdml::Layout.Property.Offset + 0x4;
 				}
 			}
-			Log::Info_UML("UProperty Offset Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.Property.Offset);
+			Log::Info_UML("UProperty Offset Def located at: 0x{0:x}", mdml::Layout.Property.Offset);
 		}
-		SDK::SelectedGameProfile.defs.Property.ElementSize = SDK::SelectedGameProfile.defs.Property.ArrayDim + sizeof(int32_t);
-		Log::Info_MDML("UProperty ElementSize Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.Property.ElementSize);
-		SDK::SelectedGameProfile.defs.Property.Flags = SDK::SelectedGameProfile.defs.Property.ElementSize + sizeof(int32_t);
-		Log::Info_MDML("UProperty Flags Def located at: 0x{0:x}", SDK::SelectedGameProfile.defs.Property.Flags);
+		mdml::Layout.Property.ElementSize = mdml::Layout.Property.ArrayDim + sizeof(int32_t);
+		Log::Info_MDML("UProperty ElementSize Def located at: 0x{0:x}", mdml::Layout.Property.ElementSize);
+		mdml::Layout.Property.Flags = mdml::Layout.Property.ElementSize + sizeof(int32_t);
+		Log::Info_MDML("UProperty Flags Def located at: 0x{0:x}", mdml::Layout.Property.Flags);
 		return true;
 	}
 	bool FindFProperiesDefs() {
-		Offsets& defs = SDK::SelectedGameProfile.defs;
+		mdml::EngineLayout& defs = mdml::Layout;
 		uint16_t fpropertyEnd = defs.Property.Offset + 0x8;
 		//get fpropertyEnd
 		{
@@ -649,20 +651,20 @@ namespace ClassDefFinder
 		
 		if (!VectorObject->GetChildren()->IsA(UE4::UObject::StaticClass()))
 		{
-			SDK::SelectedGameProfile.bIsFProperty = true;
+			mdml::Addresses.bIsFProperty = true;
 			Log::Info_UML("UEProperty is a FProperty");
 			if (FindFField())
 			{
-				SDK::SelectedGameProfile.defs.Property.ArrayDim = SDK::SelectedGameProfile.defs.FField.Name;
+				mdml::Layout.Property.ArrayDim = mdml::Layout.FField.Name;
 				FindUEPropertyDefs();
 				FindFProperiesDefs();
 			}
 		}
 		else
 		{
-			SDK::SelectedGameProfile.bIsFProperty = false;
+			mdml::Addresses.bIsFProperty = false;
 			Log::Info_UML("UEProperty is a UProperty");
-			SDK::SelectedGameProfile.defs.Property.ArrayDim = SDK::SelectedGameProfile.defs.UField.Next;
+			mdml::Layout.Property.ArrayDim = mdml::Layout.UField.Next;
 			FindUEPropertyDefs();
 		}
 		return true;

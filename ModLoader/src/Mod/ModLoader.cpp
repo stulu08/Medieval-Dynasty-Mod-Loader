@@ -10,6 +10,7 @@
 
 #include "Globals.h"
 #include "Mod.h"
+#include "Runtime/LoaderConfig.h"
 
 std::string Mod::GetModsFolder() {
 	static std::string path;
@@ -470,7 +471,7 @@ namespace ModLoader
 		}
 		// Entries that could not be cleaned up above stay in the file, so it is appended to, not truncated.
 		LinkRecord record;
-		if (!record.Open(SDK::SelectedGameProfile.HardLinksFile))
+		if (!record.Open(mdml::Config.HardLinksFile))
 			return;
 		std::set<std::wstring> keys;
 		std::set<std::wstring> linked;
@@ -518,7 +519,7 @@ namespace ModLoader
 								}
 								auto relPath = std::filesystem::relative(path, folderPath);
 								auto target = std::filesystem::path(Mod::GetContentFolder() + "\\" + relPath.string());
-								if (LinkFile(path, target, SDK::SelectedGameProfile.UseHardLinks, keys, record)) {
+								if (LinkFile(path, target, mdml::Config.UseHardLinks, keys, record)) {
 									//formating this doesnt work cause it inserts the mod folder, and i dont know why
 									Log::Trace_MDML("Created link to {0}", target.string());
 									linked.insert(GetPathKey(target));
@@ -533,9 +534,9 @@ namespace ModLoader
 				}
 			}
 		}
-		Log::Info_MDML("Created {0} {1} links", linked.size(), SDK::SelectedGameProfile.UseHardLinks ? "hard" : "sym");
+		Log::Info_MDML("Created {0} {1} links", linked.size(), mdml::Config.UseHardLinks ? "hard" : "sym");
 	}
 	void DeleteSysLinks(bool isOld) {
-		CleanupLinks(SDK::SelectedGameProfile.HardLinksFile, isOld, SDK::SelectedGameProfile.UseHardLinks);
+		CleanupLinks(mdml::Config.HardLinksFile, isOld, mdml::Config.UseHardLinks);
 	}
 };

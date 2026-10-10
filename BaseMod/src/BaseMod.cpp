@@ -4,6 +4,7 @@
 
 #include "Utilities/MinHook.h"
 #include "Utils.h"
+#include "Runtime/LoaderConfig.h"
 
 namespace MDMLBase {
 	static bool needObjectReload = true;
@@ -617,7 +618,7 @@ namespace MDMLBase {
 				ImGui::TreePop();
 			}
 			if (ImGui::TreeNodeEx("MDML", DEFAULT_TREE_NODE_FLAGS)) {
-				for (auto dirEntry : std::filesystem::directory_iterator(std::filesystem::path(SDK::SelectedGameProfile.ImGuiFile).parent_path())) {
+				for (auto dirEntry : std::filesystem::directory_iterator(std::filesystem::path(mdml::Config.ImGuiFile).parent_path())) {
 					if (dirEntry.path().extension().string() != ".ini")
 						continue;
 					if (ImGui::Button(MDML::FormatPath(dirEntry.path()).c_str()))

@@ -10,6 +10,9 @@
 
 #include "UE4.h"
 #include "Utilities/Pattern.h"
+#include "EngineAddresses.h"
+#include "EngineLayout.h"
+#include "Runtime/LoaderConfig.h"
 
 
 DWORD StringToDWord(std::string str);
@@ -39,7 +42,7 @@ void MDML::InitGameState(void* Return) {
 	}
 	CleanUpMods();
 
-	if (SDK::SelectedGameProfile.StaticLoadObject) {
+	if (mdml::Addresses.StaticLoadObject) {
 		for (int i = 0; i < Global::GetGlobals()->ModInfoList.size(); i++) {
 			CreateMod(Global::GetGlobals()->ModInfoList[i]);
 		}
@@ -54,7 +57,7 @@ void MDML::BeginPlay(UE4::AActor* Actor) {
 	if (GameStateClassInitNotRan) {
 		return;
 	}
-	if (Actor->IsA(UE4::ACustomClass::StaticClass(SDK::SelectedGameProfile.BeginPlayOverwrite)))
+	if (Actor->IsA(UE4::ACustomClass::StaticClass(mdml::Config.BeginPlayOverwrite)))
 	{
 		Log::Info_UML("Beginplay Called");
 		for (int i = 0; i < Global::GetGlobals()->ModInfoList.size(); i++)
@@ -108,7 +111,7 @@ void MDML::InitCoreMods() {
 			}
 		}
 	}
-	if (SDK::SelectedGameProfile.StaticLoadObject)
+	if (mdml::Addresses.StaticLoadObject)
 	{
 		Log::Info_UML("StaticLoadObject Found");
 	}
@@ -122,7 +125,7 @@ void MDML::CreateMod(ModInfo& mod) {
 	{
 		std::wstring CurrentMod;
 		CurrentMod = mod.ModName;
-		if (SDK::SelectedGameProfile.StaticLoadObject)
+		if (mdml::Addresses.StaticLoadObject)
 		{
 			std::string str(CurrentMod.length(), 0);
 			std::transform(CurrentMod.begin(), CurrentMod.end(), str.begin(), [](wchar_t c) { return (char)c; });
@@ -134,22 +137,22 @@ void MDML::CreateMod(ModInfo& mod) {
 				{
 					if (!IsProcessInternalsHooked)
 					{
-						if (!SDK::SelectedGameProfile.ProcessInternals)
+						if (!mdml::Addresses.ProcessInternals)
 						{
-							if (!SDK::SelectedGameProfile.UsesFNamePool || !SDK::SelectedGameProfile.IsUsing4_22)
+							if (!mdml::Addresses.UsesFNamePool || !mdml::Addresses.IsUsing4_22)
 							{
 								if (ModActor->DoesObjectContainFunction("PostBeginPlay"))
 								{
-									SDK::SelectedGameProfile.ProcessInternals = (DWORD64)ModActor->GetFunction("PostBeginPlay")->GetFunction();
+									mdml::Addresses.ProcessInternals = (DWORD64)ModActor->GetFunction("PostBeginPlay")->GetFunction();
 								}
 								else if (ModActor->DoesObjectContainFunction("ModMenuButtonPressed"))
 								{
-									SDK::SelectedGameProfile.ProcessInternals = (DWORD64)ModActor->GetFunction("ModMenuButtonPressed")->GetFunction();
+									mdml::Addresses.ProcessInternals = (DWORD64)ModActor->GetFunction("ModMenuButtonPressed")->GetFunction();
 								}
 							}
 						}
 						IsProcessInternalsHooked = true;
-						if (SDK::SelectedGameProfile.ProcessInternals)
+						if (mdml::Addresses.ProcessInternals)
 							HooksManager::AddProcessInternalHook();
 						else
 							Log::Warn_UML("ProcessBlueprintFunctions could not be located! Mod Loader Functionality Will be Limited!");
@@ -225,7 +228,7 @@ void MDML::CleanUpMods() {
 }
 
 UE4::AActor* MDML::SpawnActor(UE4::UClass* Class, const UE4::FTransform& transform, UE4::FActorSpawnParameters spawnParams) {
-	if (!SDK::SelectedGameProfile.IsUsingDeferedSpawn) {
+	if (!mdml::Addresses.IsUsingDeferedSpawn) {
 		return UE4::UWorld::GetWorld()->SpawnActor(Class, &transform, &spawnParams);
 	}
 	else {
@@ -274,11 +277,16 @@ void MDML::ShutDown() {
 	HooksManager::ShutDown();
 	IsProcessInternalsHooked = false;
 	GameStateClassInitNotRan = true;
-	SDK::SelectedGameProfile = GameProfile();
+	// Reset all loader/engine state (was one `SDK::SelectedGameProfile = GameProfile()`).
+	mdml::Config = mdml::LoaderConfig();
+	mdml::Addresses = mdml::EngineAddresses();
+	mdml::Layout = mdml::EngineLayout();
+	mdml::LayoutStatus = mdml::EngineLayoutStatus();
+	mdml::UnrealLogger = nullptr;
 	_fcloseall();
 }
 std::string MDML::FormatPath(const std::filesystem::path& path) {
-	return std::filesystem::relative(path, SDK::SelectedGameProfile.rootGameDir).string();
+	return std::filesystem::relative(path, mdml::Config.rootGameDir).string();
 }
 std::string MDML::GetDataFolder() {
 	static std::filesystem::path path = L"";
@@ -383,9 +391,9 @@ static DWORD64 ResolveGlobal(INI& ini, bool isPatterns, bool isSimple, const cha
 }
 
 bool SetupProfile(const std::string& Path) {
-	SDK::SelectedGameProfile.ImGuiFile = Path + "/Config/WindowConfig.ini";
-	SDK::SelectedGameProfile.NoOverwriteFile = Path + "/Config/NoOverwrite.ini";
-	SDK::SelectedGameProfile.HardLinksFile = Path + "/Config/ModLinks.bin";
+	mdml::Config.ImGuiFile = Path + "/Config/WindowConfig.ini";
+	mdml::Config.NoOverwriteFile = Path + "/Config/NoOverwrite.ini";
+	mdml::Config.HardLinksFile = Path + "/Config/ModLinks.bin";
 
 	INI::PARSE_FLAGS = INI::PARSE_COMMENTS_ALL | INI::PARSE_COMMENTS_SLASH | INI::PARSE_COMMENTS_HASH;
 	INI LoaderInfo(Path + "/" + ModLoaderConfigFile, true);
@@ -401,7 +409,7 @@ bool SetupProfile(const std::string& Path) {
 		if (!std::filesystem::exists(logFileDir))
 			std::filesystem::create_directories(logFileDir);
 
-		SDK::SelectedGameProfile.LogDir = logFileDir.string();
+		mdml::Config.LogDir = logFileDir.string();
 	}
 	//Output File Initialization
 	LoaderInfo.select("DEBUG");
@@ -417,7 +425,7 @@ bool SetupProfile(const std::string& Path) {
 		freopen_s(&newstdout, "CONOUT$", "w", stdout);
 		freopen_s(&newstderr, "CONOUT$", "w", stderr);
 	}
-	Log::Init(SDK::SelectedGameProfile.LogDir);
+	Log::Init(mdml::Config.LogDir);
 	Log::Info_UML("Loader Created by ~Russell.J Release V {0}", UML_VERSION);
 	Log::Info_MDML("Optimized and edited for Medieval Dynasty by Stulu");
 	Log::Info_MDML("Medieval Dynasty Mod Loader Version {0}", MODLOADER_VERSION);
@@ -425,13 +433,13 @@ bool SetupProfile(const std::string& Path) {
 	Log::Info_MDML("Game executable build {0}", SymbolResolver::GetBuildId());
 
 	MDML::UnrealEngineLoggerInstance = Logger::Create("UE_LOG", Log::getLogFile("UE_LOG-log.txt"));
-	SDK::SelectedGameProfile.UnrealLogger = MDML::UnrealEngineLoggerInstance->getLogger();
+	mdml::UnrealLogger = MDML::UnrealEngineLoggerInstance->getLogger();
 
-	SDK::SelectedGameProfile.bEnableGUI = LoaderInfo.getAs<int>("DEBUG", "UseDebugUI", 0);
+	mdml::Config.bEnableGUI = LoaderInfo.getAs<int>("DEBUG", "UseDebugUI", 0);
 
-	if (SDK::SelectedGameProfile.bEnableGUI) {
-		SDK::SelectedGameProfile.bEnableGUI = IsDirectX11();
-		if (!SDK::SelectedGameProfile.bEnableGUI)
+	if (mdml::Config.bEnableGUI) {
+		mdml::Config.bEnableGUI = IsDirectX11();
+		if (!mdml::Config.bEnableGUI)
 			Log::Warn_MDML("Gui was disabled, maybe switch rendering mode to directx11 to enable");
 	}
 #pragma endregion
@@ -450,10 +458,10 @@ bool SetupProfile(const std::string& Path) {
 	// Not from the working directory: the engine switches it to Binaries/Win64 early, and since Wave 2.2 the setup runs
 	// on the init thread after that, which broke the NoOverwrite lookup (loose game files were treated as mod overwrites).
 	const std::filesystem::path rootGameDir = std::filesystem::weakly_canonical(std::filesystem::path(Path) / "../../..");
-	SDK::SelectedGameProfile.rootGameDir = rootGameDir.string();
-	if (!std::filesystem::exists(SDK::SelectedGameProfile.NoOverwriteFile)) {
+	mdml::Config.rootGameDir = rootGameDir.string();
+	if (!std::filesystem::exists(mdml::Config.NoOverwriteFile)) {
 		Log::Warn_MDML("No NoOverwrite file loaded, generating one...");
-		if (FILE* file = fopen(SDK::SelectedGameProfile.NoOverwriteFile.c_str(), "w")) {
+		if (FILE* file = fopen(mdml::Config.NoOverwriteFile.c_str(), "w")) {
 			//dir, files
 			std::unordered_map<std::string, std::vector<std::string>> paths;
 			for (auto path : std::filesystem::recursive_directory_iterator(rootGameDir / "Medieval_Dynasty/Content")) {
@@ -483,11 +491,11 @@ bool SetupProfile(const std::string& Path) {
 			}
 			fclose(file);
 		}
-		Log::Warn_MDML("NoOverwrite file generated to {0}, if you have mods installed remove them from the list or change to false", SDK::SelectedGameProfile.NoOverwriteFile);
+		Log::Warn_MDML("NoOverwrite file generated to {0}, if you have mods installed remove them from the list or change to false", mdml::Config.NoOverwriteFile);
 	}
-	if (std::filesystem::exists(SDK::SelectedGameProfile.NoOverwriteFile)) {
+	if (std::filesystem::exists(mdml::Config.NoOverwriteFile)) {
 		std::ifstream stream;
-		stream.open(SDK::SelectedGameProfile.NoOverwriteFile);
+		stream.open(mdml::Config.NoOverwriteFile);
 		std::string line;
 		while (std::getline(stream, line)) {
 			if (line._Starts_with(";") || line._Starts_with("["))
@@ -497,13 +505,13 @@ bool SetupProfile(const std::string& Path) {
 			std::string value = line.substr(seperatorPos + 1, line.npos);
 			std::transform(value.begin(), value.end(), value.begin(), [](char c) -> char { return std::tolower(c); }); // to lowercase
 			if (value == "true" || value == "1")
-				SDK::SelectedGameProfile.disableOverwriteFiles[fileName] = true;
+				mdml::Config.disableOverwriteFiles[fileName] = true;
 			else if (value == "false" || value == "0")
-				SDK::SelectedGameProfile.disableOverwriteFiles[fileName] = false;
+				mdml::Config.disableOverwriteFiles[fileName] = false;
 		}
 	}
 	else {
-		Log::Error_MDML("Error {0} could not be opened", SDK::SelectedGameProfile.NoOverwriteFile);
+		Log::Error_MDML("Error {0} could not be opened", mdml::Config.NoOverwriteFile);
 	}
 
 	if (std::filesystem::exists(Profile))
@@ -513,17 +521,17 @@ bool SetupProfile(const std::string& Path) {
 
 		INI GameInfo(Profile, true);
 		if (GameInfo.select("Overwrites")) {
-			SDK::SelectedGameProfile.ModOverwritesEnabled = GameInfo.getAs<int>("Overwrites", "Enabled", 0);
-			SDK::SelectedGameProfile.UseHardLinks = GameInfo.getAs<int>("Overwrites", "UseHardLinks", 0);
+			mdml::Config.ModOverwritesEnabled = GameInfo.getAs<int>("Overwrites", "Enabled", 0);
+			mdml::Config.UseHardLinks = GameInfo.getAs<int>("Overwrites", "UseHardLinks", 0);
 		}
 		else if (GameInfo.select("Overrides")) {
-			SDK::SelectedGameProfile.ModOverwritesEnabled = GameInfo.getAs<int>("Overrides", "Enabled", 0);
-			SDK::SelectedGameProfile.UseHardLinks = GameInfo.getAs<int>("Overrides", "UseHardLinks", 0);
+			mdml::Config.ModOverwritesEnabled = GameInfo.getAs<int>("Overrides", "Enabled", 0);
+			mdml::Config.UseHardLinks = GameInfo.getAs<int>("Overrides", "UseHardLinks", 0);
 		}
 		
 
-		if (SDK::SelectedGameProfile.ModOverwritesEnabled) {
-			Log::Info_MDML("Enabled Mod overwrites using {0} links", SDK::SelectedGameProfile.UseHardLinks ? "Hard" : "Sym");
+		if (mdml::Config.ModOverwritesEnabled) {
+			Log::Info_MDML("Enabled Mod overwrites using {0} links", mdml::Config.UseHardLinks ? "Hard" : "Sym");
 		}
 #pragma endregion
 
@@ -533,16 +541,16 @@ bool SetupProfile(const std::string& Path) {
 
 #pragma region GameInfo
 		GameInfo.select("GameInfo");
-		SDK::SelectedGameProfile.IsUsingFChunkedFixedUObjectArray = GameInfo.getAs<int>("GameInfo", "IsUsingFChunkedFixedUObjectArray", 0);
-		SDK::SelectedGameProfile.UsesFNamePool = GameInfo.getAs<int>("GameInfo", "UsesFNamePool", 0);
-		SDK::SelectedGameProfile.IsUsingDeferedSpawn = GameInfo.getAs<int>("GameInfo", "IsUsingDeferedSpawn", 0);
-		SDK::SelectedGameProfile.IsUsing4_22 = GameInfo.getAs<int>("GameInfo", "IsUsing4_22", 0);
-		SDK::SelectedGameProfile.bIsDefaultObjectArrayed = GameInfo.getAs<int>("GameInfo", "IsDefaultObjectArrayed", 0);
-		SDK::SelectedGameProfile.bDelayGUISpawn = GameInfo.getAs<int>("GameInfo", "DelayGUISpawn", 0);
+		mdml::Addresses.IsUsingFChunkedFixedUObjectArray = GameInfo.getAs<int>("GameInfo", "IsUsingFChunkedFixedUObjectArray", 0);
+		mdml::Addresses.UsesFNamePool = GameInfo.getAs<int>("GameInfo", "UsesFNamePool", 0);
+		mdml::Addresses.IsUsingDeferedSpawn = GameInfo.getAs<int>("GameInfo", "IsUsingDeferedSpawn", 0);
+		mdml::Addresses.IsUsing4_22 = GameInfo.getAs<int>("GameInfo", "IsUsing4_22", 0);
+		mdml::Addresses.bIsDefaultObjectArrayed = GameInfo.getAs<int>("GameInfo", "IsDefaultObjectArrayed", 0);
+		mdml::Config.bDelayGUISpawn = GameInfo.getAs<int>("GameInfo", "DelayGUISpawn", 0);
 
 		if (GameInfo.get("GameInfo", "BeginPlayOverwrite", "") != "")
 		{
-			SDK::SelectedGameProfile.BeginPlayOverwrite = GameInfo.get("GameInfo", "BeginPlayOverwrite", "");
+			mdml::Config.BeginPlayOverwrite = GameInfo.get("GameInfo", "BeginPlayOverwrite", "");
 		}
 #pragma endregion
 
@@ -553,12 +561,12 @@ bool SetupProfile(const std::string& Path) {
 			const bool isPatterns = GameInfo.getAs<int>("GInfo", "IsGInfoPatterns", 1) == 1;
 			const bool isSimple = GameInfo.getAs<int>("GInfo", "IsSimple", 1) == 1;
 
-			if (SDK::SelectedGameProfile.UsesFNamePool)
-				SDK::SelectedGameProfile.GName = ResolveGlobal(GameInfo, isPatterns, isSimple, "GName", { Symbols::NamePoolData }, "FPool", 5, 9);
+			if (mdml::Addresses.UsesFNamePool)
+				mdml::Addresses.GName = ResolveGlobal(GameInfo, isPatterns, isSimple, "GName", { Symbols::NamePoolData }, "FPool", 5, 9);
 			else
-				SDK::SelectedGameProfile.GName = ResolveGlobal(GameInfo, isPatterns, isSimple, "GName", {}, "GName", 11, 15);
-			SDK::SelectedGameProfile.GObject = ResolveGlobal(GameInfo, isPatterns, isSimple, "GObject", { Symbols::GUObjectArray }, "GObject", 14, 18);
-			SDK::SelectedGameProfile.GWorld = ResolveGlobal(GameInfo, isPatterns, isSimple, "GWorld", { Symbols::GWorld }, "GWorld", 8, 12);
+				mdml::Addresses.GName = ResolveGlobal(GameInfo, isPatterns, isSimple, "GName", {}, "GName", 11, 15);
+			mdml::Addresses.GObject = ResolveGlobal(GameInfo, isPatterns, isSimple, "GObject", { Symbols::GUObjectArray }, "GObject", 14, 18);
+			mdml::Addresses.GWorld = ResolveGlobal(GameInfo, isPatterns, isSimple, "GWorld", { Symbols::GWorld }, "GWorld", 8, 12);
 		}
 		else
 		{
@@ -569,74 +577,74 @@ bool SetupProfile(const std::string& Path) {
 #pragma region UCore defs
 		if (GameInfo.select("UObjectDef"))
 		{
-			SDK::SelectedGameProfile.IsUObjectMissing = false;
-			SDK::SelectedGameProfile.defs.UObject.Index = (uint16_t)StringToDWord(GameInfo.get("UObjectDef", "Index", ""));
-			SDK::SelectedGameProfile.defs.UObject.Class = (uint16_t)StringToDWord(GameInfo.get("UObjectDef", "Class", ""));
-			SDK::SelectedGameProfile.defs.UObject.Name = (uint16_t)StringToDWord(GameInfo.get("UObjectDef", "Name", ""));
-			SDK::SelectedGameProfile.defs.UObject.Outer = (uint16_t)StringToDWord(GameInfo.get("UObjectDef", "Outer", ""));
+			mdml::LayoutStatus.IsUObjectMissing = false;
+			mdml::Layout.UObject.Index = (uint16_t)StringToDWord(GameInfo.get("UObjectDef", "Index", ""));
+			mdml::Layout.UObject.Class = (uint16_t)StringToDWord(GameInfo.get("UObjectDef", "Class", ""));
+			mdml::Layout.UObject.Name = (uint16_t)StringToDWord(GameInfo.get("UObjectDef", "Name", ""));
+			mdml::Layout.UObject.Outer = (uint16_t)StringToDWord(GameInfo.get("UObjectDef", "Outer", ""));
 		}
 
 		if (GameInfo.select("UFieldDef"))
 		{
-			SDK::SelectedGameProfile.IsUFieldMissing = false;
+			mdml::LayoutStatus.IsUFieldMissing = false;
 
 			GameInfo.select("UFieldDef");
-			SDK::SelectedGameProfile.defs.UField.Next = (uint16_t)StringToDWord(GameInfo.get("UFieldDef", "Next", ""));
+			mdml::Layout.UField.Next = (uint16_t)StringToDWord(GameInfo.get("UFieldDef", "Next", ""));
 		}
 		if (GameInfo.select("UStructDef"))
 		{
-			SDK::SelectedGameProfile.IsUStructMissing = false;
+			mdml::LayoutStatus.IsUStructMissing = false;
 			GameInfo.select("UStructDef");
-			SDK::SelectedGameProfile.defs.UStruct.SuperStruct = (uint16_t)StringToDWord(GameInfo.get("UStructDef", "SuperStruct", ""));
-			SDK::SelectedGameProfile.defs.UStruct.Children = (uint16_t)StringToDWord(GameInfo.get("UStructDef", "Children", ""));
-			SDK::SelectedGameProfile.defs.UStruct.PropertiesSize = (uint16_t)StringToDWord(GameInfo.get("UStructDef", "PropertiesSize", ""));
+			mdml::Layout.UStruct.SuperStruct = (uint16_t)StringToDWord(GameInfo.get("UStructDef", "SuperStruct", ""));
+			mdml::Layout.UStruct.Children = (uint16_t)StringToDWord(GameInfo.get("UStructDef", "Children", ""));
+			mdml::Layout.UStruct.PropertiesSize = (uint16_t)StringToDWord(GameInfo.get("UStructDef", "PropertiesSize", ""));
 		}
 		if (GameInfo.select("UEnumDef")) {
-			SDK::SelectedGameProfile.IsUEnumMissing = false;
+			mdml::LayoutStatus.IsUEnumMissing = false;
 			GameInfo.select("UEnumDef");
-			SDK::SelectedGameProfile.defs.UEnum.CppType = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "CppType", ""));
-			SDK::SelectedGameProfile.defs.UEnum.Names = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "Names", ""));
-			SDK::SelectedGameProfile.defs.UEnum.CppForm = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "CppForm", ""));
-			SDK::SelectedGameProfile.defs.UEnum.Flags = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "Flags", ""));
-			SDK::SelectedGameProfile.defs.UEnum.DisplayNameFn = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "DisplayNameFn", ""));
-			SDK::SelectedGameProfile.defs.UEnum.UserDefDisplayNameMap = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "UserDefDisplayNameMap", ""));
+			mdml::Layout.UEnum.CppType = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "CppType", ""));
+			mdml::Layout.UEnum.Names = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "Names", ""));
+			mdml::Layout.UEnum.CppForm = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "CppForm", ""));
+			mdml::Layout.UEnum.Flags = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "Flags", ""));
+			mdml::Layout.UEnum.DisplayNameFn = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "DisplayNameFn", ""));
+			mdml::Layout.UEnum.UserDefDisplayNameMap = (uint16_t)StringToDWord(GameInfo.get("UEnumDef", "UserDefDisplayNameMap", ""));
 		}
 		if (GameInfo.select("UFunctionDef"))
 		{
-			SDK::SelectedGameProfile.IsUFunctionMissing = false;
+			mdml::LayoutStatus.IsUFunctionMissing = false;
 			GameInfo.select("UFunctionDef");
-			SDK::SelectedGameProfile.defs.UFunction.FunctionFlags = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "FunctionFlags", ""));
-			SDK::SelectedGameProfile.defs.UFunction.NumParams = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "NumParams", ""));
-			SDK::SelectedGameProfile.defs.UFunction.ParamsSize = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "ParamsSize", ""));
-			SDK::SelectedGameProfile.defs.UFunction.ReturnValueOffset = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "ReturnValueOffset", ""));
-			SDK::SelectedGameProfile.defs.UFunction.Func = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "Func", ""));
+			mdml::Layout.UFunction.FunctionFlags = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "FunctionFlags", ""));
+			mdml::Layout.UFunction.NumParams = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "NumParams", ""));
+			mdml::Layout.UFunction.ParamsSize = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "ParamsSize", ""));
+			mdml::Layout.UFunction.ReturnValueOffset = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "ReturnValueOffset", ""));
+			mdml::Layout.UFunction.Func = (uint16_t)StringToDWord(GameInfo.get("UFunctionDef", "Func", ""));
 		}
 
 		if (GameInfo.select("Property"))
 		{
-			SDK::SelectedGameProfile.bIsFProperty = GameInfo.getAs<int>("Property", "IsFProperty", 0);
-			SDK::SelectedGameProfile.defs.Property.ArrayDim = (uint16_t)StringToDWord(GameInfo.get("Property", "ArrayDim", ""));
-			SDK::SelectedGameProfile.defs.Property.ElementSize = (uint16_t)StringToDWord(GameInfo.get("Property", "ElementSize", ""));
-			SDK::SelectedGameProfile.defs.Property.Offset = (uint16_t)StringToDWord(GameInfo.get("Property", "Offset", ""));
-			SDK::SelectedGameProfile.defs.Property.Flags = (uint16_t)StringToDWord(GameInfo.get("Property", "Flags", ""));
-			if (SDK::SelectedGameProfile.bIsFProperty)
+			mdml::Addresses.bIsFProperty = GameInfo.getAs<int>("Property", "IsFProperty", 0);
+			mdml::Layout.Property.ArrayDim = (uint16_t)StringToDWord(GameInfo.get("Property", "ArrayDim", ""));
+			mdml::Layout.Property.ElementSize = (uint16_t)StringToDWord(GameInfo.get("Property", "ElementSize", ""));
+			mdml::Layout.Property.Offset = (uint16_t)StringToDWord(GameInfo.get("Property", "Offset", ""));
+			mdml::Layout.Property.Flags = (uint16_t)StringToDWord(GameInfo.get("Property", "Flags", ""));
+			if (mdml::Addresses.bIsFProperty)
 			{
 				GameInfo.select("FField");
-				SDK::SelectedGameProfile.defs.FField.Name = (uint16_t)StringToDWord(GameInfo.get("FField", "Name", ""));
-				SDK::SelectedGameProfile.defs.FField.Next = (uint16_t)StringToDWord(GameInfo.get("FField", "Next", ""));
-				SDK::SelectedGameProfile.defs.FField.ClassPrivate = (uint16_t)StringToDWord(GameInfo.get("FField", "Next", ""));
+				mdml::Layout.FField.Name = (uint16_t)StringToDWord(GameInfo.get("FField", "Name", ""));
+				mdml::Layout.FField.Next = (uint16_t)StringToDWord(GameInfo.get("FField", "Next", ""));
+				mdml::Layout.FField.ClassPrivate = (uint16_t)StringToDWord(GameInfo.get("FField", "Next", ""));
 
 				if (GameInfo.select("FFieldClass")) {
-					SDK::SelectedGameProfile.defs.FFieldClass.Name = (uint16_t)StringToDWord(GameInfo.get("FFieldClass", "Name", ""));
-					SDK::SelectedGameProfile.defs.FFieldClass.ID = (uint16_t)StringToDWord(GameInfo.get("FFieldClass", "ID", ""));
-					SDK::SelectedGameProfile.defs.FFieldClass.CastFlags = (uint16_t)StringToDWord(GameInfo.get("FFieldClass", "CastFlags", ""));
-					SDK::SelectedGameProfile.defs.FFieldClass.SuperClass = (uint16_t)StringToDWord(GameInfo.get("FFieldClass", "SuperClass", ""));
+					mdml::Layout.FFieldClass.Name = (uint16_t)StringToDWord(GameInfo.get("FFieldClass", "Name", ""));
+					mdml::Layout.FFieldClass.ID = (uint16_t)StringToDWord(GameInfo.get("FFieldClass", "ID", ""));
+					mdml::Layout.FFieldClass.CastFlags = (uint16_t)StringToDWord(GameInfo.get("FFieldClass", "CastFlags", ""));
+					mdml::Layout.FFieldClass.SuperClass = (uint16_t)StringToDWord(GameInfo.get("FFieldClass", "SuperClass", ""));
 				}
 			}
 		}
 		else
 		{
-			SDK::SelectedGameProfile.IsPropertyMissing = true;
+			mdml::LayoutStatus.IsPropertyMissing = true;
 		}
 #pragma endregion
 
@@ -644,7 +652,7 @@ bool SetupProfile(const std::string& Path) {
 		{
 			GameInfo.select("FunctionInfo");
 			const bool isPatterns = GameInfo.getAs<int>("FunctionInfo", "IsFunctionPatterns", 1) == 1;
-			auto& profile = SDK::SelectedGameProfile;
+			auto& profile = mdml::Addresses;
 			profile.GameStateInit = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "GameStateInit", { Symbols::InitGameState });
 			profile.BeginPlay = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "BeginPlay", { Symbols::BeginPlay });
 			profile.Tick = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "Tick", { Symbols::WorldTick });
@@ -660,46 +668,46 @@ bool SetupProfile(const std::string& Path) {
 
 #pragma region ProcessInternal def
 		// The hook target is ProcessLocalScriptFunction, called from UObject::ProcessInternal.
-		SDK::SelectedGameProfile.ProcessInternals = SymbolResolver::Find({ Symbols::ProcessLocalScriptFunction });
-		if (SDK::SelectedGameProfile.ProcessInternals)
+		mdml::Addresses.ProcessInternals = SymbolResolver::Find({ Symbols::ProcessLocalScriptFunction });
+		if (mdml::Addresses.ProcessInternals)
 		{
-			LogResolved("ProcessInternals", SDK::SelectedGameProfile.ProcessInternals, "pdb");
+			LogResolved("ProcessInternals", mdml::Addresses.ProcessInternals, "pdb");
 		}
 		else
 		{
 			GameInfo.select("ProcessInternalFunction");
 			std::string pattern = GameInfo.get("ProcessInternal", "41 F6 C7 02 74 ? 4C 8B C7 48 8B ? ? 8B ? E8");
-			SDK::SelectedGameProfile.ProcessInternals = (DWORD64)Pattern::FindRipTarget(pattern.c_str(), 16, 20);
-			LogResolved("ProcessInternals", SDK::SelectedGameProfile.ProcessInternals, "pattern");
+			mdml::Addresses.ProcessInternals = (DWORD64)Pattern::FindRipTarget(pattern.c_str(), 16, 20);
+			LogResolved("ProcessInternals", mdml::Addresses.ProcessInternals, "pattern");
 		}
 #pragma endregion
 
 #pragma region StaticConstructObject_Internal def
 		// UE 4.26+ takes a single FStaticConstructObjectParameters argument ("updated" signature).
-		SDK::SelectedGameProfile.StaticConstructObject_Internal = SymbolResolver::Find({ Symbols::StaticConstructObject_Internal });
-		if (SDK::SelectedGameProfile.StaticConstructObject_Internal)
+		mdml::Addresses.StaticConstructObject_Internal = SymbolResolver::Find({ Symbols::StaticConstructObject_Internal });
+		if (mdml::Addresses.StaticConstructObject_Internal)
 		{
-			SDK::SelectedGameProfile.IsUsingUpdatedStaticConstruct = true;
-			LogResolved("StaticConstructObject_Internal", SDK::SelectedGameProfile.StaticConstructObject_Internal, "pdb");
+			mdml::Addresses.IsUsingUpdatedStaticConstruct = true;
+			LogResolved("StaticConstructObject_Internal", mdml::Addresses.StaticConstructObject_Internal, "pdb");
 		}
 		else
 		{
 			GameInfo.select("StaticConstructObject_Internal");
-			SDK::SelectedGameProfile.IsUsingUpdatedStaticConstruct = GameInfo.getAs<int>("IsUsingUpdatedStaticConstruct", 1);
-			SDK::SelectedGameProfile.StaticConstructObject_Internal = ScanFunction(GameInfo.get("Pattern", ""), "StaticConstructObject_Internal");
-			LogResolved("StaticConstructObject_Internal", SDK::SelectedGameProfile.StaticConstructObject_Internal, "pattern");
+			mdml::Addresses.IsUsingUpdatedStaticConstruct = GameInfo.getAs<int>("IsUsingUpdatedStaticConstruct", 1);
+			mdml::Addresses.StaticConstructObject_Internal = ScanFunction(GameInfo.get("Pattern", ""), "StaticConstructObject_Internal");
+			LogResolved("StaticConstructObject_Internal", mdml::Addresses.StaticConstructObject_Internal, "pattern");
 		}
-		if (!SDK::SelectedGameProfile.StaticConstructObject_Internal)
+		if (!mdml::Addresses.StaticConstructObject_Internal)
 			Log::Warn_MDML("Mods using the ModObjectInstance will not work properly.");
 #pragma endregion
 
 #pragma region PakOverwrite
 		if (GameInfo.select("PakOverwrite")) {
-			SDK::SelectedGameProfile.bPakOverride = GameInfo.getAs<int>("PakOverwrite", "bPakOverwrite", 0);
-			if (SDK::SelectedGameProfile.bPakOverride) {
+			mdml::Config.bPakOverride = GameInfo.getAs<int>("PakOverwrite", "bPakOverwrite", 0);
+			if (mdml::Config.bPakOverride) {
 				const bool isPatterns = GameInfo.getAs<int>("PakOverwrite", "IsFunctionPatterns", 1) == 1;
-				SDK::SelectedGameProfile.IsNonPakFilenameAllowed = ResolveFunction(GameInfo, isPatterns, "PakOverwrite", "IsNonPakFilenameAllowed", { Symbols::IsNonPakFilenameAllowed });
-				SDK::SelectedGameProfile.FindFileInPakFiles = ResolveFunction(GameInfo, isPatterns, "PakOverwrite", "FindFileInPakFiles", { Symbols::FindFileInPakFiles });
+				mdml::Addresses.IsNonPakFilenameAllowed = ResolveFunction(GameInfo, isPatterns, "PakOverwrite", "IsNonPakFilenameAllowed", { Symbols::IsNonPakFilenameAllowed });
+				mdml::Addresses.FindFileInPakFiles = ResolveFunction(GameInfo, isPatterns, "PakOverwrite", "FindFileInPakFiles", { Symbols::FindFileInPakFiles });
 			}
 		}
 #pragma endregion

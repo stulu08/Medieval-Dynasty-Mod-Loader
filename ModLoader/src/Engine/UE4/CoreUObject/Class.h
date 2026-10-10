@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreTypes.h"
 #include "Object.h"
+#include "EngineAddresses.h"
 
 namespace UE4 {
 	class MDML_ENGINE_API UField : public UObject
@@ -85,13 +86,13 @@ namespace UE4 {
 		inline UObject* CreateDefaultObject()
 		{
 
-			if (SDK::SelectedGameProfile.bIsDefaultObjectArrayed == true)
+			if (mdml::Addresses.bIsDefaultObjectArrayed == true)
 			{
 				return UE4::UObject::GetDefaultObjectFromArray<UObject>(this);
 			}
 			else
 			{
-				return reinterpret_cast<UObject * (*)(UClass*)>(this, SDK::SelectedGameProfile.CreateDefaultObject)(this);
+				return reinterpret_cast<UObject * (*)(UClass*)>(this, mdml::Addresses.CreateDefaultObject)(this);
 			}
 		}
 

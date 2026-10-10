@@ -1,6 +1,7 @@
 #pragma once
 #include "Class.h"
 #include "UnrealType.h"
+#include "EngineAddresses.h"
 
 namespace UE4 {
 	class FOutParmRec
@@ -25,7 +26,7 @@ namespace UE4 {
 		template<typename T>
 		bool SetOutput(std::string OutputName, T Value)
 		{
-			if (SDK::SelectedGameProfile.bIsFProperty)
+			if (mdml::Addresses.bIsFProperty)
 			{
 				auto CurrentOutParam = OutParms;
 				while (true)

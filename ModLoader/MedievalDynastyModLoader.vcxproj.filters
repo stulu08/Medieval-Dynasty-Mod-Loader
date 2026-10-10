@@ -37,6 +37,9 @@
     <Filter Include="src\Mod">
       <UniqueIdentifier>{BC952FA9-2875-AE44-318D-391B9DEB14A6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Runtime">
+      <UniqueIdentifier>{609514CE-CC4A-8DC3-553F-879AC1F383C7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\UI">
       <UniqueIdentifier>{3A4B661C-26ED-90F2-0FA8-A446FBE81743}</UniqueIdentifier>
     </Filter>
@@ -110,6 +113,12 @@
   <ItemGroup>
     <ClInclude Include="src\Core.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\EngineAddresses.h">
+      <Filter>src\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\EngineLayout.h">
+      <Filter>src\Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\NameValidator.h">
       <Filter>src\Engine</Filter>
@@ -222,9 +231,6 @@
     <ClInclude Include="src\Engine\UE4\UE_LOG.h">
       <Filter>src\Engine\UE4</Filter>
     </ClInclude>
-    <ClInclude Include="src\GameInfo.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\Globals.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -239,6 +245,9 @@
     </ClInclude>
     <ClInclude Include="src\Mod\ModStack.h">
       <Filter>src\Mod</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Runtime\LoaderConfig.h">
+      <Filter>src\Runtime</Filter>
     </ClInclude>
     <ClInclude Include="src\UI\ImGuiColorTextEdit\TextEditor.h">
       <Filter>src\UI\ImGuiColorTextEdit</Filter>
@@ -1454,6 +1463,9 @@
     <ClCompile Include="src\Core.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Engine\EngineAddresses.cpp">
+      <Filter>src\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="src\Engine\EngineInit.cpp">
       <Filter>src\Engine</Filter>
     </ClCompile>
@@ -1492,6 +1504,9 @@
     </ClCompile>
     <ClCompile Include="src\Mod\ModStack.cpp">
       <Filter>src\Mod</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Runtime\LoaderConfig.cpp">
+      <Filter>src\Runtime</Filter>
     </ClCompile>
     <ClCompile Include="src\UI\ImGuiColorTextEdit\TextEditor.cpp">
       <Filter>src\UI\ImGuiColorTextEdit</Filter>

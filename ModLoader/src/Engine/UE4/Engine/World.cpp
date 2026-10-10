@@ -1,11 +1,11 @@
 #include "World.h"
-#include "GameInfo.h"
+#include "EngineAddresses.h"
 
 namespace UE4 {
 	UWorld** UWorld::GWorld = nullptr;
 
 	AActor* UWorld::SpawnActor(UClass* uclass, const  FTransform* transform, const FActorSpawnParameters* params)
 	{
-		return reinterpret_cast<AActor * (*)(UWorld*, UClass*, const FTransform*, const FActorSpawnParameters*)>(SDK::SelectedGameProfile.SpawnActorFTrans)(this, uclass, transform, params);
+		return reinterpret_cast<AActor * (*)(UWorld*, UClass*, const FTransform*, const FActorSpawnParameters*)>(mdml::Addresses.SpawnActorFTrans)(this, uclass, transform, params);
 	}
 }

@@ -71,6 +71,8 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Core.h" />
+    <ClInclude Include="src\Engine\EngineAddresses.h" />
+    <ClInclude Include="src\Engine\EngineLayout.h" />
     <ClInclude Include="src\Engine\NameValidator.h" />
     <ClInclude Include="src\Engine\UE4.h" />
     <ClInclude Include="src\Engine\UE4\Containers\AlignedBytes.h" />
@@ -108,12 +110,12 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClInclude Include="src\Engine\UE4\Math\Vector2.h" />
     <ClInclude Include="src\Engine\UE4\Math\Vector4.h" />
     <ClInclude Include="src\Engine\UE4\UE_LOG.h" />
-    <ClInclude Include="src\GameInfo.h" />
     <ClInclude Include="src\Globals.h" />
     <ClInclude Include="src\MDML.h" />
     <ClInclude Include="src\Mod\Mod.h" />
     <ClInclude Include="src\Mod\ModLoader.h" />
     <ClInclude Include="src\Mod\ModStack.h" />
+    <ClInclude Include="src\Runtime\LoaderConfig.h" />
     <ClInclude Include="src\UI\ImGuiColorTextEdit\TextEditor.h" />
     <ClInclude Include="src\UI\LoaderUI.h" />
     <ClInclude Include="src\Utilities\Dumper.h" />
@@ -528,6 +530,9 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClCompile Include="src\Core.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Engine\EngineAddresses.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="src\Engine\EngineInit.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -557,6 +562,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClCompile Include="src\Mod\Mod.cpp" />
     <ClCompile Include="src\Mod\ModLoader.cpp" />
     <ClCompile Include="src\Mod\ModStack.cpp" />
+    <ClCompile Include="src\Runtime\LoaderConfig.cpp" />
     <ClCompile Include="src\UI\ImGuiColorTextEdit\TextEditor.cpp" />
     <ClCompile Include="src\UI\LoaderUI.cpp" />
     <ClCompile Include="src\Utilities\Dumper.cpp" />

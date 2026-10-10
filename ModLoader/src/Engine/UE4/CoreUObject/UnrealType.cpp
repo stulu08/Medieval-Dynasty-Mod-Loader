@@ -1,22 +1,22 @@
 #include "UnrealType.h"
-#include "GameInfo.h"
+#include "EngineLayout.h"
 #include "UE_LOG.h"
 
 namespace UE4 {
 	int32_t FProperty::GetArrayDim() const {
-		return Read<int32_t>((byte*)this + SDK::SelectedGameProfile.defs.Property.ArrayDim);
+		return Read<int32_t>((byte*)this + mdml::Layout.Property.ArrayDim);
 	};
 
 	int32_t FProperty::GetElementSize() const {
-		return Read<int32_t>((byte*)this + SDK::SelectedGameProfile.defs.Property.ElementSize);
+		return Read<int32_t>((byte*)this + mdml::Layout.Property.ElementSize);
 	}
 
 	EPropertyFlags FProperty::GetPropertyFlags() const {
-		return (EPropertyFlags)Read<uint64_t>((byte*)this + SDK::SelectedGameProfile.defs.Property.Flags);
+		return (EPropertyFlags)Read<uint64_t>((byte*)this + mdml::Layout.Property.Flags);
 	}
 
 	int32_t FProperty::GetOffset() const {
-		return Read<int32_t>((byte*)this + SDK::SelectedGameProfile.defs.Property.Offset);
+		return Read<int32_t>((byte*)this + mdml::Layout.Property.Offset);
 	}
 
 	std::string FProperty::GetCppTypeName() {
@@ -135,10 +135,10 @@ namespace UE4 {
 		// Helper function with __try block
 		auto SafeGetName = [](const FFieldClass* fieldClass) -> FName {
 			__try {
-				return *reinterpret_cast<FName*>((byte*)fieldClass + SDK::SelectedGameProfile.defs.FFieldClass.Name);
+				return *reinterpret_cast<FName*>((byte*)fieldClass + mdml::Layout.FFieldClass.Name);
 			}
 			__except (EXCEPTION_EXECUTE_HANDLER) {
-				UE_LOG(LogTemp, Error, "Access violation while dereferencing FName. this: 0x{0:x}, Name Offser: 0x{1:x}", (DWORD64)fieldClass, SDK::SelectedGameProfile.defs.FFieldClass.Name);
+				UE_LOG(LogTemp, Error, "Access violation while dereferencing FName. this: 0x{0:x}, Name Offser: 0x{1:x}", (DWORD64)fieldClass, mdml::Layout.FFieldClass.Name);
 				return FName();
 			}
 			};
@@ -153,17 +153,17 @@ namespace UE4 {
 
 	uint64_t FFieldClass::GetID() const
 	{
-		return Read<uint64_t>((byte*)this + SDK::SelectedGameProfile.defs.FFieldClass.ID);
+		return Read<uint64_t>((byte*)this + mdml::Layout.FFieldClass.ID);
 	}
 
 	uint64_t FFieldClass::GetCastFlags() const
 	{
-		return Read<uint64_t>((byte*)this + SDK::SelectedGameProfile.defs.FFieldClass.CastFlags);
+		return Read<uint64_t>((byte*)this + mdml::Layout.FFieldClass.CastFlags);
 	}
 
 	FFieldClass* FFieldClass::SuperClass() const
 	{
-		return Read<class FFieldClass*>((byte*)this + SDK::SelectedGameProfile.defs.FFieldClass.SuperClass);
+		return Read<class FFieldClass*>((byte*)this + mdml::Layout.FFieldClass.SuperClass);
 	}
 
 	UClass* FFieldClass::AsUClass(FFieldClass* Class) {
@@ -213,17 +213,17 @@ namespace UE4 {
 	
 	FFieldClass* FField::GetClass() const
 	{
-		return Read<class FFieldClass*>((byte*)this + SDK::SelectedGameProfile.defs.FField.ClassPrivate);
+		return Read<class FFieldClass*>((byte*)this + mdml::Layout.FField.ClassPrivate);
 	}
 
 	FField* FField::GetNext() const
 	{
-		return Read<class FField*>((byte*)this + SDK::SelectedGameProfile.defs.FField.Next);
+		return Read<class FField*>((byte*)this + mdml::Layout.FField.Next);
 	};
 
 	std::string FField::GetName() const
 	{
-		auto Name = *reinterpret_cast<FName*>((byte*)this + SDK::SelectedGameProfile.defs.FField.Name);
+		auto Name = *reinterpret_cast<FName*>((byte*)this + mdml::Layout.FField.Name);
 		if (UE4::FName::GetFNamePool().IsValidIndex(Name.ComparisonIndex))
 		{
 			return Name.GetName();
@@ -232,54 +232,54 @@ namespace UE4 {
 	};
 	
 	UEnum* FByteProperty::GetEnum() const {
-		return Read<class UEnum*>((byte*)this + SDK::SelectedGameProfile.defs.ByteProperty.Enum);
+		return Read<class UEnum*>((byte*)this + mdml::Layout.ByteProperty.Enum);
 	}
 	uint8_t FBoolProperty::GetFieldSize() const {
-		return Read<uint8_t>((byte*)this + SDK::SelectedGameProfile.defs.BoolProperty.FieldSize);
+		return Read<uint8_t>((byte*)this + mdml::Layout.BoolProperty.FieldSize);
 	}
 	uint8_t FBoolProperty::ByteOffset() const {
-		return Read<uint8_t>((byte*)this + SDK::SelectedGameProfile.defs.BoolProperty.ByteOffset);
+		return Read<uint8_t>((byte*)this + mdml::Layout.BoolProperty.ByteOffset);
 	}
 	uint8_t FBoolProperty::ByteMask() const {
-		return Read<uint8_t>((byte*)this + SDK::SelectedGameProfile.defs.BoolProperty.ByteMask);
+		return Read<uint8_t>((byte*)this + mdml::Layout.BoolProperty.ByteMask);
 	}
 	uint8_t FBoolProperty::FieldMask() const {
-		return Read<uint8_t>((byte*)this + SDK::SelectedGameProfile.defs.BoolProperty.FieldMask);
+		return Read<uint8_t>((byte*)this + mdml::Layout.BoolProperty.FieldMask);
 	}
 	UClass* FObjectPropertyBase::GetPropertyClass() const {
-		return Read<class UClass*>((byte*)this + SDK::SelectedGameProfile.defs.ObjectPropertyBase.PropertyClass);
+		return Read<class UClass*>((byte*)this + mdml::Layout.ObjectPropertyBase.PropertyClass);
 	}
 	UClass* FClassProperty::GetMetaClass() const {
-		return Read<class UClass*>((byte*)this + SDK::SelectedGameProfile.defs.ClassProperty.MetaClass);
+		return Read<class UClass*>((byte*)this + mdml::Layout.ClassProperty.MetaClass);
 	}
 	UClass* FInterfaceProperty::GetInterfaceClass() const {
-		return Read<class UClass*>((byte*)this + SDK::SelectedGameProfile.defs.InterfaceProperty.InterfaceClass);
+		return Read<class UClass*>((byte*)this + mdml::Layout.InterfaceProperty.InterfaceClass);
 	}
 	UClass* FAssetClassProperty::GetMetaClass() const {
-		return Read<class UClass*>((byte*)this + SDK::SelectedGameProfile.defs.AssetClassProperty.MetaClass);
+		return Read<class UClass*>((byte*)this + mdml::Layout.AssetClassProperty.MetaClass);
 	}
 	UScriptStruct* FStructProperty::GetStruct() const {
-		return Read<class UScriptStruct*>((byte*)this + SDK::SelectedGameProfile.defs.StructProperty.Struct);
+		return Read<class UScriptStruct*>((byte*)this + mdml::Layout.StructProperty.Struct);
 	}
 	FProperty* FArrayProperty::GetInner() const {
-		return Read<class FProperty*>((byte*)this + SDK::SelectedGameProfile.defs.ArrayProperty.Inner);
+		return Read<class FProperty*>((byte*)this + mdml::Layout.ArrayProperty.Inner);
 	}
 	FProperty* FMapProperty::GetKeyProp() const {
-		return Read<class FProperty*>((byte*)this + SDK::SelectedGameProfile.defs.MapProperty.Key);
+		return Read<class FProperty*>((byte*)this + mdml::Layout.MapProperty.Key);
 	}
 	FProperty* FMapProperty::GetValueProp() const {
-		return Read<class FProperty*>((byte*)this + SDK::SelectedGameProfile.defs.MapProperty.Value);
+		return Read<class FProperty*>((byte*)this + mdml::Layout.MapProperty.Value);
 	}
 	UFunction* FDelegateProperty::GetSignatureFunction() const {
-		return Read<class UFunction*>((byte*)this + SDK::SelectedGameProfile.defs.DelegateProperty.SignatureFunction);
+		return Read<class UFunction*>((byte*)this + mdml::Layout.DelegateProperty.SignatureFunction);
 	}
 	UFunction* FMulticastDelegateProperty::GetSignatureFunction() const {
-		return Read<class UFunction*>((byte*)this + SDK::SelectedGameProfile.defs.MulticastDelegateProperty.SignatureFunction);
+		return Read<class UFunction*>((byte*)this + mdml::Layout.MulticastDelegateProperty.SignatureFunction);
 	}
 	FNumericProperty* FEnumProperty::GetUnderlyingProp() const {
-		return Read<class FNumericProperty*>((byte*)this + SDK::SelectedGameProfile.defs.EnumProperty.UnderlyingProp);
+		return Read<class FNumericProperty*>((byte*)this + mdml::Layout.EnumProperty.UnderlyingProp);
 	}
 	UEnum* FEnumProperty::GetEnum() const {
-		return Read<class UEnum*>((byte*)this + SDK::SelectedGameProfile.defs.EnumProperty.Enum);
+		return Read<class UEnum*>((byte*)this + mdml::Layout.EnumProperty.Enum);
 	}
 }

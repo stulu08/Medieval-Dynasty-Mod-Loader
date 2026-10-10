@@ -9,6 +9,7 @@
 
 #include "Globals.h"
 #include "MDML.h"
+#include "Runtime/LoaderConfig.h"
 
 LoaderUI* LoaderUI::UI;
 
@@ -363,7 +364,7 @@ void LoaderUI::LoaderD3D11Present(IDXGISwapChain* pSwapChain, UINT SyncInterval,
 		//init imgui
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO();
-		io.IniFilename = SDK::SelectedGameProfile.ImGuiFile.c_str();
+		io.IniFilename = mdml::Config.ImGuiFile.c_str();
 		io.ConfigFlags = ImGuiConfigFlags_NoMouseCursorChange;
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
 		StyleColorsPhotoShopDark();
@@ -509,7 +510,7 @@ DWORD __stdcall InitDX11Hook(LPVOID)
 void LoaderUI::HookDX()
 {
 	static bool ShowMSG = false;
-	if (!SDK::SelectedGameProfile.bEnableGUI) {
+	if (!mdml::Config.bEnableGUI) {
 		Log::SetupMessage("Cant enable MDML UI", "To enable MDML Debug UI, switch rendering mode to DirectX11 in Medieval Dynasty Settings or set UseDebugUI to 1 in  Medieval_Dynasty/Binaries/Win64/Config/ModLoaderInfo.ini");
 		ShowMSG = true;
 		return;

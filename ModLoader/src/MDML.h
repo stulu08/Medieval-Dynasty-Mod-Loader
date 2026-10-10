@@ -49,7 +49,7 @@ public:
 namespace UE4 {
 	// Engine initialization (Wave 2.3). The engine core (GObjects, GNames, GWorld, ...) lives once in MDML.dll and is
 	// exported, so mods no longer call InitSDK() themselves. Defined in Engine/EngineInit.cpp, MDML-internal (not exported).
-	// Binds UObject::GObjects / FName::GNames / UWorld::GWorld to the addresses resolved into SDK::SelectedGameProfile.
+	// Binds UObject::GObjects / FName::GNames / UWorld::GWorld to the addresses resolved into mdml::Addresses.
 	// Idempotent and cheap. Today only called by InitSDK(); could be called right after the addresses are resolved.
 	void InitEngineGlobals();
 	// InitEngineGlobals() + EngineDefFinder scan for engine offsets that are still missing. Called once, from

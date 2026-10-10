@@ -1,11 +1,13 @@
 #include "Core.h"
 #include "UserDefinedEnum.h"
 #include "UE4.h"
+#include "EngineAddresses.h"
+#include "EngineLayout.h"
 #include "Utilities/Pattern.h"
 
 namespace UE4 {
 	TMap<FName, FText> UE4::UUserDefinedEnum::GetDispalyNames() const {
-		return Read<TMap<FName, FText>>((byte*)this + SDK::SelectedGameProfile.defs.UEnum.UserDefDisplayNameMap);
+		return Read<TMap<FName, FText>>((byte*)this + mdml::Layout.UEnum.UserDefDisplayNameMap);
 	}
 	FText UUserDefinedEnum::GetDisplayNameTextByIndex(int32_t InIndex) const {
 		/*
@@ -21,7 +23,7 @@ namespace UE4 {
 				 in ida the function returns always a2 and nothing else while also seting a2 to the required value
 		*/
 		FText out = FText();
-		out = *reinterpret_cast<FText*(__fastcall*)(__int64, __int64, int32_t)>(SDK::SelectedGameProfile.GetDisplayNameTextByIndex)((__int64)this, (__int64)(&out), InIndex);
+		out = *reinterpret_cast<FText*(__fastcall*)(__int64, __int64, int32_t)>(mdml::Addresses.GetDisplayNameTextByIndex)((__int64)this, (__int64)(&out), InIndex);
 		return out;
 	}
 	std::vector<std::string> UUserDefinedEnum::GetDisplayNamesParsed() const {

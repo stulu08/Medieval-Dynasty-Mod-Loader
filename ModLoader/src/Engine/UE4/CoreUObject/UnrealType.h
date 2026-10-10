@@ -2,6 +2,7 @@
 
 #include "Object.h"
 #include "Class.h"
+#include "EngineAddresses.h"
 
 #define PROPERTY_IMPL_GET_CPP_TYPE(Type) std::string GetCppType() { return Type; }
 
@@ -50,7 +51,7 @@ namespace UE4 {
 		int32_t GetOffset() const;
 
 		static bool IsFProperty() {
-			return SDK::SelectedGameProfile.bIsFProperty;
+			return mdml::Addresses.bIsFProperty;
 		}
 		static UClass* StaticClass()
 		{

@@ -1,7 +1,8 @@
 #include "Object.h"
 
 #include "Class.h"
-#include "GameInfo.h"
+#include "EngineAddresses.h"
+#include "EngineLayout.h"
 #include "SDK.h"
 
 
@@ -13,7 +14,7 @@ namespace UE4 {
 		if (!this)
 			return "";
 
-		auto Name = *reinterpret_cast<FName*>((byte*)this + SDK::SelectedGameProfile.defs.UObject.Name);
+		auto Name = *reinterpret_cast<FName*>((byte*)this + mdml::Layout.UObject.Name);
 		std::string name(Name.GetName());
 		if (Name.Number > 0)
 		{
@@ -93,17 +94,17 @@ namespace UE4 {
 
 	int32_t UObject::GetIndex() const
 	{
-		return Read<int32_t>((byte*)this + SDK::SelectedGameProfile.defs.UObject.Index);
+		return Read<int32_t>((byte*)this + mdml::Layout.UObject.Index);
 	};
 
 	UClass* UObject::GetClass() const
 	{
-		return Read<class UClass*>((byte*)this + SDK::SelectedGameProfile.defs.UObject.Class);
+		return Read<class UClass*>((byte*)this + mdml::Layout.UObject.Class);
 	};
 
 	UObject* UObject::GetOuter() const
 	{
-		return Read<UObject*>((byte*)this + SDK::SelectedGameProfile.defs.UObject.Outer);
+		return Read<UObject*>((byte*)this + mdml::Layout.UObject.Outer);
 	};
 
 	UClass* UObject::FindClass(const std::string& name) {
@@ -243,7 +244,7 @@ namespace UE4 {
 #ifndef ALWAYS_PROCESS_EVENT_SAVE
 	void UObject::ProcessEvent(class UFunction* function, void* parms) {
 		if (function)
-			return reinterpret_cast<void(*)(UObject*, class UFunction*, void*)>(SDK::SelectedGameProfile.ProcessEvent)(this, function, parms);
+			return reinterpret_cast<void(*)(UObject*, class UFunction*, void*)>(mdml::Addresses.ProcessEvent)(this, function, parms);
 		UE_LOG(LogTemp, Warn, "UObject::ProcessEvent function was nullptr");
 	}
 #endif
@@ -274,25 +275,25 @@ namespace UE4 {
 				return;
 			}
 		}
-		return reinterpret_cast<void(*)(UObject*, class UFunction*, void*)>(SDK::SelectedGameProfile.ProcessEvent)(this, function, parms);
+		return reinterpret_cast<void(*)(UObject*, class UFunction*, void*)>(mdml::Addresses.ProcessEvent)(this, function, parms);
 
 	}
 
 	UObject* UObject::StaticLoadObject(class UClass* uclass, UObject* InOuter, const wchar_t* InName, const wchar_t* Filename, ELoadFlags LoadFlags, void* Sandbox, bool bAllowObjectReconciliation, const void* InstancingContext)
 	{
-		return reinterpret_cast<UObject * (__fastcall*)(class UClass*, UObject*, const wchar_t*, const wchar_t*, uint32_t, void*, bool, const void*)>(SDK::SelectedGameProfile.StaticLoadObject)(uclass, InOuter, InName, Filename, (uint32_t)LoadFlags, Sandbox, bAllowObjectReconciliation, InstancingContext);
+		return reinterpret_cast<UObject * (__fastcall*)(class UClass*, UObject*, const wchar_t*, const wchar_t*, uint32_t, void*, bool, const void*)>(mdml::Addresses.StaticLoadObject)(uclass, InOuter, InName, Filename, (uint32_t)LoadFlags, Sandbox, bAllowObjectReconciliation, InstancingContext);
 	}
 
 	UObject* UObject::StaticFindObject(UClass* uclass, UObject* InOuter, const wchar_t* Name, bool ExactClass)
 	{
-		return reinterpret_cast<UObject * (__fastcall*)(class UClass*, UObject*, const wchar_t*, bool)>(SDK::SelectedGameProfile.StaticFindObject)(uclass, InOuter, Name, ExactClass);
+		return reinterpret_cast<UObject * (__fastcall*)(class UClass*, UObject*, const wchar_t*, bool)>(mdml::Addresses.StaticFindObject)(uclass, InOuter, Name, ExactClass);
 	}
 
 	UObject* UObject::StaticConstructObject_Internal(UClass* Class, UObject* InOuter, FName Name, unsigned int SetFlags, EInternalObjectFlags InternalSetFlags, UObject* Template, bool bCopyTransientsFromClassDefaults, void* InstanceGraph, bool bAssumeTemplateIsArchetype)
 	{
-		if (SDK::SelectedGameProfile.StaticConstructObject_Internal)
+		if (mdml::Addresses.StaticConstructObject_Internal)
 		{
-			if (SDK::SelectedGameProfile.IsUsingUpdatedStaticConstruct)
+			if (mdml::Addresses.IsUsingUpdatedStaticConstruct)
 			{
 				struct FStaticConstructObjectParameters
 				{
@@ -317,11 +318,11 @@ namespace UE4 {
 				StaticConstructObjectParameters.bCopyTransientsFromClassDefaults = bCopyTransientsFromClassDefaults;
 				StaticConstructObjectParameters.InstanceGraph = InstanceGraph;
 				StaticConstructObjectParameters.bAssumeTemplateIsArchetype = bAssumeTemplateIsArchetype;
-				return reinterpret_cast<UObject * (__fastcall*)(const FStaticConstructObjectParameters*)>(SDK::SelectedGameProfile.StaticConstructObject_Internal)(&StaticConstructObjectParameters);
+				return reinterpret_cast<UObject * (__fastcall*)(const FStaticConstructObjectParameters*)>(mdml::Addresses.StaticConstructObject_Internal)(&StaticConstructObjectParameters);
 			}
 			else
 			{
-				return reinterpret_cast<UObject * (__fastcall*)(UClass*, UObject*, FName, unsigned int, unsigned int, UObject*, bool, void*, bool)>(SDK::SelectedGameProfile.StaticConstructObject_Internal)(Class, InOuter, Name, SetFlags, (unsigned int)InternalSetFlags, Template, bCopyTransientsFromClassDefaults, InstanceGraph, bAssumeTemplateIsArchetype);
+				return reinterpret_cast<UObject * (__fastcall*)(UClass*, UObject*, FName, unsigned int, unsigned int, UObject*, bool, void*, bool)>(mdml::Addresses.StaticConstructObject_Internal)(Class, InOuter, Name, SetFlags, (unsigned int)InternalSetFlags, Template, bCopyTransientsFromClassDefaults, InstanceGraph, bAssumeTemplateIsArchetype);
 			}
 		}
 		else
@@ -333,6 +334,6 @@ namespace UE4 {
 
 	bool UObject::CallFunctionByNameWithArguments(const wchar_t* Str, void* Ar, UE4::UObject* Executor, bool bForceCallWithNonExec)
 	{
-		return reinterpret_cast<bool (*)(UE4::UObject*, const wchar_t*, void*, UE4::UObject*, bool)>(SDK::SelectedGameProfile.CallFunctionByNameWithArguments)(this, Str, Ar, Executor, bForceCallWithNonExec);
+		return reinterpret_cast<bool (*)(UE4::UObject*, const wchar_t*, void*, UE4::UObject*, bool)>(mdml::Addresses.CallFunctionByNameWithArguments)(this, Str, Ar, Executor, bForceCallWithNonExec);
 	}
 }
