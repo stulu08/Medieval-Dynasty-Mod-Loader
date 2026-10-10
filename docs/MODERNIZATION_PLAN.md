@@ -57,6 +57,8 @@ Planned as parallel agent work packages (worktrees off `modernize`), each with i
 - **2.8 Documentation** — README, Modding.md, architecture overview, how to update after a game patch.
 
 ### Hand-written SDK core (preserve!) — heuristic list, owner to confirm
+Since Wave 2.3 (2026-10-10) these live in `ModLoader/src/Engine/` (same relative paths; hybrids GamePlayStatics/DataTable/StringTable
+and `UE4/SDK.h` stayed in `SDK/src`). Paths below are the old locations.
 Files without generator markers: `SDK/src/UE4.h`, `SDK/src/NameValidator.*`, `SDK/src/UE4/SDK.h`, `UE_LOG.h`,
 `UE4/CoreUObject/*` (Object, Class, UnrealType, NamePool, ObjectsArray, CoreTypes, Stack, Interface),
 `UE4/Containers/*`, `UE4/Math/*`, and likely `UE4/Engine/{World,GameplayStatics(.h),StringTable,UserDefinedEnum,UserDefinedStruct,Level,GameInstance,GameState,BlueprintFunctionLibrary,BlueprintGeneratedClass}`,
@@ -140,7 +142,13 @@ Dumper-7 reference dump (crash cause confirmed), SDK generator design draft (`do
      `REVIEW.md` lists 3 HIGH findings in the link/backup code (throwing filesystem calls after the rename, cleanup
      throws in DLL_PROCESS_DETACH, stale link renamed over an existing backup) → fixed in 43fe791 (offline harness, 12
      scenarios OK; symlink mode untested). Fixture tests A/B still to run in-game.
-   - 2.3 ◐ in progress (agent, worktree).
+   - 2.2 re-test ☑ (2026-10-10): popup gone, paths correct. Closing the MDML console window with X kills the whole
+     process (Windows behaviour, no clean shutdown) — expected; see open decisions.
+   - 2.3 ◐ Merged (e45d084..8f67fe7, report `docs/reports/wave2/2.3-core-into-mdml.md`): hand-written core in
+     `ModLoader/src/Engine/`, exported via `MDML_ENGINE_API` (alias of `LOADER_API`); one engine init
+     (`Engine/EngineInit.cpp`), no per-mod `InitSDK`; SDK.lib = generated only and imports the core; MDML compiles
+     `Actor`/`GamePlayStatics`/`KismetSystemLibrary.cpp` directly instead of linking SDK (cycle). LNK4286 gone. Awaiting
+     in-game test.
 3. 2.4 SDK generator (`docs/SDK_GENERATOR.md`): MDMLGenerator on Dumper-7, DevTools mod with export lists.
 4. Remaining library decisions (open decisions below), then C++20 + spdlog/ImGui upgrades (Wave 4).
 

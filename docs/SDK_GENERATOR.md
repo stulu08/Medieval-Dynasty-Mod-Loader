@@ -13,7 +13,7 @@ The old generator (`BaseMod/src/Utils.h` → `Utils::Export`) wrote one `.h` + `
 ## Goals
 - Run **inside the game** from the MDML ImGui menu (DevTools mod); pick packages via **export lists**.
 - Output **header-only** code per package (no `.cpp`, nothing to link) that targets the owner's **hand-written core**
-  (`UE4::UObject`, `TArray`, `FString`, `FName`, math, … in `SDK/src/UE4/{CoreUObject,Containers,Math}`).
+  (`UE4::UObject`, `TArray`, `FString`, `FName`, math, … in `ModLoader/src/Engine/UE4/{CoreUObject,Containers,Math}`, exported from MDML.dll).
 - **Survive game patches**: members resolved by name at runtime; function calls validated before calling.
 - Generated output is not committed; mods regenerate/ship what they need.
 

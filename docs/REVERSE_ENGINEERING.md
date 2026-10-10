@@ -67,7 +67,7 @@ Not found: StaticLoadObject, SpawnActorFTrans, GetDisplayNameTextByIndex, FindFi
 Engine defs (offsets) were all found by `EngineDefFinder`; DX11 Present hook worked.
 
 ## Other findings (not fixed yet, Phase 2)
-- `SDK/src/UE4/CoreUObject/Class.h:94` `reinterpret_cast<…>(this, ptr)` works only through the comma operator.
+- `ModLoader/src/Engine/UE4/CoreUObject/Class.h:94` `reinterpret_cast<…>(this, ptr)` works only through the comma operator.
 - `MDML.cpp` `[Property]` ini path reads `FField.ClassPrivate` from key `Next` (copy-paste).
 - `MDML::Start()` runs all setup (file I/O, scanning, DbgHelp) inside `DllMain` under the loader lock.
 - `hookFindFileInPakFiles` assigns `OutEntry = nullptr` (no effect, parameter is by value).

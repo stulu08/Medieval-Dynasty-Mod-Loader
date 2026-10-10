@@ -14,6 +14,7 @@ Read before doing anything:
 - **Document what you change** (update the docs above) so the next agent has context.
 - Work on branch `modernize` (or a worktree branched from it). Never push or commit to `main` without being asked.
 - Never touch the game install except when a task explicitly says so. Never launch the game yourself — the owner tests in-game.
+- Never derive paths from the process working directory (the engine switches it to `Binaries/Win64`); use the MDML.dll / EXE location.
 - `C:\dev\MDML\Key.txt` (outside the repo) holds the old pak AES key. Never print it into logs/docs, never commit it.
 - Do not edit generated SDK files by hand (see "SDK" below); hand-written engine core files are precious — keep and refactor them, don't regenerate them.
 
@@ -21,8 +22,9 @@ Read before doing anything:
 | Path | What |
 |---|---|
 | `LoaderAutoInjector/` | `xinput1_3.dll` proxy that loads `MDML.dll` into the game |
-| `ModLoader/` | `MDML.dll`: bootstrap (`src/MDML.cpp`), hooks (`Utilities/HooksManager.cpp`), runtime offset finder (`Utilities/EngineDefFinder.cpp`), mod system (`src/Mod/`), ImGui UI (`src/UI/`) |
-| `SDK/` | static lib: hand-written UE core (`src/UE4/CoreUObject`, `Containers`, `Math`, `SDK.h`, `NameValidator`) + **generated** game/engine classes (most of `src/UE4/*` packages and `src/Medieval_Dynasty/*`) |
+| `ModLoader/` | `MDML.dll`: bootstrap (`src/MDML.cpp`), hooks (`Utilities/HooksManager.cpp`), runtime offset finder (`Utilities/EngineDefFinder.cpp`), mod system (`src/Mod/`), ImGui UI (`src/UI/`), and the **hand-written UE engine core** (`src/Engine/`, see next row) |
+| `ModLoader/src/Engine/` | hand-written engine core, compiled into MDML.dll and exported (`MDML_ENGINE_API`): `UE4.h` umbrella, `NameValidator`, `UE4/CoreUObject`, `UE4/Containers`, `UE4/Math`, `UE4/UE_LOG.h`, hand-written `UE4/Engine/*` (World, UserDefinedEnum, …), `EngineInit.cpp` (one `UE4::InitSDK()`). Precious: refactor, never regenerate. Same relative paths as the old `SDK/src` (include dirs `Engine`, `EngineUE4`) |
+| `SDK/` | static lib, **generated** game/engine classes only (`src/UE4/<Package>/*`, `src/Medieval_Dynasty/*`) + aggregators (`src/UE4/SDK.h`, `src/Medieval_Dynasty/SDK.h`) + hybrids `GamePlayStatics`/`DataTable`/`StringTable`. Imports the core from MDML.dll: whoever links `SDK` must also link `MedievalDynastyModLoader`. MDML itself does not link SDK (it compiles `Actor`/`GamePlayStatics`/`KismetSystemLibrary.cpp` directly) |
 | `BaseMod/` | core mod shipped with the loader; also contains the in-game **SDK exporter** (`src/Utils.h` → `Utils::Export`, UI in `src/BaseMod.cpp`) |
 | `ModManager/` | standalone ImGui mod manager app (WIP) |
 | `ExampleMods/` | sample core mods |
