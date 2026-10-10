@@ -1,9 +1,11 @@
 #pragma once
 #include "Core.h"
 
+class INI;
+
 // Resolved engine addresses (globals and functions) and the engine-mode flags the core branches on (Wave 2.4, was the
 // address/flag part of GameInfo.h `GameProfile` / `SDK::SelectedGameProfile`).
-// Addresses come from the game PDB, falling back to the profile's patterns or raw offsets (SetupProfile, MDML.cpp).
+// Addresses come from the game PDB, falling back to the profile's patterns or raw offsets (EngineAddresses.cpp).
 // The mode flags are read from the profile's [GameInfo]/[Property] sections in SetupProfile (MDML.cpp); most of them
 // are UML multi-game paths (code inventory 3.1) and fixed for UE 4.27.
 namespace mdml {
@@ -50,4 +52,13 @@ namespace mdml {
 	// (FName::IsUsingNamePool, FUObjectArray::IsChunkedArray, UClass::CreateDefaultObject, ...) is compiled into mods
 	// and SDK.lib too.
 	extern MDML_ENGINE_API EngineAddresses Addresses;
+
+	// Symbol resolution, called from SetupProfile (MDML.cpp) in this order, interleaved with the profile reading.
+	// `GameInfo` is the opened game profile; SymbolResolver must be initialized before. MDML-internal, not exported.
+	// [GInfo] globals GName/GObject/GWorld (needs Addresses.UsesFNamePool).
+	void ResolveEngineGlobals(INI& GameInfo);
+	// [FunctionInfo] functions, ProcessInternals, StaticConstructObject_Internal.
+	void ResolveEngineFunctions(INI& GameInfo);
+	// [PakOverwrite] IsNonPakFilenameAllowed/FindFileInPakFiles (only called when bPakOverwrite=1).
+	void ResolvePakFunctions(INI& GameInfo);
 }
