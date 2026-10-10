@@ -12,9 +12,8 @@ public:
 		LogToFile = true;
 		ModRef = this;
 		hModule = handle;
-
-		//needs to be executed in the Mods code, since GName, ... is static
-		UE4::InitSDK();
+		// No UE4::InitSDK() here any more: the engine core (GObjects, GNames, GWorld) lives once in MDML.dll
+		// (Wave 2.3) and is initialized by MDML::InitCoreMods() before any mod's InitializeMod()/events run.
 	}
 
 	//When your mod gets initlized

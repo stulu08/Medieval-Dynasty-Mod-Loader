@@ -1454,6 +1454,9 @@
     <ClCompile Include="src\Core.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Engine\EngineInit.cpp">
+      <Filter>src\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="src\Engine\NameValidator.cpp">
       <Filter>src\Engine</Filter>
     </ClCompile>
