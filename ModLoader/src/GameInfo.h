@@ -167,11 +167,9 @@ public:
 
 	Ref<class spdlog::logger> UnrealLogger = nullptr;
 };
-#ifdef DEFINE_SDK_PROFILE_EXPORT
-class __declspec(dllexport) SDK {
-#else
-class __declspec(dllimport) SDK {
-#endif
+// Defined in MDML.dll (Globals.cpp) and exported. SDK.lib objects linked into MDML.dll see it as dllimport
+// (LNK4217, harmless) until the core moves into MDML.dll (code inventory 7.5, Wave 2.3).
+class LOADER_API SDK {
 public:
 	static GameProfile SelectedGameProfile;
 };

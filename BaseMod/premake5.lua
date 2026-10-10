@@ -43,7 +43,6 @@ project "BaseMod"
 	{
 		"MedievalDynastyModLoader",
 		"SDK",
-		"LoaderAutoInjector",
 		"MinHook"
 	}
 	filter "system:windows"

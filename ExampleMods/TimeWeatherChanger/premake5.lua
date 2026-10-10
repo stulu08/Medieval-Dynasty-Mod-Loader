@@ -42,7 +42,6 @@ project "TimeWeatherChanger"
 	{
 		"BaseMod",
 		"SDK",
-		"LoaderAutoInjector",
 		"MedievalDynastyModLoader",
 		"MinHook"
 	}

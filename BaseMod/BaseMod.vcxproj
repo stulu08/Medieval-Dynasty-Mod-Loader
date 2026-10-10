@@ -85,9 +85,6 @@
     <ProjectReference Include="..\SDK\SDK.vcxproj">
       <Project>{071D880B-7326-887C-FCA1-9E7C68AA937C}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\LoaderAutoInjector\LoaderAutoInjector.vcxproj">
-      <Project>{33873803-1F6B-F958-88CB-F3AB74CEE3DA}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\ModLoader\vendor\MinHook\MinHook.vcxproj">
       <Project>{1A77E127-8656-60C3-8F6E-EB99FBCCC624}</Project>
     </ProjectReference>

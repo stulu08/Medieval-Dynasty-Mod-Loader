@@ -117,6 +117,9 @@ Dumper-7 reference dump (crash cause confirmed), SDK generator design draft (`do
 1. ☑ In-game smoke test of the above (2026-10-10, passed).
 2. ◐ Wave 2 (serial, see code inventory §7): core compiled into MDML.dll and exported; `SetupProfile` out of `DllMain`;
    sequential `LoadLibraryW` mod loading; game-thread task queue. Smoke test after each step.
+   - 2.1 ◐ Proxy dependency broken: `SDK::SelectedGameProfile` is defined in `ModLoader/src/Globals.cpp` and exported
+     (`LOADER_API`); no project links `LoaderAutoInjector` any more, no DLL imports `xinput1_3.dll`. Expected side
+     effect: 7× LNK4286 (SDK.lib objects inside MDML.dll import a local symbol) until 2.3. Awaiting in-game test.
 3. 2.4 SDK generator (`docs/SDK_GENERATOR.md`): MDMLGenerator on Dumper-7, DevTools mod with export lists.
 4. Remaining library decisions (open decisions below), then C++20 + spdlog/ImGui upgrades (Wave 4).
 

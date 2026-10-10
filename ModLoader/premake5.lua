@@ -51,7 +51,6 @@ project "MedievalDynastyModLoader"
 	{
 		"MinHook",
 		"SDK",
-		"LoaderAutoInjector",
 	}
 	filter "files:vendor/**.cpp or files:src/UE4/**.cpp"
 		flags {"NoPCH"}

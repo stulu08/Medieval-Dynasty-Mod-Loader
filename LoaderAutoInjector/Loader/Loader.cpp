@@ -4,9 +4,6 @@
 #include <process.h>
 #include <string>
 
-#define DEFINE_SDK_PROFILE_EXPORT 1;
-#include "../../ModLoader/src/GameInfo.h"
-GameProfile SDK::SelectedGameProfile;
 
 std::string GetModuleFilePath(HMODULE hModule)
 {

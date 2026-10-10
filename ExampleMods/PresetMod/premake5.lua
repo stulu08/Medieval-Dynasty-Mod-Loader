@@ -42,7 +42,6 @@ project "PresetMod"
 	{
 		"BaseMod",
 		"SDK",
-		"LoaderAutoInjector",
 		"MedievalDynastyModLoader",
 		"MinHook"
 	}
