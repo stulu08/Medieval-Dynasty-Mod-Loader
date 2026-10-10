@@ -129,7 +129,11 @@ their worktree branches `worktree-agent-*` hold WIP commits, check `git log 158b
 - SDK generator part 1 (resumed twice; DevTools + vendored Dumper-7 + GeneratedSupport + compile test committed).
 - Exported hook API in MDML (`docs/reports/hook-api.md`), mods stop linking MinHook.
 - Lua scripting: design `docs/design/lua-scripting.md` + isolated spike in `Scripting/` (not in root premake).
-- Phase 3 design docs: `docs/design/{live-view,hot-reload,ufunction-hooks,pak-mods}.md`.
+- Phase 3 design docs ☑ merged (a8e11ed..4188591): `docs/design/{live-view,hot-reload,ufunction-hooks,pak-mods}.md` —
+  each ends with owner questions (priority of features, pak signing/encryption policy, new mod ABI for hot reload,
+  hook mechanism/threading, Live View read-only first). Ask the owner before implementing any of them.
+- SDK generator part 1 ☑ merged; THIRD_PARTY_LICENSES ☑ merged. Generator deployed (DevTools enabled in game copy),
+  first in-game generation + `compile_generated.py` on the output still pending.
 - `THIRD_PARTY_LICENSES.md` + README credits.
 Also waiting for the owner: in-game test of the deployed build d7835a5 (2.4 + LoadOrder + dump notice).
 
