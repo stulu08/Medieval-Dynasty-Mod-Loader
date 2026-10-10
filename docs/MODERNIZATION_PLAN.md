@@ -115,7 +115,7 @@ in-game OK** (see Wave 2 status lines below). Game folder has the build of 8f67f
   `python tests/mods/OverwriteBackupTest/check.py "E:\SteamLibrary\steamapps\common\Medieval Dynasty"` → expect
   `STATE: ORIGINAL` + log `Restored original file` / `Deleted 1/1 file links`. Then Test B (kill via Task Manager,
   restart, expect recovery) per the fixture README. Afterwards remove `Content/Mods/OverwriteBackupTest/` (README §5).
-  Original file copy: `C:\dev\MDMLackup6-10-10_chroma-original\`.
+  Original file copy: `C:\dev\MDML\backup\2026-10-10_chroma-original`.
 - **Two agents were running in worktrees** (`.claude/worktrees/agent-*`, branches `worktree-agent-*`); if they did not
   finish, their branches may hold partial commits — check `git log modernize..<branch>` before restarting the work:
   - Wave 2.4 GameProfile split (report would be `docs/reports/wave2/2.4-gameprofile-split.md`).
@@ -130,7 +130,7 @@ in-game OK** (see Wave 2 status lines below). Game folder has the build of 8f67f
    replace the dumper `MessageBoxA` (`Log::SetupMessage` in `Utilities/Dumper.cpp`) with log line + F1-window notice.
 3. INI wrapper (`Config::IniFile`) + mINI swap; then Wave 3 (parallel splits) and Wave 4 (C++20, libraries).
 Orchestration style the owner wants: parallel agents (Sonnet where fitting), orchestrator merges/builds/deploys
-(back up the game folder state to `C:\dev\MDMLackup\<date>_<commit>-tested` first) and asks the owner to test.
+(back up the game folder state to `C:\dev\MDML\backup\<date>_<commit>-tested` first) and asks the owner to test.
 
 ## Handoff — state at end of session 2026-10-09 (older)
 Done today: Phase 1 (PDB resolver, verified in-game), 2.0 code inventory, 2.1 hygiene/CI/premake setup, library research,
