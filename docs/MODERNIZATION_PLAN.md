@@ -99,6 +99,9 @@ Lua scripting for mods · live object viewer/editor in ImGui · hot reload · ho
 | 2026-10-10 | INI | **mINI behind an own `Config::IniFile` wrapper** (explicit-section API first, then swap the backend). Comments only with `;` afterwards — document for mod authors. |
 | 2026-10-10 | Libraries (Wave 4, after C++20) | Approved: ImGui 1.92.9b-docking + upstream TextEditor; spdlog 1.17 (fmt 12.1); **MDML exports a hook API** so mods don't each link MinHook; `THIRD_PARTY_LICENSES` (incl. Dumper-7 attribution) + nlohmann/json 3.12 moved to `vendor/`. |
 | 2026-10-10 | Agents | Owner wants the work orchestrated across parallel agents (Sonnet where it fits); orchestrator merges, deploys and asks the owner for in-game tests. |
+| 2026-10-10 | Mod load order | Central `Config/LoadOrder.ini` next to the loader: one line per mod `Name = 1/0` (enabled/disabled), top = first; new mods appended automatically; BaseMod always first. Later sortable in the F1 window / ModManager. |
+| 2026-10-10 | Console window | Leave the console's X button as is (closing it ends the game — accepted). |
+| 2026-10-10 | Loader dumps | Running dumps on the game thread is acceptable (noticeable hitch). The `MessageBoxA` after a dump must go (steals fullscreen focus and blocks the game thread) → log line + notice in the F1 window. |
 
 ---
 
@@ -144,11 +147,11 @@ Dumper-7 reference dump (crash cause confirmed), SDK generator design draft (`do
      scenarios OK; symlink mode untested). Fixture tests A/B still to run in-game.
    - 2.2 re-test ☑ (2026-10-10): popup gone, paths correct. Closing the MDML console window with X kills the whole
      process (Windows behaviour, no clean shutdown) — expected; see open decisions.
-   - 2.3 ◐ Merged (e45d084..8f67fe7, report `docs/reports/wave2/2.3-core-into-mdml.md`): hand-written core in
+   - 2.3 ☑ Merged (e45d084..8f67fe7, report `docs/reports/wave2/2.3-core-into-mdml.md`): hand-written core in
      `ModLoader/src/Engine/`, exported via `MDML_ENGINE_API` (alias of `LOADER_API`); one engine init
      (`Engine/EngineInit.cpp`), no per-mod `InitSDK`; SDK.lib = generated only and imports the core; MDML compiles
      `Actor`/`GamePlayStatics`/`KismetSystemLibrary.cpp` directly instead of linking SDK (cycle). LNK4286 gone. Awaiting
-     in-game test.
+     in-game test. ☑ Tested 2026-10-10: all engine classes found, BaseMod init, engine-info dump, clean shutdown.
 3. 2.4 SDK generator (`docs/SDK_GENERATOR.md`): MDMLGenerator on Dumper-7, DevTools mod with export lists.
 4. Remaining library decisions (open decisions below), then C++20 + spdlog/ImGui upgrades (Wave 4).
 
