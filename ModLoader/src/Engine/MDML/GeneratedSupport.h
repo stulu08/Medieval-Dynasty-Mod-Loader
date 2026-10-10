@@ -121,6 +121,10 @@ namespace mdml::sdk {
 	// Inline fast paths used by the generated accessors
 	// ---------------------------------------------------------------------------------------------------------------
 
+	// "const T&" that also works for pointer types spelled inside a macro (const class UFoo*& would be wrong).
+	template<typename T>
+	using TConstRef = const T&;
+
 	// Zeroed per-type storage that disabled accessors read from / write to instead of the object.
 	template<typename T>
 	inline void* Sink() {
@@ -207,7 +211,7 @@ public: \
 		static ::mdml::sdk::FMemberSlot _mdml_s; \
 		return *static_cast<__VA_ARGS__*>(::mdml::sdk::MemberPtr(this, _mdml_s, _mdml_d, ::mdml::sdk::Sink<__VA_ARGS__>())); \
 	} \
-	void _mdml_put_##Name(const __VA_ARGS__& _mdml_v) { _mdml_get_##Name() = _mdml_v; }
+	void _mdml_put_##Name(::mdml::sdk::TConstRef<__VA_ARGS__> _mdml_v) { _mdml_get_##Name() = _mdml_v; }
 
 // Static array member (ArrayDim > 1): Obj->Name[i]. Out-of-range indices hit the sink.
 #define MDML_MEMBER_ARRAY(Name, RawName, DumpOffset, Dim, ...) \
@@ -221,7 +225,7 @@ public: \
 		void* _mdml_p = ::mdml::sdk::MemberPtr(this, _mdml_s, _mdml_d, _mdml_sink); \
 		return _mdml_p == _mdml_sink ? *static_cast<__VA_ARGS__*>(_mdml_sink) : static_cast<__VA_ARGS__*>(_mdml_p)[_mdml_i]; \
 	} \
-	void _mdml_put_##Name(int32_t _mdml_i, const __VA_ARGS__& _mdml_v) { _mdml_get_##Name(_mdml_i) = _mdml_v; }
+	void _mdml_put_##Name(int32_t _mdml_i, ::mdml::sdk::TConstRef<__VA_ARGS__> _mdml_v) { _mdml_get_##Name(_mdml_i) = _mdml_v; }
 
 // Bitfield bool (FBoolProperty with FieldMask != 0xFF), resolved by name (byte offset + mask).
 #define MDML_BITFIELD(Name, RawName, DumpOffset, DumpMask) \

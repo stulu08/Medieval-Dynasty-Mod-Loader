@@ -19,6 +19,9 @@
     <Filter Include="src\Engine">
       <UniqueIdentifier>{12A1320E-FE58-745B-6760-4DB753370F4C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Engine\MDML">
+      <UniqueIdentifier>{AB007A79-178C-E73D-209D-6A328CA7433E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Engine\UE4">
       <UniqueIdentifier>{8F12FC39-7BE0-EF3F-6474-606650E1CBA4}</UniqueIdentifier>
     </Filter>
@@ -119,6 +122,9 @@
     </ClInclude>
     <ClInclude Include="src\Engine\EngineLayout.h">
       <Filter>src\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\MDML\GeneratedSupport.h">
+      <Filter>src\Engine\MDML</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\NameValidator.h">
       <Filter>src\Engine</Filter>
@@ -1471,6 +1477,9 @@
     </ClCompile>
     <ClCompile Include="src\Engine\EngineInit.cpp">
       <Filter>src\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\MDML\GeneratedSupport.cpp">
+      <Filter>src\Engine\MDML</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\NameValidator.cpp">
       <Filter>src\Engine</Filter>

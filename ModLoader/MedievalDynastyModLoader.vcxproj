@@ -73,6 +73,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClInclude Include="src\Core.h" />
     <ClInclude Include="src\Engine\EngineAddresses.h" />
     <ClInclude Include="src\Engine\EngineLayout.h" />
+    <ClInclude Include="src\Engine\MDML\GeneratedSupport.h" />
     <ClInclude Include="src\Engine\NameValidator.h" />
     <ClInclude Include="src\Engine\UE4.h" />
     <ClInclude Include="src\Engine\UE4\Containers\AlignedBytes.h" />
@@ -535,6 +536,9 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Engine\EngineInit.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\Engine\MDML\GeneratedSupport.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Engine\NameValidator.cpp">

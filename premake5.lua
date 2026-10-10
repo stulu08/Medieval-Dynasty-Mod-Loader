@@ -75,5 +75,8 @@ include "SDK"
 include "ModLoader/vendor/MinHook"
 group "GUI"
 include "ModManager"
+-- DevTools mod (off by default) with the MDML SDK generator on vendored Dumper-7 (plan 2.4, docs/SDK_GENERATOR.md)
+group "DevTools"
+include "DevTools"
 group ""
 
