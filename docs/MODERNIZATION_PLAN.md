@@ -183,6 +183,9 @@ Dumper-7 reference dump (crash cause confirmed), SDK generator design draft (`do
      `mdml::Layout` (`Engine/EngineLayout.h`), `mdml::Addresses` (`Engine/EngineAddresses.*`, incl. symbol resolution),
      `mdml::Config` (`Runtime/LoaderConfig.*`), `mdml::UnrealLogger` (`Engine/UE4/UE_LOG.h`). Build green (only C4715).
      Awaiting in-game test: resolve lines in MDML-log must match the previous run (order + rva). Deploy all DLLs together.
+   - Load order + dump notices ◐ Merged (095bc06, report `docs/reports/loadorder-and-dump-notices.md`): `Config/LoadOrder.ini`
+     generated on first run (not shipped), `0` disables the whole mod folder (DLL, logic mod, overwrites), BaseMod pinned
+     first; dump `MessageBoxA` replaced by log line + fading notice in the F1 window. Awaiting in-game test.
 3. 2.4 SDK generator (`docs/SDK_GENERATOR.md`): MDMLGenerator on Dumper-7, DevTools mod with export lists.
 4. Remaining library decisions (open decisions below), then C++20 + spdlog/ImGui upgrades (Wave 4).
 
