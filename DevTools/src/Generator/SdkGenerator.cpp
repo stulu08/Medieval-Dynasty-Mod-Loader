@@ -209,6 +209,8 @@ namespace devtools::sdkgen {
 		Settings::Generator::SDKGenerationPath = Request.OutputRoot.generic_string();
 		MDMLGenerator::RequestedPackages = Request.Packages;
 		MDMLGenerator::bAllPackages = Request.bAllPackages;
+		MDMLGenerator::Stats = {}; // Generator::Generate returns early (without calling us) when the folders fail
+		MDMLGenerator::MainFolder.clear();
 
 		const std::string Error = RunGuarded([] { Generator::Generate<MDMLGenerator>(); });
 
