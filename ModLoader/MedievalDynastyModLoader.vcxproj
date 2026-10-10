@@ -123,11 +123,11 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClInclude Include="src\Utilities\Dumper.h" />
     <ClInclude Include="src\Utilities\EngineDefFinder.h" />
     <ClInclude Include="src\Utilities\GameThread.h" />
+    <ClInclude Include="src\Utilities\Hooks.h" />
     <ClInclude Include="src\Utilities\HooksManager.h" />
     <ClInclude Include="src\Utilities\Logger.h" />
     <ClInclude Include="src\Utilities\Math.h" />
     <ClInclude Include="src\Utilities\Memory.h" />
-    <ClInclude Include="src\Utilities\MinHook.h" />
     <ClInclude Include="src\Utilities\Pattern.h" />
     <ClInclude Include="src\Utilities\SymbolResolver.h" />
     <ClInclude Include="vendor\INI\INI.h" />
@@ -574,6 +574,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClCompile Include="src\Utilities\Dumper.cpp" />
     <ClCompile Include="src\Utilities\EngineDefFinder.cpp" />
     <ClCompile Include="src\Utilities\GameThread.cpp" />
+    <ClCompile Include="src\Utilities\Hooks.cpp" />
     <ClCompile Include="src\Utilities\HooksManager.cpp" />
     <ClCompile Include="src\Utilities\Logger.cpp" />
     <ClCompile Include="src\Utilities\SymbolResolver.cpp" />

@@ -273,6 +273,9 @@
     <ClInclude Include="src\Utilities\GameThread.h">
       <Filter>src\Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="src\Utilities\Hooks.h">
+      <Filter>src\Utilities</Filter>
+    </ClInclude>
     <ClInclude Include="src\Utilities\HooksManager.h">
       <Filter>src\Utilities</Filter>
     </ClInclude>
@@ -283,9 +286,6 @@
       <Filter>src\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="src\Utilities\Memory.h">
-      <Filter>src\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Utilities\MinHook.h">
       <Filter>src\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="src\Utilities\Pattern.h">
@@ -1536,6 +1536,9 @@
       <Filter>src\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="src\Utilities\GameThread.cpp">
+      <Filter>src\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utilities\Hooks.cpp">
       <Filter>src\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="src\Utilities\HooksManager.cpp">

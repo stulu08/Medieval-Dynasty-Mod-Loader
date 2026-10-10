@@ -25,7 +25,6 @@ project "TimeWeatherChanger"
 	includedirs
 	{
 		"%{IncludeDir.spdlog}",
-		"%{IncludeDir.MinHook}",
 		"%{IncludeDir.ModLoader}",
 		"%{IncludeDir.Engine}",
 		"%{IncludeDir.EngineUE4}",
@@ -44,8 +43,7 @@ project "TimeWeatherChanger"
 	{
 		"BaseMod",
 		"SDK",
-		"MedievalDynastyModLoader",
-		"MinHook"
+		"MedievalDynastyModLoader"
 	}
 	filter "system:windows"
 		systemversion "latest"

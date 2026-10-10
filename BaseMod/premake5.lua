@@ -26,7 +26,6 @@ project "BaseMod"
 	includedirs
 	{
 		"%{IncludeDir.spdlog}",
-		"%{IncludeDir.MinHook}",
 		"%{IncludeDir.ModLoader}",
 		"%{IncludeDir.Engine}",
 		"%{IncludeDir.EngineUE4}",
@@ -44,8 +43,7 @@ project "BaseMod"
 	links
 	{
 		"MedievalDynastyModLoader",
-		"SDK",
-		"MinHook"
+		"SDK"
 	}
 	filter "system:windows"
 		systemversion "latest"

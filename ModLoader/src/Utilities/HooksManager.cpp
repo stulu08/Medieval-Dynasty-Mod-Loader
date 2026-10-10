@@ -3,7 +3,7 @@
 #include "Dumper.h"
 #include "Memory.h"
 #include "Globals.h"
-#include "MinHook.h"
+#include "Hooks.h"
 #include "HooksManager.h"
 #include "Mod/ModLoader.h"
 #include "UI/LoaderUI.h"
@@ -190,7 +190,8 @@ namespace HooksManager
 	void SetupHooks()
 	{
 		Log::Info_UML("Setting Up Loader");
-		MinHook::Init();
+		// The process' only MH_Initialize; mods hook through mdml::Hooks (Utilities/Hooks.h).
+		mdml::Hooks::Initialize();
 		Log::Info_UML("MinHook Setup");
 		Log::Info_UML("Loading Mods");
 
@@ -200,16 +201,16 @@ namespace HooksManager
 			ModLoader::DeleteSysLinks(true);//if there are old files delete them
 
 		if (mdml::Config.bPakOverride) {
-			MinHook::Add(mdml::Addresses.FindFileInPakFiles, &HookedFunctions::hookFindFileInPakFiles, &HookedFunctions::origFindFileInPakFiles, "FPakPlatformFile::FindFileInPakFiles");
-			MinHook::Add(mdml::Addresses.IsNonPakFilenameAllowed, &HookedFunctions::hookIsNonPakFilenameAllowed, &HookedFunctions::origIsNonPakFilenameAllowed, "FPakPlatformFile::IsNonPakFilenameAllowed");
+			mdml::Hooks::Add(mdml::Addresses.FindFileInPakFiles, &HookedFunctions::hookFindFileInPakFiles, &HookedFunctions::origFindFileInPakFiles, "FPakPlatformFile::FindFileInPakFiles");
+			mdml::Hooks::Add(mdml::Addresses.IsNonPakFilenameAllowed, &HookedFunctions::hookIsNonPakFilenameAllowed, &HookedFunctions::origIsNonPakFilenameAllowed, "FPakPlatformFile::IsNonPakFilenameAllowed");
 			Log::Info_MDML("Pak overwrites loaded ({0} ms after process start, {1} UObjects exist)", MsSinceProcessStart(), GetUObjectCount());
 		}
 
 		ModLoader::LoadMods();
 
-		MinHook::Add(mdml::Addresses.GameStateInit, &HookedFunctions::hookInitGameState, &HookedFunctions::origInitGameState, "AGameModeBase::InitGameState");
-		MinHook::Add(mdml::Addresses.BeginPlay, &HookedFunctions::hookBeginPlay, &HookedFunctions::origBeginPlay, "AActor::BeginPlay");
-		MinHook::Add(mdml::Addresses.Tick, &HookedFunctions::hookTick, &HookedFunctions::origTick, "UWorld::Tick");
+		mdml::Hooks::Add(mdml::Addresses.GameStateInit, &HookedFunctions::hookInitGameState, &HookedFunctions::origInitGameState, "AGameModeBase::InitGameState");
+		mdml::Hooks::Add(mdml::Addresses.BeginPlay, &HookedFunctions::hookBeginPlay, &HookedFunctions::origBeginPlay, "AActor::BeginPlay");
+		mdml::Hooks::Add(mdml::Addresses.Tick, &HookedFunctions::hookTick, &HookedFunctions::origTick, "UWorld::Tick");
 
 		LoaderUI::GetUI()->CreateUILogicThread();
 		if (!mdml::Config.bDelayGUISpawn)
@@ -219,12 +220,11 @@ namespace HooksManager
 		Log::Info_MDML("Loader setup finished ({0} ms after process start)", MsSinceProcessStart());
 	}
 	void AddProcessInternalHook() {
-		MinHook::Add(mdml::Addresses.ProcessInternals, &HookedFunctions::hookProcessFunction, &HookedFunctions::origProcessFunction, "ProcessBlueprintFunctions");
+		mdml::Hooks::Add(mdml::Addresses.ProcessInternals, &HookedFunctions::hookProcessFunction, &HookedFunctions::origProcessFunction, "ProcessBlueprintFunctions");
 	}
 	void ShutDown() {
 		if (mdml::Config.ModOverwritesEnabled)
 			ModLoader::DeleteSysLinks();
-		MH_DisableHook(MH_ALL_HOOKS);
-		MH_Uninitialize();
+		mdml::Hooks::Shutdown(); // MH_DisableHook(MH_ALL_HOOKS) + MH_Uninitialize, for the loader's and all mods' hooks
 	}
 };

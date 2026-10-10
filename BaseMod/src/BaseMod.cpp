@@ -2,7 +2,7 @@
 
 #include "UI/ImGuiColorTextEdit/TextEditor.h"
 
-#include "Utilities/MinHook.h"
+#include "Utilities/Hooks.h"
 #include "Utils.h"
 #include "Runtime/LoaderConfig.h"
 
@@ -32,15 +32,14 @@ namespace MDMLBase {
 			BaseModHooks::IsShippingBuild = (UE4::UFunction*)UE4::UObject::StaticFindObject((DWORD64)0, (UE4::UObject*)((DWORD64)-1), L"TDBPL_IsShippingBuild");
 
 #if 0
-			MinHook::Init();
-
-			if(BaseModHooks::IsDevelopmentBuild)
-				MinHook::Add((DWORD64)BaseModHooks::IsShippingBuild->GetFunction(), &hook_IsShippingBuild, &orig_IsShippingBuild, "TD_Blueprint_Library::TDBPL_IsShippingBuild");
+			// Hook variant (disabled): MDML owns MinHook, mods hook through mdml::Hooks (no MinHook::Init / MH_Initialize here).
+			if (BaseModHooks::IsShippingBuild)
+				mdml::Hooks::Add((DWORD64)BaseModHooks::IsShippingBuild->GetFunction(), &hook_IsShippingBuild, &orig_IsShippingBuild, "TD_Blueprint_Library::TDBPL_IsShippingBuild");
 			else
 				Mod::Get().getLogger()->Warn("IsShippingBuild function was Not found");
 
-			if (BaseModHooks::IsShippingBuild)
-				MinHook::Add((DWORD64)BaseModHooks::IsDevelopmentBuild->GetFunction(), &hook_IsDevelopmentBuild, &orig_IsDevelopmentBuild, "TD_Blueprint_Library::TDBPL_IsDevelopmentBuild");
+			if (BaseModHooks::IsDevelopmentBuild)
+				mdml::Hooks::Add((DWORD64)BaseModHooks::IsDevelopmentBuild->GetFunction(), &hook_IsDevelopmentBuild, &orig_IsDevelopmentBuild, "TD_Blueprint_Library::TDBPL_IsDevelopmentBuild");
 			else
 				Mod::Get().getLogger()->Warn("IsDevelopmentBuild function was Not found");
 #else

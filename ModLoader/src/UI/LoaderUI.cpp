@@ -5,7 +5,7 @@
 #include "Utilities/Memory.h"
 #include "Utilities/Dumper.h"
 #include "Utilities/GameThread.h"
-#include "Utilities/MinHook.h"
+#include "Utilities/Hooks.h"
 
 #include "Globals.h"
 #include "MDML.h"
@@ -497,8 +497,8 @@ DWORD __stdcall InitDX11Hook(LPVOID)
 	LoaderUI::GetUI()->pSwapChainVtable = (DWORD_PTR*)pSwapChain;
 	LoaderUI::GetUI()->pSwapChainVtable = (DWORD_PTR*)LoaderUI::GetUI()->pSwapChainVtable[0];
 	LoaderUI::GetUI()->phookD3D11Present = (LoaderUI::D3D11PresentHook)LoaderUI::GetUI()->pSwapChainVtable[8];
-	MinHook::Add((DWORD64)LoaderUI::GetUI()->pSwapChainVtable[13], &hookResizeBuffers, &LoaderUI::GetUI()->ResizeBuffers, "DX11-ResizeBuffers");
-	MinHook::Add((DWORD64)LoaderUI::GetUI()->phookD3D11Present, &hookD3D11Present, &D3D11Present, "DX11-Present");
+	mdml::Hooks::Add((DWORD64)LoaderUI::GetUI()->pSwapChainVtable[13], &hookResizeBuffers, &LoaderUI::GetUI()->ResizeBuffers, "DX11-ResizeBuffers");
+	mdml::Hooks::Add((DWORD64)LoaderUI::GetUI()->phookD3D11Present, &hookD3D11Present, &D3D11Present, "DX11-Present");
 
 	DWORD dPresentwOld;
 	DWORD dResizeOld;

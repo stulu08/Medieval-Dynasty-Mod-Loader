@@ -1,6 +1,5 @@
 #include "Core.h"
 #include "Mod.h"
-#include "Utilities/MinHook.h"
 #include "Utilities/Logger.h"
 
 Mod* Mod::ModRef;

@@ -1,5 +1,5 @@
 #include "Mod.h"
-#include "Utilities/MinHook.h"
+#include "Utilities/Hooks.h"
 
 #include "BaseMod.h"
 
@@ -20,7 +20,8 @@ void ExampleMod::OnModInitilize() {
 	//if you want to name them on your own do this
 	//REGISTER_FUNCTION_NAMED(WriteToFile, "WriteToFile");
 
-	//MinHook::Init(); //Uncomment if you plan to do hooks
+	// Function hooks go through MDML (it owns MinHook, no init needed), e.g.
+	//mdml::Hooks::Add(targetAddress, &hookFunction, &origFunction, "Class::Function");
 	UseMenuButton = true; // Allows Mod Loader To Show a Button, if pressed OnModMenuButtonPressed will be called
 }
 
