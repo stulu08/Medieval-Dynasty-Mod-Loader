@@ -99,8 +99,11 @@ Lua scripting for mods · live object viewer/editor in ImGui · hot reload · ho
 Done today: Phase 1 (PDB resolver, verified in-game), 2.0 code inventory, 2.1 hygiene/CI/premake setup, library research,
 Dumper-7 reference dump (crash cause confirmed), SDK generator design draft (`docs/SDK_GENERATOR.md`).
 
-**Committed but NOT yet tested in-game** (deploy + one test run needed; the game folder still has the build from the
-MinHook smoke test):
+**Smoke-tested in-game 2026-10-10** (build of 402802c deployed; previous game-folder state backed up to
+`C:\dev\MDML\backup\2026-10-10_pre-smoketest`): main menu → load save → F1 UI → quit. No crash, clean shutdown, all
+18 symbols via PDB, BaseMod initialized, owner confirmed the F1 UI looks fine. Game-log errors (missing `Male_Talk*`,
+`VolumeToRender` packages, ChromaSDK, Nvidia boost) appear in every earlier run too → not ours.
+**Not exercised:** `.mdml-backup` handling (no overwrite mod active; needs a loose-file test mod). Changes covered:
 - Overwrite mods back up/restore loose original files (`ModLoader.cpp`); BaseMod's cheat-menu overwrite now `Enable=False`.
   Test: enable it once, check `.mdml-backup` handling only matters for loose files (cheat menu is a pak asset).
 - INI parser no longer throws on duplicate sections/keys.
@@ -111,8 +114,8 @@ MinHook smoke test):
 - Dumper-7 is installed in the game as `Content/Mods/Dumper7/Dumper7.dll` (F7 dumps). Remove the folder when not needed.
 
 **Next steps (in order):**
-1. In-game smoke test of the above (main menu + load save + quit; F1 UI opens).
-2. Wave 2 (serial, see code inventory §7): core compiled into MDML.dll and exported; `SetupProfile` out of `DllMain`;
+1. ☑ In-game smoke test of the above (2026-10-10, passed).
+2. ◐ Wave 2 (serial, see code inventory §7): core compiled into MDML.dll and exported; `SetupProfile` out of `DllMain`;
    sequential `LoadLibraryW` mod loading; game-thread task queue. Smoke test after each step.
 3. 2.4 SDK generator (`docs/SDK_GENERATOR.md`): MDMLGenerator on Dumper-7, DevTools mod with export lists.
 4. Remaining library decisions (open decisions below), then C++20 + spdlog/ImGui upgrades (Wave 4).
