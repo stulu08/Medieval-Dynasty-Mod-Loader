@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator">
+      <UniqueIdentifier>{6379B8BD-CF39-34F4-9874-7D7104F478D0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\DevTools.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ExportList.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Generator\SdkGenerator.h">
+      <Filter>src\Generator</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="src\DevTools.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ExportList.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -244,3 +244,12 @@ public: \
 #else
 #define MDML_PREDEFINED_CHECK(Type, Size, Align)
 #endif
+
+// Same check for core types whose hand-written layout dates from older game builds and that generated code rarely
+// embeds; off by default, enable with MDML_SDK_STRICT_PREDEFINED_CHECKS to audit the core. A mismatch in a type that
+// a generated struct embeds is caught anyway by that struct's own size/offset static_asserts.
+#ifdef MDML_SDK_STRICT_PREDEFINED_CHECKS
+#define MDML_PREDEFINED_CHECK_STRICT(Type, Size, Align) MDML_PREDEFINED_CHECK(Type, Size, Align)
+#else
+#define MDML_PREDEFINED_CHECK_STRICT(Type, Size, Align)
+#endif

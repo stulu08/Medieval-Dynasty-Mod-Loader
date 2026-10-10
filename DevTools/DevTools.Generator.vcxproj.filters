@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Generator">
+      <UniqueIdentifier>{6379B8BD-CF39-34F4-9874-7D7104F478D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor">
+      <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7">
+      <UniqueIdentifier>{73AE4F6F-DF39-BD33-E84A-402854551934}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper">
+      <UniqueIdentifier>{6F63C5E9-5B5D-EE3B-44CA-844C306354A8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Engine">
+      <UniqueIdentifier>{143BE94A-8053-D074-4900-600EB5D7640E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Engine\Private">
+      <UniqueIdentifier>{FEA5906B-6A6A-8F5B-33D0-BF259F532B91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Engine\Private\OffsetFinder">
+      <UniqueIdentifier>{8C065767-789A-4C0F-E15E-A6C3CD118701}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Engine\Private\Unreal">
+      <UniqueIdentifier>{54A65491-40B9-54EA-E9A2-31D7D594F137}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Engine\Public">
+      <UniqueIdentifier>{C21F0851-AE06-CA48-5757-3066431D43AF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Engine\Public\OffsetFinder">
+      <UniqueIdentifier>{D03E97EE-3C05-F40A-8560-826DF165626F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Engine\Public\Unreal">
+      <UniqueIdentifier>{98FBF0CA-0461-8451-8D39-262AF99D79C0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Generator">
+      <UniqueIdentifier>{25EC219B-113D-0DDD-3AA1-FB9E2651A046}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Generator\Private">
+      <UniqueIdentifier>{0FD82D3A-FB54-217D-24D2-219110AEBD10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Generator\Private\Generators">
+      <UniqueIdentifier>{D8C1311D-44D3-D9C3-CD24-6C03393563FD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Generator\Private\Managers">
+      <UniqueIdentifier>{CC1A03C9-38E1-5FE5-813C-EE47ED41CE49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Generator\Private\Wrappers">
+      <UniqueIdentifier>{32C3F402-9E89-511F-E7E4-DF8153EABF83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Generator\Public">
+      <UniqueIdentifier>{B3D3CE66-1F63-9051-285F-7169946DCB5D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Generator\Public\Generators">
+      <UniqueIdentifier>{FCAE471E-E842-3DC6-5107-977A3DBA77B8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Generator\Public\Managers">
+      <UniqueIdentifier>{F06EB31C-DC17-1B4C-05AE-36CBF1B5358D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Generator\Public\Wrappers">
+      <UniqueIdentifier>{5617A556-42C0-0C86-6B56-2805575E27C7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Platform">
+      <UniqueIdentifier>{A3ECC729-0FD0-D669-18D3-04A684359DBA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Platform\Private">
+      <UniqueIdentifier>{8D761364-F905-D54E-0202-B6666E10105B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Platform\Public">
+      <UniqueIdentifier>{719A1B87-5DEC-F276-460B-308732FC0B60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Utils">
+      <UniqueIdentifier>{0FFC6903-FBB6-59AF-A46E-D2F99008A43F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Utils\Encoding">
+      <UniqueIdentifier>{053121A0-71F5-1F90-3A5B-505AA6DEBBC5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\Dumper-7\Dumper\Utils\Json">
+      <UniqueIdentifier>{18E98187-8457-D706-CD40-920639EECCA2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Generator\MDMLGenerator.h">
+      <Filter>src\Generator</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Generator\SdkGenerator.h">
+      <Filter>src\Generator</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Engine\Public\OffsetFinder\OffsetFinder.h">
+      <Filter>vendor\Dumper-7\Dumper\Engine\Public\OffsetFinder</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Engine\Public\OffsetFinder\Offsets.h">
+      <Filter>vendor\Dumper-7\Dumper\Engine\Public\OffsetFinder</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Engine\Public\Unreal\Enums.h">
+      <Filter>vendor\Dumper-7\Dumper\Engine\Public\Unreal</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Engine\Public\Unreal\NameArray.h">
+      <Filter>vendor\Dumper-7\Dumper\Engine\Public\Unreal</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Engine\Public\Unreal\ObjectArray.h">
+      <Filter>vendor\Dumper-7\Dumper\Engine\Public\Unreal</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Engine\Public\Unreal\UnrealContainers.h">
+      <Filter>vendor\Dumper-7\Dumper\Engine\Public\Unreal</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Engine\Public\Unreal\UnrealObjects.h">
+      <Filter>vendor\Dumper-7\Dumper\Engine\Public\Unreal</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Engine\Public\Unreal\UnrealTypes.h">
+      <Filter>vendor\Dumper-7\Dumper\Engine\Public\Unreal</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Generator\Public\Generators\Generator.h">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Public\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Generator\Public\HashStringTable.h">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Generator\Public\Managers\CollisionManager.h">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Public\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Generator\Public\Managers\DependencyManager.h">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Public\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Generator\Public\Managers\EnumManager.h">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Public\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Generator\Public\Managers\MemberManager.h">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Public\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Generator\Public\Managers\PackageManager.h">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Public\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Generator\Public\Managers\StructManager.h">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Public\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Generator\Public\PredefinedMembers.h">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Generator\Public\Wrappers\EnumWrapper.h">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Public\Wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Generator\Public\Wrappers\MemberWrappers.h">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Public\Wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Generator\Public\Wrappers\StructWrapper.h">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Public\Wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Platform\Private\Arch_x86.h">
+      <Filter>vendor\Dumper-7\Dumper\Platform\Private</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Platform\Private\PlatformWindows.h">
+      <Filter>vendor\Dumper-7\Dumper\Platform\Private</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Platform\Public\Architecture.h">
+      <Filter>vendor\Dumper-7\Dumper\Platform\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Platform\Public\Platform.h">
+      <Filter>vendor\Dumper-7\Dumper\Platform\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Settings.h">
+      <Filter>vendor\Dumper-7\Dumper</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\TmpUtils.h">
+      <Filter>vendor\Dumper-7\Dumper</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Utils\Encoding\UnicodeNames.h">
+      <Filter>vendor\Dumper-7\Dumper\Utils\Encoding</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Utils\Encoding\UtfN.hpp">
+      <Filter>vendor\Dumper-7\Dumper\Utils\Encoding</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Utils\Json\json.hpp">
+      <Filter>vendor\Dumper-7\Dumper\Utils\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Dumper-7\Dumper\Utils\Utils.h">
+      <Filter>vendor\Dumper-7\Dumper\Utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Generator\MDMLGenerator.cpp">
+      <Filter>src\Generator</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Generator\SdkGenerator.cpp">
+      <Filter>src\Generator</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Engine\Private\OffsetFinder\OffsetFinder.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Engine\Private\OffsetFinder</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Engine\Private\OffsetFinder\Offsets.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Engine\Private\OffsetFinder</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Engine\Private\Unreal\NameArray.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Engine\Private\Unreal</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Engine\Private\Unreal\ObjectArray.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Engine\Private\Unreal</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Engine\Private\Unreal\UnrealObjects.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Engine\Private\Unreal</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Engine\Private\Unreal\UnrealTypes.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Engine\Private\Unreal</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Generator\Private\Generators\Generator.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Private\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Generator\Private\HashStringTable.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Generator\Private\Managers\CollisionManager.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Private\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Generator\Private\Managers\DependencyManager.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Private\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Generator\Private\Managers\EnumManager.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Private\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Generator\Private\Managers\MemberManager.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Private\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Generator\Private\Managers\PackageManager.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Private\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Generator\Private\Managers\StructManager.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Private\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Generator\Private\Wrappers\EnumWrapper.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Private\Wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Generator\Private\Wrappers\MemberWrappers.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Private\Wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Generator\Private\Wrappers\StructWrapper.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Generator\Private\Wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Platform\Private\Arch_x86.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Platform\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Platform\Private\PlatformWindows.cpp">
+      <Filter>vendor\Dumper-7\Dumper\Platform\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\Dumper-7\Dumper\Settings.cpp">
+      <Filter>vendor\Dumper-7\Dumper</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

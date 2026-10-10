@@ -1,0 +1,6 @@
+; MDML SDK export list (DevTools). One package per line; ';' or '#' start a comment.
+; Dependencies (Engine, CoreUObject, struct/enum packages, ...) are added automatically by the generator.
+; This example covers what BaseMod's inventory tools need (first in-game test of the generator).
+BP_BaseCharacter
+InventoryComponent
+ST_InventoryItemsArray

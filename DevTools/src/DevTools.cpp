@@ -1,0 +1,301 @@
+#include "DevTools.h"
+
+#include "Utilities/GameThread.h"
+#include "Utilities/Logger.h"
+#include "UI/LoaderUI.h"
+
+#include "Generator/SdkGenerator.h"
+
+#include <algorithm>
+#include <sstream>
+
+namespace devtools {
+	namespace {
+		constexpr size_t MaxLogLines = 400;
+
+		std::string Trim(const std::string& Text) {
+			const size_t First = Text.find_first_not_of(" \t\r\n");
+			if (First == std::string::npos)
+				return {};
+			return Text.substr(First, Text.find_last_not_of(" \t\r\n") - First + 1);
+		}
+	}
+
+	DevToolsMod::DevToolsMod(HMODULE Handle) {
+		ModName = "DevTools";
+		ModVersion = "0.1.0";
+		ModDescription = "MDML developer tools: SDK generator (Dumper-7 analysis + MDML backend)";
+		ModAuthors = "Stulu";
+		ModLoaderVersion = MODLOADER_VERSION;
+		MedievalModLoaderVersion = MEDIEVAL_VERSION;
+		CreateLogger = true;
+		LogToFile = true;
+		UseMenuButton = true;
+		ModRef = this;
+		hModule = Handle;
+		s_instance = this;
+		CompleteModCreation();
+	}
+
+	void DevToolsMod::InitializeMod() {
+		SetupHooks(EventsEnabled::GuiOnly);
+		RescanExportLists();
+		AddLog("DevTools ready. SDK output folder: " + GetOutputRoot().string());
+	}
+
+	void DevToolsMod::OnModMenuButtonPressed() {
+		m_showWindow = !m_showWindow;
+	}
+
+	std::filesystem::path DevToolsMod::GetOutputRoot() {
+		// Next to MDML.dll (Binaries/Win64), never derived from the working directory and never inside Content.
+		HMODULE Mdml = nullptr;
+		wchar_t Path[MAX_PATH] = {};
+		if (GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
+				reinterpret_cast<LPCWSTR>(&::Mod::GetModsFolder), &Mdml) && Mdml
+			&& GetModuleFileNameW(Mdml, Path, MAX_PATH)) {
+			return std::filesystem::path(Path).parent_path() / "SDK-Out";
+		}
+		return std::filesystem::path(::Mod::GetModsFolder()).parent_path().parent_path() / "Binaries" / "Win64" / "SDK-Out";
+	}
+
+	void DevToolsMod::AddLog(const std::string& Line, bool bError) {
+		{
+			std::lock_guard<std::mutex> Lock(m_mutex);
+			m_log.emplace_back(bError, Line);
+			while (m_log.size() > MaxLogLines)
+				m_log.pop_front();
+		}
+		if (logger) {
+			if (bError)
+				logger->Error(Line);
+			else
+				logger->Info(Line);
+		}
+	}
+
+	void DevToolsMod::RescanExportLists() {
+		m_exportLists = FindExportLists(::Mod::GetModsFolder());
+		m_exportListSelected.assign(m_exportLists.size(), false);
+	}
+
+	std::vector<std::string> DevToolsMod::CollectSelectedPackages() const {
+		std::vector<std::string> Packages;
+		auto Add = [&Packages](const std::string& Name) {
+			if (!Name.empty() && std::find(Packages.begin(), Packages.end(), Name) == Packages.end())
+				Packages.push_back(Name);
+		};
+		for (size_t i = 0; i < m_exportLists.size(); ++i) {
+			if (m_exportListSelected[i]) {
+				for (const auto& Package : m_exportLists[i].Packages)
+					Add(Package);
+			}
+		}
+		for (const auto& Package : ParseExportList(m_extraPackages))
+			Add(Package);
+		for (const auto& Package : m_pickedPackages)
+			Add(Package);
+		return Packages;
+	}
+
+	void DevToolsMod::StartAnalysis() {
+		const EJobState State = m_jobState.load();
+		if (State == EJobState::Queued || State == EJobState::Running)
+			return;
+		m_jobState = EJobState::Queued;
+		AddLog("Analysis queued for the game thread (the game freezes while Dumper-7 runs).");
+		// Dumper-7 walks GObjects/GNames and calls ProcessEvent: game thread only.
+		mdml::GameThread::Enqueue([this]() {
+			m_jobState = EJobState::Running;
+			std::string Error;
+			auto Log = [this](sdkgen::ELogLevel Level, const std::string& Message) { AddLog(Message, Level == sdkgen::ELogLevel::Error); };
+			if (sdkgen::EnsureAnalysis(Log, Error)) {
+				auto Names = sdkgen::GetPackageNames();
+				AddLog("Analysis ready: " + std::to_string(Names.size()) + " packages.");
+				std::lock_guard<std::mutex> Lock(m_mutex);
+				m_packageNames = std::move(Names);
+				m_jobState = EJobState::Done;
+			}
+			else {
+				AddLog(Error, true);
+				m_jobState = EJobState::Failed;
+			}
+		});
+	}
+
+	void DevToolsMod::StartGeneration() {
+		sdkgen::GenerateRequest Request;
+		Request.OutputRoot = GetOutputRoot();
+		Request.bAllPackages = m_allPackages;
+		Request.Packages = CollectSelectedPackages();
+		if (!Request.bAllPackages && Request.Packages.empty()) {
+			AddLog("Nothing selected: tick an export list, pick packages or type package names.", true);
+			return;
+		}
+
+		EJobState State = m_jobState.load();
+		if (State == EJobState::Queued || State == EJobState::Running)
+			return;
+		m_jobState = EJobState::Queued;
+
+		std::ostringstream Summary;
+		Summary << "Generation queued: " << (Request.bAllPackages ? std::string("all packages") : std::to_string(Request.Packages.size()) + " package(s)")
+			<< " -> " << Request.OutputRoot.string();
+		AddLog(Summary.str());
+
+		mdml::GameThread::Enqueue([this, Request]() {
+			m_jobState = EJobState::Running;
+			auto Log = [this](sdkgen::ELogLevel Level, const std::string& Message) { AddLog(Message, Level == sdkgen::ELogLevel::Error); };
+			sdkgen::GenerateResult Result = sdkgen::Generate(Request, Log);
+
+			std::ostringstream Text;
+			if (Result.bSuccess) {
+				Text << "SDK generated in " << Result.Seconds << " s: " << Result.GeneratedPackages.size() << " header(s), "
+					<< Result.NumClasses << " classes, " << Result.NumStructs << " structs, " << Result.NumEnums << " enums, "
+					<< Result.NumFunctions << " functions (" << Result.NumSkippedFunctions << " skipped), "
+					<< Result.NumOpaqueMembers << " opaque members -> " << Result.SdkFolder.string();
+			}
+			else {
+				Text << "SDK generation failed: " << Result.Error;
+			}
+			for (const auto& Missing : Result.MissingPackages)
+				AddLog("Package not found in the running game: " + Missing, true);
+			AddLog(Text.str(), !Result.bSuccess);
+
+			auto Names = sdkgen::GetPackageNames();
+			std::lock_guard<std::mutex> Lock(m_mutex);
+			m_lastResult = Text.str();
+			if (!Names.empty())
+				m_packageNames = std::move(Names);
+			m_jobState = Result.bSuccess ? EJobState::Done : EJobState::Failed;
+		});
+	}
+
+	bool DevToolsMod::DrawImGui() {
+		if (!m_showWindow)
+			return false;
+		ImGui::SetNextWindowSize(ImVec2(760, 640), ImGuiCond_FirstUseEver);
+		if (ImGui::Begin("DevTools", &m_showWindow)) {
+			if (ImGui::CollapsingHeader("SDK generator", ImGuiTreeNodeFlags_DefaultOpen))
+				DrawSdkGenerator();
+		}
+		ImGui::End();
+		return false;
+	}
+
+	void DevToolsMod::DrawSdkGenerator() {
+		const EJobState State = m_jobState.load();
+		const bool bBusy = State == EJobState::Queued || State == EJobState::Running;
+
+		ImGui::TextWrapped("Generates one header per package for the MDML core (Dumper-7 analysis + MDML backend). "
+			"Runs on the game thread: the game freezes until it is done. Load a save first so Blueprint classes are loaded; "
+			"the analysis is taken once per game session.");
+		ImGui::Text("Output: %s", GetOutputRoot().string().c_str());
+
+		// export lists
+		ImGui::Separator();
+		ImGui::Text("Export lists (Content/Mods/<Mod>/*.export)");
+		ImGui::SameLine();
+		if (ImGui::SmallButton("Rescan"))
+			RescanExportLists();
+		if (m_exportLists.empty())
+			ImGui::TextDisabled("none found");
+		for (size_t i = 0; i < m_exportLists.size(); ++i) {
+			const ExportList& List = m_exportLists[i];
+			bool bSelected = m_exportListSelected[i];
+			std::string Label = List.ModName + "/" + List.File.filename().string() + " (" + std::to_string(List.Packages.size()) + " packages)##exportlist" + std::to_string(i);
+			if (ImGui::Checkbox(Label.c_str(), &bSelected))
+				m_exportListSelected[i] = bSelected;
+			if (!List.Error.empty()) {
+				ImGui::SameLine();
+				ImGui::TextColored(ImVec4(1, 0.4f, 0.4f, 1), "%s", List.Error.c_str());
+			}
+		}
+
+		ImGui::Separator();
+		ImGui::InputText("Extra packages", &m_extraPackages);
+		ImGui::SameLine();
+		ImGui::TextDisabled("(space/comma separated)");
+		ImGui::Checkbox("All packages (slow, thousands of headers)", &m_allPackages);
+
+		// package picker from the analysis
+		std::vector<std::string> Names;
+		{
+			std::lock_guard<std::mutex> Lock(m_mutex);
+			Names = m_packageNames;
+		}
+		if (ImGui::TreeNode("Package picker")) {
+			if (Names.empty()) {
+				ImGui::TextDisabled("Run the analysis to list the packages of the running game.");
+				if (bBusy)
+					ImGui::BeginDisabled();
+				if (ImGui::Button("Analyze (list packages)"))
+					StartAnalysis();
+				if (bBusy)
+					ImGui::EndDisabled();
+			}
+			else {
+				ImGui::InputText("Filter", &m_packageFilter);
+				ImGui::SameLine();
+				if (ImGui::SmallButton("Clear picks"))
+					m_pickedPackages.clear();
+				ImGui::BeginChild("##packages", ImVec2(0, 180), true);
+				for (const auto& Name : Names) {
+					if (!m_packageFilter.empty() && Name.find(m_packageFilter) == std::string::npos)
+						continue;
+					bool bPicked = m_pickedPackages.count(Name) != 0;
+					if (ImGui::Checkbox(Name.c_str(), &bPicked)) {
+						if (bPicked)
+							m_pickedPackages.insert(Name);
+						else
+							m_pickedPackages.erase(Name);
+					}
+				}
+				ImGui::EndChild();
+				ImGui::InputText("List name", &m_saveListName);
+				ImGui::SameLine();
+				if (ImGui::Button("Save selection as export list")) {
+					std::string Error;
+					std::string FileName = Trim(m_saveListName);
+					if (FileName.empty())
+						FileName = "Selection";
+					const auto File = std::filesystem::path(GetFolder()) / (FileName + ".export");
+					if (SaveExportList(File, CollectSelectedPackages(), Error))
+						AddLog("Saved " + File.string());
+					else
+						AddLog(Error, true);
+					RescanExportLists();
+				}
+			}
+			ImGui::TreePop();
+		}
+
+		ImGui::Separator();
+		const auto Selected = CollectSelectedPackages();
+		ImGui::Text("Selected: %s", m_allPackages ? "all packages" : (std::to_string(Selected.size()) + " package(s) + dependencies").c_str());
+		if (bBusy)
+			ImGui::BeginDisabled();
+		if (ImGui::Button("Generate SDK"))
+			StartGeneration();
+		if (bBusy)
+			ImGui::EndDisabled();
+		ImGui::SameLine();
+		const char* StateText = State == EJobState::Idle ? "idle" : State == EJobState::Queued ? "queued for the game thread"
+			: State == EJobState::Running ? "running (game paused)" : State == EJobState::Done ? "done" : "failed";
+		ImGui::Text("Status: %s", StateText);
+
+		ImGui::BeginChild("##devtoolslog", ImVec2(0, 0), true, ImGuiWindowFlags_HorizontalScrollbar);
+		{
+			std::lock_guard<std::mutex> Lock(m_mutex);
+			for (const auto& [bError, Line] : m_log) {
+				if (bError)
+					ImGui::TextColored(ImVec4(1, 0.4f, 0.4f, 1), "%s", Line.c_str());
+				else
+					ImGui::TextUnformatted(Line.c_str());
+			}
+		}
+		if (ImGui::GetScrollY() >= ImGui::GetScrollMaxY())
+			ImGui::SetScrollHereY(1.0f);
+		ImGui::EndChild();
+	}
+}
