@@ -167,8 +167,8 @@ public:
 
 	Ref<class spdlog::logger> UnrealLogger = nullptr;
 };
-// Defined in MDML.dll (Globals.cpp) and exported. SDK.lib objects linked into MDML.dll see it as dllimport
-// (LNK4217, harmless) until the core moves into MDML.dll (code inventory 7.5, Wave 2.3).
+// Defined in MDML.dll (Globals.cpp) and exported. The engine core that reads it (ModLoader/src/Engine) is compiled into
+// MDML.dll since Wave 2.3; mods and SDK.lib import it. To be split into LoaderConfig/EngineAddresses/EngineLayout (2.4).
 class LOADER_API SDK {
 public:
 	static GameProfile SelectedGameProfile;
