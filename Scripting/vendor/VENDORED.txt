@@ -1,0 +1,22 @@
+Vendored third-party sources for the Lua scripting spike (Scripting/). Unmodified copies.
+
+1. Lua 5.4.9 (PUC-Rio), MIT license
+   Source:   https://www.lua.org/ftp/lua-5.4.9.tar.gz (released 2026-08-10)
+   SHA-256:  2335b6c582a52654f94612bf10d2f4672805d05329aa6568b1d8cd9e5c6fb8e6 (matches the lua.org download page)
+   Copied:   src/*.c, src/*.h, src/lua.hpp, README. Not copied: Makefiles, doc/.
+             lua.c (standalone interpreter) and luac.c (compiler) are present but excluded from the build in premake5.lua.
+   License:  lua-5.4.9/LICENSE.txt (text from the end of src/lua.h)
+   Build:    premake StaticLib "Lua", compiled AS C++ (lua_error -> C++ exception instead of longjmp, see
+             docs/design/lua-scripting.md 2.3). Consumers must define SOL_USING_CXX_LUA=1 and must not wrap the
+             Lua headers in extern "C".
+
+2. sol2 v3.3.0 (ThePhD), MIT license
+   Source:   https://github.com/ThePhD/sol2/releases/tag/v3.3.0 (release assets, generated 2022-06-25)
+             sol.hpp     SHA-256 e095a961a5189863745e6c101124fce944af991f3d4726a1e82c5b4a885a187f
+             config.hpp  SHA-256 6c283673a16f0eeb3c56f8b8d72ccf7ed3f048816dbd2584ac58564c61315f02
+             forward.hpp SHA-256 8fc34d74e9b4b8baa381f5e6ab7b6f6b44114cd355c718505495943ff6b85740
+   Layout:   sol2-3.3.0/include/sol/{sol.hpp,config.hpp,forward.hpp} (sol.hpp includes <sol/config.hpp>)
+   License:  sol2-3.3.0/LICENSE.txt (from the v3.3.0 tag)
+
+Update procedure: replace the folder with the new upstream files, update versions/hashes here and the paths in
+Scripting/premake5.lua, rebuild and run the spike (Scripting/README.md).
