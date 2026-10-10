@@ -105,7 +105,34 @@ Lua scripting for mods · live object viewer/editor in ImGui · hot reload · ho
 
 ---
 
-## Handoff — state at end of session 2026-10-09 (read this first)
+## Handoff — session 2026-10-10 (READ THIS FIRST, newer than the 2026-10-09 handoff below)
+`modernize` head: Waves 2.1, 2.2, 2.3 + game-thread queue + overwrite backup fix + root-dir fix merged, built, **all tested
+in-game OK** (see Wave 2 status lines below). Game folder has the build of 8f67fe7 (= 2.3).
+
+**In progress when the session ended:**
+- **Overwrite fixture Test A running**: `Content/Mods/OverwriteBackupTest/` is deployed in the game. While running,
+  `check.py` showed `STATE: LINKED` (correct). Next: after the owner quit normally, run
+  `python tests/mods/OverwriteBackupTest/check.py "E:\SteamLibrary\steamapps\common\Medieval Dynasty"` → expect
+  `STATE: ORIGINAL` + log `Restored original file` / `Deleted 1/1 file links`. Then Test B (kill via Task Manager,
+  restart, expect recovery) per the fixture README. Afterwards remove `Content/Mods/OverwriteBackupTest/` (README §5).
+  Original file copy: `C:\dev\MDMLackup6-10-10_chroma-original\`.
+- **Two agents were running in worktrees** (`.claude/worktrees/agent-*`, branches `worktree-agent-*`); if they did not
+  finish, their branches may hold partial commits — check `git log modernize..<branch>` before restarting the work:
+  - Wave 2.4 GameProfile split (report would be `docs/reports/wave2/2.4-gameprofile-split.md`).
+  - SDK generator part 1: DevTools mod + vendored Dumper-7 + MDMLGenerator + core runtime helpers + offline compile
+    test (report would be `docs/reports/sdk-generator-part1.md`).
+  Note: agent worktrees were created from old `main` (ef78da9); every agent prompt must start with
+  `git reset --hard <modernize head>`.
+
+**Next after those (owner decisions already taken, see decisions log 2026-10-10):**
+1. Merge 2.4 + generator part 1, build, deploy, owner smoke test (+ generate a package in-game via DevTools).
+2. One Sonnet agent: `Config/LoadOrder.ini` (Name = 1/0, auto-append new mods, BaseMod first) in `LoadMods`, and
+   replace the dumper `MessageBoxA` (`Log::SetupMessage` in `Utilities/Dumper.cpp`) with log line + F1-window notice.
+3. INI wrapper (`Config::IniFile`) + mINI swap; then Wave 3 (parallel splits) and Wave 4 (C++20, libraries).
+Orchestration style the owner wants: parallel agents (Sonnet where fitting), orchestrator merges/builds/deploys
+(back up the game folder state to `C:\dev\MDMLackup\<date>_<commit>-tested` first) and asks the owner to test.
+
+## Handoff — state at end of session 2026-10-09 (older)
 Done today: Phase 1 (PDB resolver, verified in-game), 2.0 code inventory, 2.1 hygiene/CI/premake setup, library research,
 Dumper-7 reference dump (crash cause confirmed), SDK generator design draft (`docs/SDK_GENERATOR.md`).
 
