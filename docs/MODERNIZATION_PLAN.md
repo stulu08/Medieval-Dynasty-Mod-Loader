@@ -171,7 +171,8 @@ Dumper-7 reference dump (crash cause confirmed), SDK generator design draft (`do
    - Overwrite backup test fixture ☑ (`tests/mods/OverwriteBackupTest/`, README + read-only `check.py`). Its
      `REVIEW.md` lists 3 HIGH findings in the link/backup code (throwing filesystem calls after the rename, cleanup
      throws in DLL_PROCESS_DETACH, stale link renamed over an existing backup) → fixed in 43fe791 (offline harness, 12
-     scenarios OK; symlink mode untested). Fixture Test A ☑ 2026-10-10 (LINKED while running, original restored on normal exit, `Deleted 1/1`). Test B pending.
+     scenarios OK; symlink mode untested). Fixture Test A ☑ and Test B ☑ 2026-10-10 (kill via Task Manager → next start: `Old file links found`, restore,
+     then normal cycle; final state ORIGINAL). Fixture removed from the game.
    - 2.2 re-test ☑ (2026-10-10): popup gone, paths correct. Closing the MDML console window with X kills the whole
      process (Windows behaviour, no clean shutdown) — expected; see open decisions.
    - 2.3 ☑ Merged (e45d084..8f67fe7, report `docs/reports/wave2/2.3-core-into-mdml.md`): hand-written core in
