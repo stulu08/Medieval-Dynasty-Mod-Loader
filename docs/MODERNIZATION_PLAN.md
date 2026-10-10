@@ -92,6 +92,11 @@ Lua scripting for mods · live object viewer/editor in ImGui · hot reload · ho
 | 2026-10-09 | Startup/threading | `SetupProfile` out of `DllMain` into the init thread; mods loaded sequentially with `LoadLibraryW` (BaseMod first) before hooks; game-thread task queue (Tick hook) for UE calls from UI/tools. |
 | 2026-10-09 | Defaults taken (owner may veto) | Keep folder names; `mdml::` namespace for new loader internals; direct memory access instead of Read/WriteProcessMemory (explicit safe read only for scanning); ProcessLocalScriptFunction hook installed unconditionally; disable LTCG for SDK.lib until the new generator; keep event-bus semantics for now (revisit in Phase 3); DevTools shipped but disabled by default; hybrid files (`CoreTypes.h`, `GamePlayStatics.*`, `DataTable.*`, `StringTable.*`) treated as hand-written. |
 | 2026-10-09 | License check | Dumper-7 has no license file, but the maintainer (Fischsalat) wrote in [issue #416](https://github.com/Encryqed/Dumper-7/issues/416): *"Usage of the Dumper-7 code for your open source project with proper attribution is not an issue at all."* (rights retained, see #492; commercial use only by arrangement). MDML is open source and non-commercial → OK **with clear attribution** (credit in README, file headers of adapted code, THIRD_PARTY_LICENSES). UE4SS is MIT. |
+| 2026-10-10 | SDK generator members | Offsets resolved by property name **lazily on first use** and cached; dump-time offset only as logged fallback. DevTools may offer a full validation report. |
+| 2026-10-10 | SDK package selection | Each mod declares the packages it needs in an **export-list file next to `mod.ini`** (format modelled on BaseMod's old `.export` lists). |
+| 2026-10-10 | INI | **mINI behind an own `Config::IniFile` wrapper** (explicit-section API first, then swap the backend). Comments only with `;` afterwards — document for mod authors. |
+| 2026-10-10 | Libraries (Wave 4, after C++20) | Approved: ImGui 1.92.9b-docking + upstream TextEditor; spdlog 1.17 (fmt 12.1); **MDML exports a hook API** so mods don't each link MinHook; `THIRD_PARTY_LICENSES` (incl. Dumper-7 attribution) + nlohmann/json 3.12 moved to `vendor/`. |
+| 2026-10-10 | Agents | Owner wants the work orchestrated across parallel agents (Sonnet where it fits); orchestrator merges, deploys and asks the owner for in-game tests. |
 
 ---
 
@@ -101,7 +106,7 @@ Dumper-7 reference dump (crash cause confirmed), SDK generator design draft (`do
 
 **Smoke-tested in-game 2026-10-10** (build of 402802c deployed; previous game-folder state backed up to
 `C:\dev\MDML\backup\2026-10-10_pre-smoketest`): main menu → load save → F1 UI → quit. No crash, clean shutdown, all
-18 symbols via PDB, BaseMod initialized, owner confirmed the F1 UI looks fine. Game-log errors (missing `Male_Talk*`,
+17 symbols via PDB, BaseMod initialized, owner confirmed the F1 UI looks fine. Game-log errors (missing `Male_Talk*`,
 `VolumeToRender` packages, ChromaSDK, Nvidia boost) appear in every earlier run too → not ours.
 **Not exercised:** `.mdml-backup` handling (no overwrite mod active; needs a loose-file test mod). Changes covered:
 - Overwrite mods back up/restore loose original files (`ModLoader.cpp`); BaseMod's cheat-menu overwrite now `Enable=False`.
@@ -119,7 +124,17 @@ Dumper-7 reference dump (crash cause confirmed), SDK generator design draft (`do
    sequential `LoadLibraryW` mod loading; game-thread task queue. Smoke test after each step.
    - 2.1 ◐ Proxy dependency broken: `SDK::SelectedGameProfile` is defined in `ModLoader/src/Globals.cpp` and exported
      (`LOADER_API`); no project links `LoaderAutoInjector` any more, no DLL imports `xinput1_3.dll`. Expected side
-     effect: 7× LNK4286 (SDK.lib objects inside MDML.dll import a local symbol) until 2.3. Awaiting in-game test.
+     effect: 7× LNK4286 (SDK.lib objects inside MDML.dll import a local symbol) until 2.3. ☑ In-game test passed 2026-10-10.
+   - 2.2 ◐ Merged (5271d85, report `docs/reports/wave2/2.2-startup.md`): proxy uses CreateThread+LoadLibraryW; one MDML init
+     thread (DllMain only starts it); mods loaded sequentially (BaseMod first, then alphabetical) before game hooks.
+     Awaiting in-game test (timing lines `Profile setup took`, `Pak overwrites loaded (… ms, … UObjects)`).
+   - Game-thread queue ◐ Merged (8b64c75, `docs/reports/wave2/gamethread-queue.md`): `mdml::GameThread::Enqueue`,
+     drained in the Tick hook; loader console command, dumps and mod buttons routed. BaseMod `DrawImGui` calls still
+     off-thread (follow-up with the BaseMod/DevTools split). Awaiting in-game test.
+   - Overwrite backup test fixture ☑ (`tests/mods/OverwriteBackupTest/`, README + read-only `check.py`). Its
+     `REVIEW.md` lists 3 HIGH findings in the link/backup code (throwing filesystem calls after the rename, cleanup
+     throws in DLL_PROCESS_DETACH, stale link renamed over an existing backup) → fix before running the fixture.
+   - 2.3 ◐ in progress (agent, worktree).
 3. 2.4 SDK generator (`docs/SDK_GENERATOR.md`): MDMLGenerator on Dumper-7, DevTools mod with export lists.
 4. Remaining library decisions (open decisions below), then C++20 + spdlog/ImGui upgrades (Wave 4).
 
