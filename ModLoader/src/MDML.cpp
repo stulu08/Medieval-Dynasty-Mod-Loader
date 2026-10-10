@@ -445,18 +445,22 @@ bool SetupProfile(const std::string& Path) {
 
 #pragma region Overwrite System
 	//generate and load NoOverwrite File
-	SDK::SelectedGameProfile.rootGameDir = std::filesystem::current_path().string();
+	// Game root (where Engine/ and Medieval_Dynasty/ live) from MDML.dll's location: <root>/Medieval_Dynasty/Binaries/Win64.
+	// Not from the working directory: the engine switches it to Binaries/Win64 early, and since Wave 2.2 the setup runs
+	// on the init thread after that, which broke the NoOverwrite lookup (loose game files were treated as mod overwrites).
+	const std::filesystem::path rootGameDir = std::filesystem::weakly_canonical(std::filesystem::path(Path) / "../../..");
+	SDK::SelectedGameProfile.rootGameDir = rootGameDir.string();
 	if (!std::filesystem::exists(SDK::SelectedGameProfile.NoOverwriteFile)) {
 		Log::Warn_MDML("No NoOverwrite file loaded, generating one...");
 		if (FILE* file = fopen(SDK::SelectedGameProfile.NoOverwriteFile.c_str(), "w")) {
 			//dir, files
 			std::unordered_map<std::string, std::vector<std::string>> paths;
-			for (auto path : std::filesystem::recursive_directory_iterator(std::filesystem::current_path().string() + "/Medieval_Dynasty/Content")) {
+			for (auto path : std::filesystem::recursive_directory_iterator(rootGameDir / "Medieval_Dynasty/Content")) {
 				if (path.is_directory()) {
 					continue;
 				}
-				std::string strPath = std::filesystem::relative(path.path()).string();
-				paths[std::filesystem::relative(path.path().parent_path()).string()].push_back(strPath);
+				std::string strPath = std::filesystem::relative(path.path(), rootGameDir).string();
+				paths[std::filesystem::relative(path.path().parent_path(), rootGameDir).string()].push_back(strPath);
 
 			}
 			fprintf(file, "; This file stores if the mod loader should disbale file overwriting for specific files\n");
