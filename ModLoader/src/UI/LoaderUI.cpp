@@ -307,6 +307,15 @@ void DrawImGui()
 		ImGui::Spacing();
 		ImGui::Text("Medieval Dynasty Mod Loader Version: %s", MODLOADER_VERSION);
 		ImGui::Text("Medieval Dynasty Version: %s", MEDIEVAL_VERSION);
+		{
+			// non-modal dump notice, fades out after a few seconds
+			std::string notice;
+			float age = 0.f;
+			if (DumpNotice::Get(notice, age) && age < 8.f) {
+				const float alpha = age < 6.f ? 1.f : (8.f - age) / 2.f;
+				ImGui::TextColored(ImVec4(0.5f, 1.f, 0.5f, alpha), "%s", notice.c_str());
+			}
+		}
 		ShowLogicMods();
 		ShowCoreMods();
 		ShowOverrideMods();

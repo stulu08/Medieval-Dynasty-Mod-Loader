@@ -237,6 +237,9 @@
     <ClInclude Include="src\MDML.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\Mod\LoadOrder.h">
+      <Filter>src\Mod</Filter>
+    </ClInclude>
     <ClInclude Include="src\Mod\Mod.h">
       <Filter>src\Mod</Filter>
     </ClInclude>
@@ -1495,6 +1498,9 @@
     </ClCompile>
     <ClCompile Include="src\MDML.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mod\LoadOrder.cpp">
+      <Filter>src\Mod</Filter>
     </ClCompile>
     <ClCompile Include="src\Mod\Mod.cpp">
       <Filter>src\Mod</Filter>

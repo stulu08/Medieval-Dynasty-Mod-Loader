@@ -11,6 +11,7 @@
 #include "Globals.h"
 #include "Mod.h"
 #include "Runtime/LoaderConfig.h"
+#include "LoadOrder.h"
 
 std::string Mod::GetModsFolder() {
 	static std::string path;
@@ -69,6 +70,10 @@ namespace ModLoader
 	}
 	static bool EqualNoCase(const std::filesystem::path& a, const std::filesystem::path& b) {
 		return _wcsicmp(a.c_str(), b.c_str()) == 0;
+	}
+	// Config/LoadOrder.ini lives next to NoOverwrite.ini / ModLoaderInfo.ini. Idempotent (CreateSysLinks runs before LoadMods).
+	static void ResolveLoadOrder() {
+		LoadOrder::Resolve(Mod::GetModsFolder(), std::filesystem::path(mdml::Config.NoOverwriteFile).parent_path() / "LoadOrder.ini");
 	}
 	void LoadLogicMod(std::string modName, const std::filesystem::path& Actor, const std::string& ActorPath, const std::filesystem::path& PeristentObject, const std::string& PersintentObjectPath) {
 		if (!std::filesystem::exists(Actor)) {
@@ -141,6 +146,7 @@ namespace ModLoader
 		{
 			std::filesystem::create_directory(path);
 		}
+		ResolveLoadOrder();
 		//i use std::filesystem::path so every path looks the same here as a string
 		std::vector<std::filesystem::path> mods;
 		for (const auto& entry : std::filesystem::directory_iterator(path)) {
@@ -149,6 +155,8 @@ namespace ModLoader
 				auto dirName = entry.path().filename().string();
 				auto dirPath = entry.path().string();
 				auto iniPath = std::filesystem::path(dirPath + "/mod.ini");
+				if (!LoadOrder::IsEnabled(dirName))
+					continue;
 				//load mod from ini
 				if (std::filesystem::exists(iniPath)) {
 
@@ -170,6 +178,8 @@ namespace ModLoader
 			//load dlls that are inside Content/Mods
 			if (entry.path().extension().string() == ".dll")
 			{
+				if (!LoadOrder::IsEnabled(entry.path().stem().string()))
+					continue;
 				mods.push_back(entry.path().string());
 			}
 		}
@@ -179,13 +189,17 @@ namespace ModLoader
 		std::sort(mods.begin(), mods.end(), LessNoCase);
 		mods.erase(std::unique(mods.begin(), mods.end(), EqualNoCase), mods.end());
 
-		//move basemod to front
-		const std::filesystem::path baseModPath = std::filesystem::path(path + "/BaseMod/BaseMod.dll").lexically_normal();
-		auto baseModIt = std::find_if(mods.begin(), mods.end(), [&](const std::filesystem::path& mod) { return EqualNoCase(mod, baseModPath); });
-		if (baseModIt != mods.end()) {
-			Log::Info_MDML("Moved /BaseMod/BaseMod.dll to front");
-			std::rotate(mods.begin(), baseModIt, baseModIt + 1);
-		}
+		//order by Config/LoadOrder.ini (BaseMod is always first there); ties (several dlls of one mod) stay alphabetical
+		const std::filesystem::path modsRoot = std::filesystem::path(path).lexically_normal();
+		auto modNameOf = [&](const std::filesystem::path& mod) {
+			auto rel = mod.lexically_relative(modsRoot);
+			if (rel.empty() || *rel.begin() == "..")
+				return mod.stem().string();
+			return rel.has_parent_path() ? rel.begin()->string() : rel.stem().string();
+		};
+		std::stable_sort(mods.begin(), mods.end(), [&](const std::filesystem::path& a, const std::filesystem::path& b) {
+			return LoadOrder::GetPosition(modNameOf(a)) < LoadOrder::GetPosition(modNameOf(b));
+		});
 
 		//load all mods one after another on this thread, BaseMod first
 		for (const auto& mod : mods) {
@@ -212,6 +226,10 @@ namespace ModLoader
 
 					
 					if (LoaderInfo.select("LogicMod")) {
+						if (!LoadOrder::IsEnabled(dirName)) {
+							Log::Info_MDML("Logic mod {0} is disabled in LoadOrder.ini", dirName);
+							continue;
+						}
 
 						auto modName = LoaderInfo.get("ModName", dirName);
 						auto actorFile = dirPath + "/" + LoaderInfo.get("ActorFile", "");
@@ -465,6 +483,7 @@ namespace ModLoader
 		DeleteSysLinks(true);
 		std::error_code ec;
 		std::string ModFolderPath = Mod::GetModsFolder();
+		ResolveLoadOrder();
 		if (!std::filesystem::exists(ModFolderPath, ec))
 		{
 			std::filesystem::create_directory(ModFolderPath, ec);
@@ -493,6 +512,10 @@ namespace ModLoader
 					INI LoaderInfo(iniPath.string(), true);
 
 					if (LoaderInfo.select("Overwrites") || LoaderInfo.select("Overrides")) {
+						if (!LoadOrder::IsEnabled(dirName)) {
+							Log::Info_MDML("Overwrite mod {0} is disabled in LoadOrder.ini, no links created", dirName);
+							continue;
+						}
 						std::string enabled = LoaderInfo.get("Enable", "False");
 						OverwriteMod oMod;
 						oMod.Name = LoaderInfo.get("Name", "Uknown");

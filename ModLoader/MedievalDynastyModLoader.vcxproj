@@ -112,6 +112,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     <ClInclude Include="src\Engine\UE4\UE_LOG.h" />
     <ClInclude Include="src\Globals.h" />
     <ClInclude Include="src\MDML.h" />
+    <ClInclude Include="src\Mod\LoadOrder.h" />
     <ClInclude Include="src\Mod\Mod.h" />
     <ClInclude Include="src\Mod\ModLoader.h" />
     <ClInclude Include="src\Mod\ModStack.h" />
@@ -559,6 +560,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Config" "$(SolutionDir)\bin\Release-windows-x8
     </ClCompile>
     <ClCompile Include="src\Globals.cpp" />
     <ClCompile Include="src\MDML.cpp" />
+    <ClCompile Include="src\Mod\LoadOrder.cpp" />
     <ClCompile Include="src\Mod\Mod.cpp" />
     <ClCompile Include="src\Mod\ModLoader.cpp" />
     <ClCompile Include="src\Mod\ModStack.cpp" />

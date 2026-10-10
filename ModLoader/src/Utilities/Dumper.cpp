@@ -1,5 +1,7 @@
 #include "Core.h"
 #include "Dumper.h"
+#include <mutex>
+#include <chrono>
 #include "UE4.h"
 #include "Globals.h"
 #include "MDML.h"
@@ -7,6 +9,28 @@
 #include "EngineLayout.h"
 
 Dumper* Dumper::DumpRef;
+
+static std::mutex s_noticeMutex;
+static std::string s_noticeText;
+static std::chrono::steady_clock::time_point s_noticeTime;
+
+void DumpNotice::Set(const std::string& text)
+{
+	Log::Info_MDML("{0}", text);
+	std::lock_guard<std::mutex> lock(s_noticeMutex);
+	s_noticeText = text;
+	s_noticeTime = std::chrono::steady_clock::now();
+}
+
+bool DumpNotice::Get(std::string& text, float& ageSeconds)
+{
+	std::lock_guard<std::mutex> lock(s_noticeMutex);
+	if (s_noticeText.empty())
+		return false;
+	text = s_noticeText;
+	ageSeconds = std::chrono::duration<float>(std::chrono::steady_clock::now() - s_noticeTime).count();
+	return true;
+}
 
 Dumper* Dumper::GetDumper()
 {
@@ -38,7 +62,6 @@ bool Dumper::DumpObjectArray()
 				if (obj != nullptr)
 					fprintf(Log, "[%06i] %-100s 0x%p\n", obj->GetIndex(), obj->GetFullName().c_str(), obj);
 			}
-			Log::SetupMessage("Done!", "Object Dump Complete!");
 		}
 		else
 		{
@@ -48,10 +71,9 @@ bool Dumper::DumpObjectArray()
 				if (obj != nullptr)
 					fprintf(Log, "[%06i] %-100s 0x%p\n", obj->GetIndex(), obj->GetFullName().c_str(), obj);
 			}
-			Log::SetupMessage("Done!", "Object Dump Complete!");
 		}
-		Log::Info_UML("Object Dump Complete!");
 		fclose(Log);
+		DumpNotice::Set("Object dump written to " + std::filesystem::absolute("Dump/ObjectDump.txt").string());
 		return true;
 	}
 	else
@@ -81,8 +103,7 @@ bool Dumper::DumpEngineInfo()
 		fprintf(Log, "\n[FField]\nNext=0x%p\nName=0x%p\nClassPrivate=0x%p\n", defs.FField.Next, defs.FField.Name, defs.FField.ClassPrivate);
 		fprintf(Log, "\n[FFieldClass]\nName=0x%p\nID=0x%p\nCastFlags=0x%p\nSuperClass=0x%p\n", defs.FFieldClass.Name, defs.FFieldClass.ID, defs.FFieldClass.CastFlags, defs.FFieldClass.SuperClass);
 		fclose(Log);
-		Log::SetupMessage("Done!", "Engine Info Dump Complete!");
-		Log::Info_UML("Engine Info Dump Complete!");
+		DumpNotice::Set("Engine info dump written to " + std::filesystem::absolute("Dump/EngineInfo.txt").string());
 		return true;
 	}
 	return false;
@@ -114,7 +135,7 @@ bool Dumper::DumpWorldActors()
 			fprintf(Log, "\n");
 		}
 	}
-	Log::SetupMessage("Done!", "World Actors Dump Complete!");
 	fclose(Log);
+	DumpNotice::Set("World actors dump written to " + std::filesystem::absolute(FileName).string());
 	return true;
 }
