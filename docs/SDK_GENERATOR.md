@@ -27,7 +27,8 @@ projects (issue #416). Credited in `VENDORED.txt`, in the file headers of `MDMLG
 (adapted code) and in the banner of every generated header. README / `THIRD_PARTY_LICENSES` entry: see the report.
 
 ## Running it (in-game)
-1. Enable DevTools: in `Content/Mods/DevTools/mod.ini` remove the `;` before `[Mod]` and `DLLPath=DevTools.dll`.
+1. Enable DevTools: in `Content/Mods/DevTools/mod.ini` remove the `;` before `[Mod]` and `DLLPath=DevTools.dll`
+   (and keep `DevTools = 1` in `Config/LoadOrder.ini`).
 2. Start the game, **load a save** (Blueprint classes such as `BP_BaseCharacter` are only loaded in the world).
 3. F1 → window "DevTools" → "SDK generator":
    - tick export lists (`Content/Mods/<Mod>/*.export`), and/or type package names in "Extra packages", and/or
