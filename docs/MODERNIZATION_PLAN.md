@@ -192,10 +192,18 @@ Dumper-7 reference dump (crash cause confirmed), SDK generator design draft (`do
    - 2.4 ◐ Merged (6af6575..0af5e9a, report `docs/reports/wave2/2.4-gameprofile-split.md`): `GameInfo.h`/`class SDK` gone;
      `mdml::Layout` (`Engine/EngineLayout.h`), `mdml::Addresses` (`Engine/EngineAddresses.*`, incl. symbol resolution),
      `mdml::Config` (`Runtime/LoaderConfig.*`), `mdml::UnrealLogger` (`Engine/UE4/UE_LOG.h`). Build green (only C4715).
-     Awaiting in-game test: resolve lines in MDML-log must match the previous run (order + rva). Deploy all DLLs together.
+     ☑ Tested 2026-10-10 (d7835a5) together with load order + dump notices: LoadOrder.ini generated (BaseMod, Dumper7),
+     3 dumps logged `… dump written to …`, clean shutdown. First F1 took 16 s (D3D11 hook setup) — most likely CPU
+     contention from parallel builds/agents at that moment; re-check timing in a quiet run.
    - Load order + dump notices ◐ Merged (095bc06, report `docs/reports/loadorder-and-dump-notices.md`): `Config/LoadOrder.ini`
      generated on first run (not shipped), `0` disables the whole mod folder (DLL, logic mod, overwrites), BaseMod pinned
-     first; dump `MessageBoxA` replaced by log line + fading notice in the F1 window. Awaiting in-game test.
+     first; dump `MessageBoxA` replaced by log line + fading notice in the F1 window. ☑ Tested with 2.4.
+   - SDK generator part 1 ◐ Merged (917e174..3926add as cherry-picks, report `docs/reports/sdk-generator-part1.md`,
+     `docs/SDK_GENERATOR.md` rewritten): `DevTools/` mod (disabled by default via commented `[Mod]` in mod.ini) +
+     vendored Dumper-7 (`DevTools/vendor/Dumper-7`, C++latest project `DevTools.Generator`) + MDMLGenerator; core runtime
+     support `ModLoader/src/Engine/MDML/GeneratedSupport.*`; offline compile test `DevTools/tests/SDKCompileTest` +
+     `compile_generated.py`. Deployed with DevTools enabled in the game copy; awaiting first in-game generation.
+   - `THIRD_PARTY_LICENSES.md` + README credits ☑ (2f70981); follow-ups listed at its end (missing upstream license files).
 3. 2.4 SDK generator (`docs/SDK_GENERATOR.md`): MDMLGenerator on Dumper-7, DevTools mod with export lists.
 4. Remaining library decisions (open decisions below), then C++20 + spdlog/ImGui upgrades (Wave 4).
 
