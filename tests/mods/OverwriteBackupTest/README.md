@@ -13,7 +13,8 @@ Manual test fixture for the overwrite-mod backup feature (`.mdml-backup`, `ModLi
 - No DLL: `LoadMods` accepts a mod folder with `mod.ini` and no `[Mod]` section (nothing gets injected), and
   `CreateSysLinks` only needs `[Overrides]` + `Enable=True` + `Folder`.
 - Current profile uses hard links (`UseHardLinks=1`). To also test symlinks, set `UseHardLinks=0` (needs Developer Mode or
-  admin on Windows, otherwise link creation fails, see REVIEW.md finding 1).
+  admin on Windows, otherwise link creation fails, see REVIEW.md finding 1). Since the fix this no longer loses the original: the log shows
+  `Could not create link ... skipping it` followed by `Restored original file ...` and the game starts normally without the mod file.
 
 `GAME` below = `E:\SteamLibrary\steamapps\common\Medieval Dynasty`, `MD` = `%GAME%\Medieval_Dynasty`.
 
@@ -50,7 +51,7 @@ During the run (orchestrator, game still running), `python check.py "%GAME%"` mu
 [..][MDML]: Backed up original file Medieval_Dynasty\Content\\ChromaSDK\Animations\Cold_Hit_Keyboard.chroma
 [..][MDML]: Created 1 hard links
 ```
-(`Created link to ...` is a Trace line and may not appear in the file; no `Could not back up`, no `Old file links found`.)
+(`Created link to ...` is a Trace line and may not appear in the file; no `Could not back up`, no `Could not create link`, no `Old file links found`.)
 
 After normal exit (`python check.py`): `STATE: ORIGINAL` (hash `6eae822a..`, size 10118, no `.mdml-backup`, no `ModLinks.bin`),
 and the log ends with:
@@ -87,8 +88,10 @@ and the log ends with:
 ## 4. Optional extra cases (orchestrator, game not running, no launch needed for the files part)
 These need the game start to trigger the code, so batch them into one extra launch each:
 - Stale link without ModLinks.bin: while LINKED after a kill (section 3 step 4), delete `Config\ModLinks.bin`, start the
-  game. Expected by design: no recovery possible; REVIEW.md finding 3 predicts the original is lost (backup overwritten by
-  the link). Restore afterwards with Steam verify. Run this only after the owner agrees.
+  game. Expected since the fix (REVIEW.md finding 3): the log shows `Stale link ... found, keeping the existing backup`,
+  the existing `.mdml-backup` (hash `6eae822a..`) is NOT overwritten, a fresh link is created and recorded, and a normal
+  exit restores the original (`STATE: ORIGINAL`). Before the fix this lost the original. Safe to run now, but keep a copy
+  of the original anyway (section 0 step 3).
 - Mod removed after crash: after a kill, delete `Content\Mods\OverwriteBackupTest`, then start the game. Expected: recovery
   removes the (now orphaned hard link, still a normal file) target and restores the backup.
 
@@ -103,3 +106,14 @@ These need the game start to trigger the code, so batch them into one extra laun
 
 `check.py` is read-only and takes only the game folder (`python check.py "E:\SteamLibrary\steamapps\common\Medieval Dynasty"`).
 Exit code 0 means ORIGINAL or LINKED, 1 means a broken/inconsistent state.
+
+## 6. Behaviour added by the link/backup fixes (log lines to look for)
+- Every target is written to `ModLinks.bin` (and flushed) before the original is renamed / the link is created. A crash in
+  between leaves `ModLinks.bin` with an entry whose link never existed; the next start must end `ORIGINAL`
+  (`Deleted 0/1 old file links` or `Restored original file`, plus `Leaving ... alone` if the original was never moved).
+- Entries that cannot be resolved (file locked, restore failed) stay in `ModLinks.bin` (`N file links could not be resolved
+  and are retried on the next start`); the file is only deleted when everything was resolved.
+- If `ModLinks.bin` cannot be opened for writing: `Could not open ... for writing, overwrite links are disabled`, no links are made.
+- Case-insensitive duplicates between mods: `Another mod already overwrites ..., the later mod wins`.
+- Offline test: the pure filesystem logic sits between `// BEGIN link-ops` and `// END link-ops` in `ModLoader.cpp`; a throwaway
+  harness can extract and compile that block against stub `Log`/`FormatPath` (not committed).

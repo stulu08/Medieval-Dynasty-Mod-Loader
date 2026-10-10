@@ -3,6 +3,8 @@
 #include <iostream>
 #include <windows.h>
 #include <filesystem>
+#include <fstream>
+#include <set>
 
 #include "INI.h"
 
@@ -226,39 +228,265 @@ namespace ModLoader
 			}
 		}
 	}
+	// BEGIN link-ops (pure filesystem logic; the offline test harness extracts this block, keep it free of other dependencies than Log and MDML::FormatPath)
 	// Loose game files replaced by an overwrite mod are kept next to the link under this name.
 	static std::filesystem::path GetBackupPath(const std::filesystem::path& target) {
 		return std::filesystem::path(target.string() + ".mdml-backup");
 	}
-	static void RestoreBackup(const std::filesystem::path& target) {
-		auto backup = GetBackupPath(target);
-		if (!std::filesystem::exists(backup) || std::filesystem::exists(target))
-			return;
-		std::error_code ec;
-		std::filesystem::rename(backup, target, ec);
-		if (ec)
-			Log::Error_MDML("Could not restore original file {0} ({1})", MDML::FormatPath(target), ec.message());
-		else
-			Log::Info_MDML("Restored original file {0}", MDML::FormatPath(target));
+	// Case-insensitive, normalized key for a path (NTFS is case-insensitive, entries contain a doubled backslash).
+	static std::wstring GetPathKey(const std::filesystem::path& path) {
+		std::wstring key = path.lexically_normal().wstring();
+		for (auto& c : key)
+			c = (wchar_t)towlower(c);
+		return key;
 	}
+	// True if something (file, link or dangling symlink) is present at the path. Does not follow symlinks.
+	static bool PathPresent(const std::filesystem::path& path) {
+		std::error_code ec;
+		auto status = std::filesystem::symlink_status(path, ec);
+		return !ec && status.type() != std::filesystem::file_type::not_found;
+	}
+	static bool IsSymlink(const std::filesystem::path& path) {
+		std::error_code ec;
+		auto status = std::filesystem::symlink_status(path, ec);
+		return !ec && status.type() == std::filesystem::file_type::symlink;
+	}
+	// Does the file at target look like a link we created? (symlink, hard link to the mod source, or any other hard link)
+	static bool LooksLikeOurLink(const std::filesystem::path& target, const std::filesystem::path* source) {
+		if (IsSymlink(target))
+			return true;
+		std::error_code ec;
+		if (source && std::filesystem::equivalent(target, *source, ec) && !ec)
+			return true;
+		ec.clear();
+		auto count = std::filesystem::hard_link_count(target, ec);
+		return !ec && count > 1;
+	}
+	// ModLinks.bin: plain text, one absolute target path per line. Every target is recorded and flushed BEFORE the
+	// original is renamed / the link is created, so a crash in between is repaired on the next start.
+	class LinkRecord {
+	public:
+		bool Open(const std::filesystem::path& file) {
+			stream.open(file, std::ios_base::out | std::ios_base::app);
+			if (!stream.is_open() || !stream.good()) {
+				Log::Error_MDML("Could not open {0} for writing, overwrite links are disabled", MDML::FormatPath(file));
+				return false;
+			}
+			return true;
+		}
+		bool Add(const std::string& target) {
+			stream << target << std::endl;
+			if (!stream.good()) {
+				Log::Error_MDML("Could not write to ModLinks.bin, skipping {0}", MDML::FormatPath(target));
+				stream.clear();
+				return false;
+			}
+			return true;
+		}
+		void Close() {
+			stream.close();
+		}
+	private:
+		std::ofstream stream;
+	};
+	// Links one mod file into the game folder, backing up an existing loose original. Returns true if the link exists afterwards.
+	// keys: normalized targets already handled in this run (a later mod wins over an earlier one).
+	static bool LinkFile(const std::filesystem::path& source, const std::filesystem::path& target, bool useHardLinks, std::set<std::wstring>& keys, LinkRecord& record) {
+		std::error_code ec;
+		const auto backup = GetBackupPath(target);
+		const bool backupExists = PathPresent(backup);
+		bool backedUp = false;
+		const auto key = GetPathKey(target);
+		const bool duplicate = keys.count(key) != 0;
+		bool staleLink = false;
+		if (PathPresent(target) && !duplicate && !backupExists) {
+			// A link of an earlier run whose record and backup are both gone is no original either.
+			std::error_code ecEq;
+			staleLink = IsSymlink(target) || (std::filesystem::equivalent(target, source, ecEq) && !ecEq);
+		}
+		if (PathPresent(target) && (duplicate || backupExists || staleLink)) {
+			if (!LooksLikeOurLink(target, &source)) {
+				Log::Error_MDML("{0} is not a link created by MDML, skipping it", MDML::FormatPath(target));
+				return false;
+			}
+			if (duplicate) {
+				// Another overwrite mod already linked this file; the later mod wins, the backup stays.
+				Log::Warn_MDML("Another mod already overwrites {0}, the later mod wins", MDML::FormatPath(target));
+			}
+			else if (backupExists) {
+				// A genuine original is already backed up, so what sits at target is a stale link of an earlier run (lost record).
+				Log::Warn_MDML("Stale link {0} found, keeping the existing backup", MDML::FormatPath(target));
+			}
+			else {
+				Log::Warn_MDML("Stale link {0} found, removing it", MDML::FormatPath(target));
+			}
+			std::filesystem::remove(target, ec);
+			if (ec) {
+				Log::Error_MDML("Could not remove stale link {0} ({1}), skipping it", MDML::FormatPath(target), ec.message());
+				return false;
+			}
+		}
+		if (!duplicate && !record.Add(target.string()))
+			return false;
+		keys.insert(key);
+		if (PathPresent(target)) {
+			// A loose file shipped with the game: keep it and restore it in DeleteSysLinks.
+			std::filesystem::rename(target, backup, ec);
+			if (ec) {
+				Log::Error_MDML("Could not back up {0} ({1}), skipping it", MDML::FormatPath(target), ec.message());
+				return false;
+			}
+			backedUp = true;
+			Log::Warn_MDML("Backed up original file {0}", MDML::FormatPath(target));
+		}
+		std::filesystem::create_directories(target.parent_path(), ec);
+		if (!ec) {
+			if (useHardLinks)
+				std::filesystem::create_hard_link(source, target, ec);
+			else
+				std::filesystem::create_symlink(source, target, ec);
+		}
+		if (ec) {
+			Log::Error_MDML("Could not create link {0} ({1}), skipping it", MDML::FormatPath(target), ec.message());
+			if (backedUp) {
+				std::error_code ec2;
+				std::filesystem::rename(backup, target, ec2);
+				if (ec2)
+					Log::Error_MDML("Could not put back original file {0} ({1}), it stays in {2}", MDML::FormatPath(target), ec2.message(), MDML::FormatPath(backup));
+				else
+					Log::Info_MDML("Restored original file {0}", MDML::FormatPath(target));
+			}
+			return false;
+		}
+		return true;
+	}
+	// Removes the link recorded for target and moves the backup back. Returns false if the entry must be retried on the next start.
+	static bool CleanupEntry(const std::filesystem::path& target, bool isOld, bool useHardLinks, size_t& count) {
+		std::error_code ec;
+		const auto backup = GetBackupPath(target);
+		const bool backupExists = PathPresent(backup);
+		if (!PathPresent(target)) {
+			if (!isOld)
+				Log::Warn_MDML("Cant delete file link {0}, link does not exist", MDML::FormatPath(target));
+		}
+		else {
+			if (!isOld && !useHardLinks && !IsSymlink(target)) {
+				Log::Warn_MDML("Cant delete file link {0}, it is not a symlink", MDML::FormatPath(target));
+				return false;
+			}
+			if (!backupExists && !LooksLikeOurLink(target, nullptr)) {
+				// Without a backup this is no link we can prove to be ours (e.g. the original after a failed backup): never delete it.
+				// With a backup the target was put there by us (it may be an orphaned hard link whose mod file is gone).
+				Log::Warn_MDML("Leaving {0} alone, it is not a link created by MDML", MDML::FormatPath(target));
+				return true;
+			}
+			if (std::filesystem::remove(target, ec) && !ec) {
+				if (!isOld)
+					Log::Trace_MDML("Deleted file link {0}", MDML::FormatPath(target));
+				else
+					Log::Warn_MDML("Deleted old file link {0}", MDML::FormatPath(target));
+				count++;
+			}
+			else {
+				if (!isOld)
+					Log::Error_MDML("Could not deleted file link {0} ({1})", MDML::FormatPath(target), ec.message());
+				else
+					Log::Error_MDML("Could not deleted old file link {0} ({1})", MDML::FormatPath(target), ec.message());
+				return false;
+			}
+		}
+		if (backupExists) {
+			ec.clear();
+			std::filesystem::rename(backup, target, ec);
+			if (ec) {
+				Log::Error_MDML("Could not restore original file {0} ({1})", MDML::FormatPath(target), ec.message());
+				return false;
+			}
+			Log::Info_MDML("Restored original file {0}", MDML::FormatPath(target));
+		}
+		return true;
+	}
+	// Processes every entry of the record file. Entries that could not be resolved are written back so they are retried on the next start.
+	static void CleanupLinks(const std::filesystem::path& recordFile, bool isOld, bool useHardLinks) {
+		std::error_code ec;
+		if (!PathPresent(recordFile)) {
+			if (!isOld)
+				Log::Critical_MDML("Cant find Links File at {0}", MDML::FormatPath(recordFile));
+			return;
+		}
+		if (isOld)
+			Log::Warn_MDML("Old file links found, maybe the application exited unexpected");
+		std::ifstream stream(recordFile, std::ios_base::in);
+		if (!stream.is_open()) {
+			Log::Error_MDML("Could not read {0}, file links are left as they are", MDML::FormatPath(recordFile));
+			return;
+		}
+		size_t count = 0, max = 0;
+		std::vector<std::string> remaining;
+		for (std::string line; std::getline(stream, line); ) {
+			while (!line.empty() && (line.back() == '\r' || line.back() == '\n'))
+				line.pop_back();
+			if (line.empty())
+				continue;
+			max++;
+			if (!CleanupEntry(std::filesystem::path(line), isOld, useHardLinks, count))
+				remaining.push_back(line);
+		}
+		stream.close();
+		if (remaining.empty()) {
+			std::filesystem::remove(recordFile, ec);
+			if (ec)
+				Log::Error_MDML("Could not delete {0} ({1})", MDML::FormatPath(recordFile), ec.message());
+		}
+		else {
+			const std::filesystem::path tmp = recordFile.string() + ".tmp";
+			bool written = false;
+			{
+				std::ofstream out(tmp, std::ios_base::out | std::ios_base::trunc);
+				for (const auto& line : remaining)
+					out << line << std::endl;
+				written = out.good();
+			}
+			if (written)
+				std::filesystem::rename(tmp, recordFile, ec);
+			if (!written || ec)
+				Log::Error_MDML("Could not rewrite {0}, the old entries stay in it", MDML::FormatPath(recordFile));
+			else
+				Log::Warn_MDML("{0} file links could not be resolved and are retried on the next start", remaining.size());
+		}
+		if (!isOld)
+			Log::Info_MDML("Deleted {0}/{1} file links", count, max);
+		else
+			Log::Warn_MDML("Deleted {0}/{1} old file links", count, max);
+	}
+	// END link-ops
 	void CreateSysLinks() {
 		DeleteSysLinks(true);
+		std::error_code ec;
 		std::string ModFolderPath = Mod::GetModsFolder();
-		if (!std::filesystem::exists(ModFolderPath))
+		if (!std::filesystem::exists(ModFolderPath, ec))
 		{
-			std::filesystem::create_directory(ModFolderPath);
+			std::filesystem::create_directory(ModFolderPath, ec);
 		}
-		std::vector<std::string> paths;
-		// Every link is recorded right away, so a crash in the middle of linking is rolled back on the next start.
-		std::ofstream linksFile(SDK::SelectedGameProfile.HardLinksFile, std::ios_base::out | std::ios_base::trunc);
-		for (const auto& entry : std::filesystem::directory_iterator(ModFolderPath)) {
+		// Entries that could not be cleaned up above stay in the file, so it is appended to, not truncated.
+		LinkRecord record;
+		if (!record.Open(SDK::SelectedGameProfile.HardLinksFile))
+			return;
+		std::set<std::wstring> keys;
+		std::set<std::wstring> linked;
+		std::filesystem::directory_iterator modsIt(ModFolderPath, ec);
+		if (ec) {
+			Log::Error_MDML("Could not read the mods folder {0} ({1})", ModFolderPath, ec.message());
+			return;
+		}
+		for (const auto& entry : modsIt) {
 			if (entry.is_directory()) {
 
 				auto dirName = entry.path().filename().string();
 				auto dirPath = entry.path().string();
 				auto iniPath = std::filesystem::path(dirPath + "/mod.ini");
 
-				if (std::filesystem::exists(iniPath)) {
+				if (std::filesystem::exists(iniPath, ec)) {
 
 					INI::PARSE_FLAGS = INI::PARSE_COMMENTS_ALL | INI::PARSE_COMMENTS_SLASH | INI::PARSE_COMMENTS_HASH;
 					INI LoaderInfo(iniPath.string(), true);
@@ -274,9 +502,13 @@ namespace ModLoader
 						if (enabled == "true" || enabled._Starts_with("1")) {
 							std::string folderStr = dirPath + "/" + LoaderInfo.get("Folder", "");
 							std::filesystem::path folderPath = folderStr;
-							if (folderStr.empty() || !std::filesystem::exists(folderPath))
+							if (folderStr.empty() || !std::filesystem::exists(folderPath, ec)) {
+								Log::Warn_MDML("Overwrite mod {0} is enabled but its Folder {1} does not exist, skipping it", oMod.Name, MDML::FormatPath(folderPath));
 								continue;
-							for (auto& dirEntry : std::filesystem::recursive_directory_iterator(folderPath)) {
+							}
+							std::filesystem::recursive_directory_iterator fileIt(folderPath, ec);
+							for (; !ec && fileIt != std::filesystem::recursive_directory_iterator(); fileIt.increment(ec)) {
+								const auto& dirEntry = *fileIt;
 								if (dirEntry.is_directory())
 									continue;
 								auto path = dirEntry.path();
@@ -286,95 +518,24 @@ namespace ModLoader
 								}
 								auto relPath = std::filesystem::relative(path, folderPath);
 								auto target = std::filesystem::path(Mod::GetContentFolder() + "\\" + relPath.string());
-								if (std::filesystem::exists(target)) {
-									const std::string targetStr = target.string();
-									if (std::find(paths.begin(), paths.end(), targetStr) != paths.end()) {
-										// Another overwrite mod already linked this file; the later mod wins, the backup stays.
-										Log::Warn_MDML("{0} overwrites a file another mod already overwrites: {1}", oMod.Name, MDML::FormatPath(target));
-										std::filesystem::remove(target);
-									}
-									else {
-										// A loose file shipped with the game: keep it and restore it in DeleteSysLinks.
-										std::error_code ec;
-										std::filesystem::rename(target, GetBackupPath(target), ec);
-										if (ec) {
-											Log::Error_MDML("Could not back up {0} ({1}), skipping it", MDML::FormatPath(target), ec.message());
-											continue;
-										}
-										Log::Warn_MDML("Backed up original file {0}", MDML::FormatPath(target));
-									}
+								if (LinkFile(path, target, SDK::SelectedGameProfile.UseHardLinks, keys, record)) {
+									//formating this doesnt work cause it inserts the mod folder, and i dont know why
+									Log::Trace_MDML("Created link to {0}", target.string());
+									linked.insert(GetPathKey(target));
+									oMod.Files.push_back(target.string());
 								}
-								if (!std::filesystem::exists(target.parent_path()))
-									std::filesystem::create_directories(target.parent_path());
-
-								if (SDK::SelectedGameProfile.UseHardLinks)
-									std::filesystem::create_hard_link(path, target);
-								else
-									std::filesystem::create_symlink(path, target);
-								//formating this doesnt work cause it inserts the mod folder, and i dont know why
-								Log::Trace_MDML("Created link to {0}", target.string());
-								if (std::find(paths.begin(), paths.end(), target.string()) == paths.end()) {
-									paths.push_back(target.string());
-									linksFile << target.string() << std::endl;
-								}
-								oMod.Files.push_back(target.string());
 							}
+							if (ec)
+								Log::Error_MDML("Could not read the files of overwrite mod {0} ({1}), the rest of it is skipped", oMod.Name, ec.message());
 							Global::GetGlobals()->OverwriteMods.push_back(oMod);
 						}
 					}
 				}
 			}
 		}
-		Log::Info_MDML("Created {0} {1} links", paths.size(), SDK::SelectedGameProfile.UseHardLinks ? "hard" : "sym");
+		Log::Info_MDML("Created {0} {1} links", linked.size(), SDK::SelectedGameProfile.UseHardLinks ? "hard" : "sym");
 	}
 	void DeleteSysLinks(bool isOld) {
-		if (!std::filesystem::exists(SDK::SelectedGameProfile.HardLinksFile)) {
-			if(!isOld)
-				Log::Critical_MDML("Cant find Links File at {0}", MDML::FormatPath(SDK::SelectedGameProfile.HardLinksFile));
-			return;
-		}
-		if (isOld)
-			Log::Warn_MDML("Old file links found, maybe the application exited unexpected");
-		size_t count = 0, max = 0;
-		std::ifstream stream;
-		stream.open(SDK::SelectedGameProfile.HardLinksFile, std::ios_base::in);
-		for (std::string line; std::getline(stream, line); ) {
-			if (line.empty())
-				continue;
-			max++;
-			if (!std::filesystem::exists(line)) {
-				if (!isOld)
-					Log::Warn_MDML("Cant delete file link {0}, link does not exist", MDML::FormatPath(line));
-				RestoreBackup(line);
-				continue;
-			}
-			if (!isOld) {
-				if (!SDK::SelectedGameProfile.UseHardLinks && !std::filesystem::directory_entry(line).is_symlink()) {
-					Log::Warn_MDML("Cant delete file link {0}, it is not a symlink", MDML::FormatPath(line));
-					continue;
-				}
-			}
-			if (std::filesystem::remove(line)) {
-				if (!isOld)
-					Log::Trace_MDML("Deleted file link {0}", MDML::FormatPath(line));
-				else
-					Log::Warn_MDML("Deleted old file link {0}", MDML::FormatPath(line));
-				count++;
-				RestoreBackup(line);
-			}
-			else {
-				if (!isOld)
-					Log::Error_MDML("Could not deleted file link {0}", MDML::FormatPath(line));
-				else
-					Log::Error_MDML("Could not deleted old file link {0}", MDML::FormatPath(line));
-			}
-			
-		}
-		stream.close();
-		std::filesystem::remove(SDK::SelectedGameProfile.HardLinksFile);
-		if (!isOld)
-			Log::Info_MDML("Deleted {0}/{1} file links", count, max);
-		else
-			Log::Warn_MDML("Deleted {0}/{1} old file links", count, max);
+		CleanupLinks(SDK::SelectedGameProfile.HardLinksFile, isOld, SDK::SelectedGameProfile.UseHardLinks);
 	}
 };
