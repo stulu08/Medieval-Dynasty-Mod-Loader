@@ -1,6 +1,5 @@
 #include "Core.h"
 #include "Logger.h"
-#include "Mods/Mod.h"
 void Log::Init(const std::string& dir) {
 	s_logDir = dir;
 	s_mdmlLogger = Logger::Create("MDML", getLogFile("MDML-log.txt"));
@@ -8,13 +7,6 @@ void Log::Init(const std::string& dir) {
 	//s_umlLogger = Logger::Create("UnrealModLoader", getLogFile("UML-log.txt"));
 	s_umlLogger = s_mdmlLogger;
 };
-Ref<Logger> Log::ModLogger() {
-    return Logger::getLogger(Mod::ModRef->ModName);
-}
-Ref<Logger> Log::ModLogger(Mod* mod) {
-    return Logger::getLogger(mod->ModName);
-
-}
 
 //std::vector<std::string> Log::LogArray;
 

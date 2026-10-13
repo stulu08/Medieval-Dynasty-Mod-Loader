@@ -59,9 +59,10 @@ public:
         for (auto eventIt : it_eventList->second)
         {
             if (ModEvent<_args...>* event = dynamic_cast<ModEvent<_args...>*>(eventIt)) {
-                if (!setCurrentMod(event->getMod()))
+                // A mod removed from the stack (it threw) gets no more events.
+                if (!contains(event->getMod()))
                     continue;
-                
+
                 try {
                     if (event->dispatch(a...))
                         break;//event was handled if returned true
@@ -98,9 +99,10 @@ public:
         if (event)
             m_eventList[event->getName()].push_back(event);
     }
+    // Unregisters the mod's handler for eventName (Mod::SetupHooks calls it before registering again).
     void clearModEvents(const std::string& eventName, Mod* mod);
-    //always sets the Mod::ModRef, if the mod is not found inside m_mods it will return false but Mod::ModRef will still be set 
-    bool setCurrentMod(Mod* mod);
+    // True while the mod is in the stack (not popped after an exception).
+    bool contains(Mod* mod) const;
 
     std::vector<Mod*>::iterator begin() { return m_mods.begin(); }
     std::vector<Mod*>::iterator end() { return m_mods.end(); }

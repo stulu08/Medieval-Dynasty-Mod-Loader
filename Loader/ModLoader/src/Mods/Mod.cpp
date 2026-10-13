@@ -2,39 +2,15 @@
 #include "Mod.h"
 #include "Platform/Logger.h"
 
-Mod* Mod::ModRef;
-
-namespace CallBackHandler {
-	bool CallBackBeginPlay(UE4::AActor* Actor) {
-		return Mod::ModRef->BeginPlay(Actor);
-	}
-	bool CallBackInitGameState() {
-		return Mod::ModRef->InitGameState();
-	}
-	bool CallBackDrawImGui() {
-		return Mod::ModRef->DrawImGui();
-	}
-	bool CallBackTick(UE4::ELevelTick tick, float DelatTime) {
-		return Mod::ModRef->Tick(tick, DelatTime);
-	}
-	bool CallBackSetupImGui(ImGuiIO& io) {
-		return Mod::ModRef->SetupImGui(io);
-	}
-	bool CallBackPostBeginPlay(std::wstring ModActorName, UE4::AActor* Actor) {
-		return Mod::ModRef->PostBeginPlay(ModActorName, Actor);
-	}
-	bool CallBackDX11Present(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, ID3D11RenderTargetView* pRenderTargetView) {
-		return Mod::ModRef->DX11Present(pDevice, pContext, pRenderTargetView);
-	}
-	bool CallBackDX11ResizeBuffers(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, UINT Width, UINT Height, DXGI_FORMAT NewFormat, UINT SwapChainFlags) {
-		return Mod::ModRef->DX11ResizeBuffers(pDevice, pContext, Width, Height, NewFormat, SwapChainFlags);
-	}
-}
-
+// Every registered event binds the mod it belongs to (C8): the callback calls the virtual on that mod directly.
+// Before, all callbacks went through the process-wide Mod::ModRef, set per dispatch by ModStack::setCurrentMod; the
+// game thread (Tick/BeginPlay) and the render thread (DrawImGui/DX11Present) dispatch concurrently, so a callback
+// could run on the wrong mod.
 #define REGISTER_EVENT(name, ...)\
 if(events.name) {\
 	Global::GetGlobals()->CoreMods.clearModEvents(#name, this); \
-	Global::GetGlobals()->CoreMods.registerEvent(new ModEvent<__VA_ARGS__>(this, #name, &CallBackHandler::CallBack##name)); \
+	Global::GetGlobals()->CoreMods.registerEvent(new ModEvent<__VA_ARGS__>(this, #name, \
+		[mod = this](auto&&... args) { return mod->name(std::forward<decltype(args)>(args)...); })); \
 }
 void Mod::SetupHooks(const EventsEnabled::EnabledEvents& events) {
 	REGISTER_EVENT(BeginPlay, UE4::AActor*);
@@ -50,7 +26,7 @@ void Mod::SetupHooks(const EventsEnabled::EnabledEvents& events) {
 void Mod::CompleteModCreation()
 {
 	IsFinishedCreating = true;
-	Global::GetGlobals()->AddToCoreMods(ModRef);
+	Global::GetGlobals()->AddToCoreMods(this);
 	if (CreateLogger) {
 		if (LogToFile) {
 			logger = Logger::Create(ModName, Log::getLogFile(ModName + "-log.txt"));

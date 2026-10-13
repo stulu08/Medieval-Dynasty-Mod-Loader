@@ -21,14 +21,12 @@ void ModStack::clearModEvents(const std::string& eventName, Mod* mod) {
     if (m_eventList.find(eventName) == m_eventList.end())
         return;
     std::vector<Event*>& events = m_eventList[eventName];
-    for (Event* e : events) {
-        if (e->getData() == mod) {
-            events.erase(std::find(events.begin(), events.end(), e));
-        }
-    }
+    // Erasing inside a range-for over the same vector was undefined behaviour (code inventory C5).
+    // The removed events are not deleted: another thread may still be dispatching them (registration is not
+    // synchronized with dispatch yet, see docs/reports/wave3/3A-runtime.md).
+    events.erase(std::remove_if(events.begin(), events.end(), [mod](Event* e) { return e->getData() == mod; }), events.end());
 }
-bool ModStack::setCurrentMod(Mod* mod) {
-    Mod::ModRef = mod;
-    auto it = std::find(m_mods.begin(), m_mods.begin() + m_insertIndex, mod);
-    return it != m_mods.end();
+bool ModStack::contains(Mod* mod) const {
+    auto end = m_mods.begin() + m_insertIndex;
+    return std::find(m_mods.begin(), end, mod) != end;
 }

@@ -31,7 +31,6 @@ namespace devtools {
 		CreateLogger = true;
 		LogToFile = true;
 		UseMenuButton = true;
-		ModRef = this;
 		hModule = Handle;
 		s_instance = this;
 		CompleteModCreation();

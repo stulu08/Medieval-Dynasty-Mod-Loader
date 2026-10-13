@@ -93,7 +93,6 @@ public:
 	//Used Internally to setup Hook Event System
 	void SetupHooks(const EventsEnabled::EnabledEvents& events = EventsEnabled::Default);
 
-	static Mod* ModRef;
 	// The folder to the Mod Directory
 	static std::string GetModsFolder();
 	// The folder where Movies, Paks,... is located
@@ -101,7 +100,8 @@ public:
 	//Returns the folder where the mod dll is located
 	std::string GetFolder();
 protected:
-	//Called When Mod Construct Finishes
+	//Called When Mod Construct Finishes: registers this mod in Global::CoreMods (in load order) and creates its logger.
+	//(There is no Mod::ModRef any more: set nothing before calling this.)
 	void CompleteModCreation();
 	Ref<Logger> logger = nullptr;
 	HMODULE hModule;

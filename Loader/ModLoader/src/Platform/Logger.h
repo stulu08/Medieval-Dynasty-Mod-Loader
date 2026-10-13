@@ -166,8 +166,6 @@ public:
 	static inline void Critical_MDML(const std::string& format, Args&& ...args) {
 		s_mdmlLogger->Critical(format, std::forward<Args>(args)...);
 	}
-	static Ref<Logger> ModLogger();
-	static Ref<Logger> ModLogger(Mod* mod);
 	static Ref<Logger> getMDMLLogger() { return s_mdmlLogger; }
 	static Ref<Logger> getUMLLogger() { return s_umlLogger; }
 	static std::string getLogDir() { return s_logDir; }

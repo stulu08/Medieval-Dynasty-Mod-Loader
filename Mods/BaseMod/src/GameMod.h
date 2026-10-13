@@ -13,7 +13,6 @@ public:
 		MedievalModLoaderVersion = MEDIEVAL_VERSION;
 		CreateLogger = true;
 		LogToFile = true;
-		ModRef = this;
 		hModule = handle;
 		// No UE4::InitSDK() here any more: the engine core (GObjects, GNames, GWorld) lives once in MDML.dll
 		// (Wave 2.3) and is initialized by mdml::mods::InitCoreMods() before any mod's InitializeMod()/events run.
