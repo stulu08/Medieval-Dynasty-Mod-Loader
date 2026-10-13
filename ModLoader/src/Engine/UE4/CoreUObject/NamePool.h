@@ -321,7 +321,7 @@ namespace UE4 {
 	// ScriptStruct InputCore.Key
 	// Size 24
 	/////////////////////////////////////////////
-	struct FKey {
+	struct alignas(8) FKey {
 		struct FName	KeyName;		//Offset: 0	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
 		unsigned char uknownData_0[16];		//Offset: 8	Size: 16
 	};

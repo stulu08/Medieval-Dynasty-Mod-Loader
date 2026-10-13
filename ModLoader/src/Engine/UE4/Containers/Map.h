@@ -71,7 +71,7 @@ namespace UE4 {
 			Write((byte*)this, (void*)&src, sizeof(TMap<int, int>));
 		}
 		
-		unsigned char data[sizeof(TSortableMapBase<int, int>)] = "";
+		alignas(8) unsigned char data[sizeof(TSortableMapBase<int, int>)] = "";
 	};
 #endif
 

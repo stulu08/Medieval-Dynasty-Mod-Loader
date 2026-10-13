@@ -2,7 +2,7 @@
 
 namespace UE4 {
 	// 0x0004
-	struct FColor
+	struct alignas(4) FColor
 	{
 		unsigned char                                      B;                                                        // 0x0000(0x0001) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
 		unsigned char                                      G;                                                        // 0x0001(0x0001) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
