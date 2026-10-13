@@ -4,6 +4,8 @@
 
 #include <DbgHelp.h>
 #include <chrono>
+#include <fstream>
+#include <unordered_map>
 #pragma comment(lib, "dbghelp.lib")
 
 namespace SymbolResolver
@@ -12,7 +14,15 @@ namespace SymbolResolver
 	// the engine's DbgHelp session (crash reporter) which is keyed by GetCurrentProcess().
 	static const HANDLE s_Session = (HANDLE)(ULONG_PTR)0x4D444D4C; // "MDML"
 	static DWORD64 s_ModuleBase = 0;
-	static bool s_Initialized = false;
+	static bool s_Initialized = false;	// PDB loaded
+	static bool s_PdbTried = false;
+	// RVA cache (Config/SymbolCache.txt): loading the ~800 MB PDB takes ~20 s on a cold file cache (first start after
+	// a reboot), which delays the pak hooks. Resolved RVAs are keyed by the EXE's build id, so the PDB is only loaded
+	// again after a game update or for a name that is not cached yet.
+	static std::filesystem::path s_CacheFile;
+	static std::string s_BuildId;
+	static std::unordered_map<std::string, DWORD64> s_Cache; // joined names -> RVA, 0 = not in the PDB
+	static bool s_CacheDirty = false;
 	// No UNDNAME by default: decorated names are needed to tell overloads apart.
 	// EXACT_SYMBOLS: refuse a PDB whose GUID/age does not match the EXE (e.g. left over from an older build).
 	// No DEFERRED_LOADS: the PDB must be loaded right away, otherwise SymGetModuleInfo reports SymDeferred.
@@ -55,9 +65,38 @@ namespace SymbolResolver
 		return buffer;
 	}
 
-	bool Init() {
-		if (s_Initialized)
-			return true;
+	static void LoadCache() {
+		std::ifstream file(s_CacheFile);
+		std::string line;
+		if (!file || !std::getline(file, line) || line != "build=" + s_BuildId)
+			return; // missing, or written for another game build: rebuilt from the PDB
+		while (std::getline(file, line)) {
+			// "<hex rva> <names>"; names are symbol names and contain no spaces
+			size_t space = line.find(' ');
+			if (space == std::string::npos || space + 1 >= line.size())
+				continue;
+			s_Cache[line.substr(space + 1)] = std::strtoull(line.substr(0, space).c_str(), nullptr, 16);
+		}
+	}
+
+	static void SaveCache() {
+		if (!s_CacheDirty || s_CacheFile.empty())
+			return;
+		std::ofstream file(s_CacheFile, std::ios::trunc);
+		if (!file) {
+			Log::Warn_MDML("Could not write symbol cache {0}", s_CacheFile.string());
+			return;
+		}
+		file << "build=" << s_BuildId << '\n';
+		for (const auto& [names, rva] : s_Cache)
+			file << std::hex << rva << ' ' << names << '\n';
+		s_CacheDirty = false;
+	}
+
+	static bool LoadPdb() {
+		if (s_PdbTried)
+			return s_Initialized;
+		s_PdbTried = true;
 
 		wchar_t exePath[MAX_PATH];
 		GetModuleFileNameW(nullptr, exePath, MAX_PATH);
@@ -93,7 +132,22 @@ namespace SymbolResolver
 		return true;
 	}
 
+	bool Init(const std::filesystem::path& cacheFile) {
+		s_BuildId = GetBuildId();
+		if (!s_BuildId.empty()) {
+			s_CacheFile = cacheFile;
+			LoadCache();
+		}
+		if (!s_Cache.empty()) {
+			// The PDB is loaded lazily by Find() if a name is missing from the cache.
+			Log::Info_MDML("Using {0} cached symbol addresses from {1} (build {2})", s_Cache.size(), cacheFile.filename().string(), s_BuildId);
+			return true;
+		}
+		return LoadPdb();
+	}
+
 	void Shutdown() {
+		SaveCache();
 		if (!s_Initialized)
 			return;
 		SymCleanup(s_Session);
@@ -102,7 +156,7 @@ namespace SymbolResolver
 	}
 
 	bool IsAvailable() {
-		return s_Initialized;
+		return s_Initialized || !s_Cache.empty();
 	}
 
 	static DWORD64 LookupByName(const char* name, DWORD options) {
@@ -147,7 +201,16 @@ namespace SymbolResolver
 	}
 
 	DWORD64 Find(std::initializer_list<const char*> names) {
-		if (!s_Initialized)
+		if (names.size() == 0)
+			return 0;
+
+		std::string key;
+		for (const char* name : names)
+			key += key.empty() ? name : std::string("|") + name;
+		const DWORD64 exeBase = (DWORD64)GetModuleHandleW(nullptr);
+		if (auto cached = s_Cache.find(key); cached != s_Cache.end())
+			return cached->second ? exeBase + cached->second : 0;
+		if (!LoadPdb())
 			return 0;
 
 		DWORD64 address = 0;
@@ -165,6 +228,9 @@ namespace SymbolResolver
 		auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - start).count();
 		if (slowPath || ms > 500)
 			Log::Info_MDML("PDB lookup of {0} took {1} ms ({2})", *names.begin(), ms, slowPath ? "slow full scan" : "hash lookup, slow disk?");
+
+		s_Cache[key] = address ? address - exeBase : 0;
+		s_CacheDirty = true;
 		return address;
 	}
 }

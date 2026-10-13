@@ -34,3 +34,11 @@ directly which of the two it is. (Syntax-checked with `cl /Zs`; not built as par
   skipping the PDB on later launches - needs your OK as it adds a cache file; (2) prefetch the PDB with a sequential read on
   a background thread at DLL load, turning random page faults into one sequential read.
 - Symbols are resolved sequentially on the loader thread, which blocks game startup. Moving that off-thread is a bigger change - ask first.
+
+## Decision and fix (2026-10-13)
+Owner confirmed: the 18.9 s run was the first launch after a reboot (cold file cache). Owner chose the **RVA cache**:
+`SymbolResolver::Init(<MDML dir>/Config/SymbolCache.txt)` reads `build=<EXE GUID-age>` + `<hex rva> <names>` lines. If the
+build matches and entries exist, the PDB is not loaded at all; `Find()` serves cached RVAs and only loads the PDB on a miss
+(new name). New entries are written in `Shutdown()` (end of `SetupProfile`). A game update changes the build id, so the
+cache is rebuilt from the PDB once. Expected log: first start `Loaded symbols from …`, later starts
+`Using 17 cached symbol addresses from SymbolCache.txt (build …)`. Delete the file to force a PDB lookup.

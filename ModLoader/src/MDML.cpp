@@ -445,7 +445,7 @@ bool SetupProfile(const std::string& Path) {
 
 		GameInfo.select("Symbols");
 		if (GameInfo.getAs<int>("UsePdb", 1))
-			SymbolResolver::Init();
+			SymbolResolver::Init(std::filesystem::path(Path) / "Config/SymbolCache.txt");
 
 #pragma region GameInfo
 		GameInfo.select("GameInfo");
