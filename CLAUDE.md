@@ -32,11 +32,15 @@ Read before doing anything:
 | `tools/` | Python RE scripts (`pdbsym.py`, `check_patterns.py`) |
 
 ## Build
-- VS2022 (v143), x64 Release only. Baseline (2026-10-09) builds clean: `MSBuild.exe MDML.sln -m -p:Configuration=Release -p:Platform=x64`
-  (`C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe`).
-- Project files come from premake (`premake5.lua`, `scripts/generateProjects - vs2022.bat`). Premake is **not tracked**: `scripts/setup.bat` (→ `scripts/python/setup.py [--yes] [vs2022|vs2026|gmake2|nogen]`, same layout as the owner's SEngine project) downloads the pinned premake 5.0.0-beta7 to `scripts/premake/premake5.exe` and generates the projects. Afterwards `scripts/generateProjects - vs2022.bat` works too.
+- Local toolchain since 2026-10-13: **VS 2026 (v145) only** (VS 2022 is no longer installed), x64 Release only:
+  `"C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\amd64\MSBuild.exe" MDML.slnx -m -p:Configuration=Release -p:Platform=x64`.
+  Expected warnings: 1x C4715 (PresetMod).
+- Project files come from premake (`premake5.lua`, `scripts/generateProjects - vs2026.bat` → `MDML.slnx`; the vs2022 action still
+  works for CI). Premake is **not tracked**: `scripts/setup.bat` (→ `scripts/python/setup.py [--yes] [vs2022|vs2026|gmake2|nogen]`)
+  downloads the pinned **premake 5.0.0** to `scripts/premake/premake5.exe`. 5.0.0 removed `flags {}`: use `enablepch "Off"`,
+  `multiprocessorcompile "On"` etc. (old beta7 binary kept at `C:\dev\MDML\backup\tools\`).
 - MinHook v1.3.4 is vendored as **source** (`ModLoader/vendor/MinHook`, `VENDORED.txt`) and built as the premake static-lib project `MinHook`; there is no prebuilt `.lib` any more.
-- CI: `.github/workflows/msbuild.yml` (push/PR on `main`, `modernize`): premake vs2022 → msbuild Release x64 → artifact without `*.lib`/`*.pdb`. The 2.5 GB SDK.lib may exceed runner limits until the SDK is replaced (plan 2.4).
+- CI: `.github/workflows/msbuild.yml` (push/PR on `main`, `modernize`): premake vs2022 (runner has VS 2022) → msbuild Release x64 → artifact without `*.lib`/`*.pdb`. The 2.5 GB SDK.lib may exceed runner limits until the SDK is replaced (plan 2.4).
 - Output: `bin/Release-windows-x86_64/` (`MDML.dll`, `xinput1_3.dll`, `Mods/…`). SDK.lib ~222 MB since LTCG was disabled for the SDK project (was 2.7 GB); replaced by the new generator later (plan 2.4).
 
 ## Game / RE environment (this machine)

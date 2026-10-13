@@ -18,7 +18,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -41,7 +41,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\ModLoader\vendor\spdlog;..\ModLoader\vendor\MinHook;..\ModLoader\src;..\ModLoader\src\Engine;..\ModLoader\src\Engine\UE4;..\ModLoader\vendor\INI;..\ModLoader\vendor\glm;..\ModLoader\vendor\ImGui;..\SDK\src\UE4;..\SDK\src;..\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\ModLoader\vendor\spdlog;..\ModLoader\src;..\ModLoader\src\Engine;..\ModLoader\src\Engine\UE4;..\ModLoader\vendor\INI;..\ModLoader\vendor\glm;..\ModLoader\vendor\ImGui;..\SDK\src\UE4;..\SDK\src;..\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -63,6 +63,8 @@
       <ImportLibrary>..\bin\Release-windows-x86_64\Mods\DevTools\DevTools.lib</ImportLibrary>
       <AdditionalOptions>/ignore:4006 /ignore:4099 /ignore:4251 %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <ProjectReference>
+    </ProjectReference>
     <PostBuildEvent>
       <Command>xcopy /Q /E /Y /I "$(SolutionDir)\DevTools\Config" "$(SolutionDir)\bin\Release-windows-x86_64\Mods\DevTools"</Command>
     </PostBuildEvent>

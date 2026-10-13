@@ -6,10 +6,6 @@ workspace "MDML"
 	{
 		"Release"
 	}
-	flags
-	{
-		"MultiProcessorCompile"
-	}
 	solution_items 
 	{
 		"Config/ModLoaderInfo.ini",
@@ -17,6 +13,7 @@ workspace "MDML"
 		"README.md",
 		"Modding.md"
 	}
+	multiprocessorcompile  "On"
 	architecture "x86_64"
 	exceptionhandling "SEH"
 	

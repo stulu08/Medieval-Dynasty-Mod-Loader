@@ -1,4 +1,5 @@
 @echo off
-pushd %~dp0\..\ncall scripts\premake\premake5.exe vs2026
+pushd %~dp0\..\
+call scripts\premake\premake5.exe vs2026
 popd
 PAUSE

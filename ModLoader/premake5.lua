@@ -66,7 +66,7 @@ project "MedievalDynastyModLoader"
 		"MinHook",
 	}
 	filter "files:vendor/**.cpp or files:src/Engine/**.cpp or files:../SDK/src/**.cpp"
-		flags {"NoPCH"}
+		enablepch "Off"
 	filter "system:windows"
 		systemversion "latest"
 

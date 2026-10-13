@@ -5,7 +5,7 @@ import Utils
 
 
 class PremakeConfiguration:
-    premakeVersion = "5.0.0-beta7"
+    premakeVersion = "5.0.0"
     premakeZipUrl = f"https://github.com/premake/premake-core/releases/download/v{premakeVersion}/premake-{premakeVersion}-windows.zip"
     premakeLicenseUrl = "https://raw.githubusercontent.com/premake/premake-core/master/LICENSE.txt"
     # scripts/premake also holds the tracked premake_customization lua files; only the exe is downloaded.

@@ -84,7 +84,7 @@ def main():
         return 2
     vcvars = find_vcvars()
     if not vcvars:
-        print("vcvars64.bat not found (VS2022 with C++ tools required)")
+        print("vcvars64.bat not found (Visual Studio with C++ tools required)")
         return 2
     env = msvc_environment(vcvars)
 

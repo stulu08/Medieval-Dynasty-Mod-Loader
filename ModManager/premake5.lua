@@ -35,7 +35,7 @@ project "ModManager"
 	}
 
 	filter "files:vendor/**.cpp"
-		flags {"NoPCH"}
+		enablepch "Off"
 
 	filter "system:windows"
 		systemversion "latest"

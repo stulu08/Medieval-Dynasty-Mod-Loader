@@ -86,7 +86,6 @@ project "DevTools"
 	{
 		"src",
 		"%{IncludeDir.spdlog}",
-		"%{IncludeDir.MinHook}",
 		"%{IncludeDir.ModLoader}",
 		"%{IncludeDir.Engine}",
 		"%{IncludeDir.EngineUE4}",
