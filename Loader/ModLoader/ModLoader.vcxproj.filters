@@ -1179,6 +1179,9 @@
     <ClInclude Include="src\Runtime\LoaderConfig.h">
       <Filter>src\Runtime</Filter>
     </ClInclude>
+    <ClInclude Include="src\Runtime\Notices.h">
+      <Filter>src\Runtime</Filter>
+    </ClInclude>
     <ClInclude Include="src\Runtime\Paths.h">
       <Filter>src\Runtime</Filter>
     </ClInclude>
@@ -1323,6 +1326,9 @@
       <Filter>src\Runtime</Filter>
     </ClCompile>
     <ClCompile Include="src\Runtime\LoaderConfig.cpp">
+      <Filter>src\Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Runtime\Notices.cpp">
       <Filter>src\Runtime</Filter>
     </ClCompile>
     <ClCompile Include="src\Runtime\Paths.cpp">
