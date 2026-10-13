@@ -105,7 +105,35 @@ Lua scripting for mods · live object viewer/editor in ImGui · hot reload · ho
 
 ---
 
-## Handoff — session 2026-10-10 (READ THIS FIRST, newer than the 2026-10-09 handoff below)
+## Handoff — session 2026-10-13 (READ THIS FIRST, newer than everything below)
+`modernize` head is this commit. Everything below up to "Next" is merged, built (VS 2026 / premake 5.0.0, see CLAUDE.md
+Build) and **tested in-game 2026-10-13** (deployed build = 6986d4c; game-folder state before it backed up in
+`C:/dev/MDML/backup/2026-10-13_pre-6903ac3`):
+- Exported hook API `mdml::Hooks` ☑ works in-game (all loader hooks registered through it, clean shutdown).
+- PDB cold start fixed with the RVA cache `Config/SymbolCache.txt` ☑ (setup 47 ms, pak hooks at 0 UObjects).
+  Report `docs/reports/pdb-lookup-timing.md`.
+- Toolchain: premake 5.0.0 + VS 2026 (v145); VS 2022 is gone on this machine. Build `MDML.slnx`. Building a single
+  vcxproj fails in the post-build Config copy (`$(SolutionDir)`), always build the solution.
+- SDK generator part 1 ☑ first in-game generation works (202 headers in 2 s). **Offline compile test fails 66/203** —
+  3 bug classes (core FColor/FKey alignment, const pointer params, enum `_MAX` overflow): see
+  `docs/reports/sdk-generator-first-ingame-run.md`. ← **next task**.
+- Lua scripting design + spike ☑ merged (`docs/design/lua-scripting.md`, `Scripting/`, report
+  `docs/reports/lua-scripting-spike.md`); 17 owner questions OQ-1..OQ-17 open — ask before implementing.
+- Agent worktrees of this and earlier sessions were removed (branches `worktree-agent-*` kept; all merged).
+
+**Next (in order):**
+1. Fix the 3 SDK generator/core bug classes, re-run `compile_generated.py` until 203/203 (owner may need to regenerate
+   in-game if the generator changes; DevTools is enabled in the game copy).
+2. Still-open owner questions: Phase 3 design docs (`docs/design/{live-view,hot-reload,ufunction-hooks,pak-mods}.md`),
+   generator Q1–Q3 (`docs/reports/sdk-generator-part1.md`), LoadOrder questions (pak-only folders, `BaseMod = 0`),
+   Lua OQ-1..17, Wave 2.4 naming.
+3. INI wrapper `Config::IniFile` + mINI; Wave 3 (parallel splits); Wave 4 (C++20, spdlog/ImGui upgrades, JSON to vendor/,
+   missing upstream license files); migrate BaseMod to the generated SDK headers.
+Orchestration style: parallel agents (Sonnet where fitting) in worktrees — **every agent prompt must start with
+`git reset --hard <modernize head>`** (worktrees are created from old `main`); orchestrator merges, builds, backs up the
+game folder, deploys, and asks the owner to test. Never launch the game yourself.
+
+## Handoff — session 2026-10-10 (older)
 `modernize` head: Waves 2.1, 2.2, 2.3 + game-thread queue + overwrite backup fix + root-dir fix merged, built, **all tested
 in-game OK** (see Wave 2 status lines below). Game folder has the build of 8f67fe7 (= 2.3).
 
