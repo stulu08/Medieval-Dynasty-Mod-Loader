@@ -24,7 +24,8 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v2
 
-    # Downloads the pinned premake (scripts/python/setupPremake.py) and generates the VS2022 projects.
+    # Downloads the pinned premake to Dependencies/premake (scripts/python/setupPremake.py) and generates the VS2022 projects
+    # (MDML.sln is generated here and not tracked; MDML.slnx and the vcxproj files are tracked for VS 2026).
     - name: Setup premake and generate Visual Studio 2022 projects
       run: python scripts/python/setup.py --yes vs2022
 

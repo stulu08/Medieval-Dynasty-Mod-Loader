@@ -29,7 +29,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(ProjectDir)..\..\..\bin\Release-windows-x86_64\</OutDir>
+    <OutDir>$(ProjectDir)..\..\bin\Release-windows-x86_64\</OutDir>
     <IntDir>$(ProjectDir)bin-int\Release-windows-x86_64\</IntDir>
     <TargetName>MinHook</TargetName>
     <TargetExt>.lib</TargetExt>
