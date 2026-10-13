@@ -3,6 +3,7 @@
 #include "Logger.h"
 
 #include <DbgHelp.h>
+#include <chrono>
 #pragma comment(lib, "dbghelp.lib")
 
 namespace SymbolResolver
@@ -131,7 +132,7 @@ namespace SymbolResolver
 	// Looking up a decorated name directly makes DbgHelp scan all public symbols (~0.6 s per name with this PDB).
 	// Undecorated names go through a hash table (~1 ms), so look up the plain name and confirm the hit by comparing
 	// the decorated public symbol at that address. Only if that picked a different overload, pay for the slow path.
-	static DWORD64 FindOne(const char* name) {
+	static DWORD64 FindOne(const char* name, bool& slowPath) {
 		if (name[0] != '?')
 			return LookupByName(name, SYMOPT_UNDNAME);
 
@@ -141,6 +142,7 @@ namespace SymbolResolver
 			if (address && DecoratedNameAt(address) == name)
 				return address;
 		}
+		slowPath = true;
 		return LookupByName(name, 0);
 	}
 
@@ -149,12 +151,20 @@ namespace SymbolResolver
 			return 0;
 
 		DWORD64 address = 0;
+		bool slowPath = false;
+		auto start = std::chrono::steady_clock::now();
 		for (const char* name : names) {
-			address = FindOne(name);
+			address = FindOne(name, slowPath);
 			if (address)
 				break;
 		}
 		SymSetOptions(s_BaseOptions);
+
+		// Diagnostics: a healthy fast lookup takes a few ms with a warm file cache. Seconds mean either the slow
+		// full scan (slowPath) or a cold read of the PDB from disk.
+		auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - start).count();
+		if (slowPath || ms > 500)
+			Log::Info_MDML("PDB lookup of {0} took {1} ms ({2})", *names.begin(), ms, slowPath ? "slow full scan" : "hash lookup, slow disk?");
 		return address;
 	}
 }
