@@ -88,7 +88,7 @@ an actively maintained library or wants Lua 5.5 from the start.
 
 | Option | Pros | Cons |
 |---|---|---|
-| **A. `LuaScripting` core mod** (`Content/Mods/LuaScripting/LuaScripting.dll`, new premake project) — *recommended* | MDML stays lean; Lua is optional and can be disabled with one line in `LoadOrder.ini`; dogfoods the exported MDML API (engine core, `mdml::GameThread`, hook API) and so pushes that API to be good enough for third-party C++ mods too; can be rebuilt/redeployed alone | needs a few new exports from MDML (hook API — already decided for Wave 4 —, load-order query, a "mod discovered" list, logger access); Lua mods depend on LuaScripting being enabled |
+| **A. `LuaScripting` core mod** (`Content/Mods/LuaScripting/LuaScripting.dll`, new premake project) — *recommended* | MDML stays lean; Lua is optional and can be disabled with one line in `LoadOrder.ini`; dogfoods the exported MDML API (engine core, `mdml::GameThread`, hook API) and so pushes that API to be good enough for third-party C++ mods too; can be rebuilt/redeployed alone | needs a few new exports from MDML (hook API — ☑ exists as `mdml::Hooks` —, load-order query, a "mod discovered" list, logger access); Lua mods depend on LuaScripting being enabled |
 | B. Inside `MDML.dll` | direct access to internals, no new exports; one DLL to deploy | MDML grows (+Lua runtime, +sol2 compile time); harder to disable; mixes "loader" and "feature" again, against the Wave 2 layering |
 
 With option A, LuaScripting is a normal core mod: loaded by `ModLoader::LoadMods` (BaseMod first, then load order), gets
@@ -96,7 +96,7 @@ the usual `Mod` events (`InitializeMod`, `InitGameState`, `BeginPlay`, `Tick`, `
 starts the Lua mods itself, in load-order order.
 
 Required MDML changes for option A (small, all in the spirit of decisions already taken):
-1. **Exported hook API** (decided 2026-10-10, Wave 4): `mdml::Hooks::Add(target, detour, &orig, name)` etc.
+1. **Exported hook API** (decided 2026-10-10; ☑ already implemented and merged as `mdml::Hooks`, see `docs/reports/hook-api.md`): `mdml::Hooks::Add(target, detour, &orig, name)` etc.
 2. **Exported load-order query**: `LoadOrder` is not exported today. Add e.g.
    `LOADER_API std::vector<LoadOrder::Entry> mdml::GetModOrder()` (enabled flag + name + folder path).
 3. **Lua-mod discovery in `LoadOrder::ScanMods`**: today a folder is a mod if it has `mod.ini` or `<Folder>/<Folder>.dll`.
@@ -425,7 +425,7 @@ Build/run instructions: `Scripting/README.md`. Results, findings (e.g. sol2 push
 | Phase | Content | Depends on |
 |---|---|---|
 | **S0** (this) | design doc, offline spike with mock reflection | — |
-| **S1** MDML prerequisites | exported hook API (Wave 4 decision); exported load-order query + Lua-mod discovery; FMemory/FName-create/AllocateSerialNumber via PDB; weak-handle helper; faster `hookProcessFunction` (pointer set) | owner answers OQ-3, OQ-8 |
+| **S1** MDML prerequisites | ~~exported hook API~~ (☑ done, `mdml::Hooks`); exported load-order query + Lua-mod discovery; FMemory/FName-create/AllocateSerialNumber via PDB; weak-handle helper; faster `hookProcessFunction` (pointer set) | owner answers OQ-3, OQ-8 |
 | **S2** LuaScripting MVP | new premake project + vendored Lua/binding; per-mod states; `Log`, `Mod`, `FindObject`/`FindClass`/`FindFirstOf`/`FindAllOf`/`StaticFindObject`/`LoadObject`; UObject wrapper with scalar/bool/name/string/object properties; UFunction calls (same types) with validation; `Events`, `GameThread`, `Timer`, `Keys`; error isolation + faulted state; F1 list of Lua mods with status and last error; reload button; example mod in `ExampleMods/` | S1, OQ-1/2/5/6/7 |
 | **S3** Hooks + data | `Hooks.Register` (native thunk + BP via `ProcessInternal`), `Events.OnNewObject`, StructView/ArrayView, enums by name, Text read, soft/weak object read, `Blueprint.Register` bridge | S2, OQ-9/10 |
 | **S4** Comfort | file-watcher hot reload, reload state hand-over, coroutine helpers (`Async.Run`/`Wait`), cross-mod events, Map/Set views, LuaLS stubs from the SDK generator, deferred hooks | S3, generator |
