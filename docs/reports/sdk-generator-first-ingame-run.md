@@ -41,3 +41,18 @@ the generator/core, none in the game data:
 Work folder with per-header logs (temporary): `C:\Users\derst\AppData\Local\Temp\mdml-sdk-compile-gysynjws`.
 Re-run the compile test after each fix; the generated headers stay in the game folder (no new in-game run needed for
 class 2/3 if the generator can be re-run offline — otherwise owner regenerates in-game).
+
+## Fixes (2026-10-13, ae2a116) — offline 203/203
+- **Class 1** (bf5d33e): `alignas(4) FColor` (`Math/Color.h`), `alignas(8) FKey` (`CoreUObject/NamePool.h`), `alignas(8)` on the
+  opaque `TMap` blob (`Containers/Map.h`, real TMap = 0x50/align 8). Sizes were already right, only alignment was off.
+  `FWorldPSCPool`, `FMeshSectionInfoMap`, `FST_ModuleColors`, `FST_MontagesSettingsEnum`, `FST_NPCSeasonClothing` came from
+  the **TMap** alignment, not from FColor/FKey. Old SDK params structs embedding these types now match UE's layout better.
+- **Class 2** (ae2a116, `MDMLGenerator.cpp`): wrapper keeps `const T*` / `const T*&`; copy-in emits
+  `_mdml_Parms.X = const_cast<FieldType>(X);`. Out-params/return copy-back untouched.
+- **Class 3** (ae2a116): enum entries that do not fit the underlying type are dropped (comment in the header + note in
+  the generation report), the type is never widened. Hits exactly `ESkinCacheUsage_MAX` and `ESoundWaveLoadingBehavior_MAX`.
+- Verification: the generator only runs in-game, so classes 2/3 were simulated on a copy of the generated headers
+  (`%TEMP%\mdml-sim\simulate.py` → `%TEMP%\mdml-sim\sdk`: 296 const_casts, 2 dropped entries). With the core fix:
+  **`compile_generated.py` 203/203, 0 failed, 0 warnings**. Solution build: only C4715.
+- Deployed 2026-10-13 (backup of the previous game-folder state incl. old `SDK-Out`: `C:\dev\MDML\backup\2026-10-13_pre-ae2a116`).
+  **Owner to do:** start the game, DevTools → Generate SDK again, then re-run `compile_generated.py` on the real output.
