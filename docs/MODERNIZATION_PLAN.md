@@ -133,7 +133,10 @@ their worktree branches `worktree-agent-*` hold WIP commits, check `git log 158b
 - 2026-10-13: owner's run of 2026-10-12 logged `Profile setup took 18938 ms` (normally ~375 ms; 1-3 s per PDB symbol, pak
   hooks only live at 2617 UObjects). Sonnet agent investigating offline (report would be `docs/reports/pdb-lookup-timing.md`).
   No `SDK-Out` folder exists yet, so the in-game generation has not produced output so far.
-- Lua scripting: design `docs/design/lua-scripting.md` + isolated spike in `Scripting/` (not in root premake).
+- Lua scripting ☑ merged 2026-10-13 (e6846da..81b917d): design `docs/design/lua-scripting.md` + isolated spike in `Scripting/`
+  (own premake workspace, test passes; report `docs/reports/lua-scripting-spike.md`). 17 owner questions OQ-1..OQ-17 open.
+- PDB cold start ☑ fixed 2026-10-13 (6986d4c): RVA cache `Config/SymbolCache.txt` (owner chose it); deployed, awaiting in-game check
+  (2nd start must log `Using 17 cached symbol addresses`).
 - Phase 3 design docs ☑ merged (a8e11ed..4188591): `docs/design/{live-view,hot-reload,ufunction-hooks,pak-mods}.md` —
   each ends with owner questions (priority of features, pak signing/encryption policy, new mod ABI for hot reload,
   hook mechanism/threading, Live View read-only first). Ask the owner before implementing any of them.
