@@ -7,9 +7,6 @@
 
 #include "INI.h"
 
-// Defined in MDML.cpp ("0x..." hex string -> value).
-DWORD StringToDWord(std::string str);
-
 // Symbol resolution moved here from SetupProfile in MDML.cpp (Wave 2.4); code and log lines unchanged.
 namespace mdml {
 	EngineAddresses Addresses;
@@ -35,6 +32,14 @@ namespace mdml {
 		constexpr const char* IsNonPakFilenameAllowed = "?IsNonPakFilenameAllowed@FPakPlatformFile@@AEAA_NAEBVFString@@@Z";
 		// Member overload; the static (TArray<FPakListEntry>&, ...) overload is called from it.
 		constexpr const char* FindFileInPakFiles = "?FindFileInPakFiles@FPakPlatformFile@@QEAA_NPEB_WPEAV?$TRefCountPtr@VFPakFile@@@@PEAUFPakEntry@@@Z";
+		// Wave 3D, PDB only (no ini patterns).
+		constexpr const char* FNameCtorWide = "??0FName@@QEAA@PEB_WW4EFindName@@@Z";
+		constexpr const char* FNameCtorAnsi = "??0FName@@QEAA@PEBDW4EFindName@@@Z";
+		constexpr const char* FMemoryMalloc = "?Malloc@FMemory@@SAPEAX_KI@Z";
+		constexpr const char* FMemoryRealloc = "?Realloc@FMemory@@SAPEAXPEAX_KI@Z";
+		constexpr const char* FMemoryFree = "?Free@FMemory@@SAXPEAX@Z";
+		constexpr const char* FTextToString = "?ToString@FText@@QEBAAEBVFString@@XZ";
+		constexpr const char* FTextDestructor = "??1FText@@QEAA@XZ";
 	}
 
 	static void LogResolved(const char* name, DWORD64 address, const char* source) {
@@ -54,8 +59,9 @@ namespace mdml {
 		return hits.size() == 1 ? (DWORD64)hits[0] : 0;
 	}
 
-	// PDB symbol first, then the ini value of section/key, which is a pattern or (isPatterns == false) a module offset.
-	static DWORD64 ResolveFunction(INI& ini, bool isPatterns, const char* section, const char* key, std::initializer_list<const char*> symbols) {
+	// PDB symbol first, then the ini pattern of section/key (must match exactly once).
+	// The UML raw-offset mode (IsFunctionPatterns=0, "0x..." module offsets) was removed in Wave 3D.
+	static DWORD64 ResolveFunction(INI& ini, const char* section, const char* key, std::initializer_list<const char*> symbols) {
 		DWORD64 address = SymbolResolver::Find(symbols);
 		if (address) {
 			LogResolved(key, address, "pdb");
@@ -63,22 +69,21 @@ namespace mdml {
 		}
 		ini.select(section); // INI::get ignores its section argument and reads the selected section
 		std::string value = ini.get(key, "");
-		if (isPatterns) {
-			address = ScanFunction(value, key);
-			LogResolved(key, address, "pattern");
-		}
-		else if (!value.empty()) {
-			address = (DWORD64)GetModuleHandleW(nullptr) + StringToDWord(value);
-			LogResolved(key, address, "offset");
-		}
-		else {
-			LogResolved(key, 0, "");
-		}
+		address = ScanFunction(value, key);
+		LogResolved(key, address, "pattern");
 		return address;
 	}
 
+	// Ini switches of the removed raw-offset mode: warn if a profile still asks for it.
+	static void WarnIfRawOffsetMode(INI& ini, const char* section, const char* key) {
+		ini.select(section); // INI::getAs ignores its section argument and reads the selected section
+		if (ini.getAs<int>(section, key, 1) != 1)
+			Log::Warn_MDML("[{0}] {1}=0 (raw offsets) is no longer supported; the values are treated as patterns", section, key);
+	}
+
 	// Same for globals; a [GInfo] pattern points at an instruction whose RIP-relative operand is the global.
-	static DWORD64 ResolveGlobal(INI& ini, bool isPatterns, bool isSimple, const char* name, std::initializer_list<const char*> symbols, const char* key, size_t dispOffset, size_t instrEnd) {
+	// The UML IsSimple=0 mode (<key>FirstOpCodes/<key>TotalByteInstruction) was removed in Wave 3D.
+	static DWORD64 ResolveGlobal(INI& ini, const char* name, std::initializer_list<const char*> symbols, const char* key, size_t dispOffset, size_t instrEnd) {
 		DWORD64 address = SymbolResolver::Find(symbols);
 		if (address) {
 			LogResolved(name, address, "pdb");
@@ -90,15 +95,6 @@ namespace mdml {
 			LogResolved(name, 0, "");
 			return 0;
 		}
-		if (!isPatterns) {
-			address = (DWORD64)GetModuleHandleW(nullptr) + StringToDWord(value);
-			LogResolved(name, address, "offset");
-			return address;
-		}
-		if (!isSimple) {
-			dispOffset = ini.getAs<int>(std::string(key) + "FirstOpCodes", 0);
-			instrEnd = ini.getAs<int>(std::string(key) + "TotalByteInstruction", 0);
-		}
 		address = (DWORD64)Pattern::FindRipTarget(value.c_str(), dispOffset, instrEnd);
 		if (!address && !Pattern::FindAll(value.c_str()).empty())
 			Log::Error_MDML("{0}: pattern matches resolve to different addresses, ignoring it", name);
@@ -107,18 +103,14 @@ namespace mdml {
 	}
 
 	void ResolveEngineGlobals(INI& GameInfo) {
-		// Globals: PDB symbol first, then the [GInfo] pattern (RIP-relative operand, all hits must agree), then raw offsets.
+		// Globals: PDB symbol first, then the [GInfo] pattern (RIP-relative operand, all hits must agree).
+		// UE 4.27 only: GName is always the FNamePool (NamePoolData / FPool pattern); the pre-4.23 GNames path is gone.
 		if (GameInfo.select("GInfo") || SymbolResolver::IsAvailable())
 		{
-			const bool isPatterns = GameInfo.getAs<int>("GInfo", "IsGInfoPatterns", 1) == 1;
-			const bool isSimple = GameInfo.getAs<int>("GInfo", "IsSimple", 1) == 1;
-
-			if (Addresses.UsesFNamePool)
-				Addresses.GName = ResolveGlobal(GameInfo, isPatterns, isSimple, "GName", { Symbols::NamePoolData }, "FPool", 5, 9);
-			else
-				Addresses.GName = ResolveGlobal(GameInfo, isPatterns, isSimple, "GName", {}, "GName", 11, 15);
-			Addresses.GObject = ResolveGlobal(GameInfo, isPatterns, isSimple, "GObject", { Symbols::GUObjectArray }, "GObject", 14, 18);
-			Addresses.GWorld = ResolveGlobal(GameInfo, isPatterns, isSimple, "GWorld", { Symbols::GWorld }, "GWorld", 8, 12);
+			WarnIfRawOffsetMode(GameInfo, "GInfo", "IsGInfoPatterns");
+			Addresses.GName = ResolveGlobal(GameInfo, "GName", { Symbols::NamePoolData }, "FPool", 5, 9);
+			Addresses.GObject = ResolveGlobal(GameInfo, "GObject", { Symbols::GUObjectArray }, "GObject", 14, 18);
+			Addresses.GWorld = ResolveGlobal(GameInfo, "GWorld", { Symbols::GWorld }, "GWorld", 8, 12);
 		}
 		else
 		{
@@ -129,18 +121,17 @@ namespace mdml {
 	void ResolveEngineFunctions(INI& GameInfo) {
 #pragma region Function defs
 		{
-			GameInfo.select("FunctionInfo");
-			const bool isPatterns = GameInfo.getAs<int>("FunctionInfo", "IsFunctionPatterns", 1) == 1;
-			Addresses.GameStateInit = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "GameStateInit", { Symbols::InitGameState });
-			Addresses.BeginPlay = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "BeginPlay", { Symbols::BeginPlay });
-			Addresses.Tick = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "Tick", { Symbols::WorldTick });
-			Addresses.StaticLoadObject = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "StaticLoadObject", { Symbols::StaticLoadObject });
-			Addresses.StaticFindObject = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "StaticFindObject", { Symbols::StaticFindObject });
-			Addresses.SpawnActorFTrans = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "SpawnActorFTrans", { Symbols::SpawnActorFTrans });
-			Addresses.CallFunctionByNameWithArguments = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "CallFunctionByNameWithArguments", { Symbols::CallFunctionByNameWithArguments });
-			Addresses.ProcessEvent = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "ProcessEvent", { Symbols::ProcessEvent });
-			Addresses.CreateDefaultObject = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "CreateDefaultObject", { Symbols::CreateDefaultObject });
-			Addresses.GetDisplayNameTextByIndex = ResolveFunction(GameInfo, isPatterns, "FunctionInfo", "GetDisplayNameTextByIndex", { Symbols::UserDefinedEnumGetDisplayNameTextByIndex });
+			WarnIfRawOffsetMode(GameInfo, "FunctionInfo", "IsFunctionPatterns");
+			Addresses.GameStateInit = ResolveFunction(GameInfo, "FunctionInfo", "GameStateInit", { Symbols::InitGameState });
+			Addresses.BeginPlay = ResolveFunction(GameInfo, "FunctionInfo", "BeginPlay", { Symbols::BeginPlay });
+			Addresses.Tick = ResolveFunction(GameInfo, "FunctionInfo", "Tick", { Symbols::WorldTick });
+			Addresses.StaticLoadObject = ResolveFunction(GameInfo, "FunctionInfo", "StaticLoadObject", { Symbols::StaticLoadObject });
+			Addresses.StaticFindObject = ResolveFunction(GameInfo, "FunctionInfo", "StaticFindObject", { Symbols::StaticFindObject });
+			Addresses.SpawnActorFTrans = ResolveFunction(GameInfo, "FunctionInfo", "SpawnActorFTrans", { Symbols::SpawnActorFTrans });
+			Addresses.CallFunctionByNameWithArguments = ResolveFunction(GameInfo, "FunctionInfo", "CallFunctionByNameWithArguments", { Symbols::CallFunctionByNameWithArguments });
+			Addresses.ProcessEvent = ResolveFunction(GameInfo, "FunctionInfo", "ProcessEvent", { Symbols::ProcessEvent });
+			Addresses.CreateDefaultObject = ResolveFunction(GameInfo, "FunctionInfo", "CreateDefaultObject", { Symbols::CreateDefaultObject });
+			Addresses.GetDisplayNameTextByIndex = ResolveFunction(GameInfo, "FunctionInfo", "GetDisplayNameTextByIndex", { Symbols::UserDefinedEnumGetDisplayNameTextByIndex });
 		}
 #pragma endregion
 
@@ -161,28 +152,50 @@ namespace mdml {
 #pragma endregion
 
 #pragma region StaticConstructObject_Internal def
-		// UE 4.26+ takes a single FStaticConstructObjectParameters argument ("updated" signature).
+		// UE 4.26+ takes a single FStaticConstructObjectParameters argument; the legacy multi-argument signature
+		// (IsUsingUpdatedStaticConstruct=0) was removed in Wave 3D.
 		Addresses.StaticConstructObject_Internal = SymbolResolver::Find({ Symbols::StaticConstructObject_Internal });
 		if (Addresses.StaticConstructObject_Internal)
 		{
-			Addresses.IsUsingUpdatedStaticConstruct = true;
 			LogResolved("StaticConstructObject_Internal", Addresses.StaticConstructObject_Internal, "pdb");
 		}
 		else
 		{
 			GameInfo.select("StaticConstructObject_Internal");
-			Addresses.IsUsingUpdatedStaticConstruct = GameInfo.getAs<int>("IsUsingUpdatedStaticConstruct", 1);
 			Addresses.StaticConstructObject_Internal = ScanFunction(GameInfo.get("Pattern", ""), "StaticConstructObject_Internal");
 			LogResolved("StaticConstructObject_Internal", Addresses.StaticConstructObject_Internal, "pattern");
 		}
 		if (!Addresses.StaticConstructObject_Internal)
 			Log::Warn_MDML("Mods using the ModObjectInstance will not work properly.");
 #pragma endregion
+
+		ResolveEngineExtras();
 	}
 
 	void ResolvePakFunctions(INI& GameInfo) {
-		const bool isPatterns = GameInfo.getAs<int>("PakOverwrite", "IsFunctionPatterns", 1) == 1;
-		Addresses.IsNonPakFilenameAllowed = ResolveFunction(GameInfo, isPatterns, "PakOverwrite", "IsNonPakFilenameAllowed", { Symbols::IsNonPakFilenameAllowed });
-		Addresses.FindFileInPakFiles = ResolveFunction(GameInfo, isPatterns, "PakOverwrite", "FindFileInPakFiles", { Symbols::FindFileInPakFiles });
+		WarnIfRawOffsetMode(GameInfo, "PakOverwrite", "IsFunctionPatterns");
+		Addresses.IsNonPakFilenameAllowed = ResolveFunction(GameInfo, "PakOverwrite", "IsNonPakFilenameAllowed", { Symbols::IsNonPakFilenameAllowed });
+		Addresses.FindFileInPakFiles = ResolveFunction(GameInfo, "PakOverwrite", "FindFileInPakFiles", { Symbols::FindFileInPakFiles });
+	}
+
+	// Optional engine functions: PDB/RVA cache only. Missing ones are a warning, not an error, because the core falls
+	// back (FName lookup by walking the name pool, CRT heap for FMemory, the old FText layout read).
+	static DWORD64 ResolveOptional(const char* name, const char* symbol) {
+		DWORD64 address = SymbolResolver::Find({ symbol });
+		if (address)
+			LogResolved(name, address, "pdb");
+		else
+			Log::Warn_MDML("{0} not found (needs the game PDB or the symbol cache); using the fallback", name);
+		return address;
+	}
+
+	void ResolveEngineExtras() {
+		Addresses.FNameCtorWide = ResolveOptional("FName::FName(const TCHAR*)", Symbols::FNameCtorWide);
+		Addresses.FNameCtorAnsi = ResolveOptional("FName::FName(const ANSICHAR*)", Symbols::FNameCtorAnsi);
+		Addresses.FMemoryMalloc = ResolveOptional("FMemory::Malloc", Symbols::FMemoryMalloc);
+		Addresses.FMemoryRealloc = ResolveOptional("FMemory::Realloc", Symbols::FMemoryRealloc);
+		Addresses.FMemoryFree = ResolveOptional("FMemory::Free", Symbols::FMemoryFree);
+		Addresses.FTextToString = ResolveOptional("FText::ToString", Symbols::FTextToString);
+		Addresses.FTextDestructor = ResolveOptional("FText::~FText", Symbols::FTextDestructor);
 	}
 }

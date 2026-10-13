@@ -993,6 +993,9 @@
     <ClInclude Include="src\Engine\EngineLayout.h">
       <Filter>src\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\EngineMemory.h">
+      <Filter>src\Engine</Filter>
+    </ClInclude>
     <ClInclude Include="src\Engine\MDML\GeneratedSupport.h">
       <Filter>src\Engine\MDML</Filter>
     </ClInclude>
@@ -1026,6 +1029,9 @@
     <ClInclude Include="src\Engine\UE4\Containers\Text.h">
       <Filter>src\Engine\UE4\Containers</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\UE4\Containers\UnrealMemory.h">
+      <Filter>src\Engine\UE4\Containers</Filter>
+    </ClInclude>
     <ClInclude Include="src\Engine\UE4\CoreUObject\Class.h">
       <Filter>src\Engine\UE4\CoreUObject</Filter>
     </ClInclude>
@@ -1039,6 +1045,9 @@
       <Filter>src\Engine\UE4\CoreUObject</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\UE4\CoreUObject\Object.h">
+      <Filter>src\Engine\UE4\CoreUObject</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\UE4\CoreUObject\ObjectLayout.h">
       <Filter>src\Engine\UE4\CoreUObject</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\UE4\CoreUObject\ObjectsArray.h">
@@ -1232,16 +1241,25 @@
     <ClCompile Include="src\Engine\EngineInit.cpp">
       <Filter>src\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\Engine\EngineMemory.cpp">
+      <Filter>src\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="src\Engine\MDML\GeneratedSupport.cpp">
       <Filter>src\Engine\MDML</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\NameValidator.cpp">
       <Filter>src\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\Engine\UE4\Containers\UnrealMemory.cpp">
+      <Filter>src\Engine\UE4\Containers</Filter>
+    </ClCompile>
     <ClCompile Include="src\Engine\UE4\CoreUObject\Class.cpp">
       <Filter>src\Engine\UE4\CoreUObject</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\UE4\CoreUObject\CoreTypes.cpp">
+      <Filter>src\Engine\UE4\CoreUObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\UE4\CoreUObject\NamePool.cpp">
       <Filter>src\Engine\UE4\CoreUObject</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\UE4\CoreUObject\Object.cpp">

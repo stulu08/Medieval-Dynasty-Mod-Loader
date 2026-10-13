@@ -3,6 +3,7 @@
 #include "Platform/Math.h"
 #include "NameValidator.h"
 #include "EngineAddresses.h"
+#include "EngineLayout.h"
 #include "Containers/String.h"
 #include "Containers/Text.h"
 #ifdef _MSC_VER
@@ -11,12 +12,14 @@
 #endif
 namespace UE4 {
 	//---------------------------------------------------------------------------
-	//NamePool
+	//NamePool (UE 4.23+; the pre-4.23 TNameEntryArray/GNames path was removed in Wave 3D).
+	//Layout checked against the PDB: mdml::layout::FNameEntryAllocator / FNameEntry.
 	//---------------------------------------------------------------------------
 	class FNamePoolFNameEntry
 	{
 	public:
-		int16_t Key;
+		// FNameEntryHeader: bIsWide:1, LowercaseProbeHash:5, Len:10 (unsigned; was read as int16_t before 3D).
+		uint16_t Key;
 
 		union
 		{
@@ -26,7 +29,7 @@ namespace UE4 {
 
 		uint32_t GetLength() const
 		{
-			return Key >> 6;
+			return Key >> mdml::layout::FNameEntry::LenShift;
 		}
 
 		bool IsWide() const
@@ -42,12 +45,31 @@ namespace UE4 {
 		std::wstring GetWideName() const
 		{
 			auto len = GetLength();
+			if (len > 1024) return L"[Error: Overflow]";
 			return std::wstring((const wchar_t*)WideName, len);
 		}
 
+		// UTF-8 for wide entries (localized names), the bytes as stored for ANSI entries.
 		std::string GetName() const
 		{
-			return GetAnsiName();
+			if (!IsWide())
+				return GetAnsiName();
+			const std::wstring wide = GetWideName();
+			if (wide.empty())
+				return std::string();
+			const int bytes = WideCharToMultiByte(CP_UTF8, 0, wide.data(), (int)wide.size(), nullptr, 0, nullptr, nullptr);
+			std::string out(bytes > 0 ? bytes : 0, '\0');
+			if (bytes > 0)
+				WideCharToMultiByte(CP_UTF8, 0, wide.data(), (int)wide.size(), &out[0], bytes, nullptr, nullptr);
+			return out;
+		}
+
+		// Bytes this entry occupies in its block (header + characters, rounded up to the allocator stride).
+		uint32_t GetSizeInBlock() const
+		{
+			const uint32_t bytes = 2 + GetLength() * (IsWide() ? 2 : 1);
+			const uint32_t stride = mdml::layout::FNameEntryAllocator::Stride;
+			return (bytes + stride - 1) / stride * stride;
 		}
 	};
 	class FNamePoolFNameEntryAllocator
@@ -86,6 +108,32 @@ namespace UE4 {
 		{
 			return (key >= 0 && ((int32_t)block) < NumBlocks() && offset * 2 < 0x1FFFE);
 		}
+
+		// Walks every entry in allocation order: Fn(int32_t Id, const FNamePoolFNameEntry& Entry); returning false from
+		// Fn stops the walk. Ids are (block << 16) | (byte offset / stride), the encoding of FName::ComparisonIndex.
+		template<typename Fn>
+		void ForEachEntry(Fn&& Callback) const
+		{
+			using namespace mdml::layout;
+			for (int32_t block = 0; block < NumBlocks() && block < FNameEntryAllocator::MaxBlocks; ++block)
+			{
+				const uint8_t* base = Blocks[block];
+				if (!base)
+					break;
+				const int32_t end = block == CurrentBlock ? CurrentByteCursor : FNameEntryAllocator::BlockSizeBytes;
+				int32_t cursor = 0;
+				while (cursor + 2 <= end)
+				{
+					auto entry = reinterpret_cast<const FNamePoolFNameEntry*>(base + cursor);
+					if (entry->GetLength() == 0)
+						break; // a zero header terminates a full block (FNameEntryAllocator::AllocateNewBlock)
+					const int32_t id = (block << FNameEntryAllocator::BlockOffsetBits) | (cursor / FNameEntryAllocator::Stride);
+					if (!Callback(id, *entry))
+						return;
+					cursor += (int32_t)entry->GetSizeInBlock();
+				}
+			}
+		}
 	};
 	class FNamePool
 	{
@@ -94,50 +142,7 @@ namespace UE4 {
 		uint32_t AnsiCount;
 		uint32_t WideCount;
 
-		FNamePoolFNameEntry* GetNext(uint32_t& lastFNameId)
-		{
-			// Key		=> NameID
-			// Value	=> StringLen
-			static std::unordered_map<int, int> namesCache;
-			const auto initLastFNameId = lastFNameId;
-		RePlay:
-			uint16_t block = lastFNameId >> 16;
-			uint16_t nameOffset = (uint16_t)lastFNameId;
-			uint32_t newOffset = 0;
-
-			// We hit last Name in last Block
-			if (block > Allocator.CurrentBlock)
-				return nullptr;
-
-			// If found lastId then add 2 to calc offset correct
-			auto it = namesCache.find(lastFNameId);
-			if (it != namesCache.end())
-				newOffset += (nameOffset * 2) + 2 + it->second;
-
-			if (newOffset >= 65535 * 2 || block == Allocator.CurrentBlock && newOffset >= (uint32_t)Allocator.CurrentByteCursor)
-			{
-				lastFNameId = MAKELONG(0, block + 1);
-				goto RePlay;
-			}
-
-			lastFNameId = MAKELONG(((unsigned short)(newOffset / 2)), block);
-
-			uintptr_t entryOffset = reinterpret_cast<uintptr_t>(Allocator.Blocks[block]) + newOffset;
-
-			unsigned short nameEntry = *reinterpret_cast<unsigned short*>(entryOffset);
-
-			int nameLength = nameEntry >> 6;
-
-			// if odd number (odd numbers are aligned with 0x00)
-			if (nameLength % 2 != 0)
-				nameLength += 1;
-
-			// Cache
-			namesCache.emplace(lastFNameId, nameLength);
-
-			return Allocator.GetById(lastFNameId);
-		}
-
+		// Note: not the entry count, see FNamePoolFNameEntryAllocator::ForEachEntry for iterating.
 		inline size_t Num() const
 		{
 			return AnsiCount;
@@ -158,44 +163,14 @@ namespace UE4 {
 			return Allocator.GetById(static_cast<int32_t>(id));
 		}
 	};
-	class FNameEntry
+
+	// FName::FName(..., EFindName) of the engine.
+	enum EFindName
 	{
-	public:
-		inline const char* GetAnsiName() const
-		{
-			//return (char*)this + (mdml::Addresses.IsUsing4_22 ? 0xC : 0x10);
-			return (char*)this + 0x10;
-		}
+		FNAME_Find = 0, // only look up an existing name; NAME_None if it does not exist
+		FNAME_Add = 1,  // add the name to the pool if it does not exist
 	};
-	class TNameEntryArray
-	{
-	public:
-		inline int Num() const
-		{
-			return GetNumElements();
-		}
 
-		inline bool IsValidIndex(int Index) const
-		{
-			return Index < Num() && Index >= 0;
-		}
-
-		inline FNameEntry const* const& operator[](int Index) const
-		{
-			return *GetItemPtr(Index);
-		}
-
-	private:
-		inline FNameEntry const* const* GetItemPtr(int Index) const
-		{
-			auto ChunkIndex = Index / 16384;
-			auto WithinChunkIndex = Index % 16384;
-			auto Chunk = Chunks[ChunkIndex];
-			return Chunk + WithinChunkIndex;
-		}
-		int GetNumElements() const { return Read<int>((byte*)this + 0x8 + 0x4); };
-		FNameEntry** Chunks[];
-	};
 	class MDML_ENGINE_API FName
 	{
 	public:
@@ -214,86 +189,17 @@ namespace UE4 {
 		{
 		};
 
-		FName(const char* nameToFind)
-			: ComparisonIndex(0),
-			Number(0)
-		{
-			static std::unordered_set<int> cache;
+		// Looks up an existing name (never adds one; NAME_None if it does not exist), like before Wave 3D.
+		// Uses the engine's FName(const ANSICHAR*, FNAME_Find) when resolved: hash lookup, case-insensitive, and a
+		// "_N" suffix becomes the Number like everywhere in UE. Fallback (no PDB): exact, case-sensitive walk over the
+		// name pool (fixed in 3D: the old loop probed raw indices of block 0 only, code inventory C14).
+		FName(const char* nameToFind);
+		// Engine FName(const TCHAR*, EFindName); FNAME_Add creates the name. Fallback without the engine function:
+		// like FName(const char*) (find only; ASCII names).
+		FName(const wchar_t* Name, EFindName FindType);
 
-			for (auto i : cache)
-			{
-				if (IsUsingNamePool())
-				{
-					if (!std::strcmp(GetFNamePool()[i]->GetAnsiName().c_str(), nameToFind))
-					{
-						ComparisonIndex = i;
-
-						return;
-					}
-				}
-				else
-				{
-					if (!std::strcmp(GetTNameArray()[i]->GetAnsiName(), nameToFind))
-					{
-						ComparisonIndex = i;
-
-						return;
-					}
-				}
-			}
-
-			if (IsUsingNamePool())
-			{
-				for (auto i = 0; i < GetFNamePool().Num(); ++i)
-				{
-					if (GetFNamePool()[i] != nullptr)
-					{
-						if (!std::strcmp(GetFNamePool()[i]->GetAnsiName().c_str(), nameToFind))
-						{
-							cache.insert(i);
-
-							ComparisonIndex = i;
-
-							return;
-						}
-					}
-				}
-			}
-			else
-			{
-				for (auto i = 0; i < GetTNameArray().Num(); ++i)
-				{
-					if (GetTNameArray()[i] != nullptr)
-					{
-						if (!std::strcmp(GetTNameArray()[i]->GetAnsiName(), nameToFind))
-						{
-							cache.insert(i);
-
-							ComparisonIndex = i;
-
-							return;
-						}
-					}
-				}
-			}
-
-		};
-
+		// FNamePool (NamePoolData), bound by UE4::InitEngineGlobals.
 		static DWORD* GNames;
-		static inline DWORD& GetGlobalNames()
-		{
-			return *GNames;
-		};
-
-		static inline bool IsUsingNamePool()
-		{
-			return mdml::Addresses.UsesFNamePool;
-		};
-
-		static inline TNameEntryArray& GetTNameArray()
-		{
-			return *(TNameEntryArray*)GNames;
-		};
 
 		static inline FNamePool& GetFNamePool()
 		{
@@ -302,14 +208,9 @@ namespace UE4 {
 
 		inline std::string GetName() const
 		{
-			if (IsUsingNamePool())
-			{
-				return GetFNamePool()[ComparisonIndex]->GetAnsiName();
-			}
-			else
-			{
-				return GetTNameArray()[ComparisonIndex]->GetAnsiName();
-			}
+			if (!GNames)
+				return std::string();
+			return GetFNamePool()[ComparisonIndex]->GetName();
 		};
 
 		inline bool operator==(const FName& other) const
@@ -317,14 +218,16 @@ namespace UE4 {
 			return ComparisonIndex == other.ComparisonIndex;
 		};
 	};
+	static_assert(sizeof(FName) == mdml::layout::FName::Size, "FName layout");
 	/////////////////////////////////////////////
 	// ScriptStruct InputCore.Key
 	// Size 24
 	/////////////////////////////////////////////
 	struct alignas(8) FKey {
 		struct FName	KeyName;		//Offset: 0	Size: 8	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
-		unsigned char uknownData_0[16];		//Offset: 8	Size: 16
+		unsigned char unknownData_0[16];		//Offset: 8	Size: 16
 	};
+	static_assert(sizeof(FKey) == mdml::layout::Sizes::FKey, "FKey layout");
 }
 #ifdef _MSC_VER
 #pragma pack(pop)

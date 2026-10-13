@@ -49,11 +49,11 @@ namespace UE4 {
 			{
 				return nullptr;
 			}
-			FUObjectItem* ObjectItem;
-			if (FUObjectArray::IsChunkedArray())
-				ObjectItem = UObject::GObjects->GetAsChunckArray().GetObjectPtr(ObjectIndex);
-			else
-				ObjectItem = UObject::GObjects->GetAsTUArray().GetObjectPtr(ObjectIndex);
+			if (!UObject::GObjects)
+			{
+				return nullptr;
+			}
+			FUObjectItem* ObjectItem = UObject::GObjects->GetObjects().GetObjectPtr(ObjectIndex);
 			// Like UE's FWeakObjectPtr::Internal_GetObjectItem: the slot must exist and still hold the same object
 			// generation (serial number), otherwise the weak pointer is stale.
 			if (!ObjectItem || ObjectItem->SerialNumber != ObjectSerialNumber)
@@ -177,11 +177,15 @@ namespace UE4 {
 	template<class ObjectType, ESPMode Mode = ESPMode::Fast> class TWeakPtr;
 	template<class ObjectType, ESPMode Mode = ESPMode::Fast> class TSharedFromThis;
 	namespace SharedPointerInternals {
+		// Polymorphic in UE (virtual DestroyObject/destructor): vtable pointer first, counts at 0x8/0xC (PDB). Before
+		// Wave 3D the vptr was missing and the counts were read 8 bytes too early (code inventory C10).
 		class FReferenceControllerBase {
 		public:
+			void** VTable;
 			int32 SharedReferenceCount;
 			int32 WeakReferenceCount;
 		};
+		static_assert(sizeof(FReferenceControllerBase) == mdml::layout::FReferenceControllerBase::Size, "FReferenceControllerBase layout");
 		template<ESPMode Mode>
 		class FSharedReferencer {
 			FReferenceControllerBase* ReferenceController;
@@ -199,4 +203,10 @@ namespace UE4 {
 		ObjectType* Object;
 		SharedPointerInternals::FSharedReferencer<Mode> SharedReferenceCount;
 	};
+
+	static_assert(sizeof(FWeakObjectPtr) == mdml::layout::FWeakObjectPtr::Size, "FWeakObjectPtr layout");
+	static_assert(offsetof(FWeakObjectPtr, ObjectSerialNumber) == mdml::layout::FWeakObjectPtr::ObjectSerialNumber, "FWeakObjectPtr layout");
+	static_assert(sizeof(FSoftObjectPath) == mdml::layout::Sizes::FSoftObjectPath, "FSoftObjectPath layout");
+	static_assert(sizeof(FSoftObjectPtr) == mdml::layout::Sizes::FSoftObjectPtr, "FSoftObjectPtr layout");
+	static_assert(sizeof(FScriptDelegate) == mdml::layout::Sizes::FScriptDelegate, "FScriptDelegate layout");
 }

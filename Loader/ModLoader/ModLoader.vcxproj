@@ -372,6 +372,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     <ClInclude Include="src\Core.h" />
     <ClInclude Include="src\Engine\EngineAddresses.h" />
     <ClInclude Include="src\Engine\EngineLayout.h" />
+    <ClInclude Include="src\Engine\EngineMemory.h" />
     <ClInclude Include="src\Engine\MDML\GeneratedSupport.h" />
     <ClInclude Include="src\Engine\NameValidator.h" />
     <ClInclude Include="src\Engine\UE4.h" />
@@ -383,11 +384,13 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     <ClInclude Include="src\Engine\UE4\Containers\String.h" />
     <ClInclude Include="src\Engine\UE4\Containers\Templates.h" />
     <ClInclude Include="src\Engine\UE4\Containers\Text.h" />
+    <ClInclude Include="src\Engine\UE4\Containers\UnrealMemory.h" />
     <ClInclude Include="src\Engine\UE4\CoreUObject\Class.h" />
     <ClInclude Include="src\Engine\UE4\CoreUObject\CoreTypes.h" />
     <ClInclude Include="src\Engine\UE4\CoreUObject\Interface.h" />
     <ClInclude Include="src\Engine\UE4\CoreUObject\NamePool.h" />
     <ClInclude Include="src\Engine\UE4\CoreUObject\Object.h" />
+    <ClInclude Include="src\Engine\UE4\CoreUObject\ObjectLayout.h" />
     <ClInclude Include="src\Engine\UE4\CoreUObject\ObjectsArray.h" />
     <ClInclude Include="src\Engine\UE4\CoreUObject\Stack.h" />
     <ClInclude Include="src\Engine\UE4\CoreUObject\UnrealType.h" />
@@ -483,16 +486,25 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     <ClCompile Include="src\Engine\EngineInit.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Engine\EngineMemory.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="src\Engine\MDML\GeneratedSupport.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Engine\NameValidator.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Engine\UE4\Containers\UnrealMemory.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="src\Engine\UE4\CoreUObject\Class.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Engine\UE4\CoreUObject\CoreTypes.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\Engine\UE4\CoreUObject\NamePool.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Engine\UE4\CoreUObject\Object.cpp">
