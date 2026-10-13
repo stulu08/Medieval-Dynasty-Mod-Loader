@@ -101,8 +101,8 @@ namespace HooksManager
 				return false;
 			auto str = MDML::FormatPath(path.string());
 			if (str.find("\\Content\\") != str.npos) {
-				if (mdml::Config.disableOverwriteFiles.find(str) != mdml::Config.disableOverwriteFiles.end()) {
-					return !mdml::Config.disableOverwriteFiles[str];
+				if (mdml::runtime::Config.disableOverwriteFiles.find(str) != mdml::runtime::Config.disableOverwriteFiles.end()) {
+					return !mdml::runtime::Config.disableOverwriteFiles[str];
 				}
 				return true;
 			}
@@ -190,41 +190,41 @@ namespace HooksManager
 	void SetupHooks()
 	{
 		Log::Info_UML("Setting Up Loader");
-		// The process' only MH_Initialize; mods hook through mdml::Hooks (Platform/Hooks.h).
-		mdml::Hooks::Initialize();
+		// The process' only MH_Initialize; mods hook through mdml::platform::Hooks (Platform/Hooks.h).
+		mdml::platform::Hooks::Initialize();
 		Log::Info_UML("MinHook Setup");
 		Log::Info_UML("Loading Mods");
 
-		if(mdml::Config.ModOverwritesEnabled)
+		if(mdml::runtime::Config.ModOverwritesEnabled)
 			ModLoader::CreateSysLinks();
 		else
 			ModLoader::DeleteSysLinks(true);//if there are old files delete them
 
-		if (mdml::Config.bPakOverride) {
-			mdml::Hooks::Add(mdml::Addresses.FindFileInPakFiles, &HookedFunctions::hookFindFileInPakFiles, &HookedFunctions::origFindFileInPakFiles, "FPakPlatformFile::FindFileInPakFiles");
-			mdml::Hooks::Add(mdml::Addresses.IsNonPakFilenameAllowed, &HookedFunctions::hookIsNonPakFilenameAllowed, &HookedFunctions::origIsNonPakFilenameAllowed, "FPakPlatformFile::IsNonPakFilenameAllowed");
+		if (mdml::runtime::Config.bPakOverride) {
+			mdml::platform::Hooks::Add(mdml::Addresses.FindFileInPakFiles, &HookedFunctions::hookFindFileInPakFiles, &HookedFunctions::origFindFileInPakFiles, "FPakPlatformFile::FindFileInPakFiles");
+			mdml::platform::Hooks::Add(mdml::Addresses.IsNonPakFilenameAllowed, &HookedFunctions::hookIsNonPakFilenameAllowed, &HookedFunctions::origIsNonPakFilenameAllowed, "FPakPlatformFile::IsNonPakFilenameAllowed");
 			Log::Info_MDML("Pak overwrites loaded ({0} ms after process start, {1} UObjects exist)", MsSinceProcessStart(), GetUObjectCount());
 		}
 
 		ModLoader::LoadMods();
 
-		mdml::Hooks::Add(mdml::Addresses.GameStateInit, &HookedFunctions::hookInitGameState, &HookedFunctions::origInitGameState, "AGameModeBase::InitGameState");
-		mdml::Hooks::Add(mdml::Addresses.BeginPlay, &HookedFunctions::hookBeginPlay, &HookedFunctions::origBeginPlay, "AActor::BeginPlay");
-		mdml::Hooks::Add(mdml::Addresses.Tick, &HookedFunctions::hookTick, &HookedFunctions::origTick, "UWorld::Tick");
+		mdml::platform::Hooks::Add(mdml::Addresses.GameStateInit, &HookedFunctions::hookInitGameState, &HookedFunctions::origInitGameState, "AGameModeBase::InitGameState");
+		mdml::platform::Hooks::Add(mdml::Addresses.BeginPlay, &HookedFunctions::hookBeginPlay, &HookedFunctions::origBeginPlay, "AActor::BeginPlay");
+		mdml::platform::Hooks::Add(mdml::Addresses.Tick, &HookedFunctions::hookTick, &HookedFunctions::origTick, "UWorld::Tick");
 
 		LoaderUI::GetUI()->CreateUILogicThread();
-		if (!mdml::Config.bDelayGUISpawn)
+		if (!mdml::runtime::Config.bDelayGUISpawn)
 		{
 			LoaderUI::HookDX();
 		}
 		Log::Info_MDML("Loader setup finished ({0} ms after process start)", MsSinceProcessStart());
 	}
 	void AddProcessInternalHook() {
-		mdml::Hooks::Add(mdml::Addresses.ProcessInternals, &HookedFunctions::hookProcessFunction, &HookedFunctions::origProcessFunction, "ProcessBlueprintFunctions");
+		mdml::platform::Hooks::Add(mdml::Addresses.ProcessInternals, &HookedFunctions::hookProcessFunction, &HookedFunctions::origProcessFunction, "ProcessBlueprintFunctions");
 	}
 	void ShutDown() {
-		if (mdml::Config.ModOverwritesEnabled)
+		if (mdml::runtime::Config.ModOverwritesEnabled)
 			ModLoader::DeleteSysLinks();
-		mdml::Hooks::Shutdown(); // MH_DisableHook(MH_ALL_HOOKS) + MH_Uninitialize, for the loader's and all mods' hooks
+		mdml::platform::Hooks::Shutdown(); // MH_DisableHook(MH_ALL_HOOKS) + MH_Uninitialize, for the loader's and all mods' hooks
 	}
 };

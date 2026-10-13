@@ -5,7 +5,7 @@
 // GameInfo.h `GameProfile` / `SDK::SelectedGameProfile`).
 // Filled by SetupProfile (MDML.cpp) from MDML.dll's location, Config/ModLoaderInfo.ini and the game profile.
 // All paths are absolute (never relative to the working directory).
-namespace mdml {
+namespace mdml::runtime {
 	struct LoaderConfig {
 		// <MDML dir>/<[General] LogDir>
 		std::string LogDir;

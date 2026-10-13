@@ -6,7 +6,7 @@
 #include <sstream>
 #include <mutex>
 
-namespace LoadOrder
+namespace mdml::mods::LoadOrder
 {
 	static std::string Trim(const std::string& s) {
 		size_t b = s.find_first_not_of(" \t\r\n");

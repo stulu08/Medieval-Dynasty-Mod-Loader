@@ -105,7 +105,7 @@ namespace devtools {
 		m_jobState = EJobState::Queued;
 		AddLog("Analysis queued for the game thread (the game freezes while Dumper-7 runs).");
 		// Dumper-7 walks GObjects/GNames and calls ProcessEvent: game thread only.
-		mdml::GameThread::Enqueue([this]() {
+		mdml::runtime::GameThread::Enqueue([this]() {
 			m_jobState = EJobState::Running;
 			std::string Error;
 			auto Log = [this](sdkgen::ELogLevel Level, const std::string& Message) { AddLog(Message, Level == sdkgen::ELogLevel::Error); };
@@ -143,7 +143,7 @@ namespace devtools {
 			<< " -> " << Request.OutputRoot.string();
 		AddLog(Summary.str());
 
-		mdml::GameThread::Enqueue([this, Request]() {
+		mdml::runtime::GameThread::Enqueue([this, Request]() {
 			m_jobState = EJobState::Running;
 			auto Log = [this](sdkgen::ELogLevel Level, const std::string& Message) { AddLog(Message, Level == sdkgen::ELogLevel::Error); };
 			sdkgen::GenerateResult Result = sdkgen::Generate(Request, Log);

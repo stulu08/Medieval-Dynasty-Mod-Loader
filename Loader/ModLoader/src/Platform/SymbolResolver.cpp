@@ -8,7 +8,7 @@
 #include <unordered_map>
 #pragma comment(lib, "dbghelp.lib")
 
-namespace SymbolResolver
+namespace mdml::platform::SymbolResolver
 {
 	// A pseudo process handle: DbgHelp only uses it as a session key. Using our own value keeps us out of
 	// the engine's DbgHelp session (crash reporter) which is keyed by GetCurrentProcess().

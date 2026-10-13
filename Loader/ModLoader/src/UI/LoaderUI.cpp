@@ -88,25 +88,25 @@ void UILogicTick()
 		if (TickVars::bDumpObjects)
 		{
 			TickVars::bDumpObjects = false;
-			mdml::GameThread::Enqueue([]() { Dumper::GetDumper()->DumpObjectArray(); });
+			mdml::runtime::GameThread::Enqueue([]() { Dumper::GetDumper()->DumpObjectArray(); });
 		}
 
 		if (TickVars::bDumpEngineInfo)
 		{
 			TickVars::bDumpEngineInfo = false;
-			mdml::GameThread::Enqueue([]() { Dumper::GetDumper()->DumpEngineInfo(); });
+			mdml::runtime::GameThread::Enqueue([]() { Dumper::GetDumper()->DumpEngineInfo(); });
 		}
 
 		if (TickVars::bDumpWorldActors)
 		{
 			TickVars::bDumpWorldActors = false;
-			mdml::GameThread::Enqueue([]() { Dumper::GetDumper()->DumpWorldActors(); });
+			mdml::runtime::GameThread::Enqueue([]() { Dumper::GetDumper()->DumpWorldActors(); });
 		}
 
 		if (TickVars::bExecuteConsoleCommand)
 		{
 			TickVars::bExecuteConsoleCommand = false;
-			mdml::GameThread::Enqueue([command = TickVars::CurrentCommand]() {
+			mdml::runtime::GameThread::Enqueue([command = TickVars::CurrentCommand]() {
 				UE4::UGameplayStatics::ExecuteConsoleCommand(command.c_str(), nullptr);
 			});
 			TickVars::CurrentCommand = L"";
@@ -191,7 +191,7 @@ void ShowLogicMods()
 						if (ImGui::Button(ButtonLabel.c_str()))
 						{
 							// Runs on the game thread; the mod actor is looked up again there since it may have changed
-							mdml::GameThread::Enqueue([i, bi]() {
+							mdml::runtime::GameThread::Enqueue([i, bi]() {
 								auto& modList = Global::GetGlobals()->ModInfoList;
 								if (i >= modList.size() || !modList[i].IsEnabled || !modList[i].CurrentModActor)
 									return;
@@ -373,7 +373,7 @@ void LoaderUI::LoaderD3D11Present(IDXGISwapChain* pSwapChain, UINT SyncInterval,
 		//init imgui
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO();
-		io.IniFilename = mdml::Config.ImGuiFile.c_str();
+		io.IniFilename = mdml::runtime::Config.ImGuiFile.c_str();
 		io.ConfigFlags = ImGuiConfigFlags_NoMouseCursorChange;
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
 		StyleColorsPhotoShopDark();
@@ -497,8 +497,8 @@ DWORD __stdcall InitDX11Hook(LPVOID)
 	LoaderUI::GetUI()->pSwapChainVtable = (DWORD_PTR*)pSwapChain;
 	LoaderUI::GetUI()->pSwapChainVtable = (DWORD_PTR*)LoaderUI::GetUI()->pSwapChainVtable[0];
 	LoaderUI::GetUI()->phookD3D11Present = (LoaderUI::D3D11PresentHook)LoaderUI::GetUI()->pSwapChainVtable[8];
-	mdml::Hooks::Add((DWORD64)LoaderUI::GetUI()->pSwapChainVtable[13], &hookResizeBuffers, &LoaderUI::GetUI()->ResizeBuffers, "DX11-ResizeBuffers");
-	mdml::Hooks::Add((DWORD64)LoaderUI::GetUI()->phookD3D11Present, &hookD3D11Present, &D3D11Present, "DX11-Present");
+	mdml::platform::Hooks::Add((DWORD64)LoaderUI::GetUI()->pSwapChainVtable[13], &hookResizeBuffers, &LoaderUI::GetUI()->ResizeBuffers, "DX11-ResizeBuffers");
+	mdml::platform::Hooks::Add((DWORD64)LoaderUI::GetUI()->phookD3D11Present, &hookD3D11Present, &D3D11Present, "DX11-Present");
 
 	DWORD dPresentwOld;
 	DWORD dResizeOld;
@@ -519,7 +519,7 @@ DWORD __stdcall InitDX11Hook(LPVOID)
 void LoaderUI::HookDX()
 {
 	static bool ShowMSG = false;
-	if (!mdml::Config.bEnableGUI) {
+	if (!mdml::runtime::Config.bEnableGUI) {
 		Log::SetupMessage("Cant enable MDML UI", "To enable MDML Debug UI, switch rendering mode to DirectX11 in Medieval Dynasty Settings or set UseDebugUI to 1 in  Medieval_Dynasty/Binaries/Win64/Config/ModLoaderInfo.ini");
 		ShowMSG = true;
 		return;

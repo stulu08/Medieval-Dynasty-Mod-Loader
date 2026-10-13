@@ -7,7 +7,7 @@
 #include <mutex>
 #include <vector>
 
-namespace mdml {
+namespace mdml::runtime {
 	namespace {
 		std::mutex s_mutex;
 		std::vector<std::function<void()>> s_pending;

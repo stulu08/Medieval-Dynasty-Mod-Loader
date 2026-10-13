@@ -57,7 +57,7 @@ void MDML::BeginPlay(UE4::AActor* Actor) {
 	if (GameStateClassInitNotRan) {
 		return;
 	}
-	if (Actor->IsA(UE4::ACustomClass::StaticClass(mdml::Config.BeginPlayOverwrite)))
+	if (Actor->IsA(UE4::ACustomClass::StaticClass(mdml::runtime::Config.BeginPlayOverwrite)))
 	{
 		Log::Info_UML("Beginplay Called");
 		for (int i = 0; i < Global::GetGlobals()->ModInfoList.size(); i++)
@@ -86,7 +86,7 @@ void MDML::BeginPlay(UE4::AActor* Actor) {
 }
 
 void MDML::Tick(UE4::ELevelTick tick, float deltaTime) {
-	mdml::GameThread::RunPending();
+	mdml::runtime::GameThread::RunPending();
 	Global::GetGlobals()->CoreMods.callEvent("Tick", tick, deltaTime);
 }
 
@@ -278,7 +278,7 @@ void MDML::ShutDown() {
 	IsProcessInternalsHooked = false;
 	GameStateClassInitNotRan = true;
 	// Reset all loader/engine state (was one `SDK::SelectedGameProfile = GameProfile()`).
-	mdml::Config = mdml::LoaderConfig();
+	mdml::runtime::Config = mdml::runtime::LoaderConfig();
 	mdml::Addresses = mdml::EngineAddresses();
 	mdml::Layout = mdml::EngineLayout();
 	mdml::LayoutStatus = mdml::EngineLayoutStatus();
@@ -286,7 +286,7 @@ void MDML::ShutDown() {
 	_fcloseall();
 }
 std::string MDML::FormatPath(const std::filesystem::path& path) {
-	return std::filesystem::relative(path, mdml::Config.rootGameDir).string();
+	return std::filesystem::relative(path, mdml::runtime::Config.rootGameDir).string();
 }
 std::string MDML::GetDataFolder() {
 	static std::filesystem::path path = L"";
@@ -299,9 +299,9 @@ std::string MDML::GetDataFolder() {
 }
 
 bool SetupProfile(const std::string& Path) {
-	mdml::Config.ImGuiFile = Path + "/Config/WindowConfig.ini";
-	mdml::Config.NoOverwriteFile = Path + "/Config/NoOverwrite.ini";
-	mdml::Config.HardLinksFile = Path + "/Config/ModLinks.bin";
+	mdml::runtime::Config.ImGuiFile = Path + "/Config/WindowConfig.ini";
+	mdml::runtime::Config.NoOverwriteFile = Path + "/Config/NoOverwrite.ini";
+	mdml::runtime::Config.HardLinksFile = Path + "/Config/ModLinks.bin";
 
 	INI::PARSE_FLAGS = INI::PARSE_COMMENTS_ALL | INI::PARSE_COMMENTS_SLASH | INI::PARSE_COMMENTS_HASH;
 	INI LoaderInfo(Path + "/" + ModLoaderConfigFile, true);
@@ -317,7 +317,7 @@ bool SetupProfile(const std::string& Path) {
 		if (!std::filesystem::exists(logFileDir))
 			std::filesystem::create_directories(logFileDir);
 
-		mdml::Config.LogDir = logFileDir.string();
+		mdml::runtime::Config.LogDir = logFileDir.string();
 	}
 	//Output File Initialization
 	LoaderInfo.select("DEBUG");
@@ -333,21 +333,21 @@ bool SetupProfile(const std::string& Path) {
 		freopen_s(&newstdout, "CONOUT$", "w", stdout);
 		freopen_s(&newstderr, "CONOUT$", "w", stderr);
 	}
-	Log::Init(mdml::Config.LogDir);
+	Log::Init(mdml::runtime::Config.LogDir);
 	Log::Info_UML("Loader Created by ~Russell.J Release V {0}", UML_VERSION);
 	Log::Info_MDML("Optimized and edited for Medieval Dynasty by Stulu");
 	Log::Info_MDML("Medieval Dynasty Mod Loader Version {0}", MODLOADER_VERSION);
 	Log::Info_MDML("Medieval Dynasty Version {0}", MEDIEVAL_VERSION);
-	Log::Info_MDML("Game executable build {0}", SymbolResolver::GetBuildId());
+	Log::Info_MDML("Game executable build {0}", mdml::platform::SymbolResolver::GetBuildId());
 
 	MDML::UnrealEngineLoggerInstance = Logger::Create("UE_LOG", Log::getLogFile("UE_LOG-log.txt"));
 	mdml::UnrealLogger = MDML::UnrealEngineLoggerInstance->getLogger();
 
-	mdml::Config.bEnableGUI = LoaderInfo.getAs<int>("DEBUG", "UseDebugUI", 0);
+	mdml::runtime::Config.bEnableGUI = LoaderInfo.getAs<int>("DEBUG", "UseDebugUI", 0);
 
-	if (mdml::Config.bEnableGUI) {
-		mdml::Config.bEnableGUI = IsDirectX11();
-		if (!mdml::Config.bEnableGUI)
+	if (mdml::runtime::Config.bEnableGUI) {
+		mdml::runtime::Config.bEnableGUI = IsDirectX11();
+		if (!mdml::runtime::Config.bEnableGUI)
 			Log::Warn_MDML("Gui was disabled, maybe switch rendering mode to directx11 to enable");
 	}
 #pragma endregion
@@ -366,10 +366,10 @@ bool SetupProfile(const std::string& Path) {
 	// Not from the working directory: the engine switches it to Binaries/Win64 early, and since Wave 2.2 the setup runs
 	// on the init thread after that, which broke the NoOverwrite lookup (loose game files were treated as mod overwrites).
 	const std::filesystem::path rootGameDir = std::filesystem::weakly_canonical(std::filesystem::path(Path) / "../../..");
-	mdml::Config.rootGameDir = rootGameDir.string();
-	if (!std::filesystem::exists(mdml::Config.NoOverwriteFile)) {
+	mdml::runtime::Config.rootGameDir = rootGameDir.string();
+	if (!std::filesystem::exists(mdml::runtime::Config.NoOverwriteFile)) {
 		Log::Warn_MDML("No NoOverwrite file loaded, generating one...");
-		if (FILE* file = fopen(mdml::Config.NoOverwriteFile.c_str(), "w")) {
+		if (FILE* file = fopen(mdml::runtime::Config.NoOverwriteFile.c_str(), "w")) {
 			//dir, files
 			std::unordered_map<std::string, std::vector<std::string>> paths;
 			for (auto path : std::filesystem::recursive_directory_iterator(rootGameDir / "Medieval_Dynasty/Content")) {
@@ -399,11 +399,11 @@ bool SetupProfile(const std::string& Path) {
 			}
 			fclose(file);
 		}
-		Log::Warn_MDML("NoOverwrite file generated to {0}, if you have mods installed remove them from the list or change to false", mdml::Config.NoOverwriteFile);
+		Log::Warn_MDML("NoOverwrite file generated to {0}, if you have mods installed remove them from the list or change to false", mdml::runtime::Config.NoOverwriteFile);
 	}
-	if (std::filesystem::exists(mdml::Config.NoOverwriteFile)) {
+	if (std::filesystem::exists(mdml::runtime::Config.NoOverwriteFile)) {
 		std::ifstream stream;
-		stream.open(mdml::Config.NoOverwriteFile);
+		stream.open(mdml::runtime::Config.NoOverwriteFile);
 		std::string line;
 		while (std::getline(stream, line)) {
 			if (line._Starts_with(";") || line._Starts_with("["))
@@ -413,13 +413,13 @@ bool SetupProfile(const std::string& Path) {
 			std::string value = line.substr(seperatorPos + 1, line.npos);
 			std::transform(value.begin(), value.end(), value.begin(), [](char c) -> char { return std::tolower(c); }); // to lowercase
 			if (value == "true" || value == "1")
-				mdml::Config.disableOverwriteFiles[fileName] = true;
+				mdml::runtime::Config.disableOverwriteFiles[fileName] = true;
 			else if (value == "false" || value == "0")
-				mdml::Config.disableOverwriteFiles[fileName] = false;
+				mdml::runtime::Config.disableOverwriteFiles[fileName] = false;
 		}
 	}
 	else {
-		Log::Error_MDML("Error {0} could not be opened", mdml::Config.NoOverwriteFile);
+		Log::Error_MDML("Error {0} could not be opened", mdml::runtime::Config.NoOverwriteFile);
 	}
 
 	if (std::filesystem::exists(Profile))
@@ -429,23 +429,23 @@ bool SetupProfile(const std::string& Path) {
 
 		INI GameInfo(Profile, true);
 		if (GameInfo.select("Overwrites")) {
-			mdml::Config.ModOverwritesEnabled = GameInfo.getAs<int>("Overwrites", "Enabled", 0);
-			mdml::Config.UseHardLinks = GameInfo.getAs<int>("Overwrites", "UseHardLinks", 0);
+			mdml::runtime::Config.ModOverwritesEnabled = GameInfo.getAs<int>("Overwrites", "Enabled", 0);
+			mdml::runtime::Config.UseHardLinks = GameInfo.getAs<int>("Overwrites", "UseHardLinks", 0);
 		}
 		else if (GameInfo.select("Overrides")) {
-			mdml::Config.ModOverwritesEnabled = GameInfo.getAs<int>("Overrides", "Enabled", 0);
-			mdml::Config.UseHardLinks = GameInfo.getAs<int>("Overrides", "UseHardLinks", 0);
+			mdml::runtime::Config.ModOverwritesEnabled = GameInfo.getAs<int>("Overrides", "Enabled", 0);
+			mdml::runtime::Config.UseHardLinks = GameInfo.getAs<int>("Overrides", "UseHardLinks", 0);
 		}
 		
 
-		if (mdml::Config.ModOverwritesEnabled) {
-			Log::Info_MDML("Enabled Mod overwrites using {0} links", mdml::Config.UseHardLinks ? "Hard" : "Sym");
+		if (mdml::runtime::Config.ModOverwritesEnabled) {
+			Log::Info_MDML("Enabled Mod overwrites using {0} links", mdml::runtime::Config.UseHardLinks ? "Hard" : "Sym");
 		}
 #pragma endregion
 
 		GameInfo.select("Symbols");
 		if (GameInfo.getAs<int>("UsePdb", 1))
-			SymbolResolver::Init(std::filesystem::path(Path) / "Config/SymbolCache.txt");
+			mdml::platform::SymbolResolver::Init(std::filesystem::path(Path) / "Config/SymbolCache.txt");
 
 #pragma region GameInfo
 		GameInfo.select("GameInfo");
@@ -454,11 +454,11 @@ bool SetupProfile(const std::string& Path) {
 		mdml::Addresses.IsUsingDeferedSpawn = GameInfo.getAs<int>("GameInfo", "IsUsingDeferedSpawn", 0);
 		mdml::Addresses.IsUsing4_22 = GameInfo.getAs<int>("GameInfo", "IsUsing4_22", 0);
 		mdml::Addresses.bIsDefaultObjectArrayed = GameInfo.getAs<int>("GameInfo", "IsDefaultObjectArrayed", 0);
-		mdml::Config.bDelayGUISpawn = GameInfo.getAs<int>("GameInfo", "DelayGUISpawn", 0);
+		mdml::runtime::Config.bDelayGUISpawn = GameInfo.getAs<int>("GameInfo", "DelayGUISpawn", 0);
 
 		if (GameInfo.get("GameInfo", "BeginPlayOverwrite", "") != "")
 		{
-			mdml::Config.BeginPlayOverwrite = GameInfo.get("GameInfo", "BeginPlayOverwrite", "");
+			mdml::runtime::Config.BeginPlayOverwrite = GameInfo.get("GameInfo", "BeginPlayOverwrite", "");
 		}
 #pragma endregion
 
@@ -547,14 +547,14 @@ bool SetupProfile(const std::string& Path) {
 
 #pragma region PakOverwrite
 		if (GameInfo.select("PakOverwrite")) {
-			mdml::Config.bPakOverride = GameInfo.getAs<int>("PakOverwrite", "bPakOverwrite", 0);
-			if (mdml::Config.bPakOverride) {
+			mdml::runtime::Config.bPakOverride = GameInfo.getAs<int>("PakOverwrite", "bPakOverwrite", 0);
+			if (mdml::runtime::Config.bPakOverride) {
 				mdml::ResolvePakFunctions(GameInfo);
 			}
 		}
 #pragma endregion
 
-		SymbolResolver::Shutdown();
+		mdml::platform::SymbolResolver::Shutdown();
 
 		Log::Info_UML("Setup {0}", MDML::FormatPath(Profile));
 		return true;

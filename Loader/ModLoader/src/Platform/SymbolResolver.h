@@ -5,7 +5,7 @@
 // Lookups go through DbgHelp's public symbol hash table, so they take milliseconds even for the ~800 MB PDB.
 // The PDB is only accepted if its GUID/age matches the running EXE, otherwise every lookup returns 0 and
 // the caller is expected to fall back to patterns.
-namespace SymbolResolver
+namespace mdml::platform::SymbolResolver
 {
 	// Reads the RVA cache (cacheFile, only used if written for the running EXE build) and, if it is empty or stale,
 	// loads the PDB of the main module. Returns false if neither cached addresses nor a matching PDB are available.
@@ -23,3 +23,7 @@ namespace SymbolResolver
 	// "GUID-age" of the PDB the running EXE was linked with, read from its debug directory. Empty if absent.
 	std::string GetBuildId();
 }
+
+// Round-1 shim (Wave 3A/3D boundary): the engine core (src/Engine/EngineAddresses.cpp) still names ::SymbolResolver.
+// Loader code uses mdml::platform::SymbolResolver. Remove once src/Engine is updated.
+namespace SymbolResolver = mdml::platform::SymbolResolver;

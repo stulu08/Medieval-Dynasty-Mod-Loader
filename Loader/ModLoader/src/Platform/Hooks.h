@@ -16,13 +16,13 @@
 //     static bool(*origFoo)(void* self);
 //     static bool hookFoo(void* self) { ...; return origFoo(self); }
 //
-//     mdml::Hooks::Add(fooAddress, &hookFoo, &origFoo, "AFoo::Foo");   // create + enable
-//     mdml::Hooks::Disable(fooAddress);                                // temporarily off, origFoo stays valid
-//     mdml::Hooks::Enable(fooAddress);
-//     mdml::Hooks::Remove(fooAddress);                                 // gone, origFoo must not be called any more
+//     mdml::platform::Hooks::Add(fooAddress, &hookFoo, &origFoo, "AFoo::Foo");   // create + enable
+//     mdml::platform::Hooks::Disable(fooAddress);                                // temporarily off, origFoo stays valid
+//     mdml::platform::Hooks::Enable(fooAddress);
+//     mdml::platform::Hooks::Remove(fooAddress);                                 // gone, origFoo must not be called any more
 //
 // Targets can be given as pointers or as integer addresses (DWORD64/uintptr_t), like mdml::Addresses.
-namespace mdml {
+namespace mdml::platform {
 	enum class HookStatus {
 		Ok = 0,
 		NotInitialized,  // MinHook is not initialized (before the loader setup or after shutdown)

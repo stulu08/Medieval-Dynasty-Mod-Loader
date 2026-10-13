@@ -73,7 +73,7 @@ namespace ModLoader
 	}
 	// Config/LoadOrder.ini lives next to NoOverwrite.ini / ModLoaderInfo.ini. Idempotent (CreateSysLinks runs before LoadMods).
 	static void ResolveLoadOrder() {
-		LoadOrder::Resolve(Mod::GetModsFolder(), std::filesystem::path(mdml::Config.NoOverwriteFile).parent_path() / "LoadOrder.ini");
+		mdml::mods::LoadOrder::Resolve(Mod::GetModsFolder(), std::filesystem::path(mdml::runtime::Config.NoOverwriteFile).parent_path() / "LoadOrder.ini");
 	}
 	void LoadLogicMod(std::string modName, const std::filesystem::path& Actor, const std::string& ActorPath, const std::filesystem::path& PeristentObject, const std::string& PersintentObjectPath) {
 		if (!std::filesystem::exists(Actor)) {
@@ -155,7 +155,7 @@ namespace ModLoader
 				auto dirName = entry.path().filename().string();
 				auto dirPath = entry.path().string();
 				auto iniPath = std::filesystem::path(dirPath + "/mod.ini");
-				if (!LoadOrder::IsEnabled(dirName))
+				if (!mdml::mods::LoadOrder::IsEnabled(dirName))
 					continue;
 				//load mod from ini
 				if (std::filesystem::exists(iniPath)) {
@@ -178,7 +178,7 @@ namespace ModLoader
 			//load dlls that are inside Content/Mods
 			if (entry.path().extension().string() == ".dll")
 			{
-				if (!LoadOrder::IsEnabled(entry.path().stem().string()))
+				if (!mdml::mods::LoadOrder::IsEnabled(entry.path().stem().string()))
 					continue;
 				mods.push_back(entry.path().string());
 			}
@@ -198,7 +198,7 @@ namespace ModLoader
 			return rel.has_parent_path() ? rel.begin()->string() : rel.stem().string();
 		};
 		std::stable_sort(mods.begin(), mods.end(), [&](const std::filesystem::path& a, const std::filesystem::path& b) {
-			return LoadOrder::GetPosition(modNameOf(a)) < LoadOrder::GetPosition(modNameOf(b));
+			return mdml::mods::LoadOrder::GetPosition(modNameOf(a)) < mdml::mods::LoadOrder::GetPosition(modNameOf(b));
 		});
 
 		//load all mods one after another on this thread, BaseMod first
@@ -226,7 +226,7 @@ namespace ModLoader
 
 					
 					if (LoaderInfo.select("LogicMod")) {
-						if (!LoadOrder::IsEnabled(dirName)) {
+						if (!mdml::mods::LoadOrder::IsEnabled(dirName)) {
 							Log::Info_MDML("Logic mod {0} is disabled in LoadOrder.ini", dirName);
 							continue;
 						}
@@ -490,7 +490,7 @@ namespace ModLoader
 		}
 		// Entries that could not be cleaned up above stay in the file, so it is appended to, not truncated.
 		LinkRecord record;
-		if (!record.Open(mdml::Config.HardLinksFile))
+		if (!record.Open(mdml::runtime::Config.HardLinksFile))
 			return;
 		std::set<std::wstring> keys;
 		std::set<std::wstring> linked;
@@ -512,7 +512,7 @@ namespace ModLoader
 					INI LoaderInfo(iniPath.string(), true);
 
 					if (LoaderInfo.select("Overwrites") || LoaderInfo.select("Overrides")) {
-						if (!LoadOrder::IsEnabled(dirName)) {
+						if (!mdml::mods::LoadOrder::IsEnabled(dirName)) {
 							Log::Info_MDML("Overwrite mod {0} is disabled in LoadOrder.ini, no links created", dirName);
 							continue;
 						}
@@ -542,7 +542,7 @@ namespace ModLoader
 								}
 								auto relPath = std::filesystem::relative(path, folderPath);
 								auto target = std::filesystem::path(Mod::GetContentFolder() + "\\" + relPath.string());
-								if (LinkFile(path, target, mdml::Config.UseHardLinks, keys, record)) {
+								if (LinkFile(path, target, mdml::runtime::Config.UseHardLinks, keys, record)) {
 									//formating this doesnt work cause it inserts the mod folder, and i dont know why
 									Log::Trace_MDML("Created link to {0}", target.string());
 									linked.insert(GetPathKey(target));
@@ -557,9 +557,9 @@ namespace ModLoader
 				}
 			}
 		}
-		Log::Info_MDML("Created {0} {1} links", linked.size(), mdml::Config.UseHardLinks ? "hard" : "sym");
+		Log::Info_MDML("Created {0} {1} links", linked.size(), mdml::runtime::Config.UseHardLinks ? "hard" : "sym");
 	}
 	void DeleteSysLinks(bool isOld) {
-		CleanupLinks(mdml::Config.HardLinksFile, isOld, mdml::Config.UseHardLinks);
+		CleanupLinks(mdml::runtime::Config.HardLinksFile, isOld, mdml::runtime::Config.UseHardLinks);
 	}
 };

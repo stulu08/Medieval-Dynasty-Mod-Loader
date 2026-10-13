@@ -6,7 +6,7 @@
 
 #include <mutex>
 
-namespace mdml {
+namespace mdml::platform {
 	namespace {
 		struct HookRecord {
 			std::string name;

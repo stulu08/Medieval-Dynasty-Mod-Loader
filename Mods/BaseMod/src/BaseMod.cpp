@@ -32,14 +32,14 @@ namespace MDMLBase {
 			BaseModHooks::IsShippingBuild = (UE4::UFunction*)UE4::UObject::StaticFindObject((DWORD64)0, (UE4::UObject*)((DWORD64)-1), L"TDBPL_IsShippingBuild");
 
 #if 0
-			// Hook variant (disabled): MDML owns MinHook, mods hook through mdml::Hooks (no MinHook::Init / MH_Initialize here).
+			// Hook variant (disabled): MDML owns MinHook, mods hook through mdml::platform::Hooks (no MinHook::Init / MH_Initialize here).
 			if (BaseModHooks::IsShippingBuild)
-				mdml::Hooks::Add((DWORD64)BaseModHooks::IsShippingBuild->GetFunction(), &hook_IsShippingBuild, &orig_IsShippingBuild, "TD_Blueprint_Library::TDBPL_IsShippingBuild");
+				mdml::platform::Hooks::Add((DWORD64)BaseModHooks::IsShippingBuild->GetFunction(), &hook_IsShippingBuild, &orig_IsShippingBuild, "TD_Blueprint_Library::TDBPL_IsShippingBuild");
 			else
 				Mod::Get().getLogger()->Warn("IsShippingBuild function was Not found");
 
 			if (BaseModHooks::IsDevelopmentBuild)
-				mdml::Hooks::Add((DWORD64)BaseModHooks::IsDevelopmentBuild->GetFunction(), &hook_IsDevelopmentBuild, &orig_IsDevelopmentBuild, "TD_Blueprint_Library::TDBPL_IsDevelopmentBuild");
+				mdml::platform::Hooks::Add((DWORD64)BaseModHooks::IsDevelopmentBuild->GetFunction(), &hook_IsDevelopmentBuild, &orig_IsDevelopmentBuild, "TD_Blueprint_Library::TDBPL_IsDevelopmentBuild");
 			else
 				Mod::Get().getLogger()->Warn("IsDevelopmentBuild function was Not found");
 #else
@@ -617,7 +617,7 @@ namespace MDMLBase {
 				ImGui::TreePop();
 			}
 			if (ImGui::TreeNodeEx("MDML", DEFAULT_TREE_NODE_FLAGS)) {
-				for (auto dirEntry : std::filesystem::directory_iterator(std::filesystem::path(mdml::Config.ImGuiFile).parent_path())) {
+				for (auto dirEntry : std::filesystem::directory_iterator(std::filesystem::path(mdml::runtime::Config.ImGuiFile).parent_path())) {
 					if (dirEntry.path().extension().string() != ".ini")
 						continue;
 					if (ImGui::Button(MDML::FormatPath(dirEntry.path()).c_str()))

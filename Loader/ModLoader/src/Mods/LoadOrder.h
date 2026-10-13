@@ -7,7 +7,7 @@
 //   Name = 1   (enabled)      Name = 0   (disabled: DLL, logic-mod registration and overwrite links are all skipped)
 // Top = loaded first. New mods are appended (enabled) and the file is rewritten; unknown/missing entries are kept as they are.
 // Lines starting with ';' or '#' and blank lines are comments and are preserved. See docs/reports/loadorder-and-dump-notices.md.
-namespace LoadOrder
+namespace mdml::mods::LoadOrder
 {
 	struct Entry {
 		std::string Name;

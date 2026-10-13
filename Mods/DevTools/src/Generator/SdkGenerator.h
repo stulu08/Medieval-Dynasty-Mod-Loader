@@ -3,7 +3,7 @@
 // Only standard-library types cross this boundary. Implemented in SdkGenerator.cpp (DevTools.Generator lib).
 //
 // Threading: every function here walks the engine's object array and must run on the GAME THREAD
-// (DevTools enqueues it with mdml::GameThread::Enqueue). The game freezes while it runs.
+// (DevTools enqueues it with mdml::runtime::GameThread::Enqueue). The game freezes while it runs.
 
 #include <filesystem>
 #include <functional>

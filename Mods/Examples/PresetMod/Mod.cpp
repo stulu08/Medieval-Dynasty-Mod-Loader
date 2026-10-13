@@ -21,7 +21,7 @@ void ExampleMod::OnModInitilize() {
 	//REGISTER_FUNCTION_NAMED(WriteToFile, "WriteToFile");
 
 	// Function hooks go through MDML (it owns MinHook, no init needed), e.g.
-	//mdml::Hooks::Add(targetAddress, &hookFunction, &origFunction, "Class::Function");
+	//mdml::platform::Hooks::Add(targetAddress, &hookFunction, &origFunction, "Class::Function");
 	UseMenuButton = true; // Allows Mod Loader To Show a Button, if pressed OnModMenuButtonPressed will be called
 }
 
