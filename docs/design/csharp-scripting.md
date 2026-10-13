@@ -71,13 +71,21 @@ Runtime output next to the game (`bin/.../Managed/`): `MDML.Core.dll`, `Silicon.
 4. **Generated C# SDK**: MDMLGenerator gets a C# backend: one `.cs` per package, classes deriving from `UObject`
    with properties `get => ReadAt<T>(Offset("Health"))`, function wrappers that pack a params struct
    (`[StructLayout(Explicit)]`) and call ProcessEvent after validating ParamsSize — same rules as the C++ output.
-5. **Mod loading**: `Mods/<Name>/mod.ini` gets `Type = CSharp` (or the DLL is detected as managed);
-   each mod gets its own **collectible `AssemblyLoadContext`** → unload = remove hooks, drop handles, unload context.
-   Load order from `Config/LoadOrder.ini` as for C++ mods.
+5. **Two distinct mod kinds** (owner requirement 2026-10-13): **native mods** (C++ DLL, today's core mods) and
+   **managed mods** (.NET assembly) are separate mod types everywhere, never guessed silently:
+   - `mod.ini` declares the kind explicitly: `Type = Native` or `Type = Managed` (missing → `Native`, so existing mods
+     keep working). The loader cross-checks the DLL (PE CLR header present ⇔ managed) and refuses a mismatch with a
+     clear log line instead of loading it the wrong way.
+   - Separate loading paths: native → `LoadLibraryW` (as today); managed → its own **collectible
+     `AssemblyLoadContext`** (unload = remove hooks, drop handles, unload context). Never `LoadLibraryW` on a managed DLL.
+   - Shown separately: F1 window / ModManager list the kind (badge or separate section), logs prefix
+     `[native]`/`[managed]`, `Config/LoadOrder.ini` keeps one order for both kinds (a managed mod can depend on load
+     order like any other mod).
+   - If the .NET runtime fails to start, only managed mods are disabled (with a notice); native mods load normally.
 6. **Threading**: managed code that touches UObjects only runs on the game thread (Tick drain, hooks); the GC runs
    concurrently but never touches native memory. Same rules as `lua-scripting.md` §8.
 
-## 5. UI: SDG/Controls
+## 5. UI: SDG/Controls (decided CS-8: copy + adapt, SEngine as style inspiration)
 `C:\dev\Skeleton\Dependencies\SDG\src\Stulu\SDG\Controls\*.h` (Base/Primitive/Vector/Color controls, DragDrop) are
 header-only ImGui helpers. Reuse in MDML's F1 window and DevTools:
 - `BaseControls.h` includes `Stulu/SDG/Application.h`, `Style.h`, `Icons.h` but the controls only use ImGui itself →
@@ -105,6 +113,10 @@ Decided by the owner 2026-10-13:
   system-wide install, and never at the process working directory.
 - **CS-5** ☑ C# mods ship **compiled DLLs** (normal C# project); no Roslyn in the game.
 - **CS-7** ☑ Lua spike **stays as reference** in `Loader/Scripting/`, not developed further.
+- **CS-8** ☑ SDG/Controls are **copied into MDML and adapted** (own code from then on, `Loader/ModLoader/src/UI/Controls/`),
+  with SEngine's editor UI as inspiration for a nicer F1 window/DevTools look (style, icon font, layout). Best done
+  together with the ImGui upgrade (Wave 4).
+- **CS-10** ☑ Native (C++) and managed (.NET) mods are **two distinct mod kinds**, clearly distinguishable (§4.5).
 
 Default taken (owner may veto):
 - **CS-4** Target framework **net10.0** (net8.0 support ends 2026-11-10). Carbide's runtimeconfig needs the bump.
@@ -112,6 +124,4 @@ Default taken (owner may veto):
 Still open:
 - **CS-6** Generated C# SDK: one shared `MDML.SDK.dll` built by DevTools for all mods, or each mod compiles the
   packages it needs (export lists, like the C++ SDK)?
-- **CS-8** SDG/Controls: copy into MDML (UI folder) or reference the SDG repo as a dependency? Adopt together with the
-  ImGui upgrade (Wave 4)?
 - **CS-9** Name of the managed assemblies/namespaces (`MDML.Core`, `MDML.SDK`, `MDML.Mods`)?
