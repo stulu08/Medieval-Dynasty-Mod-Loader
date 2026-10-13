@@ -7,10 +7,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{EEFF2C7D-5A37-7514-6341-D937CFF79B0D}</ProjectGuid>
+    <ProjectGuid>{A066E1C6-0C46-6062-155E-EB3881BCC6C3}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>DevTools.SDKCompileTest</RootNamespace>
+    <RootNamespace>BaseMod</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -30,9 +30,9 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(ProjectDir)..\..\..\bin\Release-windows-x86_64\Tests\</OutDir>
+    <OutDir>$(ProjectDir)..\..\bin\Release-windows-x86_64\Mods\BaseMod\</OutDir>
     <IntDir>$(ProjectDir)bin-int\Release-windows-x86_64\</IntDir>
-    <TargetName>SDKCompileTest</TargetName>
+    <TargetName>BaseMod</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -40,8 +40,8 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Sample;..\..\..\ModLoader\vendor\spdlog;..\..\..\ModLoader\src;..\..\..\ModLoader\src\Engine;..\..\..\ModLoader\src\Engine\UE4;..\..\..\ModLoader\vendor\INI;..\..\..\ModLoader\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;BaseMod_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\Dependencies\spdlog;..\..\Loader\ModLoader\src;..\..\Loader\ModLoader\src\Engine;..\..\Loader\ModLoader\src\Engine\UE4;..\..\Dependencies\INI;..\..\Dependencies\glm;src;..\..\Dependencies\ImGui;..\..\Dependencies\ImGuiColorTextEdit;..\..\Loader\SDK\src\UE4;..\..\Loader\SDK\src;..\..\Loader\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -60,30 +60,32 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <ImportLibrary>..\..\..\bin\Release-windows-x86_64\Tests\SDKCompileTest.lib</ImportLibrary>
+      <ImportLibrary>..\..\bin\Release-windows-x86_64\Mods\BaseMod\BaseMod.lib</ImportLibrary>
       <AdditionalOptions>/ignore:4006 /ignore:4099 /ignore:4251 %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <ProjectReference>
     </ProjectReference>
+    <PostBuildEvent>
+      <Command>xcopy /Q /E /Y /I "$(SolutionDir)\Mods\BaseMod\Config" "$(SolutionDir)\bin\Release-windows-x86_64\Mods\BaseMod"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Sample\BP_BaseCharacter.hpp" />
-    <ClInclude Include="Sample\CoreUObject.hpp" />
-    <ClInclude Include="Sample\E_Ownership.hpp" />
-    <ClInclude Include="Sample\Engine.hpp" />
-    <ClInclude Include="Sample\InventoryComponent.hpp" />
-    <ClInclude Include="Sample\MDML_SDK.hpp" />
-    <ClInclude Include="Sample\Medieval_Dynasty.hpp" />
-    <ClInclude Include="Sample\NameCollisions.hpp" />
-    <ClInclude Include="Sample\ST_InventoryItemsArray.hpp" />
-    <ClInclude Include="Sample\ST_ItemInventorys.hpp" />
+    <ClInclude Include="src\BaseMod.h" />
+    <ClInclude Include="src\Defs.h" />
+    <ClInclude Include="src\GameMod.h" />
+    <ClInclude Include="src\Utils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SDKCompileTest.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="src\BaseMod.cpp" />
+    <ClCompile Include="src\GameMod.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ModLoader\MedievalDynastyModLoader.vcxproj">
+    <ProjectReference Include="..\..\Loader\ModLoader\MedievalDynastyModLoader.vcxproj">
       <Project>{0F4A9865-FB6E-E7E5-24BA-CC75103EE603}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Loader\SDK\SDK.vcxproj">
+      <Project>{071D880B-7326-887C-FCA1-9E7C68AA937C}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

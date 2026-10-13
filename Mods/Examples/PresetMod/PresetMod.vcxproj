@@ -30,7 +30,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(ProjectDir)..\..\bin\Release-windows-x86_64\Mods\PresetMod\</OutDir>
+    <OutDir>$(ProjectDir)..\..\..\bin\Release-windows-x86_64\Mods\PresetMod\</OutDir>
     <IntDir>$(ProjectDir)bin-int\Release-windows-x86_64\</IntDir>
     <TargetName>PresetMod</TargetName>
     <TargetExt>.dll</TargetExt>
@@ -41,7 +41,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>NDEBUG;PresetMod_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\ModLoader\vendor\spdlog;..\..\ModLoader\src;..\..\ModLoader\src\Engine;..\..\ModLoader\src\Engine\UE4;..\..\ModLoader\vendor\INI;..\..\ModLoader\vendor\glm;..\..\ModLoader\vendor\ImGui;..\..\BaseMod\src;..\..\SDK\src\UE4;..\..\SDK\src;..\..\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Dependencies\spdlog;..\..\..\Loader\ModLoader\src;..\..\..\Loader\ModLoader\src\Engine;..\..\..\Loader\ModLoader\src\Engine\UE4;..\..\..\Dependencies\INI;..\..\..\Dependencies\glm;..\..\..\Dependencies\ImGui;..\..\BaseMod\src;..\..\..\Loader\SDK\src\UE4;..\..\..\Loader\SDK\src;..\..\..\Loader\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -60,13 +60,13 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <ImportLibrary>..\..\bin\Release-windows-x86_64\Mods\PresetMod\PresetMod.lib</ImportLibrary>
+      <ImportLibrary>..\..\..\bin\Release-windows-x86_64\Mods\PresetMod\PresetMod.lib</ImportLibrary>
       <AdditionalOptions>/ignore:4006 /ignore:4099 /ignore:4251 %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <ProjectReference>
     </ProjectReference>
     <PostBuildEvent>
-      <Command>xcopy /Q /E /Y /I "$(SolutionDir)\ExampleMods\PresetMod\Config" "$(SolutionDir)\bin\Release-windows-x86_64\Mods\PresetMod"</Command>
+      <Command>xcopy /Q /E /Y /I "$(SolutionDir)\Mods\Examples\PresetMod\Config" "$(SolutionDir)\bin\Release-windows-x86_64\Mods\PresetMod"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -80,10 +80,10 @@
     <ProjectReference Include="..\..\BaseMod\BaseMod.vcxproj">
       <Project>{A066E1C6-0C46-6062-155E-EB3881BCC6C3}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\SDK\SDK.vcxproj">
+    <ProjectReference Include="..\..\..\Loader\SDK\SDK.vcxproj">
       <Project>{071D880B-7326-887C-FCA1-9E7C68AA937C}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\ModLoader\MedievalDynastyModLoader.vcxproj">
+    <ProjectReference Include="..\..\..\Loader\ModLoader\MedievalDynastyModLoader.vcxproj">
       <Project>{0F4A9865-FB6E-E7E5-24BA-CC75103EE603}</Project>
     </ProjectReference>
   </ItemGroup>

@@ -29,7 +29,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(ProjectDir)..\bin\Release-windows-x86_64\</OutDir>
+    <OutDir>$(ProjectDir)..\..\bin\Release-windows-x86_64\</OutDir>
     <IntDir>$(ProjectDir)bin-int\Release-windows-x86_64\</IntDir>
     <TargetName>SDK</TargetName>
     <TargetExt>.lib</TargetExt>
@@ -40,7 +40,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>SDK_EXPORT;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ModLoader\src;..\ModLoader\src\Engine;..\ModLoader\src\Engine\UE4;..\ModLoader\vendor\glm;src\UE4;src;..\ModLoader\vendor\spdlog;src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ModLoader\src;..\ModLoader\src\Engine;..\ModLoader\src\Engine\UE4;..\..\Dependencies\glm;src\UE4;src;..\..\Dependencies\spdlog;src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>

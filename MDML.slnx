@@ -4,61 +4,61 @@
     <Platform Name="x64" />
   </Configurations>
   <Folder Name="/DevTools/">
-    <Project Path="DevTools\DevTools.vcxproj" Id="155759B5-0124-B4C0-2A3D-A2681669E94E">
+    <Project Path="Mods\DevTools\DevTools.vcxproj" Id="155759B5-0124-B4C0-2A3D-A2681669E94E">
       <BuildType Solution="Release|x64" Project="Release" />
       <Platform Solution="Release|x64" Project="x64" />
-      <BuildDependency Project="ModLoader\MedievalDynastyModLoader.vcxproj" />
-      <BuildDependency Project="DevTools\DevTools.Generator.vcxproj" />
+      <BuildDependency Project="Loader\ModLoader\MedievalDynastyModLoader.vcxproj" />
+      <BuildDependency Project="Mods\DevTools\DevTools.Generator.vcxproj" />
     </Project>
-    <Project Path="DevTools\DevTools.Generator.vcxproj" Id="2A9694B0-167A-5506-7FDA-4F596BDD3F88">
+    <Project Path="Mods\DevTools\DevTools.Generator.vcxproj" Id="2A9694B0-167A-5506-7FDA-4F596BDD3F88">
       <BuildType Solution="Release|x64" Project="Release" />
       <Platform Solution="Release|x64" Project="x64" />
     </Project>
-    <Project Path="DevTools\tests\SDKCompileTest\DevTools.SDKCompileTest.vcxproj" Id="EEFF2C7D-5A37-7514-6341-D937CFF79B0D">
+    <Project Path="Tests\SDKCompileTest\DevTools.SDKCompileTest.vcxproj" Id="EEFF2C7D-5A37-7514-6341-D937CFF79B0D">
       <BuildType Solution="Release|x64" Project="Release" />
       <Platform Solution="Release|x64" Project="x64" />
-      <BuildDependency Project="ModLoader\MedievalDynastyModLoader.vcxproj" />
+      <BuildDependency Project="Loader\ModLoader\MedievalDynastyModLoader.vcxproj" />
     </Project>
   </Folder>
   <Folder Name="/Example-Mods/">
-    <Project Path="ExampleMods\PresetMod\PresetMod.vcxproj" Id="B87CB000-24E7-6477-6D25-161DD9CE42CC">
+    <Project Path="Mods\Examples\PresetMod\PresetMod.vcxproj" Id="B87CB000-24E7-6477-6D25-161DD9CE42CC">
       <BuildType Solution="Release|x64" Project="Release" />
       <Platform Solution="Release|x64" Project="x64" />
-      <BuildDependency Project="ModLoader\MedievalDynastyModLoader.vcxproj" />
-      <BuildDependency Project="BaseMod\BaseMod.vcxproj" />
+      <BuildDependency Project="Loader\ModLoader\MedievalDynastyModLoader.vcxproj" />
+      <BuildDependency Project="Mods\BaseMod\BaseMod.vcxproj" />
     </Project>
-    <Project Path="ExampleMods\TimeWeatherChanger\TimeWeatherChanger.vcxproj" Id="5C9D86B2-4881-4708-B1E1-415B9DE4318A">
+    <Project Path="Mods\Examples\TimeWeatherChanger\TimeWeatherChanger.vcxproj" Id="5C9D86B2-4881-4708-B1E1-415B9DE4318A">
       <BuildType Solution="Release|x64" Project="Release" />
       <Platform Solution="Release|x64" Project="x64" />
-      <BuildDependency Project="ModLoader\MedievalDynastyModLoader.vcxproj" />
-      <BuildDependency Project="BaseMod\BaseMod.vcxproj" />
+      <BuildDependency Project="Loader\ModLoader\MedievalDynastyModLoader.vcxproj" />
+      <BuildDependency Project="Mods\BaseMod\BaseMod.vcxproj" />
     </Project>
   </Folder>
   <Folder Name="/GUI/">
-    <Project Path="ModManager\ModManager.vcxproj" Id="60D40D4A-4C8C-4F97-B593-28F3A16AEA87">
+    <Project Path="Tools\ModManager\ModManager.vcxproj" Id="60D40D4A-4C8C-4F97-B593-28F3A16AEA87">
       <BuildType Solution="Release|x64" Project="Release" />
       <Platform Solution="Release|x64" Project="x64" />
     </Project>
   </Folder>
   <Folder Name="/MDML/">
-    <Project Path="BaseMod\BaseMod.vcxproj" Id="A066E1C6-0C46-6062-155E-EB3881BCC6C3">
+    <Project Path="Mods\BaseMod\BaseMod.vcxproj" Id="A066E1C6-0C46-6062-155E-EB3881BCC6C3">
       <BuildType Solution="Release|x64" Project="Release" />
       <Platform Solution="Release|x64" Project="x64" />
-      <BuildDependency Project="ModLoader\MedievalDynastyModLoader.vcxproj" />
+      <BuildDependency Project="Loader\ModLoader\MedievalDynastyModLoader.vcxproj" />
     </Project>
-    <Project Path="LoaderAutoInjector\LoaderAutoInjector.vcxproj" Id="33873803-1F6B-F958-88CB-F3AB74CEE3DA">
-      <BuildType Solution="Release|x64" Project="Release" />
-      <Platform Solution="Release|x64" Project="x64" />
-    </Project>
-    <Project Path="ModLoader\MedievalDynastyModLoader.vcxproj" Id="0F4A9865-FB6E-E7E5-24BA-CC75103EE603">
+    <Project Path="Loader\Proxy\LoaderAutoInjector.vcxproj" Id="33873803-1F6B-F958-88CB-F3AB74CEE3DA">
       <BuildType Solution="Release|x64" Project="Release" />
       <Platform Solution="Release|x64" Project="x64" />
     </Project>
-    <Project Path="ModLoader\vendor\MinHook\MinHook.vcxproj" Id="1A77E127-8656-60C3-8F6E-EB99FBCCC624">
+    <Project Path="Loader\ModLoader\MedievalDynastyModLoader.vcxproj" Id="0F4A9865-FB6E-E7E5-24BA-CC75103EE603">
       <BuildType Solution="Release|x64" Project="Release" />
       <Platform Solution="Release|x64" Project="x64" />
     </Project>
-    <Project Path="SDK\SDK.vcxproj" Id="071D880B-7326-887C-FCA1-9E7C68AA937C">
+    <Project Path="Dependencies\MinHook\MinHook.vcxproj" Id="1A77E127-8656-60C3-8F6E-EB99FBCCC624">
+      <BuildType Solution="Release|x64" Project="Release" />
+      <Platform Solution="Release|x64" Project="x64" />
+    </Project>
+    <Project Path="Loader\SDK\SDK.vcxproj" Id="071D880B-7326-887C-FCA1-9E7C68AA937C">
       <BuildType Solution="Release|x64" Project="Release" />
       <Platform Solution="Release|x64" Project="x64" />
     </Project>
