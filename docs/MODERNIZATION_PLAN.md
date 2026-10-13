@@ -128,8 +128,11 @@ in-game OK** (see Wave 2 status lines below). Game folder has the build of 8f67f
 their worktree branches `worktree-agent-*` hold WIP commits, check `git log 158ba5e..<branch>` and merge/continue):**
 - SDK generator part 1 (resumed twice; DevTools + vendored Dumper-7 + GeneratedSupport + compile test committed).
 - Exported hook API `mdml::Hooks` ☑ merged cleanly (cherry-picks up to c813afd, `docs/reports/hook-api.md`), but the
-  merged state is **not built yet** (base was 158ba5e; generator/LoadOrder landed in between) → run premake + full build,
-  then deploy + smoke test. DevTools/premake5.lua still lists the MinHook include dir (harmless, remove).
+  merged state built 2026-10-13 (6903ac3: premake 5.0.0 + VS 2026, only C4715; mods import nothing from MinHook) and
+  deployed (backup `C:\dev\MDML\backup\2026-10-13_pre-6903ac3`) → awaiting owner smoke test + first in-game SDK generation.
+- 2026-10-13: owner's run of 2026-10-12 logged `Profile setup took 18938 ms` (normally ~375 ms; 1-3 s per PDB symbol, pak
+  hooks only live at 2617 UObjects). Sonnet agent investigating offline (report would be `docs/reports/pdb-lookup-timing.md`).
+  No `SDK-Out` folder exists yet, so the in-game generation has not produced output so far.
 - Lua scripting: design `docs/design/lua-scripting.md` + isolated spike in `Scripting/` (not in root premake).
 - Phase 3 design docs ☑ merged (a8e11ed..4188591): `docs/design/{live-view,hot-reload,ufunction-hooks,pak-mods}.md` —
   each ends with owner questions (priority of features, pak signing/encryption policy, new mod ABI for hot reload,
