@@ -52,69 +52,85 @@ bool Dumper::DumpObjectArray()
 	CreateDumpDir();
 	FILE* Log = NULL;
 	fopen_s(&Log, "Dump/ObjectDump.txt", "w+");
-	if (UE4::UObject::GObjects != nullptr)
+	if (UE4::UObject::GObjects != nullptr && Log != NULL)
 	{
-		if (mdml::Addresses.IsUsingFChunkedFixedUObjectArray)
-		{
-			for (int i = 0; i < UE4::UObject::GObjects->GetAsChunckArray().Num(); i++)
-			{
-				auto obj = UE4::UObject::GObjects->GetAsChunckArray().GetByIndex(i).Object;
-				if (obj != nullptr)
-					fprintf(Log, "[%06i] %-100s 0x%p\n", obj->GetIndex(), obj->GetFullName().c_str(), obj);
-			}
-		}
-		else
-		{
-			for (int i = 0; i < UE4::UObject::GObjects->GetAsTUArray().Num(); i++)
-			{
-				auto obj = UE4::UObject::GObjects->GetAsTUArray().GetByIndex(i).Object;
-				if (obj != nullptr)
-					fprintf(Log, "[%06i] %-100s 0x%p\n", obj->GetIndex(), obj->GetFullName().c_str(), obj);
-			}
-		}
+		UE4::UObject::ForEachObject([&](UE4::UObject* obj) {
+			fprintf(Log, "[%06i] %-100s 0x%p\n", obj->GetIndex(), obj->GetFullName().c_str(), obj);
+		});
 		fclose(Log);
 		DumpNotice::Set("Object dump written to " + std::filesystem::absolute("Dump/ObjectDump.txt").string());
 		return true;
 	}
 	else
 	{
+		if (Log != NULL)
+			fclose(Log);
 		return false;
 	}
 }
 
-#pragma warning( push )
-#pragma warning( disable : 4477 )
-#pragma warning( disable : 4313 )
+// Engine info for diagnostics: resolved global RVAs and the offsets the core uses (mdml::Layout), each marked whether
+// it still equals the PDB-checked constant. Before Wave 3D this wrote the [UObjectDef]/... profile sections of the
+// removed manual-offset mode; the format is now informational only (not meant to be pasted into an ini).
 bool Dumper::DumpEngineInfo()
 {
 	CreateDumpDir();
 	FILE* Log = NULL;
 	fopen_s(&Log, "Dump/EngineInfo.txt", "w+");
-	if (Log != NULL) {
-		auto defs = mdml::Layout;
-		fprintf(Log, "#Engine Info Dump\n");
-		fprintf(Log, "[GInfo]\nIsGInfoPatterns=0\nGName=0x%p\nGObject=0x%p\nGWorld=0x%p\n", mdml::Addresses.GName - (DWORD64)GetModuleHandleW(0), mdml::Addresses.GObject - (DWORD64)GetModuleHandleW(0), mdml::Addresses.GWorld - (DWORD64)GetModuleHandleW(0));
-		fprintf(Log, "\n[UObjectDef]\nIndex=0x%p\nClass=0x%p\nName=0x%p\nOuter=0x%p\n", defs.UObject.Index, defs.UObject.Class, defs.UObject.Name, defs.UObject.Outer);
-		fprintf(Log, "\n[UStructDef]\nSuperStruct=0x%p\nChildren=0x%p\nPropertiesSize=0x%p\n", defs.UStruct.SuperStruct, defs.UStruct.Children, defs.UStruct.PropertiesSize);
-		fprintf(Log, "\n[UEnumDef]\nCppType=0x%p\nNames=0x%p\nCppForm=0x%p\nFlags=0x%p\nDisplayNameFn=0x%p\nUserDefDisplayNameMap=0x%p\n", defs.UEnum.CppType, defs.UEnum.Names, defs.UEnum.CppForm, defs.UEnum.Flags, defs.UEnum.DisplayNameFn, defs.UEnum.UserDefDisplayNameMap);
-		fprintf(Log, "\n[UFunctionDef]\nFunctionFlags=0x%p\nNumParams=0x%p\nParamsSize=0x%p\nReturnValueOffset=0x%p\nFunc=0x%p\n", defs.UFunction.FunctionFlags, defs.UFunction.NumParams, defs.UFunction.ParamsSize, defs.UFunction.ReturnValueOffset, defs.UFunction.Func);
-		fprintf(Log, "\n[UFieldDef]\nNext=0x%p\n", defs.UField.Next);
-		fprintf(Log, "\n[Property]\nIsFProperty=0x%d\nArrayDim=0x%p\nElementSize=0x%p\nFlags=0x%p\nOffset=0x%p\n", mdml::Addresses.bIsFProperty, defs.Property.ArrayDim, defs.Property.ElementSize, defs.Property.Flags, defs.Property.Offset);
-		fprintf(Log, "\n[FField]\nNext=0x%p\nName=0x%p\nClassPrivate=0x%p\n", defs.FField.Next, defs.FField.Name, defs.FField.ClassPrivate);
-		fprintf(Log, "\n[FFieldClass]\nName=0x%p\nID=0x%p\nCastFlags=0x%p\nSuperClass=0x%p\n", defs.FFieldClass.Name, defs.FFieldClass.ID, defs.FFieldClass.CastFlags, defs.FFieldClass.SuperClass);
-		fclose(Log);
-		DumpNotice::Set("Engine info dump written to " + std::filesystem::absolute("Dump/EngineInfo.txt").string());
-		return true;
-	}
-	return false;
+	if (Log == NULL)
+		return false;
+	const DWORD64 Base = (DWORD64)GetModuleHandleW(0);
+	auto Rva = [&](DWORD64 Address) { return Address ? Address - Base : 0; };
+	const mdml::EngineLayout& L = mdml::Layout;
+	const mdml::EngineLayout Constants;
+	auto Line = [&](const char* Name, uint16_t Value, uint16_t Constant) {
+		fprintf(Log, "%-40s 0x%04X%s\n", Name, Value, Value == Constant ? "" : "   (SCANNED, PDB constant differs)");
+	};
+	fprintf(Log, "# MDML engine info dump (offsets: Loader/ModLoader/src/Engine/EngineLayout.h)\n\n");
+	fprintf(Log, "[Globals] (RVA)\nGName   0x%llX\nGObject 0x%llX\nGWorld  0x%llX\n\n", Rva(mdml::Addresses.GName), Rva(mdml::Addresses.GObject), Rva(mdml::Addresses.GWorld));
+	fprintf(Log, "[Layout]\n");
+	Line("UObject.Index", L.UObject.Index, Constants.UObject.Index);
+	Line("UObject.Class", L.UObject.Class, Constants.UObject.Class);
+	Line("UObject.Name", L.UObject.Name, Constants.UObject.Name);
+	Line("UObject.Outer", L.UObject.Outer, Constants.UObject.Outer);
+	Line("UField.Next", L.UField.Next, Constants.UField.Next);
+	Line("UStruct.SuperStruct", L.UStruct.SuperStruct, Constants.UStruct.SuperStruct);
+	Line("UStruct.Children", L.UStruct.Children, Constants.UStruct.Children);
+	Line("UStruct.ChildProperties", L.UStruct.ChildProperties, Constants.UStruct.ChildProperties);
+	Line("UStruct.PropertiesSize", L.UStruct.PropertiesSize, Constants.UStruct.PropertiesSize);
+	Line("UEnum.CppType", L.UEnum.CppType, Constants.UEnum.CppType);
+	Line("UEnum.Names", L.UEnum.Names, Constants.UEnum.Names);
+	Line("UEnum.CppForm", L.UEnum.CppForm, Constants.UEnum.CppForm);
+	Line("UEnum.Flags", L.UEnum.Flags, Constants.UEnum.Flags);
+	Line("UEnum.DisplayNameFn", L.UEnum.DisplayNameFn, Constants.UEnum.DisplayNameFn);
+	Line("UUserDefinedEnum.DisplayNameMap", L.UEnum.UserDefDisplayNameMap, Constants.UEnum.UserDefDisplayNameMap);
+	Line("UFunction.FunctionFlags", L.UFunction.FunctionFlags, Constants.UFunction.FunctionFlags);
+	Line("UFunction.NumParms", L.UFunction.NumParams, Constants.UFunction.NumParams);
+	Line("UFunction.ParmsSize", L.UFunction.ParamsSize, Constants.UFunction.ParamsSize);
+	Line("UFunction.ReturnValueOffset", L.UFunction.ReturnValueOffset, Constants.UFunction.ReturnValueOffset);
+	Line("UFunction.Func", L.UFunction.Func, Constants.UFunction.Func);
+	Line("FField.ClassPrivate", L.FField.ClassPrivate, Constants.FField.ClassPrivate);
+	Line("FField.Next", L.FField.Next, Constants.FField.Next);
+	Line("FField.Name", L.FField.Name, Constants.FField.Name);
+	Line("FFieldClass.Name", L.FFieldClass.Name, Constants.FFieldClass.Name);
+	Line("FFieldClass.Id", L.FFieldClass.ID, Constants.FFieldClass.ID);
+	Line("FFieldClass.CastFlags", L.FFieldClass.CastFlags, Constants.FFieldClass.CastFlags);
+	Line("FFieldClass.SuperClass", L.FFieldClass.SuperClass, Constants.FFieldClass.SuperClass);
+	Line("FProperty.ArrayDim", L.Property.ArrayDim, Constants.Property.ArrayDim);
+	Line("FProperty.ElementSize", L.Property.ElementSize, Constants.Property.ElementSize);
+	Line("FProperty.PropertyFlags", L.Property.Flags, Constants.Property.Flags);
+	Line("FProperty.Offset_Internal", L.Property.Offset, Constants.Property.Offset);
+	Line("FObjectPropertyBase.PropertyClass", L.ObjectPropertyBase.PropertyClass, Constants.ObjectPropertyBase.PropertyClass);
+	fclose(Log);
+	DumpNotice::Set("Engine info dump written to " + std::filesystem::absolute("Dump/EngineInfo.txt").string());
+	return true;
 }
-#pragma warning( pop )
+
 bool Dumper::DumpWorldActors()
 {
 	CreateDumpDir();
 	FILE* Log = NULL;
 	std::string FileName = std::string("Dump/") + UE4::UGameplayStatics::GetCurrentLevelName(false).ToString() + "_Dump.txt";
-	auto GameplayStatics = UE4::UObject::GetDefaultObjectFromArray<UE4::UGameplayStatics>(UE4::UGameplayStatics::StaticClass());
 	fopen_s(&Log, FileName.c_str(), "w+");
 	if (Log == NULL)
 		return false;
