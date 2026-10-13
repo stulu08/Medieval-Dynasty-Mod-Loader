@@ -33,7 +33,7 @@ ActorFile=Content/ModActor.uasset
 
 ;PersistentObject is not needed
 ;The file name of your persistent object as a relative path from your mod folder
-;PeristentObjectFile=Content/ModInstanceObject.uasset
+;PersistentObjectFile=Content/ModInstanceObject.uasset
 ;PersistentObjectPath will be build automaticly but you can set your own here
 ;PersistentObjectPath=/Game/Mods/ExampleMod/Content/ModInstanceObject.ModInstanceObject_C
 ```
@@ -76,7 +76,7 @@ ActorFile=Content/ModActor.uasset
 
 ;PersistentObject is not needed
 ;The file name of your persistent object as a relative path from your mod folder
-;PeristentObjectFile=Content/ModInstanceObject.uasset
+;PersistentObjectFile=Content/ModInstanceObject.uasset
 ;PersistentObjectPath will be build automaticly but you can set your own here
 ;PersistentObjectPath=/Game/Mods/ExampleMod/Content/ModInstanceObject.ModInstanceObject_C
 

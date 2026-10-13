@@ -62,7 +62,7 @@ public:
 	//ModInternals
 	bool IsFinishedCreating = 0;
 
-	//Called after each mod is injected, Looped through via gloabals
+	//Called after each mod is injected, Looped through via globals
 	virtual void InitializeMod() {}
 
 	//InitGameState Call
@@ -78,7 +78,7 @@ public:
 	virtual bool BeginPlay(UE4::AActor* Actor) { return false; }
 
 	//Called on UWorld::Tick
-	virtual bool Tick(UE4::ELevelTick tick, float DelatTime) { return false; }
+	virtual bool Tick(UE4::ELevelTick tick, float DeltaTime) { return false; }
 
 	//PostBeginPlay of EVERY Blueprint ModActor
 	virtual bool PostBeginPlay(std::wstring ModActorName, UE4::AActor* Actor) { return false; }
@@ -96,7 +96,7 @@ public:
 	static Mod* ModRef;
 	// The folder to the Mod Directory
 	static std::string GetModsFolder();
-	// The folder where Movies, Paks,... is loacted
+	// The folder where Movies, Paks,... is located
 	static std::string GetContentFolder();
 	//Returns the folder where the mod dll is located
 	std::string GetFolder();

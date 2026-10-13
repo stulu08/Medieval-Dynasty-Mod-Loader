@@ -15,12 +15,6 @@ public:
 	static Ref<Logger> Create(const std::string& uniqueName);
 	//Creates a logger with a given filesink
 	static Ref<Logger> Create(const std::string& uniqueName, const Ref<spdlog::sinks::sink>& fileSink);
-	static inline Logger* getLoggerRaw(const std::string& name) {
-		auto it = s_loggers.find(name);
-		if (it != s_loggers.end())
-			return it->second;
-		return nullptr;
-	}
 	static inline Ref<Logger> getLogger(const std::string& name) {
 		auto it = s_loggers.find(name);
 		if (it != s_loggers.end())
@@ -129,10 +123,6 @@ private:
 class LOADER_API Log {
 public:
 	static void Init(const std::string& dir = DEFAULT_LOG_DIR);
-	static inline void SetupErrorMessage(const std::string& Message) {
-		MessageBoxA(NULL, (Message + "\nPress OK to exit.").c_str(), "Error", MB_ICONERROR);
-		abort();
-	}
 	static inline void SetupMessage(const std::string& Info, const std::string& Message) {
 		MessageBoxA(NULL, Message.c_str(), Info.c_str(), MB_OK | MB_SYSTEMMODAL);
 	}

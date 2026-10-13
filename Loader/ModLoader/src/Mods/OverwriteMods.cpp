@@ -100,11 +100,11 @@ namespace mdml::mods
 					paths[std::filesystem::relative(path.path().parent_path(), rootGameDir).string()].push_back(strPath);
 
 				}
-				fprintf(file, "; This file stores if the mod loader should disbale file overwriting for specific files\n");
+				fprintf(file, "; This file stores if the mod loader should disable file overwriting for specific files\n");
 				fprintf(file, "; The Mod Loader overwrites the ue4 file detection(its the simplest way of saying it even if its wrong)\n");
-				fprintf(file, "; But for loose files the game ships with we want to use the default ue4 way of loading files insted of our own, otherwise the game might crash\n");
+				fprintf(file, "; But for loose files the game ships with we want to use the default ue4 way of loading files instead of our own, otherwise the game might crash\n");
 				fprintf(file, "; \n");
-				fprintf(file, "; To enable file overwriding change value to false and to disbale overloading change to true\n");
+				fprintf(file, "; To enable file overwriting change value to false and to disable overwriting change to true\n");
 				fprintf(file, "; The file loader only support true/1/false/0 and not TrUe or FaLs\n");
 				fprintf(file, "; The path is relative to the root dir where the Engine and Game folder is located with the Manifest_NonUFSFiles_Win64.txt\n");
 				for (auto [dir, pathVec] : paths) {
@@ -309,9 +309,9 @@ namespace mdml::mods
 			}
 			else {
 				if (!isOld)
-					Log::Error_MDML("Could not deleted file link {0} ({1})", runtime::FormatPath(target), ec.message());
+					Log::Error_MDML("Could not delete file link {0} ({1})", runtime::FormatPath(target), ec.message());
 				else
-					Log::Error_MDML("Could not deleted old file link {0} ({1})", runtime::FormatPath(target), ec.message());
+					Log::Error_MDML("Could not delete old file link {0} ({1})", runtime::FormatPath(target), ec.message());
 				return false;
 			}
 		}
@@ -420,15 +420,17 @@ namespace mdml::mods
 						}
 						std::string enabled = modIni.Get(section, "Enable", "False");
 						OverwriteMod oMod;
-						oMod.Name = modIni.Get(section, "Name", "Uknown");
-						oMod.Author = modIni.Get(section, "Author", "Uknown");
-						oMod.Description = modIni.Get(section, "Description", "Uknown");
+						oMod.Name = modIni.Get(section, "Name", "Unknown");
+						oMod.Author = modIni.Get(section, "Author", "Unknown");
+						oMod.Description = modIni.Get(section, "Description", "Unknown");
 
 						std::transform(enabled.begin(), enabled.end(), enabled.begin(), [](char c)->char { return std::tolower(c); });
 						if (enabled == "true" || enabled.rfind("1", 0) == 0) {
-							std::string folderStr = dirPath + "/" + modIni.Get(section, "Folder", "");
-							std::filesystem::path folderPath = folderStr;
-							if (folderStr.empty() || !std::filesystem::exists(folderPath, ec)) {
+							// A missing/empty Folder used to resolve to the mod folder itself, so every file of the mod
+							// (mod.ini, DLL, ...) was linked into Content.
+							const std::string folder = modIni.Get(section, "Folder", "");
+							std::filesystem::path folderPath = dirPath + "/" + folder;
+							if (folder.empty() || !std::filesystem::exists(folderPath, ec)) {
 								Log::Warn_MDML("Overwrite mod {0} is enabled but its Folder {1} does not exist, skipping it", oMod.Name, runtime::FormatPath(folderPath));
 								continue;
 							}

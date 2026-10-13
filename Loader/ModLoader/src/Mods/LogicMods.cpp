@@ -24,7 +24,7 @@ namespace mdml::mods {
 			UE4::FString ModName;
 		};
 
-		void LoadLogicMod(std::string modName, const std::filesystem::path& Actor, const std::string& ActorPath, const std::filesystem::path& PeristentObject, const std::string& PersintentObjectPath) {
+		void LoadLogicMod(std::string modName, const std::filesystem::path& Actor, const std::string& ActorPath, const std::filesystem::path& PersistentObject, const std::string& PersistentObjectPath) {
 			if (!std::filesystem::exists(Actor)) {
 				Log::Warn_MDML("Could not find: {0}", Actor.string());
 				return;
@@ -57,16 +57,16 @@ namespace mdml::mods {
 				});
 			Log::Info_MDML("Registered Mod Actor {1} for {0}", modName, APath);
 
-			if (!PeristentObject.string().empty()) {
-				if (!std::filesystem::exists(PeristentObject)) {
-					Log::Warn_MDML("Could not find: {0}", PeristentObject.string());
+			if (!PersistentObject.empty()) {
+				if (!std::filesystem::exists(PersistentObject)) {
+					Log::Warn_MDML("Could not find: {0}", PersistentObject.string());
 					return;
 				}
-				std::string persistentFileName = PeristentObject.filename().string();
+				std::string persistentFileName = PersistentObject.filename().string();
 				std::string persistentName = persistentFileName.substr(0, persistentFileName.find_last_of("."));
-				std::string PPath = PersintentObjectPath;
-				if (PersintentObjectPath.empty()) {
-					std::filesystem::path relpath = std::filesystem::relative(PeristentObject.parent_path(), Mod::GetModsFolder());
+				std::string PPath = PersistentObjectPath;
+				if (PersistentObjectPath.empty()) {
+					std::filesystem::path relpath = std::filesystem::relative(PersistentObject.parent_path(), Mod::GetModsFolder());
 					PPath = "/Game/Mods/" + relpath.string() + "/" + persistentName + "." + persistentName + "_C";
 				}
 
@@ -110,13 +110,17 @@ namespace mdml::mods {
 						}
 
 						auto modName = modIni.Get("LogicMod", "ModName", dirName);
-						auto actorFile = dirPath + "/" + modIni.Get("LogicMod", "ActorFile", "");
+						auto actorFile = modIni.Get("LogicMod", "ActorFile", "");
 						auto actorPath = modIni.Get("LogicMod", "ActorPath", "");
-						auto PeristentObjectFile = dirPath + "/" + modIni.Get("LogicMod", "PeristentObjectFile", "");
-						auto PersistentObjectPath = modIni.Get("LogicMod", "PersistentObjectPath", "");
+						// Key renamed from the misspelled "PeristentObjectFile" (owner decision 2026-10-13, no alias).
+						auto persistentObjectFile = modIni.Get("LogicMod", "PersistentObjectFile", "");
+						auto persistentObjectPath = modIni.Get("LogicMod", "PersistentObjectPath", "");
 
+						// An empty ActorFile/PersistentObjectFile used to become "<mod folder>/", which exists, so a bogus
+						// actor or persistent object was registered for the mod folder itself.
 						if (!actorFile.empty()) {
-							LoadLogicMod(modName, actorFile, actorPath, PeristentObjectFile, PersistentObjectPath);
+							LoadLogicMod(modName, dirPath + "/" + actorFile, actorPath,
+								persistentObjectFile.empty() ? std::filesystem::path() : std::filesystem::path(dirPath + "/" + persistentObjectFile), persistentObjectPath);
 						}
 						else
 							Log::Info_MDML("No actor found for {0}", modName);
@@ -150,20 +154,9 @@ namespace mdml::mods {
 					{
 						if (!IsProcessInternalsHooked)
 						{
-							if (!mdml::Addresses.ProcessInternals)
-							{
-								if (!mdml::Addresses.UsesFNamePool || !mdml::Addresses.IsUsing4_22)
-								{
-									if (ModActor->DoesObjectContainFunction("PostBeginPlay"))
-									{
-										mdml::Addresses.ProcessInternals = (DWORD64)ModActor->GetFunction("PostBeginPlay")->GetFunction();
-									}
-									else if (ModActor->DoesObjectContainFunction("ModMenuButtonPressed"))
-									{
-										mdml::Addresses.ProcessInternals = (DWORD64)ModActor->GetFunction("ModMenuButtonPressed")->GetFunction();
-									}
-								}
-							}
+							// ProcessInternals comes from the PDB or the profile pattern (EngineAddresses.cpp). The UML-era
+							// fallback that took the Func pointer of the mod actor's PostBeginPlay/ModMenuButtonPressed
+							// (IsUsing4_22) is gone.
 							IsProcessInternalsHooked = true;
 							if (mdml::Addresses.ProcessInternals)
 								runtime::InstallScriptFunctionHook();
@@ -213,7 +206,7 @@ namespace mdml::mods {
 							}
 						}
 						ModActor->CallFunctionByNameWithArguments(L"PreBeginPlay", nullptr, NULL, true);
-						Log::Info_UML("Sucessfully Loaded {0}", str.c_str());
+						Log::Info_UML("Successfully Loaded {0}", str.c_str());
 					}
 				}
 				else
@@ -266,12 +259,8 @@ namespace mdml::mods {
 	}
 
 	UE4::AActor* SpawnActor(UE4::UClass* Class, const UE4::FTransform& transform, UE4::FActorSpawnParameters spawnParams) {
-		if (!mdml::Addresses.IsUsingDeferedSpawn) {
-			return UE4::UWorld::GetWorld()->SpawnActor(Class, &transform, &spawnParams);
-		}
-		else {
-			return UE4::UGameplayStatics::BeginDeferredActorSpawnFromClass((UE4::AActor*)Class, transform, UE4::ESpawnActorCollisionHandlingMethod::AlwaysSpawn, nullptr);
-		}
+		// The UML-era deferred-spawn branch (IsUsingDeferedSpawn -> BeginDeferredActorSpawnFromClass) is gone.
+		return UE4::UWorld::GetWorld()->SpawnActor(Class, &transform, &spawnParams);
 	}
 
 	bool HandleScriptFunction(UE4::UObject* obj, UE4::FFrame* Frame, void* const Result) {

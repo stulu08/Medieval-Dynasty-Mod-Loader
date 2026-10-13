@@ -13,6 +13,6 @@ namespace mdml::runtime {
 	void ResolveEngine(const platform::IniFile& profile, const std::string& profilePath, const std::string& mdmlDir);
 }
 
-// "0x..." hex string -> value (the two characters after the start are skipped). Global and with this exact signature
+// "0x..." hex string -> value (the first two characters are skipped; 0 for shorter strings). Global and with this exact signature
 // because src/Engine/EngineAddresses.cpp declares and calls it (raw offset mode); defined in Runtime/EngineSetup.cpp.
 DWORD StringToDWord(std::string str);
