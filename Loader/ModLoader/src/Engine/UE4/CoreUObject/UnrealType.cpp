@@ -1,22 +1,25 @@
 #include "UnrealType.h"
 #include "EngineLayout.h"
+#include "EngineMemory.h"
 #include "UE_LOG.h"
+
+using mdml::mem::LoadField;
 
 namespace UE4 {
 	int32_t FProperty::GetArrayDim() const {
-		return Read<int32_t>((byte*)this + mdml::Layout.Property.ArrayDim);
+		return LoadField<int32_t>(this, mdml::Layout.Property.ArrayDim);
 	};
 
 	int32_t FProperty::GetElementSize() const {
-		return Read<int32_t>((byte*)this + mdml::Layout.Property.ElementSize);
+		return LoadField<int32_t>(this, mdml::Layout.Property.ElementSize);
 	}
 
 	EPropertyFlags FProperty::GetPropertyFlags() const {
-		return (EPropertyFlags)Read<uint64_t>((byte*)this + mdml::Layout.Property.Flags);
+		return (EPropertyFlags)LoadField<uint64_t>(this, mdml::Layout.Property.Flags);
 	}
 
 	int32_t FProperty::GetOffset() const {
-		return Read<int32_t>((byte*)this + mdml::Layout.Property.Offset);
+		return LoadField<int32_t>(this, mdml::Layout.Property.Offset);
 	}
 
 	std::string FProperty::GetCppTypeName() {
@@ -132,18 +135,12 @@ namespace UE4 {
 
 	std::string FFieldClass::GetName() const
 	{
-		// Helper function with __try block
-		auto SafeGetName = [](const FFieldClass* fieldClass) -> FName {
-			__try {
-				return *reinterpret_cast<FName*>((byte*)fieldClass + mdml::Layout.FFieldClass.Name);
-			}
-			__except (EXCEPTION_EXECUTE_HANDLER) {
-				UE_LOG(LogTemp, Error, "Access violation while dereferencing FName. this: 0x{0:x}, Name Offser: 0x{1:x}", (DWORD64)fieldClass, mdml::Layout.FFieldClass.Name);
-				return FName();
-			}
-			};
-
-		FName Name = SafeGetName(this);
+		// Guarded read: AsUClass() is also called for FField classes of unknown origin (dumpers, exporters).
+		FName Name;
+		if (!mdml::mem::SafeRead(reinterpret_cast<const uint8_t*>(this) + mdml::Layout.FFieldClass.Name, Name)) {
+			UE_LOG(LogTemp, Error, "Access violation while reading FFieldClass::Name. this: 0x{0:x}, Name offset: 0x{1:x}", (DWORD64)this, mdml::Layout.FFieldClass.Name);
+			return "";
+		}
 		if (UE4::FName::GetFNamePool().IsValidIndex(Name.ComparisonIndex)) {
 			return Name.GetName();
 		}
@@ -153,59 +150,66 @@ namespace UE4 {
 
 	uint64_t FFieldClass::GetID() const
 	{
-		return Read<uint64_t>((byte*)this + mdml::Layout.FFieldClass.ID);
+		return LoadField<uint64_t>(this, mdml::Layout.FFieldClass.ID);
 	}
 
 	uint64_t FFieldClass::GetCastFlags() const
 	{
-		return Read<uint64_t>((byte*)this + mdml::Layout.FFieldClass.CastFlags);
+		return LoadField<uint64_t>(this, mdml::Layout.FFieldClass.CastFlags);
 	}
 
 	FFieldClass* FFieldClass::SuperClass() const
 	{
-		return Read<class FFieldClass*>((byte*)this + mdml::Layout.FFieldClass.SuperClass);
+		return LoadField<class FFieldClass*>(this, mdml::Layout.FFieldClass.SuperClass);
 	}
 
 	UClass* FFieldClass::AsUClass(FFieldClass* Class) {
 		if (!Class)
 			return nullptr;
 		std::string name = Class->GetName();
-#define AS_UClASS_CHECK(X) \
+#define AS_UCLASS_CHECK(X) \
 		else if (name == #X) { \
 			return F##X::StaticClass(); \
 		}
 		if (name.empty() || name == "nullptr") {
 			return nullptr;
 		}
-		AS_UClASS_CHECK(NumericProperty)
-			AS_UClASS_CHECK(ByteProperty)
-			AS_UClASS_CHECK(UInt16Property)
-			AS_UClASS_CHECK(UInt32Property)
-			AS_UClASS_CHECK(UInt64Property)
-			AS_UClASS_CHECK(Int8Property)
-			AS_UClASS_CHECK(Int16Property)
-			AS_UClASS_CHECK(IntProperty)
-			AS_UClASS_CHECK(Int64Property)
-			AS_UClASS_CHECK(FloatProperty)
-			AS_UClASS_CHECK(DoubleProperty)
-			AS_UClASS_CHECK(BoolProperty)
-			AS_UClASS_CHECK(ObjectPropertyBase)
-			AS_UClASS_CHECK(ObjectProperty)
-			AS_UClASS_CHECK(ClassProperty)
-			AS_UClASS_CHECK(InterfaceProperty)
-			AS_UClASS_CHECK(WeakObjectProperty)
-			AS_UClASS_CHECK(LazyObjectProperty)
-			AS_UClASS_CHECK(AssetObjectProperty)
-			AS_UClASS_CHECK(AssetClassProperty)
-			AS_UClASS_CHECK(NameProperty)
-			AS_UClASS_CHECK(StructProperty)
-			AS_UClASS_CHECK(StrProperty)
-			AS_UClASS_CHECK(TextProperty)
-			AS_UClASS_CHECK(ArrayProperty)
-			AS_UClASS_CHECK(MapProperty)
-			AS_UClASS_CHECK(DelegateProperty)
-			AS_UClASS_CHECK(MulticastDelegateProperty)
-			AS_UClASS_CHECK(EnumProperty);
+		AS_UCLASS_CHECK(NumericProperty)
+			AS_UCLASS_CHECK(ByteProperty)
+			AS_UCLASS_CHECK(UInt16Property)
+			AS_UCLASS_CHECK(UInt32Property)
+			AS_UCLASS_CHECK(UInt64Property)
+			AS_UCLASS_CHECK(Int8Property)
+			AS_UCLASS_CHECK(Int16Property)
+			AS_UCLASS_CHECK(IntProperty)
+			AS_UCLASS_CHECK(Int64Property)
+			AS_UCLASS_CHECK(FloatProperty)
+			AS_UCLASS_CHECK(DoubleProperty)
+			AS_UCLASS_CHECK(BoolProperty)
+			AS_UCLASS_CHECK(ObjectPropertyBase)
+			AS_UCLASS_CHECK(ObjectProperty)
+			AS_UCLASS_CHECK(ClassProperty)
+			AS_UCLASS_CHECK(InterfaceProperty)
+			AS_UCLASS_CHECK(WeakObjectProperty)
+			AS_UCLASS_CHECK(LazyObjectProperty)
+			AS_UCLASS_CHECK(AssetObjectProperty)
+			AS_UCLASS_CHECK(AssetClassProperty)
+			AS_UCLASS_CHECK(NameProperty)
+			AS_UCLASS_CHECK(StructProperty)
+			AS_UCLASS_CHECK(StrProperty)
+			AS_UCLASS_CHECK(TextProperty)
+			AS_UCLASS_CHECK(ArrayProperty)
+			AS_UCLASS_CHECK(MapProperty)
+			AS_UCLASS_CHECK(DelegateProperty)
+			AS_UCLASS_CHECK(MulticastDelegateProperty)
+			AS_UCLASS_CHECK(EnumProperty)
+		// UE 4.27 names of the old "Asset" property types (see FAssetObjectProperty in UnrealType.h).
+		else if (name == "SoftObjectProperty") {
+			return FAssetObjectProperty::StaticClass();
+		}
+		else if (name == "SoftClassProperty") {
+			return FAssetClassProperty::StaticClass();
+		}
 
 		return nullptr;
 	}
@@ -213,17 +217,17 @@ namespace UE4 {
 	
 	FFieldClass* FField::GetClass() const
 	{
-		return Read<class FFieldClass*>((byte*)this + mdml::Layout.FField.ClassPrivate);
+		return LoadField<class FFieldClass*>(this, mdml::Layout.FField.ClassPrivate);
 	}
 
 	FField* FField::GetNext() const
 	{
-		return Read<class FField*>((byte*)this + mdml::Layout.FField.Next);
+		return LoadField<class FField*>(this, mdml::Layout.FField.Next);
 	};
 
 	std::string FField::GetName() const
 	{
-		auto Name = *reinterpret_cast<FName*>((byte*)this + mdml::Layout.FField.Name);
+		auto Name = LoadField<FName>(this, mdml::Layout.FField.Name);
 		if (UE4::FName::GetFNamePool().IsValidIndex(Name.ComparisonIndex))
 		{
 			return Name.GetName();
@@ -232,54 +236,54 @@ namespace UE4 {
 	};
 	
 	UEnum* FByteProperty::GetEnum() const {
-		return Read<class UEnum*>((byte*)this + mdml::Layout.ByteProperty.Enum);
+		return LoadField<class UEnum*>(this, mdml::Layout.ByteProperty.Enum);
 	}
 	uint8_t FBoolProperty::GetFieldSize() const {
-		return Read<uint8_t>((byte*)this + mdml::Layout.BoolProperty.FieldSize);
+		return LoadField<uint8_t>(this, mdml::Layout.BoolProperty.FieldSize);
 	}
 	uint8_t FBoolProperty::ByteOffset() const {
-		return Read<uint8_t>((byte*)this + mdml::Layout.BoolProperty.ByteOffset);
+		return LoadField<uint8_t>(this, mdml::Layout.BoolProperty.ByteOffset);
 	}
 	uint8_t FBoolProperty::ByteMask() const {
-		return Read<uint8_t>((byte*)this + mdml::Layout.BoolProperty.ByteMask);
+		return LoadField<uint8_t>(this, mdml::Layout.BoolProperty.ByteMask);
 	}
 	uint8_t FBoolProperty::FieldMask() const {
-		return Read<uint8_t>((byte*)this + mdml::Layout.BoolProperty.FieldMask);
+		return LoadField<uint8_t>(this, mdml::Layout.BoolProperty.FieldMask);
 	}
 	UClass* FObjectPropertyBase::GetPropertyClass() const {
-		return Read<class UClass*>((byte*)this + mdml::Layout.ObjectPropertyBase.PropertyClass);
+		return LoadField<class UClass*>(this, mdml::Layout.ObjectPropertyBase.PropertyClass);
 	}
 	UClass* FClassProperty::GetMetaClass() const {
-		return Read<class UClass*>((byte*)this + mdml::Layout.ClassProperty.MetaClass);
+		return LoadField<class UClass*>(this, mdml::Layout.ClassProperty.MetaClass);
 	}
 	UClass* FInterfaceProperty::GetInterfaceClass() const {
-		return Read<class UClass*>((byte*)this + mdml::Layout.InterfaceProperty.InterfaceClass);
+		return LoadField<class UClass*>(this, mdml::Layout.InterfaceProperty.InterfaceClass);
 	}
 	UClass* FAssetClassProperty::GetMetaClass() const {
-		return Read<class UClass*>((byte*)this + mdml::Layout.AssetClassProperty.MetaClass);
+		return LoadField<class UClass*>(this, mdml::Layout.AssetClassProperty.MetaClass);
 	}
 	UScriptStruct* FStructProperty::GetStruct() const {
-		return Read<class UScriptStruct*>((byte*)this + mdml::Layout.StructProperty.Struct);
+		return LoadField<class UScriptStruct*>(this, mdml::Layout.StructProperty.Struct);
 	}
 	FProperty* FArrayProperty::GetInner() const {
-		return Read<class FProperty*>((byte*)this + mdml::Layout.ArrayProperty.Inner);
+		return LoadField<class FProperty*>(this, mdml::Layout.ArrayProperty.Inner);
 	}
 	FProperty* FMapProperty::GetKeyProp() const {
-		return Read<class FProperty*>((byte*)this + mdml::Layout.MapProperty.Key);
+		return LoadField<class FProperty*>(this, mdml::Layout.MapProperty.Key);
 	}
 	FProperty* FMapProperty::GetValueProp() const {
-		return Read<class FProperty*>((byte*)this + mdml::Layout.MapProperty.Value);
+		return LoadField<class FProperty*>(this, mdml::Layout.MapProperty.Value);
 	}
 	UFunction* FDelegateProperty::GetSignatureFunction() const {
-		return Read<class UFunction*>((byte*)this + mdml::Layout.DelegateProperty.SignatureFunction);
+		return LoadField<class UFunction*>(this, mdml::Layout.DelegateProperty.SignatureFunction);
 	}
 	UFunction* FMulticastDelegateProperty::GetSignatureFunction() const {
-		return Read<class UFunction*>((byte*)this + mdml::Layout.MulticastDelegateProperty.SignatureFunction);
+		return LoadField<class UFunction*>(this, mdml::Layout.MulticastDelegateProperty.SignatureFunction);
 	}
 	FNumericProperty* FEnumProperty::GetUnderlyingProp() const {
-		return Read<class FNumericProperty*>((byte*)this + mdml::Layout.EnumProperty.UnderlyingProp);
+		return LoadField<class FNumericProperty*>(this, mdml::Layout.EnumProperty.UnderlyingProp);
 	}
 	UEnum* FEnumProperty::GetEnum() const {
-		return Read<class UEnum*>((byte*)this + mdml::Layout.EnumProperty.Enum);
+		return LoadField<class UEnum*>(this, mdml::Layout.EnumProperty.Enum);
 	}
 }

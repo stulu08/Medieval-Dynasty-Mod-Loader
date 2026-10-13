@@ -3,6 +3,7 @@
 #include "Object.h"
 #include "Class.h"
 #include "EngineAddresses.h"
+#include "EngineMemory.h"
 
 #define PROPERTY_IMPL_GET_CPP_TYPE(Type) std::string GetCppType() { return Type; }
 
@@ -26,6 +27,7 @@ namespace UE4 {
 		std::string GetName() const;
 		uint64_t GetID() const;
 		uint64_t GetCastFlags() const;
+		// FFieldClass::SuperClass at 0x20 (PDB); was read from 0x18 (= ClassFlags) before Wave 3D.
 		FFieldClass* SuperClass() const;
 
 		static UClass* AsUClass(FFieldClass* Class);
@@ -50,19 +52,27 @@ namespace UE4 {
 		EPropertyFlags GetPropertyFlags() const;
 		int32_t GetOffset() const;
 
-		static bool IsFProperty() {
-			return mdml::Addresses.bIsFProperty;
+		// Always true for UE 4.27 (properties are FFields since 4.25; the UProperty mode was removed in Wave 3D).
+		// Kept for callers outside the core.
+		static constexpr bool IsFProperty() {
+			return true;
 		}
 		static UClass* StaticClass()
 		{
 			static auto ptr = UObject::FindClass("Class CoreUObject.Property");
 			return ptr;
 		}
+		// Exact-class check through the compatibility UClass of this property's FFieldClass (AsUClass). A type whose
+		// UClass does not exist never matches (before 3D, nullptr == nullptr made every unknown property match the
+		// first such type, code inventory C13).
 		template<class T>
 		bool IsA() const {
+			UClass* expected = T::StaticClass();
+			if (!expected)
+				return false;
 			if (this->GetClass()) {
 				UClass* thisClass = this->GetClass()->GetUClass();
-				return thisClass == T::StaticClass();
+				return thisClass == expected;
 			}
 			return false;
 		}
@@ -261,23 +271,26 @@ namespace UE4 {
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("TLazyObjectPtr<class " + NameValidator::MakeValidName(GetPropertyClass()->GetCPPName()) + ">")
 	};
+	// UE 4.27's FSoftObjectProperty (the "Asset" names are from UE 4.17 and older; there is no AssetObjectProperty
+	// class any more, so before Wave 3D this StaticClass() was always nullptr).
 	class MDML_ENGINE_API FAssetObjectProperty : public FObjectPropertyBase
 	{
 	public:
 		static UClass* StaticClass()
 		{
-			static auto ptr = UObject::FindClass("Class CoreUObject.AssetObjectProperty");
+			static auto ptr = UObject::FindClass("Class CoreUObject.SoftObjectProperty");
 			return ptr;
 		}
 		PROPERTY_IMPL_GET_CPP_TYPE("TAssetPtr<class " + NameValidator::MakeValidName(GetPropertyClass()->GetCPPName()) + ">")
 	};
+	// UE 4.27's FSoftClassProperty (see FAssetObjectProperty).
 	class MDML_ENGINE_API FAssetClassProperty : public FAssetObjectProperty
 	{
 	public:
 		UClass* GetMetaClass() const;
 		static UClass* StaticClass()
 		{
-			static auto ptr = UObject::FindClass("Class CoreUObject.AssetClassProperty");
+			static auto ptr = UObject::FindClass("Class CoreUObject.SoftClassProperty");
 			return ptr;
 		}
 	};
@@ -394,26 +407,17 @@ namespace UE4 {
 			return nullptr;
 		for (UE4::UStruct* Struct = Object->GetClass(); Struct; Struct = Struct->GetSuperField())
 		{
-			if (FProperty::IsFProperty())
+			for (auto Field = Struct->GetChildProperties(); Field; Field = Field->GetNext())
 			{
-				for (auto Field = (UE4::FField*)Struct->GetChildren(); Field; Field = Field->GetNext())
-				{
-					if (Field->GetName() == Name)
-						return (UE4::FProperty*)Field;
-				}
-			}
-			else
-			{
-				for (auto Field = (UE4::UField*)Struct->GetChildren(); Field; Field = Field->GetNext())
-				{
-					if (Field->GetName() == Name)
-						return (UE4::FProperty*)Field;
-				}
+				if (Field->GetName() == Name)
+					return (UE4::FProperty*)Field;
 			}
 		}
 		return nullptr;
 	}
 
+	// Typed reflection access by property name (walks super classes). Bitwise copies, like before Wave 3D, but direct
+	// memory access instead of ReadProcessMemory: Object must be a live object.
 	template<typename T>
 	bool GetVariable(UE4::UObject* Object, std::string Name, T& Variable, UE4::FProperty*& Property = _dummy_foobar)
 	{
@@ -421,7 +425,7 @@ namespace UE4 {
 		if (!varProperty)
 			return false;
 		Property = varProperty;
-		Variable = Read<T>((byte*)Object + varProperty->GetOffset());
+		Variable = mdml::mem::Load<T>(reinterpret_cast<uint8_t*>(Object) + varProperty->GetOffset());
 		return true;
 	}
 	template<typename T>
@@ -430,7 +434,9 @@ namespace UE4 {
 		auto varProperty = FindPropertyByName(Object, Name);
 		if (!varProperty)
 			return false;
-		Write<T>((byte*)Object + varProperty->GetOffset(), Value);
+		mdml::mem::Store<T>(reinterpret_cast<uint8_t*>(Object) + varProperty->GetOffset(), Value);
 		return true;
 	}
 }
+
+#include "ObjectLayout.h"

@@ -4,6 +4,9 @@
 #include "EngineAddresses.h"
 
 namespace UE4 {
+	class FField;
+	class FProperty;
+
 	class MDML_ENGINE_API UField : public UObject
 	{
 	public:
@@ -44,8 +47,15 @@ namespace UE4 {
 	{
 	public:
 		UStruct* GetSuperField() const;
+		// UE's ChildProperties (UStruct+0x50): the FField chain of the struct's own properties.
+		FField* GetChildProperties() const;
+		// UE's Children (UStruct+0x48): the UField chain of the struct's own UFunctions.
+		UField* GetChildFields() const;
+		// Legacy name: returns ChildProperties (the FField chain), typed as UField* like before Wave 3D. Callers cast
+		// it to FField*. Kept for source compatibility; use GetChildProperties()/GetChildFields() in new code.
 		UField* GetChildren() const;
 		int32_t GetPropertySize() const;
+		int32_t GetMinAlignment() const;
 
 		static UClass* StaticClass()
 		{
@@ -70,10 +80,6 @@ namespace UE4 {
 		template<typename T>
 		inline T* CreateDefaultObject()
 		{
-			if (Profile.bIsDefaultObjectArrayed == true)
-			{
-				return UE4::UObject::GetDefaultObjectFromArray<T>(this);
-			}
 			return static_cast<T*>(CreateDefaultObject());
 		}
 
@@ -83,18 +89,19 @@ namespace UE4 {
 			return ptr;
 		}
 
+		// UClass::CreateDefaultObject of the engine: returns the existing CDO or creates it.
+		// (The UML CDO-by-GObjects-scan mode, bIsDefaultObjectArrayed, was removed in Wave 3D.)
 		inline UObject* CreateDefaultObject()
 		{
-
-			if (mdml::Addresses.bIsDefaultObjectArrayed == true)
-			{
-				return UE4::UObject::GetDefaultObjectFromArray<UObject>(this);
-			}
-			else
-			{
-				return reinterpret_cast<UObject * (*)(UClass*)>(this, mdml::Addresses.CreateDefaultObject)(this);
-			}
+			if (!mdml::Addresses.CreateDefaultObject)
+				return GetDefaultObject();
+			return reinterpret_cast<UObject * (*)(UClass*)>(mdml::Addresses.CreateDefaultObject)(this);
 		}
+
+		// The ClassDefaultObject field (UClass+0x118); nullptr if the CDO was not created yet.
+		UObject* GetDefaultObject() const;
+		uint32_t GetClassFlags() const;
+		uint64_t GetClassCastFlags() const;
 
 		static UClass* LoadClassFromString(const wchar_t* InName, bool bAllowObjectReconciliation = false);
 
@@ -118,7 +125,7 @@ namespace UE4 {
 		UObject* ObjectPointer;
 		void* InterfacePointer;
 	};
-	template<class InterfaceType> 
+	template<class InterfaceType>
 	class TScriptInterface : public FScriptInterface
 	{ };
 

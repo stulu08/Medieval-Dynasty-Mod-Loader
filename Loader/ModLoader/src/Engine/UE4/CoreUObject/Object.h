@@ -41,6 +41,8 @@ namespace UE4 {
 		GarbageCollectionKeepFlags = Native | Async | AsyncLoading,
 		AllFlags = ReachableInCluster | ClusterRoot | Native | Async | AsyncLoading | Unreachable | PendingKill | RootSet,
 	};
+	// Offset-based view of UObjectBase (no data members; layout-true mirror: UE4::Mirror::UObjectBase in ObjectLayout.h).
+	// Field offsets come from mdml::Layout (EngineLayout.h).
 	class MDML_ENGINE_API UObject
 	{
 	public:
@@ -53,201 +55,59 @@ namespace UE4 {
 		std::string GetCPPName() const;
 		UPackage* GetPackage() const;
 
-		static inline bool IsChunkedArray() { return FUObjectArray::IsChunkedArray(); }
+		// Always true for UE 4.27 (FChunkedFixedUObjectArray). Kept for callers outside the core; use ForEachObject.
+		static constexpr bool IsChunkedArray() { return FUObjectArray::IsChunkedArray(); }
+
+		// Calls Fn(UObject*) for every live object in GObjects (index order). If Fn returns bool, false stops the loop.
+		// Does nothing before the engine globals are bound. Not safe against a concurrent GC: call it on the game thread.
+		template<typename Fn>
+		static void ForEachObject(Fn&& Callback)
+		{
+			if (GObjects)
+				GObjects->ForEachObject(std::forward<Fn>(Callback));
+		}
+
+		// Finds an object by its MDML full name ("Class CoreUObject.Object", see GetFullName). O(N) over GObjects, but
+		// only objects whose short name matches pay for building the full name.
 		template<typename T>
 		static T* FindObject(const std::string& name)
 		{
-			if (IsChunkedArray())
-			{
-				for (int i = 0; i < GObjects->GetAsChunckArray().Num(); ++i)
+			const std::string shortName = ShortNameOf(name);
+			T* result = nullptr;
+			ForEachObject([&](UObject* object) {
+				if (object->GetName() == shortName && object->GetFullName() == name)
 				{
-					auto object = GObjects->GetAsChunckArray().GetByIndex(i).Object;
-
-					if (object == nullptr)
-					{
-						continue;
-					}
-
-					if (object->GetFullName() == name)
-					{
-						return static_cast<T*>(object);
-					}
+					result = static_cast<T*>(object);
+					return false;
 				}
-				return nullptr;
-			}
-			else
-			{
-				for (int i = 0; i < GObjects->GetAsTUArray().Num(); ++i)
-				{
-					auto object = GObjects->GetAsTUArray().GetByIndex(i).Object;
-
-					if (object == nullptr)
-					{
-						continue;
-					}
-
-					if (object->GetFullName() == name)
-					{
-						return static_cast<T*>(object);
-					}
-				}
-				return nullptr;
-			}
+				return true;
+			});
+			return result;
 		}
 		static UObject* FindObject(const std::string& name) {
 			return FindObject<UObject>(name);
 		}
 
-		template<typename T>
-		static std::vector<T*> GetAllObjectsOfType(UClass* Class, bool filterDefualts)
+		// Finds an object by its engine path ("/Script/Engine.Actor", "/Game/Path/BP_X.BP_X_C") through the engine's
+		// StaticFindObject (hash lookup instead of a GObjects scan). Game thread only (the engine forbids it during GC).
+		template<typename T = UObject>
+		static T* FindObjectByPath(const wchar_t* PathName)
 		{
-			if (IsChunkedArray())
-			{
-				std::vector<T*> ret;
-				//auto v = T::StaticClass();
-				for (int i = 0; i < GObjects->GetAsChunckArray().Num(); ++i)
-				{
-					auto object = GObjects->GetAsChunckArray().GetByIndex(i).Object;
-
-					if (object == nullptr)
-					{
-						continue;
-					}
-
-					if (object->IsA(Class))
-					{
-						if (filterDefualts)
-						{
-							if (object->GetName().find("Default__") != std::string::npos) {
-								continue;
-							}
-						}
-						ret.push_back(static_cast<T*>(object));
-					}
-				}
-				return ret;
-			}
-			else
-			{
-				std::vector<T*> ret;
-				for (int i = 0; i < GObjects->GetAsTUArray().Num(); ++i)
-				{
-					auto object = GObjects->GetAsTUArray().GetByIndex(i).Object;
-
-					if (object == nullptr)
-					{
-						continue;
-					}
-
-					if (object->IsA(Class))
-					{
-						if (filterDefualts)
-						{
-							if (object->GetName().find("Default__") != std::string::npos) {
-								continue;
-							}
-						}
-						ret.push_back(static_cast<T*>(object));
-					}
-				}
-				return ret;
-			}
+			return static_cast<T*>(StaticFindObject(nullptr, nullptr, PathName, false));
 		}
 
 		template<typename T>
-		static size_t CountObjectByTypeAndName(const std::string& name) {
-			UClass* Class = T::StaticClass();
-			size_t count = 0;
-			if (IsChunkedArray())
-			{
-				//auto v = T::StaticClass();
-				for (int i = 0; i < GObjects->GetAsChunckArray().Num(); ++i)
-				{
-					auto object = GObjects->GetAsChunckArray().GetByIndex(i).Object;
-
-					if (object == nullptr)
-					{
-						continue;
-					}
-
-					if (object->IsA(Class))
-					{
-						if (object->GetName() != name) {
-							continue;
-						}
-						count++;
-					}
-				}
-				return count;
-			}
-			else
-			{
-				for (int i = 0; i < GObjects->GetAsTUArray().Num(); ++i)
-				{
-					auto object = GObjects->GetAsTUArray().GetByIndex(i).Object;
-
-					if (object == nullptr)
-					{
-						continue;
-					}
-
-					if (object->IsA(Class))
-					{
-						if (object->GetName() != name) {
-							continue;
-						}
-						count++;
-					}
-				}
-				return count;
-			}
-		}
-
-		template<typename T>
-		static T* GetDefaultObjectFromArray(UClass* Class)
+		static std::vector<T*> GetAllObjectsOfType(UClass* Class, bool filterDefaults)
 		{
-			if (IsChunkedArray())
-			{
-				for (int i = 0; i < GObjects->GetAsChunckArray().Num(); ++i)
-				{
-					auto object = GObjects->GetAsChunckArray().GetByIndex(i).Object;
-
-					if (object == nullptr)
-					{
-						continue;
-					}
-
-					if (object->IsA(Class))
-					{
-						if (object->GetName().find("Default__") != std::string::npos)
-						{
-							return static_cast<T*>(object);
-						}
-					}
-				}
-				return nullptr;
-			}
-			else
-			{
-				for (int i = 0; i < GObjects->GetAsTUArray().Num(); ++i)
-				{
-					auto object = GObjects->GetAsTUArray().GetByIndex(i).Object;
-
-					if (object == nullptr)
-					{
-						continue;
-					}
-
-					if (object->IsA(Class))
-					{
-						if (object->GetName().find("Default__") != std::string::npos)
-						{
-							return static_cast<T*>(object);
-						}
-					}
-				}
-				return nullptr;
-			}
+			std::vector<T*> ret;
+			ForEachObject([&](UObject* object) {
+				if (!object->IsA(Class))
+					return;
+				if (filterDefaults && object->GetName().find("Default__") != std::string::npos)
+					return;
+				ret.push_back(static_cast<T*>(object));
+			});
+			return ret;
 		}
 
 		static UClass* FindClass(const std::string& name);
@@ -261,6 +121,7 @@ namespace UE4 {
 			return ptr;
 		}
 
+		// Functions declared directly in this object's class (not in super classes), looked up by name.
 		bool DoesObjectContainFunction(std::string Function);
 
 		class UFunction* GetFunction(std::string Function);
@@ -273,7 +134,7 @@ namespace UE4 {
 			else
 				return ProcessEvent_Save_impl(function, parms, true, true, sizeof(Params));
 		}
-#else 
+#else
 		void ProcessEvent(class UFunction* function, void* parms);
 #endif
 
@@ -283,6 +144,9 @@ namespace UE4 {
 		}
 
 		void ProcessEvent_Save_impl(class UFunction* function, void* parms, bool checkClass = true, bool checkParamSize = true, size_t parmsSize = 0);
+
+		// The part of an MDML full name that is the object's own GetName(): after the last '.', else after the class.
+		static std::string ShortNameOf(const std::string& fullName);
 
 /**
  * Find or load an object by string name with optional outer and filename specifications.
@@ -311,62 +175,17 @@ namespace UE4 {
 	};
 	class MDML_ENGINE_API UPackage : public UObject {
 	public:
-		std::vector<UObject*> GetAllObjectsInPackage(bool filterDefualts) {
-			if (IsChunkedArray())
-			{
-				std::vector<UObject*> ret;
-				for (int i = 0; i < GObjects->GetAsChunckArray().Num(); ++i)
-				{
-					auto object = GObjects->GetAsChunckArray().GetByIndex(i).Object;
-
-					if (object == nullptr)
-					{
-						continue;
-					}
-					auto p = object->GetPackage();
-					if (p)
-					{
-						if (p->GetFullName() != this->GetFullName())
-							continue;
-						if (filterDefualts)
-						{
-							if (object->GetName().find("Default__") != std::string::npos) {
-								continue;
-							}
-						}
-						ret.push_back((object));
-					}
-				}
-				return ret;
-			}
-			else
-			{
-				std::vector<UObject*> ret;
-				for (int i = 0; i < GObjects->GetAsTUArray().Num(); ++i)
-				{
-					auto object = GObjects->GetAsTUArray().GetByIndex(i).Object;
-
-					if (object == nullptr)
-					{
-						continue;
-					}
-
-					auto p = object->GetPackage();
-					if (p)
-					{
-						if (p->GetFullName() != this->GetFullName())
-							continue;
-						if (filterDefualts)
-						{
-							if (object->GetName().find("Default__") != std::string::npos) {
-								continue;
-							}
-						}
-						ret.push_back((object));
-					}
-				}
-				return ret;
-			}
+		// Every object whose outermost outer is this package.
+		std::vector<UObject*> GetAllObjectsInPackage(bool filterDefaults) {
+			std::vector<UObject*> ret;
+			ForEachObject([&](UObject* object) {
+				if (object->GetPackage() != this)
+					return;
+				if (filterDefaults && object->GetName().find("Default__") != std::string::npos)
+					return;
+				ret.push_back(object);
+			});
+			return ret;
 		}
 
 		static UClass* StaticClass()

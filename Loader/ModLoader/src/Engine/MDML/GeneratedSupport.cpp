@@ -22,19 +22,11 @@ namespace mdml::sdk {
 			return nullptr;
 		}
 
-		// Property declared directly in Struct (no super walk). UStruct::GetChildren() returns ChildProperties.
+		// Property declared directly in Struct (no super walk): its ChildProperties chain.
 		UE4::FProperty* FindOwnProperty(const UE4::UStruct* Struct, const char* Name) {
-			if (UE4::FProperty::IsFProperty()) {
-				for (auto Field = reinterpret_cast<UE4::FField*>(Struct->GetChildren()); Field; Field = Field->GetNext()) {
-					if (Field->GetName() == Name)
-						return static_cast<UE4::FProperty*>(Field);
-				}
-			}
-			else {
-				for (auto Field = Struct->GetChildren(); Field; Field = Field->GetNext()) {
-					if (Field->GetName() == Name)
-						return reinterpret_cast<UE4::FProperty*>(Field);
-				}
+			for (auto Field = Struct->GetChildProperties(); Field; Field = Field->GetNext()) {
+				if (Field->GetName() == Name)
+					return static_cast<UE4::FProperty*>(Field);
 			}
 			return nullptr;
 		}
@@ -181,7 +173,7 @@ namespace mdml::sdk {
 			}
 
 			int32_t NumLiveParams = 0;
-			for (auto Field = reinterpret_cast<UE4::FField*>(Function->GetChildren()); Field; Field = Field->GetNext()) {
+			for (auto Field = Function->GetChildProperties(); Field; Field = Field->GetNext()) {
 				auto Property = static_cast<UE4::FProperty*>(Field);
 				if ((static_cast<uint64_t>(Property->GetPropertyFlags()) & static_cast<uint64_t>(UE4::EPropertyFlags::Parm)) == 0)
 					continue;
