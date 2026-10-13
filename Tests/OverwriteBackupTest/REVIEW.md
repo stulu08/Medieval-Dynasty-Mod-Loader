@@ -1,7 +1,7 @@
 # Code review: overwrite links, backup and restore (commit f9acdc2)
 
-Scope: `ModLoader/src/Mod/ModLoader.cpp` (`CreateSysLinks`, `DeleteSysLinks`, `RestoreBackup`, `GetBackupPath`),
-callers in `ModLoader/src/Utilities/HooksManager.cpp` (`InitHooks` line ~167, `ShutDown` line ~200), `dllmain.cpp`,
+Scope: `Loader/ModLoader/src/Mod/ModLoader.cpp` (`CreateSysLinks`, `DeleteSysLinks`, `RestoreBackup`, `GetBackupPath`),
+callers in `Loader/ModLoader/src/Platform/HooksManager.cpp` (`InitHooks` line ~167, `ShutDown` line ~200), `dllmain.cpp`,
 `MDML.cpp` (NoOverwrite.ini parsing, profile `[Overwrites]`). Nothing was run; findings are from reading the code.
 Line numbers refer to `ModLoader.cpp` unless stated.
 
@@ -97,7 +97,7 @@ stays forever (no log line). Add a Warn log so the owner can see it.
 - Pak assets (BaseMod's cheat menu) never go through the backup path (no loose original, so `exists(target)` is false at
   line 274); this review covers only loose-file replacement.
 
-## Fix status ("Fixed in <commit>", see git log of `ModLoader/src/Mod/ModLoader.cpp`)
+## Fix status ("Fixed in <commit>", see git log of `Loader/ModLoader/src/Mod/ModLoader.cpp`)
 All fixes: commit "Overwrite links: crash-safe record, error_code everywhere, never overwrite a backup".
 - 1: `LinkFile` uses `error_code` overloads only; if link creation fails after the backup rename, the backup is renamed back immediately.
 - 2: all cleanup uses `error_code` overloads and logs path + message (also `directory_iterator`, `recursive_directory_iterator`, `create_directories`).

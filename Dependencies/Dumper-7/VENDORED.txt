@@ -34,4 +34,4 @@ DevTools/premake5.lua (project "DevTools.Generator").
 Updating
 --------
 Copy the same file list from a newer Dumper-7 checkout, update the commit above, rebuild DevTools.Generator and run
-the offline compile test (DevTools/tests/SDKCompileTest, see docs/SDK_GENERATOR.md).
+the offline compile test (Tests/SDKCompileTest, see docs/SDK_GENERATOR.md).

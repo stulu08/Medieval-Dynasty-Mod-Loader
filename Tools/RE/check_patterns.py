@@ -1,17 +1,17 @@
-"""Check the fallback AOB patterns of Config/ModLoaderInfo.ini against the game executable (offline).
+"""Check the fallback AOB patterns of Loader/ModLoader/Config/ModLoaderInfo.ini against the game executable (offline).
 
 Usage:
-    python tools/check_patterns.py [--exe PATH] [--ini PATH] [--gen] [--write] [--maxlen 64]
+    python Tools/RE/check_patterns.py [--exe PATH] [--ini PATH] [--gen] [--write] [--maxlen 64]
 
 * Expected addresses come from the game PDB, looked up with the same decorated names the loader uses
-  (parsed from `namespace Symbols` in ModLoader/src/MDML.cpp), so the script stays valid across game patches.
+  (parsed from `namespace Symbols` in Loader/ModLoader/src/MDML.cpp), so the script stays valid across game patches.
 * Patterns are scanned in executable sections only and judged like the loader does:
   function patterns must match exactly once; global ([GInfo]) and call-target patterns are fine with several
   matches as long as all of them resolve to the same address.
 * --gen builds replacement patterns for failures (capstone-wildcarded, grown until unique, <= maxlen bytes),
   --write additionally stores them in the ini (in place, keeping comments and order).
 
-Typical use after a game patch:  python tools/check_patterns.py --gen --write
+Typical use after a game patch:  python Tools/RE/check_patterns.py --gen --write
 """
 import argparse
 import ctypes
@@ -24,10 +24,10 @@ import capstone
 import pefile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-REPO = os.path.dirname(HERE)
+REPO = os.path.dirname(os.path.dirname(HERE))
 DEFAULT_EXE = r"E:\SteamLibrary\steamapps\common\Medieval Dynasty\Medieval_Dynasty\Binaries\Win64\Medieval_Dynasty-Win64-Shipping.exe"
-DEFAULT_INI = os.path.join(REPO, "Config", "ModLoaderInfo.ini")
-MDML_CPP = os.path.join(REPO, "ModLoader", "src", "MDML.cpp")
+DEFAULT_INI = os.path.join(REPO, "Loader", "ModLoader", "Config", "ModLoaderInfo.ini")
+MDML_CPP = os.path.join(REPO, "Loader", "ModLoader", "src", "MDML.cpp")
 
 # (ini section, ini key) -> (Symbols:: constant in MDML.cpp, kind, disp offset, instruction end)
 #   kind "func": the match is the address; "rip": target = match + end + int32 at match + disp
@@ -63,7 +63,7 @@ def read_symbol_table():
 
 
 class Pdb:
-    """Minimal dbghelp session, same options as ModLoader/src/Utilities/SymbolResolver.cpp."""
+    """Minimal dbghelp session, same options as Loader/ModLoader/src/Platform/SymbolResolver.cpp."""
 
     class SYMBOL_INFO(ctypes.Structure):
         _fields_ = [("SizeOfStruct", wt.ULONG), ("TypeIndex", wt.ULONG), ("Reserved", ctypes.c_uint64 * 2),

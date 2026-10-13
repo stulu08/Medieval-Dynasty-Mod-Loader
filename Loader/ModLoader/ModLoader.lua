@@ -24,7 +24,7 @@ project "MedievalDynastyModLoader"
 		"**.cpp",
 		"**.hpp",
 	}
-	-- Third-party code that used to live under this project (vendor/, src/UI/ImGuiColorTextEdit) is in Dependencies/ now
+	-- Third-party code that used to live under this project (vendor/, src/UI/ImGuiColorTextEdit; moved in the repo restructure) is in Dependencies/ now
 	-- but is still compiled into MDML.dll. MinHook is its own project; spdlog and INI are header-only.
 	files
 	{

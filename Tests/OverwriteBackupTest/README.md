@@ -1,7 +1,7 @@
 # OverwriteBackupTest
 
 Manual test fixture for the overwrite-mod backup feature (`.mdml-backup`, `ModLinks.bin`; code in
-`ModLoader/src/Mod/ModLoader.cpp`, `CreateSysLinks` / `DeleteSysLinks`). Not part of the build, not shipped.
+`Loader/ModLoader/src/Mod/ModLoader.cpp`, `CreateSysLinks` / `DeleteSysLinks`). Not part of the build, not shipped.
 
 - Test file: `Medieval_Dynasty\Content\ChromaSDK\Animations\Cold_Hit_Keyboard.chroma` (loose, not in a pak, 10118 bytes,
   sha256 `6eae822a...0b159`). It is a Razer Chroma keyboard-lighting animation, only read by the Chroma SDK when Razer
