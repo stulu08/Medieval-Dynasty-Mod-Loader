@@ -1125,6 +1125,9 @@
     <ClInclude Include="src\Platform\HooksManager.h">
       <Filter>src\Platform</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\IniFile.h">
+      <Filter>src\Platform</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Logger.h">
       <Filter>src\Platform</Filter>
     </ClInclude>
@@ -1254,6 +1257,9 @@
       <Filter>src\Platform</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\HooksManager.cpp">
+      <Filter>src\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\IniFile.cpp">
       <Filter>src\Platform</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Logger.cpp">

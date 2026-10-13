@@ -55,7 +55,8 @@ project "ModLoader"
 		"%{IncludeDir.ModLoader}",
 		"%{IncludeDir.Engine}",
 		"%{IncludeDir.EngineUE4}",
-		"%{IncludeDir.INI}",
+		"%{IncludeDir.INI}", -- only for src/Engine/EngineAddresses.cpp and Runtime/EngineSetup.cpp (legacy profile reads)
+		"%{IncludeDir.mINI}", -- only for Platform/IniFile.cpp
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.ImGui}",
 		

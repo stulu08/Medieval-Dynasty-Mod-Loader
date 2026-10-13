@@ -42,7 +42,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>NDEBUG;UNREALENGINEMODLOADER_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\Dependencies\spdlog;..\..\Dependencies\MinHook;src;src\Engine;src\Engine\UE4;..\..\Dependencies\INI;..\..\Dependencies\glm;..\..\Dependencies\ImGui;..\SDK\src\UE4;..\SDK\src;..\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Dependencies\spdlog;..\..\Dependencies\MinHook;src;src\Engine;src\Engine\UE4;..\..\Dependencies\INI;..\..\Dependencies\mINI;..\..\Dependencies\glm;..\..\Dependencies\ImGui;..\SDK\src\UE4;..\SDK\src;..\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -416,6 +416,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     <ClInclude Include="src\Mods\ModStack.h" />
     <ClInclude Include="src\Platform\Hooks.h" />
     <ClInclude Include="src\Platform\HooksManager.h" />
+    <ClInclude Include="src\Platform\IniFile.h" />
     <ClInclude Include="src\Platform\Logger.h" />
     <ClInclude Include="src\Platform\Math.h" />
     <ClInclude Include="src\Platform\Memory.h" />
@@ -507,6 +508,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     <ClCompile Include="src\Mods\ModStack.cpp" />
     <ClCompile Include="src\Platform\Hooks.cpp" />
     <ClCompile Include="src\Platform\HooksManager.cpp" />
+    <ClCompile Include="src\Platform\IniFile.cpp" />
     <ClCompile Include="src\Platform\Logger.cpp" />
     <ClCompile Include="src\Platform\SymbolResolver.cpp" />
     <ClCompile Include="src\Runtime\Dumper.cpp" />
