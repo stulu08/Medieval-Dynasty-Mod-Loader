@@ -1,7 +1,7 @@
 #include "DevTools.h"
 
-#include "Utilities/GameThread.h"
-#include "Utilities/Logger.h"
+#include "Runtime/GameThread.h"
+#include "Platform/Logger.h"
 #include "UI/LoaderUI.h"
 
 #include "Generator/SdkGenerator.h"

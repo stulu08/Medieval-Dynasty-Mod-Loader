@@ -1,10 +1,10 @@
 -- DevTools: developer mod shipped with MDML, disabled by default (Config/mod.ini). Hosts the MDML SDK generator.
 -- Two projects, so that Dumper-7's C++latest requirement stays out of the C++17 mod/core code:
---   DevTools.Generator  static lib, C++latest: vendored Dumper-7 analysis (vendor/Dumper-7, unmodified) + our
+--   DevTools.Generator  static lib, C++latest: vendored Dumper-7 analysis (Dependencies/Dumper-7, unmodified) + our
 --                       MDMLGenerator backend + the SdkGenerator facade (src/Generator). No MDML headers.
 --   DevTools            the mod DLL, C++17: ImGui UI, export lists, game-thread scheduling; talks to the generator
 --                       only through src/Generator/SdkGenerator.h (std types only).
-local dumper = "vendor/Dumper-7/Dumper"
+local dumper = "%{IncludeDir.Dumper7}"
 
 project "DevTools.Generator"
 	kind "StaticLib"
@@ -56,8 +56,6 @@ project "DevTools.Generator"
 		runtime "Release"
 		symbols "on"
 		optimize "speed"
-
-ProjectDir["DevTools"] = "%{wks.location}/DevTools"
 
 project "DevTools"
 	kind "SharedLib"
@@ -113,4 +111,4 @@ project "DevTools"
 		symbols "on"
 		optimize "speed"
 
-include "tests/SDKCompileTest"
+include "../../Tests/SDKCompileTest/SDKCompileTest.lua"

@@ -33,6 +33,7 @@ project "BaseMod"
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.BaseMod}",
 		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.ImGuiColorTextEdit}",
 		"%{IncludeDir.UE4}",
 		"%{IncludeDir.SDK}",
 		"%{IncludeDir.MedievalDynasty}",

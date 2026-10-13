@@ -20,6 +20,7 @@ project "ModManager"
 		"**.cpp",
 		"**.hpp",
 
+		"%{IncludeDir.nlohmann_json}/JSON.h",
 		"%{IncludeDir.glm}/**.hpp",
 		"%{IncludeDir.glm}/**.inl",
 		"%{IncludeDir.ImGui}/**.h",
@@ -29,6 +30,7 @@ project "ModManager"
 	includedirs
 	{
 		"src",
+		"%{IncludeDir.nlohmann_json}",
 		"%{IncludeDir.INI}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.ImGui}"

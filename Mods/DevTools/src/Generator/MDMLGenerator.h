@@ -8,7 +8,7 @@
 // Parts of this backend (member layout/padding/bitfield logic, parameter typing rules, type mapping) are adapted from
 // Dumper-7's CppGenerator - Dumper-7 by Encryqed/Fischsalat and contributors, https://github.com/Encryqed/Dumper-7,
 // used with the maintainer's permission for open-source projects with attribution (issue #416, see
-// DevTools/vendor/Dumper-7/VENDORED.txt).
+// Dependencies/Dumper-7/VENDORED.txt).
 //
 // C++latest translation unit (Dumper-7 headers). Not visible to the C++17 mod code: use SdkGenerator.h.
 

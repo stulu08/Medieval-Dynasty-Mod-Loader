@@ -5,9 +5,9 @@ plus one TU for MDML_SDK.hpp if present. Uses MSVC (VS2022, found with vswhere) 
 C++17 as the mod projects. Compile only (/c): linking is covered by the DevTools.SDKCompileTest project.
 
 Usage (from anywhere):
-    python DevTools/tests/SDKCompileTest/compile_generated.py <sdk-folder> [--jobs N] [--keep]
+    python Tests/SDKCompileTest/compile_generated.py <sdk-folder> [--jobs N] [--keep]
     <sdk-folder>  e.g. "...\\Binaries\\Win64\\SDK-Out\\4.27.2-0+++UE4+Release-4.27-Medieval_Dynasty\\MDML-SDK"
-                  (copy it out of the game folder first if you prefer) or DevTools/tests/SDKCompileTest/Sample
+                  (copy it out of the game folder first if you prefer) or Tests/SDKCompileTest/Sample
 Exit code 0 = all headers compiled; failures are listed with the first error lines, full logs in the work folder.
 """
 import argparse
@@ -19,14 +19,14 @@ import subprocess
 import sys
 import tempfile
 
-REPO = pathlib.Path(__file__).resolve().parents[3]
+REPO = pathlib.Path(__file__).resolve().parents[2]
 INCLUDE_DIRS = [
-    REPO / "ModLoader/vendor/spdlog",
-    REPO / "ModLoader/src",
-    REPO / "ModLoader/src/Engine",
-    REPO / "ModLoader/src/Engine/UE4",
-    REPO / "ModLoader/vendor/INI",
-    REPO / "ModLoader/vendor/glm",
+    REPO / "Dependencies/spdlog",
+    REPO / "Loader/ModLoader/src",
+    REPO / "Loader/ModLoader/src/Engine",
+    REPO / "Loader/ModLoader/src/Engine/UE4",
+    REPO / "Dependencies/INI",
+    REPO / "Dependencies/glm",
 ]
 DEFINES = ["NDEBUG", "UNICODE", "_UNICODE", "_WINDOWS", "_USRDLL", "_CRT_SECURE_NO_WARNINGS"]
 

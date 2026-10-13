@@ -1,5 +1,5 @@
 #include "Mod.h"
-#include "Utilities/Hooks.h"
+#include "Platform/Hooks.h"
 
 #include "BaseMod.h"
 
