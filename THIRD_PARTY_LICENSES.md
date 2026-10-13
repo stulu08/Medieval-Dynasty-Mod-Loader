@@ -11,12 +11,13 @@ Contents:
 3. MinHook (and HDE)
 4. GLM
 5. Feather INI Parser
-6. nlohmann/json
-7. ImGuiColorTextEdit
-8. Dumper-7 (attribution)
-9. UnrealModLoader (project origin)
-10. UE4SS (design inspiration only)
-11. Follow-ups
+6. mINI
+7. nlohmann/json
+8. ImGuiColorTextEdit
+9. Dumper-7 (attribution)
+10. UnrealModLoader (project origin)
+11. UE4SS (design inspiration only)
+12. Follow-ups
 
 ---
 
@@ -189,7 +190,38 @@ Andrey Unis <uniskz@gmail.com>
 - License: no standard license. The header states: "You are free to use this however you wish."
 - License file in vendor folder: none (see Follow-ups)
 
-## 6. nlohmann/json
+## 6. mINI
+
+- Location: `Dependencies/mINI/mini/ini.h` (header-only; `VENDORED.txt` in the folder)
+- Upstream: https://github.com/metayeti/mINI
+- Version: 0.9.20 (tag `0.9.20`, commit `d882d7f4a42991fb3e4635eda8e8777e5b3cd153`), unmodified
+- Used only through MDML's wrapper `mdml::platform::IniFile` (`Loader/ModLoader/src/Platform/IniFile.*`), compiled into MDML.dll
+- License: MIT
+- License file in vendor folder: yes (`Dependencies/mINI/LICENSE`)
+
+```
+The MIT License (MIT)
+Copyright (c) 2018 Danijel Durakovic
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+
+## 7. nlohmann/json
 
 - Location: `Dependencies/nlohmann-json/JSON.h`
 - Upstream: https://github.com/nlohmann/json
@@ -197,7 +229,7 @@ Andrey Unis <uniskz@gmail.com>
 - License: MIT (`SPDX-License-Identifier: MIT` in the header). Copyright (c) 2013-2025 Niels Lohmann
 - License file in vendor folder: **missing** (the single header carries only the SPDX identifier; see Follow-ups)
 
-## 7. ImGuiColorTextEdit
+## 8. ImGuiColorTextEdit
 
 - Location: `Loader/ModLoader/src/UI/ImGuiColorTextEdit` (locally modified, stays with the loader sources)
 - Upstream: https://github.com/BalazsJako/ImGuiColorTextEdit
@@ -229,7 +261,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-## 8. Dumper-7 (attribution)
+## 9. Dumper-7 (attribution)
 
 Dumper-7 is an Unreal Engine SDK generator / dumper by **Encryqed** and **Fischsalat** (and contributors).
 
@@ -239,17 +271,17 @@ Dumper-7 is an Unreal Engine SDK generator / dumper by **Encryqed** and **Fischs
 - MDML is open source and non-commercial, and uses Dumper-7 under that permission. Any file that adapts Dumper-7 code carries an attribution header, and Dumper-7 is credited in `README.md` and in this file.
 - Do not remove or alter the authors' copyright headers in files under `Dependencies/Dumper-7`.
 
-## 9. UnrealModLoader (project origin)
+## 10. UnrealModLoader (project origin)
 
 MDML is a fork of the Unreal Engine Mod Loader by Russell J (https://github.com/RussellJerome/UnrealModLoader), licensed under the GNU LGPL v2.1 (the `LICENSE` file at the repository root).
 
-## 10. UE4SS (design inspiration only)
+## 11. UE4SS (design inspiration only)
 
 UE4SS (https://github.com/UE4SS-RE/RE-UE4SS, MIT License, Copyright (c) Narknon and contributors) is used as design inspiration and as a reference for reverse engineering. No UE4SS code is included in MDML. If UE4SS code is ever adapted, its MIT notice must be added to this file.
 
 ---
 
-## 11. Follow-ups
+## 12. Follow-ups
 
 License files missing from the vendor folders. Upstream licenses are listed for each; add the upstream license file to the folder (or its text to this document) when it is next convenient:
 
@@ -259,7 +291,7 @@ License files missing from the vendor folders. Upstream licenses are listed for 
 | fmt (bundled with spdlog) | `Dependencies/spdlog/spdlog/fmt/bundled` | MIT (Victor Zverovich and fmt contributors) | Add upstream `LICENSE` (the spdlog 1.17 upgrade bundles fmt 12.1) |
 | GLM | `Dependencies/glm` | MIT / Happy Bunny (G-Truc) | Add upstream `copying.txt` |
 | nlohmann/json | `Dependencies/nlohmann-json/JSON.h` | MIT | Add upstream `LICENSE.MIT` and bump to 3.12 (already moved to `Dependencies/nlohmann-json/`) |
-| Feather INI Parser | `Dependencies/INI` | No standard license ("free to use however you wish"); the c-ridgway fork lists MIT | Owner decision: keep, or replace with mINI (MIT) as proposed in the library review |
+| Feather INI Parser | `Dependencies/INI` | No standard license ("free to use however you wish"); the c-ridgway fork lists MIT | mINI replaces it in the loader (Wave 3A). Remove it once `Loader/ModLoader/src/Engine/EngineAddresses.cpp`, BaseMod `GameMod.h` and `Tools/ModManager` use `mdml::platform::IniFile` |
 | Dumper-7 | `Dependencies/Dumper-7` | No license file; permission by maintainer statement (issue #416) | Keep the attribution headers; consider asking upstream to add an explicit license |
 
 Other notes:
