@@ -1,6 +1,14 @@
 #pragma once
 #include "Runtime/EngineDefFinder.h"
 
+// What is left of the old static class MDML (dissolved in Wave 3A, see docs/reports/wave3/3A-runtime.md):
+//   MDML::Start/ShutDown                      -> mdml::runtime::Start/ShutDown          (Bootstrap/Startup.h)
+//   MDML::InitGameState/BeginPlay/Tick        -> mdml::runtime game hooks              (Runtime/GameHooks.h)
+//   MDML::InitCoreMods                        -> mdml::mods::InitCoreMods              (Mods/CoreModLoader.h)
+//   MDML::CreateMod/CleanUpMods/SpawnActor    -> mdml::mods                            (Mods/LogicMods.h)
+//   MDML::FormatPath/GetDataFolder            -> mdml::runtime::FormatPath/GetDataFolder (Runtime/Paths.h)
+// This header only keeps engine declarations that src/Engine/EngineInit.cpp, Runtime/Dumper.cpp and Mods/Mod.h still
+// include through it; they move into src/Engine with package 3D.
 
 namespace UE4 {
 	class AActor;
@@ -20,31 +28,6 @@ namespace UE4 {
 		PauseTick = 3,
 	};
 }
-struct ModInfo;
-class LOADER_API MDML {
-public:
-	static void InitGameState(void* Return);
-	static void BeginPlay(class UE4::AActor* Actor);
-	static void Tick(UE4::ELevelTick tick, float deltaTime);
-
-	static void InitCoreMods();
-	static void CreateMod(struct ModInfo& mod);
-	static void CleanUpMods();
-
-	static class UE4::AActor* SpawnActor(class UE4::UClass* Class, const struct UE4::FTransform& transform, struct UE4::FActorSpawnParameters spawnParams);
-
-	// Called from DllMain(DLL_PROCESS_ATTACH): only starts the init thread (profile setup, hooks, mod loading).
-	static void Start(HMODULE module);
-	static void ShutDown();
-
-	static std::string FormatPath(const std::filesystem::path& path);
-	//%LocalAppData%/Medieval_Dynasty/Saved
-	static std::string GetDataFolder();
-
-	static inline bool IsProcessInternalsHooked = false;
-	static inline bool GameStateClassInitNotRan = true;
-	static inline Ref<Logger> UnrealEngineLoggerInstance = nullptr;
-};
 
 namespace UE4 {
 	// Engine initialization (Wave 2.3). The engine core (GObjects, GNames, GWorld, ...) lives once in MDML.dll and is
@@ -53,6 +36,6 @@ namespace UE4 {
 	// Idempotent and cheap. Today only called by InitSDK(); could be called right after the addresses are resolved.
 	void InitEngineGlobals();
 	// InitEngineGlobals() + EngineDefFinder scan for engine offsets that are still missing. Called once, from
-	// MDML::InitCoreMods(), i.e. before any mod's InitializeMod() registers its events (same timing as before).
+	// mdml::mods::InitCoreMods(), i.e. before any mod's InitializeMod() registers its events (same timing as before).
 	void InitSDK();
 }

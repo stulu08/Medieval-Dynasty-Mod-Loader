@@ -1,7 +1,7 @@
 # OverwriteBackupTest
 
 Manual test fixture for the overwrite-mod backup feature (`.mdml-backup`, `ModLinks.bin`; code in
-`Loader/ModLoader/src/Mod/ModLoader.cpp`, `CreateSysLinks` / `DeleteSysLinks`). Not part of the build, not shipped.
+`Loader/ModLoader/src/Mods/OverwriteMods.cpp`, `CreateSysLinks` / `DeleteSysLinks`; was `Mod/ModLoader.cpp` before Wave 3A). Not part of the build, not shipped.
 
 - Test file: `Medieval_Dynasty\Content\ChromaSDK\Animations\Cold_Hit_Keyboard.chroma` (loose, not in a pak, 10118 bytes,
   sha256 `6eae822a...0b159`). It is a Razer Chroma keyboard-lighting animation, only read by the Chroma SDK when Razer
@@ -115,5 +115,5 @@ Exit code 0 means ORIGINAL or LINKED, 1 means a broken/inconsistent state.
   and are retried on the next start`); the file is only deleted when everything was resolved.
 - If `ModLinks.bin` cannot be opened for writing: `Could not open ... for writing, overwrite links are disabled`, no links are made.
 - Case-insensitive duplicates between mods: `Another mod already overwrites ..., the later mod wins`.
-- Offline test: the pure filesystem logic sits between `// BEGIN link-ops` and `// END link-ops` in `ModLoader.cpp`; a throwaway
-  harness can extract and compile that block against stub `Log`/`FormatPath` (not committed).
+- Offline test: the pure filesystem logic sits between `// BEGIN link-ops` and `// END link-ops` in `Mods/OverwriteMods.cpp`; a throwaway
+  harness can extract and compile that block against stub `Log`/`mdml::runtime::FormatPath` (not committed).

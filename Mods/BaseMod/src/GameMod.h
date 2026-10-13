@@ -1,5 +1,8 @@
 #pragma once
 #include "Defs.h"
+// GetINIConfig/SetINIConfig below still use the old INI parser; Mods/Mod.h no longer includes it (Wave 3A).
+// To be migrated to mdml::platform::IniFile (Platform/IniFile.h) by the mods package.
+#include "INI.h"
 // I want to make it so that the mod loader does nothing game specific
 // Thats why the default mod class only has basic features
 // But this mod class extends the default mod class to have game specific features and also does internal stuff 
@@ -13,7 +16,7 @@ public:
 		ModRef = this;
 		hModule = handle;
 		// No UE4::InitSDK() here any more: the engine core (GObjects, GNames, GWorld) lives once in MDML.dll
-		// (Wave 2.3) and is initialized by MDML::InitCoreMods() before any mod's InitializeMod()/events run.
+		// (Wave 2.3) and is initialized by mdml::mods::InitCoreMods() before any mod's InitializeMod()/events run.
 	}
 
 	//When your mod gets initlized

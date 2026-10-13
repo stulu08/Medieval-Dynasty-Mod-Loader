@@ -1,5 +1,5 @@
 #include "Core.h"
-#include "MDML.h"
+#include "Bootstrap/Startup.h"
 
 BOOL APIENTRY DllMain(HMODULE hModule,
     DWORD  ul_reason_for_call,
@@ -10,14 +10,14 @@ BOOL APIENTRY DllMain(HMODULE hModule,
     {
     case DLL_PROCESS_ATTACH:
         // Runs under the loader lock: Start only creates the init thread, the setup itself runs there.
-        MDML::Start(hModule);
+        mdml::runtime::Start(hModule);
         break;
     case DLL_THREAD_ATTACH:
         break;
     case DLL_THREAD_DETACH:
         break;
     case DLL_PROCESS_DETACH:
-        MDML::ShutDown();
+        mdml::runtime::ShutDown();
         break;
     }
     return TRUE;

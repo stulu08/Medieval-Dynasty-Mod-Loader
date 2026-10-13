@@ -367,6 +367,8 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     <ClInclude Include="..\..\Dependencies\glm\glm\vec3.hpp" />
     <ClInclude Include="..\..\Dependencies\glm\glm\vec4.hpp" />
     <ClInclude Include="..\..\Dependencies\glm\glm\vector_relational.hpp" />
+    <ClInclude Include="src\Bootstrap\Startup.h" />
+    <ClInclude Include="src\Bootstrap\Version.h" />
     <ClInclude Include="src\Core.h" />
     <ClInclude Include="src\Engine\EngineAddresses.h" />
     <ClInclude Include="src\Engine\EngineLayout.h" />
@@ -410,12 +412,13 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     <ClInclude Include="src\Engine\UE4\UE_LOG.h" />
     <ClInclude Include="src\Globals.h" />
     <ClInclude Include="src\MDML.h" />
+    <ClInclude Include="src\Mods\CoreModLoader.h" />
     <ClInclude Include="src\Mods\LoadOrder.h" />
+    <ClInclude Include="src\Mods\LogicMods.h" />
     <ClInclude Include="src\Mods\Mod.h" />
-    <ClInclude Include="src\Mods\ModLoader.h" />
     <ClInclude Include="src\Mods\ModStack.h" />
+    <ClInclude Include="src\Mods\OverwriteMods.h" />
     <ClInclude Include="src\Platform\Hooks.h" />
-    <ClInclude Include="src\Platform\HooksManager.h" />
     <ClInclude Include="src\Platform\IniFile.h" />
     <ClInclude Include="src\Platform\Logger.h" />
     <ClInclude Include="src\Platform\Math.h" />
@@ -424,8 +427,11 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     <ClInclude Include="src\Platform\SymbolResolver.h" />
     <ClInclude Include="src\Runtime\Dumper.h" />
     <ClInclude Include="src\Runtime\EngineDefFinder.h" />
+    <ClInclude Include="src\Runtime\EngineSetup.h" />
+    <ClInclude Include="src\Runtime\GameHooks.h" />
     <ClInclude Include="src\Runtime\GameThread.h" />
     <ClInclude Include="src\Runtime\LoaderConfig.h" />
+    <ClInclude Include="src\Runtime\Paths.h" />
     <ClInclude Include="src\UI\ImGuiColorTextEdit\TextEditor.h" />
     <ClInclude Include="src\UI\LoaderUI.h" />
   </ItemGroup>
@@ -467,6 +473,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Bootstrap\DllMain.cpp" />
+    <ClCompile Include="src\Bootstrap\Startup.cpp" />
     <ClCompile Include="src\Core.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
@@ -501,20 +508,23 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Globals.cpp" />
-    <ClCompile Include="src\MDML.cpp" />
+    <ClCompile Include="src\Mods\CoreModLoader.cpp" />
     <ClCompile Include="src\Mods\LoadOrder.cpp" />
+    <ClCompile Include="src\Mods\LogicMods.cpp" />
     <ClCompile Include="src\Mods\Mod.cpp" />
-    <ClCompile Include="src\Mods\ModLoader.cpp" />
     <ClCompile Include="src\Mods\ModStack.cpp" />
+    <ClCompile Include="src\Mods\OverwriteMods.cpp" />
     <ClCompile Include="src\Platform\Hooks.cpp" />
-    <ClCompile Include="src\Platform\HooksManager.cpp" />
     <ClCompile Include="src\Platform\IniFile.cpp" />
     <ClCompile Include="src\Platform\Logger.cpp" />
     <ClCompile Include="src\Platform\SymbolResolver.cpp" />
     <ClCompile Include="src\Runtime\Dumper.cpp" />
     <ClCompile Include="src\Runtime\EngineDefFinder.cpp" />
+    <ClCompile Include="src\Runtime\EngineSetup.cpp" />
+    <ClCompile Include="src\Runtime\GameHooks.cpp" />
     <ClCompile Include="src\Runtime\GameThread.cpp" />
     <ClCompile Include="src\Runtime\LoaderConfig.cpp" />
+    <ClCompile Include="src\Runtime\Paths.cpp" />
     <ClCompile Include="src\UI\ImGuiColorTextEdit\TextEditor.cpp" />
     <ClCompile Include="src\UI\LoaderUI.cpp" />
   </ItemGroup>

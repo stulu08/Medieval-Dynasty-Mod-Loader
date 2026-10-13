@@ -40,7 +40,6 @@ typedef std::pair<std::string, void*> BPFunctionWrapper;
 class LOADER_API Global {
 public:
 	std::vector<ModInfo> ModInfoList;
-	std::string GameName;
 	bool bIsMenuOpen;
 	ModStack CoreMods;
 	std::unordered_map<std::string, void*> BPFunctionWrappers;
@@ -66,10 +65,6 @@ public:
 			return (*it).second;
 		}
 		return nullptr;
-	}
-
-	std::unordered_map<std::string, void*> GetBPFunctionWrappers() {
-		return BPFunctionWrappers;
 	}
 
 private:

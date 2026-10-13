@@ -1,10 +1,7 @@
 #pragma once
-//The version of unreal mod loader
-#define UML_VERSION "2.2.1"
-//The version of the medieval dynasty mod loader
-#define MODLOADER_VERSION "3.0.0-dev"
-//The version of medieval dynasty
-#define MEDIEVAL_VERSION "2.7.0.4"
+// Precompiled header of MDML.dll; also the first include of every mod and of the engine core.
+// UML_VERSION / MODLOADER_VERSION / MEDIEVAL_VERSION live in Bootstrap/Version.h (Wave 3A).
+#include "Bootstrap/Version.h"
 
 #define ModLoaderConfigFile "Config/ModLoaderInfo.ini"
 #define DEFAULT_LOG_DIR "Logs"

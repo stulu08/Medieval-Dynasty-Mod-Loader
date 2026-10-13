@@ -80,3 +80,31 @@ std::string Mod::GetFolder() {
 	}
 	return GetModsFolder();
 }
+
+// Paths from the game EXE's location (<root>/Medieval_Dynasty/Binaries/Win64/<exe>), not the working directory.
+std::string Mod::GetModsFolder() {
+	static std::string path;
+	if (path.empty() || !std::filesystem::exists(path)) {
+		char path_c[MAX_PATH];
+		GetModuleFileNameA(NULL, path_c, MAX_PATH);
+		path = std::string(path_c);
+		path = path.substr(0, path.find_last_of("/\\"));
+		path = path.substr(0, path.find_last_of("/\\"));
+		path = path.substr(0, path.find_last_of("/\\"));
+		path = path + "\\Content\\Mods\\";
+	}
+	return path;
+}
+std::string Mod::GetContentFolder() {
+	static std::string path;
+	if (path.empty() || !std::filesystem::exists(path)) {
+		char path_c[MAX_PATH];
+		GetModuleFileNameA(NULL, path_c, MAX_PATH);
+		path = std::string(path_c);
+		path = path.substr(0, path.find_last_of("/\\"));
+		path = path.substr(0, path.find_last_of("/\\"));
+		path = path.substr(0, path.find_last_of("/\\"));
+		path = path + "\\Content\\";
+	}
+	return path;
+}

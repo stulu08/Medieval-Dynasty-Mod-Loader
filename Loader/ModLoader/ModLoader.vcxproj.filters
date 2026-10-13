@@ -978,6 +978,12 @@
     <ClInclude Include="..\..\Dependencies\glm\glm\vector_relational.hpp">
       <Filter>..\..\Dependencies\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Bootstrap\Startup.h">
+      <Filter>src\Bootstrap</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bootstrap\Version.h">
+      <Filter>src\Bootstrap</Filter>
+    </ClInclude>
     <ClInclude Include="src\Core.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -1107,22 +1113,25 @@
     <ClInclude Include="src\MDML.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\Mods\CoreModLoader.h">
+      <Filter>src\Mods</Filter>
+    </ClInclude>
     <ClInclude Include="src\Mods\LoadOrder.h">
+      <Filter>src\Mods</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mods\LogicMods.h">
       <Filter>src\Mods</Filter>
     </ClInclude>
     <ClInclude Include="src\Mods\Mod.h">
       <Filter>src\Mods</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mods\ModLoader.h">
-      <Filter>src\Mods</Filter>
-    </ClInclude>
     <ClInclude Include="src\Mods\ModStack.h">
       <Filter>src\Mods</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platform\Hooks.h">
-      <Filter>src\Platform</Filter>
+    <ClInclude Include="src\Mods\OverwriteMods.h">
+      <Filter>src\Mods</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platform\HooksManager.h">
+    <ClInclude Include="src\Platform\Hooks.h">
       <Filter>src\Platform</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\IniFile.h">
@@ -1149,10 +1158,19 @@
     <ClInclude Include="src\Runtime\EngineDefFinder.h">
       <Filter>src\Runtime</Filter>
     </ClInclude>
+    <ClInclude Include="src\Runtime\EngineSetup.h">
+      <Filter>src\Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Runtime\GameHooks.h">
+      <Filter>src\Runtime</Filter>
+    </ClInclude>
     <ClInclude Include="src\Runtime\GameThread.h">
       <Filter>src\Runtime</Filter>
     </ClInclude>
     <ClInclude Include="src\Runtime\LoaderConfig.h">
+      <Filter>src\Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Runtime\Paths.h">
       <Filter>src\Runtime</Filter>
     </ClInclude>
     <ClInclude Include="src\UI\ImGuiColorTextEdit\TextEditor.h">
@@ -1202,6 +1220,9 @@
     <ClCompile Include="src\Bootstrap\DllMain.cpp">
       <Filter>src\Bootstrap</Filter>
     </ClCompile>
+    <ClCompile Include="src\Bootstrap\Startup.cpp">
+      <Filter>src\Bootstrap</Filter>
+    </ClCompile>
     <ClCompile Include="src\Core.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -1238,25 +1259,25 @@
     <ClCompile Include="src\Globals.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\MDML.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="src\Mods\CoreModLoader.cpp">
+      <Filter>src\Mods</Filter>
     </ClCompile>
     <ClCompile Include="src\Mods\LoadOrder.cpp">
+      <Filter>src\Mods</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mods\LogicMods.cpp">
       <Filter>src\Mods</Filter>
     </ClCompile>
     <ClCompile Include="src\Mods\Mod.cpp">
       <Filter>src\Mods</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mods\ModLoader.cpp">
-      <Filter>src\Mods</Filter>
-    </ClCompile>
     <ClCompile Include="src\Mods\ModStack.cpp">
       <Filter>src\Mods</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\Hooks.cpp">
-      <Filter>src\Platform</Filter>
+    <ClCompile Include="src\Mods\OverwriteMods.cpp">
+      <Filter>src\Mods</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\HooksManager.cpp">
+    <ClCompile Include="src\Platform\Hooks.cpp">
       <Filter>src\Platform</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\IniFile.cpp">
@@ -1274,10 +1295,19 @@
     <ClCompile Include="src\Runtime\EngineDefFinder.cpp">
       <Filter>src\Runtime</Filter>
     </ClCompile>
+    <ClCompile Include="src\Runtime\EngineSetup.cpp">
+      <Filter>src\Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Runtime\GameHooks.cpp">
+      <Filter>src\Runtime</Filter>
+    </ClCompile>
     <ClCompile Include="src\Runtime\GameThread.cpp">
       <Filter>src\Runtime</Filter>
     </ClCompile>
     <ClCompile Include="src\Runtime\LoaderConfig.cpp">
+      <Filter>src\Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Runtime\Paths.cpp">
       <Filter>src\Runtime</Filter>
     </ClCompile>
     <ClCompile Include="src\UI\ImGuiColorTextEdit\TextEditor.cpp">

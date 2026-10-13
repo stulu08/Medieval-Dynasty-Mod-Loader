@@ -4,7 +4,7 @@ Usage:
     python Tools/RE/check_patterns.py [--exe PATH] [--ini PATH] [--gen] [--write] [--maxlen 64]
 
 * Expected addresses come from the game PDB, looked up with the same decorated names the loader uses
-  (parsed from `namespace Symbols` in Loader/ModLoader/src/MDML.cpp), so the script stays valid across game patches.
+  (parsed from `namespace Symbols` in Loader/ModLoader/src/Engine/EngineAddresses.cpp), so the script stays valid across game patches.
 * Patterns are scanned in executable sections only and judged like the loader does:
   function patterns must match exactly once; global ([GInfo]) and call-target patterns are fine with several
   matches as long as all of them resolve to the same address.
@@ -27,9 +27,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
 DEFAULT_EXE = r"E:\SteamLibrary\steamapps\common\Medieval Dynasty\Medieval_Dynasty\Binaries\Win64\Medieval_Dynasty-Win64-Shipping.exe"
 DEFAULT_INI = os.path.join(REPO, "Loader", "ModLoader", "Config", "ModLoaderInfo.ini")
-MDML_CPP = os.path.join(REPO, "Loader", "ModLoader", "src", "MDML.cpp")
+MDML_CPP = os.path.join(REPO, "Loader", "ModLoader", "src", "Engine", "EngineAddresses.cpp")
 
-# (ini section, ini key) -> (Symbols:: constant in MDML.cpp, kind, disp offset, instruction end)
+# (ini section, ini key) -> (Symbols:: constant in EngineAddresses.cpp, kind, disp offset, instruction end)
 #   kind "func": the match is the address; "rip": target = match + end + int32 at match + disp
 CHECKS = {
     ("GInfo", "FPool"): ("NamePoolData", "rip", 5, 9),

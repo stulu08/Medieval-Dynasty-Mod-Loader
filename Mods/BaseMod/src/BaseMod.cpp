@@ -602,13 +602,13 @@ namespace MDMLBase {
 				for (auto dirEntry : std::filesystem::recursive_directory_iterator(GetModsFolder())) {
 					if (dirEntry.path().extension().string() != ".ini")
 						continue;
-					if (ImGui::Button(MDML::FormatPath(dirEntry.path()).c_str()))
+					if (ImGui::Button(mdml::runtime::FormatPath(dirEntry.path()).c_str()))
 						OpenFile(dirEntry.path());
 				}
 				ImGui::TreePop();
 			}
 			if (ImGui::TreeNodeEx("WindowsNoEditor", DEFAULT_TREE_NODE_FLAGS)) {
-				for (auto dirEntry : std::filesystem::directory_iterator(MDML::GetDataFolder() + "Config\\WindowsNoEditor")) {
+				for (auto dirEntry : std::filesystem::directory_iterator(mdml::runtime::GetDataFolder() + "Config\\WindowsNoEditor")) {
 					if (dirEntry.path().extension().string() != ".ini")
 						continue;
 					if (ImGui::Button(dirEntry.path().string().c_str()))
@@ -620,7 +620,7 @@ namespace MDMLBase {
 				for (auto dirEntry : std::filesystem::directory_iterator(std::filesystem::path(mdml::runtime::Config.ImGuiFile).parent_path())) {
 					if (dirEntry.path().extension().string() != ".ini")
 						continue;
-					if (ImGui::Button(MDML::FormatPath(dirEntry.path()).c_str()))
+					if (ImGui::Button(mdml::runtime::FormatPath(dirEntry.path()).c_str()))
 						OpenFile(dirEntry.path());
 				}
 				ImGui::TreePop();

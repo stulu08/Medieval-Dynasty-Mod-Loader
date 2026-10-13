@@ -1,10 +1,14 @@
 #pragma once
 #include "Core.h"
 
+namespace mdml::platform {
+	class IniFile;
+}
+
 // Loader settings: paths, UI and overwrite-system switches, the NoOverwrite map (Wave 2.4, was the loader part of
 // GameInfo.h `GameProfile` / `SDK::SelectedGameProfile`).
-// Filled by SetupProfile (MDML.cpp) from MDML.dll's location, Config/ModLoaderInfo.ini and the game profile.
-// All paths are absolute (never relative to the working directory).
+// Filled on the init thread (Bootstrap/Startup.cpp) from MDML.dll's location, Config/ModLoaderInfo.ini and the game
+// profile. All paths are absolute (never relative to the working directory).
 namespace mdml::runtime {
 	struct LoaderConfig {
 		// <MDML dir>/<[General] LogDir>
@@ -37,4 +41,13 @@ namespace mdml::runtime {
 
 	// The one instance, defined in MDML.dll (Runtime/LoaderConfig.cpp) and exported (BaseMod reads ImGuiFile).
 	extern LOADER_API LoaderConfig Config;
+
+	// Startup steps (Bootstrap/Startup.cpp, init thread, in this order). MDML-internal, not exported.
+	// 1. Config/ModLoaderInfo.ini next to MDML.dll: [General] LogDir, [DEBUG] UseConsole/UseDebugUI; creates the log
+	//    folder, calls Log::Init, logs the version lines, creates the UE_LOG logger; sets the file paths and the game
+	//    root. profilePath = <MDML dir>/<[General] Profile>. Returns false (logged) if that file does not exist.
+	bool LoadLoaderConfig(const std::string& mdmlDir, std::string& profilePath);
+	// 2. Loader switches from the game profile: [Overwrites] (or [Overrides]) Enabled/UseHardLinks,
+	//    [GameInfo] DelayGUISpawn/BeginPlayOverwrite, [PakOverwrite] bPakOverwrite.
+	void LoadProfileConfig(const platform::IniFile& profile);
 }

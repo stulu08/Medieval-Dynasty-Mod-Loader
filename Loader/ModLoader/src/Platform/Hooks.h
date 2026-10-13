@@ -63,7 +63,7 @@ namespace mdml::platform {
 		static bool IsHooked(const void* target);
 		static bool IsInitialized();
 
-		// Loader only (HooksManager): the single MH_Initialize / MH_Uninitialize of the process. Mods must not call these.
+		// Loader only (Bootstrap/Startup.cpp): the single MH_Initialize / MH_Uninitialize of the process. Mods must not call these.
 		static bool Initialize();
 		static void Shutdown();
 
