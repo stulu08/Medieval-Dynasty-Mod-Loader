@@ -5,7 +5,8 @@ Medieval Dynasty Mod Loader (MDML): a standalone C++ mod loader for the UE 4.27 
 hobby/learning project — **it stays a standalone loader**. UE4SS is used only as inspiration/reference, never as a base.
 
 Read before doing anything:
-- `docs/MODERNIZATION_PLAN.md` — current plan, phase status, work packages, open decisions.
+- `docs/MODERNIZATION_PLAN.md` — start with its "Current state" section (the one handoff), then phase status, decisions log,
+  open decisions. Keep that section current at the end of a session; move superseded handoffs to `docs/HISTORY.md`.
 - `docs/REVERSE_ENGINEERING.md` — PDB workflow, tools, pattern status per game build.
 
 ## Working rules
