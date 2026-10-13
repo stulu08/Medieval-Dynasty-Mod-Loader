@@ -5,6 +5,8 @@
 
 #include <charconv>
 #include <cstring>
+#include <mutex>
+#include <set>
 
 // The wrapper does its own case handling (exact match first, then case-insensitive), so mINI keeps names as written.
 // This define must only be seen by this file: ini.h is never included anywhere else.
@@ -67,6 +69,18 @@ namespace mdml::platform {
 				if (&item.first == found)
 					return &item;
 			return nullptr;
+		}
+
+		// Get() returns the whole value, so a "Key = Value ; comment" line (a comment in the old parser) silently becomes
+		// part of the value (owner decision 2026-10-14). Warn once per file/section/key and process, not on every read.
+		bool FirstTimeSeen(const std::string& id) {
+			static std::mutex s_mutex;
+			static std::set<std::string> s_seen;
+			std::lock_guard<std::mutex> lock(s_mutex);
+			return s_seen.insert(id).second;
+		}
+		bool LooksLikeTrailingComment(const std::string& value) {
+			return value.find(" ;") != std::string::npos || value.find("\t;") != std::string::npos;
 		}
 
 		// First word of a value (up to whitespace or ';'); `rest` is set if more text follows.
@@ -211,7 +225,11 @@ namespace mdml::platform {
 
 	std::string IniFile::Get(const std::string& section, const std::string& key, const std::string& defaultValue) const {
 		const std::string* value = m_impl->FindValue(section, key);
-		return value ? *value : defaultValue;
+		if (!value)
+			return defaultValue;
+		if (LooksLikeTrailingComment(*value) && FirstTimeSeen(PathText(m_impl->path) + "|" + section + "|" + key))
+			m_impl->WarnValue(section, key, *value, "contains ' ;': a ';' after a value is part of the value (comments must be on their own line)");
+		return *value;
 	}
 	int IniFile::GetInt(const std::string& section, const std::string& key, int defaultValue) const {
 		auto word = m_impl->Word(section, key);

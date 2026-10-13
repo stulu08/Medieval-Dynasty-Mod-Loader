@@ -57,7 +57,8 @@ namespace mdml::platform {
 		std::vector<std::string> Keys(const std::string& section) const;
 
 		// The value (whitespace-trimmed), or defaultValue if the section or key is missing. An empty value is returned
-		// as "" (the key exists).
+		// as "" (the key exists). A value containing " ;" is returned unchanged but logged once (per file, section and
+		// key) as a warning, because "Key = Value ; comment" was a comment in the old parser and is not any more.
 		std::string Get(const std::string& section, const std::string& key, const std::string& defaultValue = "") const;
 		// Typed getters read the first word of the value (up to whitespace or ';'); more text after it is ignored with
 		// a warning. A missing key gives defaultValue silently, a value that does not parse gives it with a warning.
