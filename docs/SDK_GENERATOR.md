@@ -76,7 +76,7 @@ value macros such as `ERROR`, `DELETE`, `IN`, `OUT`, `TRUE`, `small`, `interface
 → enums → structs (dependency order) → classes (dependency order). Verbatim example: `DevTools/tests/SDKCompileTest/Sample/`.
 
 **Enums**: `enum class E_Ownership : uint8_t { ... }`, underlying type from Dumper-7's EnumManager (size found from
-properties using the enum, signedness).
+properties using the enum, signedness). The underlying type is never widened (must match the in-struct layout); entries whose value does not fit (the synthetic `_MAX = 256` of uint8 enums such as `ESkinCacheUsage`) are replaced by a `// NAME = N dropped` comment and listed in the GenerationReport notes.
 
 **ScriptStructs** (used by value): real layout with explicit `_mdml_Pad_*` bytes and bit paddings (logic adapted from
 Dumper-7's CppGenerator), followed by `static_assert(sizeof/alignof/offsetof)` against the dump. `MDML_STRUCT(...)` adds
@@ -122,6 +122,7 @@ offset and size, same parameter count. Mismatch → `Error` log with details, sl
 returns a value-initialized result. Calls run raw `ProcessEvent` (the core's `ProcessEvent_Save_impl` without its
 checks); a warning is logged once if called off the game thread. Static functions run on the class default object.
 Parameter typing (const/ref/out-pointer rules) follows Dumper-7's CppGenerator.
+Const pointer parameters (`const T*`, `const T*&`) stay const in the public signature; the copy-in into the params struct (whose fields are never const) emits `_mdml_Parms.X = const_cast<T*>(X);`.
 
 **Predefined (hand-written) types win**: reflected types whose unique name the core already defines are not emitted
 (`UObject`, `UClass`, `UFunction`, ..., `FVector`, `FRotator`, `FTransform`, `FGuid`, `FKey`, the CoreTypes.h structs

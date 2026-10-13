@@ -519,7 +519,12 @@ namespace
 		{
 			if (P.bIsRet || P.bIsOutPtr)
 				continue;
-			Out += std::format("\t\t_mdml_Parms.{0} = {0};\n", P.Name);
+			/* A ConstParm pointer is `const T*` in the signature but `T*` in the params struct (ProcessEvent parameters are never const in memory). */
+			const bool bConstPointer = P.ArgType.starts_with("const ") && P.Type.ends_with('*');
+			if (bConstPointer)
+				Out += std::format("\t\t_mdml_Parms.{0} = const_cast<{1}>({0});\n", P.Name, P.Type);
+			else
+				Out += std::format("\t\t_mdml_Parms.{0} = {0};\n", P.Name);
 		}
 
 		const bool bHasRet = RetType != "void";
@@ -682,10 +687,32 @@ namespace
 
 		const bool bSigned = Enum.IsUnderlyingTypeSigned();
 		Out += std::format("\n// {}\nenum class {} : {}\n{{\n", Enum.GetFullName(), GetEnumPrefixedName(Enum), GetEnumUnderlyingType(Enum));
+		/* The underlying type must match the game's in-struct layout, so values that do not fit are dropped (not widened). */
+		const int32 UnderlyingBits = Enum.GetUnderlyingTypeSize() * 8;
 		for (const EnumCollisionInfo& Info : Enum.GetMembers())
 		{
 			const uint64 Value = Info.GetValue();
-			Out += bSigned ? std::format("\t{} = {},\n", Info.GetUniqueName(), static_cast<int64>(Value)) : std::format("\t{} = {},\n", Info.GetUniqueName(), Value);
+			bool bFits = true;
+			if (UnderlyingBits > 0 && UnderlyingBits < 64)
+			{
+				if (bSigned)
+				{
+					const int64 Signed = static_cast<int64>(Value);
+					bFits = Signed >= -(int64(1) << (UnderlyingBits - 1)) && Signed <= (int64(1) << (UnderlyingBits - 1)) - 1;
+				}
+				else
+				{
+					bFits = Value < (uint64(1) << UnderlyingBits);
+				}
+			}
+			if (!bFits)
+			{
+				const std::string Dropped = std::format("{} = {}", Info.GetUniqueName(), bSigned ? std::to_string(static_cast<int64>(Value)) : std::to_string(Value));
+				Out += std::format("\t// {} dropped: does not fit the {}-bit underlying type\n", Dropped, UnderlyingBits);
+				Stats.Notes.push_back(std::format("enum {}: dropped {} (does not fit {}-bit underlying type)", GetEnumPrefixedName(Enum), Dropped, UnderlyingBits));
+				continue;
+			}
+			Out += bSigned ?std::format("\t{} = {},\n", Info.GetUniqueName(), static_cast<int64>(Value)) : std::format("\t{} = {},\n", Info.GetUniqueName(), Value);
 		}
 		Out += "};\n";
 		Stats.NumEnums++;
