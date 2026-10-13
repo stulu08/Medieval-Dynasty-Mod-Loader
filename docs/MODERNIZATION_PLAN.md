@@ -169,6 +169,9 @@ Also: improved Blueprint mod loading with load order · pak mod loading (old AES
 | 2026-10-13 | Mod kinds | **Native (C++) and managed (.NET) mods are two distinct mod kinds**: explicit `Type = Native/Managed` in `mod.ini`, cross-checked against the DLL, separate load paths, shown separately in UI/logs. |
 | 2026-10-13 | UI controls | Copy and adapt the owner's SDG controls (`Skeleton/Dependencies/SDG/.../Controls`) into MDML; SEngine's editor UI as inspiration for a nicer look; together with the ImGui upgrade. |
 | 2026-10-13 | Plan doc | One "Current state" section in this file; old handoffs/test logs archived verbatim in `docs/HISTORY.md`. |
+| 2026-10-13 | Wave 3 order | Staged: **3A + 3D in parallel first**, merge + build, then **3B + 3C** on top; one in-game test at the end. In round 1 the API across the 3A/3D boundary (`src/Engine` ⇄ rest of the loader) stays source-compatible. |
+| 2026-10-13 | Namespaces | Loader internals in layer sub-namespaces `mdml::platform`, `mdml::runtime`, `mdml::mods`, `mdml::ui` (code-inventory §7.4); the static class `MDML` is dissolved into them. `UE4::` stays for engine mirror types. |
+| 2026-10-13 | Typos in public names | **Rename hard, no aliases** (`OnModInitilize`, `GetDispalyNames`, `filterDefualts`, `PeristentObjectFile` incl. the ini key, `GetAllClasssFunctions`, `IsUsingDeferedSpawn`, `Uknown`, …); all callers/ini files in the repo are updated in the same package. |
 
 ---
 
