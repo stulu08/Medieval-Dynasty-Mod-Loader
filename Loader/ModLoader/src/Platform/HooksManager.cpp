@@ -1,6 +1,6 @@
 #include "Core.h"
 #include "MDML.h"
-#include "Dumper.h"
+#include "Runtime/Dumper.h"
 #include "Memory.h"
 #include "Globals.h"
 #include "Hooks.h"

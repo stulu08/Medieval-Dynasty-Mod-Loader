@@ -1,6 +1,6 @@
 #include "BaseMod.h"
 
-#include "TextEditor.h"
+#include "UI/ImGuiColorTextEdit/TextEditor.h"
 
 #include "Platform/Hooks.h"
 #include "Utils.h"

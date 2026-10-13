@@ -3,7 +3,7 @@
 
 #include "Platform/Logger.h"
 #include "Platform/Memory.h"
-#include "Engine/Dumper.h"
+#include "Runtime/Dumper.h"
 #include "Runtime/GameThread.h"
 #include "Platform/Hooks.h"
 

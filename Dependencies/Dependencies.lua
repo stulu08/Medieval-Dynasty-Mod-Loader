@@ -10,8 +10,6 @@ IncludeDir["MinHook"] = "%{Dependencies}/MinHook"
 IncludeDir["glm"] = "%{Dependencies}/glm"
 IncludeDir["INI"] = "%{Dependencies}/INI"
 IncludeDir["ImGui"] = "%{Dependencies}/ImGui"
--- TextEditor.h; compiled into MDML.dll and exported (LOADER_API), BaseMod uses it through MDML.dll
-IncludeDir["ImGuiColorTextEdit"] = "%{Dependencies}/ImGuiColorTextEdit"
 -- JSON.h (single-header nlohmann/json), used by the Mod Manager
 IncludeDir["nlohmann_json"] = "%{Dependencies}/nlohmann-json"
 IncludeDir["Dumper7"] = "%{Dependencies}/Dumper-7/Dumper"
