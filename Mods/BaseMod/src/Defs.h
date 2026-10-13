@@ -1,5 +1,5 @@
 #pragma once
-#include "Mod/Mod.h"
+#include "Mods/Mod.h"
 
 #ifdef BaseMod_EXPORTS
 #define BASEMOD_API __declspec(dllexport)

@@ -1,7 +1,7 @@
 #pragma once
 // DevTools: developer mod shipped with MDML, disabled by default (Config/mod.ini). Part 1 hosts the SDK generator UI
 // (docs/SDK_GENERATOR.md). Later: object browser, exporter replacement, cheats (plan 2.5).
-#include "Mod/Mod.h"
+#include "Mods/Mod.h"
 
 #include <atomic>
 #include <deque>

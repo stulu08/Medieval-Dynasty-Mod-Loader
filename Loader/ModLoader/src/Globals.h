@@ -1,8 +1,8 @@
 #pragma once
 #include "UE4.h"
 
-#include "Mod/Mod.h"
-#include "Mod/ModStack.h"
+#include "Mods/Mod.h"
+#include "Mods/ModStack.h"
 
 struct ModInfo
 {

@@ -5,7 +5,7 @@
 #include "Globals.h"
 #include "Hooks.h"
 #include "HooksManager.h"
-#include "Mod/ModLoader.h"
+#include "Mods/ModLoader.h"
 #include "UI/LoaderUI.h"
 
 #include "UE4.h"

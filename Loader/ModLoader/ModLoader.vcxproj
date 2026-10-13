@@ -410,10 +410,10 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     <ClInclude Include="src\Engine\UE4\UE_LOG.h" />
     <ClInclude Include="src\Globals.h" />
     <ClInclude Include="src\MDML.h" />
-    <ClInclude Include="src\Mod\LoadOrder.h" />
-    <ClInclude Include="src\Mod\Mod.h" />
-    <ClInclude Include="src\Mod\ModLoader.h" />
-    <ClInclude Include="src\Mod\ModStack.h" />
+    <ClInclude Include="src\Mods\LoadOrder.h" />
+    <ClInclude Include="src\Mods\Mod.h" />
+    <ClInclude Include="src\Mods\ModLoader.h" />
+    <ClInclude Include="src\Mods\ModStack.h" />
     <ClInclude Include="src\Platform\Hooks.h" />
     <ClInclude Include="src\Platform\HooksManager.h" />
     <ClInclude Include="src\Platform\Logger.h" />
@@ -465,6 +465,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     <ClCompile Include="..\SDK\src\UE4\Engine\KismetSystemLibrary.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Bootstrap\DllMain.cpp" />
     <ClCompile Include="src\Core.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
@@ -500,10 +501,10 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     </ClCompile>
     <ClCompile Include="src\Globals.cpp" />
     <ClCompile Include="src\MDML.cpp" />
-    <ClCompile Include="src\Mod\LoadOrder.cpp" />
-    <ClCompile Include="src\Mod\Mod.cpp" />
-    <ClCompile Include="src\Mod\ModLoader.cpp" />
-    <ClCompile Include="src\Mod\ModStack.cpp" />
+    <ClCompile Include="src\Mods\LoadOrder.cpp" />
+    <ClCompile Include="src\Mods\Mod.cpp" />
+    <ClCompile Include="src\Mods\ModLoader.cpp" />
+    <ClCompile Include="src\Mods\ModStack.cpp" />
     <ClCompile Include="src\Platform\Hooks.cpp" />
     <ClCompile Include="src\Platform\HooksManager.cpp" />
     <ClCompile Include="src\Platform\Logger.cpp" />
@@ -514,7 +515,6 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     <ClCompile Include="src\Runtime\LoaderConfig.cpp" />
     <ClCompile Include="src\UI\ImGuiColorTextEdit\TextEditor.cpp" />
     <ClCompile Include="src\UI\LoaderUI.cpp" />
-    <ClCompile Include="src\dllmain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Dependencies\MinHook\MinHook.vcxproj">

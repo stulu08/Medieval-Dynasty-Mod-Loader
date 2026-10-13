@@ -1,6 +1,6 @@
 #pragma once
 #include "UE4.h"
-#include <Mod/Mod.h>
+#include <Mods/Mod.h>
 
 namespace Utils {
 	template<typename T, typename U> constexpr size_t offsetOfClass(U T::* member) {

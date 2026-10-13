@@ -1,6 +1,6 @@
 #include "Core.h"
 #include "Logger.h"
-#include "Mod/Mod.h"
+#include "Mods/Mod.h"
 void Log::Init(const std::string& dir) {
 	s_logDir = dir;
 	s_mdmlLogger = Logger::Create("MDML", getLogFile("MDML-log.txt"));

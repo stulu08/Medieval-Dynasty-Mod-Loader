@@ -52,6 +52,9 @@
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Bootstrap">
+      <UniqueIdentifier>{BAACF021-266D-6C58-EFA7-B5D55B27B134}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Engine">
       <UniqueIdentifier>{12A1320E-FE58-745B-6760-4DB753370F4C}</UniqueIdentifier>
     </Filter>
@@ -73,8 +76,8 @@
     <Filter Include="src\Engine\UE4\Math">
       <UniqueIdentifier>{C8686725-34CA-4433-BD37-8BE529987BF2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Mod">
-      <UniqueIdentifier>{BC952FA9-2875-AE44-318D-391B9DEB14A6}</UniqueIdentifier>
+    <Filter Include="src\Mods">
+      <UniqueIdentifier>{AF4D22CF-9B1A-7DDA-C433-6B82B05FB268}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
@@ -1104,17 +1107,17 @@
     <ClInclude Include="src\MDML.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mod\LoadOrder.h">
-      <Filter>src\Mod</Filter>
+    <ClInclude Include="src\Mods\LoadOrder.h">
+      <Filter>src\Mods</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mod\Mod.h">
-      <Filter>src\Mod</Filter>
+    <ClInclude Include="src\Mods\Mod.h">
+      <Filter>src\Mods</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mod\ModLoader.h">
-      <Filter>src\Mod</Filter>
+    <ClInclude Include="src\Mods\ModLoader.h">
+      <Filter>src\Mods</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mod\ModStack.h">
-      <Filter>src\Mod</Filter>
+    <ClInclude Include="src\Mods\ModStack.h">
+      <Filter>src\Mods</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Hooks.h">
       <Filter>src\Platform</Filter>
@@ -1193,6 +1196,9 @@
     <ClCompile Include="..\SDK\src\UE4\Engine\KismetSystemLibrary.cpp">
       <Filter>..\SDK\src\UE4\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\Bootstrap\DllMain.cpp">
+      <Filter>src\Bootstrap</Filter>
+    </ClCompile>
     <ClCompile Include="src\Core.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -1232,17 +1238,17 @@
     <ClCompile Include="src\MDML.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mod\LoadOrder.cpp">
-      <Filter>src\Mod</Filter>
+    <ClCompile Include="src\Mods\LoadOrder.cpp">
+      <Filter>src\Mods</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mod\Mod.cpp">
-      <Filter>src\Mod</Filter>
+    <ClCompile Include="src\Mods\Mod.cpp">
+      <Filter>src\Mods</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mod\ModLoader.cpp">
-      <Filter>src\Mod</Filter>
+    <ClCompile Include="src\Mods\ModLoader.cpp">
+      <Filter>src\Mods</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mod\ModStack.cpp">
-      <Filter>src\Mod</Filter>
+    <ClCompile Include="src\Mods\ModStack.cpp">
+      <Filter>src\Mods</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Hooks.cpp">
       <Filter>src\Platform</Filter>
@@ -1273,9 +1279,6 @@
     </ClCompile>
     <ClCompile Include="src\UI\LoaderUI.cpp">
       <Filter>src\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="src\dllmain.cpp">
-      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
