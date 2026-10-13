@@ -53,4 +53,7 @@ include "Tools/ModManager/ModManager.lua"
 -- DevTools mod (off by default) with the MDML SDK generator on vendored Dumper-7 (plan 2.4, docs/SDK_GENERATOR.md)
 group "DevTools"
 include "Mods/DevTools/DevTools.lua"
+-- offline compile test of the SDK generator output (Tests/SDKCompileTest, plan 2.4); its DLL goes to bin/.../Tests
+group "Tests"
+include "Tests/SDKCompileTest/SDKCompileTest.lua"
 group ""

@@ -199,11 +199,11 @@ Andrey Unis <uniskz@gmail.com>
 
 ## 7. ImGuiColorTextEdit
 
-- Location: `Dependencies/ImGuiColorTextEdit`
+- Location: `Loader/ModLoader/src/UI/ImGuiColorTextEdit` (locally modified, stays with the loader sources)
 - Upstream: https://github.com/BalazsJako/ImGuiColorTextEdit
 - Version: master at commit `0a88824f` (2019-06-15), with local patches (`LOADER_API` export, an INI language definition, a window flag change, and an include change)
 - License: MIT
-- License file in vendor folder: yes (`Dependencies/ImGuiColorTextEdit/LICENSE`)
+- License file in vendor folder: yes (`Loader/ModLoader/src/UI/ImGuiColorTextEdit/LICENSE`)
 
 ```
 MIT License

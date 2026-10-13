@@ -1,7 +1,7 @@
 # Lua scripting spike
 
 Standalone proof of the binding style proposed in `docs/design/lua-scripting.md`. The spike embeds Lua 5.4.9 and sol2 v3.3.0
-(both vendored in `Dependencies/`, see `Dependencies/VENDORED-lua-sol2.txt`) in a console test program. The program binds a **mock** UE reflection model shaped
+(both vendored in `Dependencies/`, see `Dependencies/lua-5.4.9/VENDORED.txt` and `Dependencies/sol2-3.3.0/VENDORED.txt`) in a console test program. The program binds a **mock** UE reflection model shaped
 like MDML's engine core. It is **not** part of the MDML solution, and the root `premake5.lua` does not include it.
 Results and findings: `docs/reports/lua-scripting-spike.md`.
 

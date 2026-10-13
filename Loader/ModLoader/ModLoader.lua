@@ -1,4 +1,4 @@
-project "MedievalDynastyModLoader"
+project "ModLoader"
 	kind "SharedLib"
 	language "C++"
 	cppdialect "C++17"
@@ -24,7 +24,7 @@ project "MedievalDynastyModLoader"
 		"**.cpp",
 		"**.hpp",
 	}
-	-- Third-party code that used to live under this project (vendor/, src/UI/ImGuiColorTextEdit; moved in the repo restructure) is in Dependencies/ now
+	-- Third-party code that used to live under this project (vendor/) is in Dependencies/ now
 	-- but is still compiled into MDML.dll. MinHook is its own project; spdlog and INI are header-only.
 	files
 	{
@@ -33,8 +33,6 @@ project "MedievalDynastyModLoader"
 		"../../Dependencies/glm/**.h",
 		"../../Dependencies/glm/**.hpp",
 		"../../Dependencies/glm/**.cpp",
-		"../../Dependencies/ImGuiColorTextEdit/**.h",
-		"../../Dependencies/ImGuiColorTextEdit/**.cpp",
 	}
 	-- The few GENERATED SDK functions MDML itself calls (UGameplayStatics::GetGameInstance/GetCurrentLevelName/
 	-- BeginDeferredActorSpawnFromClass/ExecuteConsoleCommand -> UKismetSystemLibrary, AActor::K2_GetActorLocation/...)
@@ -60,7 +58,6 @@ project "MedievalDynastyModLoader"
 		"%{IncludeDir.INI}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.ImGuiColorTextEdit}",
 		
 		"%{IncludeDir.UE4}",
 		"%{IncludeDir.SDK}",

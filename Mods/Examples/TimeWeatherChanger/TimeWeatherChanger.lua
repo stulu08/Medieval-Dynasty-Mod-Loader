@@ -6,7 +6,7 @@ project "TimeWeatherChanger"
 	targetname ("TimeWeatherChanger");
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Mods/TimeWeatherChanger")
 	objdir ("bin-int/" .. outputdir .. "")
-	dependson { "MedievalDynastyModLoader", "BaseMod" }
+	dependson { "ModLoader", "BaseMod" }
 	defines
 	{
 		"NDEBUG",
@@ -43,7 +43,7 @@ project "TimeWeatherChanger"
 	{
 		"BaseMod",
 		"SDK",
-		"MedievalDynastyModLoader"
+		"ModLoader"
 	}
 	filter "system:windows"
 		systemversion "latest"

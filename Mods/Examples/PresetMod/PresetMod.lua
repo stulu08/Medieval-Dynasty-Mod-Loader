@@ -6,7 +6,7 @@ project "PresetMod"
 	targetname ("PresetMod");
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Mods/PresetMod")
 	objdir ("bin-int/" .. outputdir .. "")
-	dependson { "MedievalDynastyModLoader", "BaseMod" }
+	dependson { "ModLoader", "BaseMod" }
 	defines
 	{
 		"NDEBUG",
@@ -43,7 +43,7 @@ project "PresetMod"
 	{
 		"BaseMod",
 		"SDK",
-		"MedievalDynastyModLoader"
+		"ModLoader"
 	}
 	filter "system:windows"
 		systemversion "latest"

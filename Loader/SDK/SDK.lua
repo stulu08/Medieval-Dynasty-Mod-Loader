@@ -1,7 +1,7 @@
 -- Generated SDK only (+ the UE4/SDK.h / Medieval_Dynasty/SDK.h aggregators and the hybrids GamePlayStatics,
 -- DataTable, StringTable). The hand-written engine core moved to Loader/ModLoader/src/Engine and is compiled into MDML.dll
 -- (Wave 2.3): every object in SDK.lib imports UObject/FName/UClass/... from MDML.dll (MDML_ENGINE_API = dllimport
--- here), so whoever links SDK.lib must also link MDML.lib ("MedievalDynastyModLoader"). MDML itself must NOT link SDK.
+-- here), so whoever links SDK.lib must also link MDML.lib ("ModLoader"). MDML itself must NOT link SDK.
 project "SDK"
 	kind "StaticLib"
 	language "C++"

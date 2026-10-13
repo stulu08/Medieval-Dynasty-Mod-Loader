@@ -388,7 +388,7 @@ the VM); scripts can read game memory through reflection by design.
 `Loader/Scripting/` (standalone, **not** in the root `premake5.lua`):
 - `Loader/Scripting/Scripting.lua`: own workspace `MDMLScriptingSpike` with two projects: `Lua` (StaticLib, Lua 5.4.9 compiled as
   C++) and `ScriptingSpike` (ConsoleApp, C++20, sol2).
-- `Dependencies/`: `lua-5.4.9/` (sources + license), `sol2-3.3.0/` (release single header + license), `VENDORED-lua-sol2.txt`.
+- `Dependencies/`: `lua-5.4.9/` (sources + license), `sol2-3.3.0/` (release single header + license), `lua-5.4.9/VENDORED.txt`, `sol2-3.3.0/VENDORED.txt`.
 - `Loader/Scripting/src/`: mock reflection (`MockReflection.*`: `UObject`/`UClass`/`FProperty`/`UFunction` with names, offsets,
   `ParamsSize`, `ProcessEvent`), the binding (`LuaBinding.*`), a mock game-thread queue + hook registry, and `main.cpp`
   that runs Lua test scripts and checks results.

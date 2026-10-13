@@ -65,7 +65,7 @@ project "DevTools"
 	targetname ("DevTools");
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Mods/DevTools")
 	objdir ("bin-int/" .. outputdir .. "")
-	dependson { "MedievalDynastyModLoader", "DevTools.Generator" }
+	dependson { "ModLoader", "DevTools.Generator" }
 	defines
 	{
 		"NDEBUG",
@@ -100,7 +100,7 @@ project "DevTools"
 	}
 	links
 	{
-		"MedievalDynastyModLoader",
+		"ModLoader",
 		"DevTools.Generator",
 	}
 	filter "system:windows"
@@ -111,4 +111,3 @@ project "DevTools"
 		symbols "on"
 		optimize "speed"
 
-include "../../Tests/SDKCompileTest/SDKCompileTest.lua"

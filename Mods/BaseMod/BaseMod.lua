@@ -6,7 +6,7 @@ project "BaseMod"
 	targetname ("BaseMod");
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Mods/BaseMod")
 	objdir ("bin-int/" .. outputdir .. "")
-	dependson { "MedievalDynastyModLoader" }
+	dependson { "ModLoader" }
 	defines
 	{
 		"NDEBUG",
@@ -33,7 +33,6 @@ project "BaseMod"
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.BaseMod}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.ImGuiColorTextEdit}",
 		"%{IncludeDir.UE4}",
 		"%{IncludeDir.SDK}",
 		"%{IncludeDir.MedievalDynasty}",
@@ -43,7 +42,7 @@ project "BaseMod"
 	}
 	links
 	{
-		"MedievalDynastyModLoader",
+		"ModLoader",
 		"SDK"
 	}
 	filter "system:windows"

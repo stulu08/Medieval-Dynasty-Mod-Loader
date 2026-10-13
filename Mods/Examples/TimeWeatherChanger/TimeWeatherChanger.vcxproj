@@ -83,8 +83,8 @@
     <ProjectReference Include="..\..\..\Loader\SDK\SDK.vcxproj">
       <Project>{071D880B-7326-887C-FCA1-9E7C68AA937C}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Loader\ModLoader\MedievalDynastyModLoader.vcxproj">
-      <Project>{0F4A9865-FB6E-E7E5-24BA-CC75103EE603}</Project>
+    <ProjectReference Include="..\..\..\Loader\ModLoader\ModLoader.vcxproj">
+      <Project>{3C282D37-A892-E1AD-F1D0-92535D7ABF02}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

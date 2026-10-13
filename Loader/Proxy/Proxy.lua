@@ -1,4 +1,4 @@
-project "LoaderAutoInjector"
+project "Proxy"
 	kind "SharedLib"
 	language "C++"
 	cppdialect "C++17"

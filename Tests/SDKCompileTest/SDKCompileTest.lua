@@ -10,7 +10,7 @@ project "DevTools.SDKCompileTest"
 	targetname ("SDKCompileTest");
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Tests")
 	objdir ("bin-int/" .. outputdir .. "")
-	dependson { "MedievalDynastyModLoader" }
+	dependson { "ModLoader" }
 	defines
 	{
 		"NDEBUG",
@@ -35,7 +35,7 @@ project "DevTools.SDKCompileTest"
 	}
 	links
 	{
-		"MedievalDynastyModLoader",
+		"ModLoader",
 	}
 	filter "system:windows"
 		systemversion "latest"

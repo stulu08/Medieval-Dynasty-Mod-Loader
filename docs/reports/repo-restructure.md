@@ -70,15 +70,19 @@ Unchanged: `scripts/` (setup.bat, generateProjects*.bat, python/), `docs/` (rest
 - `python Tests/SDKCompileTest/compile_generated.py C:/Users/derst/AppData/Local/Temp/mdml-sim/sdk`: 203/203 compiled.
 - Not verified: the GitHub workflow itself (cannot run here), the `vs2022` action output, in-game behaviour (not launched).
 
-## Open questions for the owner
+## Owner decisions on the open questions (applied in the follow-up commit)
 
-1. **Premake project names** (`MedievalDynastyModLoader`, `LoaderAutoInjector`, `DevTools.SDKCompileTest`) were kept, so the `.vcxproj` files are still
-   `MedievalDynastyModLoader.vcxproj`, `LoaderAutoInjector.vcxproj`. Renaming them to `ModLoader` / `Proxy` would change the solution and the `links`/`dependson` names. Do it?
-2. **`ImGuiColorTextEdit` is not unmodified third-party code**: `TextEditor.h` uses `LOADER_API` and `TextEditor.cpp` includes `Core.h`/the loader PCH, and it is compiled into `MDML.dll` and
-   used by BaseMod through the DLL. It lives in `Dependencies/` as requested but is listed explicitly in `ModLoader.lua`. The planned upgrade to an upstream TextEditor would remove this coupling.
-3. `Dependencies/VENDORED-lua-sol2.txt`: the one shared file for Lua and sol2 had no single folder to live in; split it per library if you prefer.
-4. `Tests/SDKCompileTest` is still part of the main solution (via `DevTools.lua`, group `DevTools`) because its output goes to `bin/.../Tests/`; a `Tests` group in the root premake would be cleaner.
-5. `Engine/Dumper.*` and `Engine/EngineDefFinder.*` were placed in `src/Engine` as specified, but they are loader-level (dump UI, offset finder), not part of the exported engine core
-   (`MDML_ENGINE_API`). `src/Platform` or `src/Runtime` would also fit. `Runtime/` now holds `GameThread` and `LoaderConfig`.
-6. `Dependencies/premake/` holds both the tracked `premake_customization` and the downloaded (ignored) `premake5.exe`.
-7. `Installation.md` is linked from the README by its GitHub URL (`blob/main/docs/guides/Installation.md`); that link only works after this is on `main`.
+1. **Project names**: renamed `MedievalDynastyModLoader` -> `ModLoader` and `LoaderAutoInjector` -> `Proxy` (`ModLoader.vcxproj`, `Proxy.vcxproj`). Output names stay `MDML.dll`
+   and `xinput1_3.dll`; `links`/`dependson` and docs updated. (`DevTools.SDKCompileTest` keeps its name.)
+2. **ImGuiColorTextEdit** moved back to `Loader/ModLoader/src/UI/ImGuiColorTextEdit/` (owner-modified: `LOADER_API`, `Core.h`), LICENSE alongside. It is no longer in
+   `Dependencies/`, so `ModLoader.lua` globs it again and `BaseMod` includes `"UI/ImGuiColorTextEdit/TextEditor.h"` as before; `IncludeDir.ImGuiColorTextEdit` was removed.
+3. **`Engine/Dumper.*` and `Engine/EngineDefFinder.*`** moved to `Loader/ModLoader/src/Runtime/`; `Engine/` is the pure exported UE core again
+   (includes are now `"Runtime/Dumper.h"`, `"Runtime/EngineDefFinder.h"`).
+4. **Tests group**: `Tests/SDKCompileTest` has its own premake group `Tests`, included from the root `premake5.lua` (no longer through `DevTools.lua`).
+5. **VENDORED** split: `Dependencies/lua-5.4.9/VENDORED.txt` and `Dependencies/sol2-3.3.0/VENDORED.txt` (the combined `VENDORED-lua-sol2.txt` is gone).
+
+Statements above in this report about `ImGuiColorTextEdit` living in `Dependencies/`, `Engine/Dumper.*`, the old project names and `VENDORED-lua-sol2.txt` describe the first pass and are superseded by this section.
+
+## Remaining notes
+- `Dependencies/premake/` holds both the tracked `premake_customization` and the downloaded (ignored) `premake5.exe`.
+- The README links `Installation.md` by its GitHub URL (`blob/main/docs/guides/Installation.md`); it only works once this is on `main`.

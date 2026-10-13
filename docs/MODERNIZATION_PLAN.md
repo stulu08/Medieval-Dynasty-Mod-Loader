@@ -176,7 +176,7 @@ Also waiting for the owner: in-game test of the deployed build d7835a5 (2.4 + Lo
 **Next after those (owner decisions already taken, see decisions log 2026-10-10):**
 1. Merge 2.4 + generator part 1, build, deploy, owner smoke test (+ generate a package in-game via DevTools).
 2. One Sonnet agent: `Config/LoadOrder.ini` (Name = 1/0, auto-append new mods, BaseMod first) in `LoadMods`, and
-   replace the dumper `MessageBoxA` (`Log::SetupMessage` in `Loader/ModLoader/src/Engine/Dumper.cpp`) with log line + F1-window notice.
+   replace the dumper `MessageBoxA` (`Log::SetupMessage` in `Loader/ModLoader/src/Runtime/Dumper.cpp`) with log line + F1-window notice.
 3. INI wrapper (`Config::IniFile`) + mINI swap; then Wave 3 (parallel splits) and Wave 4 (C++20, libraries).
 Orchestration style the owner wants: parallel agents (Sonnet where fitting), orchestrator merges/builds/deploys
 (back up the game folder state to `C:\dev\MDML\backup\<date>_<commit>-tested` first) and asks the owner to test.
@@ -204,7 +204,7 @@ Dumper-7 reference dump (crash cause confirmed), SDK generator design draft (`do
 2. ◐ Wave 2 (serial, see code inventory §7): core compiled into MDML.dll and exported; `SetupProfile` out of `DllMain`;
    sequential `LoadLibraryW` mod loading; game-thread task queue. Smoke test after each step.
    - 2.1 ◐ Proxy dependency broken: `SDK::SelectedGameProfile` is defined in `Loader/ModLoader/src/Globals.cpp` and exported
-     (`LOADER_API`); no project links `LoaderAutoInjector` any more, no DLL imports `xinput1_3.dll`. Expected side
+     (`LOADER_API`); no project links `Proxy` (formerly `LoaderAutoInjector`) any more, no DLL imports `xinput1_3.dll`. Expected side
      effect: 7× LNK4286 (SDK.lib objects inside MDML.dll import a local symbol) until 2.3. ☑ In-game test passed 2026-10-10.
    - 2.2 ◐ Merged (5271d85, report `docs/reports/wave2/2.2-startup.md`): proxy uses CreateThread+LoadLibraryW; one MDML init
      thread (DllMain only starts it); mods loaded sequentially (BaseMod first, then alphabetical) before game hooks.

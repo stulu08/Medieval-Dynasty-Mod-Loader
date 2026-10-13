@@ -41,7 +41,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>NDEBUG;BaseMod_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\Dependencies\spdlog;..\..\Loader\ModLoader\src;..\..\Loader\ModLoader\src\Engine;..\..\Loader\ModLoader\src\Engine\UE4;..\..\Dependencies\INI;..\..\Dependencies\glm;src;..\..\Dependencies\ImGui;..\..\Dependencies\ImGuiColorTextEdit;..\..\Loader\SDK\src\UE4;..\..\Loader\SDK\src;..\..\Loader\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Dependencies\spdlog;..\..\Loader\ModLoader\src;..\..\Loader\ModLoader\src\Engine;..\..\Loader\ModLoader\src\Engine\UE4;..\..\Dependencies\INI;..\..\Dependencies\glm;src;..\..\Dependencies\ImGui;..\..\Loader\SDK\src\UE4;..\..\Loader\SDK\src;..\..\Loader\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -81,8 +81,8 @@
     <ClCompile Include="src\GameMod.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Loader\ModLoader\MedievalDynastyModLoader.vcxproj">
-      <Project>{0F4A9865-FB6E-E7E5-24BA-CC75103EE603}</Project>
+    <ProjectReference Include="..\..\Loader\ModLoader\ModLoader.vcxproj">
+      <Project>{3C282D37-A892-E1AD-F1D0-92535D7ABF02}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\Loader\SDK\SDK.vcxproj">
       <Project>{071D880B-7326-887C-FCA1-9E7C68AA937C}</Project>
