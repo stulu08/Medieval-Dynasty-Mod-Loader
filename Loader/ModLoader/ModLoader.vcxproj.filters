@@ -1185,10 +1185,25 @@
     <ClInclude Include="src\Runtime\Paths.h">
       <Filter>src\Runtime</Filter>
     </ClInclude>
+    <ClInclude Include="src\UI\D3D11Hook.h">
+      <Filter>src\UI</Filter>
+    </ClInclude>
     <ClInclude Include="src\UI\ImGuiColorTextEdit\TextEditor.h">
       <Filter>src\UI\ImGuiColorTextEdit</Filter>
     </ClInclude>
+    <ClInclude Include="src\UI\ImGuiHost.h">
+      <Filter>src\UI</Filter>
+    </ClInclude>
     <ClInclude Include="src\UI\LoaderUI.h">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UI\LoaderWindow.h">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UI\Themes.h">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UI\Widgets.h">
       <Filter>src\UI</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1334,10 +1349,25 @@
     <ClCompile Include="src\Runtime\Paths.cpp">
       <Filter>src\Runtime</Filter>
     </ClCompile>
+    <ClCompile Include="src\UI\D3D11Hook.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
     <ClCompile Include="src\UI\ImGuiColorTextEdit\TextEditor.cpp">
       <Filter>src\UI\ImGuiColorTextEdit</Filter>
     </ClCompile>
+    <ClCompile Include="src\UI\ImGuiHost.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
     <ClCompile Include="src\UI\LoaderUI.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UI\LoaderWindow.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UI\Themes.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UI\Widgets.cpp">
       <Filter>src\UI</Filter>
     </ClCompile>
   </ItemGroup>

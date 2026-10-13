@@ -436,8 +436,13 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     <ClInclude Include="src\Runtime\LoaderConfig.h" />
     <ClInclude Include="src\Runtime\Notices.h" />
     <ClInclude Include="src\Runtime\Paths.h" />
+    <ClInclude Include="src\UI\D3D11Hook.h" />
     <ClInclude Include="src\UI\ImGuiColorTextEdit\TextEditor.h" />
+    <ClInclude Include="src\UI\ImGuiHost.h" />
     <ClInclude Include="src\UI\LoaderUI.h" />
+    <ClInclude Include="src\UI\LoaderWindow.h" />
+    <ClInclude Include="src\UI\Themes.h" />
+    <ClInclude Include="src\UI\Widgets.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Dependencies\ImGui\imgui\imgui.cpp">
@@ -539,8 +544,13 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     <ClCompile Include="src\Runtime\LoaderConfig.cpp" />
     <ClCompile Include="src\Runtime\Notices.cpp" />
     <ClCompile Include="src\Runtime\Paths.cpp" />
+    <ClCompile Include="src\UI\D3D11Hook.cpp" />
     <ClCompile Include="src\UI\ImGuiColorTextEdit\TextEditor.cpp" />
+    <ClCompile Include="src\UI\ImGuiHost.cpp" />
     <ClCompile Include="src\UI\LoaderUI.cpp" />
+    <ClCompile Include="src\UI\LoaderWindow.cpp" />
+    <ClCompile Include="src\UI\Themes.cpp" />
+    <ClCompile Include="src\UI\Widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Dependencies\MinHook\MinHook.vcxproj">
