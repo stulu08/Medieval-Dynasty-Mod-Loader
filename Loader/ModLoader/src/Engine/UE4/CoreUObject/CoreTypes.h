@@ -547,7 +547,7 @@ namespace UE4 {
 	// Size 1
 	/////////////////////////////////////////////
 	struct FUniqueNetIdWrapper {
-		unsigned char uknownData_0[1];		//Offset: 0	Size: 1
+		unsigned char unknownData_0[1];		//Offset: 0	Size: 1
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.TwoVectors
@@ -619,7 +619,7 @@ namespace UE4 {
 		float	ArriveTangent;		//Offset: 8	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		float	LeaveTangent;		//Offset: 12	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		TEnumAsByte<EInterpCurveMode>	InterpMode;		//Offset: 16	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 17	Size: 3
+		unsigned char unknownData_0[3];		//Offset: 17	Size: 3
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.InterpCurveFloat
@@ -628,7 +628,7 @@ namespace UE4 {
 	struct FInterpCurveFloat {
 		TArray<struct FInterpCurvePointFloat>	Points;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
 		bool	bIsLooped;		//Offset: 16	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 17	Size: 3
+		unsigned char unknownData_0[3];		//Offset: 17	Size: 3
 		float	LoopKeyOffset;		//Offset: 20	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
@@ -641,7 +641,7 @@ namespace UE4 {
 		struct FVector2D	ArriveTangent;		//Offset: 12	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FVector2D	LeaveTangent;		//Offset: 20	Size: 8	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		TEnumAsByte<EInterpCurveMode>	InterpMode;		//Offset: 28	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 29	Size: 3
+		unsigned char unknownData_0[3];		//Offset: 29	Size: 3
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.InterpCurveVector2D
@@ -650,7 +650,7 @@ namespace UE4 {
 	struct FInterpCurveVector2D {
 		TArray<struct FInterpCurvePointVector2D>	Points;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
 		bool	bIsLooped;		//Offset: 16	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 17	Size: 3
+		unsigned char unknownData_0[3];		//Offset: 17	Size: 3
 		float	LoopKeyOffset;		//Offset: 20	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
@@ -663,7 +663,7 @@ namespace UE4 {
 		struct FVector	ArriveTangent;		//Offset: 16	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FVector	LeaveTangent;		//Offset: 28	Size: 12	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		TEnumAsByte<EInterpCurveMode>	InterpMode;		//Offset: 40	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 41	Size: 3
+		unsigned char unknownData_0[3];		//Offset: 41	Size: 3
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.InterpCurveVector
@@ -672,7 +672,7 @@ namespace UE4 {
 	struct FInterpCurveVector {
 		TArray<struct FInterpCurvePointVector>	Points;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
 		bool	bIsLooped;		//Offset: 16	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 17	Size: 3
+		unsigned char unknownData_0[3];		//Offset: 17	Size: 3
 		float	LoopKeyOffset;		//Offset: 20	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
@@ -681,12 +681,12 @@ namespace UE4 {
 	/////////////////////////////////////////////
 	struct FInterpCurvePointQuat {
 		float	InVal;		//Offset: 0	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[12];		//Offset: 4	Size: 12
+		unsigned char unknownData_0[12];		//Offset: 4	Size: 12
 		struct FQuat	OutVal;		//Offset: 16	Size: 16	Flags: Edit, BlueprintVisible, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
 		struct FQuat	ArriveTangent;		//Offset: 32	Size: 16	Flags: Edit, BlueprintVisible, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
 		struct FQuat	LeaveTangent;		//Offset: 48	Size: 16	Flags: Edit, BlueprintVisible, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
 		TEnumAsByte<EInterpCurveMode>	InterpMode;		//Offset: 64	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_1[15];		//Offset: 65	Size: 15
+		unsigned char unknownData_1[15];		//Offset: 65	Size: 15
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.InterpCurveQuat
@@ -695,7 +695,7 @@ namespace UE4 {
 	struct FInterpCurveQuat {
 		TArray<struct FInterpCurvePointQuat>	Points;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
 		bool	bIsLooped;		//Offset: 16	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 17	Size: 3
+		unsigned char unknownData_0[3];		//Offset: 17	Size: 3
 		float	LoopKeyOffset;		//Offset: 20	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
@@ -708,7 +708,7 @@ namespace UE4 {
 		struct FTwoVectors	ArriveTangent;		//Offset: 28	Size: 24	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
 		struct FTwoVectors	LeaveTangent;		//Offset: 52	Size: 24	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic
 		TEnumAsByte<EInterpCurveMode>	InterpMode;		//Offset: 76	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 77	Size: 3
+		unsigned char unknownData_0[3];		//Offset: 77	Size: 3
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.InterpCurveTwoVectors
@@ -717,7 +717,7 @@ namespace UE4 {
 	struct FInterpCurveTwoVectors {
 		TArray<struct FInterpCurvePointTwoVectors>	Points;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
 		bool	bIsLooped;		//Offset: 16	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 17	Size: 3
+		unsigned char unknownData_0[3];		//Offset: 17	Size: 3
 		float	LoopKeyOffset;		//Offset: 20	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
@@ -730,7 +730,7 @@ namespace UE4 {
 		struct FLinearColor	ArriveTangent;		//Offset: 20	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FLinearColor	LeaveTangent;		//Offset: 36	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		TEnumAsByte<EInterpCurveMode>	InterpMode;		//Offset: 52	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 53	Size: 3
+		unsigned char unknownData_0[3];		//Offset: 53	Size: 3
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.InterpCurveLinearColor
@@ -739,7 +739,7 @@ namespace UE4 {
 	struct FInterpCurveLinearColor {
 		TArray<struct FInterpCurvePointLinearColor>	Points;		//Offset: 0	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic
 		bool	bIsLooped;		//Offset: 16	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 17	Size: 3
+		unsigned char unknownData_0[3];		//Offset: 17	Size: 3
 		float	LoopKeyOffset;		//Offset: 20	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
@@ -755,7 +755,7 @@ namespace UE4 {
 	// Size 8
 	/////////////////////////////////////////////
 	struct FDateTime {
-		unsigned char uknownData_0[8];		//Offset: 0	Size: 8
+		unsigned char unknownData_0[8];		//Offset: 0	Size: 8
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.FrameNumber
@@ -798,14 +798,14 @@ namespace UE4 {
 		int32_t	Seconds;		//Offset: 8	Size: 4	Flags: BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		int32_t	Frames;		//Offset: 12	Size: 4	Flags: BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		bool	bDropFrameFormat;		//Offset: 16	Size: 1	Flags: BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[3];		//Offset: 17	Size: 3
+		unsigned char unknownData_0[3];		//Offset: 17	Size: 3
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.Timespan
 	// Size 8
 	/////////////////////////////////////////////
 	struct FTimespan {
-		unsigned char uknownData_0[8];		//Offset: 0	Size: 8
+		unsigned char unknownData_0[8];		//Offset: 0	Size: 8
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.PrimaryAssetType
@@ -827,7 +827,7 @@ namespace UE4 {
 	// Size 1
 	/////////////////////////////////////////////
 	struct FFallbackStruct {
-		unsigned char uknownData_0[1];		//Offset: 0	Size: 1
+		unsigned char unknownData_0[1];		//Offset: 0	Size: 1
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.FloatRangeBound
@@ -835,7 +835,7 @@ namespace UE4 {
 	/////////////////////////////////////////////
 	struct FFloatRangeBound {
 		TEnumAsByte<ERangeBoundTypes>	Type;		//Offset: 0	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
-		unsigned char uknownData_0[3];		//Offset: 1	Size: 3
+		unsigned char unknownData_0[3];		//Offset: 1	Size: 3
 		float	Value;		//Offset: 4	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
 	};
 	/////////////////////////////////////////////
@@ -852,7 +852,7 @@ namespace UE4 {
 	/////////////////////////////////////////////
 	struct FInt32RangeBound {
 		TEnumAsByte<ERangeBoundTypes>	Type;		//Offset: 0	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
-		unsigned char uknownData_0[3];		//Offset: 1	Size: 3
+		unsigned char unknownData_0[3];		//Offset: 1	Size: 3
 		int32_t	Value;		//Offset: 4	Size: 4	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
 	};
 	/////////////////////////////////////////////
@@ -869,7 +869,7 @@ namespace UE4 {
 	/////////////////////////////////////////////
 	struct FFrameNumberRangeBound {
 		TEnumAsByte<ERangeBoundTypes>	Type;		//Offset: 0	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
-		unsigned char uknownData_0[3];		//Offset: 1	Size: 3
+		unsigned char unknownData_0[3];		//Offset: 1	Size: 3
 		struct FFrameNumber	Value;		//Offset: 4	Size: 4	Flags: Edit, BlueprintVisible, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate
 	};
 	/////////////////////////////////////////////
@@ -902,14 +902,14 @@ namespace UE4 {
 	/////////////////////////////////////////////
 	struct FPolyglotTextData {
 		ELocalizedTextSourceCategory	Category;		//Offset: 0	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[7];		//Offset: 1	Size: 7
+		unsigned char unknownData_0[7];		//Offset: 1	Size: 7
 		struct FString	NativeCulture;		//Offset: 8	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FString	Namespace;		//Offset: 24	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FString	Key;		//Offset: 40	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FString	NativeString;		//Offset: 56	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		TMap<struct FString, struct FString>	LocalizedStrings;		//Offset: 72	Size: 80	Flags: Edit, BlueprintVisible, NativeAccessSpecifierPublic
 		bool	bIsMinimalPatch;		//Offset: 152	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_1[7];		//Offset: 153	Size: 7
+		unsigned char unknownData_1[7];		//Offset: 153	Size: 7
 		struct FText	CachedText;		//Offset: 160	Size: 24	Flags: Transient, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
@@ -918,7 +918,7 @@ namespace UE4 {
 	/////////////////////////////////////////////
 	struct FAutomationEvent {
 		EAutomationEventType	Type;		//Offset: 0	Size: 1	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[7];		//Offset: 1	Size: 7
+		unsigned char unknownData_0[7];		//Offset: 1	Size: 7
 		struct FString	Message;		//Offset: 8	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FString	Context;		//Offset: 24	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FGuid	Artifact;		//Offset: 40	Size: 16	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
@@ -931,7 +931,7 @@ namespace UE4 {
 		struct FAutomationEvent	Event;		//Offset: 0	Size: 56	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FString	Filename;		//Offset: 56	Size: 16	Flags: ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		int32_t	LineNumber;		//Offset: 72	Size: 4	Flags: ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[4];		//Offset: 76	Size: 4
+		unsigned char unknownData_0[4];		//Offset: 76	Size: 4
 		struct FDateTime	Timestamp;		//Offset: 80	Size: 8	Flags: ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 	};
 	/////////////////////////////////////////////
@@ -943,12 +943,12 @@ namespace UE4 {
 		TArray<struct FName>	PackagePaths;		//Offset: 16	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic
 		TArray<struct FName>	ObjectPaths;		//Offset: 32	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic
 		TArray<struct FName>	ClassNames;		//Offset: 48	Size: 16	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[80];		//Offset: 64	Size: 80
-		unsigned char uknownData_1[80];		//Offset: 144	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnInstance, NativeAccessSpecifierPublic
+		unsigned char unknownData_0[80];		//Offset: 64	Size: 80
+		unsigned char unknownData_1[80];		//Offset: 144	Size: 80	Flags: Edit, BlueprintVisible, DisableEditOnInstance, NativeAccessSpecifierPublic
 		bool	bRecursivePaths;		//Offset: 224	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		bool	bRecursiveClasses;		//Offset: 225	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		bool	bIncludeOnlyOnDiskAssets;		//Offset: 226	Size: 1	Flags: Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_2[13];		//Offset: 227	Size: 13
+		unsigned char unknownData_2[13];		//Offset: 227	Size: 13
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.AssetBundleEntry
@@ -975,7 +975,7 @@ namespace UE4 {
 		struct FName	PackagePath;		//Offset: 16	Size: 8	Flags: BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FName	AssetName;		//Offset: 24	Size: 8	Flags: BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		struct FName	AssetClass;		//Offset: 32	Size: 8	Flags: BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[56];		//Offset: 40	Size: 56
+		unsigned char unknownData_0[56];		//Offset: 40	Size: 56
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.TestUninitializedScriptStructMembersTest
@@ -985,7 +985,7 @@ namespace UE4 {
 		class UObject* UninitializedObjectReference;		//Offset: 0	Size: 8	Flags: ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		class UObject* InitializedObjectReference;		//Offset: 8	Size: 8	Flags: ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
 		float	UnusedValue;		//Offset: 16	Size: 4	Flags: ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic
-		unsigned char uknownData_0[4];		//Offset: 20	Size: 4
+		unsigned char unknownData_0[4];		//Offset: 20	Size: 4
 	};
 #pragma endregion
 }
