@@ -1,6 +1,6 @@
 # Lua scripting for MDML mods — design
 
-Status: **proposal, nothing decided** (2026-10-10). Phase 3 feature from `docs/MODERNIZATION_PLAN.md`.
+Status: **proposal, nothing decided** (2026-10-10; spike results added 2026-10-13, see §13). Phase 3 feature from `docs/MODERNIZATION_PLAN.md`.
 Every choice marked **(OQ-n)** is an open question for the owner, listed again in §14. Where the spike had to pick
 something to compile at all, it is marked *spike default* and can be changed.
 
@@ -62,14 +62,14 @@ so the binding library only has to do the static parts (wrapper types, free func
 | | **sol2 v3.3.0** | LuaBridge3 (3.0-rc12) | Raw Lua C API (own thin layer) |
 |---|---|---|---|
 | License | MIT | MIT | — (Lua MIT) |
-| C++ | C++17, also builds as C++20 (verified by the spike, §13) | C++17/20/23 | any |
+| C++ | C++17; builds as C++20 with VS 2026 / v145, 0 warnings (spike, §13) | C++17/20/23 | any |
 | Maintenance | last release 2022-06, last commit 2025-03; no Lua 5.5 support | active (commits 2026-09), supports 5.1–5.5, LuaJIT, Luau | us |
 | Size | header-only, `sol.hpp` single header ≈ 1 MB (+ `config.hpp`, `forward.hpp`); noticeable compile time per TU that includes it | header-only, smaller | none |
 | Ergonomics | best in class: usertypes, overloads, `sol::protected_function` with error handlers, `sol::variadic_args`, automatic C++ exception → Lua error | good, a bit more manual; also exception → Lua error | verbose stack code; full control (UE4SS wrote its own "LuaMadeSimple" layer) |
 | Lua as C++ | `SOL_USING_CXX_LUA=1` | supported | n/a |
 
 Recommendation (weak): **sol2 v3.3.0** for now (*spike default*), because it keeps the binding code short and readable
-(owner's learning project), and the spike shows it builds with VS2022/v143 in C++20. Risks: no Lua 5.5, slow upstream.
+(owner's learning project), and the spike shows it builds warning-free with VS 2026/v145 in C++20 (VS 2022 is no longer installed; nothing in it is v145-specific). Risks: no Lua 5.5, slow upstream.
 Mitigation: keep sol2 confined to the `LuaScripting` project's binding `.cpp` files (never in public headers), so a later
 swap to LuaBridge3 or a raw layer only touches those files. **LuaBridge3 is a serious alternative** if the owner prefers
 an actively maintained library or wants Lua 5.5 from the start.
@@ -77,8 +77,9 @@ an actively maintained library or wants Lua 5.5 from the start.
 ### 2.3 Build details (defaults, owner may veto)
 - Lua vendored as source (`vendor/lua-5.4.9/src`, without `lua.c`/`luac.c`), built as a premake `StaticLib`, like MinHook.
 - **Compiled as C++** (`compileas "C++"`, `SOL_USING_CXX_LUA=1`): `lua_error` then throws a C++ exception instead of
-  `longjmp`, so C++ destructors (RAII in our bindings, `std::string`s) always run on Lua errors. The repo already uses
-  `exceptionhandling "SEH"` (`/EHa`), which is compatible.
+  `longjmp`, so C++ destructors (RAII in our bindings, `std::string`s) always run on Lua errors. The `Lua` project must
+  use `/EHsc`, not the repo-wide `exceptionhandling "SEH"` (`/EHa`): under `/EHa`, Lua's internal `catch (...)` would
+  also swallow access violations (spike finding, see the spike report §3.3).
 - Dynamic CRT (`staticruntime "off"`), Release x64, same as every other project.
 - Lua is linked **only** into the `LuaScripting` DLL (not into `MDML.dll`), so there is one copy of the Lua runtime and
   each `lua_State` lives and dies inside that DLL (no cross-DLL `lua_State` passing).
@@ -392,7 +393,7 @@ the VM); scripts can read game memory through reflection by design.
   `ParamsSize`, `ProcessEvent`), the binding (`LuaBinding.*`), a mock game-thread queue + hook registry, and `main.cpp`
   that runs Lua test scripts and checks results.
 - `Scripting/test/`: Lua mods used by the test (a good mod, a mod with a runtime error, a mod with a syntax error).
-Build/run instructions: `Scripting/README.md`. What it proves and what not: see that README.
+Build/run instructions: `Scripting/README.md`. Results, findings (e.g. sol2 pushes lvalue `T&` as pointers; Lua-as-C++ under `/EHa` would catch access violations) and gaps: `docs/reports/lua-scripting-spike.md`.
 
 ## 14. Open questions for the owner
 
