@@ -112,7 +112,6 @@ Default taken (owner may veto):
 Still open:
 - **CS-6** Generated C# SDK: one shared `MDML.SDK.dll` built by DevTools for all mods, or each mod compiles the
   packages it needs (export lists, like the C++ SDK)?
-- **CS-7** Lua spike: keep `Loader/Scripting/` as reference or delete it (the design doc stays either way)?
 - **CS-8** SDG/Controls: copy into MDML (UI folder) or reference the SDG repo as a dependency? Adopt together with the
   ImGui upgrade (Wave 4)?
 - **CS-9** Name of the managed assemblies/namespaces (`MDML.Core`, `MDML.SDK`, `MDML.Mods`)?
