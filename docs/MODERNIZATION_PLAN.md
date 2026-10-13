@@ -27,20 +27,30 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
   submodule, shipped runtime, compiled mod DLLs, native vs managed as two distinct mod kinds, SDG controls copied for the
   UI). Lua spike stays in `Loader/Scripting/` as reference only.
 
-**Waiting for the owner:**
-1. In-game: start, DevTools → Generate SDK; then run
-   `python Tests/SDKCompileTest/compile_generated.py "<Win64>/SDK-Out/<ver>/MDML-SDK"` → expect 203/203.
-2. Delete leftover **untracked** pre-restructure folders in the repo checkout (only `bin-int` build intermediates and empty
-   `*.vcxproj.user`): `BaseMod/ DevTools/ ExampleMods/ LoaderAutoInjector/ ModLoader/ ModManager/ SDK/` and the old
-   `bin-int/` dirs (agents may not delete them).
+- **Real in-game regeneration** ☑ 2026-10-13 19:37 with the deployed build → `compile_generated.py` **203/203, 0 warnings**
+  on the real output. SDK generator part 1 is done; next generator step = migrate BaseMod to the generated headers.
 
-**Next (in order):**
-1. Real in-game regeneration → 203/203; fix whatever surfaces (previously masked errors are possible).
-2. Phase 2 remainder: INI wrapper `Config::IniFile` + mINI; Wave 3 (parallel splits, `docs/reports/code-inventory.md` §7);
-   Wave 4 (C++20, spdlog/ImGui upgrades, SDG controls with the ImGui upgrade, missing upstream license files); migrate
-   BaseMod to the generated SDK headers; 2.8 docs.
-3. Phase 3, after Phase 2: C# spike (Carbide boots .NET 10 in a test exe, native API table, collectible ALC reload).
-4. Ask the owner the open decisions below whenever they block something.
+**Next (in order) — start here in a new session:**
+1. **Wave 3** (owner approved starting it; ask whether all 4 packages in parallel or 3A+3D first, then 3B+3C).
+   Package definitions: `docs/reports/code-inventory.md` §7 "Wave 3" — **its paths predate the restructure**, translate
+   them with `docs/reports/repo-restructure.md` (e.g. `ModLoader/src/Utilities/*` → `Loader/ModLoader/src/{Platform,Runtime}`,
+   `BaseMod/` → `Mods/BaseMod/`, `tools/` → `Tools/RE/`). Already done by the restructure: `Utilities/` split, Dumper/
+   EngineDefFinder → `src/Runtime`, ImGuiColorTextEdit stays in `src/UI` (owner decision).
+   - **3A Runtime** (`MDML.cpp`, `Globals`, `Core.h`, `dllmain.cpp`, `src/Mod`, `src/Platform`, `src/Runtime` except
+     Dumper/EngineDefFinder; `mdml::` namespaces; event bus binds the mod pointer, C8) **+ INI wrapper** `Config::IniFile`
+     + mINI (same files). Only package that edits `Core.h` and `ModLoader.lua`.
+   - **3B UI** (`src/UI/**` except ImGuiColorTextEdit): LoaderUI → D3D11Hook / ImGuiHost / LoaderWindow / Widgets / Themes;
+     keep a forwarding `UI/LoaderUI.h`; route mod buttons + console command through `mdml::GameThread`.
+   - **3C Mods** (`Mods/**`): finish the BaseMod/DevTools split (plan 2.5). Only package that edits root `premake5.lua`.
+   - **3D Engine** (`src/Engine/**`, = plan 2.3): one `ForEachObject`; remove dead multi-game/UML paths (decided
+     2026-10-09); `EngineLayout` constants + `static_assert` + PDB checker; direct access instead of SafeRead (decided);
+     `ChildProperties`/`Children` accessors; engine `FName` ctor, `StaticFindObject`, `FMemory`; container fixes C19–C21;
+     FText via engine; layout-true `UObject`/`UStruct`/`UClass` bases. Must keep `compile_generated.py` 203/203 on the real
+     output above and must not change generated declarations of the hybrids (old SDK must still compile).
+   Every package: full solution build (only C4715), `bin/` file list unchanged, report under `docs/reports/wave3/`.
+   Then merge, build, back up + deploy, **one** in-game test (3A/3D change startup/core).
+2. Wave 4 (C++20, ImGui 1.92.9b-docking + SDG controls, spdlog 1.17, license files), BaseMod → generated SDK, 2.8 docs.
+3. Phase 3: C# spike (`docs/design/csharp-scripting.md`).
 
 Orchestration style: parallel agents (Sonnet where fitting) in worktrees — **every agent prompt must start with
 `git reset --hard <modernize head>`** (worktrees are created from old `main`); orchestrator merges (cherry-pick), builds
@@ -85,7 +95,7 @@ Work packages (2.x) as planned on 2026-10-09; the "Wave" items come from `docs/r
 | Exported hook API `mdml::Hooks` | ☑ tested 2026-10-13 | `docs/reports/hook-api.md` |
 | PDB cold start: RVA cache `Config/SymbolCache.txt` | ☑ tested 2026-10-13 | `docs/reports/pdb-lookup-timing.md` |
 | Toolchain premake 5.0.0 + VS 2026 | ☑ | `CLAUDE.md` → Build |
-| 2.4 SDK generator (DevTools + Dumper-7 + MDMLGenerator) | ◐ part 1 + fixes ☑, real regeneration pending | `docs/SDK_GENERATOR.md`, `docs/reports/sdk-generator-*.md` |
+| 2.4 SDK generator (DevTools + Dumper-7 + MDMLGenerator) | ☑ part 1 + fixes, real output 203/203 (2026-10-13); BaseMod migration ☐ | `docs/SDK_GENERATOR.md`, `docs/reports/sdk-generator-*.md` |
 | `THIRD_PARTY_LICENSES.md` + README credits | ☑ (missing upstream license files: Wave 4) | `THIRD_PARTY_LICENSES.md` |
 | Repo folder restructure (SEngine-style) | ☑ 2026-10-13 | `docs/reports/repo-restructure.md` |
 | Plan cleanup (this file + `docs/HISTORY.md`) | ☑ 2026-10-13 | — |

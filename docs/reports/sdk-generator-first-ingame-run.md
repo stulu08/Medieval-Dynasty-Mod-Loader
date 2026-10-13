@@ -56,3 +56,9 @@ class 2/3 if the generator can be re-run offline — otherwise owner regenerates
   **`compile_generated.py` 203/203, 0 failed, 0 warnings**. Solution build: only C4715.
 - Deployed 2026-10-13 (backup of the previous game-folder state incl. old `SDK-Out`: `C:\dev\MDML\backup\2026-10-13_pre-ae2a116`).
   **Owner to do:** start the game, DevTools → Generate SDK again, then re-run `compile_generated.py` on the real output.
+
+## Real regeneration (2026-10-13 19:37) — ☑ 203/203
+Owner regenerated in-game with the deployed ae2a116 build (old output kept as `…-Medieval_Dynasty_OLD`): 202 headers in
+2.0 s, same counts as before. Engine.hpp contains the `const_cast`s and both `… dropped: does not fit the 8-bit underlying
+type` comments. `python Tests/SDKCompileTest/compile_generated.py "<Win64>/SDK-Out/4.27.2-0+++UE4+Release-4.27-Medieval_Dynasty/MDML-SDK"`:
+**203/203 compiled, 0 failed, 0 warnings.** Startup used the RVA cache (63 ms), clean shutdown.
