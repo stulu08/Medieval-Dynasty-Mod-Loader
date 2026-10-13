@@ -1,6 +1,6 @@
 # C# scripting for MDML mods — design (draft)
 
-Status: **draft, 2026-10-13.** Owner decision of the same day: mods get **C# instead of Lua**. This document compares the
+Status: **draft, 2026-10-13; runtime decisions taken (see §7).** Owner decision of the same day: mods get **C# instead of Lua**. This document compares the
 two runtime options the owner offered, proposes an architecture and ends with open questions (CS-1…). Nothing is
 implemented; Phase 2 (cleanup) comes first.
 
@@ -95,15 +95,21 @@ header-only ImGui helpers. Reuse in MDML's F1 window and DevTools:
 3. C# backend for MDMLGenerator + sample mod.
 4. UFunction hooks from C#; hot reload in-game; ImGui from C#.
 
-## 7. Open questions for the owner
-- **CS-1** Runtime: Carbide/.NET (recommended) or SMMR/Mono?
-- **CS-2** How Carbide gets into MDML: git submodule of the Carbide repo, vendored copy in `Dependencies/Carbide`
-  (developed further in the Carbide repo and synced), or developed inside MDML first and extracted later?
-- **CS-3** .NET runtime for players: require an installed .NET 10 runtime (small download, log/notice if missing) or
-  ship a private copy next to the loader (~70 MB, no install needed)?
-- **CS-4** Target framework: net10.0 (recommended; net8.0 ends 2026-11-10)?
-- **CS-5** Mod format: mods ship compiled DLLs (normal C# project, recommended), or MDML also compiles loose `.cs`
-  files at startup with Roslyn (drop-in like Lua, +~15 MB)?
+## 7. Decisions and open questions
+Decided by the owner 2026-10-13:
+- **CS-1** ☑ C# instead of Lua, on **Carbide/.NET** (SMMR/Mono only as fallback).
+- **CS-2** ☑ Carbide comes in as a **git submodule** at `Dependencies/Carbide`; Carbide itself is developed in its own
+  repo (`C:\dev\Carbide`), MDML pulls updates.
+- **CS-3** ☑ **Ship a private .NET runtime** next to the loader (no install needed by players, ~70 MB). Calcium's host
+  lookup must then point at the shipped folder (`Managed/dotnet/host/fxr/<ver>/hostfxr.dll`), never at a
+  system-wide install, and never at the process working directory.
+- **CS-5** ☑ C# mods ship **compiled DLLs** (normal C# project); no Roslyn in the game.
+- **CS-7** ☑ Lua spike **stays as reference** in `Loader/Scripting/`, not developed further.
+
+Default taken (owner may veto):
+- **CS-4** Target framework **net10.0** (net8.0 support ends 2026-11-10). Carbide's runtimeconfig needs the bump.
+
+Still open:
 - **CS-6** Generated C# SDK: one shared `MDML.SDK.dll` built by DevTools for all mods, or each mod compiles the
   packages it needs (export lists, like the C++ SDK)?
 - **CS-7** Lua spike: keep `Loader/Scripting/` as reference or delete it (the design doc stays either way)?
