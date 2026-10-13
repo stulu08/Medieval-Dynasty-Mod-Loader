@@ -7,7 +7,7 @@ something to compile at all, it is marked *spike default* and can be changed.
 Inputs read for this proposal: `CLAUDE.md`, `docs/MODERNIZATION_PLAN.md` (decisions log), `docs/SDK_GENERATOR.md`
 (reflection-by-name direction), `docs/reports/wave2/*` (engine core exported from `MDML.dll`, init thread,
 `mdml::GameThread`), `docs/reports/loadorder-and-dump-notices.md` (`Config/LoadOrder.ini`), the current engine core in
-`ModLoader/src/Engine/UE4/CoreUObject/*`, `HooksManager.cpp`, and UE4SS's Lua implementation and docs
+`Loader/ModLoader/src/Engine/UE4/CoreUObject/*`, `HooksManager.cpp`, and UE4SS's Lua implementation and docs
 (`C:\dev\MDML\tools\RE-UE4SS-src`, MIT; used as inspiration only, no code taken).
 
 ---
@@ -75,7 +75,7 @@ swap to LuaBridge3 or a raw layer only touches those files. **LuaBridge3 is a se
 an actively maintained library or wants Lua 5.5 from the start.
 
 ### 2.3 Build details (defaults, owner may veto)
-- Lua vendored as source (`vendor/lua-5.4.9/src`, without `lua.c`/`luac.c`), built as a premake `StaticLib`, like MinHook.
+- Lua vendored as source (`Dependencies/lua-5.4.9/src`, without `lua.c`/`luac.c`), built as a premake `StaticLib`, like MinHook.
 - **Compiled as C++** (`compileas "C++"`, `SOL_USING_CXX_LUA=1`): `lua_error` then throws a C++ exception instead of
   `longjmp`, so C++ destructors (RAII in our bindings, `std::string`s) always run on Lua errors. The `Lua` project must
   use `/EHsc`, not the repo-wide `exceptionhandling "SEH"` (`/EHa`): under `/EHa`, Lua's internal `catch (...)` would
@@ -385,15 +385,15 @@ the VM); scripts can read game memory through reflection by design.
 
 ## 13. Spike (proof of binding style)
 
-`Scripting/` (standalone, **not** in the root `premake5.lua`):
-- `Scripting/premake5.lua`: own workspace `MDMLScriptingSpike` with two projects: `Lua` (StaticLib, Lua 5.4.9 compiled as
+`Loader/Scripting/` (standalone, **not** in the root `premake5.lua`):
+- `Loader/Scripting/Scripting.lua`: own workspace `MDMLScriptingSpike` with two projects: `Lua` (StaticLib, Lua 5.4.9 compiled as
   C++) and `ScriptingSpike` (ConsoleApp, C++20, sol2).
-- `Scripting/vendor/`: `lua-5.4.9/` (sources + license), `sol2-3.3.0/` (release single header + license), `VENDORED.txt`.
-- `Scripting/src/`: mock reflection (`MockReflection.*`: `UObject`/`UClass`/`FProperty`/`UFunction` with names, offsets,
+- `Dependencies/`: `lua-5.4.9/` (sources + license), `sol2-3.3.0/` (release single header + license), `VENDORED-lua-sol2.txt`.
+- `Loader/Scripting/src/`: mock reflection (`MockReflection.*`: `UObject`/`UClass`/`FProperty`/`UFunction` with names, offsets,
   `ParamsSize`, `ProcessEvent`), the binding (`LuaBinding.*`), a mock game-thread queue + hook registry, and `main.cpp`
   that runs Lua test scripts and checks results.
-- `Scripting/test/`: Lua mods used by the test (a good mod, a mod with a runtime error, a mod with a syntax error).
-Build/run instructions: `Scripting/README.md`. Results, findings (e.g. sol2 pushes lvalue `T&` as pointers; Lua-as-C++ under `/EHa` would catch access violations) and gaps: `docs/reports/lua-scripting-spike.md`.
+- `Loader/Scripting/test/`: Lua mods used by the test (a good mod, a mod with a runtime error, a mod with a syntax error).
+Build/run instructions: `Loader/Scripting/README.md`. Results, findings (e.g. sol2 pushes lvalue `T&` as pointers; Lua-as-C++ under `/EHa` would catch access violations) and gaps: `docs/reports/lua-scripting-spike.md`.
 
 ## 14. Open questions for the owner
 
@@ -429,6 +429,6 @@ Build/run instructions: `Scripting/README.md`. Results, findings (e.g. sol2 push
 | **S2** LuaScripting MVP | new premake project + vendored Lua/binding; per-mod states; `Log`, `Mod`, `FindObject`/`FindClass`/`FindFirstOf`/`FindAllOf`/`StaticFindObject`/`LoadObject`; UObject wrapper with scalar/bool/name/string/object properties; UFunction calls (same types) with validation; `Events`, `GameThread`, `Timer`, `Keys`; error isolation + faulted state; F1 list of Lua mods with status and last error; reload button; example mod in `ExampleMods/` | S1, OQ-1/2/5/6/7 |
 | **S3** Hooks + data | `Hooks.Register` (native thunk + BP via `ProcessInternal`), `Events.OnNewObject`, StructView/ArrayView, enums by name, Text read, soft/weak object read, `Blueprint.Register` bridge | S2, OQ-9/10 |
 | **S4** Comfort | file-watcher hot reload, reload state hand-over, coroutine helpers (`Async.Run`/`Wait`), cross-mod events, Map/Set views, LuaLS stubs from the SDK generator, deferred hooks | S3, generator |
-| **S5** UI + hardening | declarative settings UI / Lua ImGui, instruction budget, per-mod memory stats/limit, sandbox options, mod-author docs in `Modding.md` | S4, OQ-13/14/15 |
+| **S5** UI + hardening | declarative settings UI / Lua ImGui, instruction budget, per-mod memory stats/limit, sandbox options, mod-author docs in `docs/guides/Modding.md` | S4, OQ-13/14/15 |
 
 Each phase ends with an in-game test by the owner (agents never launch the game).

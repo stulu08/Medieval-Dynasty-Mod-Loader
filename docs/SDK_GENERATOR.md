@@ -5,7 +5,7 @@ Decisions: `docs/MODERNIZATION_PLAN.md` → decisions log ("SDK generator", "SDK
 2026-10-10 "SDK generator members" / "SDK package selection").
 
 ## Why
-The old generator (`BaseMod/src/Utils.h` → `Utils::Export`) wrote one `.h` + `.cpp` per class with getters/setters at
+The old generator (`Mods/BaseMod/src/Utils.h` → `Utils::Export`) wrote one `.h` + `.cpp` per class with getters/setters at
 **fixed offsets** (`Read<T>(this + 1440)`). Two problems:
 1. Size: every generated `.cpp` includes the whole SDK → `SDK.lib` ≈ 2.7 GB.
 2. **Offsets go stale with game patches.** Confirmed crash (game 2.7.0.4): `BP_BaseCharacter_C::InventoryComponent`
@@ -14,13 +14,13 @@ The old generator (`BaseMod/src/Utils.h` → `Utils::Export`) wrote one `.h` + `
 ## Pieces
 | Piece | Where | What |
 |---|---|---|
-| Dumper-7 (vendored, unmodified) | `DevTools/vendor/Dumper-7/` (`VENDORED.txt`: commit, file list, license note) | engine-core discovery (GObjects/GNames/offsets) + analysis managers (packages, structs, enums, members, name collisions, dependencies) |
-| `MDMLGenerator` | `DevTools/src/Generator/MDMLGenerator.*` | our backend: plugs into `Generator::Generate<T>()`, emits one header per package |
-| `SdkGenerator` facade | `DevTools/src/Generator/SdkGenerator.*` | analysis once per session, SEH guard, Dumper-7 `std::cerr` → our log; std-types-only API for the mod |
+| Dumper-7 (vendored, unmodified) | `Dependencies/Dumper-7/` (`VENDORED.txt`: commit, file list, license note) | engine-core discovery (GObjects/GNames/offsets) + analysis managers (packages, structs, enums, members, name collisions, dependencies) |
+| `MDMLGenerator` | `Mods/DevTools/src/Generator/MDMLGenerator.*` | our backend: plugs into `Generator::Generate<T>()`, emits one header per package |
+| `SdkGenerator` facade | `Mods/DevTools/src/Generator/SdkGenerator.*` | analysis once per session, SEH guard, Dumper-7 `std::cerr` → our log; std-types-only API for the mod |
 | `DevTools.Generator` | premake project (static lib, **C++latest**) | the three above; Dumper-7 needs C++20/23. No MDML headers in it |
-| `DevTools` mod | `DevTools/src/DevTools.*`, `Config/mod.ini` | C++17 mod DLL, **disabled by default**; ImGui window, export lists, game-thread scheduling |
-| Runtime support | `ModLoader/src/Engine/MDML/GeneratedSupport.{h,cpp}`, `SDKPrologue.inl`, `SDKEpilogue.inl` | hand-written core used by the generated headers, exported from MDML.dll (`MDML_ENGINE_API`) |
-| Offline proof | `DevTools/tests/SDKCompileTest/` | hand-written sample of the output (`Sample/`), compile-test DLL project, `compile_generated.py` |
+| `DevTools` mod | `Mods/DevTools/src/DevTools.*`, `Mods/DevTools/Config/mod.ini` | C++17 mod DLL, **disabled by default**; ImGui window, export lists, game-thread scheduling |
+| Runtime support | `Loader/ModLoader/src/Engine/MDML/GeneratedSupport.{h,cpp}`, `SDKPrologue.inl`, `SDKEpilogue.inl` | hand-written core used by the generated headers, exported from MDML.dll (`MDML_ENGINE_API`) |
+| Offline proof | `Tests/SDKCompileTest/` | hand-written sample of the output (`Sample/`), compile-test DLL project, `compile_generated.py` |
 
 Attribution: Dumper-7 by Encryqed/Fischsalat and contributors, used with the maintainer's permission for open-source
 projects (issue #416). Credited in `VENDORED.txt`, in the file headers of `MDMLGenerator.*`/`SdkGenerator.cpp`
@@ -38,7 +38,7 @@ projects (issue #416). Credited in `VENDORED.txt`, in the file headers of `MDMLG
    inside `Content`, never in the repo. Dumper-7 rotates an existing folder to `*_OLD`. Also written there:
    `GObjects-Dump*.txt` (Dumper-7) one level up, `GenerationReport.txt` (packages, missing packages, skipped functions,
    opaque members) in `MDML-SDK/`.
-5. Check: `python DevTools/tests/SDKCompileTest/compile_generated.py "<...>/MDML-SDK"` (every header in its own TU).
+5. Check: `python Tests/SDKCompileTest/compile_generated.py "<...>/MDML-SDK"` (every header in its own TU).
 
 The analysis snapshot is taken once per game session (Dumper-7's managers initialize once); classes loaded later
 need a game restart.
@@ -59,10 +59,10 @@ InventoryComponent, ST_InventoryItemsArray   ; several per line: space/tab/comma
 ```
 Names are UPackage short names as shown in the picker (`Engine`, `CoreUObject`, `BP_BaseCharacter`, ...); matching
 is exact first, then case-insensitive. Dependencies are added automatically (transitive closure over Dumper-7's
-struct/class/parameter package dependencies). Example: `DevTools/Config/Example.export`.
+struct/class/parameter package dependencies). Example: `Mods/DevTools/Config/Example.export`.
 
 ## Output shape
-One header per package, header-only, `namespace UE4`, against the core only (no old `SDK/` headers):
+One header per package, header-only, `namespace UE4`, against the core only (no old `Loader/SDK/` headers):
 ```
 MDML-SDK/
   <Package>.hpp         one per package (requested + dependencies)
@@ -73,7 +73,7 @@ MDML-SDK/
 Each `<Package>.hpp`: banner (Dumper-7 credit, game version) → `#include "MDML/GeneratedSupport.h"`,
 `"NameCollisions.hpp"`, the dependency packages → `#include "MDML/SDKPrologue.inl"` (saves and undefines windows.h
 value macros such as `ERROR`, `DELETE`, `IN`, `OUT`, `TRUE`, `small`, `interface`; `SDKEpilogue.inl` restores them)
-→ enums → structs (dependency order) → classes (dependency order). Verbatim example: `DevTools/tests/SDKCompileTest/Sample/`.
+→ enums → structs (dependency order) → classes (dependency order). Verbatim example: `Tests/SDKCompileTest/Sample/`.
 
 **Enums**: `enum class E_Ownership : uint8_t { ... }`, underlying type from Dumper-7's EnumManager (size found from
 properties using the enum, signedness). The underlying type is never widened (must match the in-struct layout); entries whose value does not fit (the synthetic `_MAX = 256` of uint8 enums such as `ESkinCacheUsage`) are replaced by a `// NAME = N dropped` comment and listed in the GenerationReport notes.
@@ -129,7 +129,7 @@ Const pointer parameters (`const T*`, `const T*&`) stay const in the public sign
 and enums; list in `MDMLGenerator.cpp`). Instead the header gets `MDML_PREDEFINED_CHECK(FVector, 0x000C, 0x04)` (a
 `static_assert` of the core type against the live layout; math/containers always, the old CoreTypes.h structs only with
 `MDML_SDK_STRICT_PREDEFINED_CHECKS`). Engine stubs that drag in the old SDK (`World.h`, `GameState.h`, ...) are **not**
-predefined: `UWorld`, `ULevel`, ... are generated. Do not include old `SDK/` headers and new generated headers in the
+predefined: `UWorld`, `ULevel`, ... are generated. Do not include old `Loader/SDK/` headers and new generated headers in the
 same translation unit (same names in `namespace UE4`).
 
 ## Offline proof

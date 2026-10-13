@@ -22,11 +22,11 @@ Contents:
 
 ## 1. spdlog (with bundled fmt)
 
-- Location: `ModLoader/vendor/spdlog/spdlog`
+- Location: `Dependencies/spdlog/spdlog`
 - Upstream: https://github.com/gabime/spdlog
 - Version: 1.8.5 (`spdlog/version.h`), bundled fmt 8.0.0 (`spdlog/fmt/bundled`)
 - License: MIT (spdlog); fmt is also MIT (https://github.com/fmtlib/fmt, Copyright (c) 2012 - present, Victor Zverovich, per the bundled `core.h` header)
-- License file in vendor folder: yes for spdlog (`ModLoader/vendor/spdlog/spdlog/LICENSE`); the fmt license file is not in the vendor folder (see Follow-ups)
+- License file in vendor folder: yes for spdlog (`Dependencies/spdlog/spdlog/LICENSE`); the fmt license file is not in the vendor folder (see Follow-ups)
 
 ```
 The MIT License (MIT)
@@ -58,7 +58,7 @@ and users must comply to its license: https://github.com/fmtlib/fmt/blob/master/
 
 ## 2. Dear ImGui (docking branch) and backends
 
-- Location: `ModLoader/vendor/ImGui/imgui`
+- Location: `Dependencies/ImGui/imgui`
 - Upstream: https://github.com/ocornut/imgui
 - Version: 1.89.2 WIP, docking branch snapshot (`IMGUI_VERSION_NUM 18916`). Includes the `imgui_impl_dx11` and `imgui_impl_win32` backends.
 - License: MIT, Copyright (c) Omar Cornut (the vendored sources point to `LICENSE.txt` for the "standard MIT License")
@@ -70,11 +70,11 @@ and users must comply to its license: https://github.com/fmtlib/fmt/blob/master/
 
 ## 3. MinHook (with HDE)
 
-- Location: `ModLoader/vendor/MinHook`
+- Location: `Dependencies/MinHook`
 - Upstream: https://github.com/TsudaKageyu/minhook
 - Version: v1.3.4, tag `c3fcafdc10146beb5919319d0683e44e3c30d537` (`VENDORED.txt`)
 - License: BSD-2-Clause (MinHook), plus the BSD-licensed Hacker Disassembler Engine (HDE32/HDE64, Vyacheslav Patkov)
-- License file in vendor folder: yes (`ModLoader/vendor/MinHook/LICENSE.txt`)
+- License file in vendor folder: yes (`Dependencies/MinHook/LICENSE.txt`)
 
 ```
 MinHook - The Minimalistic API Hooking Library for x64/x86
@@ -175,7 +175,7 @@ Andrey Unis <uniskz@gmail.com>
 
 ## 4. GLM (OpenGL Mathematics)
 
-- Location: `ModLoader/vendor/glm/glm`
+- Location: `Dependencies/glm/glm`
 - Upstream: https://github.com/g-truc/glm
 - Version: "0.9.9.9" (`GLM_VERSION_MESSAGE`, a master snapshot between the 0.9.9.8 tag and 1.0.0)
 - License: MIT / "Happy Bunny" dual license (Copyright (c) G-Truc Creation). Per the library review (`docs/reports/libraries.md`) this was not verified against a local file.
@@ -183,7 +183,7 @@ Andrey Unis <uniskz@gmail.com>
 
 ## 5. Feather INI Parser
 
-- Location: `ModLoader/vendor/INI/INI.h`
+- Location: `Dependencies/INI/INI.h`
 - Upstream: https://github.com/Turbine1991/cpp-feather-ini-parser (original site http://code.google.com/p/feather-ini-parser). The maintained fork `c-ridgway/cpp-feather-ini-parser` lists MIT.
 - Version: 2.0 (header banner "Feather INI Parser - 2.0"), written by Turbine1991
 - License: no standard license. The header states: "You are free to use this however you wish."
@@ -191,7 +191,7 @@ Andrey Unis <uniskz@gmail.com>
 
 ## 6. nlohmann/json
 
-- Location: `ModManager/src/JSON.h`
+- Location: `Dependencies/nlohmann-json/JSON.h`
 - Upstream: https://github.com/nlohmann/json
 - Version: 3.11.3 macros (`NLOHMANN_JSON_VERSION`), a develop-branch snapshot with the header "SPDX-FileCopyrightText: 2013 - 2025 Niels Lohmann"; exact commit unknown
 - License: MIT (`SPDX-License-Identifier: MIT` in the header). Copyright (c) 2013-2025 Niels Lohmann
@@ -199,11 +199,11 @@ Andrey Unis <uniskz@gmail.com>
 
 ## 7. ImGuiColorTextEdit
 
-- Location: `ModLoader/src/UI/ImGuiColorTextEdit`
+- Location: `Dependencies/ImGuiColorTextEdit`
 - Upstream: https://github.com/BalazsJako/ImGuiColorTextEdit
 - Version: master at commit `0a88824f` (2019-06-15), with local patches (`LOADER_API` export, an INI language definition, a window flag change, and an include change)
 - License: MIT
-- License file in vendor folder: yes (`ModLoader/src/UI/ImGuiColorTextEdit/LICENSE`)
+- License file in vendor folder: yes (`Dependencies/ImGuiColorTextEdit/LICENSE`)
 
 ```
 MIT License
@@ -234,10 +234,10 @@ SOFTWARE.
 Dumper-7 is an Unreal Engine SDK generator / dumper by **Encryqed** and **Fischsalat** (and contributors).
 
 - Upstream: https://github.com/Encryqed/Dumper-7
-- Planned location: `DevTools/vendor/Dumper-7` (vendored by a separate work package; this section covers it in advance)
+- Planned location: `Dependencies/Dumper-7` (vendored by a separate work package; this section covers it in advance)
 - License: the repository has no license file. The maintainer (Fischsalat) stated in [issue #416](https://github.com/Encryqed/Dumper-7/issues/416): "Usage of the Dumper-7 code for your open source project with proper attribution is not an issue at all." Rights are otherwise retained by the authors (see issue #492). Commercial use is only by arrangement with the authors.
 - MDML is open source and non-commercial, and uses Dumper-7 under that permission. Any file that adapts Dumper-7 code carries an attribution header, and Dumper-7 is credited in `README.md` and in this file.
-- Do not remove or alter the authors' copyright headers in files under `DevTools/vendor/Dumper-7`.
+- Do not remove or alter the authors' copyright headers in files under `Dependencies/Dumper-7`.
 
 ## 9. UnrealModLoader (project origin)
 
@@ -255,12 +255,12 @@ License files missing from the vendor folders. Upstream licenses are listed for 
 
 | Component | Folder | Upstream license | Action |
 |---|---|---|---|
-| Dear ImGui | `ModLoader/vendor/ImGui/imgui` | MIT (Omar Cornut) | Add upstream `LICENSE.txt` (the planned ImGui upgrade to `v1.92.9b-docking` should bring it) |
-| fmt (bundled with spdlog) | `ModLoader/vendor/spdlog/spdlog/fmt/bundled` | MIT (Victor Zverovich and fmt contributors) | Add upstream `LICENSE` (the spdlog 1.17 upgrade bundles fmt 12.1) |
-| GLM | `ModLoader/vendor/glm` | MIT / Happy Bunny (G-Truc) | Add upstream `copying.txt` |
-| nlohmann/json | `ModManager/src/JSON.h` | MIT | Add upstream `LICENSE.MIT` when moving it to `vendor/` and bumping to 3.12 |
-| Feather INI Parser | `ModLoader/vendor/INI` | No standard license ("free to use however you wish"); the c-ridgway fork lists MIT | Owner decision: keep, or replace with mINI (MIT) as proposed in the library review |
-| Dumper-7 | `DevTools/vendor/Dumper-7` | No license file; permission by maintainer statement (issue #416) | Keep the attribution headers; consider asking upstream to add an explicit license |
+| Dear ImGui | `Dependencies/ImGui/imgui` | MIT (Omar Cornut) | Add upstream `LICENSE.txt` (the planned ImGui upgrade to `v1.92.9b-docking` should bring it) |
+| fmt (bundled with spdlog) | `Dependencies/spdlog/spdlog/fmt/bundled` | MIT (Victor Zverovich and fmt contributors) | Add upstream `LICENSE` (the spdlog 1.17 upgrade bundles fmt 12.1) |
+| GLM | `Dependencies/glm` | MIT / Happy Bunny (G-Truc) | Add upstream `copying.txt` |
+| nlohmann/json | `Dependencies/nlohmann-json/JSON.h` | MIT | Add upstream `LICENSE.MIT` and bump to 3.12 (already moved to `Dependencies/nlohmann-json/`) |
+| Feather INI Parser | `Dependencies/INI` | No standard license ("free to use however you wish"); the c-ridgway fork lists MIT | Owner decision: keep, or replace with mINI (MIT) as proposed in the library review |
+| Dumper-7 | `Dependencies/Dumper-7` | No license file; permission by maintainer statement (issue #416) | Keep the attribution headers; consider asking upstream to add an explicit license |
 
 Other notes:
 

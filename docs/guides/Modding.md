@@ -3,8 +3,8 @@
 -  There should be vs22 project files but you can generate your own using premake in the scripts folder, no need to install anything
 -  Use the ExampleMod project to start
 -  The entire source code of mdml is in the project so you can browse to search or add functions 
--  UE4 headers can be found in ModLoader/src/UE4, additionally the BaseMod gives game specific features, not much jet but I am looking forward to adding more
--  The mod.ini files will be moved in the build dir, the original mod.ini is located at ExampleMod/Config, put all your mod files into this folder so they get copied at build
+-  UE4 headers can be found in Loader/ModLoader/src/Engine/UE4, additionally the BaseMod gives game specific features, not much jet but I am looking forward to adding more
+-  The mod.ini files will be moved in the build dir, the original mod.ini is located at Mods/Examples/<YourMod>/Config (see Mods/Examples), put all your mod files into this folder so they get copied at build
 ### Here is the mod.ini structure for your mod
 ```
 [Mod]

@@ -50,7 +50,7 @@ pointer/container edits; every write is logged (object, path, old, new).
 ## 3. Architecture
 
 ### 3.1 Placement
-- New code lives in the **DevTools** mod (`DevTools/`, off by default per the decisions log). The DevTools project is created
+- New code lives in the **DevTools** mod (`Mods/DevTools/`, off by default per the decisions log). The DevTools project is created
   by the SDK-generator part-1 branch; it does **not** exist on `modernize` at 158ba5e. This doc assumes it exists.
   BaseMod keeps its game-API helpers.
 - Only reflection from the engine core exported by MDML.dll is used: `UObject`, `UClass`, `UStruct`, `FField`/`FProperty`
@@ -132,7 +132,7 @@ Problem: hundreds of thousands of objects; BaseMod rebuilt O(N) lists with `GetF
   mods reuse it, with only the UI in the reloadable DevTools (see `hot-reload.md`).
 
 ### 3.7 Relation to BaseMod's object browser
-`BaseMod/src/BaseMod.cpp:264-540` and `Utils::Gui::*`:
+`Mods/BaseMod/src/BaseMod.cpp:264-540` and `Utils::Gui::*`:
 
 | BaseMod feature | Live View replacement |
 |---|---|

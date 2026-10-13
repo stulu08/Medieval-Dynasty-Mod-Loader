@@ -8,12 +8,12 @@ Security note for agents: the old pak AES key lives in `C:\dev\MDML\Key.txt` (ou
 **without reading that file**. Never print, log, paste or commit the key; the design below keeps it out of the repo (section 6).
 
 Related: `docs/design/hot-reload.md` (paks are not reloadable), `docs/reports/loadorder-and-dump-notices.md` (load order),
-`Modding.md` (today: "mdml only supports loose file loading").
+`docs/guides/Modding.md` (today: "mdml only supports loose file loading").
 
 ## 1. Current state (158ba5e)
 - **Overwrite mods** (`[Overwrites]`/`[Overrides]` in `mod.ini`, `Enable=True`, `Folder=...`): loose cooked files are hard-/symlinked
   into `<game>/Medieval_Dynasty/Content/<relative path>` by `ModLoader::CreateSysLinks`; the links are recorded in `ModLinks.bin`,
-  originals are backed up as `.mdml-backup` and restored on cleanup/next start (owner-tested, fixture in `tests/mods/OverwriteBackupTest`).
+  originals are backed up as `.mdml-backup` and restored on cleanup/next start (owner-tested, fixture in `Tests/OverwriteBackupTest`).
 - Two hooks make the engine accept loose files for assets that exist in the game pak:
   `FPakPlatformFile::FindFileInPakFiles` (rva `0x0272b130`) returns "not in pak" for paths that are valid loose overwrites, and
   `FPakPlatformFile::IsNonPakFilenameAllowed` (rva `0x027303c0`) returns true. Validity = file exists, path contains `\Content\`,
@@ -21,7 +21,7 @@ Related: `docs/design/hot-reload.md` (paks are not reloadable), `docs/reports/lo
 - Logic mods (Blueprint actors) are loaded by path with `StaticLoadClass`/`StaticLoadObject` after the assets are reachable (loose or pak).
 - The game ships **one pak and one signature file**: `Content/Paks/Medieval_Dynasty-WindowsNoEditor.pak` (~11.1 GB) and `Medieval_Dynasty-WindowsNoEditor.sig` (~680 KB)
   (directory listing read-only, 2026-10-10). **A `.sig` file means pak signing is in use** (see 6).
-- Symbols found in the PDB (2026-10-10, `tools/pdbsym.py`): `FPakPlatformFile::Mount` (rva `0x02733760`, size `0x10ba`), `FPakPlatformFile::Initialize` (`0x0272f8a0`),
+- Symbols found in the PDB (2026-10-10, `Tools/RE/pdbsym.py`): `FPakPlatformFile::Mount` (rva `0x02733760`, size `0x10ba`), `FPakPlatformFile::Initialize` (`0x0272f8a0`),
   `FPakPlatformFile::RegisterEncryptionKey` (`0x027387b0`), `FPakFile::FPakFile` (`0x0271f2d0`), `FPakPlatformFile::HandleMountPakDelegate` (`0x0272ef70`),
   `FPakPlatformFile::HandleOnMountPakDelegate`, the delegates `FCoreDelegates::MountPak`, `FCoreDelegates::OnMountPak`, `GetPakEncryptionKeyDelegate`, `GetPakSigningKeysDelegate`, `GetRegisterEncryptionKeyMulticastDelegate`,
   `FPakPlatformFile::FindPakFilesInDirectory`'s visitor. So the pak machinery is present and symbolized.
@@ -98,8 +98,8 @@ Owner-visible policy proposals: (1) v1 supports **unencrypted** mod paks only, (
 - `PakMounter`: owns the captured `FPakPlatformFile*`, performs `Mount` on the game thread (`mdml::GameThread::Enqueue` after the first Tick, or earlier on the init thread if the engine's pak list lock allows it), returns success per pak, logs `Mounted <pak> order=<n> (<ms> after process start)`.
 - Conflict report: optional (needs reading the pak index; the engine's `FPakFile` exposes the file list after mount via `GetFilenames`/`FindFilesAtPath` **[verify]**) → DevTools tab "Asset conflicts".
 - F1 window: list pak mods with state (Mounted/Failed/Disabled) and their order.
-- `Modding.md` update: how to cook and pack a mod (UnrealPak command, naming, folder layout, `[Pak]` section), plus a "not hot-reloadable" note.
-- Test fixture like `tests/mods/OverwriteBackupTest`: a tiny unencrypted pak that replaces one harmless asset, with a read-only check script.
+- `docs/guides/Modding.md` update: how to cook and pack a mod (UnrealPak command, naming, folder layout, `[Pak]` section), plus a "not hot-reloadable" note.
+- Test fixture like `Tests/OverwriteBackupTest`: a tiny unencrypted pak that replaces one harmless asset, with a read-only check script.
 
 ## 8. Threading
 - `Mount` modifies the engine's pak list under the engine's critical section; call it from one thread only, preferably the game thread or the thread the engine itself uses during startup. The first reliable moment is when the pak platform file exists (captured by our hooks). Calls from MDML's init thread are risky if the engine is concurrently scanning/mounting; measure in phase 0.
@@ -113,7 +113,7 @@ Owner-visible policy proposals: (1) v1 supports **unencrypted** mod paks only, (
 | Mount happens too late (assets already loaded) or concurrently with engine init | Timestamp logs; fallback options A/D; document that replaced assets must not be loaded before mount |
 | Wrong `Mount` signature/ABI (wrong args crash the game) | Phase 0 decompiles `Mount` and its callers (`HandleMountPakDelegate`) and copies the engine's own call pattern; validate with a log-only hook first |
 | Key leakage | No key code path in v1; `.gitignore` guard; code review rule; never read `Key.txt` in agents |
-| Load-order confusion (direction) | State it in the file header, UI and `Modding.md`; log final mount order |
+| Load-order confusion (direction) | State it in the file header, UI and `docs/guides/Modding.md`; log final mount order |
 | Corrupt/foreign pak (index parse) crashing the engine | Validate footer/size before mounting; wrap mount in SEH if the owner agrees (cannot catch all) |
 | Pak replaces a core asset and bricks saves | Docs; mods disabled via LoadOrder `0`; no automatic uninstall needed since nothing is written to the game folder (option B) |
 | Antivirus / EAC-style detection | None known; game has no anti-cheat on this path (not verified) |
@@ -127,7 +127,7 @@ Owner-visible policy proposals: (1) v1 supports **unencrypted** mod paks only, (
 | **1 Prototype mount** | Capture `FPakPlatformFile*`, mount one **unencrypted** test pak (fixture) that replaces one harmless asset, game-thread, behind a config flag | asset replaced in-game, clean shutdown, log shows order and timing |
 | **2 Mod format + load order** | `[Pak]` section in `mod.ini`, scanner, LoadOrder integration (direction decided), enable/disable, F1 list | two pak mods ordered by LoadOrder, conflict decided as documented |
 | **3 Signing/encryption policy** | Implement the owner's chosen policy (sig relaxation hook, or reuse of the engine's registered key, or none) | decision-dependent |
-| **4 Conflict report + docs** | DevTools asset-conflict view, `Modding.md` pak chapter, test fixture + check script | documented workflow end to end |
+| **4 Conflict report + docs** | DevTools asset-conflict view, `docs/guides/Modding.md` pak chapter, test fixture + check script | documented workflow end to end |
 | **5 Optional** | Option D (inject search directory) for earlier mounting; runtime unmount (`Unmount` symbol check); IoStore | per owner |
 
 ## 11. Open questions for the owner

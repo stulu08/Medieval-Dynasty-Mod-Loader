@@ -5,7 +5,7 @@ Medieval Dynasty Mod Loader (MDML) is a fork of the [Unreal Engine Mod Loader](h
 - The mod loader only supports the 64-Bit Windows version of the game
 - You need to use DirectX11, otherwise the GUI will crash. Go to ```Settings>Graphics>Rendering Mode``` and switch to DirectX11
 
-# [Installation Instruction](https://github.com/stulu08/Medieval-Dynasty-Mod-Loader/blob/main/Install%20Instructions/Installation.md)
+# [Installation Instruction](https://github.com/stulu08/Medieval-Dynasty-Mod-Loader/blob/main/docs/guides/Installation.md)
 - Download the latest [Release](https://github.com/stulu08/Medieval-Dynasty-Mod-Loader/releases/latest) as a zip file
 
 # Building it
@@ -25,7 +25,7 @@ Medieval Dynasty Mod Loader (MDML) is a fork of the [Unreal Engine Mod Loader](h
 - Core mods are DLL's which will get loaded with the mod loader automatically, they are used to adding features for the mod loader and do stuff that you can't do with Logic mods
 - Logic mods are Unreal Engine actor files, the actor file will get loaded by mdml using StaticLoadObject if setup correctly, you can create a mod inside UE4 and use most of the features from UE4
 - Overwrite mods, they overwrite the game files. On startup the mod loader will generate hard links from the mod files to the game files and on application exit or next start they will get removed. It's basically the same as Vortex
-- [Here](Modding.md) is very simple tutorial on how to create mods
+- [Here](docs/guides/Modding.md) is very simple tutorial on how to create mods
 
 # DISCLAIMER
 This software is provided by the author "as is". In no event shall the author be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any 
