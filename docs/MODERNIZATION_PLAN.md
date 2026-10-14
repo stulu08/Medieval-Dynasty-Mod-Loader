@@ -13,6 +13,23 @@ Status legend: ☐ todo · ◐ in progress · ☑ done
 ## Current state — READ THIS FIRST (updated 2026-10-14)
 Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
 
+- **Wave 4 in progress** (2026-10-14), libraries done, **in-game test pending**:
+  - 4.1 (7f951ac) all projects C++20 (DevTools.Generator stays C++latest); `compile_generated.py` uses `/std:c++20`.
+  - 4.2 (8131d1a) spdlog 1.17.0 / fmt 12.1 (`/utf-8` workspace-wide), log format strings compile-time checked,
+    Logger double-free + null-deref + registry ownership fixed; nlohmann/json 3.12.0; 3E-Q4 `[FunctionInfo] ProcessInternal`
+    in the shipped ini (no built-in default); 3E-Q5 startup log wording ("Loader config: …", "Hooks initialized").
+  - 4.3 (57f619b) Dear ImGui 1.92.9b-docking (export via "MDML" block in `imconfig.h`), ImGuiColorTextEdit upstream
+    `ca2f9f14` + MDML patches.
+  - Checks: solution 0 warnings, `compile_generated.py` 203/203, `check_patterns.py` 17/17 OK.
+  - **Deployed** 2026-10-14 (MDML.dll/.pdb, xinput1_3.dll, BaseMod/DevTools dll+pdb); backup
+    `C:\dev\MDMLackup6-10-14_pre-57f619b`. Game `Config/ModLoaderInfo.ini` untouched: it has no
+    `ProcessInternal` key, fine while the PDB resolves it (add the key with owner approval later).
+  - Test checklist: (1) startup log has "Loader config: …", "Hooks initialized", no fmt/format errors, all symbols from
+    PDB, "Engine layout verified"; (2) F1 window: opens/closes, themes look right (tab colours renamed), docking works,
+    text fields/INI editor (TextEditor: typing, scrolling, INI highlighting); (3) DevTools object browser + transform
+    editor, Generate SDK; (4) load a save, logic mods fire; (5) mod logs (`Logs/*-log.txt`) written, quit cleanly.
+  - Remaining Wave 4: SDG controls + sortable load-order editor, locked `ModStack` API (3E-Q3), BaseMod/DevTools →
+    generated SDK (then `SDK.lib` goes), public API header split (`include/MDML`, owner decisions), 2.8 docs, glm license.
 - **Wave 3 done** ☑ 2026-10-14 (staged: 3A+3D, then 3B+3C+3E; reports `docs/reports/wave3/3{A,B,C,D,E}-*.md`):
   - **3A** runtime split (`src/Bootstrap`, `src/Runtime/{EngineSetup,GameHooks,Paths}`, `src/Mods/{CoreModLoader,LogicMods,
     OverwriteMods}`), static class `MDML` dissolved into `mdml::platform/runtime/mods/ui`, event bus binds the mod pointer
@@ -50,7 +67,7 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
 - **C# replaces Lua** for script mods (Phase 3): `docs/design/csharp-scripting.md`. Lua spike in `Loader/Scripting/` = reference.
 
 **Next (in order) — start here in a new session:**
-1. Wave 4 (C++20, ImGui 1.92.9b-docking + SDG controls incl. a sortable load-order editor, spdlog 1.17, license files),
+1. Wave 4 rest (C++20/spdlog/ImGui done, see above; next: SDG controls incl. a sortable load-order editor, license files),
    BaseMod/DevTools → generated SDK, 2.8 docs, public API header split (`include/MDML`; decide widgets namespace, `LoaderUI`
    facade, BaseMod/`GameMod` placement then).
 2. Phase 3: C# spike (`docs/design/csharp-scripting.md`).
@@ -58,7 +75,7 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
 Known follow-ups from Wave 3 (not yet scheduled): TimeWeatherChanger and mods' render-thread `DrawImGui` handlers still
 call UE directly (needs a mod-API rule); `ItemTools` (give item/inventory) waits for the new SDK, then DevTools stops
 linking `SDK`; locked `ModStack` iteration API (`ForEachMod`/`MoveToFront`); `[ProcessInternalFunction]` pattern into the
-shipped ini; UML-era log wording ("Profile Detected"); `UseDebugUI=0` + F1 still shows a MessageBox; `Tools/ModManager`
+shipped ini (done in Wave 4); UML-era log wording (done in Wave 4); `UseDebugUI=0` + F1 still shows a MessageBox; `Tools/ModManager`
 still on the old `Dependencies/INI` parser.
 
 Orchestration style: parallel agents (Sonnet where fitting) in worktrees — **every agent prompt must start with
@@ -112,7 +129,7 @@ Work packages (2.x) as planned on 2026-10-09; the "Wave" items come from `docs/r
 | Wave 3 parallel splits (layers inside files, dead code, naming) | ☑ 2026-10-14, in-game test pending | `docs/reports/wave3/` |
 | 2.3 Engine core cleanup (refactor, `EngineDefFinder` vs PDB types) | ☑ 2026-10-14 (Wave 3D/3E) | `docs/reports/wave3/3D-engine.md` |
 | 2.5 BaseMod split (dev tools → DevTools) / migrate BaseMod to generated SDK | split ☑ 2026-10-14 (3C); migration ☐ | `docs/reports/wave3/3C-mods.md` |
-| Wave 4 / 2.6 Libraries: C++20, ImGui 1.92.9b-docking, spdlog 1.17, nlohmann/json 3.12 | ☐ | `docs/reports/libraries.md` |
+| Wave 4 / 2.6 Libraries: C++20, ImGui 1.92.9b-docking, spdlog 1.17, nlohmann/json 3.12 | ☑ 2026-10-14, in-game test pending | `docs/reports/libraries.md` |
 | 2.7 ModManager | kept for later (decision 2026-10-09) | `Tools/ModManager/` |
 | 2.8 Documentation (README, Modding guide, architecture, game-patch how-to) | ☐ | `docs/guides/` |
 
