@@ -2,31 +2,119 @@
 #include "ModStack.h"
 #include "Mod.h"
 
+#include <mutex>
+
+// Locking design: see ModStack.h.
+namespace {
+    // Per thread and stack: how deep this thread is inside callEvent, and the changes it deferred meanwhile.
+    // Only MDML.dll touches this (beginDispatch/endDispatch/applyOrDefer are out of line), so there is one copy.
+    struct ThreadDispatch {
+        const ModStack* Stack = nullptr;
+        int Depth = 0;
+        std::vector<std::function<void()>> Deferred;
+    };
+    thread_local std::vector<ThreadDispatch> t_dispatches;
+
+    ThreadDispatch* FindDispatch(const ModStack* stack) {
+        for (ThreadDispatch& d : t_dispatches)
+            if (d.Stack == stack)
+                return &d;
+        return nullptr;
+    }
+    bool IsDispatching(const ModStack* stack) {
+        const ThreadDispatch* d = FindDispatch(stack);
+        return d && d->Depth > 0;
+    }
+}
+
+void ModStack::beginDispatch() {
+    ThreadDispatch* d = FindDispatch(this);
+    if (!d) {
+        t_dispatches.push_back({ this, 0, {} });
+        d = &t_dispatches.back();
+    }
+    // Only the outermost dispatch locks: re-acquiring a shared SRW lock on the same thread can deadlock as soon as
+    // another thread waits for the exclusive lock.
+    if (d->Depth == 0)
+        m_mutex.lock_shared();
+    ++d->Depth;
+}
+
+void ModStack::endDispatch() {
+    ThreadDispatch* d = FindDispatch(this);
+    if (!d || d->Depth == 0)
+        return;
+    if (--d->Depth > 0)
+        return;
+    m_mutex.unlock_shared();
+
+    std::vector<std::function<void()>> deferred;
+    deferred.swap(d->Deferred);
+    t_dispatches.erase(t_dispatches.begin() + (d - t_dispatches.data()));
+    if (deferred.empty())
+        return;
+    std::unique_lock<std::shared_mutex> lock(m_mutex);
+    for (auto& change : deferred)
+        change();
+}
+
+void ModStack::applyOrDefer(std::function<void()> change) {
+    if (ThreadDispatch* d = FindDispatch(this); d && d->Depth > 0) {
+        d->Deferred.push_back(std::move(change));
+        return;
+    }
+    std::unique_lock<std::shared_mutex> lock(m_mutex);
+    change();
+}
+
 void ModStack::pushMod(Mod* mod) {
-    m_mods.emplace(m_mods.begin() + m_insertIndex, mod);
-    m_insertIndex++;
+    applyOrDefer([this, mod]() {
+        m_mods.emplace(m_mods.begin() + m_insertIndex, mod);
+        m_insertIndex++;
+    });
 }
 
 void ModStack::popMod(Mod* mod) {
-    auto it = std::find(m_mods.begin(), m_mods.begin() + m_insertIndex, mod);
-
-    if (it != m_mods.begin() + m_insertIndex) {
-        m_mods.erase(it);
-        m_insertIndex--;
-    }
+    applyOrDefer([this, mod]() {
+        auto it = std::find(m_mods.begin(), m_mods.begin() + m_insertIndex, mod);
+        if (it != m_mods.begin() + m_insertIndex) {
+            m_mods.erase(it);
+            m_insertIndex--;
+        }
+    });
 }
+
+void ModStack::registerEvent(Event* event) {
+    if (!event)
+        return;
+    applyOrDefer([this, event]() { m_eventList[event->getName()].push_back(event); });
+}
+
 void ModStack::clearModEvents(const std::string& eventName, Mod* mod) {
     if (mod == nullptr || eventName.empty())
         return;
-    if (m_eventList.find(eventName) == m_eventList.end())
-        return;
-    std::vector<Event*>& events = m_eventList[eventName];
-    // Erasing inside a range-for over the same vector was undefined behaviour (code inventory C5).
-    // The removed events are not deleted: another thread may still be dispatching them (registration is not
-    // synchronized with dispatch yet, see docs/reports/wave3/3A-runtime.md).
-    events.erase(std::remove_if(events.begin(), events.end(), [mod](Event* e) { return e->getData() == mod; }), events.end());
+    applyOrDefer([this, eventName, mod]() {
+        auto found = m_eventList.find(eventName);
+        if (found == m_eventList.end())
+            return;
+        std::vector<Event*>& events = found->second;
+        // erase/remove_if instead of erasing inside a range-for (code inventory C5). The exclusive lock guarantees that
+        // no thread is dispatching, so the removed events can be deleted (they leaked before Wave 3E).
+        auto removed = std::stable_partition(events.begin(), events.end(), [mod](Event* e) { return e->getData() != mod; });
+        for (auto it = removed; it != events.end(); ++it)
+            delete *it;
+        events.erase(removed, events.end());
+    });
 }
-bool ModStack::contains(Mod* mod) const {
+
+bool ModStack::containsLocked(Mod* mod) const {
     auto end = m_mods.begin() + m_insertIndex;
     return std::find(m_mods.begin(), end, mod) != end;
+}
+
+bool ModStack::contains(Mod* mod) const {
+    if (IsDispatching(this))
+        return containsLocked(mod); // this thread already holds the shared lock
+    std::shared_lock<std::shared_mutex> lock(m_mutex);
+    return containsLocked(mod);
 }

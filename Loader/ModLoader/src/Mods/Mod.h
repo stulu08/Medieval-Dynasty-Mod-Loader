@@ -14,6 +14,9 @@ namespace EventsEnabled {
 		EnabledEvents(bool InitGameState, bool BeginPlay, bool PostBeginPlay, bool Tick, bool SetupImGui, bool DrawImGui, bool DX11Present, bool DX11ResizeBuffers) {
 			this->InitGameState = InitGameState;
 			this->BeginPlay = BeginPlay;
+			// PostBeginPlay has no argument of its own: it follows BeginPlay (owner decision 2026-10-14, fixes C4:
+			// before, every preset incl. None/GuiOnly registered PostBeginPlay).
+			this->PostBeginPlay = BeginPlay;
 			this->Tick = Tick;
 			this->SetupImGui = SetupImGui;
 			this->DrawImGui = DrawImGui;
