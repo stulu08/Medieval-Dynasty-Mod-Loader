@@ -36,7 +36,7 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
   game state (loader files, `Config/`, `Content/Mods/{BaseMod,DevTools}`): `C:\dev\MDML\backup\2026-10-14_pre-9f93a89`.
   With owner approval the installed mod configs were aligned: BaseMod `mod.ini` = `[Mod]` only, `OverrideContent` moved to
   DevTools, DevTools `mod.ini` = repo version with `[Mod]` active (DevTools enabled in the game copy). Game `Config/` untouched
-  (its obsolete keys are ignored). **In-game test pending** — checklist:
+  (its obsolete keys are ignored). Game folder cleaned afterwards (owner request; everything moved, nothing deleted, to `C:\dev\MDML\backup\2026-10-14_gamefolder-cleanup`): standalone `Content/Mods/Dumper7` + `Dumper-7.ini`, `SDK-Out/..._OLD`, old `Dump/`, BaseMod `.exp/.lib`, empty `Content/Blueprints`; `LoadOrder.ini` without `Dumper7`; game `ModLoaderInfo.ini` replaced by the shipped one (same values, obsolete keys gone). **In-game test pending** — checklist:
   1. Startup log: same sequence; 7 new engine symbol lines + "Engine layout verified"; no `ENGINE LAYOUT` error, no red
      notice in F1; PDB loads once (~20 s, new symbols not in `SymbolCache.txt` yet).
   2. F1 window opens/closes repeatedly without hang (event-bus lock, released dummy D3D objects); quit cleanly.
@@ -61,7 +61,7 @@ Known follow-ups from Wave 3 (not yet scheduled): TimeWeatherChanger and mods' r
 call UE directly (needs a mod-API rule); `ItemTools` (give item/inventory) waits for the new SDK, then DevTools stops
 linking `SDK`; locked `ModStack` iteration API (`ForEachMod`/`MoveToFront`); `[ProcessInternalFunction]` pattern into the
 shipped ini; UML-era log wording ("Profile Detected"); `UseDebugUI=0` + F1 still shows a MessageBox; `Tools/ModManager`
-still on the old `Dependencies/INI` parser.
+still on the old `Dependencies/INI` parser. DevTools' legacy exporter reads `Default.export` relative to the working directory (`ObjectBrowser.h` `m_profile`) — should use the MDML.dll folder.
 
 Orchestration style: parallel agents (Sonnet where fitting) in worktrees — **every agent prompt must start with
 `git reset --hard <modernize head>`** (worktrees are created from old `main`); orchestrator merges (cherry-pick), builds
