@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <array>
 #include <bit>
+#include <cctype>
 #include <format>
 #include <fstream>
 #include <iostream>
@@ -107,7 +108,7 @@ namespace
 	/* Display name of a Blueprint enum entry ("Part of Group") -> C++ enumerator ("Part_of_Group"). Every character
 	 * outside [A-Za-z0-9_] becomes '_', runs of '_' collapse, a leading digit gets a '_' prefix and C++ keywords a '_'
 	 * suffix. Empty when nothing usable is left (the internal name is kept then). */
-	std::string MakeEnumEntryName(const std::string& Display)
+	bool IsCppKeyword(const std::string& Name)
 	{
 		static const std::unordered_set<std::string> Keywords = {
 			"alignas", "alignof", "and", "asm", "auto", "bool", "break", "case", "catch", "char", "class", "const",
@@ -117,6 +118,11 @@ namespace
 			"short", "signed", "sizeof", "static", "struct", "switch", "template", "this", "throw", "true", "try",
 			"typedef", "typeid", "typename", "union", "unsigned", "using", "virtual", "void", "volatile", "while", "xor",
 		};
+		return Keywords.contains(Name);
+	}
+
+	std::string MakeEnumEntryName(const std::string& Display)
+	{
 		std::string Out;
 		Out.reserve(Display.size() + 1);
 		for (unsigned char c : Display)
@@ -135,9 +141,64 @@ namespace
 			return Out;
 		if (Out.front() >= '0' && Out.front() <= '9')
 			Out.insert(Out.begin(), '_');
-		if (Keywords.contains(Out))
+		if (IsCppKeyword(Out))
 			Out += '_';
 		return Out;
+	}
+
+	/* Blueprint (user-defined) structs name their members "<Name>_<N>_<32 hex digit GUID>"
+	 * (Hour_3_AEEFB5B84DEEE8C12F6A3182DE467E7D). Returns "<Name>", or Name unchanged when it has no such suffix. */
+	std::string StripUserStructSuffix(const std::string& Name)
+	{
+		const size_t Last = Name.find_last_of('_');
+		if (Last == std::string::npos || Last == 0 || Name.size() - Last - 1 != 32)
+			return Name;
+		for (size_t i = Last + 1; i < Name.size(); i++)
+		{
+			if (!std::isxdigit(static_cast<unsigned char>(Name[i])))
+				return Name;
+		}
+		const size_t Prev = Name.find_last_of('_', Last - 1);
+		if (Prev == std::string::npos || Prev == 0 || Prev + 1 == Last)
+			return Name;
+		for (size_t i = Prev + 1; i < Last; i++)
+		{
+			if (!std::isdigit(static_cast<unsigned char>(Name[i])))
+				return Name;
+		}
+		return Name.substr(0, Prev);
+	}
+
+	/* C++ member names for a Blueprint struct without the GUID suffixes, like the old LegacyExporter (owner request
+	 * 2026-10-15). Key = Dumper-7's member name. A short name that would collide (two members, a keyword, the struct's
+	 * own name or a name MDML_STRUCT declares) keeps its full name. Empty for every other struct. */
+	std::unordered_map<std::string, std::string> UserStructMemberNames(const StructWrapper& Struct, const MemberManager& Members, const std::string& StructName)
+	{
+		std::unordered_map<std::string, std::string> Result;
+		if (!Struct.IsUnrealStruct() || Struct.GetUnrealStruct().GetClass().GetName() != "UserDefinedStruct")
+			return Result;
+
+		std::unordered_map<std::string, int32> Count;
+		for (const PropertyWrapper& Member : Members.IterateMembers())
+		{
+			if (!Member.IsUnrealProperty())
+				continue;
+			const std::string Name = Member.GetName();
+			const std::string Short = StripUserStructSuffix(Name);
+			Count[Short]++;
+			if (Short != Name)
+				Result.emplace(Name, Short);
+		}
+		for (auto It = Result.begin(); It != Result.end(); )
+		{
+			const std::string& Short = It->second;
+			const bool bReserved = Short == StructName || Short == "StaticStruct" || Short == "ValidateLayout" || Short.starts_with("_mdml_");
+			if (Count[Short] > 1 || bReserved || IsCppKeyword(Short))
+				It = Result.erase(It);
+			else
+				++It;
+		}
+		return Result;
 	}
 
 	std::string NarrowLiteral(const std::string& Text) { return "\"" + EscapeLiteral(Text) + "\""; }
@@ -338,6 +399,8 @@ namespace
 		int32 PrevBitPropertyOffset = 0x0;
 		uint64 PrevNumBitsInUnderlayingType = 0x8;
 
+		const std::unordered_map<std::string, std::string> ShortNames = UserStructMemberNames(Struct, Members, StructName);
+
 		for (const PropertyWrapper& Member : Members.IterateMembers())
 		{
 			if (!Member.IsUnrealProperty())
@@ -386,6 +449,8 @@ namespace
 			PrevPropertyEnd = MemberOffset + (MemberSize * Member.GetArrayDim());
 
 			std::string Name = Member.GetName();
+			if (auto Short = ShortNames.find(Name); Short != ShortNames.end())
+				Name = Short->second;
 			bool bOpaque = false;
 			std::string OpaqueWhy;
 			std::string Type = bIsBitField ? TypeFromSize(MemberSize) : GetMemberType(Member.GetUnrealProperty(), FTypeContext{ PackageIndex, &bOpaque, &OpaqueWhy });
