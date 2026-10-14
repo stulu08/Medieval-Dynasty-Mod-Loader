@@ -1,6 +1,8 @@
 #pragma once
-// DevTools: developer mod shipped with MDML, disabled by default (Config/mod.ini). Part 1 hosts the SDK generator UI
-// (docs/SDK_GENERATOR.md). Later: object browser, exporter replacement, cheats (plan 2.5).
+// DevTools: developer mod shipped with MDML, disabled by default (Config/mod.ini). Hosts the SDK generator UI
+// (docs/SDK_GENERATOR.md) and, since Wave 3C (plan 2.5), the developer tooling that used to live in BaseMod: object
+// browser + legacy SDK exporter (ObjectBrowser, LegacyExporter), INI browser/editor (IniBrowser), dev-build flag swap
+// and player tools (PlayerTools). BaseMod only keeps the game API (GameMod).
 #include "Mods/Mod.h"
 
 #include <atomic>
@@ -12,6 +14,9 @@
 #include <vector>
 
 #include "ExportList.h"
+#include "IniBrowser.h"
+#include "ObjectBrowser.h"
+#include "PlayerTools.h"
 
 namespace devtools {
 	class DevToolsMod : public ::Mod {
@@ -19,6 +24,7 @@ namespace devtools {
 		DevToolsMod(HMODULE Handle);
 
 		void InitializeMod() override;
+		bool InitGameState() override;
 		bool DrawImGui() override;
 		void OnModMenuButtonPressed() override;
 
@@ -28,6 +34,7 @@ namespace devtools {
 		enum class EJobState { Idle, Queued, Running, Done, Failed };
 
 		void DrawSdkGenerator();
+		void DrawLog();
 		void RescanExportLists();
 		void StartAnalysis();
 		void StartGeneration();
@@ -39,6 +46,12 @@ namespace devtools {
 		static inline DevToolsMod* s_instance = nullptr;
 
 		bool m_showWindow = true;
+
+		// tools moved from BaseMod; they log into the window log below
+		LogFn m_logFn = [this](const std::string& Line, bool bError) { AddLog(Line, bError); };
+		ObjectBrowser m_objectBrowser{ m_logFn };
+		IniBrowser m_iniBrowser;
+		PlayerTools m_playerTools{ m_logFn };
 
 		// UI state (render thread only)
 		std::vector<ExportList> m_exportLists;

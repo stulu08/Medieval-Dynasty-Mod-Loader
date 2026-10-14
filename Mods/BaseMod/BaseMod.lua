@@ -29,7 +29,6 @@ project "BaseMod"
 		"%{IncludeDir.ModLoader}",
 		"%{IncludeDir.Engine}",
 		"%{IncludeDir.EngineUE4}",
-		"%{IncludeDir.INI}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.BaseMod}",
 		"%{IncludeDir.ImGui}",

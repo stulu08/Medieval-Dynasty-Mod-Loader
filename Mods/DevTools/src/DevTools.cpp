@@ -5,6 +5,7 @@
 #include "UI/LoaderUI.h"
 
 #include "Generator/SdkGenerator.h"
+#include "Util.h"
 
 #include <algorithm>
 #include <sstream>
@@ -37,9 +38,18 @@ namespace devtools {
 	}
 
 	void DevToolsMod::InitializeMod() {
-		SetupHooks(EventsEnabled::GuiOnly);
+		// GUI events + InitGameState (drops the object snapshot and finds the player on a level change).
+		SetupHooks(EventsEnabled::EnabledEvents(true, false, false, false, true, true, false, false));
 		RescanExportLists();
 		AddLog("DevTools ready. SDK output folder: " + GetOutputRoot().string());
+		mdml::platform::IniFile Ini(std::filesystem::path(GetFolder()) / "mod.ini");
+		m_playerTools.Init(Ini);
+	}
+
+	bool DevToolsMod::InitGameState() {
+		m_objectBrowser.Invalidate();
+		m_playerTools.OnGameState();
+		return false;
 	}
 
 	void DevToolsMod::OnModMenuButtonPressed() {
@@ -48,14 +58,7 @@ namespace devtools {
 
 	std::filesystem::path DevToolsMod::GetOutputRoot() {
 		// Next to MDML.dll (Binaries/Win64), never derived from the working directory and never inside Content.
-		HMODULE Mdml = nullptr;
-		wchar_t Path[MAX_PATH] = {};
-		if (GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
-				reinterpret_cast<LPCWSTR>(&::Mod::GetModsFolder), &Mdml) && Mdml
-			&& GetModuleFileNameW(Mdml, Path, MAX_PATH)) {
-			return std::filesystem::path(Path).parent_path() / "SDK-Out";
-		}
-		return std::filesystem::path(::Mod::GetModsFolder()).parent_path().parent_path() / "Binaries" / "Win64" / "SDK-Out";
+		return util::MdmlFolder() / "SDK-Out";
 	}
 
 	void DevToolsMod::AddLog(const std::string& Line, bool bError) {
@@ -171,12 +174,31 @@ namespace devtools {
 	}
 
 	bool DevToolsMod::DrawImGui() {
+		// The tool windows are independent of the main DevTools window (opened from its "Views" menu).
+		m_objectBrowser.Draw();
+		m_iniBrowser.Draw();
+
 		if (!m_showWindow)
 			return false;
 		ImGui::SetNextWindowSize(ImVec2(760, 640), ImGuiCond_FirstUseEver);
-		if (ImGui::Begin("DevTools", &m_showWindow)) {
+		if (ImGui::Begin("DevTools", &m_showWindow, ImGuiWindowFlags_MenuBar)) {
+			if (ImGui::BeginMenuBar()) {
+				if (ImGui::BeginMenu("Views")) {
+					if (ImGui::MenuItem("Object Browser (+ legacy exporter)", "", m_objectBrowser.Open()))
+						m_objectBrowser.Open() = !m_objectBrowser.Open();
+					if (ImGui::MenuItem("INI Browser", "", m_iniBrowser.BrowserOpen()))
+						m_iniBrowser.BrowserOpen() = !m_iniBrowser.BrowserOpen();
+					if (ImGui::MenuItem("INI Editor", "", m_iniBrowser.EditorOpen()))
+						m_iniBrowser.EditorOpen() = !m_iniBrowser.EditorOpen();
+					ImGui::EndMenu();
+				}
+				ImGui::EndMenuBar();
+			}
 			if (ImGui::CollapsingHeader("SDK generator", ImGuiTreeNodeFlags_DefaultOpen))
 				DrawSdkGenerator();
+			if (ImGui::CollapsingHeader("Player and cheats"))
+				m_playerTools.Draw();
+			DrawLog();
 		}
 		ImGui::End();
 		return false;
@@ -283,7 +305,12 @@ namespace devtools {
 			: State == EJobState::Running ? "running (game paused)" : State == EJobState::Done ? "done" : "failed";
 		ImGui::Text("Status: %s", StateText);
 
-		ImGui::BeginChild("##devtoolslog", ImVec2(0, 0), true, ImGuiWindowFlags_HorizontalScrollbar);
+	}
+
+	void DevToolsMod::DrawLog() {
+		ImGui::Separator();
+		ImGui::TextUnformatted("Log");
+		ImGui::BeginChild("##devtoolslog", ImVec2(0, 160), true, ImGuiWindowFlags_HorizontalScrollbar);
 		{
 			std::lock_guard<std::mutex> Lock(m_mutex);
 			for (const auto& [bError, Line] : m_log) {

@@ -2,7 +2,8 @@
 -- Two projects, so that Dumper-7's C++latest requirement stays out of the C++17 mod/core code:
 --   DevTools.Generator  static lib, C++latest: vendored Dumper-7 analysis (Dependencies/Dumper-7, unmodified) + our
 --                       MDMLGenerator backend + the SdkGenerator facade (src/Generator). No MDML headers.
---   DevTools            the mod DLL, C++17: ImGui UI, export lists, game-thread scheduling; talks to the generator
+--   DevTools            the mod DLL, C++17: ImGui UI, export lists, game-thread scheduling, plus (Wave 3C) the tools moved
+--                       from BaseMod (object browser, legacy exporter, INI browser/editor, player tools); talks to the generator
 --                       only through src/Generator/SdkGenerator.h (std types only).
 local dumper = "%{IncludeDir.Dumper7}"
 
@@ -87,10 +88,9 @@ project "DevTools"
 		"%{IncludeDir.ModLoader}",
 		"%{IncludeDir.Engine}",
 		"%{IncludeDir.EngineUE4}",
-		"%{IncludeDir.INI}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.ImGui}",
-		-- Mod/Mod.h still pulls the old generated SDK headers through UE4.h (declarations only, SDK.lib is not linked)
+		-- Mod/Mod.h pulls the old generated SDK headers through UE4.h (the DLL links SDK, see links below)
 		"%{IncludeDir.UE4}",
 		"%{IncludeDir.SDK}",
 		"%{IncludeDir.MedievalDynasty}",
@@ -98,9 +98,12 @@ project "DevTools"
 	postbuildcommands {
 		"{COPYDIR} \"%{ProjectDir.DevTools}/Config\" \"%{wks.location}/bin/" .. outputdir .. "/Mods/DevTools\"",
 	}
+	-- SDK: the object browser and player tools use hybrid old-SDK classes (AActor, UDataTable, UGameplayStatics, ...).
+	-- Goes away with the old SDK (plan 2.4).
 	links
 	{
 		"ModLoader",
+		"SDK",
 		"DevTools.Generator",
 	}
 	filter "system:windows"
