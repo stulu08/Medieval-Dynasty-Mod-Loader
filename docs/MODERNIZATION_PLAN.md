@@ -32,7 +32,19 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
   - Checks: clean solution build **0 warnings**; `bin/` 37 files (the cheat override moved `Mods/BaseMod/OverrideContent` →
     `Mods/DevTools/OverrideContent`); `compile_generated.py` 203/203 on the real output; `check_layout.py` 0 mismatches;
     `check_patterns.py` all OK.
-- **Deploy / in-game test of Wave 3: see the handoff block below** (filled at deploy time).
+- **Deployed** 2026-10-14: build of 9f93a89 (MDML.dll/.pdb, xinput1_3.dll, BaseMod/DevTools dll+pdb). Backup of the previous
+  game state (loader files, `Config/`, `Content/Mods/{BaseMod,DevTools}`): `C:\dev\MDMLackup6-10-14_pre-9f93a89`.
+  With owner approval the installed mod configs were aligned: BaseMod `mod.ini` = `[Mod]` only, `OverrideContent` moved to
+  DevTools, DevTools `mod.ini` = repo version with `[Mod]` active (DevTools enabled in the game copy). Game `Config/` untouched
+  (its obsolete keys are ignored). **In-game test pending** — checklist:
+  1. Startup log: same sequence; 7 new engine symbol lines + "Engine layout verified"; no `ENGINE LAYOUT` error, no red
+     notice in F1; PDB loads once (~20 s, new symbols not in `SymbolCache.txt` yet).
+  2. F1 window opens/closes repeatedly without hang (event-bus lock, released dummy D3D objects); quit cleanly.
+  3. Load a save: logic mods / PostBeginPlay still fire (PlayerController BeginPlay).
+  4. F1 dumps (objects, engine info, world actors): fading notice with full path, files in `Binaries/Win64/Dump/`.
+  5. DevTools: object browser scan + transform edit + "Load functions"; INI browser/editor; player tools; legacy export of a
+     small package (game freezes briefly, output `Binaries/Win64/Export`); Generate SDK still works.
+  6. Game is no longer forced into development-build mode (`DevBuildFlags=0`).
 - **SDK generator** part 1 ☑ (real in-game output compiles 203/203); next generator step = migrate BaseMod/DevTools to the
   generated headers (then `SDK.lib` can go).
 - **C# replaces Lua** for script mods (Phase 3): `docs/design/csharp-scripting.md`. Lua spike in `Loader/Scripting/` = reference.
