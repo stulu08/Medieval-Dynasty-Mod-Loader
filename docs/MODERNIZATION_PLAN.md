@@ -37,7 +37,7 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
     `GetModCount`/`MoveToFront`, 3E-Q3); F1 menu state atomic in `ImGuiHost`. Report: `docs/reports/public-api.md`.
     Checks: `compile_generated.py` 203/203, `check_layout.py` 165/0, exports verified (no `Global`/`ModStack`/`LoaderUI`).
     **Deployed** 2026-10-14 (MDML.dll/.pdb, xinput1_3.dll, BaseMod/DevTools dll+pdb; configs untouched), backup
-    `C:\dev\MDMLackup6-10-14_pre-5c6e28f`.
+    `C:\dev\MDML\backup\2026-10-14_pre-5c6e28f`.
   - **Step B (next):** full generated SDK in the repo (owner: "alles im Repo"), BaseMod/DevTools → generated SDK, `GameMod`
     into the loader API with typed generated getters, `SDK.lib` + `MDML/Memory.h` go. Then in-game test.
   - Remaining after that: SDG controls + sortable load-order editor, 2.8 docs, glm license.
