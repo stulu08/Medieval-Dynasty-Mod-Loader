@@ -302,8 +302,8 @@ namespace mdml::layout {
 
 // Runtime offsets read by the hand-written accessors (Wave 2.4: was GameInfo.h `Offsets` / `GameProfile::defs`).
 // Defaults are the PDB-checked constants above; EngineDefFinder verifies them at engine init and replaces a group by
-// scanned values only if its live check fails. Field names are kept for source compatibility (MDML.cpp still writes the
-// manual [UObjectDef] ... ini sections into it, see the 3D report: those sections are dead and go away in round 2).
+// scanned values only if its live check fails. Field names are kept for source compatibility (the manual [UObjectDef]
+// ... ini sections that once wrote into it are gone since Wave 3A/3E).
 namespace mdml {
 	struct EngineLayout {
 		struct {
@@ -402,22 +402,7 @@ namespace mdml {
 #pragma endregion
 	};
 
-	// Legacy bookkeeping of the removed manual-offset mode ([UObjectDef] ... sections, written by SetupProfile in
-	// MDML.cpp). Nothing in the core reads it any more: EngineDefFinder always verifies every group. Kept only so
-	// MDML.cpp compiles unchanged in Wave 3 round 1; remove together with those ini sections (3D report, follow-ups).
-	struct EngineLayoutStatus {
-		bool IsUObjectMissing = true;
-		bool IsUFieldMissing = true;
-		bool IsUEnumMissing = true;
-		bool IsUStructMissing = true;
-		bool IsUFunctionMissing = true;
-
-		bool IsPropertyMissing = false;
-	};
-
 	// The one instance, defined in MDML.dll (Engine/EngineInit.cpp) and exported, so mods/tools (dumps, exporter) can
 	// read the same offsets the core uses.
 	extern MDML_ENGINE_API EngineLayout Layout;
-	// MDML-internal (SetupProfile), not exported. Unused by the core since 3D.
-	extern EngineLayoutStatus LayoutStatus;
 }

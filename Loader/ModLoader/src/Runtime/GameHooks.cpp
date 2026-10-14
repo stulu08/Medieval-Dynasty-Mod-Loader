@@ -38,7 +38,9 @@ namespace mdml::runtime {
 			if (!s_gameStateInitialized) {
 				return;
 			}
-			if (Actor->IsA(UE4::ACustomClass::StaticClass(Config.BeginPlayOverwrite)))
+			// The logic mods' PostBeginPlay runs when a PlayerController begins play (hard-coded since Wave 3E; was the
+			// UML [GameInfo] BeginPlayOverwrite class, always PlayerController).
+			if (Actor->IsA(UE4::APlayerController::StaticClass()))
 			{
 				Log::Info_UML("Beginplay Called");
 				mods::PostBeginPlayLogicMods();

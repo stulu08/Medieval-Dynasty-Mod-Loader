@@ -7,8 +7,9 @@ namespace mdml::platform {
 
 // Loader settings: paths, UI and overwrite-system switches, the NoOverwrite map (Wave 2.4, was the loader part of
 // GameInfo.h `GameProfile` / `SDK::SelectedGameProfile`).
-// Filled on the init thread (Bootstrap/Startup.cpp) from MDML.dll's location, Config/ModLoaderInfo.ini and the game
-// profile. All paths are absolute (never relative to the working directory).
+// Filled on the init thread (Bootstrap/Startup.cpp) from MDML.dll's location and Config/ModLoaderInfo.ini (the only
+// loader ini; the [General] Profile indirection to a second "game profile" ini was dropped in Wave 3E).
+// All paths are absolute (never relative to the working directory).
 namespace mdml::runtime {
 	struct LoaderConfig {
 		// <MDML dir>/<[General] LogDir>
@@ -26,8 +27,6 @@ namespace mdml::runtime {
 		bool bEnableGUI = false;
 		// [GameInfo] DelayGUISpawn: do not hook DX11 during setup.
 		bool bDelayGUISpawn = false;
-		// [GameInfo] BeginPlayOverwrite: actor class whose BeginPlay triggers the logic mods' PostBeginPlay.
-		std::string BeginPlayOverwrite = "Class Engine.PlayerController";
 
 		// [Overwrites] Enabled / UseHardLinks
 		bool ModOverwritesEnabled = false;
@@ -43,11 +42,11 @@ namespace mdml::runtime {
 	extern LOADER_API LoaderConfig Config;
 
 	// Startup steps (Bootstrap/Startup.cpp, init thread, in this order). MDML-internal, not exported.
-	// 1. Config/ModLoaderInfo.ini next to MDML.dll: [General] LogDir, [DEBUG] UseConsole/UseDebugUI; creates the log
-	//    folder, calls Log::Init, logs the version lines, creates the UE_LOG logger; sets the file paths and the game
-	//    root. profilePath = <MDML dir>/<[General] Profile>. Returns false (logged) if that file does not exist.
-	bool LoadLoaderConfig(const std::string& mdmlDir, std::string& profilePath);
-	// 2. Loader switches from the game profile: [Overwrites] (or [Overrides]) Enabled/UseHardLinks,
-	//    [GameInfo] DelayGUISpawn/BeginPlayOverwrite, [PakOverwrite] bPakOverwrite.
-	void LoadProfileConfig(const platform::IniFile& profile);
+	// `loaderInfo` is <MDML dir>/Config/ModLoaderInfo.ini (ModLoaderConfigFile), read once by the caller.
+	// 1. [General] LogDir, [DEBUG] UseConsole/UseDebugUI; creates the log folder, calls Log::Init, logs the version
+	//    lines, creates the UE_LOG logger; sets the file paths and the game root.
+	void LoadLoaderConfig(const std::string& mdmlDir, const platform::IniFile& loaderInfo);
+	// 2. Loader switches: [Overwrites] (or [Overrides]) Enabled/UseHardLinks, [GameInfo] DelayGUISpawn,
+	//    [PakOverwrite] bPakOverwrite.
+	void LoadFeatureConfig(const platform::IniFile& loaderInfo);
 }

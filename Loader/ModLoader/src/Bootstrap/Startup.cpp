@@ -50,25 +50,29 @@ namespace mdml::runtime {
 		// Only logged, to see how far the engine got when the pak hooks went live.
 		int GetUObjectCount()
 		{
-			if (!mdml::Addresses.GObject || !mdml::Addresses.IsUsingFChunkedFixedUObjectArray)
+			if (!mdml::Addresses.GObject)
 				return -1;
 			return *(volatile int*)(mdml::Addresses.GObject + 0x10 + 0x14);
 		}
 
-		// Config files, logs, NoOverwrite list, game profile, symbols (was SetupProfile in MDML.cpp).
-		bool SetupProfile(const std::string& mdmlDir) {
-			std::string profilePath;
-			if (!LoadLoaderConfig(mdmlDir, profilePath))
+		// Config/ModLoaderInfo.ini, logs, NoOverwrite list, symbols (was SetupProfile in MDML.cpp). Everything comes from
+		// the one loader ini; the old [General] Profile key that named a second ini is not read any more (Wave 3E).
+		bool SetupConfig(const std::string& mdmlDir) {
+			const std::filesystem::path configPath = std::filesystem::path(mdmlDir) / ModLoaderConfigFile;
+			const platform::IniFile loaderInfo(configPath);
+			LoadLoaderConfig(mdmlDir, loaderInfo);
+			if (!loaderInfo.IsLoaded()) {
+				Log::Error_MDML("{0} not found, the loader is disabled", configPath.string());
 				return false;
+			}
 
 			mods::LoadNoOverwriteList();
 
-			Log::Info_UML("Profile Detected: {0}", FormatPath(profilePath));
-			platform::IniFile profile(profilePath);
-			LoadProfileConfig(profile);
-			ResolveEngine(profile, profilePath, mdmlDir);
+			Log::Info_UML("Profile Detected: {0}", FormatPath(configPath));
+			LoadFeatureConfig(loaderInfo);
+			ResolveEngine(loaderInfo, mdmlDir);
 
-			Log::Info_UML("Setup {0}", FormatPath(profilePath));
+			Log::Info_UML("Setup {0}", FormatPath(configPath));
 			return true;
 		}
 
@@ -112,7 +116,7 @@ namespace mdml::runtime {
 			try {
 				std::string path = GetModuleFilePath((HMODULE)module);
 				path = path.substr(0, path.find_last_of("/\\"));
-				const bool setupDone = SetupProfile(path);
+				const bool setupDone = SetupConfig(path);
 				Log::Info_MDML("Profile setup took {0} ms", GetTickCount64() - start);
 				if (setupDone)
 					InstallHooks();
@@ -153,7 +157,6 @@ namespace mdml::runtime {
 		Config = LoaderConfig();
 		mdml::Addresses = mdml::EngineAddresses();
 		mdml::Layout = mdml::EngineLayout();
-		mdml::LayoutStatus = mdml::EngineLayoutStatus();
 		mdml::UnrealLogger = nullptr;
 		_fcloseall();
 	}

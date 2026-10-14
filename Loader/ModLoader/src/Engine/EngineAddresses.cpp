@@ -1,14 +1,16 @@
 #include "Core.h"
 #include "EngineAddresses.h"
 
+#include "Platform/IniFile.h"
 #include "Platform/Logger.h"
 #include "Platform/Pattern.h"
 #include "Platform/SymbolResolver.h"
 
-#include "INI.h"
-
-// Symbol resolution moved here from SetupProfile in MDML.cpp (Wave 2.4); code and log lines unchanged.
+// Symbol resolution (Wave 2.4, was part of SetupProfile in MDML.cpp; called from Runtime/EngineSetup.cpp since Wave 3A).
+// Patterns are read from Config/ModLoaderInfo.ini through mdml::platform::IniFile (Wave 3E, was the old INI parser).
 namespace mdml {
+	using platform::IniFile;
+
 	EngineAddresses Addresses;
 
 	// Decorated names from the game PDB. Decorated names pin the exact overload and still resolve after patches
@@ -61,36 +63,26 @@ namespace mdml {
 
 	// PDB symbol first, then the ini pattern of section/key (must match exactly once).
 	// The UML raw-offset mode (IsFunctionPatterns=0, "0x..." module offsets) was removed in Wave 3D.
-	static DWORD64 ResolveFunction(INI& ini, const char* section, const char* key, std::initializer_list<const char*> symbols) {
-		DWORD64 address = SymbolResolver::Find(symbols);
+	static DWORD64 ResolveFunction(const IniFile& ini, const char* section, const char* key, std::initializer_list<const char*> symbols) {
+		DWORD64 address = platform::SymbolResolver::Find(symbols);
 		if (address) {
 			LogResolved(key, address, "pdb");
 			return address;
 		}
-		ini.select(section); // INI::get ignores its section argument and reads the selected section
-		std::string value = ini.get(key, "");
-		address = ScanFunction(value, key);
+		address = ScanFunction(ini.Get(section, key, ""), key);
 		LogResolved(key, address, "pattern");
 		return address;
 	}
 
-	// Ini switches of the removed raw-offset mode: warn if a profile still asks for it.
-	static void WarnIfRawOffsetMode(INI& ini, const char* section, const char* key) {
-		ini.select(section); // INI::getAs ignores its section argument and reads the selected section
-		if (ini.getAs<int>(section, key, 1) != 1)
-			Log::Warn_MDML("[{0}] {1}=0 (raw offsets) is no longer supported; the values are treated as patterns", section, key);
-	}
-
 	// Same for globals; a [GInfo] pattern points at an instruction whose RIP-relative operand is the global.
 	// The UML IsSimple=0 mode (<key>FirstOpCodes/<key>TotalByteInstruction) was removed in Wave 3D.
-	static DWORD64 ResolveGlobal(INI& ini, const char* name, std::initializer_list<const char*> symbols, const char* key, size_t dispOffset, size_t instrEnd) {
-		DWORD64 address = SymbolResolver::Find(symbols);
+	static DWORD64 ResolveGlobal(const IniFile& ini, const char* name, std::initializer_list<const char*> symbols, const char* key, size_t dispOffset, size_t instrEnd) {
+		DWORD64 address = platform::SymbolResolver::Find(symbols);
 		if (address) {
 			LogResolved(name, address, "pdb");
 			return address;
 		}
-		ini.select("GInfo"); // INI::get ignores its section argument and reads the selected section
-		std::string value = ini.get(key, "");
+		const std::string value = ini.Get("GInfo", key, "");
 		if (value.empty()) {
 			LogResolved(name, 0, "");
 			return 0;
@@ -102,12 +94,11 @@ namespace mdml {
 		return address;
 	}
 
-	void ResolveEngineGlobals(INI& GameInfo) {
+	void ResolveEngineGlobals(const IniFile& GameInfo) {
 		// Globals: PDB symbol first, then the [GInfo] pattern (RIP-relative operand, all hits must agree).
 		// UE 4.27 only: GName is always the FNamePool (NamePoolData / FPool pattern); the pre-4.23 GNames path is gone.
-		if (GameInfo.select("GInfo") || SymbolResolver::IsAvailable())
+		if (GameInfo.HasSection("GInfo") || platform::SymbolResolver::IsAvailable())
 		{
-			WarnIfRawOffsetMode(GameInfo, "GInfo", "IsGInfoPatterns");
 			Addresses.GName = ResolveGlobal(GameInfo, "GName", { Symbols::NamePoolData }, "FPool", 5, 9);
 			Addresses.GObject = ResolveGlobal(GameInfo, "GObject", { Symbols::GUObjectArray }, "GObject", 14, 18);
 			Addresses.GWorld = ResolveGlobal(GameInfo, "GWorld", { Symbols::GWorld }, "GWorld", 8, 12);
@@ -118,10 +109,9 @@ namespace mdml {
 		}
 	}
 
-	void ResolveEngineFunctions(INI& GameInfo) {
+	void ResolveEngineFunctions(const IniFile& GameInfo) {
 #pragma region Function defs
 		{
-			WarnIfRawOffsetMode(GameInfo, "FunctionInfo", "IsFunctionPatterns");
 			Addresses.GameStateInit = ResolveFunction(GameInfo, "FunctionInfo", "GameStateInit", { Symbols::InitGameState });
 			Addresses.BeginPlay = ResolveFunction(GameInfo, "FunctionInfo", "BeginPlay", { Symbols::BeginPlay });
 			Addresses.Tick = ResolveFunction(GameInfo, "FunctionInfo", "Tick", { Symbols::WorldTick });
@@ -137,15 +127,16 @@ namespace mdml {
 
 #pragma region ProcessInternal def
 		// The hook target is ProcessLocalScriptFunction, called from UObject::ProcessInternal.
-		Addresses.ProcessInternals = SymbolResolver::Find({ Symbols::ProcessLocalScriptFunction });
+		Addresses.ProcessInternals = platform::SymbolResolver::Find({ Symbols::ProcessLocalScriptFunction });
 		if (Addresses.ProcessInternals)
 		{
 			LogResolved("ProcessInternals", Addresses.ProcessInternals, "pdb");
 		}
 		else
 		{
-			GameInfo.select("ProcessInternalFunction");
-			std::string pattern = GameInfo.get("ProcessInternal", "41 F6 C7 02 74 ? 4C 8B C7 48 8B ? ? 8B ? E8");
+			// Optional [ProcessInternalFunction] ProcessInternal; the shipped ini has no such section, so the built-in
+			// default is used (Tools/RE/check_patterns.py checks it).
+			const std::string pattern = GameInfo.Get("ProcessInternalFunction", "ProcessInternal", "41 F6 C7 02 74 ? 4C 8B C7 48 8B ? ? 8B ? E8");
 			Addresses.ProcessInternals = (DWORD64)Pattern::FindRipTarget(pattern.c_str(), 16, 20);
 			LogResolved("ProcessInternals", Addresses.ProcessInternals, "pattern");
 		}
@@ -154,15 +145,14 @@ namespace mdml {
 #pragma region StaticConstructObject_Internal def
 		// UE 4.26+ takes a single FStaticConstructObjectParameters argument; the legacy multi-argument signature
 		// (IsUsingUpdatedStaticConstruct=0) was removed in Wave 3D.
-		Addresses.StaticConstructObject_Internal = SymbolResolver::Find({ Symbols::StaticConstructObject_Internal });
+		Addresses.StaticConstructObject_Internal = platform::SymbolResolver::Find({ Symbols::StaticConstructObject_Internal });
 		if (Addresses.StaticConstructObject_Internal)
 		{
 			LogResolved("StaticConstructObject_Internal", Addresses.StaticConstructObject_Internal, "pdb");
 		}
 		else
 		{
-			GameInfo.select("StaticConstructObject_Internal");
-			Addresses.StaticConstructObject_Internal = ScanFunction(GameInfo.get("Pattern", ""), "StaticConstructObject_Internal");
+			Addresses.StaticConstructObject_Internal = ScanFunction(GameInfo.Get("StaticConstructObject_Internal", "Pattern", ""), "StaticConstructObject_Internal");
 			LogResolved("StaticConstructObject_Internal", Addresses.StaticConstructObject_Internal, "pattern");
 		}
 		if (!Addresses.StaticConstructObject_Internal)
@@ -172,8 +162,7 @@ namespace mdml {
 		ResolveEngineExtras();
 	}
 
-	void ResolvePakFunctions(INI& GameInfo) {
-		WarnIfRawOffsetMode(GameInfo, "PakOverwrite", "IsFunctionPatterns");
+	void ResolvePakFunctions(const IniFile& GameInfo) {
 		Addresses.IsNonPakFilenameAllowed = ResolveFunction(GameInfo, "PakOverwrite", "IsNonPakFilenameAllowed", { Symbols::IsNonPakFilenameAllowed });
 		Addresses.FindFileInPakFiles = ResolveFunction(GameInfo, "PakOverwrite", "FindFileInPakFiles", { Symbols::FindFileInPakFiles });
 	}
@@ -181,7 +170,7 @@ namespace mdml {
 	// Optional engine functions: PDB/RVA cache only. Missing ones are a warning, not an error, because the core falls
 	// back (FName lookup by walking the name pool, CRT heap for FMemory, the old FText layout read).
 	static DWORD64 ResolveOptional(const char* name, const char* symbol) {
-		DWORD64 address = SymbolResolver::Find({ symbol });
+		DWORD64 address = platform::SymbolResolver::Find({ symbol });
 		if (address)
 			LogResolved(name, address, "pdb");
 		else

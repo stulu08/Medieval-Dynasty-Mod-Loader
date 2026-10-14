@@ -23,7 +23,7 @@ namespace mdml::mods {
 	void CreateMod(ModInfo& mod);
 	// InitGameState, before spawning: calls ModCleanUp on the old actors and forgets them.
 	void CleanUpMods();
-	// BeginPlay of the BeginPlayOverwrite class: collects ModButtons, calls PostBeginPlay on the actors and the
+	// BeginPlay of a PlayerController (Runtime/GameHooks.cpp): collects ModButtons, calls PostBeginPlay on the actors and the
 	// "PostBeginPlay" core-mod event.
 	void PostBeginPlayLogicMods();
 	UE4::AActor* SpawnActor(UE4::UClass* Class, const UE4::FTransform& transform, UE4::FActorSpawnParameters spawnParams);

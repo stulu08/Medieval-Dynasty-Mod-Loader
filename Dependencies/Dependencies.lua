@@ -8,8 +8,8 @@ IncludeDir = {}
 IncludeDir["spdlog"] = "%{Dependencies}/spdlog"
 IncludeDir["MinHook"] = "%{Dependencies}/MinHook"
 IncludeDir["glm"] = "%{Dependencies}/glm"
--- old feather INI parser: still used by Loader/ModLoader/src/Engine/EngineAddresses.cpp, BaseMod's GameMod.h and the
--- Mod Manager. Loader code uses mINI through mdml::platform::IniFile (Wave 3A).
+-- old feather INI parser: still used by BaseMod's GameMod.h and the Mod Manager (not by MDML.dll any more since
+-- Wave 3E). Loader code uses mINI through mdml::platform::IniFile (Wave 3A).
 IncludeDir["INI"] = "%{Dependencies}/INI"
 -- mINI (header-only, "mini/ini.h"); only included by Loader/ModLoader/src/Platform/IniFile.cpp
 IncludeDir["mINI"] = "%{Dependencies}/mINI"

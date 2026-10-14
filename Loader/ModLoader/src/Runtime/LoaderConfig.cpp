@@ -28,12 +28,10 @@ namespace mdml::runtime {
 		}
 	}
 
-	bool LoadLoaderConfig(const std::string& mdmlDir, std::string& profilePath) {
+	void LoadLoaderConfig(const std::string& mdmlDir, const platform::IniFile& loaderInfo) {
 		Config.ImGuiFile = mdmlDir + "/Config/WindowConfig.ini";
 		Config.NoOverwriteFile = mdmlDir + "/Config/NoOverwrite.ini";
 		Config.HardLinksFile = mdmlDir + "/Config/ModLinks.bin";
-
-		platform::IniFile loaderInfo(mdmlDir + "/" + ModLoaderConfigFile);
 
 #pragma region Logs and Debug features
 		//log dir detection
@@ -80,38 +78,27 @@ namespace mdml::runtime {
 		}
 #pragma endregion
 
-		//profile detection
-		profilePath = mdmlDir + "/" + loaderInfo.Get("General", "Profile", "Config/Default.profile");
-		if (!std::filesystem::exists(profilePath)) {
-			Log::Error_MDML("Profile {0} not found!", profilePath.c_str());
-			return false;
-		}
-
 		// Game root (where Engine/ and Medieval_Dynasty/ live) from MDML.dll's location: <root>/Medieval_Dynasty/Binaries/Win64.
 		// Not from the working directory: the engine switches it to Binaries/Win64 early, and since Wave 2.2 the setup runs
 		// on the init thread after that, which broke the NoOverwrite lookup (loose game files were treated as mod overwrites).
 		const std::filesystem::path rootGameDir = std::filesystem::weakly_canonical(std::filesystem::path(mdmlDir) / "../../..");
 		Config.rootGameDir = rootGameDir.string();
-		return true;
 	}
 
-	void LoadProfileConfig(const platform::IniFile& profile) {
+	void LoadFeatureConfig(const platform::IniFile& loaderInfo) {
 		// [Overwrites], or the older name [Overrides] if there is no [Overwrites] section.
-		const char* overwrites = profile.HasSection("Overwrites") ? "Overwrites" : (profile.HasSection("Overrides") ? "Overrides" : nullptr);
+		const char* overwrites = loaderInfo.HasSection("Overwrites") ? "Overwrites" : (loaderInfo.HasSection("Overrides") ? "Overrides" : nullptr);
 		if (overwrites) {
-			Config.ModOverwritesEnabled = profile.GetInt(overwrites, "Enabled", 0) != 0;
-			Config.UseHardLinks = profile.GetInt(overwrites, "UseHardLinks", 0) != 0;
+			Config.ModOverwritesEnabled = loaderInfo.GetInt(overwrites, "Enabled", 0) != 0;
+			Config.UseHardLinks = loaderInfo.GetInt(overwrites, "UseHardLinks", 0) != 0;
 		}
 		if (Config.ModOverwritesEnabled) {
 			Log::Info_MDML("Enabled Mod overwrites using {0} links", Config.UseHardLinks ? "Hard" : "Sym");
 		}
 
-		Config.bDelayGUISpawn = profile.GetInt("GameInfo", "DelayGUISpawn", 0) != 0;
-		const std::string beginPlayOverwrite = profile.Get("GameInfo", "BeginPlayOverwrite", "");
-		if (!beginPlayOverwrite.empty())
-			Config.BeginPlayOverwrite = beginPlayOverwrite;
+		Config.bDelayGUISpawn = loaderInfo.GetInt("GameInfo", "DelayGUISpawn", 0) != 0;
 
-		if (profile.HasSection("PakOverwrite"))
-			Config.bPakOverride = profile.GetInt("PakOverwrite", "bPakOverwrite", 0) != 0;
+		if (loaderInfo.HasSection("PakOverwrite"))
+			Config.bPakOverride = loaderInfo.GetInt("PakOverwrite", "bPakOverwrite", 0) != 0;
 	}
 }

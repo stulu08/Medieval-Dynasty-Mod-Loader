@@ -25,7 +25,7 @@ project "ModLoader"
 		"**.hpp",
 	}
 	-- Third-party code that used to live under this project (vendor/) is in Dependencies/ now
-	-- but is still compiled into MDML.dll. MinHook is its own project; spdlog and INI are header-only.
+	-- but is still compiled into MDML.dll. MinHook is its own project; spdlog and mINI are header-only.
 	files
 	{
 		"../../Dependencies/ImGui/**.h",
@@ -55,7 +55,6 @@ project "ModLoader"
 		"%{IncludeDir.ModLoader}",
 		"%{IncludeDir.Engine}",
 		"%{IncludeDir.EngineUE4}",
-		"%{IncludeDir.INI}", -- only for src/Engine/EngineAddresses.cpp and Runtime/EngineSetup.cpp (legacy profile reads)
 		"%{IncludeDir.mINI}", -- only for Platform/IniFile.cpp
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.ImGui}",

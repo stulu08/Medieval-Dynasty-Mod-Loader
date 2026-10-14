@@ -2,15 +2,7 @@
 #include "CoreUObject/Class.h"
 
 namespace UE4 {
-	class ACustomClass : public UObject
-	{
-	public:
-		static UClass* StaticClass(std::string Class)
-		{
-			static auto ptr = UObject::FindClass(Class);
-			return ptr;
-		}
-	};
+	// (ACustomClass, the UML helper for the [GameInfo] BeginPlayOverwrite class, was removed in Wave 3E.)
 	class UBlueprintFunctionLibrary : public UObject
 	{
 	public:
