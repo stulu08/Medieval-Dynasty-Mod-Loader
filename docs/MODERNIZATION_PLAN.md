@@ -38,8 +38,29 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
     Checks: `compile_generated.py` 203/203, `check_layout.py` 165/0, exports verified (no `Global`/`ModStack`/`LoaderUI`).
     **Deployed** 2026-10-14 (MDML.dll/.pdb, xinput1_3.dll, BaseMod/DevTools dll+pdb; configs untouched), backup
     `C:\dev\MDML\backup\2026-10-14_pre-5c6e28f`.
-  - **Step B (next):** full generated SDK in the repo (owner: "alles im Repo"), BaseMod/DevTools → generated SDK, `GameMod`
-    into the loader API with typed generated getters, `SDK.lib` + `MDML/Memory.h` go. Then in-game test.
+  - **Step B (next, prepared 2026-10-14, decisions in the log "Wave 4 step B"):** full generated SDK in the repo (owner:
+    "alles im Repo"), loader + DevTools + examples → generated SDK, `GameMod` into the loader API with typed generated
+    getters, BaseMod deleted, `SDK.lib` + `MDML/Memory.h` go. Then in-game test. Findings while preparing:
+    - The old SDK is wired into the **loader core**: `src/Engine/UE4.h` includes `UE4/SDK.h` + `Medieval_Dynasty/SDK.h`,
+      `CoreUObject/Object.cpp` includes `SDK.h`, `ModLoader.lua` compiles `Actor.cpp`/`GamePlayStatics.cpp`/
+      `KismetSystemLibrary.cpp` from `Loader/SDK`. 71 uses of old engine types in 19 files (loader: `GameHooks`, `LogicMods`,
+      `Dumper`, `LoaderWindow`, `Mods/Mod.cpp`, `Registry.h`, public `MDML/Mod.h`; BaseMod; DevTools `ObjectBrowser`,
+      `PlayerTools`, `ItemTools`, `LegacyExporter`; `PresetMod`). `MDML/Memory.h` is used by `UI/ImGuiHost.cpp` and
+      `CoreUObject/NamePool.h`.
+    - Old and generated headers cannot share a TU (same names in `namespace UE4`) → no partial migration; all consumers
+      switch in one step.
+    - The last generator output is only 3 requested packages + deps (202 headers). "All packages" exists in the DevTools UI
+      (`m_allPackages`) but was **never run** → owner must run it in-game first.
+    - Sub-steps: **B0 (owner)** in-game test of step A (+ build restructure `10257fe`, not deployed yet) and a full
+      "All packages" generation; **B1** copy the full output into `Loader/SDK/` (old generated files removed, header-only,
+      no `SDK` static-lib project), `compile_generated.py` on every header; **B2** loader core on generated headers (`UE4.h`
+      without old aggregators, the 3 compiled old `.cpp` gone; hand-written hybrids `GamePlayStatics`/`DataTable`/
+      `StringTable` helpers move to `src/Engine` on top of generated types; check the generator's predefined list covers
+      every hand-written core type such as `ELevelTick`); **B3** `GameMod` → `include/MDML/GameMod.h` (typed getters from
+      generated BP classes), useful `BaseMod/src/Utils.h` helpers into the loader API, BaseMod + the "BaseMod first"
+      load-order rule removed; **B4** DevTools (`LegacyExporter` deleted, `ObjectBrowser`/`PlayerTools` ported, `ItemTools`
+      re-enabled if feasible) and examples ported; **B5** delete old `Loader/SDK` sources, `SDK` project, `MDML/Memory.h`,
+      `IncludeDir.SDK/UE4/MedievalDynasty`; docs, build 0 warnings, `check_layout.py`, deploy (with backup), owner test.
   - Remaining after that: SDG controls + sortable load-order editor, 2.8 docs, glm license.
 - **Wave 3 done** ☑ 2026-10-14 (staged: 3A+3D, then 3B+3C+3E; reports `docs/reports/wave3/3{A,B,C,D,E}-*.md`):
   - **3A** runtime split (`src/Bootstrap`, `src/Runtime/{EngineSetup,GameHooks,Paths}`, `src/Mods/{CoreModLoader,LogicMods,
@@ -78,8 +99,8 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
 - **C# replaces Lua** for script mods (Phase 3): `docs/design/csharp-scripting.md`. Lua spike in `Loader/Scripting/` = reference.
 
 **Next (in order) — start here in a new session:**
-1. Owner in-game test of Wave 4 step A (checklist in `docs/reports/public-api.md`), then Wave 4 step B (generated SDK in
-   the repo, BaseMod/DevTools migration, `GameMod` into the loader, `SDK.lib` removed), then SDG controls incl. a sortable
+1. Owner in-game test of Wave 4 step A (checklist in `docs/reports/public-api.md`) + full "All packages" SDK generation
+   (step B0), then Wave 4 step B1–B5 (see "Step B" above), then SDG controls incl. a sortable
    load-order editor, license files, 2.8 docs.
 2. Phase 3: C# spike (`docs/design/csharp-scripting.md`).
 
@@ -221,6 +242,7 @@ Also: improved Blueprint mod loading with load order · pak mod loading (old AES
 | 2026-10-14 | Public API split (`include/MDML`) | Widgets move from `ImGui::MDML_*` to **`mdml::ui::widgets`** (e.g. `mdml::ui::widgets::Combo`); the `LoaderUI` facade class is **replaced** by a slim API in `include/MDML/UI.h` (device/context getters, `SetTheme`), BaseMod/DevTools adapted; **`GameMod` moves into the loader API**, so mods depend only on MDML.dll + `include/MDML` and BaseMod becomes an ordinary mod. Breaking for old mod code (accepted). |
 | 2026-10-14 | Public API split, part 2 | Generated SDK: **the complete generated SDK goes into the repo** (repo size does not matter). `GameMod` getters stay **typed** (generated BP classes). Done in **two steps** (A: header split/UI/ModStack, B: SDK migration + `GameMod` + `SDK.lib` removal), each with an in-game test. `Global` becomes **loader-internal** (`mdml::mods::Registry`); mods use narrow functions in `MDML/Mods.h`. |
 | 2026-10-14 | Public API split, defaults taken (owner may veto) | Include style `"MDML/<Header>.h"` from `Loader/ModLoader/include` (premake `IncludeDir.MDML`); existing namespaces of public types kept (`mdml::platform::Hooks/IniFile`, `mdml::runtime::GameThread/Notices/paths`); `ImGuiColorTheme` → `mdml::ui::ColorTheme`; `MDML/Memory.h` (old `Read`/`Write` helpers) public only until `SDK.lib` goes; DevTools reads the config folder via new `mdml::runtime::GetConfigFolder()` instead of `mdml::runtime::Config`. |
+| 2026-10-14 | Wave 4 step B | Full generated SDK **replaces the contents of `Loader/SDK/`** (header-only, no `SDK.lib`). The **loader itself uses the generated headers** (`AActor`, `UWorld`, `UGameplayStatics`, …) — one type system for loader and mods. **BaseMod is deleted**: `GameMod` goes into the loader API, useful `Utils.h` helpers too, the rest is dropped. DevTools' **`LegacyExporter` is removed** (replaced by the new generator). |
 | 2026-10-14 | Wave 3E Q1–Q6 | All recommendations accepted: missing layout anchor stays **Error**; scanned offsets → persistent **Warning**; locked `ModStack` API (`ForEachMod`/`MoveToFront`) **in Wave 4** (with the public API split); `ProcessInternal` pattern → `ModLoaderInfo.ini` `[FunctionInfo]` and UML log wording reworded **in Wave 4** (with spdlog); missing `ModLoaderInfo.ini` keeps **disabling** the loader. |
 
 ---
