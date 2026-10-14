@@ -12,8 +12,11 @@
 //
 // C++latest translation unit (Dumper-7 headers). Not visible to the C++17 mod code: use SdkGenerator.h.
 
+#include <cstdint>
 #include <filesystem>
+#include <functional>
 #include <string>
+#include <utility>
 #include <unordered_set>
 #include <vector>
 
@@ -38,6 +41,9 @@ public:
 	/* Input, set before Generator::Generate<MDMLGenerator>() */
 	static inline std::vector<std::string> RequestedPackages;
 	static inline bool bAllPackages = false;
+	/* Optional: (value, display name) pairs of a Blueprint (user-defined) enum, given the raw UEnum*. Supplied by the
+	 * DevTools DLL (MDML core), because this library has no MDML headers. Used for the enumerator names. */
+	static inline std::function<std::vector<std::pair<uint64_t, std::string>>(const void*)> EnumDisplayNames;
 
 	/* Output of the last run */
 	struct FStats

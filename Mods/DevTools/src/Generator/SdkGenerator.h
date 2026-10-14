@@ -7,7 +7,9 @@
 
 #include <filesystem>
 #include <functional>
+#include <cstdint>
 #include <string>
+#include <utility>
 #include <vector>
 
 namespace devtools::sdkgen {
@@ -17,6 +19,9 @@ namespace devtools::sdkgen {
 		Error,
 	};
 	using LogCallback = std::function<void(ELogLevel Level, const std::string& Message)>;
+	// Display names of a Blueprint (user-defined) enum: (value, display name) for every entry that has one, empty for
+	// any other enum. Enum is the raw UEnum*. Without it, Blueprint enums keep their internal names (NewEnumerator0..N).
+	using EnumDisplayNamesCallback = std::function<std::vector<std::pair<uint64_t, std::string>>(const void* Enum)>;
 
 	struct GenerateRequest {
 		// Root output folder, e.g. "<MDML.dll dir>/SDK-Out". Dumper-7 creates "<GameVersion>-<GameName>/" inside it;
@@ -25,6 +30,7 @@ namespace devtools::sdkgen {
 		// Package names as shown by the package list (e.g. "BP_BaseCharacter", "Engine"). Dependencies are added.
 		std::vector<std::string> Packages;
 		bool bAllPackages = false;
+		EnumDisplayNamesCallback EnumDisplayNames;
 	};
 
 	struct GenerateResult {

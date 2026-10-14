@@ -20,6 +20,26 @@ namespace devtools {
 				return {};
 			return Text.substr(First, Text.find_last_not_of(" \t\r\n") - First + 1);
 		}
+
+		// sdkgen::EnumDisplayNamesCallback: the designer-given names of a Blueprint enum (UUserDefinedEnum display
+		// names), keyed by value. Runs on the game thread inside the generation job.
+		std::vector<std::pair<uint64_t, std::string>> UserEnumDisplayNames(const void* RawEnum) {
+			std::vector<std::pair<uint64_t, std::string>> Result;
+			auto* Enum = static_cast<UE4::UEnum*>(const_cast<void*>(RawEnum));
+			UE4::UClass* UserEnumClass = UE4::UUserDefinedEnum::StaticClass();
+			if (!Enum || !UserEnumClass || !Enum->IsA(UserEnumClass))
+				return Result;
+			auto* UserEnum = static_cast<UE4::UUserDefinedEnum*>(Enum);
+			auto Names = Enum->GetNames();
+			for (int32_t i = 0; i < Names.Num(); ++i) {
+				UE4::FText Display = UserEnum->GetDisplayNameTextByIndex(i);
+				std::string Text = Display.ToString();
+				Display.Release(); // the FText returned by value holds one reference
+				if (!Text.empty())
+					Result.emplace_back(Names[i].Value, std::move(Text));
+			}
+			return Result;
+		}
 	}
 
 	DevToolsMod::DevToolsMod(HMODULE Handle) {
@@ -138,6 +158,7 @@ namespace devtools {
 		Request.OutputRoot = GetOutputRoot();
 		Request.bAllPackages = m_allPackages;
 		Request.Packages = CollectSelectedPackages();
+		Request.EnumDisplayNames = &UserEnumDisplayNames;
 		if (!Request.bAllPackages && Request.Packages.empty()) {
 			AddLog("Nothing selected: tick an export list, pick packages or type package names.", true);
 			return;

@@ -104,6 +104,42 @@ namespace
 		return Out;
 	}
 
+	/* Display name of a Blueprint enum entry ("Part of Group") -> C++ enumerator ("Part_of_Group"). Every character
+	 * outside [A-Za-z0-9_] becomes '_', runs of '_' collapse, a leading digit gets a '_' prefix and C++ keywords a '_'
+	 * suffix. Empty when nothing usable is left (the internal name is kept then). */
+	std::string MakeEnumEntryName(const std::string& Display)
+	{
+		static const std::unordered_set<std::string> Keywords = {
+			"alignas", "alignof", "and", "asm", "auto", "bool", "break", "case", "catch", "char", "class", "const",
+			"constexpr", "continue", "decltype", "default", "delete", "do", "double", "else", "enum", "explicit", "export",
+			"extern", "false", "float", "for", "friend", "goto", "if", "inline", "int", "long", "mutable", "namespace",
+			"new", "noexcept", "not", "nullptr", "operator", "or", "private", "protected", "public", "register", "return",
+			"short", "signed", "sizeof", "static", "struct", "switch", "template", "this", "throw", "true", "try",
+			"typedef", "typeid", "typename", "union", "unsigned", "using", "virtual", "void", "volatile", "while", "xor",
+		};
+		std::string Out;
+		Out.reserve(Display.size() + 1);
+		for (unsigned char c : Display)
+		{
+			const bool bValid = (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '_';
+			const char Next = bValid ? static_cast<char>(c) : '_';
+			if (Next == '_' && !Out.empty() && Out.back() == '_')
+				continue;
+			Out += Next;
+		}
+		while (!Out.empty() && Out.back() == '_')
+			Out.pop_back();
+		while (!Out.empty() && Out.front() == '_')
+			Out.erase(Out.begin());
+		if (Out.empty())
+			return Out;
+		if (Out.front() >= '0' && Out.front() <= '9')
+			Out.insert(Out.begin(), '_');
+		if (Keywords.contains(Out))
+			Out += '_';
+		return Out;
+	}
+
 	std::string NarrowLiteral(const std::string& Text) { return "\"" + EscapeLiteral(Text) + "\""; }
 	std::string WideLiteral(const std::string& Text) { return "L\"" + EscapeLiteral(Text) + "\""; }
 
@@ -687,6 +723,31 @@ namespace
 
 		const bool bSigned = Enum.IsUnderlyingTypeSigned();
 		Out += std::format("\n// {}\nenum class {} : {}\n{{\n", Enum.GetFullName(), GetEnumPrefixedName(Enum), GetEnumUnderlyingType(Enum));
+
+		/* Blueprint enums store their entries as NewEnumerator0..N; the names the designer typed are display names
+		 * (UUserDefinedEnum::DisplayNameMap). Use those, like the old LegacyExporter did (owner request 2026-10-15). */
+		std::unordered_map<uint64, std::string> DisplayNames;
+		if (MDMLGenerator::EnumDisplayNames)
+		{
+			for (auto& [Value, Display] : MDMLGenerator::EnumDisplayNames(Enum.GetUnrealEnum().GetAddress()))
+				DisplayNames.emplace(Value, std::move(Display));
+		}
+		std::unordered_set<std::string> UsedNames;
+		auto EntryName = [&](const EnumCollisionInfo& Info) -> std::string
+		{
+			std::string Name = Info.GetUniqueName();
+			if (auto It = DisplayNames.find(Info.GetValue()); It != DisplayNames.end())
+			{
+				std::string Valid = MakeEnumEntryName(It->second);
+				if (!Valid.empty())
+					Name = std::move(Valid);
+			}
+			std::string Unique = Name;
+			for (int32 Suffix = 2; !UsedNames.insert(Unique).second; ++Suffix)
+				Unique = std::format("{}_{}", Name, Suffix);
+			return Unique;
+		};
+
 		/* The underlying type must match the game's in-struct layout, so values that do not fit are dropped (not widened). */
 		const int32 UnderlyingBits = Enum.GetUnderlyingTypeSize() * 8;
 		for (const EnumCollisionInfo& Info : Enum.GetMembers())
@@ -712,7 +773,8 @@ namespace
 				Stats.Notes.push_back(std::format("enum {}: dropped {} (does not fit {}-bit underlying type)", GetEnumPrefixedName(Enum), Dropped, UnderlyingBits));
 				continue;
 			}
-			Out += bSigned ?std::format("\t{} = {},\n", Info.GetUniqueName(), static_cast<int64>(Value)) : std::format("\t{} = {},\n", Info.GetUniqueName(), Value);
+			const std::string Name = EntryName(Info);
+			Out += bSigned ? std::format("\t{} = {},\n", Name, static_cast<int64>(Value)) : std::format("\t{} = {},\n", Name, Value);
 		}
 		Out += "};\n";
 		Stats.NumEnums++;
