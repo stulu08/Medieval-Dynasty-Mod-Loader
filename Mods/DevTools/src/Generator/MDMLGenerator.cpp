@@ -399,7 +399,19 @@ namespace
 		int32 PrevBitPropertyOffset = 0x0;
 		uint64 PrevNumBitsInUnderlayingType = 0x8;
 
-		const std::unordered_map<std::string, std::string> ShortNames = UserStructMemberNames(Struct, Members, StructName);
+		/* Same /EHa guard as for the enum display names: a failure only costs the short names of this struct. */
+		std::unordered_map<std::string, std::string> ShortNames;
+		try
+		{
+			ShortNames = UserStructMemberNames(Struct, Members, StructName);
+		}
+		catch (...)
+		{
+			ShortNames.clear();
+			const std::string Note = std::format("struct {}: shortening the Blueprint member names failed, full names kept", StructName);
+			std::cerr << "MDMLGenerator: " << Note << std::endl;
+			Notes.push_back(Note);
+		}
 
 		for (const PropertyWrapper& Member : Members.IterateMembers())
 		{
@@ -794,7 +806,22 @@ namespace
 		std::unordered_map<uint64, std::string> DisplayNames;
 		if (MDMLGenerator::EnumDisplayNames)
 		{
-			for (auto& [Value, Display] : MDMLGenerator::EnumDisplayNames(Enum.GetUnrealEnum().GetAddress()))
+			/* The callback calls into the engine (UUserDefinedEnum::GetDisplayNameTextByIndex, FText::ToString). The
+			 * workspace builds with /EHa, so catch (...) also catches an access violation there: that enum keeps its
+			 * internal names instead of the whole generation failing. */
+			std::vector<std::pair<uint64_t, std::string>> Names;
+			try
+			{
+				Names = MDMLGenerator::EnumDisplayNames(Enum.GetUnrealEnum().GetAddress());
+			}
+			catch (...)
+			{
+				Names.clear();
+				const std::string Note = std::format("enum {}: reading the display names failed, internal names kept", Enum.GetFullName());
+				std::cerr << "MDMLGenerator: " << Note << std::endl;
+				Stats.Notes.push_back(Note);
+			}
+			for (auto& [Value, Display] : Names)
 				DisplayNames.emplace(Value, std::move(Display));
 		}
 		std::unordered_set<std::string> UsedNames;
