@@ -5,6 +5,21 @@
 -  The entire source code of mdml is in the project so you can browse to search or add functions 
 -  UE4 headers can be found in Loader/ModLoader/src/Engine/UE4, additionally the BaseMod gives game specific features, not much jet but I am looking forward to adding more
 -  The mod.ini files will be moved in the build dir, the original mod.ini is located at Mods/Examples/<YourMod>/Config (see Mods/Examples), put all your mod files into this folder so they get copied at build
+### Core mod API (since Wave 3)
+- Derive from `GameMod` (BaseMod) and override `OnModInitialize()` (was misspelled `OnModInitilize`; renamed without alias, so old mods must be updated).
+  `Tick(ELevelTick, float DeltaTime)`, `GameTick`, `DrawImGui` etc. are unchanged.
+- Loader API namespaces: `mdml::platform` (`Hooks`, `IniFile`, `SymbolResolver`), `mdml::runtime` (`GameThread`, `Config`, `FormatPath`, `GetDataFolder`),
+  `mdml::mods` (loader internals). Includes: `Mods/Mod.h`, `Platform/Hooks.h`, `Platform/IniFile.h`, `Runtime/GameThread.h`.
+  `Mod::ModRef` is gone: do not set it in your constructor, `CompleteModCreation()` registers the mod.
+- **Threading:** `DrawImGui` and button callbacks run on the render thread. Do not call into the engine (ProcessEvent, GObjects scans, `StaticFindObject`,
+  actor functions) from there: use `mdml::runtime::GameThread::Enqueue([]{ ... });` (runs later on the game thread, in the Tick hook). `GameTick`/`BeginPlay`/`InitGameState` already run on the game thread.
+- Reflection: `UStruct::GetChildProperties()` returns the `FField*` chain (members); loops over all objects use `UE4::UObject::ForEachObject(fn)` and `UE4::UObject::GetAllObjectsOfType`.
+- Config: `GameMod::GetINIConfig<T>(key, section = "Config", default)` / `SetINIConfig(key, value, section)` read/write your `mod.ini` through `mdml::platform::IniFile`
+  (T: bool, integers, float, `std::string`). Use `IniFile` directly for other files.
+- **INI format:** comments are only whole lines whose first non-blank character is `;`. `#` and `//` are not comments, and a `;` after a value belongs to the value
+  (`DLLPath=Foo.dll ; my mod` means the file `Foo.dll ; my mod`). Section/key names match exactly first, then case-insensitively. The key is spelled `PersistentObjectFile` (the old typo `PeristentObjectFile` is not read any more).
+- Developer tools (object browser, INI browser/editor, SDK generator/exporter, dev-build flag swap) are in the DevTools mod (off by default, see its `mod.ini`), not in BaseMod.
+
 ### Here is the mod.ini structure for your mod
 ```
 [Mod]
