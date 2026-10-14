@@ -27,8 +27,7 @@ IncludeDir = {}
 IncludeDir["spdlog"] = "%{Dependencies}/spdlog"
 IncludeDir["MinHook"] = "%{Dependencies}/MinHook"
 IncludeDir["glm"] = "%{Dependencies}/glm"
--- old feather INI parser: still used by BaseMod's GameMod.h and the Mod Manager (not by MDML.dll any more since
--- Wave 3E). Loader code uses mINI through mdml::platform::IniFile (Wave 3A).
+-- old feather INI parser: only the Mod Manager still uses it (not MDML.dll since Wave 3E). Loader code uses mINI through mdml::platform::IniFile (Wave 3A).
 IncludeDir["INI"] = "%{Dependencies}/INI"
 -- mINI (header-only, "mini/ini.h"); only included by Loader/ModLoader/src/Platform/IniFile.cpp
 IncludeDir["mINI"] = "%{Dependencies}/mINI"
@@ -45,14 +44,11 @@ IncludeDir["ModLoader"] = "%{wks.location}/Loader/ModLoader/src"
 -- layout: Engine = old SDK/src ("UE4.h", "NameValidator.h"), EngineUE4 = old SDK/src/UE4 ("CoreUObject/...", "Math/...").
 IncludeDir["Engine"] = "%{wks.location}/Loader/ModLoader/src/Engine"
 IncludeDir["EngineUE4"] = "%{wks.location}/Loader/ModLoader/src/Engine/UE4"
--- generated SDK (static SDK.lib)
-IncludeDir["UE4"] = "%{wks.location}/Loader/SDK/src/UE4"
-IncludeDir["MedievalDynasty"] = "%{wks.location}/Loader/SDK/src/Medieval_Dynasty"
-IncludeDir["SDK"] = "%{wks.location}/Loader/SDK/src"
-IncludeDir["BaseMod"] = "%{wks.location}/Mods/BaseMod/src"
+-- generated SDK (Wave 4 step B): header-only, one "<Package>.hpp" per game/engine package, made by the DevTools SDK
+-- generator (docs/SDK_GENERATOR.md). Never edit by hand; regenerate and copy the whole MDML-SDK folder.
+IncludeDir["SDK"] = "%{wks.location}/Loader/SDK/Generated"
 
 ProjectDir = {}
-ProjectDir["BaseMod"] = "%{wks.location}/Mods/BaseMod"
 ProjectDir["DevTools"] = "%{wks.location}/Mods/DevTools"
 ProjectDir["TimeWeatherChanger"] = "%{wks.location}/Mods/Examples/TimeWeatherChanger"
 ProjectDir["PresetMod"] = "%{wks.location}/Mods/Examples/PresetMod"

@@ -56,8 +56,8 @@ include "Dependencies/Dumper-7/Dumper7.lua"
 group "MDML"
 include "Loader/Proxy/Proxy.lua"
 include "Loader/ModLoader/ModLoader.lua"
-include "Loader/SDK/SDK.lua"
-include "Mods/BaseMod/BaseMod.lua"
+-- Loader/SDK/Generated: the generated SDK, header-only (no project; IncludeDir.SDK). BaseMod is gone: GameMod is part
+-- of MDML.dll (MDML/GameMod.h) since Wave 4 step B.
 include "Mods/Examples/Examples.lua"
 -- standalone Mod Manager app on SDG (GLFW + OpenGL + ImGui, all from the Dependencies group)
 group "GUI"

@@ -25,14 +25,12 @@ namespace devtools {
 		// names), keyed by value. Runs on the game thread inside the generation job.
 		std::vector<std::pair<uint64_t, std::string>> UserEnumDisplayNames(const void* RawEnum) {
 			std::vector<std::pair<uint64_t, std::string>> Result;
-			auto* Enum = static_cast<UE4::UEnum*>(const_cast<void*>(RawEnum));
-			UE4::UClass* UserEnumClass = UE4::UUserDefinedEnum::StaticClass();
-			if (!Enum || !UserEnumClass || !Enum->IsA(UserEnumClass))
+			auto* Enum = static_cast<const UE4::UEnum*>(RawEnum);
+			if (!UE4::IsUserDefinedEnum(Enum))
 				return Result;
-			auto* UserEnum = static_cast<UE4::UUserDefinedEnum*>(Enum);
 			auto Names = Enum->GetNames();
 			for (int32_t i = 0; i < Names.Num(); ++i) {
-				UE4::FText Display = UserEnum->GetDisplayNameTextByIndex(i);
+				UE4::FText Display = UE4::GetUserDefinedEnumDisplayNameText(Enum, i);
 				std::string Text = Display.ToString();
 				Display.Release(); // the FText returned by value holds one reference
 				if (!Text.empty())

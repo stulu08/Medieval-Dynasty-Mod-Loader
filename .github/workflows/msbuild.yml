@@ -29,12 +29,11 @@ jobs:
     - name: Setup premake and generate Visual Studio 2022 projects
       run: python scripts/python/setup.py --yes vs2022
 
-    # NOTE: the generated SDK static lib (SDK.lib) is ~2.5 GB and takes a long time to build.
-    # This may hit runner disk/time limits; the SDK is going to be replaced (MODERNIZATION_PLAN 2.4).
+    # The generated SDK (Loader/SDK/Generated) is header-only since Wave 4 step B: no SDK.lib to build any more.
     - name: Build
       run: msbuild MDML.sln /m /nologo /v:minimal /p:Configuration=${{ env.BUILD_CONFIGURATION }} /p:Platform=${{ env.BUILD_PLATFORM }}
 
-    # Copy only the runtime files; skip SDK.lib, *.lib, *.pdb, *.exp, *.ilk (huge / not needed).
+    # Copy only the runtime files; skip *.lib, *.pdb, *.exp, *.ilk (not needed).
     - name: Stage artifacts
       shell: pwsh
       run: |

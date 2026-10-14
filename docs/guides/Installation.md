@@ -28,7 +28,8 @@
      [Your Steam Library Folder]/common/Medieval Dynasty/Medieval_Dynasty/Content/Mods
      ```  
    - If the `Mods` folder does not already exist, you can create it manually or start the game once to generate it automatically.  
-   - Copy the entire `BaseMod` folder into the `Mods` directory.  
+   - Copy the mods you want (for example `DevTools`) into the `Mods` directory. No base mod is needed any more: the game
+     API that used to be in `BaseMod` is part of `MDML.dll`. An old `BaseMod` folder from earlier versions can be deleted.  
 
 5. **Start the Game**  
    - Launch Medieval Dynasty through Steam.  

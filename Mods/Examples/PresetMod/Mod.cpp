@@ -1,8 +1,6 @@
 #include "Mod.h"
 #include "MDML/Hooks.h"
 
-#include "BaseMod.h"
-
 //BPFUNCTION(WriteToFile)
 //{
 //	std::cout << "WriteToFile" << std::endl;

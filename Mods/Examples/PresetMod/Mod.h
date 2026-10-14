@@ -1,6 +1,5 @@
 #pragma once
 #include "MDML/MDML.h"
-#include "GameMod.h"
 
 class ExampleMod : public GameMod
 {

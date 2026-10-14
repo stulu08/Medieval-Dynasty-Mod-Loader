@@ -1,10 +1,12 @@
 #include "ObjectBrowser.h"
 
+#include "ClassFunctions.h"
 #include "ExportList.h"
-#include "LegacyExporter.h"
 #include "MDML/GameThread.h"
 #include "MDML/UI/Widgets.h"
 #include "Util.h"
+
+#include "Engine.hpp" // generated SDK: AActor, UBlueprintGeneratedClass, UDataTable
 
 #include <algorithm>
 #include <chrono>
@@ -93,16 +95,16 @@ namespace devtools {
 			}
 			if (ImGui::CollapsingHeader("Functions")) {
 				std::vector<UE4::UFunction*> functions;
-				if (!legacy::TryGetCachedClassFunctions(clas, functions)) {
+				if (!classinfo::TryGetCachedClassFunctions(clas, functions)) {
 					// A GObjects scan: game thread only.
 					if (ImGui::Button("Load functions")) {
-						mdml::runtime::GameThread::Enqueue([clas]() { legacy::GetAllClassFunctions(clas); });
+						mdml::runtime::GameThread::Enqueue([clas]() { classinfo::GetAllClassFunctions(clas); });
 					}
 				}
 				else {
 					if (ImGui::Button("Dump class functions")) {
 						mdml::runtime::GameThread::Enqueue([clas, log]() {
-							const std::string file = legacy::DumpClassInfo(clas, util::MdmlFolder() / "Dump");
+							const std::string file = classinfo::DumpClassInfo(clas, util::MdmlFolder() / "Dump");
 							if (log)
 								log(file.empty() ? "Dump of class functions failed" : "Class functions dumped to " + file, file.empty());
 						});
@@ -148,8 +150,8 @@ namespace devtools {
 			}
 			if (request) {
 				mdml::runtime::GameThread::Enqueue([actor, state]() {
-					glm::vec3 p = actor->GetActorLocation();
-					glm::vec3 r = actor->GetActorRotation();
+					glm::vec3 p = actor->K2_GetActorLocation();
+					glm::vec3 r = actor->K2_GetActorRotation();
 					glm::vec3 s = actor->GetActorScale3D();
 					std::lock_guard<std::mutex> lock(s_transformMutex);
 					state->position = p;
@@ -166,17 +168,17 @@ namespace devtools {
 
 			ImGui::PushID((void*)actor);
 			if (mdml::ui::widgets::Vector3("Position", position)) {
-				mdml::runtime::GameThread::Enqueue([actor, position]() { actor->K2_SetActorLocation(position); });
+				mdml::runtime::GameThread::Enqueue([actor, position]() { actor->K2_SetActorLocation(UE4::FVector(position), false, nullptr, true); });
 				std::lock_guard<std::mutex> lock(s_transformMutex);
 				state->position = position;
 			}
 			if (mdml::ui::widgets::Vector3("Rotation", rotation)) {
-				mdml::runtime::GameThread::Enqueue([actor, rotation]() { actor->SetActorRotation(rotation); });
+				mdml::runtime::GameThread::Enqueue([actor, rotation]() { actor->K2_SetActorRotation(UE4::FRotator(rotation), true); });
 				std::lock_guard<std::mutex> lock(s_transformMutex);
 				state->rotation = rotation;
 			}
 			if (mdml::ui::widgets::Vector3("Scale", scale)) {
-				mdml::runtime::GameThread::Enqueue([actor, scale]() { actor->SetActorScale3D(scale); });
+				mdml::runtime::GameThread::Enqueue([actor, scale]() { actor->SetActorScale3D(UE4::FVector(scale)); });
 				std::lock_guard<std::mutex> lock(s_transformMutex);
 				state->scale = scale;
 			}
@@ -195,7 +197,7 @@ namespace devtools {
 		m_packageObjectCounts.clear();
 		m_countsPending.clear();
 		gui::ForgetActorTransforms();
-		legacy::ClearClassFunctionCache();
+		classinfo::ClearClassFunctionCache();
 	}
 
 	std::shared_ptr<const ObjectBrowser::Snapshot> ObjectBrowser::GetSnapshot() {
@@ -238,18 +240,9 @@ namespace devtools {
 		bool selectAll = false;
 		bool deselectAll = false;
 		ImGui::InputText("##SearchPackages_SEARCHBAR", &m_searchPackages);
-		if (ImGui::Button("Export selected")) {
-			if (!m_exportList.empty()) {
-				const auto selected = m_exportList;
-				const LogFn log = m_log;
-				mdml::runtime::GameThread::Enqueue([selected, log]() {
-					log("Legacy export started (the game freezes until it is done)...", false);
-					log(legacy::RunExportPackages(selected, util::MdmlFolder() / "Export"), false);
-				});
-			}
-			m_exportList.clear();
-		}
-		ImGui::SameLine();
+		// The legacy exporter is gone (Wave 4 step B): selected packages are saved as an export list, which the SDK
+		// generator in the DevTools window offers after "Rescan export lists".
+		ImGui::TextDisabled("Tick packages, save them as an export list, then \"Rescan\" + generate in the DevTools window.");
 		if (ImGui::Button("Select All"))
 			selectAll = true;
 		ImGui::SameLine();
@@ -259,29 +252,17 @@ namespace devtools {
 		if (ImGui::Button("Clear"))
 			m_exportList.clear();
 		ImGui::SameLine();
-		if (ImGui::Button("Export BP Structs")) {
-			const LogFn log = m_log;
-			mdml::runtime::GameThread::Enqueue([log]() {
-				log("Legacy export started (the game freezes until it is done)...", false);
-				log(legacy::RunExportBPStructs(util::MdmlFolder() / "Export"), false);
-			});
-		}
-		ImGui::SameLine();
-		if (ImGui::Button("Export BP Enums")) {
-			const LogFn log = m_log;
-			mdml::runtime::GameThread::Enqueue([log]() {
-				log("Legacy export started (the game freezes until it is done)...", false);
-				log(legacy::RunExportBPEnums(util::MdmlFolder() / "Export"), false);
-			});
-		}
-		{ // export list files "<profile>.export" in DevTools' mod folder (same format as the generator's export lists)
+		ImGui::Text("%d selected", (int)m_exportList.size());
+		{ // export list files "<profile>.export" in DevTools' mod folder (the generator's export list format)
 			ImGui::InputText("##Export_Profile", &m_profile);
 			const std::filesystem::path profileFile = m_listFolder / (m_profile + ".export");
 			if (ImGui::Button("Save selected to file")) {
 				std::stringstream content;
 				for (auto& entry : m_exportList)
 					content << entry->GetName() << std::endl;
-				util::SaveString(content.str(), profileFile.string());
+				const bool saved = util::SaveString(content.str(), profileFile.string());
+				if (m_log)
+					m_log(saved ? "Export list saved to " + profileFile.string() : "Could not write " + profileFile.string(), !saved);
 			}
 			ImGui::SameLine();
 			if (ImGui::Button("Load from File")) {
@@ -335,14 +316,6 @@ namespace devtools {
 				}
 				if (pending)
 					ImGui::EndDisabled();
-				if (ImGui::Button("Generate C++ files")) {
-					const LogFn log = m_log;
-					auto pack = (UE4::UPackage*)object;
-					mdml::runtime::GameThread::Enqueue([pack, log]() {
-						log("Legacy export started (the game freezes until it is done)...", false);
-						log(legacy::RunExportPackages({ pack }, util::MdmlFolder() / "Export"), false);
-					});
-				}
 				ImGui::TreePop();
 			}
 
@@ -442,10 +415,10 @@ namespace devtools {
 						if (ImGui::TreeNodeEx(("DataTables_" + std::to_string(index++)).c_str(), DEFAULT_TREE_NODE_FLAGS, "%s", object->GetName().c_str())) {
 							ImGui::Text("Package: %s", object->GetPackage() ? object->GetPackage()->GetName().c_str() : "Nullptr");
 							UE4::UDataTable* table = (UE4::UDataTable*)object;
-							auto rowstruct = table->M_GetRowStruct();
+							UE4::UScriptStruct* rowstruct = table->RowStruct;
 							ImGui::Text("RowStruct: %s", rowstruct ? rowstruct->GetFullName().c_str() : "Nullptr");
 							if (ImGui::TreeNodeEx("Rows", DEFAULT_TREE_NODE_FLAGS)) {
-								UE4::NativeTMap<UE4::FName, uint8_t*> rowMap = table->GetRowMap();
+								UE4::NativeTMap<UE4::FName, uint8_t*> rowMap = UE4::GetDataTableRowMap(table);
 								for (int i = 0; i < rowMap.Num(); i++) {
 									auto pair = rowMap.GetPair(i);
 									ImGui::Text("%s: %p", pair.Key.GetName().c_str(), (void*)pair.Value);

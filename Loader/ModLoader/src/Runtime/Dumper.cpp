@@ -1,6 +1,7 @@
 #include "Core.h"
 #include "Dumper.h"
 #include "UE4.h"
+#include "Engine.hpp"
 #include "EngineAddresses.h"
 #include "EngineLayout.h"
 #include "MDML/Notices.h"
@@ -126,7 +127,7 @@ bool Dumper::DumpEngineInfo()
 bool Dumper::DumpWorldActors()
 {
 	CreateDumpDir();
-	const std::filesystem::path Path = DumpFile(UE4::UGameplayStatics::GetCurrentLevelName(false).ToString() + "_Dump.txt");
+	const std::filesystem::path Path = DumpFile(UE4::UGameplayStatics::GetCurrentLevelName(UE4::GetWorld(), false).ToString() + "_Dump.txt");
 	FILE* Log = OpenDumpFile(Path);
 	if (Log == NULL)
 		return false;
@@ -136,8 +137,8 @@ bool Dumper::DumpWorldActors()
 		auto actor = actors[i];
 		if (actor->GetOuter()->GetClass() == UE4::ULevel::StaticClass())
 		{
-			auto Location = actor->GetActorLocation();
-			auto Rotation = actor->GetActorRotation();
+			auto Location = actor->K2_GetActorLocation();
+			auto Rotation = actor->K2_GetActorRotation();
 			auto Scale = actor->GetActorScale3D();
 			fprintf(Log, "ActorName: %s\n", actor->GetName().c_str());
 			fprintf(Log, "ClassName: %s\n", actor->GetClass()->GetName().c_str());

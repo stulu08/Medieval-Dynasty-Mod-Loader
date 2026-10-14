@@ -97,7 +97,7 @@ namespace mdml::mods {
 		std::sort(mods.begin(), mods.end(), LessNoCase);
 		mods.erase(std::unique(mods.begin(), mods.end(), EqualNoCase), mods.end());
 
-		//order by Config/LoadOrder.ini (BaseMod is always first there); ties (several dlls of one mod) stay alphabetical
+		//order by Config/LoadOrder.ini; ties (several dlls of one mod) stay alphabetical
 		const std::filesystem::path modsRoot = std::filesystem::path(path).lexically_normal();
 		auto modNameOf = [&](const std::filesystem::path& mod) {
 			auto rel = mod.lexically_relative(modsRoot);
@@ -109,7 +109,7 @@ namespace mdml::mods {
 			return LoadOrder::GetPosition(modNameOf(a)) < LoadOrder::GetPosition(modNameOf(b));
 		});
 
-		//load all mods one after another on this thread, BaseMod first
+		//load all mods one after another on this thread
 		for (const auto& mod : mods) {
 			if (!std::filesystem::exists(mod) || mod.extension().string() != ".dll") {
 				Log::Warn_MDML("Skipping mod {0}: not an existing .dll file", runtime::FormatPath(mod));

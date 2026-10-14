@@ -1,8 +1,8 @@
 #pragma once
 // DevTools: developer mod shipped with MDML, disabled by default (Config/mod.ini). Hosts the SDK generator UI
 // (docs/SDK_GENERATOR.md) and, since Wave 3C (plan 2.5), the developer tooling that used to live in BaseMod: object
-// browser + legacy SDK exporter (ObjectBrowser, LegacyExporter), INI browser/editor (IniBrowser), dev-build flag swap
-// and player tools (PlayerTools). BaseMod only keeps the game API (GameMod).
+// browser (ObjectBrowser), INI browser/editor (IniBrowser), dev-build flag swap and player tools (PlayerTools). The
+// legacy SDK exporter was removed with the old SDK in Wave 4 step B.
 #include "MDML/MDML.h"
 
 #include <atomic>

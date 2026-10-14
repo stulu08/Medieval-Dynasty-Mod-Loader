@@ -10,6 +10,7 @@
 #include "Runtime/LoaderConfig.h"
 
 #include "UE4.h"
+#include "Engine.hpp"
 #include "EngineAddresses.h"
 
 namespace mdml::runtime {

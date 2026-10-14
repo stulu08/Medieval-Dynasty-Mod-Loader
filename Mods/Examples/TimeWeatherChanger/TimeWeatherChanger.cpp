@@ -1,6 +1,10 @@
 #include "TimeWeatherChanger.h"
 
-#include "BaseMod.h"
+#include "MDML/GameThread.h"
+#include "EngineMemory.h"
+
+// Generated SDK (Loader/SDK/Generated): ABP_WeatherManager_C with its members and functions, FST_Time.
+#include "BP_WeatherManager.hpp"
 
 void TimeWeatherChanger::OnModInitialize() {
 	UseMenuButton = true; // Allows Mod Loader To Show a Button, if pressed OnModMenuButtonPressed will be called
@@ -17,245 +21,179 @@ void TimeWeatherChanger::OnModMenuButtonPressed() {
 }
 
 bool TimeWeatherChanger::GameTick(float deltaTime) {
-	if (getMedievalDynastyGameMode() == nullptr) {
+	UE4::ABP_WeatherManager_C* weather = getWeatherManager();
+	if (!weather)
 		return false;
-	}
-	if (getMainGameManager() == nullptr) {
-		return false;
-	}
-	if (getWeatherManager() == nullptr) {
-		getLogger()->Critical("Could not find Weather Manager");
-		return false;
-	}
-	auto* weather = getWeatherManager();
 
-	if (m_alwaysClearWeather) {
-		if (m_cloudDensity == 0) {
-			for (UE4::FField* member = weather->GetClass()->GetChildProperties(); member != nullptr; member = member->GetNext()) {
-				UE4::FProperty* prop = member->GetAsProperty();
-				if (!prop || prop->GetArrayDim() > 1)
-					continue;
-				if (prop->IsA<UE4::FFloatProperty>()) {
-					if (prop->GetName() == "CloudDensity") {
-						m_cloudDensity = prop->GetOffset();
-					}
-				}
-			}
-			if (m_cloudDensity == 0) {
-				getLogger()->Critical("Could not find address of CloudDensity");
-				m_alwaysClearWeather = false;
-			}
-			else {
-				getLogger()->Trace("Found CloudDensity at {0}", m_cloudDensity);
-			}
-		}
-		Write<float>((byte*)weather + m_cloudDensity, 0.0f);
-	}
-	if (m_NoFog) {
-		if (m_fogDensity == 0) {
-			for (UE4::FField* member = weather->GetClass()->GetChildProperties(); member != nullptr; member = member->GetNext()) {
-				UE4::FProperty* prop = member->GetAsProperty();
-				if (!prop || prop->GetArrayDim() > 1)
-					continue;
-				if (prop->IsA<UE4::FFloatProperty>()) {
-					if (prop->GetName() == "FogDensity") {
-						m_fogDensity = prop->GetOffset();
-					}
-				}
-			}
-			if (m_fogDensity == 0) {
-				getLogger()->Critical("Could not find address of FogDensity");
-				m_NoFog = false;
-			}
-			else {
-				getLogger()->Trace("Found FogDensity at {0}", m_fogDensity);
-			}
-		}
-		Write<float>((byte*)weather + m_fogDensity, m_noFogValue);
-	}
-	if (m_NoWind) {
-		if (m_windIntensity == 0) {
-			for (UE4::FField* member = weather->GetClass()->GetChildProperties(); member != nullptr; member = member->GetNext()) {
-				UE4::FProperty* prop = member->GetAsProperty();
-				if (!prop || prop->GetArrayDim() > 1)
-					continue;
-				if (prop->IsA<UE4::FFloatProperty>()) {
-					if (prop->GetName() == "WindIntensity") {
-						m_windIntensity = prop->GetOffset();
-					}
-				}
-			}
-			if (m_windIntensity == 0) {
-				getLogger()->Critical("Could not find address of WindIntensity");
-				m_NoWind = false;
-			}
-			else {
-				getLogger()->Trace("Found WindIntensity at {0}", m_windIntensity);
-			}
-		}
-		Write<float>((byte*)weather + m_windIntensity, 0.0f);
-	}
-
+	// Generated members are resolved by property name at first use, so there is no offset to search for any more
+	// (before Wave 4 step B this mod walked the class's properties to find CloudDensity & co.).
+	if (m_alwaysClearWeather)
+		weather->CloudDensity = 0.0f;
+	if (m_NoFog)
+		weather->FogDensity = m_noFogValue;
+	if (m_NoWind)
+		weather->WindIntensity = 0.0f;
 	return false;
 }
 
 bool TimeWeatherChanger::DrawImGui() {
-	if (showWindow) {
-		if (ImGui::Begin("Time and Weather Changer", &showWindow)) {
-			if (ImGui::CollapsingHeader("Settings")) {
-				if (ImGui::Checkbox("Always Clear Weather", &m_alwaysClearWeather)) {
-					this->SetINIConfig("bAlwaysClearWeather", m_alwaysClearWeather);
-				}
-				if (ImGui::Checkbox("No Wind", &m_NoWind)) {
-					this->SetINIConfig("bNoWind", m_NoWind);
-				}
-				if (ImGui::Checkbox("No Fog", &m_NoFog)) {
-					this->SetINIConfig("bNoFog", m_NoFog);
-				}
-				if (ImGui::DragFloat("No Fog Value", &m_noFogValue, 0.025f)) {
-					this->SetINIConfig("fNoFogValue", m_noFogValue);
-				}
+	if (!showWindow)
+		return false;
+	if (ImGui::Begin("Time and Weather Changer", &showWindow)) {
+		if (ImGui::CollapsingHeader("Settings")) {
+			if (ImGui::Checkbox("Always Clear Weather", &m_alwaysClearWeather)) {
+				this->SetINIConfig("bAlwaysClearWeather", m_alwaysClearWeather);
 			}
-			if (getMedievalDynastyGameMode() == nullptr) {
-				ImGui::Text("Player Character not found!");
-				ImGui::End();
-				return false;
+			if (ImGui::Checkbox("No Wind", &m_NoWind)) {
+				this->SetINIConfig("bNoWind", m_NoWind);
 			}
-			if (getMainGameManager() == nullptr) {
-				ImGui::Text("Game Manager not found!");
-				ImGui::End();
-				return false;
+			if (ImGui::Checkbox("No Fog", &m_NoFog)) {
+				this->SetINIConfig("bNoFog", m_NoFog);
 			}
-			if (getWeatherManager() == nullptr) {
-				ImGui::Text("Weather Manager not found!");
-				ImGui::End();
-				return false;
+			if (ImGui::DragFloat("No Fog Value", &m_noFogValue, 0.025f)) {
+				this->SetINIConfig("fNoFogValue", m_noFogValue);
 			}
-			
-			auto* weather = getWeatherManager();
-			if (ImGui::Button("Update Weather Manager")) {
+		}
+		UE4::ABP_WeatherManager_C* weather = getWeatherManager();
+		if (!weather) {
+			ImGui::Text("Weather Manager not found (load a save)!");
+			ImGui::End();
+			return false;
+		}
+
+		// DrawImGui runs on the render thread: game functions (ProcessEvent) go through the game thread.
+		if (ImGui::Button("Update Weather Manager")) {
+			mdml::runtime::GameThread::Enqueue([weather]() {
 				weather->UpdateGraphicsSettings();
 				weather->UpdateLightsRotation(true);
 				weather->UpdateMaterialCollection();
 				weather->UpdateMaterialVariables();
+			});
+		}
 
+		if (ImGui::CollapsingHeader("Instant Updater")) {
+			static UE4::FST_Time time = weather->Time;
+			static int32_t DayVariation = 0;
+			static bool assignRandomWeather = false;
+			static bool assignRandomCloudDensity = false;
+
+			ImGui::DragInt("Second", &time.Second);
+			ImGui::DragInt("Minute", &time.Minute);
+			ImGui::DragInt("Hour", &time.Hour);
+			ImGui::DragInt("Day", &time.Day);
+			ImGui::DragInt("Season", &time.Season);
+			ImGui::DragInt("Year", &time.Year);
+			ImGui::DragInt("Day Variation", &DayVariation);
+			ImGui::Checkbox("Assign Random Weather", &assignRandomWeather);
+			ImGui::Checkbox("Assign Random Cloud Density", &assignRandomCloudDensity);
+
+			if (ImGui::Button("Update")) {
+				const UE4::FST_Time newTime = time;
+				const int32_t dayVariation = DayVariation;
+				const bool randomWeather = assignRandomWeather;
+				const bool randomCloudDensity = assignRandomCloudDensity;
+				mdml::runtime::GameThread::Enqueue([weather, newTime, dayVariation, randomWeather, randomCloudDensity]() {
+					weather->UpdateTime(newTime);
+					weather->UpdateWeatherManager(newTime);
+					weather->InstantlyUpdateWeather(newTime, randomWeather, dayVariation, randomCloudDensity);
+				});
 			}
-			
-			if (ImGui::CollapsingHeader("Instant Updater")) {
-				static UE4::FST_Time time = weather->M_GetTime();
-				static int32_t DayVariation = 0;
-				static bool assignRandomWeather = false;
-				static bool assignRandomCloudDensity = false;
+			ImGui::SameLine();
+			if (ImGui::Button("Read current time"))
+				time = weather->Time;
+		}
+		if (ImGui::CollapsingHeader("Weather Manager")) {
+			// Generic editor over every reflected property of the class (shows what the reflection core can do).
+			for (UE4::FField* member = weather->GetClass()->GetChildProperties(); member != nullptr; member = member->GetNext()) {
+				UE4::FProperty* prop = member->GetAsProperty();
+				if (!prop || prop->GetArrayDim() > 1)
+					continue;
 
-				ImGui::DragInt("Second", &time.Second);
-				ImGui::DragInt("Minute", &time.Minute);
-				ImGui::DragInt("Hour", &time.Hour);
-				ImGui::DragInt("Day", &time.Day);
-				ImGui::DragInt("Season", &time.Season);
-				ImGui::DragInt("Year", &time.Year);
-				ImGui::DragInt("Day Variation", &DayVariation);
-				ImGui::Checkbox("Assign Random Weather", &assignRandomWeather);
-				ImGui::Checkbox("Assign Random Cloud Density", &assignRandomCloudDensity);
-
-				if (ImGui::Button("Update")) {
-					weather->UpdateTime(time);
-					weather->UpdateWeatherManager(time);
-					weather->InstantlyUpdateWeather(time, assignRandomWeather, DayVariation, assignRandomCloudDensity);
-					time = weather->M_GetTime();
-				}
-			}
-			if (ImGui::CollapsingHeader("Weather Manager")) {
-				UE4::FField* members = weather->GetClass()->GetChildProperties();
-				for (UE4::FField* member = members; member != nullptr; member = member->GetNext()) {
-					UE4::FProperty* prop = member->GetAsProperty();
-					if (!prop || prop->GetArrayDim() > 1) 
+				const std::string name = prop->GetName();
+				const size_t offset = prop->GetOffset();
+				if (prop->IsA<UE4::FBoolProperty>()) {
+					if (sizeof(bool) != prop->GetElementSize() || ((UE4::FBoolProperty*)prop)->IsBitfield())
 						continue;
-
-					std::string name = prop->GetName();
-					if (prop->IsA<UE4::FBoolProperty>()) {
-						if (sizeof(bool) != prop->GetElementSize() || ((UE4::FBoolProperty*)prop)->IsBitfield())
-							continue;
-						bool value = Read<bool>((byte*)weather + prop->GetOffset());
-						if (ImGui::Checkbox(("b" + name).c_str(), &value))
-							Write((byte*)weather + prop->GetOffset(), value);
-					}
-					else if (prop->IsA<UE4::FFloatProperty>()) {
-						if (sizeof(float) != prop->GetElementSize()) 
-							continue;
-						float value = Read<float>((byte*)weather + prop->GetOffset());
-						if (ImGui::DragFloat(("f" + name).c_str(), &value, 0.25f, 0.0f, 0.0f))
-							Write((byte*)weather + prop->GetOffset(), value);
-					}
-					else if (prop->IsA<UE4::FDoubleProperty>()) {
-						if (sizeof(double) != prop->GetElementSize()) 
-							continue;
-						float value = (float)Read<double>((byte*)weather + prop->GetOffset());
-						if (ImGui::DragFloat(("d" + name).c_str(), &value, 0.25f, 0.0f, 0.0f))
-							Write((byte*)weather + prop->GetOffset(), (double)value);
-					}
-					else if (prop->IsA<UE4::FInt64Property>()) {
-						if (sizeof(int64_t) != prop->GetElementSize()) 
-							continue;
-						int value = (int)Read<int64_t>((byte*)weather + prop->GetOffset());
-						if (ImGui::DragInt((name).c_str(), &value))
-							Write((byte*)weather + prop->GetOffset(), (int64_t)value);
-					}
-					else if (prop->IsA<UE4::FIntProperty>()) {
-						if (sizeof(int32_t) != prop->GetElementSize()) 
-							continue;
-						int value = (int)Read<int32_t>((byte*)weather + prop->GetOffset());
-						if (ImGui::DragInt((name).c_str(), &value))
-							Write((byte*)weather + prop->GetOffset(), (int32_t)value);
-					}
-					else if (prop->IsA<UE4::FInt16Property>()) {
-						if (sizeof(int16_t) != prop->GetElementSize())
-							continue;
-						int value = (int)Read<int16_t>((byte*)weather + prop->GetOffset());
-						if (ImGui::DragInt((name).c_str(), &value))
-							Write((byte*)weather + prop->GetOffset(), (int16_t)value);
-					}
-					else if (prop->IsA<UE4::FInt8Property>()) {
-						if (sizeof(int8_t) != prop->GetElementSize())
-							continue;;
-						int value = (int)Read<int8_t>((byte*)weather + prop->GetOffset());
-						if (ImGui::DragInt((name).c_str(), &value))
-							Write((byte*)weather + prop->GetOffset(), (int8_t)value);
-					}
-					else if (prop->IsA<UE4::FUInt64Property>()) {
-						if (sizeof(uint64_t) != prop->GetElementSize())
-							continue;;
-						int32_t value = (int)Read<uint64_t>((byte*)weather + prop->GetOffset());
-						if (ImGui::DragInt(("u" + name).c_str(), &value))
-							Write((byte*)weather + prop->GetOffset(), (uint64_t)value);
-					}
-					else if (prop->IsA<UE4::FUInt32Property>()) {
-						if (sizeof(uint32_t) != prop->GetElementSize())
-							continue;;
-						int32_t value = (int)Read<uint32_t>((byte*)weather + prop->GetOffset());
-						if (ImGui::DragInt(("u" + name).c_str(), &value))
-							Write((byte*)weather + prop->GetOffset(), (uint32_t)value);
-					}
-					else if (prop->IsA<UE4::FUInt16Property>()) {
-						if (sizeof(uint16_t) != prop->GetElementSize())
-							continue;;
-						int32_t value = (int)Read<uint16_t>((byte*)weather + prop->GetOffset());
-						if (ImGui::DragInt(("u" + name).c_str(), &value))
-							Write((byte*)weather + prop->GetOffset(), (uint16_t)value);
-					}
-					else if (prop->IsA<UE4::FStructProperty>()) {
-						UE4::FStructProperty* structProp = (UE4::FStructProperty*)prop;
-						if (structProp->GetStruct()->GetName() != "LinearColor")
-							continue;
-						if (sizeof(UE4::FLinearColor) != prop->GetElementSize())
-							continue;
-						UE4::FLinearColor value = Read<UE4::FLinearColor>((byte*)weather + prop->GetOffset());
-						if (ImGui::ColorEdit4(name.c_str(), (float*)&value))
-							Write((byte*)weather + prop->GetOffset(), value);
-					}
+					bool value = mdml::mem::LoadField<bool>(weather, offset);
+					if (ImGui::Checkbox(("b" + name).c_str(), &value))
+						mdml::mem::StoreField(weather, offset, value);
+				}
+				else if (prop->IsA<UE4::FFloatProperty>()) {
+					if (sizeof(float) != prop->GetElementSize())
+						continue;
+					float value = mdml::mem::LoadField<float>(weather, offset);
+					if (ImGui::DragFloat(("f" + name).c_str(), &value, 0.25f, 0.0f, 0.0f))
+						mdml::mem::StoreField(weather, offset, value);
+				}
+				else if (prop->IsA<UE4::FDoubleProperty>()) {
+					if (sizeof(double) != prop->GetElementSize())
+						continue;
+					float value = (float)mdml::mem::LoadField<double>(weather, offset);
+					if (ImGui::DragFloat(("d" + name).c_str(), &value, 0.25f, 0.0f, 0.0f))
+						mdml::mem::StoreField(weather, offset, (double)value);
+				}
+				else if (prop->IsA<UE4::FInt64Property>()) {
+					if (sizeof(int64_t) != prop->GetElementSize())
+						continue;
+					int value = (int)mdml::mem::LoadField<int64_t>(weather, offset);
+					if (ImGui::DragInt(name.c_str(), &value))
+						mdml::mem::StoreField(weather, offset, (int64_t)value);
+				}
+				else if (prop->IsA<UE4::FIntProperty>()) {
+					if (sizeof(int32_t) != prop->GetElementSize())
+						continue;
+					int value = mdml::mem::LoadField<int32_t>(weather, offset);
+					if (ImGui::DragInt(name.c_str(), &value))
+						mdml::mem::StoreField(weather, offset, (int32_t)value);
+				}
+				else if (prop->IsA<UE4::FInt16Property>()) {
+					if (sizeof(int16_t) != prop->GetElementSize())
+						continue;
+					int value = (int)mdml::mem::LoadField<int16_t>(weather, offset);
+					if (ImGui::DragInt(name.c_str(), &value))
+						mdml::mem::StoreField(weather, offset, (int16_t)value);
+				}
+				else if (prop->IsA<UE4::FInt8Property>()) {
+					if (sizeof(int8_t) != prop->GetElementSize())
+						continue;
+					int value = (int)mdml::mem::LoadField<int8_t>(weather, offset);
+					if (ImGui::DragInt(name.c_str(), &value))
+						mdml::mem::StoreField(weather, offset, (int8_t)value);
+				}
+				else if (prop->IsA<UE4::FUInt64Property>()) {
+					if (sizeof(uint64_t) != prop->GetElementSize())
+						continue;
+					int value = (int)mdml::mem::LoadField<uint64_t>(weather, offset);
+					if (ImGui::DragInt(("u" + name).c_str(), &value))
+						mdml::mem::StoreField(weather, offset, (uint64_t)value);
+				}
+				else if (prop->IsA<UE4::FUInt32Property>()) {
+					if (sizeof(uint32_t) != prop->GetElementSize())
+						continue;
+					int value = (int)mdml::mem::LoadField<uint32_t>(weather, offset);
+					if (ImGui::DragInt(("u" + name).c_str(), &value))
+						mdml::mem::StoreField(weather, offset, (uint32_t)value);
+				}
+				else if (prop->IsA<UE4::FUInt16Property>()) {
+					if (sizeof(uint16_t) != prop->GetElementSize())
+						continue;
+					int value = (int)mdml::mem::LoadField<uint16_t>(weather, offset);
+					if (ImGui::DragInt(("u" + name).c_str(), &value))
+						mdml::mem::StoreField(weather, offset, (uint16_t)value);
+				}
+				else if (prop->IsA<UE4::FStructProperty>()) {
+					UE4::FStructProperty* structProp = (UE4::FStructProperty*)prop;
+					if (structProp->GetStruct()->GetName() != "LinearColor")
+						continue;
+					if (sizeof(UE4::FLinearColor) != prop->GetElementSize())
+						continue;
+					UE4::FLinearColor value = mdml::mem::LoadField<UE4::FLinearColor>(weather, offset);
+					if (ImGui::ColorEdit4(name.c_str(), (float*)&value))
+						mdml::mem::StoreField(weather, offset, value);
 				}
 			}
 		}
-		ImGui::End();
 	}
+	ImGui::End();
 	return false;
 }

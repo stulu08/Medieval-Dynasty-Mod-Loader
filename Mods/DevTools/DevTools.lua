@@ -3,7 +3,7 @@
 --   DevTools.Generator  static lib, C++latest: our MDMLGenerator backend + the SdkGenerator facade (src/Generator) on top of
 --                       the vendored Dumper-7 analysis (Dependencies/Dumper-7, project "Dumper7"). No MDML headers.
 --   DevTools            the mod DLL, C++20: ImGui UI, export lists, game-thread scheduling, plus (Wave 3C) the tools moved
---                       from BaseMod (object browser, legacy exporter, INI browser/editor, player tools); talks to the generator
+--                       from BaseMod (object browser, INI browser/editor, player tools); talks to the generator
 --                       only through src/Generator/SdkGenerator.h (std types only).
 local dumper = "%{IncludeDir.Dumper7}"
 
@@ -79,20 +79,15 @@ project "DevTools"
 		"%{IncludeDir.EngineUE4}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.ImGui}",
-		-- Mod/Mod.h pulls the old generated SDK headers through UE4.h (the DLL links SDK, see links below)
-		"%{IncludeDir.UE4}",
+		-- generated SDK (header-only): the object browser and player tools include "Engine.hpp"
 		"%{IncludeDir.SDK}",
-		"%{IncludeDir.MedievalDynasty}",
 	}
 	postbuildcommands {
 		"{COPYDIR} \"%{ProjectDir.DevTools}/Config\" \"%{OutputDir}/ModLoader/Mods/DevTools\"",
 	}
-	-- SDK: the object browser and player tools use hybrid old-SDK classes (AActor, UDataTable, UGameplayStatics, ...).
-	-- Goes away with the old SDK (plan 2.4).
 	links
 	{
 		"ModLoader",
-		"SDK",
 		"DevTools.Generator",
 	}
 	filter "system:windows"

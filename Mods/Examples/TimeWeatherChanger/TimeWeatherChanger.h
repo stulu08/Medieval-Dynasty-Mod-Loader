@@ -1,6 +1,5 @@
 #pragma once
 #include "MDML/MDML.h"
-#include "GameMod.h"
 
 class TimeWeatherChanger : public GameMod
 {
@@ -23,8 +22,5 @@ private:
 	bool m_alwaysClearWeather = false;
 	bool m_NoWind = false;
 	bool m_NoFog = false;
-	int32_t m_cloudDensity = 0;
-	int32_t m_windIntensity = 0;
-	int32_t m_fogDensity = 0;
 	float m_noFogValue = 0.015f;
 };

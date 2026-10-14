@@ -26,7 +26,7 @@ namespace mdml::mods::LoadOrder
 	static const char* Header =
 		"; MDML load order (top = first)\n"
 		"; Name = 1 (enabled) / 0 (disabled), Name = mod folder under Content/Mods\n"
-		"; New mods are appended automatically. BaseMod is always loaded first.\n";
+		"; New mods are appended automatically.\n";
 
 	std::string Merge(const std::string& existingText, const std::vector<std::string>& found, std::vector<Entry>& order, bool& changed, std::vector<std::string>& messages) {
 		order.clear();
@@ -64,15 +64,13 @@ namespace mdml::mods::LoadOrder
 			order.push_back({ name, enabled });
 		}
 
-		// new mods: BaseMod first, then alphabetical (case-insensitive); appended to the end of the file
+		// new mods: alphabetical (case-insensitive); appended to the end of the file. (The "BaseMod first" rule went with
+		// BaseMod in Wave 4 step B: GameMod is part of MDML.dll now, so no mod has to load before the others.)
 		std::vector<std::string> added;
 		for (const auto& name : found)
 			if (std::find(keys.begin(), keys.end(), Lower(name)) == keys.end() && std::find_if(added.begin(), added.end(), [&](const std::string& a) { return Lower(a) == Lower(name); }) == added.end())
 				added.push_back(name);
 		std::sort(added.begin(), added.end(), [](const std::string& a, const std::string& b) {
-			bool ba = Lower(a) == "basemod", bb = Lower(b) == "basemod";
-			if (ba != bb)
-				return ba;
 			return Lower(a) < Lower(b);
 		});
 		if (!added.empty()) {
@@ -92,15 +90,6 @@ namespace mdml::mods::LoadOrder
 		for (const auto& e : order)
 			if (std::find_if(found.begin(), found.end(), [&](const std::string& f) { return Lower(f) == Lower(e.Name); }) == found.end())
 				messages.push_back("I:LoadOrder.ini: " + e.Name + " is not installed, keeping its entry");
-
-		// BaseMod is always loaded first
-		auto base = std::find_if(order.begin(), order.end(), [](const Entry& e) { return Lower(e.Name) == "basemod"; });
-		if (base != order.end() && base != order.begin()) {
-			messages.push_back("W:LoadOrder.ini: BaseMod is not the first entry, it is loaded first anyway");
-			std::rotate(order.begin(), base, base + 1);
-		}
-		if (base != order.end() && !base->Enabled)
-			messages.push_back("W:LoadOrder.ini: BaseMod is disabled, mods that need it will not work");
 		return text;
 	}
 

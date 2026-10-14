@@ -16,8 +16,8 @@
 //   MDML/UI/Widgets.h    labelled ImGui widgets (mdml::ui::widgets)
 //   MDML/UI/TextEditor.h ImGuiColorTextEdit (exported from MDML.dll)
 //   MDML/Math.h          glm + UE math constants
-//   MDML/Memory.h        legacy memory helpers (old SDK; goes with SDK.lib)
-//   MDML/Engine.h        the engine core (UE4.h)
+//   MDML/Engine.h        the engine core (UE4.h); game/engine classes: the generated SDK ("Engine.hpp", ...)
+//   MDML/GameMod.h       class GameMod (Medieval Dynasty game states, player, managers, mod.ini helpers)
 #include "MDML/Core.h"
 #include "MDML/Log.h"
 #include "MDML/Mod.h"
@@ -30,3 +30,4 @@
 #include "MDML/UI.h"
 #include "MDML/UI/Widgets.h"
 #include "MDML/Engine.h"
+#include "MDML/GameMod.h"

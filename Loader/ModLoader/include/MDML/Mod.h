@@ -1,6 +1,5 @@
 #pragma once
-// The base class of every core mod (native mod DLL). Game-specific helpers: GameMod (BaseMod, moves into the loader
-// API with the SDK migration, Wave 4 step B). The other public headers: MDML/MDML.h.
+// The base class of every core mod (native mod DLL). Game-specific helpers: MDML/GameMod.h. The other public headers: MDML/MDML.h.
 #include "MDML/Log.h"
 #include "MDML/Math.h"
 #include "MDML/UI.h"

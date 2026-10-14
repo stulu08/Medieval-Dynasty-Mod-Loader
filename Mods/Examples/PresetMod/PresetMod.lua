@@ -7,7 +7,7 @@ project "PresetMod"
 	targetdir ("bin/" .. outputdir)
 	DeployTo("ModLoader/Mods/PresetMod")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-	dependson { "ModLoader", "BaseMod" }
+	dependson { "ModLoader" }
 	defines
 	{
 		"NDEBUG",
@@ -31,18 +31,13 @@ project "PresetMod"
 		"%{IncludeDir.EngineUE4}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.BaseMod}",
-		"%{IncludeDir.UE4}",
-		"%{IncludeDir.SDK}",
-		"%{IncludeDir.MedievalDynasty}",
+		"%{IncludeDir.SDK}", -- generated SDK (header-only), e.g. #include "BP_PlayerCharacter.hpp"
 	}
 	postbuildcommands {
 		"{COPYDIR} \"%{ProjectDir.PresetMod}/Config\" \"%{OutputDir}/ModLoader/Mods/PresetMod\"",
 	}
 	links
 	{
-		"BaseMod",
-		"SDK",
 		"ModLoader"
 	}
 	filter "system:windows"

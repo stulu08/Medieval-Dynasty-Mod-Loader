@@ -1,6 +1,7 @@
 #pragma once
 // Cheats / player tools, moved from BaseMod (BaseMod.cpp: dev-build flag swap, "Hooks", "Player Character", "Debug"
-// panels) in Wave 3C. The stale item tools (give item, inventory list) are NOT active, see ItemTools.cpp.
+// panels) in Wave 3C. Give item works again on the generated SDK (Wave 4 step B, ItemTools.cpp); the inventory list
+// is still off.
 //
 // Threading: Init/OnGameState run on the game thread. Draw() runs on the render thread and only enqueues work
 // (mdml::runtime::GameThread::Enqueue) or reads results the game thread stored under m_mutex.
@@ -46,6 +47,7 @@ namespace devtools {
 		bool m_itemsLoaded = false;
 	};
 
-	// ItemTools.cpp: the disabled give-item / inventory list panel.
-	void DrawItemToolsPlaceholder();
+	// ItemTools.cpp: give-item panel (render thread; the item list and the AddItemToInventory call run on the game
+	// thread). player = the player character found by PlayerTools (BP_PlayerCharacter_C), may be null.
+	void DrawItemTools(UE4::AActor* player, const LogFn& log);
 }

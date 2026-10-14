@@ -6,8 +6,6 @@ namespace UE4 {
 	class UClass;
 	class UObject;
 	class FFrame;
-	struct FTransform;
-	struct FActorSpawnParameters;
 }
 namespace mdml::mods {
 	struct ModInfo;
@@ -28,7 +26,6 @@ namespace mdml::mods {
 	// BeginPlay of a PlayerController (Runtime/GameHooks.cpp): collects ModButtons, calls PostBeginPlay on the actors and the
 	// "PostBeginPlay" core-mod event.
 	void PostBeginPlayLogicMods();
-	UE4::AActor* SpawnActor(UE4::UClass* Class, const UE4::FTransform& transform, UE4::FActorSpawnParameters spawnParams);
 	// ProcessLocalScriptFunction hook: PrintToModLoader, GetPersistentObject and the BP function wrappers mods
 	// registered with REGISTER_FUNCTION. Returns true if a wrapper handled the call (the original must not run).
 	bool HandleScriptFunction(UE4::UObject* obj, UE4::FFrame* Frame, void* const Result);

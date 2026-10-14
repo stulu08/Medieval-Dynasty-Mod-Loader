@@ -11,7 +11,6 @@
 #include "UI/LoaderWindow.h"
 #include "UI/Themes.h"
 #include "MDML/Log.h"
-#include "MDML/Memory.h"
 #include "Runtime/LoaderConfig.h"
 #include "Mods/Registry.h"
 
@@ -24,6 +23,22 @@ namespace mdml::ui {
 		std::atomic<bool> s_hotkeyThreadStarted{ false };
 		// F1 menu state (was Global::bIsMenuOpen): written by the hotkey thread and the InitGameState hook, read on the render thread.
 		std::atomic<bool> s_menuOpen{ false };
+
+		// First visible top-level window of this process with the given class (was MEM::FindWindow in MDML/Memory.h).
+		HWND FindProcessWindow(DWORD pid, const wchar_t* className)
+		{
+			for (HWND hWnd = GetTopWindow(0); hWnd != NULL; hWnd = GetNextWindow(hWnd, GW_HWNDNEXT))
+			{
+				DWORD windowPid = 0;
+				GetWindowThreadProcessId(hWnd, &windowPid);
+				if (windowPid != pid || !IsWindowVisible(hWnd))
+					continue;
+				wchar_t windowClass[256];
+				if (GetClassNameW(hWnd, windowClass, 256) && wcscmp(windowClass, className) == 0)
+					return hWnd;
+			}
+			return NULL;
+		}
 
 		LRESULT CALLBACK HookedWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
@@ -74,7 +89,7 @@ namespace mdml::ui {
 		StyleColorsPhotoShopDark();
 		mdml::mods::Registry::Get().CoreMods.callEvent<ImGuiIO&>("SetupImGui", io);
 
-		HWND hGameWindow = MEM::FindWindow(GetCurrentProcessId(), L"UnrealWindow");
+		HWND hGameWindow = FindProcessWindow(GetCurrentProcessId(), L"UnrealWindow");
 		s_gameWindowProc = (WNDPROC)SetWindowLongPtr(hGameWindow, GWLP_WNDPROC, (LONG_PTR)HookedWndProc);
 		ImGui_ImplWin32_Init(hGameWindow);
 		ImGui_ImplDX11_Init(device, context);

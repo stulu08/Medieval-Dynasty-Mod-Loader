@@ -3,6 +3,8 @@
 #include "MDML/GameThread.h"
 #include "MDML/UI/Widgets.h"
 
+#include "Engine.hpp" // generated SDK: UGameplayStatics, AActor, UActorComponent, UDataTable
+
 namespace devtools {
 	namespace {
 		// Blueprint function library with the game's build checks (found by reflection, no generated class needed).
@@ -79,7 +81,7 @@ namespace devtools {
 	}
 
 	void PlayerTools::RefreshPlayer() {
-		UE4::AActor* player = UE4::UGameplayStatics::GetPlayerCharacter(UE4::UWorld::GetWorld(), 0);
+		UE4::AActor* player = UE4::UGameplayStatics::GetPlayerCharacter(UE4::GetWorld(), 0);
 		if (player && !player->IsAByName("BlueprintGeneratedClass BP_PlayerCharacter.BP_PlayerCharacter_C"))
 			player = nullptr;
 		std::lock_guard<std::mutex> lock(m_mutex);
@@ -137,13 +139,13 @@ namespace devtools {
 					ImGui::Separator();
 				}
 				if (ImGui::CollapsingHeader("Items"))
-					DrawItemToolsPlaceholder();
+					DrawItemTools(player, m_log);
 
 				if (ImGui::TreeNodeEx("Components", DEFAULT_TREE_NODE_FLAGS)) {
 					if (ImGui::Button("List components")) {
 						mdml::runtime::GameThread::Enqueue([this, player]() {
 							std::vector<std::pair<std::string, std::string>> list;
-							auto comps = player->K2_GetComponentsByClass((UE4::UActorComponent*)UE4::UActorComponent::StaticClass());
+							auto comps = player->K2_GetComponentsByClass(UE4::UActorComponent::StaticClass());
 							for (int i = 0; i < comps.Num(); i++) {
 								UE4::UActorComponent* comp = comps[i];
 								if (comp)
@@ -178,7 +180,7 @@ namespace devtools {
 							m_log("DataTable DT_ListOfItems.DT_ListOfItems not found", true);
 						}
 						else {
-							UE4::NativeTMap<UE4::FName, uint8_t*> map = table->GetRowMap();
+							UE4::NativeTMap<UE4::FName, uint8_t*> map = UE4::GetDataTableRowMap(table);
 							for (int i = 0; i < map.Num(); i++)
 								rows.emplace_back(map.GetKey(i).GetName(), (int)map.GetKey(i).ComparisonIndex);
 						}

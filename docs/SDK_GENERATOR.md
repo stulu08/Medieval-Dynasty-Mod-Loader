@@ -1,6 +1,8 @@
 # MDML SDK generator
 
-Status: **part 1 implemented, not yet run in-game** (2026-10-10). Report: `docs/reports/sdk-generator-part1.md`.
+Status: **in use** since Wave 4 step B (2026-10-15): the full output lives in the repo at `Loader/SDK/Generated`
+(header-only, premake `%{IncludeDir.SDK}`) and MDML.dll, DevTools and the examples are built on it; the old generated
+SDK (`Loader/SDK/src`, `SDK.lib`) and the legacy exporter are deleted. Part 1 report: `docs/reports/sdk-generator-part1.md`.
 Decisions: `docs/MODERNIZATION_PLAN.md` → decisions log ("SDK generator", "SDK member access", "SDK function calls",
 2026-10-10 "SDK generator members" / "SDK package selection").
 
@@ -40,7 +42,10 @@ projects (issue #416). Credited in `VENDORED.txt`, in the file headers of `MDMLG
    after a successful run (owner decision 2026-10-14), so only the newest output remains. Also written there:
    `GObjects-Dump*.txt` (Dumper-7) one level up, `GenerationReport.txt` (packages, missing packages, skipped functions,
    opaque members) in `MDML-SDK/`.
-5. Check: `python Tests/SDKCompileTest/compile_generated.py "<...>/MDML-SDK"` (every header in its own TU).
+5. Check: `python Tests/SDKCompileTest/compile_generated.py "<...>/MDML-SDK"` (every header in its own TU; the full
+   "All packages" output, ~2500 headers, takes 1-2 hours with 16 jobs).
+6. Update the repo copy: replace the whole content of `Loader/SDK/Generated` with the `MDML-SDK` folder (also delete
+   headers that are not in the new output), rebuild the solution, commit. Never edit the generated files by hand.
 
 The analysis snapshot is taken once per game session (Dumper-7's managers initialize once); classes loaded later
 need a game restart.
@@ -64,7 +69,7 @@ is exact first, then case-insensitive. Dependencies are added automatically (tra
 struct/class/parameter package dependencies). Example: `Mods/DevTools/Config/Example.export`.
 
 ## Output shape
-One header per package, header-only, `namespace UE4`, against the core only (no old `Loader/SDK/` headers):
+One header per package, header-only, `namespace UE4`, against the hand-written core only:
 ```
 MDML-SDK/
   <Package>.hpp         one per package (requested + dependencies)
@@ -79,10 +84,20 @@ value macros such as `ERROR`, `DELETE`, `IN`, `OUT`, `TRUE`, `small`, `interface
 
 **Enums**: `enum class E_Ownership : uint8_t { ... }`, underlying type from Dumper-7's EnumManager (size found from
 properties using the enum, signedness). The underlying type is never widened (must match the in-struct layout); entries whose value does not fit (the synthetic `_MAX = 256` of uint8 enums such as `ESkinCacheUsage`) are replaced by a `// NAME = N dropped` comment and listed in the GenerationReport notes.
+**Blueprint enums** (`UserDefinedEnum`) store their entries as `NewEnumerator0..N`; the generator uses the display names
+instead (`EBP_Enum_AIState::Inactive`, "Part of Group" → `Part_of_Group`), like the old legacy exporter (owner request
+2026-10-15). The DevTools DLL reads them through the core (`UE4::GetUserDefinedEnumDisplayNameText`) and hands them to
+the generator as a callback (`GenerateRequest::EnumDisplayNames`), because the generator library has no MDML headers.
+Invalid characters become `_`, a leading digit gets a `_` prefix, C++ keywords a `_` suffix, duplicates `_2`, `_3`, ...;
+entries without a display name (the `_MAX`) keep their internal name.
 
 **ScriptStructs** (used by value): real layout with explicit `_mdml_Pad_*` bytes and bit paddings (logic adapted from
 Dumper-7's CppGenerator), followed by `static_assert(sizeof/alignof/offsetof)` against the dump. `MDML_STRUCT(...)` adds
 only static members: `StaticStruct()` (by path) and `ValidateLayout()` (live `PropertiesSize` vs `sizeof`).
+**Blueprint structs** (`UserDefinedStruct`) name their members `<Name>_<N>_<32 hex digit GUID>`
+(`Hour_3_AEEFB5B84DEEE8C12F6A3182DE467E7D`); the generator emits `Hour` (owner request 2026-10-15, like the legacy
+exporter). A short name that would collide (two members, a C++ keyword, the struct's own name, `StaticStruct`/
+`ValidateLayout`) keeps its full name. Struct members are plain fields, so only the C++ name changes, not the layout.
 
 **UClasses** are offset-free views (no data members; `std::is_empty` holds), first line `MDML_CLASS(RawName, Path)`
 (`StaticClass()` via `StaticFindObject(path)`, cached once found). Members:
@@ -130,9 +145,11 @@ Const pointer parameters (`const T*`, `const T*&`) stay const in the public sign
 (`UObject`, `UClass`, `UFunction`, ..., `FVector`, `FRotator`, `FTransform`, `FGuid`, `FKey`, the CoreTypes.h structs
 and enums; list in `MDMLGenerator.cpp`). Instead the header gets `MDML_PREDEFINED_CHECK(FVector, 0x000C, 0x04)` (a
 `static_assert` of the core type against the live layout; math/containers always, the old CoreTypes.h structs only with
-`MDML_SDK_STRICT_PREDEFINED_CHECKS`). Engine stubs that drag in the old SDK (`World.h`, `GameState.h`, ...) are **not**
-predefined: `UWorld`, `ULevel`, ... are generated. Do not include old `Loader/SDK/` headers and new generated headers in the
-same translation unit (same names in `namespace UE4`).
+`MDML_SDK_STRICT_PREDEFINED_CHECKS`). Engine classes are **not** predefined: `UWorld`, `ULevel`, `AActor`,
+`UUserDefinedEnum`, ... are generated (the core's old hand-written stubs `World.h`, `Level.h`, `GameState.h`, ... were
+deleted in Wave 4 step B). What those stubs did beyond reflection is in `Engine/UE4/Engine/EngineHelpers.h`
+(`UE4::GetWorld`, `UE4::SpawnActor` + `FActorSpawnParameters`, user-defined enum display names, `GetDataTableRowMap`).
+The core header `UE4.h` only forward-declares the few generated classes the public API names (`AActor`, ...).
 
 ## Offline proof
 - `DevTools.SDKCompileTest` (built with the solution, output `Output/Tests/SDKCompileTest.dll`, never deployed): compiles
@@ -143,5 +160,6 @@ same translation unit (same names in `namespace UE4`).
   core include dirs, same disabled warnings as the solution). Sample: 9/9, 0 warnings.
 
 ## Open points / next parts
-See the report (`docs/reports/sdk-generator-part1.md`): first in-game run, migrating BaseMod/examples to the new
-headers, deleting the old SDK, DevTools validation report, moving BaseMod's dev tools into DevTools.
+Done: first in-game run, full generation, migration of loader/DevTools/examples, old SDK deleted (Wave 4 step B,
+`docs/reports/wave4-stepB.md`). Open: DevTools validation report, the per-header compile check of the full output is
+slow (consider a precompiled-header mode in `compile_generated.py`).

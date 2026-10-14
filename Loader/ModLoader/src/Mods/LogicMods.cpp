@@ -8,6 +8,7 @@
 #include "Runtime/GameHooks.h"
 
 #include "UE4.h"
+#include "Engine.hpp"
 #include "EngineAddresses.h"
 
 namespace mdml::mods {
@@ -149,7 +150,9 @@ namespace mdml::mods {
 
 				UE4::UClass* ModObject = UE4::UClass::LoadClassFromString(mod.ActorPath.c_str(), false);
 				if (ModObject) {
-					UE4::AActor* ModActor = SpawnActor(ModObject, UE4::FTransform(UE4::FVector(0,0,0)), UE4::FActorSpawnParameters());
+					// UE4::SpawnActor (engine core) = UWorld::SpawnActor in GWorld. The UML-era deferred-spawn branch
+					// (IsUsingDeferedSpawn -> BeginDeferredActorSpawnFromClass) is gone.
+					UE4::AActor* ModActor = UE4::SpawnActor(ModObject, UE4::FTransform(UE4::FVector(0,0,0)));
 					if (ModActor)
 					{
 						if (!IsProcessInternalsHooked)
@@ -199,7 +202,7 @@ namespace mdml::mods {
 									UE4::UClass* ModObjectInstanceClass = UE4::UClass::LoadClassFromString(mod.PersistentObjectPath.c_str(), false);
 									if (ModObjectInstanceClass)	// Check if ModInstanceObject Exists
 									{
-										mdml::mods::Registry::Get().ModInfoList[i].PersistentObject = UE4::UObject::StaticConstructObject_Internal(ModObjectInstanceClass, (UE4::UObject*)UE4::UGameplayStatics::GetGameInstance(), "", 0, UE4::EInternalObjectFlags::GarbageCollectionKeepFlags, nullptr, false, nullptr, false);
+										mdml::mods::Registry::Get().ModInfoList[i].PersistentObject = UE4::UObject::StaticConstructObject_Internal(ModObjectInstanceClass, (UE4::UObject*)UE4::UGameplayStatics::GetGameInstance(UE4::GetWorld()), "", 0, UE4::EInternalObjectFlags::GarbageCollectionKeepFlags, nullptr, false, nullptr, false);
 									}
 									mdml::mods::Registry::Get().ModInfoList[i].WasInitialized = true;
 								}
@@ -256,11 +259,6 @@ namespace mdml::mods {
 				mdml::mods::Registry::Get().CoreMods.callEvent("PostBeginPlay", mdml::mods::Registry::Get().ModInfoList[i].ModName, CurrentModActor);
 			}
 		}
-	}
-
-	UE4::AActor* SpawnActor(UE4::UClass* Class, const UE4::FTransform& transform, UE4::FActorSpawnParameters spawnParams) {
-		// The UML-era deferred-spawn branch (IsUsingDeferedSpawn -> BeginDeferredActorSpawnFromClass) is gone.
-		return UE4::UWorld::GetWorld()->SpawnActor(Class, &transform, &spawnParams);
 	}
 
 	bool HandleScriptFunction(UE4::UObject* obj, UE4::FFrame* Frame, void* const Result) {

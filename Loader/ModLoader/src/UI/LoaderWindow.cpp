@@ -11,6 +11,7 @@
 #include "MDML/GameThread.h"
 #include "MDML/Notices.h"
 #include "Mods/Registry.h"
+#include "Engine.hpp"
 
 namespace mdml::ui {
 	namespace {
@@ -200,7 +201,7 @@ namespace mdml::ui {
 				std::string strCommand(Command);
 				std::wstring wstrCommand = std::wstring(strCommand.begin(), strCommand.end());
 				GameThread::Enqueue([command = std::move(wstrCommand)]() {
-					UE4::UGameplayStatics::ExecuteConsoleCommand(command.c_str(), nullptr);
+					UE4::UKismetSystemLibrary::ExecuteConsoleCommand(UE4::GetWorld(), UE4::FString(command.c_str()), nullptr);
 				});
 			}
 		}

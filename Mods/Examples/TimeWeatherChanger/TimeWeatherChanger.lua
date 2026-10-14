@@ -7,7 +7,7 @@ project "TimeWeatherChanger"
 	targetdir ("bin/" .. outputdir)
 	DeployTo("ModLoader/Mods/TimeWeatherChanger")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-	dependson { "ModLoader", "BaseMod" }
+	dependson { "ModLoader" }
 	defines
 	{
 		"NDEBUG",
@@ -31,18 +31,13 @@ project "TimeWeatherChanger"
 		"%{IncludeDir.EngineUE4}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.BaseMod}",
-		"%{IncludeDir.UE4}",
-		"%{IncludeDir.SDK}",
-		"%{IncludeDir.MedievalDynasty}",
+		"%{IncludeDir.SDK}", -- generated SDK (header-only), e.g. #include "BP_WeatherManager.hpp"
 	}
 	postbuildcommands {
 		"{COPYDIR} \"%{ProjectDir.TimeWeatherChanger}/Config\" \"%{OutputDir}/ModLoader/Mods/TimeWeatherChanger\"",
 	}
 	links
 	{
-		"BaseMod",
-		"SDK",
 		"ModLoader"
 	}
 	filter "system:windows"

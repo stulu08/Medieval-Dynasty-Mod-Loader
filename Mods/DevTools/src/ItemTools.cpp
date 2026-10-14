@@ -1,109 +1,142 @@
 #include "PlayerTools.h"
 
+#include "MDML/GameThread.h"
 #include "MDML/UI/Widgets.h"
 
-// Item tools (inventory list, give item). DISABLED: waiting for the new SDK (plan 2.4 / Wave 4). They used generated
-// parameter and struct layouts of game 2.2.0.8 (FST_InventoryItemsArray, AddItemToInventory params, the stale
-// BP_PlayerCharacter::InventoryComponent offset) that crashed on 2.7.0.4 (code inventory B3). Moved here from
-// BaseMod unchanged (decision 2026-10-09: "Disable give-item, inventory list ... until the new SDK").
-// To bring them back: port to the generated SDK, run every UE call through mdml::runtime::GameThread::Enqueue.
+// Generated SDK: the character's InventoryComponent and its AddItemToInventory function.
+#include "Engine.hpp"
+#include "BP_BaseCharacter.hpp"
+#include "InventoryComponent.hpp"
+
+#include <memory>
+
+// Give-item panel (Wave 4 step B). Was disabled since 2026-10-09 because BaseMod used fixed parameter/struct layouts of
+// game 2.2.0.8 that crashed on 2.7.0.4 (code inventory B3). Now it goes through the generated SDK: the
+// InventoryComponent member is resolved by name and AddItemToInventory validates its parameter layout against the live
+// UFunction before calling it. The inventory list (GetInventoryItems_BPI fills a TMap the engine allocates) stays off.
 namespace devtools {
-	void DrawItemToolsPlaceholder() {
-		ImGui::TextDisabled("Disabled: waiting for the new SDK (item layouts changed with game 2.7.0.4).");
+	namespace {
+		struct ItemToolsState {
+			std::mutex mutex;
+			bool loading = false;
+			std::vector<UE4::FName> items;          // DT_ListOfItems row names
+			std::vector<std::string> itemNames;
+			std::vector<std::string> ownershipNames; // E_Ownership display names (Player, Ownerless, Bandit, ...)
+		};
+		ItemToolsState& State() {
+			static ItemToolsState state;
+			return state;
+		}
+
+		// Game thread: item rows and ownership names.
+		void LoadItemData(const LogFn& log) {
+			std::vector<UE4::FName> items;
+			std::vector<std::string> itemNames;
+			if (auto* table = UE4::UObject::FindObject<UE4::UDataTable>("DataTable DT_ListOfItems.DT_ListOfItems")) {
+				UE4::NativeTMap<UE4::FName, uint8_t*> rows = UE4::GetDataTableRowMap(table);
+				for (int i = 0; i < rows.Num(); i++) {
+					items.push_back(rows.GetKey(i));
+					itemNames.push_back(rows.GetKey(i).GetName());
+				}
+			}
+			else if (log) {
+				log("DataTable DT_ListOfItems.DT_ListOfItems not found", true);
+			}
+			std::vector<std::string> ownershipNames;
+			if (auto* ownership = UE4::UObject::FindObject<UE4::UEnum>("UserDefinedEnum E_Ownership.E_Ownership")) {
+				ownershipNames = UE4::GetUserDefinedEnumDisplayNames(ownership);
+				if (!ownershipNames.empty())
+					ownershipNames.pop_back(); // E_MAX
+			}
+			auto& state = State();
+			std::lock_guard<std::mutex> lock(state.mutex);
+			state.items = std::move(items);
+			state.itemNames = std::move(itemNames);
+			state.ownershipNames = std::move(ownershipNames);
+			state.loading = false;
+		}
+	}
+
+	void DrawItemTools(UE4::AActor* player, const LogFn& log) {
+		auto& state = State();
+		std::vector<std::string> itemNames, ownershipNames;
+		bool loading;
+		{
+			std::lock_guard<std::mutex> lock(state.mutex);
+			itemNames = state.itemNames;
+			ownershipNames = state.ownershipNames;
+			loading = state.loading;
+		}
+		if (itemNames.empty()) {
+			if (loading)
+				ImGui::TextDisabled("loading items...");
+			else if (ImGui::Button("Load items (DT_ListOfItems)")) {
+				{
+					std::lock_guard<std::mutex> lock(state.mutex);
+					state.loading = true;
+				}
+				mdml::runtime::GameThread::Enqueue([log]() { LoadItemData(log); });
+			}
+			return;
+		}
+
+		static int32_t selectedItem = 0;
+		static int count = 1;
+		static bool passCondition = true;
+		static float currentHP = 100.0f;
+		static float maxHP = 100.0f;
+		static int capacity = 0;
+		static float freshness = 1.0f;
+		static int32_t ownership = 0; // Player
+		static bool displayNotification = true;
+		static bool updateInventory = true;
+		static bool countAsPickUp = true;
+		static float notificationDelay = 0.1f;
+
+		mdml::ui::widgets::Combo("Item", selectedItem, itemNames);
+		mdml::ui::widgets::Int("Count", count);
+		mdml::ui::widgets::Bool("PassCondition", passCondition);
+		mdml::ui::widgets::FloatSlider("CurrentHP", currentHP, 0.0f, 100.0f);
+		mdml::ui::widgets::FloatSlider("MaxHP", maxHP, 0.0f, 100.0f);
+		mdml::ui::widgets::Int("Capacity", capacity);
+		mdml::ui::widgets::Float("Freshness", freshness);
+		if (!ownershipNames.empty())
+			mdml::ui::widgets::Combo("Ownership", ownership, ownershipNames);
+		mdml::ui::widgets::Bool("DisplayNotification", displayNotification);
+		mdml::ui::widgets::Bool("UpdateInventory", updateInventory);
+		mdml::ui::widgets::Bool("CountAsPickUp", countAsPickUp);
+		mdml::ui::widgets::Float("NotificationDelay", notificationDelay);
+
+		if (!player) {
+			ImGui::TextDisabled("No player character.");
+			return;
+		}
+		if (ImGui::Button("Add") && selectedItem >= 0 && selectedItem < (int32_t)itemNames.size()) {
+			UE4::FName item;
+			{
+				std::lock_guard<std::mutex> lock(state.mutex);
+				if (selectedItem >= (int32_t)state.items.size())
+					return;
+				item = state.items[selectedItem];
+			}
+			const std::string itemName = itemNames[selectedItem];
+			const int32_t itemCount = count, itemCapacity = capacity;
+			const bool pass = passCondition, notify = displayNotification, update = updateInventory, pickUp = countAsPickUp;
+			const float hp = currentHP, hpMax = maxHP, fresh = freshness, delay = notificationDelay;
+			const auto owner = static_cast<UE4::E_Ownership>(ownership);
+			mdml::runtime::GameThread::Enqueue([=]() {
+				auto* character = ::mdml::sdk::Cast<UE4::ABP_BaseCharacter_C>(player);
+				UE4::UInventoryComponent_C* inventory = character ? character->InventoryComponent : nullptr;
+				if (!inventory) {
+					if (log)
+						log("Add item: the player has no InventoryComponent", true);
+					return;
+				}
+				int32_t addedAt = -1;
+				inventory->AddItemToInventory(item, itemCount, pass, hp, hpMax, itemCapacity, fresh, owner, notify, update, pickUp, delay, &addedAt);
+				if (log)
+					log("Added " + std::to_string(itemCount) + "x " + itemName + " (slot " + std::to_string(addedAt) + ")", false);
+			});
+		}
 	}
 }
-
-#if 0 // ---- old BaseMod code, not compiled ----
-// BaseMod::GameTick (called "loadItems" from the Load Items button):
-	
-	bool loadItems = false;
-	UE4::NativeTMap<struct UE4::FName, struct UE4::FST_InventoryItemsArray> items;
-	bool Mod::GameTick(float delta) {
-		if (PlayerController) {
-			auto inv = GetMember<UE4::UInventoryComponent_C*>(PlayerCharacter, "InventoryComponent");
-			if (inv && loadItems) {
-				inv->GetInventoryItems_BPI(items);
-				loadItems = false;
-			}
-		}
-		return false;
-	}
-
-// BaseMod::DrawImGui, section "Player Character" -> "Items":
-					// Item tools use generated parameter/struct layouts from game 2.2.0.8 (FST_InventoryItemsArray,
-					// AddItemToInventory params) that are unverified for 2.7.0.4 -> disabled until the new SDK generator.
-					constexpr bool kItemToolsEnabled = false;
-					if (!kItemToolsEnabled && ImGui::CollapsingHeader("Items")) {
-						ImGui::TextDisabled("Disabled: waiting for the new SDK (item layouts changed with game 2.7.0.4).");
-					}
-					else if (kItemToolsEnabled && ImGui::CollapsingHeader("Items")) {
-						if (ImGui::Button("Load Items"))
-							loadItems = true;
-						for (int i = 0; i < items.Num(); i++) {
-							UE4::TPair<UE4::FName, UE4::FST_InventoryItemsArray> pair = items.GetPair(i);
-							if (ImGui::TreeNodeEx(pair.Key.GetName().c_str(), DEFAULT_TREE_NODE_FLAGS)) {
-								UE4::FST_ItemInventorys item = pair.Value.Items[0];
-								ImGui::Text("ID: %s", item.ID.GetName().c_str());
-								ImGui::Text("Count: %d", item.Count);
-								ImGui::Text("Index: %d", item.Index);
-								ImGui::Text("IsAssignedToQuickSlot: %s", item.IsAssignedToQuickSlot ? "true" : "false");
-								ImGui::Text("IsEquipped: %s", item.IsEquipped ? "true" : "false");
-								ImGui::Text("QuickSlotIndex: %d", item.QuickSlotIndex);
-								ImGui::Text("Condition: %f", item.Condition);
-								ImGui::Text("Freshness: %f", item.Freshness);
-								ImGui::Text("Capacity: %d", item.Capacity);
-								ImGui::Text("HP: %f", item.HP);
-								ImGui::Text("MaxHP: %f", item.MaxHP);
-								ImGui::Text("Ownership: %d", item.Ownership.value);
-								ImGui::TreePop();
-							}
-						}
-
-						if (ImGui::CollapsingHeader("Add Item")) {
-							static std::vector<UE4::FName> items;
-							static int32_t selectedItem = 0;
-							static int32_t count = 10000;
-							static bool passCondition = true;
-							static float CurrentHP = 100.0f;
-							static float MaxHP = 100.0f;
-							static int32_t Capacity = 0;
-							static float Freshness = 1.0;
-							static int32_t Ownership = (uint32_t)UE4::E_Ownership::Player;
-							static bool DisplayNotification = true;
-							static bool UpdateInventory = true;
-							static bool CountAsPickUp = true;
-							static float NotificationDelay = 0.1f;
-							{
-								static std::vector<std::string> displayItem = { "No Items Found!" };
-								if (items.empty()) {
-									displayItem.clear();
-									auto tableMap = Utils::GetDataTableItems<UE4::FName, UE4::FST_ItemDetails*>("DataTable DT_ListOfItems.DT_ListOfItems");
-
-									for (int i = 0; i < tableMap.Num(); i++) {
-										items.push_back(tableMap.GetKey(i));
-										displayItem.push_back(tableMap.GetKey(i).GetName());
-									}
-								}
-								mdml::ui::widgets::Combo("Item", selectedItem, displayItem);
-							}
-							mdml::ui::widgets::Int("Count", count);
-							mdml::ui::widgets::Bool("PassCondition", passCondition);
-							mdml::ui::widgets::FloatSlider("CurrentHP", CurrentHP, 0.0f, 100.0f);
-							mdml::ui::widgets::FloatSlider("MaxHP", MaxHP, 0.0f, 100.0f);
-							mdml::ui::widgets::Int("Capacity", Capacity);
-							mdml::ui::widgets::Float("Freshness", Freshness);
-							mdml::ui::widgets::Combo("Ownership", Ownership,
-								"Player\0Ownerless\0Bandit\0BlueVillage\0GreenVillage\0SkyBlueVillage"
-								"\0RedVillage\0PinkVillage\0OrangeVillage\0YellowVillage\0PurpleVillage\0"
-								"\0NavyBlueVillagee\0BurgundyVillage\0BrownVillage");
-							mdml::ui::widgets::Bool("DisplayNotification", DisplayNotification);
-							mdml::ui::widgets::Bool("UpdateInventory", UpdateInventory);
-							mdml::ui::widgets::Bool("CountAsPickUp", CountAsPickUp);
-							mdml::ui::widgets::Float("NotificationDelay", NotificationDelay);
-							if (ImGui::Button("Add") && !items.empty()) {
-								GetMember<UE4::UInventoryComponent_C*>(PlayerCharacter, "InventoryComponent")->AddItemToInventory(items[selectedItem], count, passCondition, CurrentHP, MaxHP, Capacity, Freshness, (UE4::E_Ownership)Ownership, DisplayNotification, UpdateInventory, CountAsPickUp, NotificationDelay, nullptr);
-							}
-						}
-						ImGui::Separator();
-					}
-#endif

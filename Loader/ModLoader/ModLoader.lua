@@ -26,16 +26,9 @@ project "ModLoader"
 	}
 	-- Third-party code lives in Dependencies/ and is linked as static libraries (MinHook, ImGuiLoader); spdlog, mINI and
 	-- glm are header-only (include dirs only).
-	-- The few GENERATED SDK functions MDML itself calls (UGameplayStatics::GetGameInstance/GetCurrentLevelName/
-	-- BeginDeferredActorSpawnFromClass/ExecuteConsoleCommand -> UKismetSystemLibrary, AActor::K2_GetActorLocation/...)
-	-- are compiled into MDML.dll from the SDK sources instead of linking SDK.lib (which now depends on MDML.dll).
-	-- Not exported; mods get their own copy from SDK.lib, exactly as before. Goes away with the new generator (plan 2.4).
-	files
-	{
-		"../SDK/src/UE4/Engine/Actor.cpp",
-		"../SDK/src/UE4/Engine/GamePlayStatics.cpp",
-		"../SDK/src/UE4/Engine/KismetSystemLibrary.cpp",
-	}
+	-- The generated SDK (Loader/SDK/Generated, IncludeDir.SDK) is header-only: the few engine classes MDML itself uses
+	-- (AActor, APlayerController, UGameplayStatics, UKismetSystemLibrary) come from "Engine.hpp" in the .cpp files that
+	-- need them (Wave 4 step B; before, three old SDK .cpp files were compiled in here).
 	includedirs
 	{
 		"%{IncludeDir.spdlog}",
@@ -47,11 +40,7 @@ project "ModLoader"
 		"%{IncludeDir.mINI}", -- only for Platform/IniFile.cpp
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.ImGui}",
-		
-		"%{IncludeDir.UE4}",
 		"%{IncludeDir.SDK}",
-		"%{IncludeDir.MedievalDynasty}",
-		
 	}
 	DeployTo("ModLoader")
 	postbuildcommands {
@@ -68,7 +57,7 @@ project "ModLoader"
 	-- them: pull in the whole static library so every exported symbol is present.
 	libdirs { "%{wks.location}/Dependencies/ImGui/bin/" .. outputdir }
 	linkoptions { "/WHOLEARCHIVE:ImGuiLoader.lib" }
-	filter "files:src/Engine/**.cpp or files:../SDK/src/**.cpp"
+	filter "files:src/Engine/**.cpp"
 		enablepch "Off"
 	filter "system:windows"
 		systemversion "latest"

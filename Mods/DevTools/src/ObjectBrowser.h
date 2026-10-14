@@ -1,6 +1,7 @@
 #pragma once
-// Object browser (actors, classes, blueprints, data tables, packages) + the legacy exporter UI, moved from BaseMod
-// (BaseMod.cpp ShowObjectBrowser, Utils::Gui) in Wave 3C.
+// Object browser (actors, classes, blueprints, data tables, packages), moved from BaseMod (BaseMod.cpp
+// ShowObjectBrowser, Utils::Gui) in Wave 3C. Since Wave 4 step B it uses the generated SDK ("Engine.hpp"); the package
+// list saves export lists for the SDK generator instead of running the removed legacy exporter.
 //
 // Threading: Draw() runs on the render thread. Everything that scans GObjects, calls ProcessEvent (actor transform,
 // components) or writes files goes through mdml::runtime::GameThread::Enqueue and hands its result back through a
@@ -40,7 +41,7 @@ namespace devtools {
 		bool& Open() { return m_open; }
 		void Draw();       // render thread
 		void Invalidate(); // level change: drop the snapshot
-		// Folder of the legacy exporter's "<profile>.export" lists (= DevTools' mod folder, next to mod.ini).
+		// Folder of the "<profile>.export" lists the package list saves (= DevTools' mod folder, next to mod.ini).
 		void SetListFolder(std::filesystem::path folder) { m_listFolder = std::move(folder); }
 
 	private:

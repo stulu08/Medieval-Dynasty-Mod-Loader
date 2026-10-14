@@ -15,8 +15,8 @@ namespace mdml::mods::LoadOrder
 	};
 
 	// Pure logic (no filesystem, no logging; unit-testable). existingText: content of LoadOrder.ini ("" if missing).
-	// found: mod names discovered on disk. Returns the text to write; order = effective order (BaseMod first, then file order,
-	// then new mods); changed = text differs from existingText; messages = warn/info lines for the log ("W:" / "I:" prefix).
+	// found: mod names discovered on disk. Returns the text to write; order = effective order (file order, then new
+	// mods); changed = text differs from existingText; messages = warn/info lines for the log ("W:" / "I:" prefix).
 	std::string Merge(const std::string& existingText, const std::vector<std::string>& found, std::vector<Entry>& order, bool& changed, std::vector<std::string>& messages);
 
 	// Scans modsFolder for mod folders / loose dlls, merges them into iniFile (creating/rewriting it) and caches the result.

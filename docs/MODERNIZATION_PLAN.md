@@ -31,14 +31,34 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
     PDB, "Engine layout verified"; (2) F1 window: opens/closes, themes look right (tab colours renamed), docking works,
     text fields/INI editor (TextEditor: typing, scrolling, INI highlighting); (3) DevTools object browser + transform
     editor, Generate SDK; (4) load a save, logic mods fire; (5) mod logs (`Logs/*-log.txt`) written, quit cleanly.
-  - **4.4 Step A ☑ (2026-10-14, build 0 warnings, in-game test pending)** public API split: `Loader/ModLoader/include/MDML/`
+  - **4.4 Step A ☑ (2026-10-14, build 0 warnings, in-game test passed — owner 2026-10-15)** public API split: `Loader/ModLoader/include/MDML/`
     (umbrella `MDML/MDML.h`), mods see only `include` + engine core; widgets `mdml::ui::widgets`; `LoaderUI` replaced by
     `MDML/UI.h`; `Global` → internal `mdml::mods::Registry`; locked ModStack API (`MDML/Mods.h`: `ForEachMod`/`FindMod`/
     `GetModCount`/`MoveToFront`, 3E-Q3); F1 menu state atomic in `ImGuiHost`. Report: `docs/reports/public-api.md`.
     Checks: `compile_generated.py` 203/203, `check_layout.py` 165/0, exports verified (no `Global`/`ModStack`/`LoaderUI`).
     **Deployed** 2026-10-14 (MDML.dll/.pdb, xinput1_3.dll, BaseMod/DevTools dll+pdb; configs untouched), backup
     `C:\dev\MDML\backup\2026-10-14_pre-5c6e28f`.
-  - **Step B (next, prepared 2026-10-14, decisions in the log "Wave 4 step B"):** full generated SDK in the repo (owner:
+  - **Step B progress 2026-10-15** (report `docs/reports/wave4-stepB.md`):
+    - Generator fixes (owner noticed the enums): Blueprint enums use their display names (`EBP_Enum_AIState::Inactive`
+      instead of `NewEnumerator0`, ed3be76), Blueprint struct members lose the GUID suffix (`FST_Time::Hour` instead of
+      `Hour_3_AEEF…`, 98b6730). **Deployed** with the 10257fe build (MDML.dll/.pdb, xinput1_3.dll, BaseMod + DevTools
+      dll/pdb; configs untouched), backup `C:\dev\MDML\backup\2026-10-15_pre-ed3be76`; DevTools.dll replaced again with
+      98b6730. Owner regenerates "All packages" with it.
+    - B2–B5 done in the working tree (build: MDML.dll, DevTools, PresetMod 0 warnings; `check_layout.py` 165/0): core
+      on the generated SDK, `EngineHelpers` (GetWorld/SpawnActor/correct 4.27 `FActorSpawnParameters`/user-enum display
+      names/`GetDataTableRowMap`) instead of the hand-written engine stubs, `MDML/GameMod.h` in MDML.dll, BaseMod +
+      LoadOrder's "BaseMod first" rule + `MDML/Memory.h` + LegacyExporter + `Loader/SDK/src` + `SDK.lua` deleted.
+      Regenerated "All packages" (owner, 01:39, with f8a8a52: 2523 headers, 0 skipped, no guard fired; no
+      `NewEnumerator*` and no GUID member names left) copied into `Loader/SDK/Generated`; **full solution 0 warnings,
+      0 errors** (incl. TimeWeatherChanger on `BP_WeatherManager.hpp`, DevTools give-item). Committed. Per-header
+      `compile_generated.py` run of the repo copy: see the report. Open: owner in-game test of step B.
+    - The first regeneration with 98b6730 failed after 3 s ("unknown C++ exception"; with /EHa most likely an access
+      violation in the new enum/struct name lookups). f8a8a52 guards both per enum/struct (failures are logged as
+      "MDMLGenerator: enum ..." and listed in GenerationReport.txt). Because `SDK.lib` was already gone, it was deployed
+      **with the whole step B build** (owner OK): MDML.dll/.pdb, xinput1_3.dll, DevTools.dll/.pdb; game
+      `Content/Mods/BaseMod` **moved** to the backup `C:\dev\MDML\backup\2026-10-15_pre-stepB` (with the replaced files).
+      Owner: step B in-game test (checklist `docs/reports/wave4-stepB.md`) + regenerate.
+  - **Step B (prepared 2026-10-14, decisions in the log "Wave 4 step B"):** full generated SDK in the repo (owner:
     "alles im Repo"), loader + DevTools + examples → generated SDK, `GameMod` into the loader API with typed generated
     getters, BaseMod deleted, `SDK.lib` + `MDML/Memory.h` go. Then in-game test. Findings while preparing:
     - The old SDK is wired into the **loader core**: `src/Engine/UE4.h` includes `UE4/SDK.h` + `Medieval_Dynasty/SDK.h`,
@@ -248,6 +268,8 @@ Also: improved Blueprint mod loading with load order · pak mod loading (old AES
 | 2026-10-14 | Public API split, part 2 | Generated SDK: **the complete generated SDK goes into the repo** (repo size does not matter). `GameMod` getters stay **typed** (generated BP classes). Done in **two steps** (A: header split/UI/ModStack, B: SDK migration + `GameMod` + `SDK.lib` removal), each with an in-game test. `Global` becomes **loader-internal** (`mdml::mods::Registry`); mods use narrow functions in `MDML/Mods.h`. |
 | 2026-10-14 | Public API split, defaults taken (owner may veto) | Include style `"MDML/<Header>.h"` from `Loader/ModLoader/include` (premake `IncludeDir.MDML`); existing namespaces of public types kept (`mdml::platform::Hooks/IniFile`, `mdml::runtime::GameThread/Notices/paths`); `ImGuiColorTheme` → `mdml::ui::ColorTheme`; `MDML/Memory.h` (old `Read`/`Write` helpers) public only until `SDK.lib` goes; DevTools reads the config folder via new `mdml::runtime::GetConfigFolder()` instead of `mdml::runtime::Config`. |
 | 2026-10-14 | Wave 4 step B | Full generated SDK **replaces the contents of `Loader/SDK/`** (header-only, no `SDK.lib`). The **loader itself uses the generated headers** (`AActor`, `UWorld`, `UGameplayStatics`, …) — one type system for loader and mods. **BaseMod is deleted**: `GameMod` goes into the loader API, useful `Utils.h` helpers too, the rest is dropped. DevTools' **`LegacyExporter` is removed** (replaced by the new generator). |
+| 2026-10-15 | Generated names (owner) | Blueprint enums must have their real names like the old exporter, not `NewEnumerator0..N` → the generator uses the `UUserDefinedEnum` display names. Same treatment taken by default for Blueprint struct members (GUID suffix stripped, like the old exporter). |
+| 2026-10-15 | Wave 4 step B, details taken by default (owner may veto) | Generated SDK in **`Loader/SDK/Generated/`** (subfolder, so nothing else mixes with generated files). `GameMod` getters return the generated BP classes **forward-declared** in `MDML/GameMod.h` (mods include the package header they use; MDML.dll finds the objects by class/property name, so it needs no BP headers). `getCameraManager()` (returned the animals manager) renamed `getAnimalsManager()`; `Utils::ValidateBPObject` → `GameMod::CastByName`; other `Utils.h` helpers dropped (string/file one-liners, `FindDataTable` = `FindObject` + core `UE4::GetDataTableRowMap`). Hand-written engine stubs (`UWorld`, `ULevel`, `UUserDefinedEnum`, …) replaced by free functions in `EngineHelpers.h`; `FActorSpawnParameters` now has the 4.27 layout (PDB). The object browser's package list saves `.export` lists for the generator instead of running the legacy exporter. |
 | 2026-10-14 | Wave 3E Q1–Q6 | All recommendations accepted: missing layout anchor stays **Error**; scanned offsets → persistent **Warning**; locked `ModStack` API (`ForEachMod`/`MoveToFront`) **in Wave 4** (with the public API split); `ProcessInternal` pattern → `ModLoaderInfo.ini` `[FunctionInfo]` and UML log wording reworded **in Wave 4** (with spdlog); missing `ModLoaderInfo.ini` keeps **disabling** the loader. |
 
 ---
