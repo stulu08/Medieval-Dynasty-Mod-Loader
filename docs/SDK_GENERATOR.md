@@ -34,8 +34,10 @@ projects (issue #416). Credited in `VENDORED.txt`, in the file headers of `MDMLG
    - tick export lists (`Content/Mods/<Mod>/*.export`), and/or type package names in "Extra packages", and/or
      "Package picker" → "Analyze" → tick packages (can be saved as `<DevTools folder>/<name>.export`);
    - "Generate SDK". The game **freezes** while it runs (game thread). First run: Dumper-7 analysis + object dump.
-4. Output: `<MDML.dll dir>/SDK-Out/<EngineVersion>-<GameName>/MDML-SDK/` (i.e. `Binaries/Win64/SDK-Out/...`), never
-   inside `Content`, never in the repo. Dumper-7 rotates an existing folder to `*_OLD`. Also written there:
+4. Output: `<SDKOutputDir>/<EngineVersion>-<GameName>/MDML-SDK/`; `SDKOutputDir` is set in DevTools' `mod.ini` `[Config]`
+   (empty = `<MDML.dll dir>/SDK-Out`, i.e. `Binaries/Win64/SDK-Out/...`; relative = to the MDML.dll folder), never
+   inside `Content`, never in the repo. Dumper-7 rotates an existing folder to `*_OLD`; DevTools deletes those backups
+   after a successful run (owner decision 2026-10-14), so only the newest output remains. Also written there:
    `GObjects-Dump*.txt` (Dumper-7) one level up, `GenerationReport.txt` (packages, missing packages, skipped functions,
    opaque members) in `MDML-SDK/`.
 5. Check: `python Tests/SDKCompileTest/compile_generated.py "<...>/MDML-SDK"` (every header in its own TU).
