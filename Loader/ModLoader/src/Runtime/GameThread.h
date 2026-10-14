@@ -19,9 +19,3 @@ namespace mdml::runtime {
 		static void RunPending();
 	};
 }
-
-namespace mdml {
-	// Round-1 shim (Wave 3A/3D boundary): the engine core (src/Engine/MDML/GeneratedSupport.cpp) still names
-	// mdml::GameThread. Loader and mod code use mdml::runtime::GameThread. Remove once src/Engine is updated.
-	using GameThread = runtime::GameThread;
-}

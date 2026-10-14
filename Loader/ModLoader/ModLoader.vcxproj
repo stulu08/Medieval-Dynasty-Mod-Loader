@@ -42,7 +42,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>NDEBUG;UNREALENGINEMODLOADER_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\Dependencies\spdlog;..\..\Dependencies\MinHook;src;src\Engine;src\Engine\UE4;..\..\Dependencies\INI;..\..\Dependencies\mINI;..\..\Dependencies\glm;..\..\Dependencies\ImGui;..\SDK\src\UE4;..\SDK\src;..\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Dependencies\spdlog;..\..\Dependencies\MinHook;src;src\Engine;src\Engine\UE4;..\..\Dependencies\mINI;..\..\Dependencies\glm;..\..\Dependencies\ImGui;..\SDK\src\UE4;..\SDK\src;..\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -371,6 +371,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     <ClInclude Include="src\Bootstrap\Version.h" />
     <ClInclude Include="src\Core.h" />
     <ClInclude Include="src\Engine\EngineAddresses.h" />
+    <ClInclude Include="src\Engine\EngineInit.h" />
     <ClInclude Include="src\Engine\EngineLayout.h" />
     <ClInclude Include="src\Engine\EngineMemory.h" />
     <ClInclude Include="src\Engine\MDML\GeneratedSupport.h" />
@@ -396,6 +397,7 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     <ClInclude Include="src\Engine\UE4\CoreUObject\UnrealType.h" />
     <ClInclude Include="src\Engine\UE4\Engine\BlueprintFunctionLibrary.h" />
     <ClInclude Include="src\Engine\UE4\Engine\BlueprintGeneratedClass.h" />
+    <ClInclude Include="src\Engine\UE4\Engine\EngineBaseTypes.h" />
     <ClInclude Include="src\Engine\UE4\Engine\GameInstance.h" />
     <ClInclude Include="src\Engine\UE4\Engine\GameState.h" />
     <ClInclude Include="src\Engine\UE4\Engine\Level.h" />

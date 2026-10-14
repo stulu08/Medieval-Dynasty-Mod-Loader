@@ -2,7 +2,7 @@
 #include "CoreModLoader.h"
 
 #include "Globals.h"
-#include "MDML.h"
+#include "EngineInit.h"
 #include "Mods/LoadOrder.h"
 #include "Mods/Mod.h"
 #include "Platform/IniFile.h"

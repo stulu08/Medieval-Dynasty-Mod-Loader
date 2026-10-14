@@ -8,6 +8,7 @@
 #include "Platform/Memory.h"
 #include "Platform/Math.h"
 #include "NameValidator.h"
+#include "UE4/Engine/EngineBaseTypes.h"
 
 #include "UE4/SDK.h"
 #include "Medieval_Dynasty/SDK.h"

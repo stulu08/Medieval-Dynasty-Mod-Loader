@@ -66,9 +66,9 @@ namespace mdml::sdk {
 
 		void WarnIfOffGameThread(const FFunctionDesc& Desc) {
 			static std::atomic<bool> bWarned{ false };
-			if (mdml::GameThread::IsInGameThread() || bWarned.exchange(true))
+			if (mdml::runtime::GameThread::IsInGameThread() || bWarned.exchange(true))
 				return;
-			Log::Warn_MDML("[SDK] {0}::{1} called off the game thread. Use mdml::GameThread::Enqueue for engine calls (warned once).",
+			Log::Warn_MDML("[SDK] {0}::{1} called off the game thread. Use mdml::runtime::GameThread::Enqueue for engine calls (warned once).",
 				Desc.OwnerName, Desc.FunctionName);
 		}
 	}

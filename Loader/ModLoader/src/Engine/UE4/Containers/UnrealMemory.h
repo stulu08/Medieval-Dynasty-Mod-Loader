@@ -7,8 +7,8 @@ namespace UE4 {
 	// (TArray/FString data handed to the engine, or engine-owned arrays MDML grows) must come from here, never from the
 	// CRT heap. Defined in MDML.dll (UnrealMemory.cpp) and exported.
 	//
-	// Fallback while the engine functions are not resolved (no PDB/cache, or before SetupProfile): the CRT heap
-	// (malloc/realloc/free), i.e. the old behaviour, with a one-time warning in the log.
+	// Fallback while the engine functions are not resolved (no PDB/cache, or before mdml::runtime::ResolveEngine in
+	// Runtime/EngineSetup.cpp): the CRT heap (malloc/realloc/free), i.e. the old behaviour, with a one-time warning.
 	struct MDML_ENGINE_API FMemory {
 		static void* Malloc(size_t Count, uint32_t Alignment = 0);
 		static void* Realloc(void* Original, size_t Count, uint32_t Alignment = 0);

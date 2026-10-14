@@ -1,5 +1,5 @@
 #include "Core.h"
-#include "MDML.h"
+#include "EngineInit.h"
 #include "UE4.h"
 #include "EngineAddresses.h"
 #include "EngineLayout.h"
@@ -9,7 +9,6 @@
 // mdml::Layout starts as the PDB-checked constants of EngineLayout.h (Wave 3D).
 namespace mdml {
 	EngineLayout Layout;
-	EngineLayoutStatus LayoutStatus;
 	Ref<spdlog::logger> UnrealLogger = nullptr;
 }
 
@@ -33,7 +32,8 @@ namespace UE4 {
 
 		// Before Wave 3D every offset group was scanned here at runtime (EngineDefFinder) unless the profile had a
 		// manual [UObjectDef]/... section. Now the offsets are PDB-checked constants and only verified; a group is
-		// scanned only if its check fails (see Runtime/EngineDefFinder.h). mdml::LayoutStatus is not consulted.
+		// scanned only if its check fails (see Runtime/EngineDefFinder.h). A group that cannot be verified is reported
+		// as a persistent notice in the F1 window (Wave 3E); mods load anyway.
 		ClassDefFinder::VerifyEngineLayout();
 		Log::Info_UML("All Engine Classes Found");
 	}

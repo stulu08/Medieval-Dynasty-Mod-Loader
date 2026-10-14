@@ -24,6 +24,3 @@ namespace mdml::platform::SymbolResolver
 	std::string GetBuildId();
 }
 
-// Round-1 shim (Wave 3A/3D boundary): the engine core (src/Engine/EngineAddresses.cpp) still names ::SymbolResolver.
-// Loader code uses mdml::platform::SymbolResolver. Remove once src/Engine is updated.
-namespace SymbolResolver = mdml::platform::SymbolResolver;
