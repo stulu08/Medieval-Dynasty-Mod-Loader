@@ -30,7 +30,7 @@ void Mod::CompleteModCreation()
 	if (CreateLogger) {
 		if (LogToFile) {
 			logger = Logger::Create(ModName, Log::getLogFile(ModName + "-log.txt"));
-			logger->Info("Created mod logger({1}): {0}", logger->getName(), std::filesystem::relative(Log::getLogFile(ModName + "-log.txt")).string());
+			logger->Info("Created mod logger({1}): {0}", logger->getName(), mdml::runtime::FormatPath(Log::getLogFile(ModName + "-log.txt")));
 		}
 		else {
 			logger = Logger::Create(ModName);

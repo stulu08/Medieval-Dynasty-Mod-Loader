@@ -4,6 +4,7 @@
 #include "EngineAddresses.h"
 #include "EngineLayout.h"
 #include "EngineMemory.h"
+#include "Runtime/Notices.h"
 
 // Engine layout verification + no-PDB fallback scan (Wave 3D; was the always-on UML runtime offset scan).
 //
@@ -388,14 +389,28 @@ namespace ClassDefFinder
 				T.DelegateProperty = F.DelegateProperty; T.MulticastDelegateProperty = F.MulticastDelegateProperty; T.EnumProperty = F.EnumProperty; } },
 		};
 
+		// Group names per outcome, for the F1-window notices (Wave 3E, owner decision 2026-10-14 "3D-Q2").
+		struct FOutcome {
+			std::vector<std::string> Broken;    // check failed and the fallback did not fix it
+			std::vector<std::string> Unchecked; // anchor object missing: not verified
+			std::vector<std::string> Scanned;   // check failed, scanned offsets passed and are used now
+		};
+
+		std::string JoinNames(const std::vector<std::string>& Names) {
+			std::string Out;
+			for (const std::string& Name : Names)
+				Out += (Out.empty() ? "" : ", ") + Name;
+			return Out;
+		}
+
 		// Runs one group: check; on failure scan, apply and re-check. Returns false if the group stays broken.
-		bool RunGroup(const FGroup& Group, const FAnchors& Anchors, int& Skipped) {
+		bool RunGroup(const FGroup& Group, const FAnchors& Anchors, FOutcome& Outcome) {
 			const CheckResult First = Group.Check(mdml::Layout, Anchors);
 			if (First.empty())
 				return true;
 			if (IsSkip(First)) {
 				Log::Warn_MDML("Engine layout: {0} not checked ({1}); keeping the PDB constants", Group.Name, First.substr(6));
-				++Skipped;
+				Outcome.Unchecked.push_back(Group.Name);
 				return true;
 			}
 			Log::Error_MDML("ENGINE LAYOUT MISMATCH: {0}: {1}. The PDB constants in EngineLayout.h do not fit this game build "
@@ -403,6 +418,7 @@ namespace ClassDefFinder
 			EngineLayout Scanned = mdml::Layout;
 			if (!Group.Scan(Scanned, Anchors)) {
 				Log::Error_MDML("ENGINE LAYOUT: {0}: fallback scan found nothing; keeping the PDB constants. Mods using this part of the engine core will misbehave or crash.", Group.Name);
+				Outcome.Broken.push_back(Group.Name);
 				return false;
 			}
 			const EngineLayout Before = mdml::Layout;
@@ -411,11 +427,31 @@ namespace ClassDefFinder
 			if (!Second.empty() && !IsSkip(Second)) {
 				Group.Apply(mdml::Layout, Before);
 				Log::Error_MDML("ENGINE LAYOUT: {0}: scanned offsets fail the check too ({1}); keeping the PDB constants.", Group.Name, Second);
+				Outcome.Broken.push_back(Group.Name);
 				return false;
 			}
 			Log::Error_MDML("ENGINE LAYOUT: {0}: using SCANNED offsets instead of the PDB constants. Update EngineLayout.h for this game build.", Group.Name);
+			Outcome.Scanned.push_back(Group.Name);
 			return true;
 		}
+	}
+
+	// Persistent notices in the F1 window (Runtime/Notices.h; each is logged too). Mods keep loading in every case: a
+	// wrong check anchor must not lock the owner out (decision 2026-10-14).
+	static void PostLayoutNotices(const FOutcome& Outcome)
+	{
+		using mdml::runtime::Notices;
+		using mdml::runtime::NoticeSeverity;
+		if (!Outcome.Broken.empty() || !Outcome.Unchecked.empty())
+		{
+			std::vector<std::string> Failed = Outcome.Broken;
+			Failed.insert(Failed.end(), Outcome.Unchecked.begin(), Outcome.Unchecked.end());
+			Notices::Post(NoticeSeverity::Error, "Engine layout could not be verified: " + JoinNames(Failed) +
+				". Mods that use these engine parts may misbehave or crash. Details: Logs/MDML-log.txt", true);
+		}
+		if (!Outcome.Scanned.empty())
+			Notices::Post(NoticeSeverity::Warning, "Engine layout differs from the PDB constants, using scanned offsets for: " +
+				JoinNames(Outcome.Scanned) + ". Details: Logs/MDML-log.txt", true);
 	}
 
 	bool VerifyEngineLayout()
@@ -423,6 +459,8 @@ namespace ClassDefFinder
 		if (!UE4::UObject::GObjects || !UE4::FName::GNames)
 		{
 			Log::Error_MDML("Engine layout: GObjects/GNames not bound, cannot verify the layout");
+			mdml::runtime::Notices::Post(mdml::runtime::NoticeSeverity::Error,
+				"Engine layout could not be verified: the engine globals (GObjects/GNames) were not found. Details: Logs/MDML-log.txt", true);
 			return false;
 		}
 		FAnchors Anchors;
@@ -431,25 +469,28 @@ namespace ClassDefFinder
 		Anchors.Obj1 = Objects.GetByIndex(1).Object;
 		Anchors.Obj2 = Objects.GetByIndex(2).Object;
 
-		int Skipped = 0;
+		FOutcome Outcome;
 		// UObject first: finding the other anchors by name needs a correct UObject layout.
-		if (!RunGroup(kGroups[0], Anchors, Skipped))
+		if (!RunGroup(kGroups[0], Anchors, Outcome))
 		{
 			Log::Error_MDML("ENGINE LAYOUT: UObject layout unusable, the engine core cannot work with this game build.");
+			mdml::runtime::Notices::Post(mdml::runtime::NoticeSeverity::Error,
+				"Engine layout could not be verified: UObject (and therefore every other group). The engine core will not work with this game build. Details: Logs/MDML-log.txt", true);
 			return false;
 		}
 		FindAnchors(Anchors);
 
 		bool AllOk = true;
 		for (size_t i = 1; i < std::size(kGroups); ++i)
-			AllOk = RunGroup(kGroups[i], Anchors, Skipped) && AllOk;
+			AllOk = RunGroup(kGroups[i], Anchors, Outcome) && AllOk;
 
-		if (AllOk && Skipped == 0)
+		if (AllOk && Outcome.Unchecked.empty())
 			Log::Info_MDML("Engine layout verified against live objects ({0} groups, PDB constants)", std::size(kGroups));
 		else if (AllOk)
-			Log::Warn_MDML("Engine layout verified with {0} group(s) unchecked", Skipped);
+			Log::Warn_MDML("Engine layout verified with {0} group(s) unchecked", Outcome.Unchecked.size());
 		else
 			Log::Error_MDML("ENGINE LAYOUT: at least one group could not be verified, see the errors above");
+		PostLayoutNotices(Outcome);
 		return AllOk;
 	}
 };

@@ -3,9 +3,10 @@
 #include <mutex>
 #include <chrono>
 #include "UE4.h"
-#include "Globals.h"
 #include "EngineAddresses.h"
 #include "EngineLayout.h"
+#include "Runtime/Notices.h"
+#include "Runtime/Paths.h"
 
 Dumper* Dumper::DumpRef;
 
@@ -13,12 +14,34 @@ static std::mutex s_noticeMutex;
 static std::string s_noticeText;
 static std::chrono::steady_clock::time_point s_noticeTime;
 
-void DumpNotice::Set(const std::string& text)
+// Transient Info notice in the F1 window (mdml::runtime::Notices, also logged). The last text is kept for the
+// deprecated DumpNotice::Get until nothing calls it any more.
+static void PostDumpNotice(const std::string& text)
 {
-	Log::Info_MDML("{0}", text);
+	mdml::runtime::Notices::Post(mdml::runtime::NoticeSeverity::Info, text);
 	std::lock_guard<std::mutex> lock(s_noticeMutex);
 	s_noticeText = text;
 	s_noticeTime = std::chrono::steady_clock::now();
+}
+
+// <MDML.dll folder>/Dump/<fileName>. Was the relative "Dump/" folder (process working directory, code inventory F8);
+// in the installed game both are Binaries/Win64/Dump.
+static std::filesystem::path DumpFile(const std::string& fileName)
+{
+	return mdml::runtime::GetLoaderFolder() / "Dump" / fileName;
+}
+
+static FILE* OpenDumpFile(const std::filesystem::path& path)
+{
+	FILE* file = nullptr;
+	if (_wfopen_s(&file, path.c_str(), L"w+") != 0)
+		file = nullptr;
+	return file;
+}
+
+void DumpNotice::Set(const std::string& text)
+{
+	PostDumpNotice(text);
 }
 
 bool DumpNotice::Get(std::string& text, float& ageSeconds)
@@ -41,23 +64,23 @@ Dumper* Dumper::GetDumper()
 }
 
 void Dumper::CreateDumpDir() {
-	if (!std::filesystem::exists("Dump"))
-		std::filesystem::create_directory("Dump");
+	std::error_code ec;
+	std::filesystem::create_directories(mdml::runtime::GetLoaderFolder() / "Dump", ec);
 }
 
 
 bool Dumper::DumpObjectArray()
 {
 	CreateDumpDir();
-	FILE* Log = NULL;
-	fopen_s(&Log, "Dump/ObjectDump.txt", "w+");
+	const std::filesystem::path Path = DumpFile("ObjectDump.txt");
+	FILE* Log = OpenDumpFile(Path);
 	if (UE4::UObject::GObjects != nullptr && Log != NULL)
 	{
 		UE4::UObject::ForEachObject([&](UE4::UObject* obj) {
 			fprintf(Log, "[%06i] %-100s 0x%p\n", obj->GetIndex(), obj->GetFullName().c_str(), obj);
 		});
 		fclose(Log);
-		DumpNotice::Set("Object dump written to " + std::filesystem::absolute("Dump/ObjectDump.txt").string());
+		PostDumpNotice("Object dump written to " + Path.string());
 		return true;
 	}
 	else
@@ -74,8 +97,8 @@ bool Dumper::DumpObjectArray()
 bool Dumper::DumpEngineInfo()
 {
 	CreateDumpDir();
-	FILE* Log = NULL;
-	fopen_s(&Log, "Dump/EngineInfo.txt", "w+");
+	const std::filesystem::path Path = DumpFile("EngineInfo.txt");
+	FILE* Log = OpenDumpFile(Path);
 	if (Log == NULL)
 		return false;
 	const DWORD64 Base = (DWORD64)GetModuleHandleW(0);
@@ -121,16 +144,15 @@ bool Dumper::DumpEngineInfo()
 	Line("FProperty.Offset_Internal", L.Property.Offset, Constants.Property.Offset);
 	Line("FObjectPropertyBase.PropertyClass", L.ObjectPropertyBase.PropertyClass, Constants.ObjectPropertyBase.PropertyClass);
 	fclose(Log);
-	DumpNotice::Set("Engine info dump written to " + std::filesystem::absolute("Dump/EngineInfo.txt").string());
+	PostDumpNotice("Engine info dump written to " + Path.string());
 	return true;
 }
 
 bool Dumper::DumpWorldActors()
 {
 	CreateDumpDir();
-	FILE* Log = NULL;
-	std::string FileName = std::string("Dump/") + UE4::UGameplayStatics::GetCurrentLevelName(false).ToString() + "_Dump.txt";
-	fopen_s(&Log, FileName.c_str(), "w+");
+	const std::filesystem::path Path = DumpFile(UE4::UGameplayStatics::GetCurrentLevelName(false).ToString() + "_Dump.txt");
+	FILE* Log = OpenDumpFile(Path);
 	if (Log == NULL)
 		return false;
 	auto actors = UE4::UObject::GetAllObjectsOfType<UE4::AActor>(UE4::AActor::StaticClass(), true);
@@ -151,6 +173,6 @@ bool Dumper::DumpWorldActors()
 		}
 	}
 	fclose(Log);
-	DumpNotice::Set("World actors dump written to " + std::filesystem::absolute(FileName).string());
+	PostDumpNotice("World actors dump written to " + Path.string());
 	return true;
 }
