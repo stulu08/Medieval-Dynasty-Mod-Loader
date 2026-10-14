@@ -33,7 +33,7 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
     `Mods/DevTools/OverrideContent`); `compile_generated.py` 203/203 on the real output; `check_layout.py` 0 mismatches;
     `check_patterns.py` all OK.
 - **Deployed** 2026-10-14: build of 9f93a89 (MDML.dll/.pdb, xinput1_3.dll, BaseMod/DevTools dll+pdb). Backup of the previous
-  game state (loader files, `Config/`, `Content/Mods/{BaseMod,DevTools}`): `C:\dev\MDMLackup6-10-14_pre-9f93a89`.
+  game state (loader files, `Config/`, `Content/Mods/{BaseMod,DevTools}`): `C:\dev\MDML\backup\2026-10-14_pre-9f93a89`.
   With owner approval the installed mod configs were aligned: BaseMod `mod.ini` = `[Mod]` only, `OverrideContent` moved to
   DevTools, DevTools `mod.ini` = repo version with `[Mod]` active (DevTools enabled in the game copy). Game `Config/` untouched
   (its obsolete keys are ignored). **In-game test pending** — checklist:
@@ -50,7 +50,7 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
 - **C# replaces Lua** for script mods (Phase 3): `docs/design/csharp-scripting.md`. Lua spike in `Loader/Scripting/` = reference.
 
 **Next (in order) — start here in a new session:**
-1. Evaluate the owner's in-game test of Wave 3 (checklist in the handoff block below; logs in
+1. Evaluate the owner's in-game test of Wave 3 (checklist above; logs in
    `Binaries/Win64/Logs`). Fix findings. If the F1 window/Present hook breaks, suspect 3B's released dummy D3D objects first.
 2. Wave 4 (C++20, ImGui 1.92.9b-docking + SDG controls incl. a sortable load-order editor, spdlog 1.17, license files),
    BaseMod/DevTools → generated SDK, 2.8 docs, public API header split (`include/MDML`; decide widgets namespace, `LoaderUI`
