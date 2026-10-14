@@ -104,7 +104,7 @@ Engine defs (offsets) were all found by `EngineDefFinder`; DX11 Present hook wor
   `Content/Mods/Dumper7/Dumper7.dll` (no mod.ini → `<dir>/<dir>.dll` is LoadLibrary'd). Config: per-game
   `Binaries/Win64/Dumper-7.ini` (`DumpKey=118` = F7, `SDKGenerationPath=C:/dev/MDML/dumps`). Dump after loading a save
   so the player BP classes exist.
-- Output: `C:\dev\MDML\dumps.27.2-0+++UE4+Release-4.27-Medieval_Dynasty\` (CppSDK 2477 packages / 102 MB, Mappings, IDAMappings, Dumpspace).
+- Output: `C:\dev\MDML\dumps\4.27.2-0+++UE4+Release-4.27-Medieval_Dynasty\` (CppSDK 2477 packages / 102 MB, Mappings, IDAMappings, Dumpspace).
 - **Crash cause confirmed:** `BP_BaseCharacter_C` old SDK: StatsComponent +1424, InventoryComponent +1440;
   2.7.0.4: StatsComponent 0x5A0 (=1440), InventoryComponent 0x5B0 (=1456). BaseMod read the inventory at +1440 and got
   the stats component. `AddItemToInventory` signature itself is unchanged.
