@@ -4,8 +4,9 @@ project "TimeWeatherChanger"
 	cppdialect "C++20"
 	staticruntime "off"
 	targetname ("TimeWeatherChanger");
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Mods/TimeWeatherChanger")
-	objdir ("bin-int/" .. outputdir .. "")
+	targetdir ("bin/" .. outputdir)
+	DeployTo("ModLoader/Mods/TimeWeatherChanger")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 	dependson { "ModLoader", "BaseMod" }
 	defines
 	{
@@ -36,7 +37,7 @@ project "TimeWeatherChanger"
 		"%{IncludeDir.MedievalDynasty}",
 	}
 	postbuildcommands {
-		"{COPYDIR} \"%{ProjectDir.TimeWeatherChanger}/Config\" \"%{wks.location}/bin/" .. outputdir .. "/Mods/TimeWeatherChanger\"",
+		"{COPYDIR} \"%{ProjectDir.TimeWeatherChanger}/Config\" \"%{OutputDir}/ModLoader/Mods/TimeWeatherChanger\"",
 	}
 	links
 	{

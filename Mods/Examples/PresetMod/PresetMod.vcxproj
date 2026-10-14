@@ -30,8 +30,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(ProjectDir)..\..\..\bin\Release-windows-x86_64\Mods\PresetMod\</OutDir>
-    <IntDir>$(ProjectDir)bin-int\Release-windows-x86_64\</IntDir>
+    <OutDir>$(ProjectDir)bin\Release-windows-x86_64\</OutDir>
+    <IntDir>$(ProjectDir)bin-int\Release-windows-x86_64\PresetMod\</IntDir>
     <TargetName>PresetMod</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
@@ -61,13 +61,16 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <ImportLibrary>..\..\..\bin\Release-windows-x86_64\Mods\PresetMod\PresetMod.lib</ImportLibrary>
+      <ImportLibrary>bin\Release-windows-x86_64\PresetMod.lib</ImportLibrary>
       <AdditionalOptions>/ignore:4006 /ignore:4099 /ignore:4251 %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <ProjectReference>
     </ProjectReference>
     <PostBuildEvent>
-      <Command>xcopy /Q /E /Y /I "$(SolutionDir)\Mods\Examples\PresetMod\Config" "$(SolutionDir)\bin\Release-windows-x86_64\Mods\PresetMod"</Command>
+      <Command>IF NOT EXIST "$(SolutionDir)\Output\ModLoader\Mods\PresetMod" (mkdir "$(SolutionDir)\Output\ModLoader\Mods\PresetMod")
+copy /B /Y "bin\Release-windows-x86_64\PresetMod.dll" "$(SolutionDir)\Output\ModLoader\Mods\PresetMod"
+copy /B /Y "$(TargetDir)\$(TargetName).pdb" "$(SolutionDir)\Output\ModLoader\Mods\PresetMod"
+xcopy /Q /E /Y /I "$(SolutionDir)\Mods\Examples\PresetMod\Config" "$(SolutionDir)\Output\ModLoader\Mods\PresetMod"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

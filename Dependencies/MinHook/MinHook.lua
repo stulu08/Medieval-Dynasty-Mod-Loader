@@ -4,8 +4,8 @@ project "MinHook"
 	kind "StaticLib"
 	language "C"
 	staticruntime "off"
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "")
-	objdir ("bin-int/" .. outputdir .. "")
+	targetdir ("bin/" .. outputdir)
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 	files
 	{

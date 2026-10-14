@@ -8,8 +8,8 @@ project "SDK"
 	cppdialect "C++20"
 	staticruntime "off"
 	targetname ("SDK");
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "")
-	objdir ("bin-int/" .. outputdir .. "")
+	targetdir ("bin/" .. outputdir)
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 	defines
 	{
 		"SDK_EXPORT",

@@ -4,8 +4,9 @@ project "BaseMod"
 	cppdialect "C++20"
 	staticruntime "off"
 	targetname ("BaseMod");
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Mods/BaseMod")
-	objdir ("bin-int/" .. outputdir .. "")
+	targetdir ("bin/" .. outputdir)
+	DeployTo("ModLoader/Mods/BaseMod")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 	dependson { "ModLoader" }
 	defines
 	{
@@ -37,7 +38,7 @@ project "BaseMod"
 		"%{IncludeDir.MedievalDynasty}",
 	}
 	postbuildcommands {
-		"{COPYDIR} \"%{ProjectDir.BaseMod}/Config\" \"%{wks.location}/bin/" .. outputdir .. "/Mods/BaseMod\"",
+		"{COPYDIR} \"%{ProjectDir.BaseMod}/Config\" \"%{OutputDir}/ModLoader/Mods/BaseMod\"",
 	}
 	links
 	{

@@ -295,3 +295,11 @@ Other notes:
 
 - Update the version numbers here whenever a library is upgraded (planned: possibly a MinHook replacement; ImGui 1.92.9b-docking, upstream TextEditor, spdlog 1.17 and nlohmann/json 3.12 done in Wave 4).
 - The repository `LICENSE` file has no copyright holder line.
+
+## Mod Manager GUI stack (Tools/ModManager, not part of MDML.dll)
+- **SDG** (Stulu Desktop GUI) - own project, Apache-2.0, `Dependencies/SDG` (see its `VENDORED.txt` for the local changes).
+- **GLFW** - owner's fork of https://github.com/glfw/glfw, zlib/libpng license, `Dependencies/GLFW/LICENSE.md`.
+- **Glad** - OpenGL loader, `Dependencies/Glad`.
+- **stb_image** - public domain / MIT, `Dependencies/stb_image`.
+- **Dear ImGui backends** (GLFW, OpenGL3) - v1.92.9b-docking, MIT, `Dependencies/ImGui/backends` (same tag as `Dependencies/ImGui`).
+- **nlohmann-json** and **glm** are the copies listed above in `Dependencies/`.

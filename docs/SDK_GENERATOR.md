@@ -135,7 +135,7 @@ predefined: `UWorld`, `ULevel`, ... are generated. Do not include old `Loader/SD
 same translation unit (same names in `namespace UE4`).
 
 ## Offline proof
-- `DevTools.SDKCompileTest` (built with the solution, output `bin/.../Tests/SDKCompileTest.dll`, never deployed): compiles
+- `DevTools.SDKCompileTest` (built with the solution, output `Output/Tests/SDKCompileTest.dll`, never deployed): compiles
   `Sample/` (trimmed BP_BaseCharacter, InventoryComponent, ST_* structs, E_Ownership, Engine/CoreUObject/Medieval_Dynasty
   parts, a name collision, a static array, an opaque member, bitfields, static/const/out-param functions) with only the
   core include dirs and links MDML.lib, so every exported helper resolves.

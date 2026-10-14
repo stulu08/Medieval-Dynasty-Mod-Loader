@@ -29,8 +29,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(ProjectDir)..\..\bin-int\Release-windows-x86_64\lib\</OutDir>
-    <IntDir>$(ProjectDir)bin-int\Release-windows-x86_64\Release\DevTools.Generator\</IntDir>
+    <OutDir>$(ProjectDir)bin\Release-windows-x86_64\</OutDir>
+    <IntDir>$(ProjectDir)bin-int\Release-windows-x86_64\DevTools.Generator\</IntDir>
     <TargetName>DevTools.Generator</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
@@ -68,62 +68,17 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Engine\Public\OffsetFinder\OffsetFinder.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Engine\Public\OffsetFinder\Offsets.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Engine\Public\Unreal\Enums.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Engine\Public\Unreal\NameArray.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Engine\Public\Unreal\ObjectArray.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Engine\Public\Unreal\UnrealContainers.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Engine\Public\Unreal\UnrealObjects.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Engine\Public\Unreal\UnrealTypes.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Public\Generators\Generator.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Public\HashStringTable.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Public\Managers\CollisionManager.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Public\Managers\DependencyManager.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Public\Managers\EnumManager.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Public\Managers\MemberManager.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Public\Managers\PackageManager.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Public\Managers\StructManager.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Public\PredefinedMembers.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Public\Wrappers\EnumWrapper.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Public\Wrappers\MemberWrappers.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Public\Wrappers\StructWrapper.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Platform\Private\Arch_x86.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Platform\Private\PlatformWindows.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Platform\Public\Architecture.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Platform\Public\Platform.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Settings.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\TmpUtils.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Utils\Encoding\UnicodeNames.h" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Utils\Encoding\UtfN.hpp" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Utils\Json\json.hpp" />
-    <ClInclude Include="..\..\Dependencies\Dumper-7\Dumper\Utils\Utils.h" />
     <ClInclude Include="src\Generator\MDMLGenerator.h" />
     <ClInclude Include="src\Generator\SdkGenerator.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Engine\Private\OffsetFinder\OffsetFinder.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Engine\Private\OffsetFinder\Offsets.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Engine\Private\Unreal\NameArray.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Engine\Private\Unreal\ObjectArray.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Engine\Private\Unreal\UnrealObjects.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Engine\Private\Unreal\UnrealTypes.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Private\Generators\Generator.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Private\HashStringTable.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Private\Managers\CollisionManager.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Private\Managers\DependencyManager.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Private\Managers\EnumManager.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Private\Managers\MemberManager.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Private\Managers\PackageManager.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Private\Managers\StructManager.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Private\Wrappers\EnumWrapper.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Private\Wrappers\MemberWrappers.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Generator\Private\Wrappers\StructWrapper.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Platform\Private\Arch_x86.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Platform\Private\PlatformWindows.cpp" />
-    <ClCompile Include="..\..\Dependencies\Dumper-7\Dumper\Settings.cpp" />
     <ClCompile Include="src\Generator\MDMLGenerator.cpp" />
     <ClCompile Include="src\Generator\SdkGenerator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Dependencies\Dumper-7\Dumper7.vcxproj">
+      <Project>{29E8168F-95C7-952A-9EDF-20010A3EFC8B}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

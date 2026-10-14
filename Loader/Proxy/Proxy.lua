@@ -4,8 +4,9 @@ project "Proxy"
 	cppdialect "C++20"
 	staticruntime "off"
 	targetname ("xinput1_3");
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "")
-	objdir ("bin-int/" .. outputdir .. "")
+	targetdir ("bin/" .. outputdir)
+	DeployTo("ModLoader") -- the xinput1_3.dll proxy ships with the loader
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 	
 	defines
 	{

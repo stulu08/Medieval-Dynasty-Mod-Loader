@@ -8,8 +8,9 @@ project "DevTools.SDKCompileTest"
 	cppdialect "C++20"
 	staticruntime "off"
 	targetname ("SDKCompileTest");
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Tests")
-	objdir ("bin-int/" .. outputdir .. "")
+	targetdir ("bin/" .. outputdir)
+	DeployTo("Tests")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 	dependson { "ModLoader" }
 	defines
 	{

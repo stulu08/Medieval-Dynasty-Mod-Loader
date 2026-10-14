@@ -1,0 +1,1 @@
+Glad (OpenGL loader, generated, public domain / MIT), from the owner's Skeleton/SEngine setup. Used by Tools/ModManager through SDG. Unmodified.

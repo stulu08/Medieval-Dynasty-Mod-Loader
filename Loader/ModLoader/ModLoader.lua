@@ -4,8 +4,8 @@ project "ModLoader"
 	cppdialect "C++20"
 	staticruntime "off"
 	targetname ("MDML");
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "")
-	objdir ("bin-int/" .. outputdir .. "")
+	targetdir ("bin/" .. outputdir)
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 	
 	pchheader "Core.h"
 	pchsource "src/Core.cpp"
@@ -24,16 +24,8 @@ project "ModLoader"
 		"**.cpp",
 		"**.hpp",
 	}
-	-- Third-party code that used to live under this project (vendor/) is in Dependencies/ now
-	-- but is still compiled into MDML.dll. MinHook is its own project; spdlog and mINI are header-only.
-	files
-	{
-		"../../Dependencies/ImGui/**.h",
-		"../../Dependencies/ImGui/**.cpp",
-		"../../Dependencies/glm/**.h",
-		"../../Dependencies/glm/**.hpp",
-		"../../Dependencies/glm/**.cpp",
-	}
+	-- Third-party code lives in Dependencies/ and is linked as static libraries (MinHook, ImGuiLoader); spdlog, mINI and
+	-- glm are header-only (include dirs only).
 	-- The few GENERATED SDK functions MDML itself calls (UGameplayStatics::GetGameInstance/GetCurrentLevelName/
 	-- BeginDeferredActorSpawnFromClass/ExecuteConsoleCommand -> UKismetSystemLibrary, AActor::K2_GetActorLocation/...)
 	-- are compiled into MDML.dll from the SDK sources instead of linking SDK.lib (which now depends on MDML.dll).
@@ -43,10 +35,6 @@ project "ModLoader"
 		"../SDK/src/UE4/Engine/Actor.cpp",
 		"../SDK/src/UE4/Engine/GamePlayStatics.cpp",
 		"../SDK/src/UE4/Engine/KismetSystemLibrary.cpp",
-	}
-	libdirs 
-	{
-		--"%{IncludeDir.MinHook}/lib"
 	}
 	includedirs
 	{
@@ -65,17 +53,22 @@ project "ModLoader"
 		"%{IncludeDir.MedievalDynasty}",
 		
 	}
+	DeployTo("ModLoader")
 	postbuildcommands {
-		"{MKDIR} \"%{wks.location}/bin/" .. outputdir .. "/Config\"",
-		"{COPYDIR} \"%{ProjectDir.Loader}/Config\" \"%{wks.location}/bin/" .. outputdir .. "/Config\"",
+		"{COPYDIR} \"%{ProjectDir.Loader}/Config\" \"%{OutputDir}/ModLoader/Config\"",
 	}
 	-- No "SDK" link any more (Wave 2.3): the hand-written engine core (src/Engine) is compiled in here and exported;
 	-- SDK.lib's generated code imports it from MDML.dll, so linking SDK.lib here would be a cycle.
 	links
 	{
 		"MinHook",
+		"ImGuiLoader",
 	}
-	filter "files:../../Dependencies/ImGui/**.cpp or files:../../Dependencies/glm/**.cpp or files:src/Engine/**.cpp or files:../SDK/src/**.cpp"
+	-- ImGui (and the dx11/win32 backends) are exported from MDML.dll for the mods, but MDML itself only references part of
+	-- them: pull in the whole static library so every exported symbol is present.
+	libdirs { "%{wks.location}/Dependencies/ImGui/bin/" .. outputdir }
+	linkoptions { "/WHOLEARCHIVE:ImGuiLoader.lib" }
+	filter "files:src/Engine/**.cpp or files:../SDK/src/**.cpp"
 		enablepch "Off"
 	filter "system:windows"
 		systemversion "latest"

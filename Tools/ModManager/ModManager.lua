@@ -1,49 +1,61 @@
+-- Standalone desktop app (SDG: GLFW + OpenGL + ImGui). Independent of the loader at runtime; shares Dependencies/ with it.
 project "ModManager"
 	kind "WindowedApp"
 	language "C++"
-	cppdialect "C++20"
+	cppdialect "C++17"
 	staticruntime "off"
-	targetname ("MDML Mod Manager");
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "/UI")
-	objdir ("bin-int/" .. outputdir .. "")
-	
+
+	targetname "MDML Mod Manager"
+	targetdir ("bin/" .. outputdir)
+	DeployTo("ModManager")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	debugdir "%{OutputDir}/ModManager"
+
 	defines
 	{
-		"NDEBUG",
-		"_WINDOWS",
-		"_USRDLL",
-		"_CRT_SECURE_NO_WARNINGS"
+		"_CRT_SECURE_NO_WARNINGS",
+		"WIN32_LEAN_AND_MEAN",
+		"NOMINMAX",
+		"GLFW_INCLUDE_NONE",
+		"LOADER_API=", -- see Dependencies/SDG/premake5.lua
+		"IMGUI_DEFINE_MATH_OPERATORS",
+		"SDG_DIST" -- WinMain entry point (no console window)
 	}
-	files
-	{
-		"**.h",
-		"**.cpp",
-		"**.hpp",
 
-		"%{IncludeDir.nlohmann_json}/nlohmann/json.hpp",
-		"%{IncludeDir.glm}/**.hpp",
-		"%{IncludeDir.glm}/**.inl",
-		"%{IncludeDir.ImGui}/**.h",
-		"%{IncludeDir.ImGui}/**.cpp",
-	}
+	files { "src/**.h", "src/**.cpp" }
 
 	includedirs
 	{
 		"src",
-		"%{IncludeDir.nlohmann_json}",
-		"%{IncludeDir.INI}",
+		"%{IncludeDir.ModManagerCore}",
+		"%{IncludeDir.SDG}",
+		"%{IncludeDir.ImGuiSrc}",
+		"%{IncludeDir.ImGuiBackends}",
+		"%{IncludeDir.ImGuiConfig}",
+		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.nlohmann_json}"
 	}
 
-	filter "files:vendor/**.cpp"
-		enablepch "Off"
+	links
+	{
+		"ModManagerCore",
+		"SDG",
+		"ImGui",
+		"GLFW",
+		"Glad",
+		"%{Library.OpenGL}"
+	}
+
+	postbuildcommands
+	{
+		"{COPYDIR} \"%{prj.location}/Resources\" \"%{OutputDir}/ModManager/Resources\""
+	}
 
 	filter "system:windows"
 		systemversion "latest"
 
 	filter "configurations:Release"
-		defines "ST_RELEASE"
 		runtime "Release"
+		optimize "on"
 		symbols "on"
-		optimize "speed"

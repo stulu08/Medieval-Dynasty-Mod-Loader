@@ -1,7 +1,11 @@
 Dear ImGui v1.92.9b-docking (docking branch tag)
 https://github.com/ocornut/imgui/releases/tag/v1.92.9b-docking
 Vendored flat into imgui/: core files, backends/imgui_impl_{dx11,win32}.*, misc/cpp/imgui_stdlib.*; LICENSE.txt (MIT).
-Only local change: imgui/imconfig.h, block marked "MDML" (includes Core.h, IMGUI_API = LOADER_API so MDML.dll
-exports ImGui to mods). Keep that block when updating. Obsolete functions stay enabled because the upstream
-ImGuiColorTextEdit still calls GetWindowContentRegionMax(); MDML code itself uses current names.
+Only local change: imgui/imconfig.h, block marked "MDML" (includes Core.h, IMGUI_API = LOADER_API). Keep that block when updating.
+Core.h comes from config/loader (dllexport: MDML.dll exports ImGui to mods) or config/standalone (empty: plain static lib).
+Obsolete functions stay enabled because the upstream ImGuiColorTextEdit still calls GetWindowContentRegionMax(); MDML code
+itself uses current names.
 Updated from a 1.89.2 WIP docking snapshot (which patched imgui.h directly) in Wave 4 (2026-10-14).
+
+backends/: imgui_impl_glfw.*, imgui_impl_opengl3.*, imgui_impl_opengl3_loader.h from upstream backends/ (same tag, unmodified).
+imgui_impl_glfw_compat.cpp is ours. Used only by Tools/ModManager (via SDG) through the "ImGui" project.

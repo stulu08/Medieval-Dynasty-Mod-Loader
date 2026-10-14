@@ -8,6 +8,7 @@ workspace "MDML"
 	}
 	solution_items 
 	{
+		"Dependencies/Dependencies.lua",
 		"Loader/ModLoader/Config/ModLoaderInfo.ini",
 		"Loader/ModLoader/Config/NoOverwrite.ini",
 		"README.md",
@@ -43,19 +44,29 @@ builddir = "%{wks.location}/build/%{cfg.buildcfg}-%{cfg.system}-%{cfg.architectu
 
 include "Dependencies/Dependencies.lua"
 
-include "Mods/Examples/Examples.lua"
+-- Third-party code (vendored in Dependencies/, built from source as static libraries; see each VENDORED.txt)
+group "Dependencies"
+include "Dependencies/MinHook/MinHook.lua"
+include "Dependencies/ImGui/ImGui.lua"
+include "Dependencies/GLFW/premake5.lua"
+include "Dependencies/Glad/premake5.lua"
+include "Dependencies/SDG/premake5.lua"
+include "Dependencies/Dumper-7/Dumper7.lua"
+
 group "MDML"
 include "Loader/Proxy/Proxy.lua"
 include "Loader/ModLoader/ModLoader.lua"
-include "Mods/BaseMod/BaseMod.lua"
 include "Loader/SDK/SDK.lua"
-include "Dependencies/MinHook/MinHook.lua"
+include "Mods/BaseMod/BaseMod.lua"
+include "Mods/Examples/Examples.lua"
+-- standalone Mod Manager app on SDG (GLFW + OpenGL + ImGui, all from the Dependencies group)
 group "GUI"
+include "Tools/ModManager/Core/ModManagerCore.lua"
 include "Tools/ModManager/ModManager.lua"
 -- DevTools mod (off by default) with the MDML SDK generator on vendored Dumper-7 (plan 2.4, docs/SDK_GENERATOR.md)
 group "DevTools"
 include "Mods/DevTools/DevTools.lua"
--- offline compile test of the SDK generator output (Tests/SDKCompileTest, plan 2.4); its DLL goes to bin/.../Tests
+-- offline compile test of the SDK generator output (Tests/SDKCompileTest, plan 2.4); its DLL goes to Output/Tests
 group "Tests"
 include "Tests/SDKCompileTest/SDKCompileTest.lua"
 group ""

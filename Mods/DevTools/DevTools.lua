@@ -1,7 +1,7 @@
 -- DevTools: developer mod shipped with MDML, disabled by default (Config/mod.ini). Hosts the MDML SDK generator.
 -- Two projects, so that Dumper-7's C++latest requirement stays out of the C++17 mod/core code:
---   DevTools.Generator  static lib, C++latest: vendored Dumper-7 analysis (Dependencies/Dumper-7, unmodified) + our
---                       MDMLGenerator backend + the SdkGenerator facade (src/Generator). No MDML headers.
+--   DevTools.Generator  static lib, C++latest: our MDMLGenerator backend + the SdkGenerator facade (src/Generator) on top of
+--                       the vendored Dumper-7 analysis (Dependencies/Dumper-7, project "Dumper7"). No MDML headers.
 --   DevTools            the mod DLL, C++20: ImGui UI, export lists, game-thread scheduling, plus (Wave 3C) the tools moved
 --                       from BaseMod (object browser, legacy exporter, INI browser/editor, player tools); talks to the generator
 --                       only through src/Generator/SdkGenerator.h (std types only).
@@ -10,10 +10,10 @@ local dumper = "%{IncludeDir.Dumper7}"
 project "DevTools.Generator"
 	kind "StaticLib"
 	language "C++"
-	cppdialect "C++latest" -- Dumper-7 uses C++20/23 features (concepts, std::format, ranges)
+	cppdialect "C++latest" -- includes Dumper-7 headers (C++20/23: concepts, std::format, ranges)
 	staticruntime "off"
-	targetdir ("%{wks.location}/bin-int/" .. outputdir .. "/lib")
-	objdir ("bin-int/" .. outputdir .. "")
+	targetdir ("bin/" .. outputdir)
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 	defines
 	{
 		"NDEBUG",
@@ -21,17 +21,6 @@ project "DevTools.Generator"
 	}
 	files
 	{
-		dumper .. "/Engine/**.h",
-		dumper .. "/Engine/**.cpp",
-		dumper .. "/Platform/**.h",
-		dumper .. "/Platform/**.cpp",
-		dumper .. "/Generator/**.h",
-		dumper .. "/Generator/**.cpp",
-		dumper .. "/Settings.h",
-		dumper .. "/Settings.cpp",
-		dumper .. "/TmpUtils.h",
-		dumper .. "/Utils/**.h",
-		dumper .. "/Utils/**.hpp",
 		"src/Generator/**.h",
 		"src/Generator/**.cpp",
 	}
@@ -45,10 +34,9 @@ project "DevTools.Generator"
 		dumper .. "/Platform/Public",
 		"src/Generator",
 	}
-	-- Upstream Dumper-7 builds with these narrowing/sign warnings (int32 offsets from uintptr_t etc.). We do not patch
-	-- vendored code (VENDORED.txt "Modifications: none"), and its headers are included by our generator sources too,
-	-- so they are silenced for this project only: C4244/C4267 narrowing, C4018 signed/unsigned, C4305 int->bool.
+	-- see Dependencies/Dumper-7/Dumper7.lua: the included Dumper-7 headers trigger these upstream warnings
 	disablewarnings { "4244", "4267", "4018", "4305" }
+	links { "Dumper7" }
 	filter "system:windows"
 		systemversion "latest"
 		buildoptions { "/utf-8", "/bigobj" }
@@ -64,8 +52,9 @@ project "DevTools"
 	cppdialect "C++20"
 	staticruntime "off"
 	targetname ("DevTools");
-	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Mods/DevTools")
-	objdir ("bin-int/" .. outputdir .. "")
+	targetdir ("bin/" .. outputdir)
+	DeployTo("ModLoader/Mods/DevTools")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 	dependson { "ModLoader", "DevTools.Generator" }
 	defines
 	{
@@ -96,7 +85,7 @@ project "DevTools"
 		"%{IncludeDir.MedievalDynasty}",
 	}
 	postbuildcommands {
-		"{COPYDIR} \"%{ProjectDir.DevTools}/Config\" \"%{wks.location}/bin/" .. outputdir .. "/Mods/DevTools\"",
+		"{COPYDIR} \"%{ProjectDir.DevTools}/Config\" \"%{OutputDir}/ModLoader/Mods/DevTools\"",
 	}
 	-- SDK: the object browser and player tools use hybrid old-SDK classes (AActor, UDataTable, UGameplayStatics, ...).
 	-- Goes away with the old SDK (plan 2.4).
@@ -113,4 +102,3 @@ project "DevTools"
 		runtime "Release"
 		symbols "on"
 		optimize "speed"
-
