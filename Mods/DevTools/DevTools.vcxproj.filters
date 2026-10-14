@@ -18,6 +18,21 @@
     <ClInclude Include="src\Generator\SdkGenerator.h">
       <Filter>src\Generator</Filter>
     </ClInclude>
+    <ClInclude Include="src\IniBrowser.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LegacyExporter.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ObjectBrowser.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PlayerTools.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Util.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
@@ -25,6 +40,24 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\ExportList.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IniBrowser.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ItemTools.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LegacyExporter.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ObjectBrowser.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PlayerTools.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Util.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
