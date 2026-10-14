@@ -22,7 +22,7 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
     `ca2f9f14` + MDML patches.
   - Checks: solution 0 warnings, `compile_generated.py` 203/203, `check_patterns.py` 17/17 OK.
   - **Deployed** 2026-10-14 (MDML.dll/.pdb, xinput1_3.dll, BaseMod/DevTools dll+pdb); backup
-    `C:\dev\MDMLackup6-10-14_pre-57f619b`. Game `Config/ModLoaderInfo.ini` untouched: it has no
+    `C:\dev\MDML\backup\2026-10-14_pre-57f619b`. Game `Config/ModLoaderInfo.ini` untouched: it has no
     `ProcessInternal` key, fine while the PDB resolves it (add the key with owner approval later).
   - Test checklist: (1) startup log has "Loader config: …", "Hooks initialized", no fmt/format errors, all symbols from
     PDB, "Engine layout verified"; (2) F1 window: opens/closes, themes look right (tab colours renamed), docking works,
