@@ -15,7 +15,7 @@ public:
 		EnabledModEvents = EventsEnabled::EngineAndGui;// You can enable specific events here to improve performance
 		CompleteModCreation();
 	}
-	virtual void OnModInitilize() override;
+	virtual void OnModInitialize() override;
 	virtual void OnModMenuButtonPressed() override;
 	virtual bool GameTick(float deltaTime) override;
 	virtual bool DrawImGui() override;

@@ -15,7 +15,7 @@
 //	stack->SetOutput<bool>("ReturnValue", true);
 //}
 
-void ExampleMod::OnModInitilize() {
+void ExampleMod::OnModInitialize() {
 	//REGISTER_FUNCTION(WriteToFile);
 	//if you want to name them on your own do this
 	//REGISTER_FUNCTION_NAMED(WriteToFile, "WriteToFile");
@@ -60,9 +60,9 @@ bool ExampleMod::GameInit()
 	return false;
 }
 
-bool ExampleMod::Tick(UE4::ELevelTick tick, float DelatTime) {
+bool ExampleMod::Tick(UE4::ELevelTick tick, float DeltaTime) {
 
-	return GameMod::Tick(tick, DelatTime);
+	return GameMod::Tick(tick, DeltaTime);
 }
 
 static bool showWindow = true;
@@ -74,8 +74,8 @@ bool ExampleMod::DrawImGui() {
 	if (showWindow) {
 		if (ImGui::Begin("Your Mod", &showWindow)) {
 			ImGui::Text("Hello World!");
-			ImGui::End();
 		}
-		return false;
+		ImGui::End(); // always paired with Begin, even when the window is collapsed
 	}
+	return false;
 }

@@ -18,7 +18,7 @@ public:
 	}
 
 	//Called When Internal GameMod and Mod Setup is finished, use this to setup stuff like hooks or bp functions
-	virtual void OnModInitilize() override;
+	virtual void OnModInitialize() override;
 
 	//Called for every Actor in Menu
 	virtual bool MenuBeginPlay(UE4::AActor* Actor);
@@ -37,7 +37,7 @@ public:
 	//Called when the Game gets the init call
 	virtual bool GameInit();
 
-	virtual bool Tick(UE4::ELevelTick tick, float DelatTime) override;
+	virtual bool Tick(UE4::ELevelTick tick, float DeltaTime) override;
 
 	virtual void OnModMenuButtonPressed() override;
 

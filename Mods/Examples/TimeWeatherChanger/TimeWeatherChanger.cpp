@@ -2,7 +2,7 @@
 
 #include "BaseMod.h"
 
-void TimeWeatherChanger::OnModInitilize() {
+void TimeWeatherChanger::OnModInitialize() {
 	UseMenuButton = true; // Allows Mod Loader To Show a Button, if pressed OnModMenuButtonPressed will be called
 
 	m_alwaysClearWeather = this->GetINIConfig<bool>("bAlwaysClearWeather");
@@ -31,7 +31,7 @@ bool TimeWeatherChanger::GameTick(float deltaTime) {
 
 	if (m_alwaysClearWeather) {
 		if (m_cloudDensity == 0) {
-			for (UE4::FField* member = (UE4::FField*)weather->GetClass()->GetChildren(); member != nullptr; member = member->GetNext()) {
+			for (UE4::FField* member = weather->GetClass()->GetChildProperties(); member != nullptr; member = member->GetNext()) {
 				UE4::FProperty* prop = member->GetAsProperty();
 				if (!prop || prop->GetArrayDim() > 1)
 					continue;
@@ -53,7 +53,7 @@ bool TimeWeatherChanger::GameTick(float deltaTime) {
 	}
 	if (m_NoFog) {
 		if (m_fogDensity == 0) {
-			for (UE4::FField* member = (UE4::FField*)weather->GetClass()->GetChildren(); member != nullptr; member = member->GetNext()) {
+			for (UE4::FField* member = weather->GetClass()->GetChildProperties(); member != nullptr; member = member->GetNext()) {
 				UE4::FProperty* prop = member->GetAsProperty();
 				if (!prop || prop->GetArrayDim() > 1)
 					continue;
@@ -75,7 +75,7 @@ bool TimeWeatherChanger::GameTick(float deltaTime) {
 	}
 	if (m_NoWind) {
 		if (m_windIntensity == 0) {
-			for (UE4::FField* member = (UE4::FField*)weather->GetClass()->GetChildren(); member != nullptr; member = member->GetNext()) {
+			for (UE4::FField* member = weather->GetClass()->GetChildProperties(); member != nullptr; member = member->GetNext()) {
 				UE4::FProperty* prop = member->GetAsProperty();
 				if (!prop || prop->GetArrayDim() > 1)
 					continue;
@@ -165,7 +165,7 @@ bool TimeWeatherChanger::DrawImGui() {
 				}
 			}
 			if (ImGui::CollapsingHeader("Weather Manager")) {
-				UE4::FField* members = (UE4::FField*)weather->GetClass()->GetChildren();
+				UE4::FField* members = weather->GetClass()->GetChildProperties();
 				for (UE4::FField* member = members; member != nullptr; member = member->GetNext()) {
 					UE4::FProperty* prop = member->GetAsProperty();
 					if (!prop || prop->GetArrayDim() > 1) 

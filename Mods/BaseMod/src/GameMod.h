@@ -1,8 +1,6 @@
 #pragma once
 #include "Defs.h"
-// GetINIConfig/SetINIConfig below still use the old INI parser; Mods/Mod.h no longer includes it (Wave 3A).
-// To be migrated to mdml::platform::IniFile (Platform/IniFile.h) by the mods package.
-#include "INI.h"
+#include "Platform/IniFile.h"
 // I want to make it so that the mod loader does nothing game specific
 // Thats why the default mod class only has basic features
 // But this mod class extends the default mod class to have game specific features and also does internal stuff 
@@ -19,7 +17,7 @@ public:
 	}
 
 	//When your mod gets initlized
-	virtual void OnModInitilize() {};
+	virtual void OnModInitialize() {};
 
 	//Called for every Actor in Menu
 	virtual bool MenuBeginPlay(UE4::AActor* Actor) { return false; };
@@ -70,11 +68,14 @@ protected:
 	virtual bool BeginPlay(UE4::AActor* Actor) override;
 	virtual bool Tick(UE4::ELevelTick tick, float deltaTime) override;
 
-	// Gets a value from your mod.ini file
+	// Reads a value from your mod.ini (mdml::platform::IniFile, see docs/guides/Modding.md for the file format).
+	// Supported T: bool, int/unsigned/int64-like integers, float, double, std::string. A missing file, section or key
+	// gives nullReturn (a missing file is logged as a warning).
 	template<class T>
 	T GetINIConfig(const std::string& key, const std::string& section = "Config", T nullReturn = T()) {
-		std::string path = GetFolder() + "/mod.ini";
-		if (!std::filesystem::exists(path)) {
+		const std::string path = GetFolder() + "/mod.ini";
+		mdml::platform::IniFile ini(path);
+		if (!ini.IsLoaded()) {
 			if (logger) {
 				logger->Warn("Could not locate file: {0}", path);
 			}
@@ -83,36 +84,38 @@ protected:
 			}
 			return nullReturn;
 		}
-		INI::PARSE_FLAGS = INI::PARSE_COMMENTS_ALL | INI::PARSE_COMMENTS_SLASH | INI::PARSE_COMMENTS_HASH;
-		INI ini(path, true);
-		if (ini.select(section)) {
-			return ini.getAs<T>(section, key, nullReturn);
+		if constexpr (std::is_same_v<T, bool>) {
+			return ini.GetBool(section, key, nullReturn);
 		}
-		return nullReturn;
+		else if constexpr (std::is_floating_point_v<T>) {
+			return static_cast<T>(ini.GetFloat(section, key, static_cast<float>(nullReturn)));
+		}
+		else if constexpr (std::is_integral_v<T>) {
+			return static_cast<T>(ini.GetInt(section, key, static_cast<int>(nullReturn)));
+		}
+		else if constexpr (std::is_convertible_v<T, std::string>) {
+			return ini.Get(section, key, nullReturn);
+		}
+		else {
+			static_assert(!sizeof(T), "GetINIConfig: unsupported type (use bool, integer, float or std::string)");
+		}
 	}
+	// Writes a value to your mod.ini (creates file, section and key when missing, keeps comments and everything else).
 	template<class T>
 	void SetINIConfig(const std::string& key, T value = T(), const std::string& section = "Config") {
-		std::string path = GetFolder() + "\\mod.ini";
-		FILE* file = fopen(path.c_str(), "a+");
-		if (file == nullptr) {
-			if (logger) {
-				logger->Error("Could not open file: {0}", path);
-			}
-			else {
-				Log::Error_MDML("Could not open file: {0}", path);
-			}
-			return;
-		}
-		fclose(file);
-
-		INI::PARSE_FLAGS = INI::PARSE_COMMENTS_ALL | INI::PARSE_COMMENTS_SLASH | INI::PARSE_COMMENTS_HASH;
-		INI::SAVE_FLAGS = INI::SAVE_PADDING_SECTIONS | INI::SAVE_PRUNE;
-		INI ini(path, true);
+		const std::string path = GetFolder() + "/mod.ini";
+		mdml::platform::IniFile ini(path);
 		std::stringstream stream;
 		stream << value;
-		ini.select(section);
-		ini.set(key, stream.str());
-		ini.save(path);
+		ini.Set(section, key, stream.str());
+		if (!ini.Save()) {
+			if (logger) {
+				logger->Error("Could not write file: {0}", path);
+			}
+			else {
+				Log::Error_MDML("Could not write file: {0}", path);
+			}
+		}
 	}
 protected:
 	UE4::APC_Player_C* PlayerController;

@@ -28,7 +28,6 @@ project "TimeWeatherChanger"
 		"%{IncludeDir.ModLoader}",
 		"%{IncludeDir.Engine}",
 		"%{IncludeDir.EngineUE4}",
-		"%{IncludeDir.INI}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.BaseMod}",

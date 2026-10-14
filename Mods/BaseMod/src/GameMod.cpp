@@ -3,7 +3,7 @@
 
 void GameMod::InitializeMod() {
 	SetupHooks(EnabledModEvents);
-	OnModInitilize();
+	OnModInitialize();
 }
 
 bool GameMod::InitGameState() {
