@@ -13,7 +13,10 @@ Status legend: ☐ todo · ◐ in progress · ☑ done
 ## Current state — READ THIS FIRST (updated 2026-10-14)
 Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
 
-- **Wave 4 in progress** (2026-10-14), libraries done, **in-game test pending**:
+- **Wave 4 in progress** (2026-10-14), libraries done, **in-game test passed** 2026-10-14 (owner; themes not
+  checked visually). Logs: "Loader config: …", "Hooks initialized", all 24 symbols from the PDB cache, "Engine layout
+  verified", no format errors; BaseMod/DevTools logs written; clean shutdown. Generate SDK: 202 headers in 2.0 s, 0 missing,
+  `_OLD` backup removed.
   - 4.1 (7f951ac) all projects C++20 (DevTools.Generator stays C++latest); `compile_generated.py` uses `/std:c++20`.
   - 4.2 (8131d1a) spdlog 1.17.0 / fmt 12.1 (`/utf-8` workspace-wide), log format strings compile-time checked,
     Logger double-free + null-deref + registry ownership fixed; nlohmann/json 3.12.0; 3E-Q4 `[FunctionInfo] ProcessInternal`
@@ -29,7 +32,7 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
     text fields/INI editor (TextEditor: typing, scrolling, INI highlighting); (3) DevTools object browser + transform
     editor, Generate SDK; (4) load a save, logic mods fire; (5) mod logs (`Logs/*-log.txt`) written, quit cleanly.
   - Remaining Wave 4: SDG controls + sortable load-order editor, locked `ModStack` API (3E-Q3), BaseMod/DevTools →
-    generated SDK (then `SDK.lib` goes), public API header split (`include/MDML`, owner decisions), 2.8 docs, glm license.
+    generated SDK (then `SDK.lib` goes), public API header split (`include/MDML`, owner decisions taken 2026-10-14, see decisions log), 2.8 docs, glm license.
 - **Wave 3 done** ☑ 2026-10-14 (staged: 3A+3D, then 3B+3C+3E; reports `docs/reports/wave3/3{A,B,C,D,E}-*.md`):
   - **3A** runtime split (`src/Bootstrap`, `src/Runtime/{EngineSetup,GameHooks,Paths}`, `src/Mods/{CoreModLoader,LogicMods,
     OverwriteMods}`), static class `MDML` dissolved into `mdml::platform/runtime/mods/ui`, event bus binds the mod pointer
@@ -126,7 +129,7 @@ Work packages (2.x) as planned on 2026-10-09; the "Wave" items come from `docs/r
 | Repo folder restructure (SEngine-style) | ☑ 2026-10-13 | `docs/reports/repo-restructure.md` |
 | Plan cleanup (this file + `docs/HISTORY.md`) | ☑ 2026-10-13 | — |
 | INI wrapper `mdml::platform::IniFile` + mINI 0.9.20 | ☑ 2026-10-14 | `docs/reports/wave3/3A-runtime.md` |
-| Wave 3 parallel splits (layers inside files, dead code, naming) | ☑ 2026-10-14, in-game test pending | `docs/reports/wave3/` |
+| Wave 3 parallel splits (layers inside files, dead code, naming) | ☑ 2026-10-14, in-game test ☑ 2026-10-14 | `docs/reports/wave3/` |
 | 2.3 Engine core cleanup (refactor, `EngineDefFinder` vs PDB types) | ☑ 2026-10-14 (Wave 3D/3E) | `docs/reports/wave3/3D-engine.md` |
 | 2.5 BaseMod split (dev tools → DevTools) / migrate BaseMod to generated SDK | split ☑ 2026-10-14 (3C); migration ☐ | `docs/reports/wave3/3C-mods.md` |
 | Wave 4 / 2.6 Libraries: C++20, ImGui 1.92.9b-docking, spdlog 1.17, nlohmann/json 3.12 | ☑ 2026-10-14, in-game test pending | `docs/reports/libraries.md` |
@@ -207,6 +210,7 @@ Also: improved Blueprint mod loading with load order · pak mod loading (old AES
 | 2026-10-14 | Mods (3C-Q1/Q2) | `UI_CheatMenu` override asset + `[Overrides]` move from BaseMod to DevTools (still `Enable=False`). DevTools `DevBuildFlags` defaults to **0**. |
 | 2026-10-14 | UI / public API (3B-Q1/Q3/Q4, 3C-Q3) | No load-order section in the F1 window now; a sortable editor comes later (Wave 4, with ImGui/SDG controls). `ImGui::MDML_*` widgets namespace, the `LoaderUI` facade and BaseMod-as-library (`GameMod` into the loader API?) are decided with the public API header split (`include/MDML`). |
 | 2026-10-14 | DevTools output (after the Wave 3 test) | No `_OLD` copies of the generated SDK: after a successful generation DevTools removes Dumper-7's `<folder>_OLD` backups (kept on failure). SDK output folder configurable via DevTools `[Config] SDKOutputDir` (empty = `Binaries/Win64/SDK-Out`, relative = to the MDML.dll folder). The legacy exporter's `Default.export` lives in the DevTools mod folder (shipped), same format as the generator export lists. |
+| 2026-10-14 | Public API split (`include/MDML`) | Widgets move from `ImGui::MDML_*` to **`mdml::ui::widgets`** (e.g. `mdml::ui::widgets::Combo`); the `LoaderUI` facade class is **replaced** by a slim API in `include/MDML/UI.h` (device/context getters, `SetTheme`), BaseMod/DevTools adapted; **`GameMod` moves into the loader API**, so mods depend only on MDML.dll + `include/MDML` and BaseMod becomes an ordinary mod. Breaking for old mod code (accepted). |
 | 2026-10-14 | Wave 3E Q1–Q6 | All recommendations accepted: missing layout anchor stays **Error**; scanned offsets → persistent **Warning**; locked `ModStack` API (`ForEachMod`/`MoveToFront`) **in Wave 4** (with the public API split); `ProcessInternal` pattern → `ModLoaderInfo.ini` `[FunctionInfo]` and UML log wording reworded **in Wave 4** (with spdlog); missing `ModLoaderInfo.ini` keeps **disabling** the loader. |
 
 ---
