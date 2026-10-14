@@ -8,6 +8,8 @@ Usage:
 * Patterns are scanned in executable sections only and judged like the loader does:
   function patterns must match exactly once; global ([GInfo]) and call-target patterns are fine with several
   matches as long as all of them resolve to the same address.
+* Only the pattern keys listed in CHECKS are read; the UML mode switches (IsGInfoPatterns, IsSimple,
+  IsFunctionPatterns, [GInfo] GName, [GameInfo] UsesFNamePool/IsUsingFChunkedFixedUObjectArray) are gone since Wave 3E.
 * --gen builds replacement patterns for failures (capstone-wildcarded, grown until unique, <= maxlen bytes),
   --write additionally stores them in the ini (in place, keeping comments and order).
 
@@ -172,17 +174,19 @@ def judge(img, pat, kind, disp, end, expected):
 
 # ----------------------------------------------------------------------------- ini
 def parse_ini(path):
+    """Same rules as mdml::platform::IniFile: only whole lines starting with ';' are comments ('#', '//' and a ';'
+    after a value are part of the value), section/key names are case-insensitive, the last duplicate key wins."""
     res, sec = {}, None
-    for line in open(path, encoding="utf-8", errors="replace"):
+    for line in open(path, encoding="utf-8-sig", errors="replace"):
         s = line.strip()
-        if not s or s[0] in ";#" or s.startswith("//"):
+        if not s or s[0] == ";":
             continue
         if s.startswith("["):
-            sec = s[1:s.index("]")]
+            sec = s[1:s.index("]")].strip().lower()
             res.setdefault(sec, {})
         elif "=" in s and sec is not None:
             k, v = s.split("=", 1)
-            res[sec][k.strip()] = v.strip()
+            res[sec][k.strip().lower()] = v.strip()
     return res
 
 
@@ -302,7 +306,7 @@ def main():
     updates, failed = {}, 0
     for (sec, key), (sym, kind, disp, end) in CHECKS.items():
         expected = pdb.rva(symbols[sym])
-        pat = ini.get(sec, {}).get(key) or DEFAULT_PATTERNS.get((sec, key), "")
+        pat = ini.get(sec.lower(), {}).get(key.lower()) or DEFAULT_PATTERNS.get((sec, key), "")
         if expected is None:
             print(f"{sec}.{key:32s} PDB symbol {sym} not found!")
             failed += 1
