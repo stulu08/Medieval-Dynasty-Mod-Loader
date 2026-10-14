@@ -41,7 +41,15 @@ namespace mm {
 		std::error_code ec;
 		fs::create_directories(zipFile.parent_path(), ec);
 		fs::remove(zipFile, ec);
-		return RunTar(L"-a -c -f \"" + zipFile.wstring() + L"\" -C \"" + srcDir.wstring() + L"\" .", error);
+		// List the top-level entries instead of ".": "tar -C dir ." stores every entry as "./Mods/..." in the zip.
+		std::wstring entries;
+		for (const fs::directory_entry& entry : fs::directory_iterator(srcDir, ec))
+			entries += L" \"" + entry.path().filename().wstring() + L"\"";
+		if (entries.empty()) {
+			error = "nothing to zip in " + PathToUtf8(srcDir);
+			return false;
+		}
+		return RunTar(L"-a -c -f \"" + zipFile.wstring() + L"\" -C \"" + srcDir.wstring() + L"\"" + entries, error);
 	}
 
 	fs::path MakeTempDir(const std::string& hint) {

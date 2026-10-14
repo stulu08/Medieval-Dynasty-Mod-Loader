@@ -16,6 +16,8 @@ namespace SDG {
 		glm::uvec2 pos = glm::uvec2(25, 25);
 		bool VSync = true, maximized = false;
 		bool loadWindowPosSizeFromConfig = true;
+		// false: no WindowConfig.ini, ImGui does not persist the window/dock layout
+		bool saveImGuiLayout = true;
 		std::string iconFile = "";
 		std::string fontFile = "";
 	};
@@ -57,13 +59,14 @@ namespace SDG {
 
 	public:
 		void pushLayer(Ref<Layer> layer) {
-			m_layerStack.emplace_back(layer)->onAttach();
+			layer->onAttach();
+			m_layerStack.push_back(layer);
 		}
 		template<typename T>
 		void pushLayer()
 		{
 			static_assert(std::is_base_of<Layer, T>::value, "Pushed type is not subclass of Layer!");
-			m_layerStack.emplace_back(createRef<T>())->onAttach();
+			pushLayer(createRef<T>());
 		}
 		void popLayer(Ref<Layer> layer);
 

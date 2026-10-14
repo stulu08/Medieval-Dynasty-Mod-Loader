@@ -40,6 +40,9 @@ SDG::Application* SDG::CreateApplication() {
 	info.width = 1100;
 	info.height = 700;
 	info.VSync = true;
+	// no WindowConfig.ini: the manager is one fixed full-window panel, nothing to persist
+	info.loadWindowPosSizeFromConfig = false;
+	info.saveImGuiLayout = false;
 	info.fontFile = "Resources/SDGFont.ttf";
 	info.iconFile = "Resources/SDGIcons.ttf";
 

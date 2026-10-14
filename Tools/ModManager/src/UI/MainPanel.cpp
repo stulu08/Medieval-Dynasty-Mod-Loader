@@ -44,7 +44,7 @@ namespace mmui {
 	MainPanel::MainPanel(State& state)
 		: Panel("MDML Mod Manager", true,
 			ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings |
-			ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoDocking),
+			ImGuiWindowFlags_NoDocking),
 		m_state(state) {
 	}
 

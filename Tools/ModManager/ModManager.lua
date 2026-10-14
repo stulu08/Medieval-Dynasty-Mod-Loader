@@ -49,6 +49,8 @@ project "ModManager"
 
 	postbuildcommands
 	{
+		-- fonts are loaded relative to the exe: next to the built exe (run from the IDE) and in Output/
+		"{COPYDIR} \"%{prj.location}/Resources\" \"%{cfg.buildtarget.directory}/Resources\"",
 		"{COPYDIR} \"%{prj.location}/Resources\" \"%{OutputDir}/ModManager/Resources\""
 	}
 

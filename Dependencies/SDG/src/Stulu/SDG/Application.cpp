@@ -33,6 +33,7 @@ namespace SDG {
 
 	Application::Application(const ApplicationInfo& appInfo)
 		: m_appInfo(appInfo) {
+		m_layerStack = std::vector<Ref<Layer>>();
 		s_instance = this;
 		if (m_appInfo.loadWindowPosSizeFromConfig) {
 			m_appInfo.pos.x = stoi(Platform::getConfigString("Window_Pos_X", "SDG", std::to_string(getPos().x), ST_CONFIG_FILE_NAME("WindowConfig.ini")), getPos().x);
@@ -55,8 +56,8 @@ namespace SDG {
 		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoMerge;
 
 		Style::LoadAll(m_appInfo.fontFile, m_appInfo.iconFile);
-
-		Application& app = Application::get();
+		if (!m_appInfo.saveImGuiLayout)
+			io.IniFilename = nullptr;
 
 		RenderCommand::imgui_init(m_window);
 	}

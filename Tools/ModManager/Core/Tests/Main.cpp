@@ -79,6 +79,20 @@ static void TestScanAndInstall() {
 	fs::path zip = root / "CoolMod.zip";
 	std::string err;
 	CHECK(CreateZip(root / "src", zip, err));
+	{
+		// entries must not be stored as "./Content/..." (what "tar -C dir ." does)
+		std::string cmd = "tar -tf \"" + zip.string() + "\"";
+		FILE* pipe = _popen(cmd.c_str(), "r");
+		CHECK(pipe != nullptr);
+		char line[512];
+		int entries = 0;
+		while (pipe && fgets(line, sizeof(line), pipe)) {
+			entries++;
+			CHECK(line[0] != '.');
+		}
+		if (pipe) _pclose(pipe);
+		CHECK(entries > 0);
+	}
 	std::vector<ModCandidate> cands;
 	fs::path tmp;
 	CHECK(PrepareModSource(zip, cands, tmp, err));

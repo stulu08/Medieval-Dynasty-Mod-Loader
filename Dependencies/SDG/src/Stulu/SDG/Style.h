@@ -84,21 +84,28 @@ namespace SDG {
             icons_config.GlyphMinAdvanceX = FONT_SIZE_DEFAULT;
             icons_config.PixelSnapH = true;
 
+            // Text fonts: the stb rasterizer is unhinted, so thin fonts look washed out at 14-18 px. Oversampling gives
+            // smoother, evenly spaced glyphs and RasterizerMultiply brightens the thin strokes for readability.
+            ImFontConfig text_config;
+            text_config.OversampleH = 3;
+            text_config.OversampleV = 2;
+            text_config.RasterizerMultiply = 1.25f;
+
             DefaultFont = SmallFont = LargeFont = ImGui::GetFont();
             
             {
                 if(!fontPath.empty())
-                    DefaultFont = io.Fonts->AddFontFromFileTTF(fontPath.c_str(), FONT_SIZE_DEFAULT);
+                    DefaultFont = io.Fonts->AddFontFromFileTTF(fontPath.c_str(), FONT_SIZE_DEFAULT, &text_config);
                 if (!iconFontPath.empty())
                     io.Fonts->AddFontFromFileTTF(iconFontPath.c_str(), FONT_ICON_SIZE, &icons_config, icons_ranges);
             }
             {
                 if (!fontPath.empty())
-                    SmallFont = io.Fonts->AddFontFromFileTTF(fontPath.c_str(), FONT_SIZE_SMALL);
+                    SmallFont = io.Fonts->AddFontFromFileTTF(fontPath.c_str(), FONT_SIZE_SMALL, &text_config);
             }
             {
                 if (!fontPath.empty())
-                    LargeFont = io.Fonts->AddFontFromFileTTF(fontPath.c_str(), FONT_SIZE_LARGE);
+                    LargeFont = io.Fonts->AddFontFromFileTTF(fontPath.c_str(), FONT_SIZE_LARGE, &text_config);
                 if (!iconFontPath.empty())
                     io.Fonts->AddFontFromFileTTF(iconFontPath.c_str(), FONT_ICON_SIZE_ARGE, &icons_config, icons_ranges);
             }
