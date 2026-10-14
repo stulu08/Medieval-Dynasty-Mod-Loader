@@ -51,6 +51,11 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
       switch in one step.
     - The last generator output is only 3 requested packages + deps (202 headers). "All packages" exists in the DevTools UI
       (`m_allPackages`) but was **never run** → owner must run it in-game first.
+    - **B0 full generation ☑ (owner, 2026-10-14 23:53):** "All packages" output at `E:\SteamLibrary\steamapps\common\
+      Medieval Dynasty\Medieval_Dynasty\Binaries\Win64\SDK-Out\4.27.2-0+++UE4+Release-4.27-Medieval_Dynasty\MDML-SDK`:
+      2523 headers (+ `NameCollisions.hpp`, `MDML_SDK.hpp`), 52 MB, 4196 classes, 2148 structs, 1289 enums, 30901
+      functions, 0 skipped, 0 missing, 49 opaque members. Not yet compile-checked (`compile_generated.py`). Step A in-game
+      test status: not reported yet (ask the owner). **Resume with B1.**
     - Sub-steps: **B0 (owner)** in-game test of step A (+ build restructure `10257fe`, not deployed yet) and a full
       "All packages" generation; **B1** copy the full output into `Loader/SDK/` (old generated files removed, header-only,
       no `SDK` static-lib project), `compile_generated.py` on every header; **B2** loader core on generated headers (`UE4.h`
@@ -99,8 +104,8 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
 - **C# replaces Lua** for script mods (Phase 3): `docs/design/csharp-scripting.md`. Lua spike in `Loader/Scripting/` = reference.
 
 **Next (in order) — start here in a new session:**
-1. Owner in-game test of Wave 4 step A (checklist in `docs/reports/public-api.md`) + full "All packages" SDK generation
-   (step B0), then Wave 4 step B1–B5 (see "Step B" above), then SDG controls incl. a sortable
+1. Full "All packages" SDK generation done (B0 ☑, path in "Step B" above); owner in-game test of Wave 4 step A still to
+   confirm (checklist in `docs/reports/public-api.md`). Next: Wave 4 step B1–B5 (see "Step B" above), then SDG controls incl. a sortable
    load-order editor, license files, 2.8 docs.
 2. Phase 3: C# spike (`docs/design/csharp-scripting.md`).
 
