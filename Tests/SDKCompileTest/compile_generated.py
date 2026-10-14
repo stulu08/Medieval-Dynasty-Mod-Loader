@@ -25,7 +25,6 @@ INCLUDE_DIRS = [
     REPO / "Loader/ModLoader/src",
     REPO / "Loader/ModLoader/src/Engine",
     REPO / "Loader/ModLoader/src/Engine/UE4",
-    REPO / "Dependencies/INI",
     REPO / "Dependencies/glm",
 ]
 DEFINES = ["NDEBUG", "UNICODE", "_UNICODE", "_WINDOWS", "_USRDLL", "_CRT_SECURE_NO_WARNINGS"]

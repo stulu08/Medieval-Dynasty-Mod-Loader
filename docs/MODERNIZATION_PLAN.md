@@ -10,47 +10,46 @@ Status legend: ☐ todo · ◐ in progress · ☑ done
 
 ---
 
-## Current state — READ THIS FIRST (updated 2026-10-13, end of session)
+## Current state — READ THIS FIRST (updated 2026-10-14)
 Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
 
-- **Repo layout restructured** ☑ (SEngine-style, owner decision): `Dependencies/`, `Loader/{ModLoader,Proxy,SDK,Scripting}`,
-  `Mods/{BaseMod,DevTools,Examples}`, `Tools/{ModManager,RE}`, `Tests/`, `docs/guides/`; premake files are `<Project>.lua`;
-  projects renamed `ModLoader`/`Proxy`; `MDML.sln` untracked, `MDML.slnx` + vcxproj tracked. Map + verification:
-  `docs/reports/repo-restructure.md`. Clean rebuild: only C4715, `bin/` file list identical (37 files).
-- **SDK generator bug classes 1–3 fixed** ☑ (core `alignas` for FColor/FKey/TMap; `const_cast` for const pointer params; enum
-  entries that overflow the underlying type dropped). Offline `compile_generated.py` on simulated output: **203/203**.
-  Report: `docs/reports/sdk-generator-first-ingame-run.md` → "Fixes".
-- **Deployed** to the game: build of ae2a116 (= fixes, pre-restructure; the restructure changes no runtime code and the
-  `bin/` output is identical). Backup of the previous game-folder state incl. the old `SDK-Out`:
-  `C:\dev\MDML\backup\2026-10-13_pre-ae2a116`. DevTools is enabled in the game copy.
-- **C# replaces Lua** for script mods (Phase 3): design draft `docs/design/csharp-scripting.md` (Carbide/.NET 10 as git
-  submodule, shipped runtime, compiled mod DLLs, native vs managed as two distinct mod kinds, SDG controls copied for the
-  UI). Lua spike stays in `Loader/Scripting/` as reference only.
-
-- **Real in-game regeneration** ☑ 2026-10-13 19:37 with the deployed build → `compile_generated.py` **203/203, 0 warnings**
-  on the real output. SDK generator part 1 is done; next generator step = migrate BaseMod to the generated headers.
+- **Wave 3 done** ☑ 2026-10-14 (staged: 3A+3D, then 3B+3C+3E; reports `docs/reports/wave3/3{A,B,C,D,E}-*.md`):
+  - **3A** runtime split (`src/Bootstrap`, `src/Runtime/{EngineSetup,GameHooks,Paths}`, `src/Mods/{CoreModLoader,LogicMods,
+    OverwriteMods}`), static class `MDML` dissolved into `mdml::platform/runtime/mods/ui`, event bus binds the mod pointer
+    (C8), `mdml::platform::IniFile` on mINI 0.9.20.
+  - **3D** engine core: 165 PDB-checked `constexpr` offsets (`EngineLayout.h`, `Tools/RE/check_layout.py`), one
+    `ForEachObject`, UE 4.27-only paths, direct memory access, engine FName/FMemory/FText, container fixes, startup
+    layout check instead of the full offset scan.
+  - **3B** UI split (`D3D11Hook`/`ImGuiHost`/`LoaderWindow`/`Widgets`/`Themes`, `mdml::ui`), mod buttons/console/dumps via
+    `GameThread`, notices (`mdml::runtime::Notices`) in the F1 window, dummy D3D objects released.
+  - **3C** BaseMod library-only, dev tooling (object browser, legacy exporter, INI browser, player/item tools, dev-build
+    flags default **off**, cheat menu override) in DevTools; typos renamed hard; `GameMod` INI via `IniFile`.
+  - **3E** cross-boundary cleanup: `[General] Profile`, `BeginPlayOverwrite`, dead ini keys/flags removed; event-bus
+    `shared_mutex`; PostBeginPlay follows BeginPlay (C4); layout-check failures → persistent F1 notice; dumps under the
+    MDML.dll folder; `check_patterns.py` fixed.
+  - Orchestrator: round-1/2 shims removed (`MDML.h`, `DumpNotice`, `TUObjectArray`/`GetAsChunckArray`/`IsChunkedArray`,
+    `GetChildFields`); `UStruct::GetChildren()` is now UE's `Children` (0x48).
+  - Checks: clean solution build **0 warnings**; `bin/` 37 files (the cheat override moved `Mods/BaseMod/OverrideContent` →
+    `Mods/DevTools/OverrideContent`); `compile_generated.py` 203/203 on the real output; `check_layout.py` 0 mismatches;
+    `check_patterns.py` all OK.
+- **Deploy / in-game test of Wave 3: see the handoff block below** (filled at deploy time).
+- **SDK generator** part 1 ☑ (real in-game output compiles 203/203); next generator step = migrate BaseMod/DevTools to the
+  generated headers (then `SDK.lib` can go).
+- **C# replaces Lua** for script mods (Phase 3): `docs/design/csharp-scripting.md`. Lua spike in `Loader/Scripting/` = reference.
 
 **Next (in order) — start here in a new session:**
-1. **Wave 3** (owner approved starting it; ask whether all 4 packages in parallel or 3A+3D first, then 3B+3C).
-   Package definitions: `docs/reports/code-inventory.md` §7 "Wave 3" — **its paths predate the restructure**, translate
-   them with `docs/reports/repo-restructure.md` (e.g. `ModLoader/src/Utilities/*` → `Loader/ModLoader/src/{Platform,Runtime}`,
-   `BaseMod/` → `Mods/BaseMod/`, `tools/` → `Tools/RE/`). Already done by the restructure: `Utilities/` split, Dumper/
-   EngineDefFinder → `src/Runtime`, ImGuiColorTextEdit stays in `src/UI` (owner decision).
-   - **3A Runtime** (`MDML.cpp`, `Globals`, `Core.h`, `dllmain.cpp`, `src/Mod`, `src/Platform`, `src/Runtime` except
-     Dumper/EngineDefFinder; `mdml::` namespaces; event bus binds the mod pointer, C8) **+ INI wrapper** `Config::IniFile`
-     + mINI (same files). Only package that edits `Core.h` and `ModLoader.lua`.
-   - **3B UI** (`src/UI/**` except ImGuiColorTextEdit): LoaderUI → D3D11Hook / ImGuiHost / LoaderWindow / Widgets / Themes;
-     keep a forwarding `UI/LoaderUI.h`; route mod buttons + console command through `mdml::GameThread`.
-   - **3C Mods** (`Mods/**`): finish the BaseMod/DevTools split (plan 2.5). Only package that edits root `premake5.lua`.
-   - **3D Engine** (`src/Engine/**`, = plan 2.3): one `ForEachObject`; remove dead multi-game/UML paths (decided
-     2026-10-09); `EngineLayout` constants + `static_assert` + PDB checker; direct access instead of SafeRead (decided);
-     `ChildProperties`/`Children` accessors; engine `FName` ctor, `StaticFindObject`, `FMemory`; container fixes C19–C21;
-     FText via engine; layout-true `UObject`/`UStruct`/`UClass` bases. Must keep `compile_generated.py` 203/203 on the real
-     output above and must not change generated declarations of the hybrids (old SDK must still compile).
-   Every package: full solution build (only C4715), `bin/` file list unchanged, report under `docs/reports/wave3/`.
-   Then merge, build, back up + deploy, **one** in-game test (3A/3D change startup/core).
-2. Wave 4 (C++20, ImGui 1.92.9b-docking + SDG controls, spdlog 1.17, license files), BaseMod → generated SDK, 2.8 docs.
+1. Evaluate the owner's in-game test of Wave 3 (checklist in the handoff block below; logs in
+   `Binaries/Win64/Logs`). Fix findings. If the F1 window/Present hook breaks, suspect 3B's released dummy D3D objects first.
+2. Wave 4 (C++20, ImGui 1.92.9b-docking + SDG controls incl. a sortable load-order editor, spdlog 1.17, license files),
+   BaseMod/DevTools → generated SDK, 2.8 docs, public API header split (`include/MDML`; decide widgets namespace, `LoaderUI`
+   facade, BaseMod/`GameMod` placement then).
 3. Phase 3: C# spike (`docs/design/csharp-scripting.md`).
+
+Known follow-ups from Wave 3 (not yet scheduled): TimeWeatherChanger and mods' render-thread `DrawImGui` handlers still
+call UE directly (needs a mod-API rule); `ItemTools` (give item/inventory) waits for the new SDK, then DevTools stops
+linking `SDK`; locked `ModStack` iteration API (`ForEachMod`/`MoveToFront`); `[ProcessInternalFunction]` pattern into the
+shipped ini; UML-era log wording ("Profile Detected"); `UseDebugUI=0` + F1 still shows a MessageBox; `Tools/ModManager`
+still on the old `Dependencies/INI` parser.
 
 Orchestration style: parallel agents (Sonnet where fitting) in worktrees — **every agent prompt must start with
 `git reset --hard <modernize head>`** (worktrees are created from old `main`); orchestrator merges (cherry-pick), builds
@@ -99,10 +98,10 @@ Work packages (2.x) as planned on 2026-10-09; the "Wave" items come from `docs/r
 | `THIRD_PARTY_LICENSES.md` + README credits | ☑ (missing upstream license files: Wave 4) | `THIRD_PARTY_LICENSES.md` |
 | Repo folder restructure (SEngine-style) | ☑ 2026-10-13 | `docs/reports/repo-restructure.md` |
 | Plan cleanup (this file + `docs/HISTORY.md`) | ☑ 2026-10-13 | — |
-| INI wrapper `Config::IniFile` + mINI | ☐ | decisions 2026-10-10 |
-| Wave 3 parallel splits (layers inside files, dead code, naming) | ☐ | code inventory §7 |
-| 2.3 Engine core cleanup (refactor, `EngineDefFinder` vs PDB types) | ☐ | — |
-| 2.5 BaseMod split (dev tools → DevTools) / migrate BaseMod to generated SDK | ◐ DevTools exists; migration ☐ | — |
+| INI wrapper `mdml::platform::IniFile` + mINI 0.9.20 | ☑ 2026-10-14 | `docs/reports/wave3/3A-runtime.md` |
+| Wave 3 parallel splits (layers inside files, dead code, naming) | ☑ 2026-10-14, in-game test pending | `docs/reports/wave3/` |
+| 2.3 Engine core cleanup (refactor, `EngineDefFinder` vs PDB types) | ☑ 2026-10-14 (Wave 3D/3E) | `docs/reports/wave3/3D-engine.md` |
+| 2.5 BaseMod split (dev tools → DevTools) / migrate BaseMod to generated SDK | split ☑ 2026-10-14 (3C); migration ☐ | `docs/reports/wave3/3C-mods.md` |
 | Wave 4 / 2.6 Libraries: C++20, ImGui 1.92.9b-docking, spdlog 1.17, nlohmann/json 3.12 | ☐ | `docs/reports/libraries.md` |
 | 2.7 ModManager | kept for later (decision 2026-10-09) | `Tools/ModManager/` |
 | 2.8 Documentation (README, Modding guide, architecture, game-patch how-to) | ☐ | `docs/guides/` |
@@ -191,4 +190,8 @@ Also: improved Blueprint mod loading with load order · pak mod loading (old AES
   signing/encryption policy, mod ABI for hot reload, hook mechanism/threading, Live View read-only first).
 - C#: CS-6 (shared generated `MDML.SDK.dll` vs per-mod packages), CS-9 (assembly/namespace names) in
   `docs/design/csharp-scripting.md`.
+- Wave 3E Q1–Q6 (`docs/reports/wave3/3E-cleanup.md`): missing-anchor layout group as Error vs Warning; persistent Warning
+  when scanned offsets replace PDB constants; locked `ModStack` iteration API; `ProcessInternal` pattern into the ini;
+  log wording; missing `ModLoaderInfo.ini` disables the loader (recommendations: keep / keep / later / yes / later / keep).
+- Wave 3B Q2: if the in-game test shows problems with the released dummy D3D objects, go back to keeping the thread alive?
 - Lua OQ-1..OQ-17 are **superseded** by the C# decision (only relevant if Lua ever comes back).

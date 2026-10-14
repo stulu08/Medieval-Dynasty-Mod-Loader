@@ -329,7 +329,7 @@ namespace mdml {
 			uint16_t Children = layout::UStruct::Children;
 			uint16_t PropertiesSize = layout::UStruct::PropertiesSize;
 			uint16_t OverallUStructSize = layout::UStruct::Size;
-			// The FField chain (FProperty members). Read by UStruct::GetChildProperties() / GetChildren().
+			// The FField chain (FProperty members). Read by UStruct::GetChildProperties().
 			uint16_t ChildProperties = layout::UStruct::ChildProperties;
 		} UStruct;
 		struct {

@@ -1125,9 +1125,6 @@
     <ClInclude Include="src\Globals.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\MDML.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\Mods\CoreModLoader.h">
       <Filter>src\Mods</Filter>
     </ClInclude>

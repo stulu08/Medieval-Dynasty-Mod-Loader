@@ -18,30 +18,6 @@ namespace UE4 {
 		int ClusterRootIndex;
 		int SerialNumber;
 	};
-	// Legacy flat array of the pre-4.20 engines (UML multi-game path). UE 4.27 never uses it. Only kept so callers
-	// outside the engine core that still have the dead `else` branch (BaseMod) compile in Wave 3 round 1; it aliases
-	// the chunked array and must not be used. Remove with those callers (3D report, follow-ups).
-	class TUObjectArray
-	{
-	public:
-		inline int Num() const
-		{
-			return NumElements;
-		}
-
-		inline FUObjectItem* GetObjectPtr(int Index) const
-		{
-			return &Objects[Index];
-		}
-		inline FUObjectItem const& GetByIndex(int Index) const
-		{
-			return Objects[Index];
-		}
-
-		FUObjectItem* Objects;
-		int MaxElements;
-		int NumElements;
-	};
 	class FChunkedFixedUObjectArray
 	{
 	public:
@@ -94,24 +70,9 @@ namespace UE4 {
 		bool OpenForDisregardForGC;
 		FChunkedFixedUObjectArray ObjObjects;
 
-		// Always true for UE 4.27. Kept for callers outside the core (BaseMod); new code uses UObject::ForEachObject.
-		static constexpr bool IsChunkedArray() { return true; }
-
 		inline const FChunkedFixedUObjectArray& GetObjects() const
 		{
 			return ObjObjects;
-		}
-
-		// Legacy spelling, kept for callers outside the core (BaseMod); returns the array by value like before.
-		inline FChunkedFixedUObjectArray GetAsChunckArray() const
-		{
-			return ObjObjects;
-		}
-
-		// Legacy flat-array view (dead UML path), see TUObjectArray.
-		inline TUObjectArray GetAsTUArray() const
-		{
-			return reinterpret_cast<const TUObjectArray&>(ObjObjects);
 		}
 
 		// Calls Fn(UObject*) for every live (non-null) object slot in index order. If Fn returns bool, returning false

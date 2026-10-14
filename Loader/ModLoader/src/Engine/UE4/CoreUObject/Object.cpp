@@ -172,7 +172,7 @@ namespace UE4 {
 		if (!Class)
 			return nullptr;
 		// The class's own functions are its UField chain (UStruct::Children); each has the class as its outer.
-		for (UField* Field = Class->GetChildFields(); Field; Field = Field->GetNext())
+		for (UField* Field = Class->GetChildren(); Field; Field = Field->GetNext())
 		{
 			if (Field->GetName() == Function && Field->GetOuter() == Class && Field->IsA(UFunction::StaticClass()))
 				return static_cast<UFunction*>(Field);

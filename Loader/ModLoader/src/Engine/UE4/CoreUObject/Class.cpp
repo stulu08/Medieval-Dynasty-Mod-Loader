@@ -87,14 +87,9 @@ namespace UE4 {
 		return LoadField<FField*>(this, mdml::Layout.UStruct.ChildProperties);
 	};
 
-	UField* UStruct::GetChildFields() const
-	{
-		return LoadField<UField*>(this, mdml::Layout.UStruct.Children);
-	};
-
 	UField* UStruct::GetChildren() const
 	{
-		return reinterpret_cast<UField*>(GetChildProperties());
+		return LoadField<UField*>(this, mdml::Layout.UStruct.Children);
 	};
 
 	int32_t UStruct::GetPropertySize() const

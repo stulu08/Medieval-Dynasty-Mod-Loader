@@ -30,7 +30,6 @@ project "DevTools.SDKCompileTest"
 		"%{IncludeDir.ModLoader}",
 		"%{IncludeDir.Engine}",
 		"%{IncludeDir.EngineUE4}",
-		"%{IncludeDir.INI}",
 		"%{IncludeDir.glm}",
 	}
 	links

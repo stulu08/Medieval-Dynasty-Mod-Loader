@@ -49,10 +49,8 @@ namespace UE4 {
 		UStruct* GetSuperField() const;
 		// UE's ChildProperties (UStruct+0x50): the FField chain of the struct's own properties.
 		FField* GetChildProperties() const;
-		// UE's Children (UStruct+0x48): the UField chain of the struct's own UFunctions.
-		UField* GetChildFields() const;
-		// Legacy name: returns ChildProperties (the FField chain), typed as UField* like before Wave 3D. Callers cast
-		// it to FField*. Kept for source compatibility; use GetChildProperties()/GetChildFields() in new code.
+		// UE's Children (UStruct+0x48): the UField chain of the struct's own UFunctions. (Before Wave 3 this name
+		// returned ChildProperties; owner decision 2026-10-14: UE naming.)
 		UField* GetChildren() const;
 		int32_t GetPropertySize() const;
 		int32_t GetMinAlignment() const;

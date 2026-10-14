@@ -1,7 +1,5 @@
 #include "Core.h"
 #include "Dumper.h"
-#include <mutex>
-#include <chrono>
 #include "UE4.h"
 #include "EngineAddresses.h"
 #include "EngineLayout.h"
@@ -10,18 +8,10 @@
 
 Dumper* Dumper::DumpRef;
 
-static std::mutex s_noticeMutex;
-static std::string s_noticeText;
-static std::chrono::steady_clock::time_point s_noticeTime;
-
-// Transient Info notice in the F1 window (mdml::runtime::Notices, also logged). The last text is kept for the
-// deprecated DumpNotice::Get until nothing calls it any more.
+// Transient Info notice in the F1 window (mdml::runtime::Notices, also logged).
 static void PostDumpNotice(const std::string& text)
 {
 	mdml::runtime::Notices::Post(mdml::runtime::NoticeSeverity::Info, text);
-	std::lock_guard<std::mutex> lock(s_noticeMutex);
-	s_noticeText = text;
-	s_noticeTime = std::chrono::steady_clock::now();
 }
 
 // <MDML.dll folder>/Dump/<fileName>. Was the relative "Dump/" folder (process working directory, code inventory F8);
@@ -37,21 +27,6 @@ static FILE* OpenDumpFile(const std::filesystem::path& path)
 	if (_wfopen_s(&file, path.c_str(), L"w+") != 0)
 		file = nullptr;
 	return file;
-}
-
-void DumpNotice::Set(const std::string& text)
-{
-	PostDumpNotice(text);
-}
-
-bool DumpNotice::Get(std::string& text, float& ageSeconds)
-{
-	std::lock_guard<std::mutex> lock(s_noticeMutex);
-	if (s_noticeText.empty())
-		return false;
-	text = s_noticeText;
-	ageSeconds = std::chrono::duration<float>(std::chrono::steady_clock::now() - s_noticeTime).count();
-	return true;
 }
 
 Dumper* Dumper::GetDumper()

@@ -291,7 +291,7 @@ License files missing from the vendor folders. Upstream licenses are listed for 
 | fmt (bundled with spdlog) | `Dependencies/spdlog/spdlog/fmt/bundled` | MIT (Victor Zverovich and fmt contributors) | Add upstream `LICENSE` (the spdlog 1.17 upgrade bundles fmt 12.1) |
 | GLM | `Dependencies/glm` | MIT / Happy Bunny (G-Truc) | Add upstream `copying.txt` |
 | nlohmann/json | `Dependencies/nlohmann-json/JSON.h` | MIT | Add upstream `LICENSE.MIT` and bump to 3.12 (already moved to `Dependencies/nlohmann-json/`) |
-| Feather INI Parser | `Dependencies/INI` | No standard license ("free to use however you wish"); the c-ridgway fork lists MIT | mINI replaces it in the loader (Wave 3A). Remove it once `Loader/ModLoader/src/Engine/EngineAddresses.cpp`, BaseMod `GameMod.h` and `Tools/ModManager` use `mdml::platform::IniFile` |
+| Feather INI Parser | `Dependencies/INI` | No standard license ("free to use however you wish"); the c-ridgway fork lists MIT | mINI replaces it in the loader (Wave 3A). Since Wave 3 only `Tools/ModManager` (parked) still uses it; remove it when the ModManager moves to `mdml::platform::IniFile` |
 | Dumper-7 | `Dependencies/Dumper-7` | No license file; permission by maintainer statement (issue #416) | Keep the attribution headers; consider asking upstream to add an explicit license |
 
 Other notes:

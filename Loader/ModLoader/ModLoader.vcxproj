@@ -416,7 +416,6 @@ xcopy /Q /E /Y /I "$(SolutionDir)\Loader\ModLoader\Config" "$(SolutionDir)\bin\R
     <ClInclude Include="src\Engine\UE4\Math\Vector4.h" />
     <ClInclude Include="src\Engine\UE4\UE_LOG.h" />
     <ClInclude Include="src\Globals.h" />
-    <ClInclude Include="src\MDML.h" />
     <ClInclude Include="src\Mods\CoreModLoader.h" />
     <ClInclude Include="src\Mods\LoadOrder.h" />
     <ClInclude Include="src\Mods\LogicMods.h" />

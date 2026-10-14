@@ -55,9 +55,6 @@ namespace UE4 {
 		std::string GetCPPName() const;
 		UPackage* GetPackage() const;
 
-		// Always true for UE 4.27 (FChunkedFixedUObjectArray). Kept for callers outside the core; use ForEachObject.
-		static constexpr bool IsChunkedArray() { return FUObjectArray::IsChunkedArray(); }
-
 		// Calls Fn(UObject*) for every live object in GObjects (index order). If Fn returns bool, false stops the loop.
 		// Does nothing before the engine globals are bound. Not safe against a concurrent GC: call it on the game thread.
 		template<typename Fn>
