@@ -2,7 +2,7 @@
 -- Two projects, so that Dumper-7's C++latest requirement stays out of the C++17 mod/core code:
 --   DevTools.Generator  static lib, C++latest: vendored Dumper-7 analysis (Dependencies/Dumper-7, unmodified) + our
 --                       MDMLGenerator backend + the SdkGenerator facade (src/Generator). No MDML headers.
---   DevTools            the mod DLL, C++17: ImGui UI, export lists, game-thread scheduling, plus (Wave 3C) the tools moved
+--   DevTools            the mod DLL, C++20: ImGui UI, export lists, game-thread scheduling, plus (Wave 3C) the tools moved
 --                       from BaseMod (object browser, legacy exporter, INI browser/editor, player tools); talks to the generator
 --                       only through src/Generator/SdkGenerator.h (std types only).
 local dumper = "%{IncludeDir.Dumper7}"

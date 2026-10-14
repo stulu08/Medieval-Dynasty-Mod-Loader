@@ -1,5 +1,14 @@
 #pragma once
 
+#include <string>
+#include <vector>
+#include <array>
+#include <memory>
+#include <unordered_set>
+#include <unordered_map>
+#include <map>
+#include <regex>
+// MDML: Core.h for LOADER_API (MDML.dll exports the editor to mods), ImGui from Dependencies
 #include "Core.h"
 #include <imgui/imgui.h>
 
@@ -173,7 +182,7 @@ public:
 		static const LanguageDefinition& SQL();
 		static const LanguageDefinition& AngelScript();
 		static const LanguageDefinition& Lua();
-		static const LanguageDefinition& INI();
+		static const LanguageDefinition& INI(); // MDML
 	};
 
 	TextEditor();

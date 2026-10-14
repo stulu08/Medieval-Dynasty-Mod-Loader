@@ -4,7 +4,7 @@
 bool ImGui::MDML_Combo(const std::string& header, int& current_item, const char* items_separated_by_zeros, int height_in_items) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
-	ImGui::BeginColumns(0, 2, ImGuiColumnsFlags_NoResize | ImGuiColumnsFlags_NoBorder);
+	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
 	ImGui::SetColumnWidth(0, 100.0f);
 	ImGui::TextUnformatted(header.c_str());
 	ImGui::NextColumn();
@@ -22,7 +22,7 @@ bool ImGui::MDML_Combo(const std::string& header, int& current_item, const char*
 bool ImGui::MDML_Combo(const std::string& header, int32_t& current_item, const std::vector<std::string>& items) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
-	ImGui::BeginColumns(0, 2, ImGuiColumnsFlags_NoResize | ImGuiColumnsFlags_NoBorder);
+	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
 	ImGui::SetColumnWidth(0, 100.0f);
 	ImGui::TextUnformatted(header.c_str());
 	ImGui::NextColumn();
@@ -55,7 +55,7 @@ bool ImGui::MDML_Combo(const std::string& header, int32_t& current_item, const s
 bool ImGui::MDML_Vector4(const std::string& header, glm::vec4& vec, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
-	ImGui::BeginColumns(0, 2, ImGuiColumnsFlags_NoResize | ImGuiColumnsFlags_NoBorder);
+	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
 	ImGui::SetColumnWidth(0, 100.0f);
 	ImGui::TextUnformatted(header.c_str());
 	ImGui::NextColumn();
@@ -87,7 +87,7 @@ bool ImGui::MDML_Vector4(const std::string& header, glm::vec4& vec, bool readonl
 bool ImGui::MDML_Vector4(const std::string& header, glm::quat& quat, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
-	ImGui::BeginColumns(0, 2, ImGuiColumnsFlags_NoResize | ImGuiColumnsFlags_NoBorder);
+	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
 	ImGui::SetColumnWidth(0, 100.0f);
 	ImGui::TextUnformatted(header.c_str());
 	ImGui::NextColumn();
@@ -119,7 +119,7 @@ bool ImGui::MDML_Vector4(const std::string& header, glm::quat& quat, bool readon
 bool ImGui::MDML_Vector3(const std::string& header, glm::vec3& vec, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
-	ImGui::BeginColumns(0, 2, ImGuiColumnsFlags_NoResize | ImGuiColumnsFlags_NoBorder);
+	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
 	ImGui::SetColumnWidth(0, 100.0f);
 	ImGui::TextUnformatted(header.c_str());
 	ImGui::NextColumn();
@@ -147,7 +147,7 @@ bool ImGui::MDML_Vector3(const std::string& header, glm::vec3& vec, bool readonl
 bool ImGui::MDML_Vector2(const std::string& header, glm::vec2& vec, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
-	ImGui::BeginColumns(0, 2, ImGuiColumnsFlags_NoResize | ImGuiColumnsFlags_NoBorder);
+	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
 	ImGui::SetColumnWidth(0, 100.0f);
 	ImGui::TextUnformatted(header.c_str());
 	ImGui::NextColumn();
@@ -171,7 +171,7 @@ bool ImGui::MDML_Vector2(const std::string& header, glm::vec2& vec, bool readonl
 bool ImGui::MDML_String(const std::string& header, std::string& v, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
-	ImGui::BeginColumns(0, 2, ImGuiColumnsFlags_NoResize | ImGuiColumnsFlags_NoBorder);
+	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
 	ImGui::SetColumnWidth(0, 100.0f);
 	ImGui::TextUnformatted(header.c_str());
 	ImGui::NextColumn();
@@ -189,7 +189,7 @@ bool ImGui::MDML_String(const std::string& header, std::string& v, bool readonly
 bool ImGui::MDML_Bool(const std::string& header, bool& v, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
-	ImGui::BeginColumns(0, 2, ImGuiColumnsFlags_NoResize | ImGuiColumnsFlags_NoBorder);
+	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
 	ImGui::SetColumnWidth(0, 100.0f);
 	ImGui::TextUnformatted(header.c_str());
 	ImGui::NextColumn();
@@ -212,7 +212,7 @@ bool ImGui::MDML_Bool(const std::string& header, bool& v, bool readonly) {
 bool ImGui::MDML_Int(const std::string& header, int& v, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
-	ImGui::BeginColumns(0, 2, ImGuiColumnsFlags_NoResize | ImGuiColumnsFlags_NoBorder);
+	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
 	ImGui::SetColumnWidth(0, 100.0f);
 	ImGui::TextUnformatted(header.c_str());
 	ImGui::NextColumn();
@@ -230,7 +230,7 @@ bool ImGui::MDML_Int(const std::string& header, int& v, bool readonly) {
 bool ImGui::MDML_IntSlider(const std::string& header, int& v, int min, int max, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
-	ImGui::BeginColumns(0, 2, ImGuiColumnsFlags_NoResize | ImGuiColumnsFlags_NoBorder);
+	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
 	ImGui::SetColumnWidth(0, 100.0f);
 	ImGui::TextUnformatted(header.c_str());
 	ImGui::NextColumn();
@@ -249,7 +249,7 @@ bool ImGui::MDML_UInt(const std::string& header, uint32_t& v, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
 	int i = v;
-	ImGui::BeginColumns(0, 2, ImGuiColumnsFlags_NoResize | ImGuiColumnsFlags_NoBorder);
+	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
 	ImGui::SetColumnWidth(0, 100.0f);
 	ImGui::TextUnformatted(header.c_str());
 	ImGui::NextColumn();
@@ -268,7 +268,7 @@ bool ImGui::MDML_UInt(const std::string& header, uint32_t& v, bool readonly) {
 bool ImGui::MDML_UIntSlider(const std::string& header, uint32_t& v, uint32_t min, uint32_t max, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
-	ImGui::BeginColumns(0, 2, ImGuiColumnsFlags_NoResize | ImGuiColumnsFlags_NoBorder);
+	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
 	ImGui::SetColumnWidth(0, 100.0f);
 	ImGui::TextUnformatted(header.c_str());
 	ImGui::NextColumn();
@@ -287,7 +287,7 @@ bool ImGui::MDML_UIntSlider(const std::string& header, uint32_t& v, uint32_t min
 bool ImGui::MDML_Float(const std::string& header, float& v, float _min, float max, float speed, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
-	ImGui::BeginColumns(0, 2, ImGuiColumnsFlags_NoResize | ImGuiColumnsFlags_NoBorder);
+	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
 	ImGui::SetColumnWidth(0, 100.0f);
 	ImGui::TextUnformatted(header.c_str());
 	ImGui::NextColumn();
@@ -314,7 +314,7 @@ bool ImGui::MDML_Float(const std::string& header, float& v, float _min, float ma
 bool ImGui::MDML_FloatSlider(const std::string& header, float& v, float min, float max, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
-	ImGui::BeginColumns(0, 2, ImGuiColumnsFlags_NoResize | ImGuiColumnsFlags_NoBorder);
+	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
 	ImGui::SetColumnWidth(0, 100.0f);
 	ImGui::TextUnformatted(header.c_str());
 	ImGui::NextColumn();

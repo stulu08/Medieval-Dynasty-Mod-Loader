@@ -61,10 +61,10 @@ and users must comply to its license: https://raw.githubusercontent.com/fmtlib/f
 
 - Location: `Dependencies/ImGui/imgui`
 - Upstream: https://github.com/ocornut/imgui
-- Version: 1.89.2 WIP, docking branch snapshot (`IMGUI_VERSION_NUM 18916`). Includes the `imgui_impl_dx11` and `imgui_impl_win32` backends.
+- Version: 1.92.9b, docking branch tag `v1.92.9b-docking` (`IMGUI_VERSION_NUM 19291`, `Dependencies/ImGui/VENDORED.txt`). Includes the `imgui_impl_dx11` and `imgui_impl_win32` backends and `misc/cpp/imgui_stdlib`.
 - License: MIT, Copyright (c) Omar Cornut (the vendored sources point to `LICENSE.txt` for the "standard MIT License")
-- License file in vendor folder: **missing** (see Follow-ups)
-- Local modification: `imgui.h` defines `IMGUI_API` as `LOADER_API` so the loader DLL can export ImGui.
+- License file in vendor folder: yes (`Dependencies/ImGui/LICENSE.txt`)
+- Local modification: the "MDML" block in `imconfig.h` (includes `Core.h`, defines `IMGUI_API` as `LOADER_API`) so the loader DLL can export ImGui.
 - Bundled with Dear ImGui:
   - `imstb_rectpack.h`, `imstb_textedit.h`, `imstb_truetype.h`: stb libraries by Sean Barrett and contributors, public domain / MIT dual license. The license text is embedded at the end of each file.
   - ProggyClean font data embedded in `imgui_draw.cpp`: Copyright (c) 2004, 2005 Tristan Grimmer, MIT license (see the comment in `imgui_draw.cpp`).
@@ -233,7 +233,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 - Location: `Loader/ModLoader/src/UI/ImGuiColorTextEdit` (locally modified, stays with the loader sources)
 - Upstream: https://github.com/BalazsJako/ImGuiColorTextEdit
-- Version: master at commit `0a88824f` (2019-06-15), with local patches (`LOADER_API` export, an INI language definition, a window flag change, and an include change)
+- Version: master at commit `ca2f9f14` (2025-11-24), with local patches marked "MDML" (`LOADER_API` export via `Core.h`, ImGui include path, an INI language definition, `ImGuiWindowFlags_NoScrollWithMouse`)
 - License: MIT
 - License file in vendor folder: yes (`Loader/ModLoader/src/UI/ImGuiColorTextEdit/LICENSE`)
 
@@ -287,12 +287,11 @@ License files missing from the vendor folders. Upstream licenses are listed for 
 
 | Component | Folder | Upstream license | Action |
 |---|---|---|---|
-| Dear ImGui | `Dependencies/ImGui/imgui` | MIT (Omar Cornut) | Add upstream `LICENSE.txt` (the planned ImGui upgrade to `v1.92.9b-docking` should bring it) |
 | GLM | `Dependencies/glm` | MIT / Happy Bunny (G-Truc) | Add upstream `copying.txt` |
 | Feather INI Parser | `Dependencies/INI` | No standard license ("free to use however you wish"); the c-ridgway fork lists MIT | mINI replaces it in the loader (Wave 3A). Since Wave 3 only `Tools/ModManager` (parked) still uses it; remove it when the ModManager moves to `mdml::platform::IniFile` |
 | Dumper-7 | `Dependencies/Dumper-7` | No license file; permission by maintainer statement (issue #416) | Keep the attribution headers; consider asking upstream to add an explicit license |
 
 Other notes:
 
-- Update the version numbers here whenever a library is upgraded (planned: ImGui 1.92.9b, upstream TextEditor, possibly a MinHook replacement; spdlog 1.17 and nlohmann/json 3.12 done in Wave 4).
+- Update the version numbers here whenever a library is upgraded (planned: possibly a MinHook replacement; ImGui 1.92.9b-docking, upstream TextEditor, spdlog 1.17 and nlohmann/json 3.12 done in Wave 4).
 - The repository `LICENSE` file has no copyright holder line.
