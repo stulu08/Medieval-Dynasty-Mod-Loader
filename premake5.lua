@@ -24,6 +24,8 @@ workspace "MDML"
 		linktimeoptimization "On"
 	
 	filter "action:vs*"
+		-- /utf-8: required by fmt 12 (spdlog 1.17); all sources are ASCII, so nothing else changes
+		buildoptions { "/utf-8" }
 		linkoptions {
 			"/ignore:4006",
 			"/ignore:4099",

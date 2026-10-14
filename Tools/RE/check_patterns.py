@@ -47,14 +47,11 @@ CHECKS = {
     ("FunctionInfo", "ProcessEvent"): ("ProcessEvent", "func", 0, 0),
     ("FunctionInfo", "CreateDefaultObject"): ("CreateDefaultObject", "func", 0, 0),
     ("FunctionInfo", "GetDisplayNameTextByIndex"): ("UserDefinedEnumGetDisplayNameTextByIndex", "func", 0, 0),
-    ("ProcessInternalFunction", "ProcessInternal"): ("ProcessLocalScriptFunction", "rip", 16, 20),
+    ("FunctionInfo", "ProcessInternal"): ("ProcessLocalScriptFunction", "rip", 16, 20),
     ("StaticConstructObject_Internal", "Pattern"): ("StaticConstructObject_Internal", "func", 0, 0),
     ("PakOverwrite", "IsNonPakFilenameAllowed"): ("IsNonPakFilenameAllowed", "func", 0, 0),
     ("PakOverwrite", "FindFileInPakFiles"): ("FindFileInPakFiles", "func", 0, 0),
 }
-# Built-in default of the loader when the ini has no [ProcessInternalFunction] section.
-DEFAULT_PATTERNS = {("ProcessInternalFunction", "ProcessInternal"): "41 F6 C7 02 74 ? 4C 8B C7 48 8B ? ? 8B ? E8"}
-
 
 # ----------------------------------------------------------------------------- PDB
 def read_symbol_table():
@@ -306,7 +303,7 @@ def main():
     updates, failed = {}, 0
     for (sec, key), (sym, kind, disp, end) in CHECKS.items():
         expected = pdb.rva(symbols[sym])
-        pat = ini.get(sec.lower(), {}).get(key.lower()) or DEFAULT_PATTERNS.get((sec, key), "")
+        pat = ini.get(sec.lower(), {}).get(key.lower())
         if expected is None:
             print(f"{sec}.{key:32s} PDB symbol {sym} not found!")
             failed += 1

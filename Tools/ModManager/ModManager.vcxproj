@@ -51,6 +51,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ExceptionHandling>Async</ExceptionHandling>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -490,7 +491,7 @@
     <ClInclude Include="..\..\Dependencies\glm\glm\vec3.hpp" />
     <ClInclude Include="..\..\Dependencies\glm\glm\vec4.hpp" />
     <ClInclude Include="..\..\Dependencies\glm\glm\vector_relational.hpp" />
-    <ClInclude Include="..\..\Dependencies\nlohmann-json\JSON.h" />
+    <ClInclude Include="..\..\Dependencies\nlohmann-json\nlohmann\json.hpp" />
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\Core.h" />
     <ClInclude Include="src\Downloader.h" />

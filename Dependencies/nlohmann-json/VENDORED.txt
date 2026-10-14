@@ -1,0 +1,4 @@
+nlohmann/json v3.12.0 (single header)
+https://github.com/nlohmann/json/releases/tag/v3.12.0
+Vendored: json.hpp -> nlohmann/json.hpp (unmodified), LICENSE.MIT. Used by Tools/ModManager only.
+Replaced the old JSON.h (3.11.3-era develop snapshot) in Wave 4 (2026-10-14).

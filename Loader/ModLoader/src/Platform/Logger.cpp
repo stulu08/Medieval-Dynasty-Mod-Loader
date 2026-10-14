@@ -10,7 +10,7 @@ void Log::Init(const std::string& dir) {
 
 //std::vector<std::string> Log::LogArray;
 
-std::unordered_map<std::string, Logger*> Logger::s_loggers;
+std::unordered_map<std::string, std::weak_ptr<Logger>> Logger::s_loggers;
 Ref<spdlog::sinks::sink> Logger::s_baseSink;
 
 Ref<Logger> Logger::Create(const std::string& uniqueName, const std::string& logFile) {
@@ -21,7 +21,7 @@ Ref<Logger> Logger::Create(const std::string& uniqueName, const std::string& log
 	Ref<spdlog::sinks::sink> consoleSink = createRef<spdlog::sinks::stdout_color_sink_mt>(spdlog::color_mode::automatic);
 	Ref<spdlog::sinks::sink> fileSink = createRef<spdlog::sinks::basic_file_sink_mt>(logFile, true);
 
-	return createRef<Logger>(uniqueName, consoleSink, fileSink);
+	return Register(createRef<Logger>(uniqueName, consoleSink, fileSink));
 }
 Ref<Logger> Logger::Create(const std::string& uniqueName) {
 	if (existsLogger(uniqueName))
@@ -30,7 +30,7 @@ Ref<Logger> Logger::Create(const std::string& uniqueName) {
 	spdlog::set_pattern("%^[%T][%n]: %v%$");
 	Ref<spdlog::sinks::sink> consoleSink = createRef<spdlog::sinks::stdout_color_sink_mt>(spdlog::color_mode::automatic);
 
-	return createRef<Logger>(uniqueName, consoleSink);
+	return Register(createRef<Logger>(uniqueName, consoleSink));
 }
 
 Ref<Logger> Logger::Create(const std::string& uniqueName, const Ref<spdlog::sinks::sink>& fileSink) {
@@ -40,21 +40,24 @@ Ref<Logger> Logger::Create(const std::string& uniqueName, const Ref<spdlog::sink
 	spdlog::set_pattern("%^[%T][%n]: %v%$");
 	Ref<spdlog::sinks::sink> consoleSink = createRef<spdlog::sinks::stdout_color_sink_mt>(spdlog::color_mode::automatic);
 
-	return createRef<Logger>(uniqueName, consoleSink, fileSink);
+	return Register(createRef<Logger>(uniqueName, consoleSink, fileSink));
 }
 
 Logger::Logger(const std::string& uniqueName, const Ref<spdlog::sinks::sink>& consoleSink, const Ref<spdlog::sinks::sink>& fileSink)
 	: m_consoleSink(consoleSink), m_fileSink(fileSink) {
 	m_logger = createRef<spdlog::logger>(uniqueName, spdlog::sinks_init_list{ m_consoleSink, m_fileSink });
-	s_loggers.insert({ m_logger->name(), this });
 	setup();
 }
 
 Logger::Logger(const std::string& uniqueName, const Ref<spdlog::sinks::sink>& consoleSink)
 	: m_consoleSink(consoleSink) {
 	m_logger = createRef<spdlog::logger>(uniqueName, m_consoleSink);
-	s_loggers.insert({ m_logger->name(), this });
 	setup();
+}
+
+Ref<Logger> Logger::Register(const Ref<Logger>& logger) {
+	s_loggers[logger->getName()] = logger;
+	return logger;
 }
 
 const std::string& Logger::getName() const {
@@ -72,10 +75,9 @@ void Logger::setup() {
 	if(m_fileSink)
 		m_fileSink->set_level(spdlog::level::trace);
 	if (m_consoleSink)
-		m_fileSink->set_level(spdlog::level::trace);
+		m_consoleSink->set_level(spdlog::level::trace);
 
 	m_logger->sinks().push_back(s_baseSink);
 	m_logger->flush_on(spdlog::level::trace);
 	m_logger->set_level(spdlog::level::trace);
-	s_loggers.insert({ m_logger->name(), this });
 }

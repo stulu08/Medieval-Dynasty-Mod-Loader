@@ -25,14 +25,14 @@ Contents:
 
 - Location: `Dependencies/spdlog/spdlog`
 - Upstream: https://github.com/gabime/spdlog
-- Version: 1.8.5 (`spdlog/version.h`), bundled fmt 8.0.0 (`spdlog/fmt/bundled`)
-- License: MIT (spdlog); fmt is also MIT (https://github.com/fmtlib/fmt, Copyright (c) 2012 - present, Victor Zverovich, per the bundled `core.h` header)
-- License file in vendor folder: yes for spdlog (`Dependencies/spdlog/spdlog/LICENSE`); the fmt license file is not in the vendor folder (see Follow-ups)
+- Version: 1.17.0 (`spdlog/version.h`, `Dependencies/spdlog/VENDORED.txt`), bundled fmt 12.1.0 (`spdlog/fmt/bundled`)
+- License: MIT (spdlog); fmt is also MIT (https://github.com/fmtlib/fmt, Copyright (c) 2012 - present, Victor Zverovich, per the bundled `fmt.license.rst`)
+- License file in vendor folder: yes, spdlog `Dependencies/spdlog/LICENSE`, fmt `Dependencies/spdlog/spdlog/fmt/bundled/fmt.license.rst`
 
 ```
 The MIT License (MIT)
 
-Copyright (c) 2016 Gabi Melman.                                       
+Copyright (c) 2016 - present, Gabi Melman and spdlog contributors.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -54,7 +54,7 @@ THE SOFTWARE.
 
 -- NOTE: Third party dependency used by this software --
 This software depends on the fmt lib (MIT License),
-and users must comply to its license: https://github.com/fmtlib/fmt/blob/master/LICENSE.rst
+and users must comply to its license: https://raw.githubusercontent.com/fmtlib/fmt/master/LICENSE
 ```
 
 ## 2. Dear ImGui (docking branch) and backends
@@ -223,11 +223,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## 7. nlohmann/json
 
-- Location: `Dependencies/nlohmann-json/JSON.h`
+- Location: `Dependencies/nlohmann-json/nlohmann/json.hpp`
 - Upstream: https://github.com/nlohmann/json
-- Version: 3.11.3 macros (`NLOHMANN_JSON_VERSION`), a develop-branch snapshot with the header "SPDX-FileCopyrightText: 2013 - 2025 Niels Lohmann"; exact commit unknown
-- License: MIT (`SPDX-License-Identifier: MIT` in the header). Copyright (c) 2013-2025 Niels Lohmann
-- License file in vendor folder: **missing** (the single header carries only the SPDX identifier; see Follow-ups)
+- Version: 3.12.0 (release single header, `Dependencies/nlohmann-json/VENDORED.txt`)
+- License: MIT. Copyright (c) 2013-2025 Niels Lohmann
+- License file in vendor folder: yes (`Dependencies/nlohmann-json/LICENSE.MIT`)
 
 ## 8. ImGuiColorTextEdit
 
@@ -288,13 +288,11 @@ License files missing from the vendor folders. Upstream licenses are listed for 
 | Component | Folder | Upstream license | Action |
 |---|---|---|---|
 | Dear ImGui | `Dependencies/ImGui/imgui` | MIT (Omar Cornut) | Add upstream `LICENSE.txt` (the planned ImGui upgrade to `v1.92.9b-docking` should bring it) |
-| fmt (bundled with spdlog) | `Dependencies/spdlog/spdlog/fmt/bundled` | MIT (Victor Zverovich and fmt contributors) | Add upstream `LICENSE` (the spdlog 1.17 upgrade bundles fmt 12.1) |
 | GLM | `Dependencies/glm` | MIT / Happy Bunny (G-Truc) | Add upstream `copying.txt` |
-| nlohmann/json | `Dependencies/nlohmann-json/JSON.h` | MIT | Add upstream `LICENSE.MIT` and bump to 3.12 (already moved to `Dependencies/nlohmann-json/`) |
 | Feather INI Parser | `Dependencies/INI` | No standard license ("free to use however you wish"); the c-ridgway fork lists MIT | mINI replaces it in the loader (Wave 3A). Since Wave 3 only `Tools/ModManager` (parked) still uses it; remove it when the ModManager moves to `mdml::platform::IniFile` |
 | Dumper-7 | `Dependencies/Dumper-7` | No license file; permission by maintainer statement (issue #416) | Keep the attribution headers; consider asking upstream to add an explicit license |
 
 Other notes:
 
-- Update the version numbers here whenever a library is upgraded (planned: ImGui 1.92.9b, spdlog 1.17, nlohmann/json 3.12, upstream TextEditor, possibly a MinHook replacement).
+- Update the version numbers here whenever a library is upgraded (planned: ImGui 1.92.9b, upstream TextEditor, possibly a MinHook replacement; spdlog 1.17 and nlohmann/json 3.12 done in Wave 4).
 - The repository `LICENSE` file has no copyright holder line.

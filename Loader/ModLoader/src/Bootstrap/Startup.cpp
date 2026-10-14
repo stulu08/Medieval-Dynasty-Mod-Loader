@@ -68,11 +68,11 @@ namespace mdml::runtime {
 
 			mods::LoadNoOverwriteList();
 
-			Log::Info_UML("Profile Detected: {0}", FormatPath(configPath));
+			Log::Info_MDML("Loader config: {0}", FormatPath(configPath));
 			LoadFeatureConfig(loaderInfo);
 			ResolveEngine(loaderInfo, mdmlDir);
 
-			Log::Info_UML("Setup {0}", FormatPath(configPath));
+			Log::Info_MDML("Loader config applied, engine resolved");
 			return true;
 		}
 
@@ -84,7 +84,7 @@ namespace mdml::runtime {
 			Log::Info_UML("Setting Up Loader");
 			// The process' only MH_Initialize; mods hook through mdml::platform::Hooks (Platform/Hooks.h).
 			platform::Hooks::Initialize();
-			Log::Info_UML("MinHook Setup");
+			Log::Info_MDML("Hooks initialized");
 			Log::Info_UML("Loading Mods");
 
 			if (Config.ModOverwritesEnabled)
@@ -117,7 +117,7 @@ namespace mdml::runtime {
 				std::string path = GetModuleFilePath((HMODULE)module);
 				path = path.substr(0, path.find_last_of("/\\"));
 				const bool setupDone = SetupConfig(path);
-				Log::Info_MDML("Profile setup took {0} ms", GetTickCount64() - start);
+				Log::Info_MDML("Config and engine setup took {0} ms", GetTickCount64() - start);
 				if (setupDone)
 					InstallHooks();
 			}

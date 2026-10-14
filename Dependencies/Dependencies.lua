@@ -14,7 +14,7 @@ IncludeDir["INI"] = "%{Dependencies}/INI"
 -- mINI (header-only, "mini/ini.h"); only included by Loader/ModLoader/src/Platform/IniFile.cpp
 IncludeDir["mINI"] = "%{Dependencies}/mINI"
 IncludeDir["ImGui"] = "%{Dependencies}/ImGui"
--- JSON.h (single-header nlohmann/json), used by the Mod Manager
+-- nlohmann/json.hpp (single-header nlohmann/json 3.12.0), used by the Mod Manager
 IncludeDir["nlohmann_json"] = "%{Dependencies}/nlohmann-json"
 IncludeDir["Dumper7"] = "%{Dependencies}/Dumper-7/Dumper"
 

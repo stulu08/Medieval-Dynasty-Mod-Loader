@@ -20,7 +20,7 @@ project "ModManager"
 		"**.cpp",
 		"**.hpp",
 
-		"%{IncludeDir.nlohmann_json}/JSON.h",
+		"%{IncludeDir.nlohmann_json}/nlohmann/json.hpp",
 		"%{IncludeDir.glm}/**.hpp",
 		"%{IncludeDir.glm}/**.inl",
 		"%{IncludeDir.ImGui}/**.h",

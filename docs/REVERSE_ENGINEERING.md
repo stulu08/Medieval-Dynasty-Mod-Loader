@@ -39,10 +39,9 @@ The developers could drop it in any patch → MDML must keep a pattern fallback.
 | `[GameInfo]` | `DelayGUISpawn` |
 | `[GInfo]` | `FPool`, `GObject`, `GWorld` (patterns) |
 | `[Overwrites]` (or old `[Overrides]`) | `Enabled`, `UseHardLinks` |
-| `[FunctionInfo]` | `GameStateInit`, `BeginPlay`, `Tick`, `StaticLoadObject`, `StaticFindObject`, `SpawnActorFTrans`, `CallFunctionByNameWithArguments`, `ProcessEvent`, `CreateDefaultObject`, `GetDisplayNameTextByIndex` (patterns) |
+| `[FunctionInfo]` | `GameStateInit`, `BeginPlay`, `Tick`, `StaticLoadObject`, `StaticFindObject`, `SpawnActorFTrans`, `CallFunctionByNameWithArguments`, `ProcessEvent`, `CreateDefaultObject`, `GetDisplayNameTextByIndex` (patterns), `ProcessInternal` (call site, RIP target = ProcessLocalScriptFunction; was the optional `[ProcessInternalFunction]` section with a built-in default until Wave 4) |
 | `[PakOverwrite]` | `bPakOverwrite`, `IsNonPakFilenameAllowed`, `FindFileInPakFiles` (patterns) |
 | `[StaticConstructObject_Internal]` | `Pattern` |
-| `[ProcessInternalFunction]` (optional, not shipped) | `ProcessInternal` (default pattern built into `EngineAddresses.cpp`) |
 
 No longer read (Wave 3A/3D/3E; harmless if an old ini still has them): `[General] Profile`, `[GameInfo] UsesFNamePool`,
 `IsUsingFChunkedFixedUObjectArray`, `IsUsingDeferedSpawn`, `IsUsing4_22`, `IsDefaultObjectArrayed`, `BeginPlayOverwrite`,
@@ -76,7 +75,7 @@ Expected RVAs from the PDB (ImageBase 0x140000000):
 | GetDisplayNameTextByIndex | `UUserDefinedEnum::GetDisplayNameTextByIndex` (the override; only caller is `UUserDefinedEnum`) | 0x02ee7770 | **FAIL** (key only in stale root ini) |
 | IsNonPakFilenameAllowed | `FPakPlatformFile::IsNonPakFilenameAllowed` | 0x027303c0 | OK |
 | FindFileInPakFiles | `FPakPlatformFile::FindFileInPakFiles` (member overload) | 0x0272b130 | **FAIL** |
-| ProcessInternals | `ProcessLocalScriptFunction` (call inside `UObject::ProcessInternal`) | 0x0129b300 | OK (hardcoded) |
+| ProcessInternals | `ProcessLocalScriptFunction` (call inside `UObject::ProcessInternal`) | 0x0129b300 | OK (`[FunctionInfo] ProcessInternal`) |
 | StaticConstructObject_Internal | `StaticConstructObject_Internal` | 0x012a2c20 | **WRONG** — hardcoded sig 1 hits an XR plugin function (0x0209c030); chain never reaches the correct sig 4 |
 
 Regenerate replacements with `python Tools/RE/check_patterns.py --gen`.

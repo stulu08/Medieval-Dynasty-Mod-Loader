@@ -134,10 +134,13 @@ namespace mdml {
 		}
 		else
 		{
-			// Optional [ProcessInternalFunction] ProcessInternal; the shipped ini has no such section, so the built-in
-			// default is used (Tools/RE/check_patterns.py checks it).
-			const std::string pattern = GameInfo.Get("ProcessInternalFunction", "ProcessInternal", "41 F6 C7 02 74 ? 4C 8B C7 48 8B ? ? 8B ? E8");
-			Addresses.ProcessInternals = (DWORD64)Pattern::FindRipTarget(pattern.c_str(), 16, 20);
+			// [FunctionInfo] ProcessInternal: the call site in UObject::ProcessInternal, the hook target is its E8 call
+			// (Tools/RE/check_patterns.py checks it).
+			const std::string pattern = GameInfo.Get("FunctionInfo", "ProcessInternal", "");
+			if (pattern.empty())
+				Log::Error_MDML("[FunctionInfo] ProcessInternal pattern missing and no PDB symbol, logic-mod functions are disabled");
+			else
+				Addresses.ProcessInternals = (DWORD64)Pattern::FindRipTarget(pattern.c_str(), 16, 20);
 			LogResolved("ProcessInternals", Addresses.ProcessInternals, "pattern");
 		}
 #pragma endregion

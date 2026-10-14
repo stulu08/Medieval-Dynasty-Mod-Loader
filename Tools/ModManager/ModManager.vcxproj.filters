@@ -31,6 +31,9 @@
     <Filter Include="Dependencies\nlohmann-json">
       <UniqueIdentifier>{7D67037E-6977-AF4E-D230-146DBE5F9EE7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Dependencies\nlohmann-json\nlohmann">
+      <UniqueIdentifier>{27002896-93B9-9240-1C19-AD1A88D148B0}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
@@ -1311,8 +1314,8 @@
     <ClInclude Include="..\..\Dependencies\glm\glm\vector_relational.hpp">
       <Filter>Dependencies\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Dependencies\nlohmann-json\JSON.h">
-      <Filter>Dependencies\nlohmann-json</Filter>
+    <ClInclude Include="..\..\Dependencies\nlohmann-json\nlohmann\json.hpp">
+      <Filter>Dependencies\nlohmann-json\nlohmann</Filter>
     </ClInclude>
     <ClInclude Include="src\Application.h">
       <Filter>src</Filter>

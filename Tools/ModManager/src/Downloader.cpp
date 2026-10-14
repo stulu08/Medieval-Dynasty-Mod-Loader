@@ -5,7 +5,7 @@
 #include <winhttp.h>
 #include <fstream>
 
-#include "JSON.h"
+#include <nlohmann/json.hpp>
 
 // Function to make an HTTP GET request and return the response
 std::string httpGet(const std::wstring& server, const std::wstring& path, const std::wstring& token = L"") {

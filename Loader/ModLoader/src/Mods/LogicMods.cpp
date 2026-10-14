@@ -154,7 +154,7 @@ namespace mdml::mods {
 					{
 						if (!IsProcessInternalsHooked)
 						{
-							// ProcessInternals comes from the PDB or the profile pattern (EngineAddresses.cpp). The UML-era
+							// ProcessInternals comes from the PDB or the [FunctionInfo] ProcessInternal pattern (EngineAddresses.cpp). The UML-era
 							// fallback that took the Func pointer of the mod actor's PostBeginPlay/ModMenuButtonPressed
 							// (IsUsing4_22) is gone.
 							IsProcessInternalsHooked = true;
