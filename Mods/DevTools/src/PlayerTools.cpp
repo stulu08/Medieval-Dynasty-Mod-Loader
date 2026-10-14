@@ -28,7 +28,7 @@ namespace devtools {
 
 	void PlayerTools::Init(const mdml::platform::IniFile& ini) {
 		// Defaults keep the old BaseMod behaviour for installed mod.ini files that lack the keys.
-		m_swapBuildFlags = ini.GetBool("Config", "DevBuildFlags", true);
+		m_swapBuildFlags = ini.GetBool("Config", "DevBuildFlags", false);
 		m_enableCheatsMenu = ini.GetBool("Config", "EnableCheatsMenu", false);
 		if (m_swapBuildFlags) {
 			// StaticFindObject and Func writes: game thread only.

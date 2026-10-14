@@ -65,6 +65,6 @@ PresetMod `DrawImGui` (C4715, `End` pairing); `FindDataTable` double lookup and 
 - TWC render-thread UE calls (above).
 
 ## Open questions
-1. `UI_CheatMenu` override asset + `[Overrides]` stayed in `BaseMod/Config` to keep the bin list and installed `mod.ini` valid. Move to DevTools (changes bin paths, needs the game copy's mod.ini touched)?
-2. Should `DevBuildFlags` default to 1 (old behaviour) or 0?
+1. ~~`UI_CheatMenu` override asset + `[Overrides]`: move to DevTools?~~ **Owner 2026-10-14: yes** — moved by the orchestrator to `Mods/DevTools/Config/OverrideContent` + DevTools `[Overrides]` (still `Enable=False`); BaseMod's `mod.ini` is only `[Mod]` now.
+2. ~~`DevBuildFlags` default?~~ **Owner 2026-10-14: 0** (ini and code default).
 3. BaseMod now has no events at all; keep it as a library-only mod or fold `GameMod` into the loader's public API later?

@@ -178,6 +178,8 @@ Also: improved Blueprint mod loading with load order · pak mod loading (old AES
 | 2026-10-14 | INI details (3A-Q1–Q4) | Names: exact match, then case-insensitive, spelling kept on save. `;` after a value stays part of the value; `IniFile::Get` warns when a value contains ` ;`. `Global` keeps its name until the public API header split. `Bootstrap/` code lives in `mdml::runtime`. |
 | 2026-10-14 | Engine layout check (3D-Q2) | A layout group that cannot be verified → persistent notice in the F1 window + log error; mods still load. |
 | 2026-10-14 | Engine core (3D-Q1/Q3–Q7) | `GetChildren()` becomes UE's real `Children` (UField*, 0x48) once all callers use `GetChildProperties()`; `GetChildFields()` then goes. Deferred: core types deriving from the layout-true `Mirror` structs (with the BaseMod migration to the new generator); `GetName` `_N` suffix fix and `ProcessEvent_Save` class check (when the old SDK is retired); owning string as separate type `FStringOwned` (later); `StaticFindObject` only in the new generator's `StaticClass()`. |
+| 2026-10-14 | Mods (3C-Q1/Q2) | `UI_CheatMenu` override asset + `[Overrides]` move from BaseMod to DevTools (still `Enable=False`). DevTools `DevBuildFlags` defaults to **0**. |
+| 2026-10-14 | UI / public API (3B-Q1/Q3/Q4, 3C-Q3) | No load-order section in the F1 window now; a sortable editor comes later (Wave 4, with ImGui/SDG controls). `ImGui::MDML_*` widgets namespace, the `LoaderUI` facade and BaseMod-as-library (`GameMod` into the loader API?) are decided with the public API header split (`include/MDML`). |
 
 ---
 
