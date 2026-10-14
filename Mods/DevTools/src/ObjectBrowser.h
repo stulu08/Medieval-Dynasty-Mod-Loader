@@ -9,6 +9,7 @@
 // (Invalidate(), called from the InitGameState event).
 #include "Mods/Mod.h"
 
+#include <filesystem>
 #include <functional>
 #include <map>
 #include <memory>
@@ -39,6 +40,8 @@ namespace devtools {
 		bool& Open() { return m_open; }
 		void Draw();       // render thread
 		void Invalidate(); // level change: drop the snapshot
+		// Folder of the legacy exporter's "<profile>.export" lists (= DevTools' mod folder, next to mod.ini).
+		void SetListFolder(std::filesystem::path folder) { m_listFolder = std::move(folder); }
 
 	private:
 		struct Snapshot {
@@ -61,6 +64,7 @@ namespace devtools {
 		std::string m_searchActors, m_searchClasses, m_searchBlueprints, m_searchDataTables, m_searchPackages;
 		std::vector<UE4::UPackage*> m_exportList;
 		std::vector<std::string> m_needAddList;
-		std::string m_profile = "Default.export";
+		std::string m_profile = "Default";
+		std::filesystem::path m_listFolder;
 	};
 }

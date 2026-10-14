@@ -41,7 +41,10 @@ namespace devtools {
 		void AddLog(const std::string& Line, bool bError = false);
 		std::vector<std::string> CollectSelectedPackages() const;
 
-		static std::filesystem::path GetOutputRoot();
+		// [Config] SDKOutputDir of DevTools' mod.ini (absolute, or relative to the MDML.dll folder); empty = <MDML dir>/SDK-Out.
+		const std::filesystem::path& GetOutputRoot() const { return m_outputRoot; }
+		static std::filesystem::path ResolveOutputRoot(const std::string& Configured);
+		std::filesystem::path m_outputRoot;
 
 		static inline DevToolsMod* s_instance = nullptr;
 

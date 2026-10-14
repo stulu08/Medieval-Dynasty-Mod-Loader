@@ -40,9 +40,11 @@ namespace devtools {
 	void DevToolsMod::InitializeMod() {
 		// GUI events + InitGameState (drops the object snapshot and finds the player on a level change).
 		SetupHooks(EventsEnabled::EnabledEvents(true, false, false, false, true, true, false, false));
+		mdml::platform::IniFile Ini(std::filesystem::path(GetFolder()) / "mod.ini");
+		m_outputRoot = ResolveOutputRoot(Ini.Get("Config", "SDKOutputDir", ""));
+		m_objectBrowser.SetListFolder(GetFolder());
 		RescanExportLists();
 		AddLog("DevTools ready. SDK output folder: " + GetOutputRoot().string());
-		mdml::platform::IniFile Ini(std::filesystem::path(GetFolder()) / "mod.ini");
 		m_playerTools.Init(Ini);
 	}
 
@@ -56,9 +58,15 @@ namespace devtools {
 		m_showWindow = !m_showWindow;
 	}
 
-	std::filesystem::path DevToolsMod::GetOutputRoot() {
-		// Next to MDML.dll (Binaries/Win64), never derived from the working directory and never inside Content.
-		return util::MdmlFolder() / "SDK-Out";
+	std::filesystem::path DevToolsMod::ResolveOutputRoot(const std::string& Configured) {
+		// Default next to MDML.dll (Binaries/Win64); a relative SDKOutputDir is relative to that folder, never to the
+		// working directory.
+		if (Configured.empty())
+			return util::MdmlFolder() / "SDK-Out";
+		std::filesystem::path Dir = std::filesystem::u8path(Configured);
+		if (Dir.is_relative())
+			Dir = util::MdmlFolder() / Dir;
+		return Dir.lexically_normal();
 	}
 
 	void DevToolsMod::AddLog(const std::string& Line, bool bError) {

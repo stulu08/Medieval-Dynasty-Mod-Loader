@@ -1,5 +1,6 @@
 #include "ObjectBrowser.h"
 
+#include "ExportList.h"
 #include "LegacyExporter.h"
 #include "Runtime/GameThread.h"
 #include "UI/LoaderUI.h"
@@ -273,9 +274,9 @@ namespace devtools {
 				log(legacy::RunExportBPEnums(util::MdmlFolder() / "Export"), false);
 			});
 		}
-		{ // export list files (next to MDML.dll, never relative to the working directory)
+		{ // export list files "<profile>.export" in DevTools' mod folder (same format as the generator's export lists)
 			ImGui::InputText("##Export_Profile", &m_profile);
-			const std::filesystem::path profileFile = util::MdmlFolder() / (m_profile + ".export");
+			const std::filesystem::path profileFile = m_listFolder / (m_profile + ".export");
 			if (ImGui::Button("Save selected to file")) {
 				std::stringstream content;
 				for (auto& entry : m_exportList)
@@ -284,13 +285,12 @@ namespace devtools {
 			}
 			ImGui::SameLine();
 			if (ImGui::Button("Load from File")) {
-				std::ifstream file(profileFile);
-				std::string line;
-				while (file >> line)
-					m_needAddList.push_back(line);
+				// Same format as the generator's export lists (comments with ';' or '#').
+				for (const std::string& name : LoadExportList(profileFile).Packages)
+					m_needAddList.push_back(name);
 			}
 			ImGui::SameLine();
-			ImGui::TextDisabled("(%s)", util::MdmlFolder().string().c_str());
+			ImGui::TextDisabled("(%s)", m_listFolder.string().c_str());
 		}
 
 		for (auto object : packages) {

@@ -33,6 +33,29 @@ namespace devtools::sdkgen {
 		EAnalysisState s_analysisState = EAnalysisState::NotRun;
 		std::string s_analysisError;
 
+		// Dumper-7 renames an existing output folder to "<folder>_OLD" before writing (the version folder on the first run
+		// of a session, the MDML-SDK folder on later runs). Owner decision 2026-10-14: no _OLD copies - after a
+		// successful run both possible backups of *this* output are removed (on failure they stay as the last good SDK).
+		void RemoveOldBackups(const std::filesystem::path& SdkFolder, const LogCallback& Log) {
+			std::filesystem::path Main = SdkFolder.lexically_normal();
+			if (!Main.has_filename())
+				Main = Main.parent_path();
+			if (Main.empty() || !Main.has_parent_path())
+				return;
+			for (const std::filesystem::path& Folder : { Main, Main.parent_path() }) {
+				std::filesystem::path Old = Folder;
+				Old += "_OLD";
+				std::error_code Ec;
+				if (!std::filesystem::exists(Old, Ec))
+					continue;
+				std::filesystem::remove_all(Old, Ec);
+				if (Ec)
+					Log(ELogLevel::Warn, "Could not remove the previous SDK backup " + Old.string() + ": " + Ec.message());
+				else
+					Log(ELogLevel::Info, "Removed the previous SDK backup " + Old.string());
+			}
+		}
+
 		// Forwards everything written to std::cerr / std::cout line by line to the caller's log while alive.
 		class FLineForwarder : public std::streambuf {
 		public:
@@ -235,6 +258,7 @@ namespace devtools::sdkgen {
 			return Result;
 		}
 		Result.bSuccess = true;
+		RemoveOldBackups(Result.SdkFolder, Log);
 		return Result;
 	}
 }
