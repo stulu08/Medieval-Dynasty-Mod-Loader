@@ -2,7 +2,7 @@
 
 Every "<Package>.hpp" of the folder is compiled in its own translation unit (proves each header is self-contained),
 plus one TU for MDML_SDK.hpp if present. Uses MSVC (VS2022, found with vswhere) with the same core include dirs and
-C++17 as the mod projects. Compile only (/c): linking is covered by the DevTools.SDKCompileTest project.
+C++20 as the mod projects. Compile only (/c): linking is covered by the DevTools.SDKCompileTest project.
 
 Usage (from anywhere):
     python Tests/SDKCompileTest/compile_generated.py <sdk-folder> [--jobs N] [--keep]
@@ -58,7 +58,7 @@ def compile_tu(env, sdk_dir, work_dir, header):
     tu.write_text(f'#include "{header.name}"\n', encoding="utf-8")
     log = work_dir / (header.stem + ".log")
     cl = shutil.which("cl", path=env.get("Path") or env.get("PATH")) or "cl"
-    cmd = [cl, "/nologo", "/c", "/std:c++17", "/EHsc", "/MD", "/O1", "/W3", "/utf-8", "/bigobj", "/permissive",
+    cmd = [cl, "/nologo", "/c", "/std:c++20", "/EHsc", "/MD", "/O1", "/W3", "/utf-8", "/bigobj", "/permissive",
            "/wd4251", "/wd4099", "/wd4006",  # same as the solution-wide disablewarnings
            f"/Fo{work_dir / (header.stem + '.obj')}", f"/I{sdk_dir}"]
     cmd += [f"/I{d}" for d in INCLUDE_DIRS] + [f"/D{d}" for d in DEFINES] + [str(tu)]

@@ -190,6 +190,7 @@ Also: improved Blueprint mod loading with load order · pak mod loading (old AES
 | 2026-10-14 | Mods (3C-Q1/Q2) | `UI_CheatMenu` override asset + `[Overrides]` move from BaseMod to DevTools (still `Enable=False`). DevTools `DevBuildFlags` defaults to **0**. |
 | 2026-10-14 | UI / public API (3B-Q1/Q3/Q4, 3C-Q3) | No load-order section in the F1 window now; a sortable editor comes later (Wave 4, with ImGui/SDG controls). `ImGui::MDML_*` widgets namespace, the `LoaderUI` facade and BaseMod-as-library (`GameMod` into the loader API?) are decided with the public API header split (`include/MDML`). |
 | 2026-10-14 | DevTools output (after the Wave 3 test) | No `_OLD` copies of the generated SDK: after a successful generation DevTools removes Dumper-7's `<folder>_OLD` backups (kept on failure). SDK output folder configurable via DevTools `[Config] SDKOutputDir` (empty = `Binaries/Win64/SDK-Out`, relative = to the MDML.dll folder). The legacy exporter's `Default.export` lives in the DevTools mod folder (shipped), same format as the generator export lists. |
+| 2026-10-14 | Wave 3E Q1–Q6 | All recommendations accepted: missing layout anchor stays **Error**; scanned offsets → persistent **Warning**; locked `ModStack` API (`ForEachMod`/`MoveToFront`) **in Wave 4** (with the public API split); `ProcessInternal` pattern → `ModLoaderInfo.ini` `[FunctionInfo]` and UML log wording reworded **in Wave 4** (with spdlog); missing `ModLoaderInfo.ini` keeps **disabling** the loader. |
 
 ---
 
@@ -201,8 +202,5 @@ Also: improved Blueprint mod loading with load order · pak mod loading (old AES
   signing/encryption policy, mod ABI for hot reload, hook mechanism/threading, Live View read-only first).
 - C#: CS-6 (shared generated `MDML.SDK.dll` vs per-mod packages), CS-9 (assembly/namespace names) in
   `docs/design/csharp-scripting.md`.
-- Wave 3E Q1–Q6 (`docs/reports/wave3/3E-cleanup.md`): missing-anchor layout group as Error vs Warning; persistent Warning
-  when scanned offsets replace PDB constants; locked `ModStack` iteration API; `ProcessInternal` pattern into the ini;
-  log wording; missing `ModLoaderInfo.ini` disables the loader (recommendations: keep / keep / later / yes / later / keep).
 - Wave 3B Q2: if the in-game test shows problems with the released dummy D3D objects, go back to keeping the thread alive?
 - Lua OQ-1..OQ-17 are **superseded** by the C# decision (only relevant if Lua ever comes back).

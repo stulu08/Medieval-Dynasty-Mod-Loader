@@ -1,7 +1,7 @@
 project "ModLoader"
 	kind "SharedLib"
 	language "C++"
-	cppdialect "C++17"
+	cppdialect "C++20"
 	staticruntime "off"
 	targetname ("MDML");
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "")

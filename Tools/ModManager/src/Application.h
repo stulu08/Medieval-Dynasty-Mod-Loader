@@ -19,7 +19,7 @@ public:
 	}
 	
 	template<class T = View, typename ... Args>
-	inline void AddView() {
+	inline void AddView(Args&&... args) {
 		m_views.push_back(new T(std::forward<Args>(args)...));
 	}
 	template<class T = View>

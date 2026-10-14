@@ -63,7 +63,7 @@ namespace devtools {
 		// working directory.
 		if (Configured.empty())
 			return util::MdmlFolder() / "SDK-Out";
-		std::filesystem::path Dir = std::filesystem::u8path(Configured);
+		std::filesystem::path Dir(std::u8string(Configured.begin(), Configured.end()));
 		if (Dir.is_relative())
 			Dir = util::MdmlFolder() / Dir;
 		return Dir.lexically_normal();

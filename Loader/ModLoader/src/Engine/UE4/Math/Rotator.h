@@ -60,7 +60,7 @@ namespace UE4 {
 		static inline FRotator MakeFromEuler(const FVector& Euler) {
 			return FRotator(Euler.Y, Euler.Z, Euler.X);
 		}
-		static inline float FRotator::ClampAxis(float Angle) {
+		static inline float ClampAxis(float Angle) {
 			// returns Angle in the range (-360,360)
 			Angle = FMath::Fmod(Angle, 360.f);
 
@@ -72,7 +72,7 @@ namespace UE4 {
 
 			return Angle;
 		}
-		static inline float FRotator::NormalizeAxis(float Angle) {
+		static inline float NormalizeAxis(float Angle) {
 			// returns Angle in the range [0,360)
 			Angle = ClampAxis(Angle);
 

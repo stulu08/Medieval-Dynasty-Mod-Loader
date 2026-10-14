@@ -18,7 +18,7 @@ The old generator (`Mods/BaseMod/src/Utils.h` → `Utils::Export`) wrote one `.h
 | `MDMLGenerator` | `Mods/DevTools/src/Generator/MDMLGenerator.*` | our backend: plugs into `Generator::Generate<T>()`, emits one header per package |
 | `SdkGenerator` facade | `Mods/DevTools/src/Generator/SdkGenerator.*` | analysis once per session, SEH guard, Dumper-7 `std::cerr` → our log; std-types-only API for the mod |
 | `DevTools.Generator` | premake project (static lib, **C++latest**) | the three above; Dumper-7 needs C++20/23. No MDML headers in it |
-| `DevTools` mod | `Mods/DevTools/src/DevTools.*`, `Mods/DevTools/Config/mod.ini` | C++17 mod DLL, **disabled by default**; ImGui window, export lists, game-thread scheduling |
+| `DevTools` mod | `Mods/DevTools/src/DevTools.*`, `Mods/DevTools/Config/mod.ini` | C++20 mod DLL, **disabled by default**; ImGui window, export lists, game-thread scheduling |
 | Runtime support | `Loader/ModLoader/src/Engine/MDML/GeneratedSupport.{h,cpp}`, `SDKPrologue.inl`, `SDKEpilogue.inl` | hand-written core used by the generated headers, exported from MDML.dll (`MDML_ENGINE_API`) |
 | Offline proof | `Tests/SDKCompileTest/` | hand-written sample of the output (`Sample/`), compile-test DLL project, `compile_generated.py` |
 
@@ -139,7 +139,7 @@ same translation unit (same names in `namespace UE4`).
   `Sample/` (trimmed BP_BaseCharacter, InventoryComponent, ST_* structs, E_Ownership, Engine/CoreUObject/Medieval_Dynasty
   parts, a name collision, a static array, an opaque member, bitfields, static/const/out-param functions) with only the
   core include dirs and links MDML.lib, so every exported helper resolves.
-- `compile_generated.py <folder>`: compiles each `<Package>.hpp` of a folder in its own TU (MSVC via vswhere, C++17,
+- `compile_generated.py <folder>`: compiles each `<Package>.hpp` of a folder in its own TU (MSVC via vswhere, C++20,
   core include dirs, same disabled warnings as the solution). Sample: 9/9, 0 warnings.
 
 ## Open points / next parts

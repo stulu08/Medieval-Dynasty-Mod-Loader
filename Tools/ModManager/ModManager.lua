@@ -1,7 +1,7 @@
 project "ModManager"
 	kind "WindowedApp"
 	language "C++"
-	cppdialect "C++17"
+	cppdialect "C++20"
 	staticruntime "off"
 	targetname ("MDML Mod Manager");
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/UI")

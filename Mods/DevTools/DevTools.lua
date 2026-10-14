@@ -61,7 +61,7 @@ project "DevTools.Generator"
 project "DevTools"
 	kind "SharedLib"
 	language "C++"
-	cppdialect "C++17"
+	cppdialect "C++20"
 	staticruntime "off"
 	targetname ("DevTools");
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Mods/DevTools")

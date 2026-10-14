@@ -1,7 +1,7 @@
 project "PresetMod"
 	kind "SharedLib"
 	language "C++"
-	cppdialect "C++17"
+	cppdialect "C++20"
 	staticruntime "off"
 	targetname ("PresetMod");
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Mods/PresetMod")

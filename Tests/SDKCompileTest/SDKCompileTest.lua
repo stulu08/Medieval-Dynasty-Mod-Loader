@@ -5,7 +5,7 @@
 project "DevTools.SDKCompileTest"
 	kind "SharedLib"
 	language "C++"
-	cppdialect "C++17"
+	cppdialect "C++20"
 	staticruntime "off"
 	targetname ("SDKCompileTest");
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Tests")

@@ -1,7 +1,7 @@
 project "BaseMod"
 	kind "SharedLib"
 	language "C++"
-	cppdialect "C++17"
+	cppdialect "C++20"
 	staticruntime "off"
 	targetname ("BaseMod");
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Mods/BaseMod")

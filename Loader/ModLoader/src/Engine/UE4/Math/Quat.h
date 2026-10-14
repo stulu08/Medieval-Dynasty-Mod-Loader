@@ -22,7 +22,7 @@ namespace UE4 {
 		inline FQuat(float X, float Y, float Z, float W)
 			: X(X), Y(Y), Z(Z), W(W)
 		{ }
-		FRotator FQuat::Rotator() const
+		FRotator Rotator() const
 		{
 			const float SingularityTest = Z * X - W * Y;
 			const float YawY = 2.f * (W * Z + X * Y);

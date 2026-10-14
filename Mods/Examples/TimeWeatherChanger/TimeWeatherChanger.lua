@@ -1,7 +1,7 @@
 project "TimeWeatherChanger"
 	kind "SharedLib"
 	language "C++"
-	cppdialect "C++17"
+	cppdialect "C++20"
 	staticruntime "off"
 	targetname ("TimeWeatherChanger");
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/Mods/TimeWeatherChanger")
