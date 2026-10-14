@@ -8,8 +8,8 @@
 #include <unordered_map>
 #include <map>
 #include <regex>
-// MDML: Core.h for LOADER_API (MDML.dll exports the editor to mods), ImGui from Dependencies
-#include "Core.h"
+// MDML: MDML/Core.h for LOADER_API (MDML.dll exports the editor to mods), ImGui from Dependencies
+#include "MDML/Core.h"
 #include <imgui/imgui.h>
 
 class LOADER_API TextEditor

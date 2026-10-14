@@ -3,7 +3,7 @@
 // (docs/SDK_GENERATOR.md) and, since Wave 3C (plan 2.5), the developer tooling that used to live in BaseMod: object
 // browser + legacy SDK exporter (ObjectBrowser, LegacyExporter), INI browser/editor (IniBrowser), dev-build flag swap
 // and player tools (PlayerTools). BaseMod only keeps the game API (GameMod).
-#include "Mods/Mod.h"
+#include "MDML/MDML.h"
 
 #include <atomic>
 #include <deque>

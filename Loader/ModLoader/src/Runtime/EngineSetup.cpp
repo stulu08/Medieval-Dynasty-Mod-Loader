@@ -1,7 +1,7 @@
 #include "Core.h"
 #include "EngineSetup.h"
 
-#include "Platform/IniFile.h"
+#include "MDML/IniFile.h"
 #include "Platform/SymbolResolver.h"
 #include "Runtime/LoaderConfig.h"
 

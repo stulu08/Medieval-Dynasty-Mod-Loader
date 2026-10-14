@@ -5,7 +5,7 @@
 #include <cmath>
 
 #include "Core.h"
-#include "TextEditor.h"
+#include "MDML/UI/TextEditor.h" // MDML: header lives in include/MDML/UI (public mod API)
 
 #include <imgui/imgui.h>
 

@@ -4,14 +4,15 @@
 #include "Mods/CoreModLoader.h"
 #include "Mods/LogicMods.h"
 #include "Mods/OverwriteMods.h"
-#include "Platform/Hooks.h"
-#include "Platform/IniFile.h"
-#include "Platform/Logger.h"
+#include "MDML/Hooks.h"
+#include "MDML/IniFile.h"
+#include "MDML/Log.h"
 #include "Runtime/EngineSetup.h"
 #include "Runtime/GameHooks.h"
 #include "Runtime/LoaderConfig.h"
-#include "Runtime/Paths.h"
-#include "UI/LoaderUI.h"
+#include "MDML/Paths.h"
+#include "UI/D3D11Hook.h"
+#include "UI/ImGuiHost.h"
 
 #include "UE4.h"
 #include "EngineAddresses.h"
@@ -102,10 +103,10 @@ namespace mdml::runtime {
 
 			InstallGameHooks();
 
-			LoaderUI::GetUI()->CreateUILogicThread();
+			ui::ImGuiHost::StartHotkeyThread();
 			if (!Config.bDelayGUISpawn)
 			{
-				LoaderUI::HookDX();
+				ui::D3D11Hook::Install();
 			}
 			Log::Info_MDML("Loader setup finished ({0} ms after process start)", MsSinceProcessStart());
 		}

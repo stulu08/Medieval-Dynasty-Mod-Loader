@@ -41,7 +41,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DisableSpecificWarnings>4006;4099;4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>NDEBUG;PresetMod_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;ST_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\Dependencies\spdlog;..\..\..\Loader\ModLoader\src;..\..\..\Loader\ModLoader\src\Engine;..\..\..\Loader\ModLoader\src\Engine\UE4;..\..\..\Dependencies\glm;..\..\..\Dependencies\ImGui;..\..\BaseMod\src;..\..\..\Loader\SDK\src\UE4;..\..\..\Loader\SDK\src;..\..\..\Loader\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\Dependencies\spdlog;..\..\..\Loader\ModLoader\include;..\..\..\Loader\ModLoader\src\Engine;..\..\..\Loader\ModLoader\src\Engine\UE4;..\..\..\Dependencies\glm;..\..\..\Dependencies\ImGui;..\..\BaseMod\src;..\..\..\Loader\SDK\src\UE4;..\..\..\Loader\SDK\src;..\..\..\Loader\SDK\src\Medieval_Dynasty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>

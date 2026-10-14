@@ -1,5 +1,5 @@
 #pragma once
-#include "Core.h"
+#include "MDML/Core.h"
 
 namespace mdml::platform {
 	class IniFile;

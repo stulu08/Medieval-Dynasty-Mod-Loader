@@ -4,7 +4,7 @@
 #include "EngineAddresses.h"
 #include "EngineLayout.h"
 #include "EngineMemory.h"
-#include "Runtime/Notices.h"
+#include "MDML/Notices.h"
 
 // Engine layout verification + no-PDB fallback scan (Wave 3D; was the always-on UML runtime offset scan).
 //

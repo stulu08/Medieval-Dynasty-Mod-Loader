@@ -1,7 +1,7 @@
 #include "PlayerTools.h"
 
-#include "Runtime/GameThread.h"
-#include "UI/LoaderUI.h"
+#include "MDML/GameThread.h"
+#include "MDML/UI/Widgets.h"
 
 namespace devtools {
 	namespace {

@@ -1,5 +1,5 @@
 #pragma once
-#include "Core.h"
+#include "MDML/Core.h"
 #include <cstring>
 
 // Memory access for the hand-written engine core (Wave 3D, decision 2026-10-09 "direct memory access").

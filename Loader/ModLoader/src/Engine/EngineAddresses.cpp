@@ -1,8 +1,8 @@
 #include "Core.h"
 #include "EngineAddresses.h"
 
-#include "Platform/IniFile.h"
-#include "Platform/Logger.h"
+#include "MDML/IniFile.h"
+#include "MDML/Log.h"
 #include "Platform/Pattern.h"
 #include "Platform/SymbolResolver.h"
 

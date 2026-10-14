@@ -26,7 +26,7 @@ project "BaseMod"
 	includedirs
 	{
 		"%{IncludeDir.spdlog}",
-		"%{IncludeDir.ModLoader}",
+		"%{IncludeDir.MDML}",
 		"%{IncludeDir.Engine}",
 		"%{IncludeDir.EngineUE4}",
 		"%{IncludeDir.glm}",

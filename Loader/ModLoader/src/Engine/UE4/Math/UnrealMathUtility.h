@@ -1,6 +1,6 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 #pragma once
-#include "Platform/Math.h"
+#include "MDML/Math.h"
 namespace UE4 {
 	/*-----------------------------------------------------------------------------
 		Definitions.

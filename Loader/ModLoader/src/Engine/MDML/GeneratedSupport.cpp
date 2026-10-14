@@ -1,8 +1,8 @@
 #include "Core.h"
 #include "GeneratedSupport.h"
 
-#include "Platform/Logger.h"
-#include "Runtime/GameThread.h"
+#include "MDML/Log.h"
+#include "MDML/GameThread.h"
 
 #include <mutex>
 #include <string>

@@ -52,6 +52,7 @@ project "ModLoader"
 	{
 		"%{IncludeDir.spdlog}",
 		"%{IncludeDir.MinHook}",
+		"%{IncludeDir.MDML}",
 		"%{IncludeDir.ModLoader}",
 		"%{IncludeDir.Engine}",
 		"%{IncludeDir.EngineUE4}",

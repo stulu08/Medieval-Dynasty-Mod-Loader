@@ -1,7 +1,7 @@
 #include "Core.h"
-#include "IniFile.h"
+#include "MDML/IniFile.h"
 
-#include "Platform/Logger.h"
+#include "MDML/Log.h"
 
 #include <charconv>
 #include <cstring>

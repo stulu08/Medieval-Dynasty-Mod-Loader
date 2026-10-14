@@ -1,13 +1,13 @@
 #include "Core.h"
 #include "CoreModLoader.h"
 
-#include "Globals.h"
+#include "Mods/Registry.h"
 #include "EngineInit.h"
 #include "Mods/LoadOrder.h"
-#include "Mods/Mod.h"
-#include "Platform/IniFile.h"
+#include "MDML/Mod.h"
+#include "MDML/IniFile.h"
 #include "Runtime/LoaderConfig.h"
-#include "Runtime/Paths.h"
+#include "MDML/Paths.h"
 
 #include "EngineAddresses.h"
 
@@ -26,7 +26,7 @@ namespace mdml::mods {
 			return message;
 		}
 		// Loads a core mod DLL on the calling thread (MDML's init thread). The mod constructs itself in its DllMain
-		// (CompleteModCreation adds it to Global::CoreMods), so it is complete once LoadLibraryW returns.
+		// (CompleteModCreation adds it to Registry::CoreMods), so it is complete once LoadLibraryW returns.
 		void LoadModDLL(const std::filesystem::path& path) {
 			Log::Info_MDML("Loading mod {0}", runtime::FormatPath(path));
 			if (LoadLibraryW(path.c_str())) {
@@ -117,31 +117,26 @@ namespace mdml::mods {
 			}
 			LoadModDLL(mod);
 		}
-		Log::Info_MDML("Loaded {0} core mod(s)", Global::GetGlobals()->CoreMods.size());
+		Log::Info_MDML("Loaded {0} core mod(s)", Registry::Get().CoreMods.size());
 	}
 
 	void InitCoreMods() {
 		UE4::InitSDK();
 		Log::Info_UML("Engine Classes Loaded");
-		auto& CoreMods = Global::GetGlobals()->CoreMods;
-
-		if (CoreMods.size() > 0)
-		{
-			for (size_t i = 0; i < CoreMods.size(); i++)
+		// InitializeMod usually registers events (SetupHooks) and may reorder the stack (MoveToFront): inside forEach
+		// those changes are deferred until the loop is done.
+		Registry::Get().CoreMods.forEach([](Mod* CurrentCoreMod) {
+			if (CurrentCoreMod->IsFinishedCreating)
 			{
-				auto CurrentCoreMod = CoreMods[i];
-				if (CurrentCoreMod->IsFinishedCreating)
-				{
-					Log::Info_UML("InitializeMod Called For {0}", CurrentCoreMod->ModName.c_str());
-					CurrentCoreMod->InitializeMod();
-				}
-				else
-				{
-					// The mod name was dropped by a misplaced comma before (code inventory C3).
-					Log::Error_UML("Mod {0} wasnt setup in time", CurrentCoreMod->ModName);
-				}
+				Log::Info_UML("InitializeMod Called For {0}", CurrentCoreMod->ModName.c_str());
+				CurrentCoreMod->InitializeMod();
 			}
-		}
+			else
+			{
+				// The mod name was dropped by a misplaced comma before (code inventory C3).
+				Log::Error_UML("Mod {0} wasnt setup in time", CurrentCoreMod->ModName);
+			}
+		});
 		if (mdml::Addresses.StaticLoadObject)
 		{
 			Log::Info_UML("StaticLoadObject Found");

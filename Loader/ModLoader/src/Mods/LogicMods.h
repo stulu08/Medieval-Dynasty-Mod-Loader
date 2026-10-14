@@ -9,12 +9,14 @@ namespace UE4 {
 	struct FTransform;
 	struct FActorSpawnParameters;
 }
-struct ModInfo;
+namespace mdml::mods {
+	struct ModInfo;
+}
 
 // Logic mods = Blueprint mod actors (Wave 3A, were MDML::CreateMod/CleanUpMods/SpawnActor in MDML.cpp, the
 // [LogicMod] registration in Mod/ModLoader.cpp and the Blueprint-call handling in Platform/HooksManager.cpp).
 // Everything but RegisterLogicMods runs on the game thread. MDML-internal, not exported.
-// Registered mods: Global::GetGlobals()->ModInfoList.
+// Registered mods: mdml::mods::Registry::Get().ModInfoList.
 namespace mdml::mods {
 	// Init thread, after the core mods: one ModInfo per mod folder whose mod.ini has a [LogicMod] section.
 	void RegisterLogicMods();

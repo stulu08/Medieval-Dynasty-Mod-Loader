@@ -1,5 +1,5 @@
 #pragma once
-#include "Core.h"
+#include "MDML/Core.h"
 
 // Engine memory layout of UE 4.27 as built into Medieval Dynasty (Wave 3D, plan 2.3).
 //

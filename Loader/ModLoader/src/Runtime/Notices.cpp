@@ -1,7 +1,7 @@
 #include "Core.h"
-#include "Notices.h"
+#include "MDML/Notices.h"
 
-#include "Platform/Logger.h"
+#include "MDML/Log.h"
 
 #include <algorithm>
 #include <chrono>

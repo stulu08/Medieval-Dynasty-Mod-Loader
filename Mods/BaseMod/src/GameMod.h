@@ -1,6 +1,6 @@
 #pragma once
 #include "Defs.h"
-#include "Platform/IniFile.h"
+#include "MDML/IniFile.h"
 // I want to make it so that the mod loader does nothing game specific
 // Thats why the default mod class only has basic features
 // But this mod class extends the default mod class to have game specific features and also does internal stuff 

@@ -1,5 +1,5 @@
 #pragma once
-#include "Core.h"
+#include "MDML/Core.h"
 
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
@@ -118,7 +118,8 @@ private:
 };
 class LOADER_API Log {
 public:
-	static void Init(const std::string& dir = DEFAULT_LOG_DIR);
+	// Loader only (startup): opens the base log in `dir`. Mods must not call it.
+	static void Init(const std::string& dir);
 	static inline void SetupMessage(const std::string& Info, const std::string& Message) {
 		MessageBoxA(NULL, Message.c_str(), Info.c_str(), MB_OK | MB_SYSTEMMODAL);
 	}

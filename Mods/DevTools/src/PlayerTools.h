@@ -6,7 +6,7 @@
 // (mdml::runtime::GameThread::Enqueue) or reads results the game thread stored under m_mutex.
 #include "ObjectBrowser.h"
 
-#include "Platform/IniFile.h"
+#include "MDML/IniFile.h"
 
 #include <mutex>
 #include <string>

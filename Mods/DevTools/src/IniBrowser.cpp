@@ -1,8 +1,7 @@
 #include "IniBrowser.h"
 
-#include "Runtime/LoaderConfig.h"
-#include "Runtime/Paths.h"
-#include "UI/LoaderUI.h"
+#include "MDML/Paths.h"
+#include "MDML/UI/Widgets.h"
 #include "Util.h"
 
 #include <fstream>
@@ -63,7 +62,7 @@ namespace devtools {
 		};
 		m_groups.push_back({ "Mods", collect(::Mod::GetModsFolder(), true) });
 		m_groups.push_back({ "WindowsNoEditor", collect(std::filesystem::path(mdml::runtime::GetDataFolder()) / "Config" / "WindowsNoEditor", false) });
-		m_groups.push_back({ "MDML", collect(std::filesystem::path(mdml::runtime::Config.ImGuiFile).parent_path(), false) });
+		m_groups.push_back({ "MDML", collect(mdml::runtime::GetConfigFolder(), false) });
 		m_scanned = true;
 	}
 

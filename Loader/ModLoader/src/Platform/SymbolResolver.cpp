@@ -1,6 +1,6 @@
 #include "Core.h"
 #include "SymbolResolver.h"
-#include "Logger.h"
+#include "MDML/Log.h"
 
 #include <DbgHelp.h>
 #include <chrono>

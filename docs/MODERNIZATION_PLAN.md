@@ -31,8 +31,14 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
     PDB, "Engine layout verified"; (2) F1 window: opens/closes, themes look right (tab colours renamed), docking works,
     text fields/INI editor (TextEditor: typing, scrolling, INI highlighting); (3) DevTools object browser + transform
     editor, Generate SDK; (4) load a save, logic mods fire; (5) mod logs (`Logs/*-log.txt`) written, quit cleanly.
-  - Remaining Wave 4: SDG controls + sortable load-order editor, locked `ModStack` API (3E-Q3), BaseMod/DevTools →
-    generated SDK (then `SDK.lib` goes), public API header split (`include/MDML`, owner decisions taken 2026-10-14, see decisions log), 2.8 docs, glm license.
+  - **4.4 Step A ☑ (2026-10-14, build 0 warnings, in-game test pending)** public API split: `Loader/ModLoader/include/MDML/`
+    (umbrella `MDML/MDML.h`), mods see only `include` + engine core; widgets `mdml::ui::widgets`; `LoaderUI` replaced by
+    `MDML/UI.h`; `Global` → internal `mdml::mods::Registry`; locked ModStack API (`MDML/Mods.h`: `ForEachMod`/`FindMod`/
+    `GetModCount`/`MoveToFront`, 3E-Q3); F1 menu state atomic in `ImGuiHost`. Report: `docs/reports/public-api.md`.
+    Checks: `compile_generated.py` 203/203, `check_layout.py` 165/0, exports verified (no `Global`/`ModStack`/`LoaderUI`).
+  - **Step B (next):** full generated SDK in the repo (owner: "alles im Repo"), BaseMod/DevTools → generated SDK, `GameMod`
+    into the loader API with typed generated getters, `SDK.lib` + `MDML/Memory.h` go. Then in-game test.
+  - Remaining after that: SDG controls + sortable load-order editor, 2.8 docs, glm license.
 - **Wave 3 done** ☑ 2026-10-14 (staged: 3A+3D, then 3B+3C+3E; reports `docs/reports/wave3/3{A,B,C,D,E}-*.md`):
   - **3A** runtime split (`src/Bootstrap`, `src/Runtime/{EngineSetup,GameHooks,Paths}`, `src/Mods/{CoreModLoader,LogicMods,
     OverwriteMods}`), static class `MDML` dissolved into `mdml::platform/runtime/mods/ui`, event bus binds the mod pointer
@@ -70,14 +76,14 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
 - **C# replaces Lua** for script mods (Phase 3): `docs/design/csharp-scripting.md`. Lua spike in `Loader/Scripting/` = reference.
 
 **Next (in order) — start here in a new session:**
-1. Wave 4 rest (C++20/spdlog/ImGui done, see above; next: SDG controls incl. a sortable load-order editor, license files),
-   BaseMod/DevTools → generated SDK, 2.8 docs, public API header split (`include/MDML`; decide widgets namespace, `LoaderUI`
-   facade, BaseMod/`GameMod` placement then).
+1. Owner in-game test of Wave 4 step A (checklist in `docs/reports/public-api.md`), then Wave 4 step B (generated SDK in
+   the repo, BaseMod/DevTools migration, `GameMod` into the loader, `SDK.lib` removed), then SDG controls incl. a sortable
+   load-order editor, license files, 2.8 docs.
 2. Phase 3: C# spike (`docs/design/csharp-scripting.md`).
 
 Known follow-ups from Wave 3 (not yet scheduled): TimeWeatherChanger and mods' render-thread `DrawImGui` handlers still
 call UE directly (needs a mod-API rule); `ItemTools` (give item/inventory) waits for the new SDK, then DevTools stops
-linking `SDK`; locked `ModStack` iteration API (`ForEachMod`/`MoveToFront`); `[ProcessInternalFunction]` pattern into the
+linking `SDK`; locked `ModStack` iteration API (done in Wave 4 step A); `[ProcessInternalFunction]` pattern into the
 shipped ini (done in Wave 4); UML-era log wording (done in Wave 4); `UseDebugUI=0` + F1 still shows a MessageBox; `Tools/ModManager`
 still on the old `Dependencies/INI` parser.
 
@@ -211,6 +217,8 @@ Also: improved Blueprint mod loading with load order · pak mod loading (old AES
 | 2026-10-14 | UI / public API (3B-Q1/Q3/Q4, 3C-Q3) | No load-order section in the F1 window now; a sortable editor comes later (Wave 4, with ImGui/SDG controls). `ImGui::MDML_*` widgets namespace, the `LoaderUI` facade and BaseMod-as-library (`GameMod` into the loader API?) are decided with the public API header split (`include/MDML`). |
 | 2026-10-14 | DevTools output (after the Wave 3 test) | No `_OLD` copies of the generated SDK: after a successful generation DevTools removes Dumper-7's `<folder>_OLD` backups (kept on failure). SDK output folder configurable via DevTools `[Config] SDKOutputDir` (empty = `Binaries/Win64/SDK-Out`, relative = to the MDML.dll folder). The legacy exporter's `Default.export` lives in the DevTools mod folder (shipped), same format as the generator export lists. |
 | 2026-10-14 | Public API split (`include/MDML`) | Widgets move from `ImGui::MDML_*` to **`mdml::ui::widgets`** (e.g. `mdml::ui::widgets::Combo`); the `LoaderUI` facade class is **replaced** by a slim API in `include/MDML/UI.h` (device/context getters, `SetTheme`), BaseMod/DevTools adapted; **`GameMod` moves into the loader API**, so mods depend only on MDML.dll + `include/MDML` and BaseMod becomes an ordinary mod. Breaking for old mod code (accepted). |
+| 2026-10-14 | Public API split, part 2 | Generated SDK: **the complete generated SDK goes into the repo** (repo size does not matter). `GameMod` getters stay **typed** (generated BP classes). Done in **two steps** (A: header split/UI/ModStack, B: SDK migration + `GameMod` + `SDK.lib` removal), each with an in-game test. `Global` becomes **loader-internal** (`mdml::mods::Registry`); mods use narrow functions in `MDML/Mods.h`. |
+| 2026-10-14 | Public API split, defaults taken (owner may veto) | Include style `"MDML/<Header>.h"` from `Loader/ModLoader/include` (premake `IncludeDir.MDML`); existing namespaces of public types kept (`mdml::platform::Hooks/IniFile`, `mdml::runtime::GameThread/Notices/paths`); `ImGuiColorTheme` → `mdml::ui::ColorTheme`; `MDML/Memory.h` (old `Read`/`Write` helpers) public only until `SDK.lib` goes; DevTools reads the config folder via new `mdml::runtime::GetConfigFolder()` instead of `mdml::runtime::Config`. |
 | 2026-10-14 | Wave 3E Q1–Q6 | All recommendations accepted: missing layout anchor stays **Error**; scanned offsets → persistent **Warning**; locked `ModStack` API (`ForEachMod`/`MoveToFront`) **in Wave 4** (with the public API split); `ProcessInternal` pattern → `ModLoaderInfo.ini` `[FunctionInfo]` and UML log wording reworded **in Wave 4** (with spdlog); missing `ModLoaderInfo.ini` keeps **disabling** the loader. |
 
 ---

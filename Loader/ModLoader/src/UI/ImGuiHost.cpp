@@ -10,10 +10,10 @@
 #include "UI/D3D11Hook.h"
 #include "UI/LoaderWindow.h"
 #include "UI/Themes.h"
-#include "Platform/Logger.h"
-#include "Platform/Memory.h"
+#include "MDML/Log.h"
+#include "MDML/Memory.h"
 #include "Runtime/LoaderConfig.h"
-#include "Globals.h"
+#include "Mods/Registry.h"
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
@@ -22,6 +22,8 @@ namespace mdml::ui {
 		WNDPROC s_gameWindowProc = nullptr;
 		std::atomic<bool> s_initialized{ false };
 		std::atomic<bool> s_hotkeyThreadStarted{ false };
+		// F1 menu state (was Global::bIsMenuOpen): written by the hotkey thread and the InitGameState hook, read on the render thread.
+		std::atomic<bool> s_menuOpen{ false };
 
 		LRESULT CALLBACK HookedWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
@@ -44,16 +46,16 @@ namespace mdml::ui {
 				else if (f1Pressed)
 				{
 					f1Pressed = false;
-					if (Global::GetGlobals()->bIsMenuOpen)
+					if (s_menuOpen)
 					{
-						Global::GetGlobals()->bIsMenuOpen = false;
+						s_menuOpen = false;
 					}
 					else
 					{
 						// bDelayGUISpawn: the DX hook is only installed the first time the menu is opened
 						if (!D3D11Hook::IsInstalled())
 							D3D11Hook::Install();
-						Global::GetGlobals()->bIsMenuOpen = true;
+						s_menuOpen = true;
 					}
 				}
 				Sleep(1000 / 60);
@@ -70,7 +72,7 @@ namespace mdml::ui {
 		io.ConfigFlags = ImGuiConfigFlags_NoMouseCursorChange;
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
 		StyleColorsPhotoShopDark();
-		Global::GetGlobals()->CoreMods.callEvent<ImGuiIO&>("SetupImGui", io);
+		mdml::mods::Registry::Get().CoreMods.callEvent<ImGuiIO&>("SetupImGui", io);
 
 		HWND hGameWindow = MEM::FindWindow(GetCurrentProcessId(), L"UnrealWindow");
 		s_gameWindowProc = (WNDPROC)SetWindowLongPtr(hGameWindow, GWLP_WNDPROC, (LONG_PTR)HookedWndProc);
@@ -85,11 +87,12 @@ namespace mdml::ui {
 		ImGui_ImplDX11_NewFrame();
 		ImGui_ImplWin32_NewFrame();
 		ImGui::NewFrame();
-		ImGui::GetIO().MouseDrawCursor = Global::GetGlobals()->bIsMenuOpen;
-		if (Global::GetGlobals()->bIsMenuOpen)
+		const bool menuOpen = s_menuOpen;
+		ImGui::GetIO().MouseDrawCursor = menuOpen;
+		if (menuOpen)
 		{
 			LoaderWindow::Draw();
-			Global::GetGlobals()->CoreMods.callEvent("DrawImGui");
+			mdml::mods::Registry::Get().CoreMods.callEvent("DrawImGui");
 		}
 
 		ImGui::Render();
@@ -107,5 +110,15 @@ namespace mdml::ui {
 	bool ImGuiHost::IsInitialized()
 	{
 		return s_initialized;
+	}
+
+	bool ImGuiHost::IsMenuOpen()
+	{
+		return s_menuOpen;
+	}
+
+	void ImGuiHost::SetMenuOpen(bool open)
+	{
+		s_menuOpen = open;
 	}
 }

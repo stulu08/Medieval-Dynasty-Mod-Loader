@@ -8,7 +8,7 @@
 // it must run on the GAME thread. The UI never calls these directly: it uses mdml::runtime::GameThread::Enqueue
 // (see DevTools.cpp / LegacyExporterUI). The old code ran in std::async threads next to the game; that is gone, the
 // game now simply freezes while an export runs.
-#include "Mods/Mod.h"
+#include "MDML/MDML.h"
 
 #include <filesystem>
 #include <string>

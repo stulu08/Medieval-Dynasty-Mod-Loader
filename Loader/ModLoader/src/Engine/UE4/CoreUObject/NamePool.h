@@ -1,6 +1,6 @@
 #pragma once
-#include "Platform/Memory.h"
-#include "Platform/Math.h"
+#include "MDML/Memory.h"
+#include "MDML/Math.h"
 #include "NameValidator.h"
 #include "EngineAddresses.h"
 #include "EngineLayout.h"

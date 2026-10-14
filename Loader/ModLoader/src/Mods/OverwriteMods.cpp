@@ -1,14 +1,14 @@
 #include "Core.h"
 #include "OverwriteMods.h"
 
-#include "Globals.h"
+#include "Mods/Registry.h"
 #include "Mods/CoreModLoader.h"
 #include "Mods/LoadOrder.h"
-#include "Mods/Mod.h"
-#include "Platform/Hooks.h"
-#include "Platform/IniFile.h"
+#include "MDML/Mod.h"
+#include "MDML/Hooks.h"
+#include "MDML/IniFile.h"
 #include "Runtime/LoaderConfig.h"
-#include "Runtime/Paths.h"
+#include "MDML/Paths.h"
 
 #include "UE4.h"
 #include "EngineAddresses.h"
@@ -455,7 +455,7 @@ namespace mdml::mods
 							}
 							if (ec)
 								Log::Error_MDML("Could not read the files of overwrite mod {0} ({1}), the rest of it is skipped", oMod.Name, ec.message());
-							Global::GetGlobals()->OverwriteMods.push_back(oMod);
+							mdml::mods::Registry::Get().OverwriteMods.push_back(oMod);
 						}
 					}
 				}

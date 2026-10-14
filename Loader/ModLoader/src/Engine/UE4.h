@@ -5,8 +5,8 @@
 // GameInfo.h is gone (Wave 2.4): engine state lives in EngineAddresses.h / EngineLayout.h (included by the core
 // headers that read it), loader settings in Runtime/LoaderConfig.h.
 
-#include "Platform/Memory.h"
-#include "Platform/Math.h"
+#include "MDML/Memory.h"
+#include "MDML/Math.h"
 #include "NameValidator.h"
 #include "UE4/Engine/EngineBaseTypes.h"
 

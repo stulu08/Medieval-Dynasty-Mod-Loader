@@ -1,5 +1,5 @@
 #pragma once
-#include "Core.h"
+#include "MDML/Core.h"
 
 
 inline bool Read(void* address, void* buffer, unsigned long long size)

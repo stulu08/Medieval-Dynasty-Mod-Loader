@@ -29,12 +29,6 @@
       <BuildDependency Project="Mods\BaseMod\BaseMod.vcxproj" />
     </Project>
   </Folder>
-  <Folder Name="/GUI/">
-    <Project Path="Tools\ModManager\ModManager.vcxproj" Id="60D40D4A-4C8C-4F97-B593-28F3A16AEA87">
-      <BuildType Solution="Release|x64" Project="Release" />
-      <Platform Solution="Release|x64" Project="x64" />
-    </Project>
-  </Folder>
   <Folder Name="/MDML/">
     <Project Path="Mods\BaseMod\BaseMod.vcxproj" Id="A066E1C6-0C46-6062-155E-EB3881BCC6C3">
       <BuildType Solution="Release|x64" Project="Release" />

@@ -24,5 +24,9 @@ namespace mdml::ui {
 		static void StartHotkeyThread();
 
 		static bool IsInitialized();
+
+		// F1 menu state, thread-safe. Public read access: mdml::ui::IsMenuOpen (MDML/UI.h).
+		static bool IsMenuOpen();
+		static void SetMenuOpen(bool open);
 	};
 }

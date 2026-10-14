@@ -1,8 +1,8 @@
 #include "DevTools.h"
 
-#include "Runtime/GameThread.h"
-#include "Platform/Logger.h"
-#include "UI/LoaderUI.h"
+#include "MDML/GameThread.h"
+#include "MDML/Log.h"
+#include "MDML/UI/Widgets.h"
 
 #include "Generator/SdkGenerator.h"
 #include "Util.h"

@@ -1,6 +1,6 @@
 #include "Core.h"
 #include "ModStack.h"
-#include "Mod.h"
+#include "MDML/Mod.h"
 
 #include <mutex>
 
@@ -117,4 +117,40 @@ bool ModStack::contains(Mod* mod) const {
         return containsLocked(mod); // this thread already holds the shared lock
     std::shared_lock<std::shared_mutex> lock(m_mutex);
     return containsLocked(mod);
+}
+
+size_t ModStack::size() const {
+    if (IsDispatching(this))
+        return m_insertIndex;
+    std::shared_lock<std::shared_mutex> lock(m_mutex);
+    return m_insertIndex;
+}
+
+void ModStack::forEach(const std::function<void(Mod*)>& fn) {
+    DispatchScope scope(*this);
+    // Safe to iterate: changes are deferred while this thread is inside the scope.
+    for (uint32_t i = 0; i < m_insertIndex; i++)
+        fn(m_mods[i]);
+}
+
+Mod* ModStack::find(const std::string& name) const {
+    auto findLocked = [this, &name]() -> Mod* {
+        for (uint32_t i = 0; i < m_insertIndex; i++)
+            if (m_mods[i]->ModName == name)
+                return m_mods[i];
+        return nullptr;
+    };
+    if (IsDispatching(this))
+        return findLocked();
+    std::shared_lock<std::shared_mutex> lock(m_mutex);
+    return findLocked();
+}
+
+void ModStack::moveToFront(Mod* mod) {
+    applyOrDefer([this, mod]() {
+        auto end = m_mods.begin() + m_insertIndex;
+        auto it = std::find(m_mods.begin(), end, mod);
+        if (it != end)
+            std::rotate(m_mods.begin(), it, it + 1);
+    });
 }

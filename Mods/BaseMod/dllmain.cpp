@@ -1,4 +1,4 @@
-#include "Core.h"
+#include "MDML/MDML.h"
 #include "BaseMod.h"
 
 namespace MDMLBase {

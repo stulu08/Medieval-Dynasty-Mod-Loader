@@ -1,11 +1,12 @@
 #include "Core.h"
 #include "GameHooks.h"
 
-#include "Globals.h"
+#include "Mods/Registry.h"
 #include "Mods/CoreModLoader.h"
 #include "Mods/LogicMods.h"
-#include "Platform/Hooks.h"
-#include "Runtime/GameThread.h"
+#include "UI/ImGuiHost.h"
+#include "MDML/Hooks.h"
+#include "MDML/GameThread.h"
 #include "Runtime/LoaderConfig.h"
 
 #include "UE4.h"
@@ -18,7 +19,7 @@ namespace mdml::runtime {
 
 		void OnInitGameState() {
 			Log::Info_UML("GameStateHook");
-			Global::GetGlobals()->bIsMenuOpen = false;
+			ui::ImGuiHost::SetMenuOpen(false);
 
 			if (!s_gameStateInitialized) {
 				mods::InitCoreMods();
@@ -28,7 +29,7 @@ namespace mdml::runtime {
 
 			if (mdml::Addresses.StaticLoadObject) {
 				mods::SpawnLogicMods();
-				Global::GetGlobals()->CoreMods.callEvent("InitGameState");
+				mdml::mods::Registry::Get().CoreMods.callEvent("InitGameState");
 			}
 
 			Log::Info_UML("Returning to GameState --------------------------------------------------------");
@@ -45,12 +46,12 @@ namespace mdml::runtime {
 				Log::Info_UML("Beginplay Called");
 				mods::PostBeginPlayLogicMods();
 			}
-			Global::GetGlobals()->CoreMods.callEvent("BeginPlay", Actor);
+			mdml::mods::Registry::Get().CoreMods.callEvent("BeginPlay", Actor);
 		}
 
 		void OnTick(UE4::ELevelTick tick, float deltaTime) {
 			GameThread::RunPending();
-			Global::GetGlobals()->CoreMods.callEvent("Tick", tick, deltaTime);
+			mdml::mods::Registry::Get().CoreMods.callEvent("Tick", tick, deltaTime);
 		}
 
 		PVOID(*origProcessFunction)(UE4::UObject*, UE4::FFrame*, void* const);

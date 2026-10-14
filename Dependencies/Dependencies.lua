@@ -18,6 +18,9 @@ IncludeDir["ImGui"] = "%{Dependencies}/ImGui"
 IncludeDir["nlohmann_json"] = "%{Dependencies}/nlohmann-json"
 IncludeDir["Dumper7"] = "%{Dependencies}/Dumper-7/Dumper"
 
+-- public mod API (Wave 4): include/MDML/*.h, included as "MDML/<Header>.h". Mods get this + the engine core dirs,
+-- never the loader's src (IncludeDir.ModLoader is for MDML.dll itself only).
+IncludeDir["MDML"] = "%{wks.location}/Loader/ModLoader/include"
 IncludeDir["ModLoader"] = "%{wks.location}/Loader/ModLoader/src"
 -- hand-written engine core, compiled into MDML.dll and exported (Wave 2.3). Same relative paths as the old SDK/src
 -- layout: Engine = old SDK/src ("UE4.h", "NameValidator.h"), EngineUE4 = old SDK/src/UE4 ("CoreUObject/...", "Math/...").

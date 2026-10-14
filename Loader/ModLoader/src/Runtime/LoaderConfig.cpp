@@ -1,10 +1,10 @@
 #include "Core.h"
 #include "LoaderConfig.h"
 
-#include "Platform/IniFile.h"
-#include "Platform/Logger.h"
+#include "MDML/IniFile.h"
+#include "MDML/Log.h"
 #include "Platform/SymbolResolver.h"
-#include "Runtime/Paths.h"
+#include "MDML/Paths.h"
 #include "UE_LOG.h"
 
 namespace mdml::runtime {

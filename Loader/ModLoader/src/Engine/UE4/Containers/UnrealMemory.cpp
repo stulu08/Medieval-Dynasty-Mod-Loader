@@ -1,7 +1,7 @@
 #include "Core.h"
 #include "UnrealMemory.h"
 #include "EngineAddresses.h"
-#include "Platform/Logger.h"
+#include "MDML/Log.h"
 
 #include <atomic>
 #include <cstdlib>

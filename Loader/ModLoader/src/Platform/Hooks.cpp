@@ -1,7 +1,7 @@
 #include "Core.h"
-#include "Hooks.h"
+#include "MDML/Hooks.h"
 
-#include "Platform/Logger.h"
+#include "MDML/Log.h"
 #include "include/MinHook.h"
 
 #include <mutex>

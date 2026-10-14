@@ -1,9 +1,10 @@
 #pragma once
-#include "Platform/Logger.h"
-#include "Platform/Math.h"
-#include "UI/LoaderUI.h"
-#include "Globals.h"
-#include "Runtime/Paths.h"
+// The base class of every core mod (native mod DLL). Game-specific helpers: GameMod (BaseMod, moves into the loader
+// API with the SDK migration, Wave 4 step B). The other public headers: MDML/MDML.h.
+#include "MDML/Log.h"
+#include "MDML/Math.h"
+#include "MDML/UI.h"
+#include "MDML/Paths.h"
 
 #include "UE4.h"
 
@@ -102,7 +103,7 @@ public:
 	//Returns the folder where the mod dll is located
 	std::string GetFolder();
 protected:
-	//Called When Mod Construct Finishes: registers this mod in Global::CoreMods (in load order) and creates its logger.
+	//Called When Mod Construct Finishes: registers this mod in the loader's core mod list (in load order, see MDML/Mods.h) and creates its logger.
 	//(There is no Mod::ModRef any more: set nothing before calling this.)
 	void CompleteModCreation();
 	Ref<Logger> logger = nullptr;

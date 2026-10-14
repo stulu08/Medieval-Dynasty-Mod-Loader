@@ -3,8 +3,8 @@
 #include "UE4.h"
 #include "EngineAddresses.h"
 #include "EngineLayout.h"
-#include "Runtime/Notices.h"
-#include "Runtime/Paths.h"
+#include "MDML/Notices.h"
+#include "MDML/Paths.h"
 
 Dumper* Dumper::DumpRef;
 

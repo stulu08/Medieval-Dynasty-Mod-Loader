@@ -7,10 +7,10 @@
 #include <functional>
 #include <shared_mutex>
 
-#include "Platform/Logger.h"
+#include "MDML/Log.h"
 
 
-class LOADER_API Mod;
+class Mod;
 
 class Event {
 public:
@@ -56,9 +56,11 @@ private:
 //   (a handler that triggers another event) reuses the outer shared lock instead of locking again.
 // - Semantics are unchanged: handlers run in registration order, returning true stops propagation, a throwing mod
 //   is removed from the stack (it gets no further events once the removal is applied).
-// - begin()/end()/operator[]/size() are NOT synchronized (direct access for the UI and BaseMod's load-order check);
-//   only use them on the thread that loads mods, or read-only where a stale view is harmless.
-class LOADER_API ModStack {
+// - forEach/size/find/contains/moveToFront are synchronized the same way (Wave 4, 3E-Q3: replaced the raw
+//   begin()/end()/operator[] accessors). forEach behaves like a dispatch (shared lock, nested calls and changes from
+//   inside it are deferred until it returns).
+// Loader-internal since Wave 4 (not exported); mods use include/MDML/Mods.h.
+class ModStack {
 public:
     ModStack() {}
     ~ModStack() {}
@@ -69,9 +71,13 @@ public:
     void pushMod(Mod* mod);
     void popMod(Mod* mod);
 
-    size_t size() {
-        return m_mods.size();
-    }
+    size_t size() const;
+    // Calls fn for every mod in load order under the shared lock (see above).
+    void forEach(const std::function<void(Mod*)>& fn);
+    // The mod with this ModName, or null.
+    Mod* find(const std::string& name) const;
+    // Moves the mod to index 0 (applied now, or deferred while this thread dispatches).
+    void moveToFront(Mod* mod);
 
     template <typename ..._args>
     void callEvent(const std::string& eventName, _args...a) {
@@ -125,14 +131,6 @@ public:
     void clearModEvents(const std::string& eventName, Mod* mod);
     // True while the mod is in the stack (not popped after an exception).
     bool contains(Mod* mod) const;
-
-    std::vector<Mod*>::iterator begin() { return m_mods.begin(); }
-    std::vector<Mod*>::iterator end() { return m_mods.end(); }
-
-    Mod* operator [] (int i) const { return m_mods[i]; }
-    Mod* operator [] (size_t i) const { return m_mods[i]; }
-    Mod*& operator [] (int i) { return m_mods[i]; }
-    Mod*& operator [] (size_t i) { return m_mods[i]; }
 private:
     // RAII around one callEvent: the outermost dispatch on a thread takes m_mutex shared; the end of it releases the
     // lock and applies the changes this thread deferred meanwhile (exclusive).

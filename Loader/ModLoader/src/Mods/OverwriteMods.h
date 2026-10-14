@@ -4,7 +4,7 @@
 // Overwrite mods = loose files linked into the game's Content folder, plus the pak hooks that let the engine load
 // loose files instead of the pak versions (Wave 3A, were the NoOverwrite part of SetupProfile in MDML.cpp, the
 // link code in Mod/ModLoader.cpp and the pak detours in Platform/HooksManager.cpp). MDML-internal, not exported.
-// Registered mods: Global::GetGlobals()->OverwriteMods.
+// Registered mods: mdml::mods::Registry::Get().OverwriteMods.
 namespace mdml::mods {
 	// Init thread: generates Config/NoOverwrite.ini on the first start (every loose file of the game = true) and reads
 	// it into runtime::Config.disableOverwriteFiles. Needs runtime::Config.rootGameDir / NoOverwriteFile.

@@ -8,9 +8,18 @@
 ### Core mod API (since Wave 3)
 - Derive from `GameMod` (BaseMod) and override `OnModInitialize()` (was misspelled `OnModInitilize`; renamed without alias, so old mods must be updated).
   `Tick(ELevelTick, float DeltaTime)`, `GameTick`, `DrawImGui` etc. are unchanged.
-- Loader API namespaces: `mdml::platform` (`Hooks`, `IniFile`, `SymbolResolver`), `mdml::runtime` (`GameThread`, `Config`, `FormatPath`, `GetDataFolder`),
-  `mdml::mods` (loader internals). Includes: `Mods/Mod.h`, `Platform/Hooks.h`, `Platform/IniFile.h`, `Runtime/GameThread.h`.
+- **Public API (Wave 4):** mods only see `Loader/ModLoader/include` (premake `%{IncludeDir.MDML}`) plus the engine core
+  (`%{IncludeDir.Engine}`, `%{IncludeDir.EngineUE4}`), never the loader's `src`. Include `"MDML/MDML.h"` (everything) or single headers:
+  `MDML/Mod.h`, `MDML/Mods.h`, `MDML/Log.h`, `MDML/Hooks.h`, `MDML/IniFile.h`, `MDML/GameThread.h`, `MDML/Paths.h`, `MDML/Notices.h`,
+  `MDML/UI.h`, `MDML/UI/Widgets.h`, `MDML/UI/TextEditor.h`, `MDML/Engine.h` (list with one line each in `MDML/MDML.h`).
+  Namespaces: `mdml::platform` (`Hooks`, `IniFile`), `mdml::runtime` (`GameThread`, `Notices`, `FormatPath`, `GetLoaderFolder`, `GetConfigFolder`, `GetDataFolder`),
+  `mdml::mods` (`ForEachMod`, `FindMod`, `GetModCount`, `MoveToFront`, `RegisterBPFunction`), `mdml::ui` (`GetDevice`, `GetContext`,
+  `GetRenderTargetView`, `IsRenderingReady`, `IsMenuOpen`, `SetTheme(ColorTheme)`), `mdml::ui::widgets` (`Combo`, `Vector3`, `Bool`, `Float`, ...).
   `Mod::ModRef` is gone: do not set it in your constructor, `CompleteModCreation()` registers the mod.
+- **Breaking changes in Wave 4:** `ImGui::MDML_Combo` etc. -> `mdml::ui::widgets::Combo` etc.; the `LoaderUI` class is gone
+  (`LoaderUI::GetUI()->pDevice` -> `mdml::ui::GetDevice()`, `LoaderUI::setColorTheme(ImGuiColorTheme::X)` -> `mdml::ui::SetTheme(mdml::ui::ColorTheme::X)`);
+  `Global` is loader-internal (`Global::GetGlobals()->CoreMods` -> `mdml::mods::ForEachMod` / `MoveToFront`; `REGISTER_FUNCTION` now lives in `MDML/Mods.h`);
+  `mdml::runtime::Config` is no longer visible to mods (use the `MDML/Paths.h` functions). Old include paths (`Mods/Mod.h`, `Platform/...`, `Runtime/...`, `UI/LoaderUI.h`) are gone.
 - **Threading:** `DrawImGui` and button callbacks run on the render thread. Do not call into the engine (ProcessEvent, GObjects scans, `StaticFindObject`,
   actor functions) from there: use `mdml::runtime::GameThread::Enqueue([]{ ... });` (runs later on the game thread, in the Tick hook). `GameTick`/`BeginPlay`/`InitGameState` already run on the game thread.
 - Reflection: `UStruct::GetChildProperties()` returns the `FField*` chain (members); loops over all objects use `UE4::UObject::ForEachObject(fn)` and `UE4::UObject::GetAllObjectsOfType`.

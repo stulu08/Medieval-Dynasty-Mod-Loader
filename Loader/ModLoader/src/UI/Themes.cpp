@@ -269,28 +269,28 @@ void StyleColorsDark(ImGuiStyle* dst)
 	style->TabRounding = 0.0f;
 }
 
-void ApplyTheme(ImGuiColorTheme theme) {
+void ApplyTheme(ColorTheme theme) {
 	switch (theme)
 	{
-	case ImGuiColorTheme::PhotoshopDark:
+	case ColorTheme::PhotoshopDark:
 		StyleColorsPhotoShopDark();
 		break;
-	case ImGuiColorTheme::Dark:
+	case ColorTheme::Dark:
 		StyleColorsDark();
 		break;
-	case ImGuiColorTheme::AmoledDark:
+	case ColorTheme::AmoledDark:
 		StyleColorsAmoledDark();
 		break;
-	case ImGuiColorTheme::OceanDark:
+	case ColorTheme::OceanDark:
 		StyleColorsOceanDark();
 		break;
-	case ImGuiColorTheme::ImGuiClassic:
+	case ColorTheme::ImGuiClassic:
 		ImGui::StyleColorsClassic();
 		break;
-	case ImGuiColorTheme::ImGuiDark:
+	case ColorTheme::ImGuiDark:
 		ImGui::StyleColorsDark();
 		break;
-	case ImGuiColorTheme::ImGuiLight:
+	case ColorTheme::ImGuiLight:
 		ImGui::StyleColorsLight();
 		break;
 	}

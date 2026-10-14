@@ -1,7 +1,7 @@
 #include "Core.h"
-#include "Widgets.h"
+#include "MDML/UI/Widgets.h"
 
-bool ImGui::MDML_Combo(const std::string& header, int& current_item, const char* items_separated_by_zeros, int height_in_items) {
+bool mdml::ui::widgets::Combo(const std::string& header, int& current_item, const char* items_separated_by_zeros, int height_in_items) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
 	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
@@ -19,7 +19,7 @@ bool ImGui::MDML_Combo(const std::string& header, int& current_item, const char*
 	ImGui::PopID();
 	return change;
 }
-bool ImGui::MDML_Combo(const std::string& header, int32_t& current_item, const std::vector<std::string>& items) {
+bool mdml::ui::widgets::Combo(const std::string& header, int32_t& current_item, const std::vector<std::string>& items) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
 	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
@@ -52,7 +52,7 @@ bool ImGui::MDML_Combo(const std::string& header, int32_t& current_item, const s
 	ImGui::PopID();
 	return change;
 }
-bool ImGui::MDML_Vector4(const std::string& header, glm::vec4& vec, bool readonly) {
+bool mdml::ui::widgets::Vector4(const std::string& header, glm::vec4& vec, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
 	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
@@ -84,7 +84,7 @@ bool ImGui::MDML_Vector4(const std::string& header, glm::vec4& vec, bool readonl
 	ImGui::PopID();
 	return change;
 }
-bool ImGui::MDML_Vector4(const std::string& header, glm::quat& quat, bool readonly) {
+bool mdml::ui::widgets::Vector4(const std::string& header, glm::quat& quat, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
 	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
@@ -116,7 +116,7 @@ bool ImGui::MDML_Vector4(const std::string& header, glm::quat& quat, bool readon
 	ImGui::PopID();
 	return change;
 }
-bool ImGui::MDML_Vector3(const std::string& header, glm::vec3& vec, bool readonly) {
+bool mdml::ui::widgets::Vector3(const std::string& header, glm::vec3& vec, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
 	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
@@ -144,7 +144,7 @@ bool ImGui::MDML_Vector3(const std::string& header, glm::vec3& vec, bool readonl
 	ImGui::PopID();
 	return change;
 }
-bool ImGui::MDML_Vector2(const std::string& header, glm::vec2& vec, bool readonly) {
+bool mdml::ui::widgets::Vector2(const std::string& header, glm::vec2& vec, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
 	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
@@ -168,7 +168,7 @@ bool ImGui::MDML_Vector2(const std::string& header, glm::vec2& vec, bool readonl
 	ImGui::PopID();
 	return change;
 }
-bool ImGui::MDML_String(const std::string& header, std::string& v, bool readonly) {
+bool mdml::ui::widgets::String(const std::string& header, std::string& v, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
 	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
@@ -186,7 +186,7 @@ bool ImGui::MDML_String(const std::string& header, std::string& v, bool readonly
 	ImGui::PopID();
 	return change;
 }
-bool ImGui::MDML_Bool(const std::string& header, bool& v, bool readonly) {
+bool mdml::ui::widgets::Bool(const std::string& header, bool& v, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
 	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
@@ -209,7 +209,7 @@ bool ImGui::MDML_Bool(const std::string& header, bool& v, bool readonly) {
 	ImGui::PopID();
 	return change;
 }
-bool ImGui::MDML_Int(const std::string& header, int& v, bool readonly) {
+bool mdml::ui::widgets::Int(const std::string& header, int& v, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
 	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
@@ -227,7 +227,7 @@ bool ImGui::MDML_Int(const std::string& header, int& v, bool readonly) {
 	ImGui::PopID();
 	return change;
 }
-bool ImGui::MDML_IntSlider(const std::string& header, int& v, int min, int max, bool readonly) {
+bool mdml::ui::widgets::IntSlider(const std::string& header, int& v, int min, int max, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
 	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
@@ -245,7 +245,7 @@ bool ImGui::MDML_IntSlider(const std::string& header, int& v, int min, int max, 
 	ImGui::PopID();
 	return change;
 }
-bool ImGui::MDML_UInt(const std::string& header, uint32_t& v, bool readonly) {
+bool mdml::ui::widgets::UInt(const std::string& header, uint32_t& v, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
 	int i = v;
@@ -265,7 +265,7 @@ bool ImGui::MDML_UInt(const std::string& header, uint32_t& v, bool readonly) {
 	ImGui::PopID();
 	return change;
 }
-bool ImGui::MDML_UIntSlider(const std::string& header, uint32_t& v, uint32_t min, uint32_t max, bool readonly) {
+bool mdml::ui::widgets::UIntSlider(const std::string& header, uint32_t& v, uint32_t min, uint32_t max, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
 	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
@@ -284,7 +284,7 @@ bool ImGui::MDML_UIntSlider(const std::string& header, uint32_t& v, uint32_t min
 	ImGui::PopID();
 	return change;
 }
-bool ImGui::MDML_Float(const std::string& header, float& v, float _min, float max, float speed, bool readonly) {
+bool mdml::ui::widgets::Float(const std::string& header, float& v, float _min, float max, float speed, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
 	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
@@ -311,7 +311,7 @@ bool ImGui::MDML_Float(const std::string& header, float& v, float _min, float ma
 	ImGui::PopID();
 	return change;
 }
-bool ImGui::MDML_FloatSlider(const std::string& header, float& v, float min, float max, bool readonly) {
+bool mdml::ui::widgets::FloatSlider(const std::string& header, float& v, float min, float max, bool readonly) {
 	ImGui::PushID(header.c_str());
 	bool change = false;
 	ImGui::BeginColumns(0, 2, ImGuiOldColumnFlags_NoResize | ImGuiOldColumnFlags_NoBorder);
@@ -329,7 +329,7 @@ bool ImGui::MDML_FloatSlider(const std::string& header, float& v, float min, flo
 	ImGui::PopID();
 	return change;
 }
-void ImGui::MDML_HelpMarker(const std::string& text) {
+void mdml::ui::widgets::HelpMarker(const std::string& text) {
 	ImGui::TextDisabled("(?)");
 	if (ImGui::IsItemHovered())
 	{

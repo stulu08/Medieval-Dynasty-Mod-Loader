@@ -2,8 +2,8 @@
 
 #include "ExportList.h"
 #include "LegacyExporter.h"
-#include "Runtime/GameThread.h"
-#include "UI/LoaderUI.h"
+#include "MDML/GameThread.h"
+#include "MDML/UI/Widgets.h"
 #include "Util.h"
 
 #include <algorithm>
@@ -165,17 +165,17 @@ namespace devtools {
 			}
 
 			ImGui::PushID((void*)actor);
-			if (ImGui::MDML_Vector3("Position", position)) {
+			if (mdml::ui::widgets::Vector3("Position", position)) {
 				mdml::runtime::GameThread::Enqueue([actor, position]() { actor->K2_SetActorLocation(position); });
 				std::lock_guard<std::mutex> lock(s_transformMutex);
 				state->position = position;
 			}
-			if (ImGui::MDML_Vector3("Rotation", rotation)) {
+			if (mdml::ui::widgets::Vector3("Rotation", rotation)) {
 				mdml::runtime::GameThread::Enqueue([actor, rotation]() { actor->SetActorRotation(rotation); });
 				std::lock_guard<std::mutex> lock(s_transformMutex);
 				state->rotation = rotation;
 			}
-			if (ImGui::MDML_Vector3("Scale", scale)) {
+			if (mdml::ui::widgets::Vector3("Scale", scale)) {
 				mdml::runtime::GameThread::Enqueue([actor, scale]() { actor->SetActorScale3D(scale); });
 				std::lock_guard<std::mutex> lock(s_transformMutex);
 				state->scale = scale;

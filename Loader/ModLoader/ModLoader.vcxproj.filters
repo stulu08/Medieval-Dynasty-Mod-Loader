@@ -49,6 +49,15 @@
     <Filter Include="..\SDK\src\UE4\Engine">
       <UniqueIdentifier>{AB7051BD-17DD-0CB8-E0D0-A4154CFC2E20}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{89AF369E-F58E-B539-FEA6-40106A051C9B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\MDML">
+      <UniqueIdentifier>{82B1CC69-6E14-5C0E-179A-94C403DC2791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\MDML\UI">
+      <UniqueIdentifier>{6F2DA307-DBB8-10CC-E4C9-93C050D46CCC}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
@@ -978,10 +987,58 @@
     <ClInclude Include="..\..\Dependencies\glm\glm\vector_relational.hpp">
       <Filter>..\..\Dependencies\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Bootstrap\Startup.h">
-      <Filter>src\Bootstrap</Filter>
+    <ClInclude Include="include\MDML\Core.h">
+      <Filter>include\MDML</Filter>
     </ClInclude>
-    <ClInclude Include="src\Bootstrap\Version.h">
+    <ClInclude Include="include\MDML\Engine.h">
+      <Filter>include\MDML</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MDML\GameThread.h">
+      <Filter>include\MDML</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MDML\Hooks.h">
+      <Filter>include\MDML</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MDML\IniFile.h">
+      <Filter>include\MDML</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MDML\Log.h">
+      <Filter>include\MDML</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MDML\MDML.h">
+      <Filter>include\MDML</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MDML\Math.h">
+      <Filter>include\MDML</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MDML\Memory.h">
+      <Filter>include\MDML</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MDML\Mod.h">
+      <Filter>include\MDML</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MDML\Mods.h">
+      <Filter>include\MDML</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MDML\Notices.h">
+      <Filter>include\MDML</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MDML\Paths.h">
+      <Filter>include\MDML</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MDML\UI.h">
+      <Filter>include\MDML</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MDML\UI\TextEditor.h">
+      <Filter>include\MDML\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MDML\UI\Widgets.h">
+      <Filter>include\MDML\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MDML\Version.h">
+      <Filter>include\MDML</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bootstrap\Startup.h">
       <Filter>src\Bootstrap</Filter>
     </ClInclude>
     <ClInclude Include="src\Core.h">
@@ -1122,9 +1179,6 @@
     <ClInclude Include="src\Engine\UE4\UE_LOG.h">
       <Filter>src\Engine\UE4</Filter>
     </ClInclude>
-    <ClInclude Include="src\Globals.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\Mods\CoreModLoader.h">
       <Filter>src\Mods</Filter>
     </ClInclude>
@@ -1134,29 +1188,14 @@
     <ClInclude Include="src\Mods\LogicMods.h">
       <Filter>src\Mods</Filter>
     </ClInclude>
-    <ClInclude Include="src\Mods\Mod.h">
-      <Filter>src\Mods</Filter>
-    </ClInclude>
     <ClInclude Include="src\Mods\ModStack.h">
       <Filter>src\Mods</Filter>
     </ClInclude>
     <ClInclude Include="src\Mods\OverwriteMods.h">
       <Filter>src\Mods</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platform\Hooks.h">
-      <Filter>src\Platform</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\IniFile.h">
-      <Filter>src\Platform</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\Logger.h">
-      <Filter>src\Platform</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\Math.h">
-      <Filter>src\Platform</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\Memory.h">
-      <Filter>src\Platform</Filter>
+    <ClInclude Include="src\Mods\Registry.h">
+      <Filter>src\Mods</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Pattern.h">
       <Filter>src\Platform</Filter>
@@ -1176,28 +1215,13 @@
     <ClInclude Include="src\Runtime\GameHooks.h">
       <Filter>src\Runtime</Filter>
     </ClInclude>
-    <ClInclude Include="src\Runtime\GameThread.h">
-      <Filter>src\Runtime</Filter>
-    </ClInclude>
     <ClInclude Include="src\Runtime\LoaderConfig.h">
-      <Filter>src\Runtime</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Runtime\Notices.h">
-      <Filter>src\Runtime</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Runtime\Paths.h">
       <Filter>src\Runtime</Filter>
     </ClInclude>
     <ClInclude Include="src\UI\D3D11Hook.h">
       <Filter>src\UI</Filter>
     </ClInclude>
-    <ClInclude Include="src\UI\ImGuiColorTextEdit\TextEditor.h">
-      <Filter>src\UI\ImGuiColorTextEdit</Filter>
-    </ClInclude>
     <ClInclude Include="src\UI\ImGuiHost.h">
-      <Filter>src\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="src\UI\LoaderUI.h">
       <Filter>src\UI</Filter>
     </ClInclude>
     <ClInclude Include="src\UI\LoaderWindow.h">
@@ -1206,7 +1230,7 @@
     <ClInclude Include="src\UI\Themes.h">
       <Filter>src\UI</Filter>
     </ClInclude>
-    <ClInclude Include="src\UI\Widgets.h">
+    <ClInclude Include="src\UI\UiText.h">
       <Filter>src\UI</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1295,9 +1319,6 @@
     <ClCompile Include="src\Engine\UE4\Engine\World.cpp">
       <Filter>src\Engine\UE4\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="src\Globals.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Mods\CoreModLoader.cpp">
       <Filter>src\Mods</Filter>
     </ClCompile>
@@ -1314,6 +1335,9 @@
       <Filter>src\Mods</Filter>
     </ClCompile>
     <ClCompile Include="src\Mods\OverwriteMods.cpp">
+      <Filter>src\Mods</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mods\Registry.cpp">
       <Filter>src\Mods</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Hooks.cpp">
@@ -1361,13 +1385,13 @@
     <ClCompile Include="src\UI\ImGuiHost.cpp">
       <Filter>src\UI</Filter>
     </ClCompile>
-    <ClCompile Include="src\UI\LoaderUI.cpp">
-      <Filter>src\UI</Filter>
-    </ClCompile>
     <ClCompile Include="src\UI\LoaderWindow.cpp">
       <Filter>src\UI</Filter>
     </ClCompile>
     <ClCompile Include="src\UI\Themes.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UI\UI.cpp">
       <Filter>src\UI</Filter>
     </ClCompile>
     <ClCompile Include="src\UI\Widgets.cpp">

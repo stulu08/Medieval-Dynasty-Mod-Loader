@@ -1,10 +1,10 @@
 #include "Core.h"
 #include "LogicMods.h"
 
-#include "Globals.h"
+#include "Mods/Registry.h"
 #include "Mods/LoadOrder.h"
-#include "Mods/Mod.h"
-#include "Platform/IniFile.h"
+#include "MDML/Mod.h"
+#include "MDML/IniFile.h"
 #include "Runtime/GameHooks.h"
 
 #include "UE4.h"
@@ -86,7 +86,7 @@ namespace mdml::mods {
 
 			CurrentMod.IsEnabled = true;
 
-			Global::GetGlobals()->ModInfoList.push_back(CurrentMod);
+			mdml::mods::Registry::Get().ModInfoList.push_back(CurrentMod);
 		}
 	}
 
@@ -131,8 +131,8 @@ namespace mdml::mods {
 	}
 
 	void SpawnLogicMods() {
-		for (int i = 0; i < Global::GetGlobals()->ModInfoList.size(); i++) {
-			CreateMod(Global::GetGlobals()->ModInfoList[i]);
+		for (int i = 0; i < mdml::mods::Registry::Get().ModInfoList.size(); i++) {
+			CreateMod(mdml::mods::Registry::Get().ModInfoList[i]);
 		}
 		Log::Info_UML("Finished Spawning Mods");
 	}
@@ -164,14 +164,14 @@ namespace mdml::mods {
 								Log::Warn_UML("ProcessBlueprintFunctions could not be located! Mod Loader Functionality Will be Limited!");
 						}
 
-						for (size_t i = 0; i < Global::GetGlobals()->ModInfoList.size(); i++)
+						for (size_t i = 0; i < mdml::mods::Registry::Get().ModInfoList.size(); i++)
 						{
-							if (Global::GetGlobals()->ModInfoList[i].ModName == CurrentMod)
+							if (mdml::mods::Registry::Get().ModInfoList[i].ModName == CurrentMod)
 							{
-								Global::GetGlobals()->ModInfoList[i].CurrentModActor = ModActor;
-								if (!Global::GetGlobals()->ModInfoList[i].WasInitialized)
+								mdml::mods::Registry::Get().ModInfoList[i].CurrentModActor = ModActor;
+								if (!mdml::mods::Registry::Get().ModInfoList[i].WasInitialized)
 								{
-									Global::GetGlobals()->ModInfoList[i].ContainsButton = ModActor->DoesObjectContainFunction("ModMenuButtonPressed");
+									mdml::mods::Registry::Get().ModInfoList[i].ContainsButton = ModActor->DoesObjectContainFunction("ModMenuButtonPressed");
 									UE4::FString Author;
 									UE4::FString Description;
 									UE4::FString Version;
@@ -179,29 +179,29 @@ namespace mdml::mods {
 									{
 										if (Author.IsValid())
 										{
-											Global::GetGlobals()->ModInfoList[i].ModAuthor = Author.ToString();
+											mdml::mods::Registry::Get().ModInfoList[i].ModAuthor = Author.ToString();
 										}
 									}
 									if (UE4::GetVariable<UE4::FString>(ModActor, "ModDescription", Description))
 									{
 										if (Description.IsValid())
 										{
-											Global::GetGlobals()->ModInfoList[i].ModDescription = Description.ToString();
+											mdml::mods::Registry::Get().ModInfoList[i].ModDescription = Description.ToString();
 										}
 									}
 									if (UE4::GetVariable<UE4::FString>(ModActor, "ModVersion", Version))
 									{
 										if (Version.IsValid())
 										{
-											Global::GetGlobals()->ModInfoList[i].ModVersion = Version.ToString();
+											mdml::mods::Registry::Get().ModInfoList[i].ModVersion = Version.ToString();
 										}
 									}
 									UE4::UClass* ModObjectInstanceClass = UE4::UClass::LoadClassFromString(mod.PersistentObjectPath.c_str(), false);
 									if (ModObjectInstanceClass)	// Check if ModInstanceObject Exists
 									{
-										Global::GetGlobals()->ModInfoList[i].PersistentObject = UE4::UObject::StaticConstructObject_Internal(ModObjectInstanceClass, (UE4::UObject*)UE4::UGameplayStatics::GetGameInstance(), "", 0, UE4::EInternalObjectFlags::GarbageCollectionKeepFlags, nullptr, false, nullptr, false);
+										mdml::mods::Registry::Get().ModInfoList[i].PersistentObject = UE4::UObject::StaticConstructObject_Internal(ModObjectInstanceClass, (UE4::UObject*)UE4::UGameplayStatics::GetGameInstance(), "", 0, UE4::EInternalObjectFlags::GarbageCollectionKeepFlags, nullptr, false, nullptr, false);
 									}
-									Global::GetGlobals()->ModInfoList[i].WasInitialized = true;
+									mdml::mods::Registry::Get().ModInfoList[i].WasInitialized = true;
 								}
 							}
 						}
@@ -218,9 +218,9 @@ namespace mdml::mods {
 	}
 
 	void CleanUpMods() {
-		for (int i = 0; i < Global::GetGlobals()->ModInfoList.size(); i++)
+		for (int i = 0; i < mdml::mods::Registry::Get().ModInfoList.size(); i++)
 		{
-			UE4::AActor* CurrentModActor = Global::GetGlobals()->ModInfoList[i].CurrentModActor;
+			UE4::AActor* CurrentModActor = mdml::mods::Registry::Get().ModInfoList[i].CurrentModActor;
 			if (CurrentModActor)
 			{
 				if (CurrentModActor->IsA(UE4::AActor::StaticClass()))
@@ -229,15 +229,15 @@ namespace mdml::mods {
 				}
 			}
 
-			Global::GetGlobals()->ModInfoList[i].CurrentModActor = nullptr;
-			Global::GetGlobals()->ModInfoList[i].ModButtons.clear();
+			mdml::mods::Registry::Get().ModInfoList[i].CurrentModActor = nullptr;
+			mdml::mods::Registry::Get().ModInfoList[i].ModButtons.clear();
 		}
 	}
 
 	void PostBeginPlayLogicMods() {
-		for (int i = 0; i < Global::GetGlobals()->ModInfoList.size(); i++)
+		for (int i = 0; i < mdml::mods::Registry::Get().ModInfoList.size(); i++)
 		{
-			UE4::AActor* CurrentModActor = Global::GetGlobals()->ModInfoList[i].CurrentModActor;
+			UE4::AActor* CurrentModActor = mdml::mods::Registry::Get().ModInfoList[i].CurrentModActor;
 			if (CurrentModActor != nullptr)
 			{
 				UE4::TArray<UE4::FString> ModButtons;
@@ -248,12 +248,12 @@ namespace mdml::mods {
 						auto CurrentButton = ModButtons[(int)bi];
 						if (CurrentButton.IsValid())
 						{
-							Global::GetGlobals()->ModInfoList[i].ModButtons.push_back(CurrentButton.ToString());
+							mdml::mods::Registry::Get().ModInfoList[i].ModButtons.push_back(CurrentButton.ToString());
 						}
 					}
 				}
 				CurrentModActor->CallFunctionByNameWithArguments(L"PostBeginPlay", nullptr, NULL, true);
-				Global::GetGlobals()->CoreMods.callEvent("PostBeginPlay", Global::GetGlobals()->ModInfoList[i].ModName, CurrentModActor);
+				mdml::mods::Registry::Get().CoreMods.callEvent("PostBeginPlay", mdml::mods::Registry::Get().ModInfoList[i].ModName, CurrentModActor);
 			}
 		}
 	}
@@ -279,9 +279,9 @@ namespace mdml::mods {
 		else if (NodeName == "GetPersistentObject")
 		{
 			auto ModName = Frame->GetInputParams<GetPersistentObjectParams>()->ModName;
-			for (size_t i = 0; i < Global::GetGlobals()->ModInfoList.size(); i++)
+			for (size_t i = 0; i < mdml::mods::Registry::Get().ModInfoList.size(); i++)
 			{
-				auto ModInfo = Global::GetGlobals()->ModInfoList[i];
+				auto ModInfo = mdml::mods::Registry::Get().ModInfoList[i];
 				if (ModName.c_str() == ModInfo.ModName)
 				{
 					if (ModInfo.PersistentObject)
@@ -291,7 +291,7 @@ namespace mdml::mods {
 				}
 			}
 		}
-		else if (void* funcPtr = Global::GetGlobals()->FindBPfunctionWrapper(NodeName)) {
+		else if (void* funcPtr = mdml::mods::Registry::Get().FindBPFunctionWrapper(NodeName)) {
 			reinterpret_cast<void(*)(UE4::UObject*, UE4::FFrame*, void*)> (funcPtr)(obj, Frame, (void*)Result);
 			return true;
 		}

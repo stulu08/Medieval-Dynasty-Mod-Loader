@@ -1,5 +1,5 @@
 #include "Core.h"
-#include "Logger.h"
+#include "MDML/Log.h"
 void Log::Init(const std::string& dir) {
 	s_logDir = dir;
 	s_mdmlLogger = Logger::Create("MDML", getLogFile("MDML-log.txt"));

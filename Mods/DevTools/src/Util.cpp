@@ -1,6 +1,6 @@
 #include "Util.h"
 
-#include "Mods/Mod.h"
+#include "MDML/MDML.h"
 
 namespace devtools::util {
 	std::filesystem::path MdmlFolder() {

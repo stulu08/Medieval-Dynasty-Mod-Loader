@@ -1,5 +1,5 @@
 #pragma once
-#include "Platform/Math.h"
+#include "MDML/Math.h"
 
 #include "Vector2.h"
 #include "Vector4.h"

@@ -1,7 +1,7 @@
 #include "Core.h"
-#include "GameThread.h"
+#include "MDML/GameThread.h"
 
-#include "Platform/Logger.h"
+#include "MDML/Log.h"
 
 #include <atomic>
 #include <mutex>

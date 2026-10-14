@@ -1,5 +1,5 @@
 #include "Core.h"
-#include "Paths.h"
+#include "MDML/Paths.h"
 
 #include "Runtime/LoaderConfig.h"
 
@@ -28,6 +28,11 @@ namespace mdml::runtime {
 			return std::filesystem::path(buffer).parent_path();
 		}();
 		return folder;
+	}
+
+	std::filesystem::path GetConfigFolder() {
+		const std::filesystem::path loader = GetLoaderFolder();
+		return loader.empty() ? loader : loader / "Config";
 	}
 
 	std::string GetDataFolder() {

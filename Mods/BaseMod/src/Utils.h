@@ -1,6 +1,6 @@
 #pragma once
 #include "UE4.h"
-#include <Mods/Mod.h>
+#include "MDML/MDML.h"
 
 // Helpers for mods built on GameMod. (The SDK exporter, the object/class browser GUI helpers and the class dump moved to
 // DevTools in Wave 3C, see Mods/DevTools/src.)

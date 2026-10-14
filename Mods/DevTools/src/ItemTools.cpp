@@ -1,6 +1,6 @@
 #include "PlayerTools.h"
 
-#include "UI/LoaderUI.h"
+#include "MDML/UI/Widgets.h"
 
 // Item tools (inventory list, give item). DISABLED: waiting for the new SDK (plan 2.4 / Wave 4). They used generated
 // parameter and struct layouts of game 2.2.0.8 (FST_InventoryItemsArray, AddItemToInventory params, the stale
@@ -84,22 +84,22 @@ namespace devtools {
 										displayItem.push_back(tableMap.GetKey(i).GetName());
 									}
 								}
-								ImGui::MDML_Combo("Item", selectedItem, displayItem);
+								mdml::ui::widgets::Combo("Item", selectedItem, displayItem);
 							}
-							ImGui::MDML_Int("Count", count);
-							ImGui::MDML_Bool("PassCondition", passCondition);
-							ImGui::MDML_FloatSlider("CurrentHP", CurrentHP, 0.0f, 100.0f);
-							ImGui::MDML_FloatSlider("MaxHP", MaxHP, 0.0f, 100.0f);
-							ImGui::MDML_Int("Capacity", Capacity);
-							ImGui::MDML_Float("Freshness", Freshness);
-							ImGui::MDML_Combo("Ownership", Ownership,
+							mdml::ui::widgets::Int("Count", count);
+							mdml::ui::widgets::Bool("PassCondition", passCondition);
+							mdml::ui::widgets::FloatSlider("CurrentHP", CurrentHP, 0.0f, 100.0f);
+							mdml::ui::widgets::FloatSlider("MaxHP", MaxHP, 0.0f, 100.0f);
+							mdml::ui::widgets::Int("Capacity", Capacity);
+							mdml::ui::widgets::Float("Freshness", Freshness);
+							mdml::ui::widgets::Combo("Ownership", Ownership,
 								"Player\0Ownerless\0Bandit\0BlueVillage\0GreenVillage\0SkyBlueVillage"
 								"\0RedVillage\0PinkVillage\0OrangeVillage\0YellowVillage\0PurpleVillage\0"
 								"\0NavyBlueVillagee\0BurgundyVillage\0BrownVillage");
-							ImGui::MDML_Bool("DisplayNotification", DisplayNotification);
-							ImGui::MDML_Bool("UpdateInventory", UpdateInventory);
-							ImGui::MDML_Bool("CountAsPickUp", CountAsPickUp);
-							ImGui::MDML_Float("NotificationDelay", NotificationDelay);
+							mdml::ui::widgets::Bool("DisplayNotification", DisplayNotification);
+							mdml::ui::widgets::Bool("UpdateInventory", UpdateInventory);
+							mdml::ui::widgets::Bool("CountAsPickUp", CountAsPickUp);
+							mdml::ui::widgets::Float("NotificationDelay", NotificationDelay);
 							if (ImGui::Button("Add") && !items.empty()) {
 								GetMember<UE4::UInventoryComponent_C*>(PlayerCharacter, "InventoryComponent")->AddItemToInventory(items[selectedItem], count, passCondition, CurrentHP, MaxHP, Capacity, Freshness, (UE4::E_Ownership)Ownership, DisplayNotification, UpdateInventory, CountAsPickUp, NotificationDelay, nullptr);
 							}

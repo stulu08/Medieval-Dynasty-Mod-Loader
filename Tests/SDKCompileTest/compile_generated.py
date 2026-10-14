@@ -22,7 +22,7 @@ import tempfile
 REPO = pathlib.Path(__file__).resolve().parents[2]
 INCLUDE_DIRS = [
     REPO / "Dependencies/spdlog",
-    REPO / "Loader/ModLoader/src",
+    REPO / "Loader/ModLoader/include",
     REPO / "Loader/ModLoader/src/Engine",
     REPO / "Loader/ModLoader/src/Engine/UE4",
     REPO / "Dependencies/glm",

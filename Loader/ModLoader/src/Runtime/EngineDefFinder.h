@@ -1,5 +1,5 @@
 #pragma once
-#include "Platform/Logger.h"
+#include "MDML/Log.h"
 #include "UE4.h"
 
 // Startup check of the engine layout (Wave 3D). mdml::Layout starts as the PDB-checked constants of EngineLayout.h.

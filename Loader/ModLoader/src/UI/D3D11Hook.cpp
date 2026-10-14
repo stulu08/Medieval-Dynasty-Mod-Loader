@@ -4,11 +4,10 @@
 #include <atomic>
 
 #include "UI/ImGuiHost.h"
-#include "UI/LoaderUI.h"
-#include "Platform/Hooks.h"
-#include "Platform/Logger.h"
+#include "MDML/Hooks.h"
+#include "MDML/Log.h"
 #include "Runtime/LoaderConfig.h"
-#include "Globals.h"
+#include "Mods/Registry.h"
 
 namespace mdml::ui {
 	namespace {
@@ -24,16 +23,6 @@ namespace mdml::ui {
 		PresentFn s_originalPresent = nullptr;
 		ResizeBuffersFn s_originalResizeBuffers = nullptr;
 
-		// LoaderUI still exposes these as public fields; keep them in sync for mods that read them.
-		void MirrorToLoaderUI()
-		{
-			LoaderUI* legacy = LoaderUI::GetUI();
-			legacy->pDevice = s_device;
-			legacy->pContext = s_context;
-			legacy->pRenderTargetView = s_renderTargetView;
-			legacy->initRendering = s_initRendering;
-		}
-
 		bool CreateRenderTargetView(IDXGISwapChain* swapChain)
 		{
 			ID3D11Texture2D* backBuffer = nullptr;
@@ -46,7 +35,7 @@ namespace mdml::ui {
 
 		HRESULT HookedResizeBuffers(IDXGISwapChain* pSwapChain, UINT BufferCount, UINT Width, UINT Height, DXGI_FORMAT NewFormat, UINT SwapChainFlags)
 		{
-			Global::GetGlobals()->CoreMods.callEvent("DX11ResizeBuffers", s_device, s_context, Width, Height, NewFormat, SwapChainFlags);
+			mdml::mods::Registry::Get().CoreMods.callEvent("DX11ResizeBuffers", s_device, s_context, Width, Height, NewFormat, SwapChainFlags);
 
 			if (s_initRendering)
 				return s_originalResizeBuffers(pSwapChain, BufferCount, Width, Height, NewFormat, SwapChainFlags);
@@ -61,7 +50,6 @@ namespace mdml::ui {
 
 			if (!CreateRenderTargetView(pSwapChain)) {
 				Log::Error_UML("Failed to recreate D3D11RenderTargetView after ResizeBuffers");
-				MirrorToLoaderUI();
 				return hr;
 			}
 			s_context->OMSetRenderTargets(1, &s_renderTargetView, NULL);
@@ -74,7 +62,6 @@ namespace mdml::ui {
 			vp.TopLeftX = 0;
 			vp.TopLeftY = 0;
 			s_context->RSSetViewports(1, &vp);
-			MirrorToLoaderUI();
 			return hr;
 		}
 
@@ -99,7 +86,6 @@ namespace mdml::ui {
 			ImGuiHost::Init(s_device, s_context);
 
 			s_initRendering = false;
-			MirrorToLoaderUI();
 		}
 
 		HRESULT __stdcall HookedPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT Flags)
@@ -112,7 +98,7 @@ namespace mdml::ui {
 			s_context->OMSetRenderTargets(1, &s_renderTargetView, NULL);
 			ImGuiHost::RenderFrame();
 
-			Global::GetGlobals()->CoreMods.callEvent("DX11Present", s_device, s_context, s_renderTargetView);
+			mdml::mods::Registry::Get().CoreMods.callEvent("DX11Present", s_device, s_context, s_renderTargetView);
 
 			return s_originalPresent(pSwapChain, SyncInterval, Flags);
 		}
@@ -208,7 +194,6 @@ namespace mdml::ui {
 		}
 		if (s_installed.exchange(true))
 			return;
-		LoaderUI::GetUI()->IsDXHooked = true;
 		CreateThread(NULL, 0, InstallThread, NULL, 0, NULL);
 	}
 

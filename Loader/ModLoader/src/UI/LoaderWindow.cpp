@@ -5,11 +5,12 @@
 
 #include <imgui/imgui.h>
 
-#include "UI/Widgets.h"
+#include "MDML/UI/Widgets.h"
+#include "UI/UiText.h"
 #include "Runtime/Dumper.h"
-#include "Runtime/GameThread.h"
-#include "Runtime/Notices.h"
-#include "Globals.h"
+#include "MDML/GameThread.h"
+#include "MDML/Notices.h"
+#include "Mods/Registry.h"
 
 namespace mdml::ui {
 	namespace {
@@ -73,7 +74,7 @@ namespace mdml::ui {
 			if (!ImGui::CollapsingHeader("Logic Mods"))
 				return;
 
-			auto& modList = Global::GetGlobals()->ModInfoList;
+			auto& modList = mdml::mods::Registry::Get().ModInfoList;
 			for (size_t i = 0; i < modList.size(); i++)
 			{
 				if (ImGui::TreeNode(IdLabel(NarrowTruncating(modList[i].ModName), "lm", i).c_str()))
@@ -96,7 +97,7 @@ namespace mdml::ui {
 									// The button calls into the mod's blueprint actor: game thread only. The actor is looked
 									// up again there since it may have changed meanwhile.
 									GameThread::Enqueue([i, bi]() {
-										auto& list = Global::GetGlobals()->ModInfoList;
+										auto& list = mdml::mods::Registry::Get().ModInfoList;
 										if (i >= list.size() || !list[i].IsEnabled || !list[i].CurrentModActor)
 											return;
 										std::wstring FuncNameAndArgs = L"ModMenuButtonPressed " + std::to_wstring(bi);
@@ -119,34 +120,34 @@ namespace mdml::ui {
 			if (!ImGui::CollapsingHeader("Core Mods"))
 				return;
 
-			auto& coreMods = Global::GetGlobals()->CoreMods;
-			for (size_t i = 0; i < coreMods.size(); i++)
-			{
-				const std::string name = coreMods[i]->ModName;
-				if (ImGui::TreeNode(IdLabel(name, "cm", i).c_str()))
+			size_t i = 0;
+			mods::Registry::Get().CoreMods.forEach([&i](Mod* mod) {
+				const size_t index = i++;
+				const std::string name = mod->ModName;
+				if (ImGui::TreeNode(IdLabel(name, "cm", index).c_str()))
 				{
-					ImGui::Text("%s", ("Created By: " + coreMods[i]->ModAuthors).c_str());
+					ImGui::Text("%s", ("Created By: " + mod->ModAuthors).c_str());
 					ImGui::Separator();
-					ImGui::Text("%s", ("Description: " + coreMods[i]->ModDescription).c_str());
+					ImGui::Text("%s", ("Description: " + mod->ModDescription).c_str());
 					ImGui::Separator();
-					ImGui::Text("%s", ("Version: " + coreMods[i]->ModVersion).c_str());
+					ImGui::Text("%s", ("Version: " + mod->ModVersion).c_str());
 					ImGui::Separator();
 
-					if (coreMods[i]->UseMenuButton && coreMods[i]->IsFinishedCreating)
+					if (mod->UseMenuButton && mod->IsFinishedCreating)
 					{
-						if (ImGui::Button(IdLabel(name + " Button", "cm", i).c_str()))
+						if (ImGui::Button(IdLabel(name + " Button", "cm", index).c_str()))
 						{
 							// OnModMenuButtonPressed is mod code and usually calls into the engine: game thread only.
-							GameThread::Enqueue([i]() {
-								auto& mods = Global::GetGlobals()->CoreMods;
-								if (i < mods.size() && mods[i])
-									mods[i]->OnModMenuButtonPressed();
+							GameThread::Enqueue([mod]() {
+								// Skip it if the mod was removed from the stack meanwhile (it threw).
+								if (mods::Registry::Get().CoreMods.contains(mod))
+									mod->OnModMenuButtonPressed();
 							});
 						}
 					}
 					ImGui::TreePop();
 				}
-			}
+			});
 		}
 
 		void ShowOverrideMods()
@@ -154,9 +155,9 @@ namespace mdml::ui {
 			if (!ImGui::CollapsingHeader("Overwrite Mods"))
 				return;
 
-			auto& overwriteMods = Global::GetGlobals()->OverwriteMods;
+			auto& overwriteMods = mdml::mods::Registry::Get().OverwriteMods;
 			for (size_t i = 0; i < overwriteMods.size(); i++) {
-				const OverwriteMod& mod = overwriteMods[i];
+				const mods::OverwriteMod& mod = overwriteMods[i];
 				if (ImGui::TreeNode(IdLabel(mod.Name, "om", i).c_str())) {
 					ImGui::Text("%s", ("Created By: " + mod.Author).c_str());
 					ImGui::Separator();

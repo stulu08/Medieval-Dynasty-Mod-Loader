@@ -1,9 +1,9 @@
 #pragma once
 // INI browser + INI editor, moved from BaseMod (BaseMod.cpp ShowINIBrowser) in Wave 3C. Pure file/ImGui code: no UE
 // calls, so it is safe on the render thread.
-#include "Mods/Mod.h"
+#include "MDML/MDML.h"
 
-#include "UI/ImGuiColorTextEdit/TextEditor.h"
+#include "MDML/UI/TextEditor.h"
 
 #include <filesystem>
 #include <string>

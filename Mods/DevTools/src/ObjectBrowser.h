@@ -7,7 +7,7 @@
 // mutex-protected snapshot. What the render thread still does itself is read-only reflection browsing of the objects
 // in the snapshot (GetName/GetFullName/class and property info); the snapshot is dropped on level change
 // (Invalidate(), called from the InitGameState event).
-#include "Mods/Mod.h"
+#include "MDML/MDML.h"
 
 #include <filesystem>
 #include <functional>

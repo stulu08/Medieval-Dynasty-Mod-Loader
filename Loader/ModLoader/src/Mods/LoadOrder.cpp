@@ -1,6 +1,6 @@
 #include "Core.h"
 #include "LoadOrder.h"
-#include "Platform/Logger.h"
+#include "MDML/Log.h"
 #include <algorithm>
 #include <fstream>
 #include <sstream>

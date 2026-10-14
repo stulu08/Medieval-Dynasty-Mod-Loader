@@ -1,5 +1,5 @@
 #pragma once
-#include "Core.h"
+#include "MDML/Core.h"
 
 namespace UE4 {
 	// The engine allocator (GMalloc behind FMemory::Malloc/Realloc/Free), resolved by PDB name at startup

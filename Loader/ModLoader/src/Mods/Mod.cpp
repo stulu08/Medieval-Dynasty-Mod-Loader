@@ -1,6 +1,7 @@
 #include "Core.h"
-#include "Mod.h"
-#include "Platform/Logger.h"
+#include "MDML/Mod.h"
+#include "MDML/Log.h"
+#include "Mods/Registry.h"
 
 // Every registered event binds the mod it belongs to (C8): the callback calls the virtual on that mod directly.
 // Before, all callbacks went through the process-wide Mod::ModRef, set per dispatch by ModStack::setCurrentMod; the
@@ -8,8 +9,8 @@
 // could run on the wrong mod.
 #define REGISTER_EVENT(name, ...)\
 if(events.name) {\
-	Global::GetGlobals()->CoreMods.clearModEvents(#name, this); \
-	Global::GetGlobals()->CoreMods.registerEvent(new ModEvent<__VA_ARGS__>(this, #name, \
+	mdml::mods::Registry::Get().CoreMods.clearModEvents(#name, this); \
+	mdml::mods::Registry::Get().CoreMods.registerEvent(new ModEvent<__VA_ARGS__>(this, #name, \
 		[mod = this](auto&&... args) { return mod->name(std::forward<decltype(args)>(args)...); })); \
 }
 void Mod::SetupHooks(const EventsEnabled::EnabledEvents& events) {
@@ -26,7 +27,7 @@ void Mod::SetupHooks(const EventsEnabled::EnabledEvents& events) {
 void Mod::CompleteModCreation()
 {
 	IsFinishedCreating = true;
-	Global::GetGlobals()->AddToCoreMods(this);
+	mdml::mods::Registry::Get().CoreMods.pushMod(this);
 	if (CreateLogger) {
 		if (LogToFile) {
 			logger = Logger::Create(ModName, Log::getLogFile(ModName + "-log.txt"));

@@ -13,7 +13,7 @@
 //    and an error is logged.
 // Nothing in here may read SDK::SelectedGameProfile directly; only the public core API is used.
 
-#include "Core.h"
+#include "MDML/Core.h"
 #include "CoreUObject/UnrealType.h"
 #include "CoreUObject/Interface.h"
 #include "Containers/Map.h"
