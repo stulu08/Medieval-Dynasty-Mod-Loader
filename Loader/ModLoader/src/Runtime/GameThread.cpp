@@ -1,5 +1,6 @@
 #include "Core.h"
 #include "MDML/GameThread.h"
+#include "GameHooks.h"
 
 #include "MDML/Log.h"
 
@@ -28,10 +29,14 @@ namespace mdml::runtime {
 		return id != 0 && id == GetCurrentThreadId();
 	}
 
-	void GameThread::RunPending() {
-		// The first drain call identifies the game thread (the Tick hook always runs there)
+	void MarkGameThread() {
 		if (s_gameThreadId.load(std::memory_order_relaxed) == 0)
 			s_gameThreadId.store(GetCurrentThreadId(), std::memory_order_release);
+	}
+
+	void GameThread::RunPending() {
+		// The first drain call identifies the game thread (the Tick hook always runs there)
+		MarkGameThread();
 
 		if (s_pendingCount.load(std::memory_order_acquire) == 0)
 			return;

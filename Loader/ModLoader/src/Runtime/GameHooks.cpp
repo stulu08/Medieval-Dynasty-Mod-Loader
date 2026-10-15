@@ -19,6 +19,7 @@ namespace mdml::runtime {
 		bool s_gameStateInitialized = false;
 
 		void OnInitGameState() {
+			MarkGameThread();
 			Log::Info_UML("GameStateHook");
 			ui::ImGuiHost::SetMenuOpen(false);
 

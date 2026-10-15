@@ -13,7 +13,7 @@ namespace mdml::runtime {
 		// even when called from the game thread itself). A task may enqueue further tasks;
 		// those run on the next tick.
 		static void Enqueue(std::function<void()> task);
-		// True only on the game thread; false before the first RunPending call.
+		// True only on the game thread; false before the loader's first InitGameState/Tick hook ran.
 		static bool IsInGameThread();
 		// Called by the loader from the Tick hook. Do not call from mods.
 		static void RunPending();

@@ -13,12 +13,25 @@ Status legend: ☐ todo · ◐ in progress · ☑ done
 ## Current state — READ THIS FIRST (updated 2026-10-15)
 Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
 
-- **Mod components, phase 1 follow-ups (owner answers, 2026-10-15, working tree, pending owner test):** `CoreMod::OnUnload` is now called at game exit
+- **Fixes after the 2026-10-15 owner test (committed, not deployed):** `GameThread::IsInGameThread` was false during the first
+  `InitGameState` (the game-thread id was only learned at the first `UWorld::Tick`), so DevTools' `GetPlayerCharacter` in `InitializeMod`
+  logged a false "called off the game thread" warning; the InitGameState hook now calls `runtime::MarkGameThread()` too (`Runtime/GameHooks.h`).
+  Game folder: stale "BaseMod is always loaded first" comment removed from `Config/LoadOrder.ini` (the BaseMod entry was already gone),
+  `Logs/BaseMod-log.txt` moved to `C:\dev\MDML\backup\2026-10-15_leftovers`. Run `ModManagerTests.exe` from PowerShell/cmd: under Git Bash
+  the MSYS `tar` comes first on PATH and the zip test fails.
+- **Release packages (2026-10-15, committed a032324):** the BaseMod special cases in `Tools/ModManager` are gone; two zips instead of the
+  old BaseMod release zip: `MDML-<v>.zip` (players: dlls, Config, ModManager app, readme/licenses, install guide) and `MDML-DevKit-<v>.zip`
+  (+ pdbs, DevTools mod (disabled), `DevKit/` with public API + engine core + generated SDK + third-party headers, `MDML.lib`, example sources,
+  modder docs; layout in `docs/guides/DevKit.md`). UI buttons in the manager, or `scripts\package.bat` (`Output/Tools/MDMLPackager.exe`, zips in
+  `Output/Packages`). Details: `Tools/ModManager/docs/ModManager.md` "Release packages". Full build 0 warnings/0 errors, `ModManagerTests` green.
+  Open: the version in the zip names is "dev" (MDML.dll has no version resource); premake examples in the kit still refer to the repo's `IncludeDir`
+  (kit README lists the dirs); whether the player zip should contain the Mod Manager at all (it is in now).
+- **Mod components, phase 1 follow-ups (owner answers, 2026-10-15, committed 29f8d2c; **deployed** 2026-10-15: MDML.dll/.pdb, DevTools dll/pdb, new DevTools mod.ini with [Core] on, DevBuildFlags=1, EnableCheatsMenu=1; backup `C:\dev\MDML\backup\2026-10-15_pre-29f8d2c`; **owner test passed 2026-10-15**: visuals ok, quit logged `OnUnload: DevTools`, no errors):** `CoreMod::OnUnload` is now called at game exit
   from a hook on `FEngineLoop::Exit` (PDB name `?Exit@FEngineLoop@@QEAAXXZ`; reverse load order, exception-safe, once; missing symbol = warning), a failed core drops
   the **whole mod** (F1 shows `[FAILED]`), the test mod lives in `Tests/OverwriteTest` (builds to `Output/Tests/OverwriteTest`), `Tools/ModManager` (`ModScanner` + tests)
   reads `[Mod]`/`[Core]`/`[Blueprint]`/`[Overwrite]`. Full rebuild 0 warnings/0 errors (also fixed a C4005 in `Dependencies/SDG` that only a full rebuild shows),
   `ModManagerTests` green. Level end is not unload (becomes an `MD.*` world event in phase 2). In-game checklist item 8 (quit -> each core logs `OnUnload`) in the report.
-  Left for the owner: `State.cpp` release-zip / default selection still special-case a mod named BaseMod (which no longer exists), decide what ships in a release zip.
+  (The BaseMod special cases in `State.cpp` were removed, see "Release packages" above.)
 - **Mod components, phase 1 ("Mod model") done in the working tree 2026-10-15, pending owner test** (not committed, not deployed;
   design `docs/design/mod-components.md`, report + in-game checklist `docs/reports/mod-components-phase1.md`). One `Mod` per mod folder
   with nullable `Core`/`Blueprint`/`Overwrite` components declared in `mod.ini` (`[Mod]`, `[Core]`, `[Blueprint]`, `[Overwrite]`);
@@ -225,8 +238,10 @@ Generated: most other files under `UE4/<Package>/` and `Medieval_Dynasty/<BP_…
 ## Phase 3 — New features (after Phase 2; ideas inspired by UE4SS)
 Mod model redesign (one Mod with Core/Blueprint/Overwrite components, event bus, Blueprint rework): `docs/design/mod-components.md`
 (phase 1 done, see "Current state").
-Design docs (each ends with owner questions): `docs/design/csharp-scripting.md` (**C# mods, replaces Lua**),
-`live-view.md`, `hot-reload.md`, `ufunction-hooks.md`, `pak-mods.md`; Lua (`lua-scripting.md`) is reference only.
+Design docs (each ends with owner questions): `docs/design/lua-scripting.md` (**Lua is back, 2026-10-15**: quick script mods),
+`live-view.md`, `hot-reload.md`, `ufunction-hooks.md`, `pak-mods.md`; `csharp-scripting.md` (C# **deferred**, not dropped).
+Owner priorities (2026-10-15): **Lua, Live View, modding tools** (asset extractor + mod builder, SDK helpers for DataTables/CDOs/spawning/
+sub-levels; design doc `docs/design/modding-tools.md` still to write); C# later.
 Also: improved Blueprint mod loading with load order · pak mod loading (old AES key, see `CLAUDE.md`) · maybe D3D12 UI.
 
 ---
@@ -289,6 +304,8 @@ Also: improved Blueprint mod loading with load order · pak mod loading (old AES
 | 2026-10-14 | Public API split, part 2 | Generated SDK: **the complete generated SDK goes into the repo** (repo size does not matter). `GameMod` getters stay **typed** (generated BP classes). Done in **two steps** (A: header split/UI/ModStack, B: SDK migration + `GameMod` + `SDK.lib` removal), each with an in-game test. `Global` becomes **loader-internal** (`mdml::mods::Registry`); mods use narrow functions in `MDML/Mods.h`. |
 | 2026-10-14 | Public API split, defaults taken (owner may veto) | Include style `"MDML/<Header>.h"` from `Loader/ModLoader/include` (premake `IncludeDir.MDML`); existing namespaces of public types kept (`mdml::platform::Hooks/IniFile`, `mdml::runtime::GameThread/Notices/paths`); `ImGuiColorTheme` → `mdml::ui::ColorTheme`; `MDML/Memory.h` (old `Read`/`Write` helpers) public only until `SDK.lib` goes; DevTools reads the config folder via new `mdml::runtime::GetConfigFolder()` instead of `mdml::runtime::Config`. |
 | 2026-10-14 | Wave 4 step B | Full generated SDK **replaces the contents of `Loader/SDK/`** (header-only, no `SDK.lib`). The **loader itself uses the generated headers** (`AActor`, `UWorld`, `UGameplayStatics`, …) — one type system for loader and mods. **BaseMod is deleted**: `GameMod` goes into the loader API, useful `Utils.h` helpers too, the rest is dropped. DevTools' **`LegacyExporter` is removed** (replaced by the new generator). |
+| 2026-10-15 | Script mods (owner) | **Lua comes back, C# is deferred** (supersedes the order of the 2026-10-13 "C# instead of Lua"; the Carbide/.NET decisions stay for later): Lua is for quick changes like overriding a variable without a C++ project or dev framework. Lua becomes a mod component (`[Lua]`, mod-components.md) on the event bus. Lua OQ-1..OQ-17 are open again. |
+| 2026-10-15 | Modding tools (owner) | **No declarative patch format** (no "mod patch" files): value/level changes are written in code (Lua, Core, later C#); MDML offers SDK helpers (DataTable rows, CDO defaults, spawning, sub-levels) and CoreMods may expose interfaces to other mods. Wanted tools: Live View/live editor, asset extractor (game pak -> mod folder), mod builder (cook/pak/`mod.ini`). UE 4.27 editor at `F:/Program Files/UE_4.27`; owner will create a UE project (had one for logic mods). |
 | 2026-10-15 | Generated names (owner) | Blueprint enums must have their real names like the old exporter, not `NewEnumerator0..N` → the generator uses the `UUserDefinedEnum` display names. Same treatment taken by default for Blueprint struct members (GUID suffix stripped, like the old exporter). |
 | 2026-10-15 | Wave 4 step B, details taken by default (owner may veto) | Generated SDK in **`Loader/SDK/Generated/`** (subfolder, so nothing else mixes with generated files). `GameMod` getters return the generated BP classes **forward-declared** in `MDML/GameMod.h` (mods include the package header they use; MDML.dll finds the objects by class/property name, so it needs no BP headers). `getCameraManager()` (returned the animals manager) renamed `getAnimalsManager()`; `Utils::ValidateBPObject` → `GameMod::CastByName`; other `Utils.h` helpers dropped (string/file one-liners, `FindDataTable` = `FindObject` + core `UE4::GetDataTableRowMap`). Hand-written engine stubs (`UWorld`, `ULevel`, `UUserDefinedEnum`, …) replaced by free functions in `EngineHelpers.h`; `FActorSpawnParameters` now has the 4.27 layout (PDB). The object browser's package list saves `.export` lists for the generator instead of running the legacy exporter. |
 | 2026-10-14 | Wave 3E Q1–Q6 | All recommendations accepted: missing layout anchor stays **Error**; scanned offsets → persistent **Warning**; locked `ModStack` API (`ForEachMod`/`MoveToFront`) **in Wave 4** (with the public API split); `ProcessInternal` pattern → `ModLoaderInfo.ini` `[FunctionInfo]` and UML log wording reworded **in Wave 4** (with spdlog); missing `ModLoaderInfo.ini` keeps **disabling** the loader. |
@@ -304,4 +321,4 @@ Also: improved Blueprint mod loading with load order · pak mod loading (old AES
 - C#: CS-6 (shared generated `MDML.SDK.dll` vs per-mod packages), CS-9 (assembly/namespace names) in
   `docs/design/csharp-scripting.md`.
 - Wave 3B Q2: if the in-game test shows problems with the released dummy D3D objects, go back to keeping the thread alive?
-- Lua OQ-1..OQ-17 are **superseded** by the C# decision (only relevant if Lua ever comes back).
+- Lua OQ-1..OQ-17 in `docs/design/lua-scripting.md` section 14 are **open again** (Lua is back, 2026-10-15); answer before implementation.
