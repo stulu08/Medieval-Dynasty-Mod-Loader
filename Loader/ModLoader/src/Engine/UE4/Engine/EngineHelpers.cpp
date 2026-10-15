@@ -5,6 +5,20 @@
 #include "EngineMemory.h"
 
 namespace UE4 {
+	bool IsLiveObject(const UObject* Object)
+	{
+		if (!Object || !UObject::GObjects)
+			return false;
+		int32_t Index = -1;
+		if (!mdml::mem::SafeRead(reinterpret_cast<const uint8_t*>(Object) + mdml::Layout.UObject.Index, Index))
+			return false;
+		const FUObjectItem* Item = UObject::GObjects->ObjObjects.GetObjectPtr(Index);
+		if (!Item || Item->Object != Object)
+			return false;
+		constexpr int Dead = static_cast<int>(EInternalObjectFlags::PendingKill) | static_cast<int>(EInternalObjectFlags::Unreachable);
+		return (Item->Flags & Dead) == 0;
+	}
+
 	UWorld* GetWorld()
 	{
 		// GWorld is a UWorldProxy, whose only member is the UWorld*.

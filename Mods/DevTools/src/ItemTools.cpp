@@ -68,7 +68,7 @@ namespace devtools {
 		// place; nothing is copied out of or freed in engine memory).
 		void LoadInventory(UE4::AActor* player, const LogFn& log) {
 			std::vector<ItemToolsState::InventoryRow> rows;
-			auto* character = ::mdml::sdk::Cast<UE4::ABP_BaseCharacter_C>(player);
+			auto* character = UE4::IsLiveObject(player) ? ::mdml::sdk::Cast<UE4::ABP_BaseCharacter_C>(player) : nullptr;
 			UE4::UInventoryComponent_C* inventory = character ? character->InventoryComponent : nullptr;
 			if (!inventory) {
 				if (log)
@@ -176,7 +176,7 @@ namespace devtools {
 			const float hp = currentHP, hpMax = maxHP, fresh = freshness, delay = notificationDelay;
 			const auto owner = static_cast<UE4::E_Ownership>(ownership);
 			mdml::runtime::GameThread::Enqueue([=]() {
-				auto* character = ::mdml::sdk::Cast<UE4::ABP_BaseCharacter_C>(player);
+				auto* character = UE4::IsLiveObject(player) ? ::mdml::sdk::Cast<UE4::ABP_BaseCharacter_C>(player) : nullptr;
 				UE4::UInventoryComponent_C* inventory = character ? character->InventoryComponent : nullptr;
 				if (!inventory) {
 					if (log)

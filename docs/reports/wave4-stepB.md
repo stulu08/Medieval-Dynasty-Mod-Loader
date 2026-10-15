@@ -100,11 +100,19 @@ since the generator library has no MDML headers.
 7. TimeWeatherChanger (only if installed): toggles work, "Update" in Instant Updater changes the time without a crash.
 8. Quit cleanly, logs written.
 
+## Owner test 2026-10-15
+Everything worked except: the cheat menu button (see above) and one "Missing End()" from ImGui after
+"Exception thrown in DrawImGui from mod DevTools" (most likely an access violation reading a destroyed object of the
+object browser snapshot on the render thread). Fixed: `UE4::IsLiveObject` (core, exported; SEH-safe GObjects slot +
+PendingKill/Unreachable check) guards the object browser lists and every queued actor call in DevTools, and the F1
+host wraps the DrawImGui dispatch in ImGui's error recovery (`ErrorRecoveryStoreState`/`TryToRecoverState`), so a mod
+that throws mid-window cannot leave ImGui unbalanced.
+
 ## Open points
 - `Tools/ModManager` (separate session) still special-cases BaseMod (load order sort, release zip, install defaults).
 - Done later on 2026-10-15 (DevTools, needs the owner's test): inventory list (player tools → Player Character →
   Inventory → "Read inventory", reads `UInventoryComponent_C::Inventory_New` in place on the game thread);
   `EnableCheatsMenu=1` shows "Cheat menu" → "Open cheat menu", which calls the game's `PC_Player_C::CheatMenu()`
-  (experimental, may need `DevBuildFlags=1`); generator shortens Blueprint timeline member names (needs a regeneration).
+  (experimental; **owner test: called, but no menu appears**, probably the game checks for a cheat build or the widget class is missing in this version); generator shortens Blueprint timeline member names (needs a regeneration).
 - `Config/NoOverwrite.ini` still lists the old BaseMod files (harmless).
 - The per-header compile check of the full output takes 1-2 h (idea: PCH mode in `compile_generated.py`).

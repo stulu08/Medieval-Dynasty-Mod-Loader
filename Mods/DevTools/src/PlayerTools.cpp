@@ -164,6 +164,8 @@ namespace devtools {
 					if (ImGui::Button("List components")) {
 						mdml::runtime::GameThread::Enqueue([this, player]() {
 							std::vector<std::pair<std::string, std::string>> list;
+							if (!UE4::IsLiveObject(player))
+								return;
 							auto comps = player->K2_GetComponentsByClass(UE4::UActorComponent::StaticClass());
 							for (int i = 0; i < comps.Num(); i++) {
 								UE4::UActorComponent* comp = comps[i];

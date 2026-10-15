@@ -4,6 +4,7 @@
 #include <atomic>
 
 #include <imgui/imgui.h>
+#include <imgui/imgui_internal.h> // ImGuiErrorRecoveryState
 #include <imgui/imgui_impl_dx11.h>
 #include <imgui/imgui_impl_win32.h>
 
@@ -107,7 +108,13 @@ namespace mdml::ui {
 		if (menuOpen)
 		{
 			LoaderWindow::Draw();
+			// A mod whose DrawImGui throws is removed from the stack mid-frame, usually between Begin and End. Restore
+			// ImGui's window/ID/style stacks afterwards (ImGui's own error recovery), so one broken mod cannot leave
+			// ImGui asserting "Missing End()" for everyone.
+			ImGuiErrorRecoveryState recovery;
+			ImGui::ErrorRecoveryStoreState(&recovery);
 			mdml::mods::Registry::Get().CoreMods.callEvent("DrawImGui");
+			ImGui::ErrorRecoveryTryToRecoverState(&recovery);
 		}
 
 		ImGui::Render();

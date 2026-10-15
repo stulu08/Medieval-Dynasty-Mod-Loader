@@ -14,7 +14,8 @@
   `#include "BP_WeatherManager.hpp"` for `ABP_WeatherManager_C` and so on; nothing to link. Members are properties resolved by
   name at runtime (`weather->CloudDensity = 0.0f;`), functions call the game through ProcessEvent (`weather->UpdateTime(time);`).
   Details: `docs/SDK_GENERATOR.md`. Engine helpers that are not reflected live in the core: `UE4::GetWorld()`,
-  `UE4::SpawnActor(Class, Transform)`, `UE4::GetDataTableRowMap(Table)`, `UE4::GetUserDefinedEnumDisplayNames(Enum)`.
+  `UE4::SpawnActor(Class, Transform)`, `UE4::GetDataTableRowMap(Table)`, `UE4::GetUserDefinedEnumDisplayNames(Enum)`,
+  `UE4::IsLiveObject(Obj)` (check object pointers you keep across frames before using them, e.g. in `DrawImGui`).
 - `GameMod` getters (`getPlayerCharacter()`, `getWeatherManager()`, `getTimeManager()`, ...) return the generated Blueprint
   classes, only forward-declared in `MDML/GameMod.h`: include the package header to use them (`BP_PlayerCharacter.hpp`, ...).
   `getMDGameState()` returns `UE4::EMD_GameState` (`Medieval_Dynasty.hpp`), now with the generated names `Init`, `Menu`,

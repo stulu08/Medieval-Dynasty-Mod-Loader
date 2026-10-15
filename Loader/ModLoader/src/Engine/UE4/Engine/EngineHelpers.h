@@ -41,6 +41,12 @@ namespace UE4 {
 	static_assert(offsetof(FActorSpawnParameters, NameMode) == 0x2A, "FActorSpawnParameters layout");
 	static_assert(offsetof(FActorSpawnParameters, ObjectFlags) == 0x2C, "FActorSpawnParameters layout");
 
+	// True while Object is still the object in its GObjects slot and is neither PendingKill nor Unreachable, i.e. it was
+	// not destroyed or garbage collected since the pointer was taken. Reading the index is SEH-guarded, so it is safe
+	// on a dangling pointer. For UI code that keeps object pointers across frames (render thread): check before every
+	// use; the object can still die right after the check unless you are on the game thread.
+	MDML_ENGINE_API bool IsLiveObject(const UObject* Object);
+
 	// The current world (GWorld), nullptr before the engine created one.
 	MDML_ENGINE_API UWorld* GetWorld();
 

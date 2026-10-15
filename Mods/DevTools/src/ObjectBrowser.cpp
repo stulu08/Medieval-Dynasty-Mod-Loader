@@ -64,7 +64,9 @@ namespace devtools {
 		}
 
 		bool FilterSearch(UE4::UObject* object, const std::string& search) {
-			if (!object)
+			// The snapshot can be older than the objects in it (destroyed actors, GC): reading a dead one on the render
+			// thread was an access violation that removed DevTools mid-frame (owner test 2026-10-15). Skip dead ones.
+			if (!object || !UE4::IsLiveObject(object))
 				return false;
 			if (search.empty())
 				return true;
@@ -150,6 +152,11 @@ namespace devtools {
 			}
 			if (request) {
 				mdml::runtime::GameThread::Enqueue([actor, state]() {
+					if (!UE4::IsLiveObject(actor)) {
+						std::lock_guard<std::mutex> lock(s_transformMutex);
+						state->pending = false;
+						return;
+					}
 					glm::vec3 p = actor->K2_GetActorLocation();
 					glm::vec3 r = actor->K2_GetActorRotation();
 					glm::vec3 s = actor->GetActorScale3D();
@@ -168,17 +175,17 @@ namespace devtools {
 
 			ImGui::PushID((void*)actor);
 			if (mdml::ui::widgets::Vector3("Position", position)) {
-				mdml::runtime::GameThread::Enqueue([actor, position]() { actor->K2_SetActorLocation(UE4::FVector(position), false, nullptr, true); });
+				mdml::runtime::GameThread::Enqueue([actor, position]() { if (UE4::IsLiveObject(actor)) actor->K2_SetActorLocation(UE4::FVector(position), false, nullptr, true); });
 				std::lock_guard<std::mutex> lock(s_transformMutex);
 				state->position = position;
 			}
 			if (mdml::ui::widgets::Vector3("Rotation", rotation)) {
-				mdml::runtime::GameThread::Enqueue([actor, rotation]() { actor->K2_SetActorRotation(UE4::FRotator(rotation), true); });
+				mdml::runtime::GameThread::Enqueue([actor, rotation]() { if (UE4::IsLiveObject(actor)) actor->K2_SetActorRotation(UE4::FRotator(rotation), true); });
 				std::lock_guard<std::mutex> lock(s_transformMutex);
 				state->rotation = rotation;
 			}
 			if (mdml::ui::widgets::Vector3("Scale", scale)) {
-				mdml::runtime::GameThread::Enqueue([actor, scale]() { actor->SetActorScale3D(UE4::FVector(scale)); });
+				mdml::runtime::GameThread::Enqueue([actor, scale]() { if (UE4::IsLiveObject(actor)) actor->SetActorScale3D(UE4::FVector(scale)); });
 				std::lock_guard<std::mutex> lock(s_transformMutex);
 				state->scale = scale;
 			}
@@ -259,7 +266,8 @@ namespace devtools {
 			if (ImGui::Button("Save selected to file")) {
 				std::stringstream content;
 				for (auto& entry : m_exportList)
-					content << entry->GetName() << std::endl;
+					if (UE4::IsLiveObject(entry))
+						content << entry->GetName() << std::endl;
 				const bool saved = util::SaveString(content.str(), profileFile.string());
 				if (m_log)
 					m_log(saved ? "Export list saved to " + profileFile.string() : "Could not write " + profileFile.string(), !saved);
@@ -275,7 +283,7 @@ namespace devtools {
 		}
 
 		for (auto object : packages) {
-			if (!object)
+			if (!object || !UE4::IsLiveObject(object))
 				continue;
 
 			const auto loc = std::find(m_needAddList.begin(), m_needAddList.end(), object->GetName());
