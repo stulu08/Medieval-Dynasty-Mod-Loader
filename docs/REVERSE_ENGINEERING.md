@@ -49,6 +49,7 @@ No longer read (Wave 3A/3D/3E; harmless if an old ini still has them): `[General
 offset sections `[UObjectDef] [UFieldDef] [UStructDef] [UEnumDef] [UFunctionDef] [Property] [FField] [FFieldClass]`.
 
 ## After a game patch
+Full checklist (incl. SDK regeneration and the in-game check): `docs/guides/GamePatch.md`. The RE part:
 1. `python Tools/RE/check_patterns.py --gen --write` (refreshes fallback patterns; the PDB path needs nothing).
 2. If a decorated symbol is reported "not found", the engine signature changed → look it up with
    `python Tools/RE/pdbsym.py <exe> "*Name*"` (undecorated) and update `namespace Symbols` + the call sites.

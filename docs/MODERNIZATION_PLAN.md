@@ -10,7 +10,7 @@ Status legend: ☐ todo · ◐ in progress · ☑ done
 
 ---
 
-## Current state — READ THIS FIRST (updated 2026-10-14)
+## Current state — READ THIS FIRST (updated 2026-10-15)
 Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
 
 - **Wave 4 in progress** (2026-10-14), libraries done, **in-game test passed** 2026-10-14 (owner; themes not
@@ -86,7 +86,8 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
       load-order rule removed; **B4** DevTools (`LegacyExporter` deleted, `ObjectBrowser`/`PlayerTools` ported, `ItemTools`
       re-enabled if feasible) and examples ported; **B5** delete old `Loader/SDK` sources, `SDK` project, `MDML/Memory.h`,
       `IncludeDir.SDK/UE4/MedievalDynasty`; docs, build 0 warnings, `check_layout.py`, deploy (with backup), owner test.
-  - Remaining after that: SDG controls + sortable load-order editor, 2.8 docs, glm license.
+  - Remaining after that: SDG controls + sortable load-order editor (ModManager). 2.8 docs and the glm license are done
+    (2026-10-15).
 - **Wave 3 done** ☑ 2026-10-14 (staged: 3A+3D, then 3B+3C+3E; reports `docs/reports/wave3/3{A,B,C,D,E}-*.md`):
   - **3A** runtime split (`src/Bootstrap`, `src/Runtime/{EngineSetup,GameHooks,Paths}`, `src/Mods/{CoreModLoader,LogicMods,
     OverwriteMods}`), static class `MDML` dissolved into `mdml::platform/runtime/mods/ui`, event bus binds the mod pointer
@@ -124,16 +125,16 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
 - **C# replaces Lua** for script mods (Phase 3): `docs/design/csharp-scripting.md`. Lua spike in `Loader/Scripting/` = reference.
 
 **Next (in order) — start here in a new session:**
-1. Full "All packages" SDK generation done (B0 ☑, path in "Step B" above); owner in-game test of Wave 4 step A still to
-   confirm (checklist in `docs/reports/public-api.md`). Next: Wave 4 step B1–B5 (see "Step B" above), then SDG controls incl. a sortable
-   load-order editor, license files, 2.8 docs.
-2. Phase 3: C# spike (`docs/design/csharp-scripting.md`).
+1. Owner in-game test of Wave 4 step B (deployed, checklist in `docs/reports/wave4-stepB.md`).
+2. Mods: DevTools follow-ups (generator: Timeline member GUID names; `EnableCheatsMenu` on the generated
+   `UMD_CheatManager`; inventory list). ModManager (separate session): drop the BaseMod special cases, SDG controls +
+   sortable load-order editor, move off the old INI parser.
+3. Phase 3: C# spike (`docs/design/csharp-scripting.md`); weapon mod idea ("Medieval Rampage") needs the bow classes,
+   now in the generated SDK (`BP_HoldableItem_Bow.hpp`, `BP_MasterProjectile.hpp`).
 
-Known follow-ups from Wave 3 (not yet scheduled): TimeWeatherChanger and mods' render-thread `DrawImGui` handlers still
-call UE directly (needs a mod-API rule); `ItemTools` (give item/inventory) waits for the new SDK, then DevTools stops
-linking `SDK`; locked `ModStack` iteration API (done in Wave 4 step A); `[ProcessInternalFunction]` pattern into the
-shipped ini (done in Wave 4); UML-era log wording (done in Wave 4); `UseDebugUI=0` + F1 still shows a MessageBox; `Tools/ModManager`
-still on the old `Dependencies/INI` parser.
+Known follow-ups from Wave 3: all done except `Tools/ModManager` still on the old `Dependencies/INI` parser.
+(Done 2026-10-15: render-thread rule in the Modding guide + TimeWeatherChanger enqueues its game calls; give-item on the
+generated SDK; DevTools does not link `SDK`; `UseDebugUI=0` + F1 logs a warning instead of a MessageBox.)
 
 Orchestration style: parallel agents (Sonnet where fitting) in worktrees — **every agent prompt must start with
 `git reset --hard <modernize head>`** (worktrees are created from old `main`); orchestrator merges (cherry-pick), builds
@@ -179,7 +180,7 @@ Work packages (2.x) as planned on 2026-10-09; the "Wave" items come from `docs/r
 | PDB cold start: RVA cache `Config/SymbolCache.txt` | ☑ tested 2026-10-13 | `docs/reports/pdb-lookup-timing.md` |
 | Toolchain premake 5.0.0 + VS 2026 | ☑ | `CLAUDE.md` → Build |
 | 2.4 SDK generator (DevTools + Dumper-7 + MDMLGenerator) | ☑ part 1 + fixes, real output 203/203 (2026-10-13); BaseMod migration ☐ | `docs/SDK_GENERATOR.md`, `docs/reports/sdk-generator-*.md` |
-| `THIRD_PARTY_LICENSES.md` + README credits | ☑ (missing upstream license files: Wave 4) | `THIRD_PARTY_LICENSES.md` |
+| `THIRD_PARTY_LICENSES.md` + README credits | ☑ (glm `copying.txt` added 2026-10-15; Feather INI / Dumper-7 have none upstream) | `THIRD_PARTY_LICENSES.md` |
 | Repo folder restructure (SEngine-style) | ☑ 2026-10-13 | `docs/reports/repo-restructure.md` |
 | Plan cleanup (this file + `docs/HISTORY.md`) | ☑ 2026-10-13 | — |
 | INI wrapper `mdml::platform::IniFile` + mINI 0.9.20 | ☑ 2026-10-14 | `docs/reports/wave3/3A-runtime.md` |
@@ -188,7 +189,7 @@ Work packages (2.x) as planned on 2026-10-09; the "Wave" items come from `docs/r
 | 2.5 BaseMod split (dev tools → DevTools) / migrate BaseMod to generated SDK | split ☑ 2026-10-14 (3C); migration ☐ | `docs/reports/wave3/3C-mods.md` |
 | Wave 4 / 2.6 Libraries: C++20, ImGui 1.92.9b-docking, spdlog 1.17, nlohmann/json 3.12 | ☑ 2026-10-14, in-game test pending | `docs/reports/libraries.md` |
 | 2.7 ModManager | kept for later (decision 2026-10-09) | `Tools/ModManager/` |
-| 2.8 Documentation (README, Modding guide, architecture, game-patch how-to) | ☐ | `docs/guides/` |
+| 2.8 Documentation (README, Modding guide, architecture, game-patch how-to) | ☑ 2026-10-15 | `README.md`, `docs/ARCHITECTURE.md`, `docs/guides/{Modding,Installation,GamePatch}.md` |
 
 Target layers (2.2): Bootstrap (`Loader/Proxy`) → Platform (`src/Platform`: symbols, memory, hooks) → Engine
 (`src/Engine`: hand-written UE core) → Runtime (`src/Runtime`) → Mod system (`src/Mod`) → UI (`src/UI`).
