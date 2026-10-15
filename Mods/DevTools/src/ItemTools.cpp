@@ -22,6 +22,14 @@ namespace devtools {
 			std::vector<UE4::FName> items;          // DT_ListOfItems row names
 			std::vector<std::string> itemNames;
 			std::vector<std::string> ownershipNames; // E_Ownership display names (Player, Ownerless, Bandit, ...)
+			struct InventoryRow {
+				std::string id;
+				int32_t count = 0;
+				int32_t stacks = 0;
+				float condition = 0.0f;
+			};
+			std::vector<InventoryRow> inventory;     // snapshot of InventoryComponent::Inventory_New
+			bool inventoryLoaded = false;
 		};
 		ItemToolsState& State() {
 			static ItemToolsState state;
@@ -55,6 +63,49 @@ namespace devtools {
 			state.ownershipNames = std::move(ownershipNames);
 			state.loading = false;
 		}
+
+		// Game thread: snapshot of the player's inventory (generated member InventoryComponent::Inventory_New, read in
+		// place; nothing is copied out of or freed in engine memory).
+		void LoadInventory(UE4::AActor* player, const LogFn& log) {
+			std::vector<ItemToolsState::InventoryRow> rows;
+			auto* character = ::mdml::sdk::Cast<UE4::ABP_BaseCharacter_C>(player);
+			UE4::UInventoryComponent_C* inventory = character ? character->InventoryComponent : nullptr;
+			if (!inventory) {
+				if (log)
+					log("Inventory: the player has no InventoryComponent", true);
+			}
+			else {
+				UE4::NativeTMap<UE4::FName, UE4::FST_InventoryItemsArray> map(&inventory->Inventory_New);
+				for (int i = 0; i < map.Num(); i++) {
+					auto pair = map.GetPair(i);
+					ItemToolsState::InventoryRow row;
+					row.id = pair.Key.GetName();
+					for (int s = 0; s < pair.Value.Items.Num(); s++) {
+						const UE4::FST_ItemInventorys& stack = pair.Value.Items[s];
+						row.count += stack.Count;
+						row.condition = stack.Condition;
+						row.stacks++;
+					}
+					rows.push_back(std::move(row));
+				}
+			}
+			auto& state = State();
+			std::lock_guard<std::mutex> lock(state.mutex);
+			state.inventory = std::move(rows);
+			state.inventoryLoaded = true;
+		}
+	}
+
+	void DrawInventory(UE4::AActor* player, const LogFn& log) {
+		auto& state = State();
+		if (ImGui::Button("Read inventory") && player)
+			mdml::runtime::GameThread::Enqueue([player, log]() { LoadInventory(player, log); });
+		std::lock_guard<std::mutex> lock(state.mutex);
+		if (!state.inventoryLoaded)
+			return;
+		ImGui::Text("%d item type(s)", (int)state.inventory.size());
+		for (const auto& row : state.inventory)
+			ImGui::Text("%s: %d (%d stack(s), condition %.2f)", row.id.c_str(), row.count, row.stacks, row.condition);
 	}
 
 	void DrawItemTools(UE4::AActor* player, const LogFn& log) {

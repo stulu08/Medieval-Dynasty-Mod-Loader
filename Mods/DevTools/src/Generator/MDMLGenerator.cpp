@@ -169,6 +169,59 @@ namespace
 		return Name.substr(0, Prev);
 	}
 
+	/* Blueprint timeline variables of a class are named "<Timeline>_<Track>_<32 hex GUID>"
+	 * (BowStretch_Alpha_56CBF49D41F591109E6AC1B32B363B67, BowStretch__Direction_56CB...). Returns "BowStretch_Alpha" /
+	 * "BowStretch_Direction" (GUID removed, "__" collapsed), or Name unchanged when there is no GUID suffix. */
+	std::string StripClassMemberGuid(const std::string& Name)
+	{
+		const size_t Last = Name.find_last_of('_');
+		if (Last == std::string::npos || Last == 0 || Name.size() - Last - 1 != 32)
+			return Name;
+		for (size_t i = Last + 1; i < Name.size(); i++)
+		{
+			if (!std::isxdigit(static_cast<unsigned char>(Name[i])))
+				return Name;
+		}
+		std::string Out;
+		for (char c : Name.substr(0, Last))
+		{
+			if (c == '_' && !Out.empty() && Out.back() == '_')
+				continue;
+			Out += c;
+		}
+		while (!Out.empty() && Out.back() == '_')
+			Out.pop_back();
+		return Out.empty() ? Name : Out;
+	}
+
+	/* Short C++ names for the GUID-suffixed members of a class (key = Dumper-7's member name). A short name that would
+	 * collide with another member of the class or is a C++ keyword keeps the full name. */
+	std::unordered_map<std::string, std::string> ClassMemberShortNames(const MemberManager& Members)
+	{
+		std::unordered_map<std::string, std::string> Result;
+		std::unordered_map<std::string, int32> Count;
+		for (const PropertyWrapper& Member : Members.IterateMembers())
+		{
+			if (!Member.IsUnrealProperty())
+				continue;
+			const std::string Name = Member.GetName();
+			const std::string Short = StripClassMemberGuid(Name);
+			Count[Short]++;
+			if (Short != Name)
+				Result.emplace(Name, Short);
+		}
+		for (const FunctionWrapper& Func : Members.IterateFunctions())
+			Count[Func.GetName()]++; // a property and a function of one class cannot share a name
+		for (auto It = Result.begin(); It != Result.end(); )
+		{
+			if (Count[It->second] > 1 || IsCppKeyword(It->second) || It->second.starts_with("_mdml_"))
+				It = Result.erase(It);
+			else
+				++It;
+		}
+		return Result;
+	}
+
 	/* C++ member names for a Blueprint struct without the GUID suffixes, like the old LegacyExporter (owner request
 	 * 2026-10-15). Key = Dumper-7's member name. A short name that would collide (two members, a keyword, the struct's
 	 * own name or a name MDML_STRUCT declares) keeps its full name. Empty for every other struct. */
@@ -691,6 +744,20 @@ namespace
 		bool bWrotePublic = false;
 		auto EnsurePublic = [&]() { if (!bWrotePublic) { Out += "public:\n"; bWrotePublic = true; } };
 
+		/* Timeline GUID suffixes off (same /EHa guard as the struct names: a failure keeps the full names) */
+		std::unordered_map<std::string, std::string> ShortNames;
+		try
+		{
+			ShortNames = ClassMemberShortNames(Members);
+		}
+		catch (...)
+		{
+			ShortNames.clear();
+			const std::string Note = std::format("class {}: shortening the timeline member names failed, full names kept", Name);
+			std::cerr << "MDMLGenerator: " << Note << std::endl;
+			Stats.Notes.push_back(Note);
+		}
+
 		for (const PropertyWrapper& Member : Members.IterateMembers())
 		{
 			if (!Member.IsUnrealProperty())
@@ -698,7 +765,10 @@ namespace
 			EnsurePublic();
 
 			const UEProperty Property = Member.GetUnrealProperty();
-			const std::string MemberName = SafeMemberName(Member.GetName());
+			std::string MemberName = Member.GetName();
+			if (auto Short = ShortNames.find(MemberName); Short != ShortNames.end())
+				MemberName = Short->second;
+			MemberName = SafeMemberName(MemberName);
 			const std::string Raw = NarrowLiteral(Property.GetName());
 			const int32 Offset = Member.GetOffset();
 			const std::string Comment = std::format("{}({})({})", Hex(Offset), Hex(Member.GetSize()), Member.GetFlagsOrCustomComment());

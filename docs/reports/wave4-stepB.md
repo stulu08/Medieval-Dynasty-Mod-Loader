@@ -102,7 +102,9 @@ since the generator library has no MDML headers.
 
 ## Open points
 - `Tools/ModManager` (separate session) still special-cases BaseMod (load order sort, release zip, install defaults).
-- DevTools inventory list (`GetInventoryItems_BPI` fills an engine-allocated `TMap`) is still off.
-- `EnableCheatsMenu` (DevTools) can now be ported to the generated `UMD_CheatManager`.
+- Done later on 2026-10-15 (DevTools, needs the owner's test): inventory list (player tools → Player Character →
+  Inventory → "Read inventory", reads `UInventoryComponent_C::Inventory_New` in place on the game thread);
+  `EnableCheatsMenu=1` shows "Cheat menu" → "Open cheat menu", which calls the game's `PC_Player_C::CheatMenu()`
+  (experimental, may need `DevBuildFlags=1`); generator shortens Blueprint timeline member names (needs a regeneration).
 - `Config/NoOverwrite.ini` still lists the old BaseMod files (harmless).
 - The per-header compile check of the full output takes 1-2 h (idea: PCH mode in `compile_generated.py`).

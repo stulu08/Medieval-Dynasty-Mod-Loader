@@ -126,8 +126,8 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
 
 **Next (in order) — start here in a new session:**
 1. Owner in-game test of Wave 4 step B (deployed, checklist in `docs/reports/wave4-stepB.md`).
-2. Mods: DevTools follow-ups (generator: Timeline member GUID names; `EnableCheatsMenu` on the generated
-   `UMD_CheatManager`; inventory list). ModManager (separate session): drop the BaseMod special cases, SDG controls +
+2. Mods: DevTools follow-ups done 2026-10-15 (timeline member names, cheat menu button, inventory list; owner test +
+   one more regeneration open). ModManager (separate session): drop the BaseMod special cases, SDG controls +
    sortable load-order editor, move off the old INI parser.
 3. Phase 3: C# spike (`docs/design/csharp-scripting.md`); weapon mod idea ("Medieval Rampage") needs the bow classes,
    now in the generated SDK (`BP_HoldableItem_Bow.hpp`, `BP_MasterProjectile.hpp`).

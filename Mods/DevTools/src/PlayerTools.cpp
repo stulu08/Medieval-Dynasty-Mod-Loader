@@ -3,7 +3,8 @@
 #include "MDML/GameThread.h"
 #include "MDML/UI/Widgets.h"
 
-#include "Engine.hpp" // generated SDK: UGameplayStatics, AActor, UActorComponent, UDataTable
+#include "Engine.hpp"    // generated SDK: UGameplayStatics, AActor, UActorComponent, UDataTable
+#include "PC_Player.hpp" // APC_Player_C::CheatMenu
 
 namespace devtools {
 	namespace {
@@ -90,10 +91,8 @@ namespace devtools {
 	}
 
 	void PlayerTools::OnGameState() {
-		// The old GI "Cheats" flag no longer exists in 2.7.0.4 (cheats moved to UMD_CheatManager); writing the stale
-		// offset corrupted memory, so EnableCheatsMenu does nothing until the new SDK.
-		if (m_enableCheatsMenu)
-			m_log("EnableCheatsMenu is not supported with this game version yet (waiting for the new SDK)", true);
+		// The old GI "Cheats" flag no longer exists in 2.7.0.4 (writing its stale offset corrupted memory). Since Wave 4
+		// step B EnableCheatsMenu shows a button that calls the game's own PC_Player_C::CheatMenu() (see Draw).
 		{
 			std::lock_guard<std::mutex> lock(m_mutex);
 			m_player = nullptr;
@@ -123,6 +122,24 @@ namespace devtools {
 			ImGui::Separator();
 		}
 
+		if (m_enableCheatsMenu && ImGui::CollapsingHeader("Cheat menu")) {
+			// The game's own cheat menu (UI_CheatMenu), opened through PC_Player_C::CheatMenu (generated, layout-checked).
+			// The game may still refuse it in a shipping build: then also try DevBuildFlags=1.
+			if (ImGui::Button("Open cheat menu")) {
+				mdml::runtime::GameThread::Enqueue([this]() {
+					UE4::APlayerController* controller = UE4::UGameplayStatics::GetPlayerController(UE4::GetWorld(), 0);
+					auto* player = ::mdml::sdk::Cast<UE4::APC_Player_C>(controller);
+					if (!player) {
+						m_log("Cheat menu: no PC_Player controller (load a save first)", true);
+						return;
+					}
+					player->CheatMenu();
+					m_log("Cheat menu: PC_Player_C::CheatMenu called", false);
+				});
+			}
+			ImGui::Separator();
+		}
+
 		if (ImGui::TreeNodeEx("##PlayerCharacter", DEFAULT_TREE_NODE_FLAGS, "Player Character")) {
 			UE4::AActor* player;
 			std::vector<std::pair<std::string, std::string>> components;
@@ -140,6 +157,8 @@ namespace devtools {
 				}
 				if (ImGui::CollapsingHeader("Items"))
 					DrawItemTools(player, m_log);
+				if (ImGui::CollapsingHeader("Inventory"))
+					DrawInventory(player, m_log);
 
 				if (ImGui::TreeNodeEx("Components", DEFAULT_TREE_NODE_FLAGS)) {
 					if (ImGui::Button("List components")) {

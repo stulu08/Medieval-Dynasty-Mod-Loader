@@ -50,4 +50,6 @@ namespace devtools {
 	// ItemTools.cpp: give-item panel (render thread; the item list and the AddItemToInventory call run on the game
 	// thread). player = the player character found by PlayerTools (BP_PlayerCharacter_C), may be null.
 	void DrawItemTools(UE4::AActor* player, const LogFn& log);
+	// ItemTools.cpp: read-only inventory snapshot of the player (read on the game thread).
+	void DrawInventory(UE4::AActor* player, const LogFn& log);
 }

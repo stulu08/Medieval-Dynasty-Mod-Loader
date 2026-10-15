@@ -98,6 +98,9 @@ only static members: `StaticStruct()` (by path) and `ValidateLayout()` (live `Pr
 (`Hour_3_AEEFB5B84DEEE8C12F6A3182DE467E7D`); the generator emits `Hour` (owner request 2026-10-15, like the legacy
 exporter). A short name that would collide (two members, a C++ keyword, the struct's own name, `StaticStruct`/
 `ValidateLayout`) keeps its full name. Struct members are plain fields, so only the C++ name changes, not the layout.
+**Blueprint timeline variables** of classes (`<Timeline>_<Track>_<32 hex GUID>`, e.g.
+`BowStretch_Alpha_56CBF49D41F591109E6AC1B32B363B67`) lose the GUID and doubled underscores (`BowStretch_Alpha`,
+`BowStretch_Direction`) unless the short name collides with another member or function of the class.
 **Members named like a type** (Blueprints have e.g. a member `E_DailyCycle` of type `E_DailyCycle`; inside the class the
 member would hide the type → "not a type name") get a `_0` suffix (`E_DailyCycle_0`), in classes and structs. The
 accessor still looks the property up by its raw name.
