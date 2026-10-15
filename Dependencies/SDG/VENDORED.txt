@@ -1,0 +1,5 @@
+SDG (Stulu Desktop GUI), https://github.com/stulu08/SDG @3e1e202 (own project, Apache-2.0, LICENSE). Vendored, not a submodule.
+Used by Tools/ModManager only (GLFW + OpenGL + ImGui). Local changes:
+ - premake5.lua: ImGui include dirs of MDML's layout, outputs under the MDML workspace, defines LOADER_API= and IMGUI_DEFINE_MATH_OPERATORS
+ - includes: <misc/cpp/imgui_stdlib.h> -> <imgui_stdlib.h>, "backends/imgui_impl_*" -> "imgui_impl_*" (MDML's ImGui copy is flat)
+ - the two ImGuiBuild.cpp (compile of the imgui backends) removed: Dependencies/ImGui/ImGui.lua builds them

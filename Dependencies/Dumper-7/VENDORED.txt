@@ -1,0 +1,37 @@
+Dumper-7 (main, commit dd8fe34df8283378a1055386eee195005a100924, cloned 2026-10-09)
+https://github.com/Encryqed/Dumper-7
+Authors: Encryqed / Fischsalat and contributors.
+
+License / attribution
+--------------------
+Dumper-7 ships no license file. The maintainer (Fischsalat) allows use in open-source projects with proper
+attribution (https://github.com/Encryqed/Dumper-7/issues/416): "Usage of the Dumper-7 code for your open source
+project with proper attribution is not an issue at all." Rights stay with the authors (see also issue #492);
+commercial use only by arrangement with them. MDML is open source and non-commercial.
+Keep this file and the credit lines in DevTools/src/Generator/* when updating.
+
+What is vendored
+----------------
+Only the analysis part (reflection access, offset finder, managers, wrappers) of Dumper/ is copied, unmodified:
+  Dumper/Engine/**                     (ObjectArray, NameArray, UnrealObjects/Types/Containers, OffsetFinder)
+  Dumper/Platform/**                   (Windows/x86 platform helpers, pattern scanning)
+  Dumper/Generator/Public/{HashStringTable.h, PredefinedMembers.h, Generators/Generator.h, Managers/*, Wrappers/*}
+  Dumper/Generator/Private/{HashStringTable.cpp, Generators/Generator.cpp, Managers/*, Wrappers/*}
+  Dumper/Settings.h/.cpp, Dumper/TmpUtils.h
+  Dumper/Utils/{Utils.h, Encoding/*, Json/json.hpp}
+  README.md                            (upstream readme, for reference)
+Not vendored: main.cpp (DllMain), CppGenerator, MappingGenerator, IDAMappingGenerator, DumpspaceGenerator,
+SharedPredefinedMembers, Utils/Compression (zstd), Utils/Dumpspace, the upstream build files.
+
+Our own generator backend lives outside this folder: DevTools/src/Generator/MDMLGenerator.* (plugs into
+Generator::Generate<T>()), driven by DevTools/src/Generator/SdkGenerator.cpp (adapted from Dumper/main.cpp).
+
+Modifications
+-------------
+None. All sources are byte-identical to the commit above. Build settings (C++latest, warning suppressions) live in
+DevTools/premake5.lua (project "DevTools.Generator").
+
+Updating
+--------
+Copy the same file list from a newer Dumper-7 checkout, update the commit above, rebuild DevTools.Generator and run
+the offline compile test (Tests/SDKCompileTest, see docs/SDK_GENERATOR.md).

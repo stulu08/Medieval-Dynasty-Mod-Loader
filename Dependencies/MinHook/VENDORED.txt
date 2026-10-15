@@ -1,0 +1,4 @@
+MinHook v1.3.4 (tag c3fcafdc10146beb5919319d0683e44e3c30d537)
+https://github.com/TsudaKageyu/minhook
+Vendored sources (include/ + src/), built as the "MinHook" premake static-lib project (premake5.lua in this folder).
+

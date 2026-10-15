@@ -1,0 +1,154 @@
+#include "Core.h"
+#include "Dumper.h"
+#include "UE4.h"
+#include "Engine.hpp"
+#include "EngineAddresses.h"
+#include "EngineLayout.h"
+#include "MDML/Notices.h"
+#include "MDML/Paths.h"
+
+Dumper* Dumper::DumpRef;
+
+// Transient Info notice in the F1 window (mdml::runtime::Notices, also logged).
+static void PostDumpNotice(const std::string& text)
+{
+	mdml::runtime::Notices::Post(mdml::runtime::NoticeSeverity::Info, text);
+}
+
+// <MDML.dll folder>/Dump/<fileName>. Was the relative "Dump/" folder (process working directory, code inventory F8);
+// in the installed game both are Binaries/Win64/Dump.
+static std::filesystem::path DumpFile(const std::string& fileName)
+{
+	return mdml::runtime::GetLoaderFolder() / "Dump" / fileName;
+}
+
+static FILE* OpenDumpFile(const std::filesystem::path& path)
+{
+	FILE* file = nullptr;
+	if (_wfopen_s(&file, path.c_str(), L"w+") != 0)
+		file = nullptr;
+	return file;
+}
+
+Dumper* Dumper::GetDumper()
+{
+	if (!DumpRef)
+	{
+		DumpRef = new Dumper();
+	}
+	return DumpRef;
+}
+
+void Dumper::CreateDumpDir() {
+	std::error_code ec;
+	std::filesystem::create_directories(mdml::runtime::GetLoaderFolder() / "Dump", ec);
+}
+
+
+bool Dumper::DumpObjectArray()
+{
+	CreateDumpDir();
+	const std::filesystem::path Path = DumpFile("ObjectDump.txt");
+	FILE* Log = OpenDumpFile(Path);
+	if (UE4::UObject::GObjects != nullptr && Log != NULL)
+	{
+		UE4::UObject::ForEachObject([&](UE4::UObject* obj) {
+			fprintf(Log, "[%06i] %-100s 0x%p\n", obj->GetIndex(), obj->GetFullName().c_str(), obj);
+		});
+		fclose(Log);
+		PostDumpNotice("Object dump written to " + Path.string());
+		return true;
+	}
+	else
+	{
+		if (Log != NULL)
+			fclose(Log);
+		return false;
+	}
+}
+
+// Engine info for diagnostics: resolved global RVAs and the offsets the core uses (mdml::Layout), each marked whether
+// it still equals the PDB-checked constant. Before Wave 3D this wrote the [UObjectDef]/... profile sections of the
+// removed manual-offset mode; the format is now informational only (not meant to be pasted into an ini).
+bool Dumper::DumpEngineInfo()
+{
+	CreateDumpDir();
+	const std::filesystem::path Path = DumpFile("EngineInfo.txt");
+	FILE* Log = OpenDumpFile(Path);
+	if (Log == NULL)
+		return false;
+	const DWORD64 Base = (DWORD64)GetModuleHandleW(0);
+	auto Rva = [&](DWORD64 Address) { return Address ? Address - Base : 0; };
+	const mdml::EngineLayout& L = mdml::Layout;
+	const mdml::EngineLayout Constants;
+	auto Line = [&](const char* Name, uint16_t Value, uint16_t Constant) {
+		fprintf(Log, "%-40s 0x%04X%s\n", Name, Value, Value == Constant ? "" : "   (SCANNED, PDB constant differs)");
+	};
+	fprintf(Log, "# MDML engine info dump (offsets: Loader/ModLoader/src/Engine/EngineLayout.h)\n\n");
+	fprintf(Log, "[Globals] (RVA)\nGName   0x%llX\nGObject 0x%llX\nGWorld  0x%llX\n\n", Rva(mdml::Addresses.GName), Rva(mdml::Addresses.GObject), Rva(mdml::Addresses.GWorld));
+	fprintf(Log, "[Layout]\n");
+	Line("UObject.Index", L.UObject.Index, Constants.UObject.Index);
+	Line("UObject.Class", L.UObject.Class, Constants.UObject.Class);
+	Line("UObject.Name", L.UObject.Name, Constants.UObject.Name);
+	Line("UObject.Outer", L.UObject.Outer, Constants.UObject.Outer);
+	Line("UField.Next", L.UField.Next, Constants.UField.Next);
+	Line("UStruct.SuperStruct", L.UStruct.SuperStruct, Constants.UStruct.SuperStruct);
+	Line("UStruct.Children", L.UStruct.Children, Constants.UStruct.Children);
+	Line("UStruct.ChildProperties", L.UStruct.ChildProperties, Constants.UStruct.ChildProperties);
+	Line("UStruct.PropertiesSize", L.UStruct.PropertiesSize, Constants.UStruct.PropertiesSize);
+	Line("UEnum.CppType", L.UEnum.CppType, Constants.UEnum.CppType);
+	Line("UEnum.Names", L.UEnum.Names, Constants.UEnum.Names);
+	Line("UEnum.CppForm", L.UEnum.CppForm, Constants.UEnum.CppForm);
+	Line("UEnum.Flags", L.UEnum.Flags, Constants.UEnum.Flags);
+	Line("UEnum.DisplayNameFn", L.UEnum.DisplayNameFn, Constants.UEnum.DisplayNameFn);
+	Line("UUserDefinedEnum.DisplayNameMap", L.UEnum.UserDefDisplayNameMap, Constants.UEnum.UserDefDisplayNameMap);
+	Line("UFunction.FunctionFlags", L.UFunction.FunctionFlags, Constants.UFunction.FunctionFlags);
+	Line("UFunction.NumParms", L.UFunction.NumParams, Constants.UFunction.NumParams);
+	Line("UFunction.ParmsSize", L.UFunction.ParamsSize, Constants.UFunction.ParamsSize);
+	Line("UFunction.ReturnValueOffset", L.UFunction.ReturnValueOffset, Constants.UFunction.ReturnValueOffset);
+	Line("UFunction.Func", L.UFunction.Func, Constants.UFunction.Func);
+	Line("FField.ClassPrivate", L.FField.ClassPrivate, Constants.FField.ClassPrivate);
+	Line("FField.Next", L.FField.Next, Constants.FField.Next);
+	Line("FField.Name", L.FField.Name, Constants.FField.Name);
+	Line("FFieldClass.Name", L.FFieldClass.Name, Constants.FFieldClass.Name);
+	Line("FFieldClass.Id", L.FFieldClass.ID, Constants.FFieldClass.ID);
+	Line("FFieldClass.CastFlags", L.FFieldClass.CastFlags, Constants.FFieldClass.CastFlags);
+	Line("FFieldClass.SuperClass", L.FFieldClass.SuperClass, Constants.FFieldClass.SuperClass);
+	Line("FProperty.ArrayDim", L.Property.ArrayDim, Constants.Property.ArrayDim);
+	Line("FProperty.ElementSize", L.Property.ElementSize, Constants.Property.ElementSize);
+	Line("FProperty.PropertyFlags", L.Property.Flags, Constants.Property.Flags);
+	Line("FProperty.Offset_Internal", L.Property.Offset, Constants.Property.Offset);
+	Line("FObjectPropertyBase.PropertyClass", L.ObjectPropertyBase.PropertyClass, Constants.ObjectPropertyBase.PropertyClass);
+	fclose(Log);
+	PostDumpNotice("Engine info dump written to " + Path.string());
+	return true;
+}
+
+bool Dumper::DumpWorldActors()
+{
+	CreateDumpDir();
+	const std::filesystem::path Path = DumpFile(UE4::UGameplayStatics::GetCurrentLevelName(UE4::GetWorld(), false).ToString() + "_Dump.txt");
+	FILE* Log = OpenDumpFile(Path);
+	if (Log == NULL)
+		return false;
+	auto actors = UE4::UObject::GetAllObjectsOfType<UE4::AActor>(UE4::AActor::StaticClass(), true);
+	for (size_t i = 0; i < actors.size(); i++)
+	{
+		auto actor = actors[i];
+		if (actor->GetOuter()->GetClass() == UE4::ULevel::StaticClass())
+		{
+			auto Location = actor->K2_GetActorLocation();
+			auto Rotation = actor->K2_GetActorRotation();
+			auto Scale = actor->GetActorScale3D();
+			fprintf(Log, "ActorName: %s\n", actor->GetName().c_str());
+			fprintf(Log, "ClassName: %s\n", actor->GetClass()->GetName().c_str());
+			fprintf(Log, "Location: %f, %f, %f\n", Location.X, Location.Y, Location.Z);
+			fprintf(Log, "Rotation: %f, %f, %f\n", Rotation.Pitch, Rotation.Roll, Rotation.Yaw);
+			fprintf(Log, "Scale: %f, %f, %f\n", Scale.X, Scale.Y, Scale.Z);
+			fprintf(Log, "\n");
+		}
+	}
+	fclose(Log);
+	PostDumpNotice("World actors dump written to " + Path.string());
+	return true;
+}

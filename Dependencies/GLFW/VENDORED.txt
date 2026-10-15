@@ -1,0 +1,3 @@
+GLFW, https://github.com/stulu08/GLFW (owner's fork, git describe 3.2.1-1019-gb7b0f850). zlib/libpng license (LICENSE.md). Vendored, not a submodule.
+Used by Tools/ModManager through SDG. The header says 3.4.0 but the snapshot has no glfwGetPlatform: see
+Dependencies/ImGui/backends/imgui_impl_glfw_compat.cpp. Unmodified.

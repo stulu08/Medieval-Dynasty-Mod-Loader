@@ -1,0 +1,14 @@
+Vendored third-party sources for the Lua scripting spike (Loader/Scripting/). Unmodified copy.
+
+Lua 5.4.9 (PUC-Rio), MIT license
+   Source:   https://www.lua.org/ftp/lua-5.4.9.tar.gz (released 2026-08-10)
+   SHA-256:  2335b6c582a52654f94612bf10d2f4672805d05329aa6568b1d8cd9e5c6fb8e6 (matches the lua.org download page)
+   Copied:   src/*.c, src/*.h, src/lua.hpp, README. Not copied: Makefiles, doc/.
+             lua.c (standalone interpreter) and luac.c (compiler) are present but excluded from the build in Scripting.lua.
+   License:  LICENSE.txt (text from the end of src/lua.h)
+   Build:    premake StaticLib "Lua", compiled AS C++ (lua_error -> C++ exception instead of longjmp, see
+             docs/design/lua-scripting.md 2.3). Consumers must define SOL_USING_CXX_LUA=1 and must not wrap the
+             Lua headers in extern "C".
+
+Update procedure: replace the folder with the new upstream files, update versions/hashes here and the paths in
+Loader/Scripting/Scripting.lua, rebuild and run the spike (Loader/Scripting/README.md).

@@ -1,0 +1,24 @@
+mINI v0.9.20 (tag 0.9.20, commit d882d7f4a42991fb3e4635eda8e8777e5b3cd153, cloned 2026-10-13)
+https://github.com/metayeti/mINI
+Author: Danijel Durakovic. License: MIT (LICENSE in this folder).
+
+What is vendored
+----------------
+  mini/ini.h    upstream src/mini/ini.h (header-only, the whole library)
+  LICENSE       upstream LICENSE
+Not vendored: tests/, CMakeLists.txt, README.md, CHANGELOG.md, icon.png.
+
+Modifications
+-------------
+None. ini.h is byte-identical to the tag above (line endings may be normalized by git).
+
+How MDML uses it
+----------------
+Only through the wrapper mdml::platform::IniFile (Loader/ModLoader/src/Platform/IniFile.h/.cpp). ini.h is included in
+IniFile.cpp only, with MINI_CASE_SENSITIVE defined: the wrapper does its own case handling (exact match first, then
+case-insensitive), so names keep the case they were written with when a file is saved. Mods never include ini.h.
+
+Updating
+--------
+Copy src/mini/ini.h and LICENSE from a newer tag, update the version/commit above, rebuild, and re-check the behaviour
+notes in docs/reports/wave3/3A-runtime.md ("INI wrapper"): comment syntax, keys outside sections, lazy write.

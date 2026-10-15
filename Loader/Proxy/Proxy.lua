@@ -1,0 +1,49 @@
+project "Proxy"
+	kind "SharedLib"
+	language "C++"
+	cppdialect "C++20"
+	staticruntime "off"
+	targetname ("xinput1_3");
+	targetdir ("bin/" .. outputdir)
+	DeployTo("ModLoader") -- the xinput1_3.dll proxy ships with the loader
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	
+	defines
+	{
+		"NDEBUG",
+		"LOADERAUTOINJECTOR_EXPORTS",
+		"_WINDOWS",
+		"_USRDLL",
+		"_CRT_SECURE_NO_WARNINGS"
+	}
+	files
+	{
+		"xinput1_3/xinput1_3.cpp",
+		"xinput1_3/xinput1_3.def",
+		"xinput1_3/xinput1_3_asm.asm",
+		"Loader/**.cpp",
+		"Loader/**.h"
+	}
+	libdirs 
+	{
+		
+	}
+	includedirs
+	{
+		
+	}
+	postbuildcommands {
+		
+	}
+	links
+	{
+		
+	}
+	filter "system:windows"
+		systemversion "latest"
+
+	filter "configurations:Release"
+		defines "ST_RELEASE"
+		runtime "Release"
+		symbols "on"
+		optimize "speed"

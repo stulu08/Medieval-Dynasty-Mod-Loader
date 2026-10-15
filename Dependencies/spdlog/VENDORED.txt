@@ -1,0 +1,4 @@
+spdlog v1.17.0 (bundled fmt 12.1.0)
+https://github.com/gabime/spdlog/releases/tag/v1.17.0
+Vendored: include/spdlog/ -> spdlog/ (header-only, unmodified), LICENSE (MIT; fmt's license is in spdlog/fmt/bundled/).
+Updated from a 1.8.5-era master snapshot (fmt 8.0.0) in Wave 4 (2026-10-14).
