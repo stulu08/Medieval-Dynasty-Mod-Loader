@@ -106,21 +106,15 @@ namespace mdml::mods::LoadOrder
 		return ss.str();
 	}
 
-	// A folder is a mod if it has a mod.ini or the default <folder>/<folder>.dll; loose dlls in Content/Mods are named by their file stem.
+	// A folder is a mod if it has a mod.ini (mod-components phase 1: no more default <folder>/<folder>.dll and no loose dlls).
 	static std::vector<std::string> ScanMods(const std::filesystem::path& modsFolder) {
 		std::vector<std::string> found;
 		std::error_code ec;
 		for (std::filesystem::directory_iterator it(modsFolder, ec); !ec && it != std::filesystem::directory_iterator(); it.increment(ec)) {
 			const auto& entry = *it;
 			std::error_code ec2;
-			if (entry.is_directory(ec2)) {
-				auto dirName = entry.path().filename().string();
-				if (std::filesystem::exists(entry.path() / "mod.ini", ec2) || std::filesystem::exists(entry.path() / (dirName + ".dll"), ec2))
-					found.push_back(dirName);
-			}
-			else if (entry.path().extension() == ".dll") {
-				found.push_back(entry.path().stem().string());
-			}
+			if (entry.is_directory(ec2) && std::filesystem::exists(entry.path() / "mod.ini", ec2))
+				found.push_back(entry.path().filename().string());
 		}
 		return found;
 	}

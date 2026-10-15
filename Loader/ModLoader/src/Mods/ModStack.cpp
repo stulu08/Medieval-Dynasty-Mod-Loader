@@ -1,6 +1,6 @@
 #include "Core.h"
 #include "ModStack.h"
-#include "MDML/Mod.h"
+#include "MDML/CoreMod.h"
 
 #include <mutex>
 
@@ -67,14 +67,14 @@ void ModStack::applyOrDefer(std::function<void()> change) {
     change();
 }
 
-void ModStack::pushMod(Mod* mod) {
+void ModStack::pushMod(CoreMod* mod) {
     applyOrDefer([this, mod]() {
         m_mods.emplace(m_mods.begin() + m_insertIndex, mod);
         m_insertIndex++;
     });
 }
 
-void ModStack::popMod(Mod* mod) {
+void ModStack::popMod(CoreMod* mod) {
     applyOrDefer([this, mod]() {
         auto it = std::find(m_mods.begin(), m_mods.begin() + m_insertIndex, mod);
         if (it != m_mods.begin() + m_insertIndex) {
@@ -90,7 +90,7 @@ void ModStack::registerEvent(Event* event) {
     applyOrDefer([this, event]() { m_eventList[event->getName()].push_back(event); });
 }
 
-void ModStack::clearModEvents(const std::string& eventName, Mod* mod) {
+void ModStack::clearModEvents(const std::string& eventName, CoreMod* mod) {
     if (mod == nullptr || eventName.empty())
         return;
     applyOrDefer([this, eventName, mod]() {
@@ -107,12 +107,12 @@ void ModStack::clearModEvents(const std::string& eventName, Mod* mod) {
     });
 }
 
-bool ModStack::containsLocked(Mod* mod) const {
+bool ModStack::containsLocked(CoreMod* mod) const {
     auto end = m_mods.begin() + m_insertIndex;
     return std::find(m_mods.begin(), end, mod) != end;
 }
 
-bool ModStack::contains(Mod* mod) const {
+bool ModStack::contains(CoreMod* mod) const {
     if (IsDispatching(this))
         return containsLocked(mod); // this thread already holds the shared lock
     std::shared_lock<std::shared_mutex> lock(m_mutex);
@@ -126,17 +126,17 @@ size_t ModStack::size() const {
     return m_insertIndex;
 }
 
-void ModStack::forEach(const std::function<void(Mod*)>& fn) {
+void ModStack::forEach(const std::function<void(CoreMod*)>& fn) {
     DispatchScope scope(*this);
     // Safe to iterate: changes are deferred while this thread is inside the scope.
     for (uint32_t i = 0; i < m_insertIndex; i++)
         fn(m_mods[i]);
 }
 
-Mod* ModStack::find(const std::string& name) const {
-    auto findLocked = [this, &name]() -> Mod* {
+CoreMod* ModStack::find(const std::string& name) const {
+    auto findLocked = [this, &name]() -> CoreMod* {
         for (uint32_t i = 0; i < m_insertIndex; i++)
-            if (m_mods[i]->ModName == name)
+            if (m_mods[i]->GetName() == name)
                 return m_mods[i];
         return nullptr;
     };
@@ -146,7 +146,7 @@ Mod* ModStack::find(const std::string& name) const {
     return findLocked();
 }
 
-void ModStack::moveToFront(Mod* mod) {
+void ModStack::moveToFront(CoreMod* mod) {
     applyOrDefer([this, mod]() {
         auto end = m_mods.begin() + m_insertIndex;
         auto it = std::find(m_mods.begin(), end, mod);

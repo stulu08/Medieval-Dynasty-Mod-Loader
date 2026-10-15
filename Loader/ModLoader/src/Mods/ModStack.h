@@ -8,9 +8,10 @@
 #include <shared_mutex>
 
 #include "MDML/Log.h"
+#include "MDML/CoreMod.h"
 
 
-class Mod;
+class CoreMod;
 
 class Event {
 public:
@@ -26,22 +27,22 @@ class ModEvent : public Event
 public:
     using event_callback = std::function<bool(args...)>;
 
-    explicit ModEvent(Mod* mod, const std::string& name, const event_callback& cb) : m_name(name), m_mod(mod), m_callback(cb) {}
+    explicit ModEvent(CoreMod* mod, const std::string& name, const event_callback& cb) : m_name(name), m_mod(mod), m_callback(cb) {}
     ~ModEvent() override {}
 
     bool dispatch(args... a) { return m_callback(a...); }
 
     virtual const std::string& getName() const override { return this->m_name; }
     virtual const void* getData() const override { return this->m_mod; }
-    virtual Mod* getMod() { return this->m_mod; }
+    virtual CoreMod* getMod() { return this->m_mod; }
 private:
-    Mod* m_mod;
+    CoreMod* m_mod;
     std::string m_name;
     const event_callback m_callback;
 };
 
 
-// The core mods (load order) and their event handlers.
+// The core components (load order) and their event handlers.
 //
 // Thread safety (Wave 3E, owner decision 2026-10-14 "dispatch shared, registration exclusive"):
 // - callEvent holds m_mutex SHARED for the whole dispatch, so the game thread (InitGameState/BeginPlay/Tick/
@@ -67,17 +68,17 @@ public:
     ModStack(const ModStack&) = delete;
     ModStack& operator=(const ModStack&) = delete;
 
-    void push_back(Mod* mod) { pushMod(mod); }
-    void pushMod(Mod* mod);
-    void popMod(Mod* mod);
+    void push_back(CoreMod* mod) { pushMod(mod); }
+    void pushMod(CoreMod* mod);
+    void popMod(CoreMod* mod);
 
     size_t size() const;
     // Calls fn for every mod in load order under the shared lock (see above).
-    void forEach(const std::function<void(Mod*)>& fn);
-    // The mod with this ModName, or null.
-    Mod* find(const std::string& name) const;
+    void forEach(const std::function<void(CoreMod*)>& fn);
+    // The mod with this name (Mod::Info().Name), or null.
+    CoreMod* find(const std::string& name) const;
     // Moves the mod to index 0 (applied now, or deferred while this thread dispatches).
-    void moveToFront(Mod* mod);
+    void moveToFront(CoreMod* mod);
 
     template <typename ..._args>
     void callEvent(const std::string& eventName, _args...a) {
@@ -98,28 +99,28 @@ public:
                         break;//event was handled if returned true
                 }
                 catch (std::exception& ex) {
-                    Log::Error_MDML("Exception thrown in {0} from mod {1}: {2}", event->getName(), event->getMod()->ModName, ex.what());
-                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->ModName);
+                    Log::Error_MDML("Exception thrown in {0} from mod {1}: {2}", event->getName(), event->getMod()->GetName(), ex.what());
+                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->GetName());
                     this->popMod(event->getMod());
                 }
                 catch (int code) {
-                    Log::Error_MDML("Exception thrown in {0} from mod {1}, exception code: {2}", event->getName(), event->getMod()->ModName, code);
-                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->ModName);
+                    Log::Error_MDML("Exception thrown in {0} from mod {1}, exception code: {2}", event->getName(), event->getMod()->GetName(), code);
+                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->GetName());
                     this->popMod(event->getMod());
                 }
                 catch (const char* str) {
-                    Log::Error_MDML("Exception thrown in {0} from mod {1}: {2}", event->getName(), event->getMod()->ModName, str);
-                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->ModName);
+                    Log::Error_MDML("Exception thrown in {0} from mod {1}: {2}", event->getName(), event->getMod()->GetName(), str);
+                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->GetName());
                     this->popMod(event->getMod());
                 }
                 catch (std::string str) {
-                    Log::Error_MDML("Exception thrown in {0} from mod {1}: {2}", event->getName(), event->getMod()->ModName, str);
-                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->ModName);
+                    Log::Error_MDML("Exception thrown in {0} from mod {1}: {2}", event->getName(), event->getMod()->GetName(), str);
+                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->GetName());
                     this->popMod(event->getMod());
                 }
                 catch (...) {
-                    Log::Error_MDML("Exception thrown in {0} from mod {1}", event->getName(), event->getMod()->ModName);
-                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->ModName);
+                    Log::Error_MDML("Exception thrown in {0} from mod {1}", event->getName(), event->getMod()->GetName());
+                    Log::Warn_MDML("Removing mod {0} from modstack", event->getMod()->GetName());
                     this->popMod(event->getMod());
                 }
             }
@@ -128,9 +129,9 @@ public:
     // Takes ownership of the event (deleted when it is unregistered again).
     void registerEvent(Event* event);
     // Unregisters (and deletes) the mod's handler for eventName (Mod::SetupHooks calls it before registering again).
-    void clearModEvents(const std::string& eventName, Mod* mod);
+    void clearModEvents(const std::string& eventName, CoreMod* mod);
     // True while the mod is in the stack (not popped after an exception).
-    bool contains(Mod* mod) const;
+    bool contains(CoreMod* mod) const;
 private:
     // RAII around one callEvent: the outermost dispatch on a thread takes m_mutex shared; the end of it releases the
     // lock and applies the changes this thread deferred meanwhile (exclusive).
@@ -146,10 +147,10 @@ private:
     // Runs `change` under the exclusive lock now, or defers it if this thread is inside callEvent.
     void applyOrDefer(std::function<void()> change);
     // Caller holds m_mutex (either mode).
-    bool containsLocked(Mod* mod) const;
+    bool containsLocked(CoreMod* mod) const;
 
     std::map<std::string, std::vector<Event*>> m_eventList;
-    std::vector<Mod*> m_mods;
+    std::vector<CoreMod*> m_mods;
     uint32_t m_insertIndex = 0;
     mutable std::shared_mutex m_mutex;
 };

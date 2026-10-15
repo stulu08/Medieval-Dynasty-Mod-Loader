@@ -5,8 +5,9 @@
 //   MDML/Core.h          export macros, Ref, LogLevel, standard + Windows headers
 //   MDML/Version.h       MODLOADER_VERSION, MEDIEVAL_VERSION
 //   MDML/Log.h           Logger, Log
-//   MDML/Mod.h           class Mod (events), EventsEnabled presets
-//   MDML/Mods.h          the core mod list (ForEachMod, FindMod, MoveToFront), REGISTER_FUNCTION
+//   MDML/CoreMod.h       class CoreMod (the DLL base class: OnLoad, events), EventsEnabled presets, MDML_MOD entry point
+//   MDML/Mod.h           class Mod (one per mod folder) with its Core / Blueprint / Overwrite components, ModContext
+//   MDML/Mods.h          the mod list (ForEachMod, FindMod, MoveToFront), REGISTER_FUNCTION
 //   MDML/Hooks.h         function hooks (mdml::platform::Hooks)
 //   MDML/IniFile.h       INI files (mdml::platform::IniFile)
 //   MDML/GameThread.h    run code on the game thread (mdml::runtime::GameThread)
@@ -20,6 +21,7 @@
 //   MDML/GameMod.h       class GameMod (Medieval Dynasty game states, player, managers, mod.ini helpers)
 #include "MDML/Core.h"
 #include "MDML/Log.h"
+#include "MDML/CoreMod.h"
 #include "MDML/Mod.h"
 #include "MDML/Mods.h"
 #include "MDML/Hooks.h"

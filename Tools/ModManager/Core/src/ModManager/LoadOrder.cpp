@@ -7,7 +7,7 @@ namespace mm {
 	const char* LoadOrder::DefaultHeader() {
 		return "; MDML load order (top = first)\n"
 			"; Name = 1 (enabled) / 0 (disabled), Name = mod folder under Content/Mods\n"
-			"; New mods are appended automatically. BaseMod is always loaded first.\n";
+			"; New mods are appended automatically (alphabetically).\n";
 	}
 
 	bool LoadOrder::Load(const fs::path& path) {
@@ -79,7 +79,6 @@ namespace mm {
 		for (const auto& n : installed)
 			if (IndexOf(n) < 0) missing.push_back(n);
 		std::sort(missing.begin(), missing.end(), [](const std::string& a, const std::string& b) {
-			if (IEquals(a, "BaseMod") != IEquals(b, "BaseMod")) return IEquals(a, "BaseMod");
 			return Lower(a) < Lower(b);
 		});
 		for (const auto& n : missing) {

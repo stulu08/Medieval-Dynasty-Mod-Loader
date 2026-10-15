@@ -69,4 +69,6 @@ include "Mods/DevTools/DevTools.lua"
 -- offline compile test of the SDK generator output (Tests/SDKCompileTest, plan 2.4); its DLL goes to Output/Tests
 group "Tests"
 include "Tests/SDKCompileTest/SDKCompileTest.lua"
+-- test mod for the mod model (Core + Overwrite); deploys to Output/Tests/OverwriteTest, NOT into the installable package
+include "Tests/OverwriteTest/OverwriteTest.lua"
 group ""

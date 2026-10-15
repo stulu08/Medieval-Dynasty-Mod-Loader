@@ -52,6 +52,7 @@ ProjectDir = {}
 ProjectDir["DevTools"] = "%{wks.location}/Mods/DevTools"
 ProjectDir["TimeWeatherChanger"] = "%{wks.location}/Mods/Examples/TimeWeatherChanger"
 ProjectDir["PresetMod"] = "%{wks.location}/Mods/Examples/PresetMod"
+ProjectDir["OverwriteTest"] = "%{wks.location}/Tests/OverwriteTest"
 ProjectDir["Injector"] = "%{wks.location}/Loader/Proxy"
 ProjectDir["Loader"] = "%{wks.location}/Loader/ModLoader"
 

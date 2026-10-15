@@ -6,7 +6,6 @@
 #include <spdlog/fmt/ostr.h>
 #include <spdlog/sinks/basic_file_sink.h>
 
-class LOADER_API Mod;
 class LOADER_API Logger {
 public:
 	//File + Console

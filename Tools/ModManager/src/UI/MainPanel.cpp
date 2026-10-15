@@ -315,8 +315,6 @@ namespace mmui {
 				else if (!info->description.empty()) {
 					ImGui::TextDisabled("%s", info->description.c_str());
 				}
-				if (IEquals(e.name, "BaseMod") && ImGui::IsItemHovered())
-					ImGui::SetTooltip("BaseMod is always loaded first.");
 
 				ImGui::TableNextColumn();
 				if (info) ImGui::TextUnformatted(DescribeKinds(*info).c_str());
@@ -400,7 +398,6 @@ namespace mmui {
 					m_configs.push_back({ e.path(), "Loader: " + PathToUtf8(e.path().filename()) });
 		}
 		for (const auto& m : s.mods) {
-			if (m.looseDll) continue;
 			for (const auto& e : fs::directory_iterator(m.path, ec))
 				if (e.is_regular_file(ec) && Lower(PathToUtf8(e.path().extension())) == ".ini")
 					m_configs.push_back({ e.path(), m.name + ": " + PathToUtf8(e.path().filename()) });

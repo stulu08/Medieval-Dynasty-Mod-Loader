@@ -2,7 +2,9 @@
 #include "Layer.h"
 #include "GraphicsContext.h"
 #include "Panel.h"
+#ifndef IMGUI_DEFINE_MATH_OPERATORS // also set on the SDG project command line (SDG/premake5.lua)
 #define IMGUI_DEFINE_MATH_OPERATORS
+#endif
 #include <imgui.h>
 #include <imgui_internal.h>
 #include <imgui_stdlib.h>

@@ -2,7 +2,7 @@
 #include "GameHooks.h"
 
 #include "Mods/Registry.h"
-#include "Mods/CoreModLoader.h"
+#include "Mods/ModLoading.h"
 #include "Mods/LogicMods.h"
 #include "UI/ImGuiHost.h"
 #include "MDML/Hooks.h"
@@ -70,6 +70,14 @@ namespace mdml::runtime {
 			return origInitGameState(Ret);
 		}
 
+		// FEngineLoop::Exit runs once on the game thread when the game quits, before GEngine->PreExit(); UObjects are alive.
+		void (*origEngineExit)(void*);
+		void hookEngineExit(void* thisPtr)
+		{
+			mods::UnloadCoreMods();
+			origEngineExit(thisPtr);
+		}
+
 		PVOID(*origBeginPlay)(UE4::AActor*);
 		PVOID hookBeginPlay(UE4::AActor* Actor)
 		{
@@ -89,6 +97,10 @@ namespace mdml::runtime {
 		platform::Hooks::Add(mdml::Addresses.GameStateInit, &hookInitGameState, &origInitGameState, "AGameModeBase::InitGameState");
 		platform::Hooks::Add(mdml::Addresses.BeginPlay, &hookBeginPlay, &origBeginPlay, "AActor::BeginPlay");
 		platform::Hooks::Add(mdml::Addresses.Tick, &hookTick, &origTick, "UWorld::Tick");
+		if (mdml::Addresses.EngineExit)
+			platform::Hooks::Add(mdml::Addresses.EngineExit, &hookEngineExit, &origEngineExit, "FEngineLoop::Exit");
+		else
+			Log::Warn_MDML("No FEngineLoop::Exit hook: CoreMod::OnUnload will not be called");
 	}
 	void InstallScriptFunctionHook() {
 		platform::Hooks::Add(mdml::Addresses.ProcessInternals, &hookProcessFunction, &origProcessFunction, "ProcessBlueprintFunctions");

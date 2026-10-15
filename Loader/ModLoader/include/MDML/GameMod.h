@@ -1,5 +1,5 @@
 #pragma once
-// GameMod: Mod with Medieval Dynasty specifics (Wave 4 step B; was BaseMod's GameMod, BaseMod.dll is gone).
+// GameMod: CoreMod with Medieval Dynasty specifics (Wave 4 step B; was BaseMod's GameMod, BaseMod.dll is gone).
 // Splits the engine events by the game's state (menu / loading / in game), keeps the player and the game framework
 // objects and reads/writes the mod's own mod.ini.
 //
@@ -7,7 +7,7 @@
 // members, e.g. "BP_PlayerCharacter.hpp" for ABP_PlayerCharacter_C, "BP_TimeManager.hpp" for ABP_TimeManager_C,
 // "Medieval_Dynasty.hpp" for EMD_GameState (docs/SDK_GENERATOR.md). The objects are found by reflection (class and
 // property names), so GameMod itself keeps working when a game patch moves members.
-#include "MDML/Mod.h"
+#include "MDML/CoreMod.h"
 #include "MDML/IniFile.h"
 #include "MDML/Log.h"
 
@@ -29,15 +29,8 @@ namespace UE4 {
 	class ABP_POI_Manager_C;
 }
 
-class LOADER_API GameMod : public ::Mod {
+class LOADER_API GameMod : public ::CoreMod {
 public:
-	GameMod(HMODULE handle = nullptr) {
-		ModLoaderVersion = MODLOADER_VERSION;
-		MedievalModLoaderVersion = MEDIEVAL_VERSION;
-		CreateLogger = true;
-		LogToFile = true;
-		hModule = handle;
-	}
 
 	// When your mod gets initialized
 	virtual void OnModInitialize() {}

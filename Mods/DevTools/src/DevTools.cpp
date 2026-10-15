@@ -40,19 +40,9 @@ namespace devtools {
 		}
 	}
 
-	DevToolsMod::DevToolsMod(HMODULE Handle) {
-		ModName = "DevTools";
-		ModVersion = "0.1.0";
-		ModDescription = "MDML developer tools: SDK generator (Dumper-7 analysis + MDML backend)";
-		ModAuthors = "Stulu";
-		ModLoaderVersion = MODLOADER_VERSION;
-		MedievalModLoaderVersion = MEDIEVAL_VERSION;
-		CreateLogger = true;
-		LogToFile = true;
-		UseMenuButton = true;
-		hModule = Handle;
+	DevToolsMod::DevToolsMod() {
+		// Name, version, author and the menu button come from mod.ini ([Mod], [Core] MenuButton=1).
 		s_instance = this;
-		CompleteModCreation();
 	}
 
 	void DevToolsMod::InitializeMod() {
@@ -103,7 +93,7 @@ namespace devtools {
 	}
 
 	void DevToolsMod::RescanExportLists() {
-		m_exportLists = FindExportLists(::Mod::GetModsFolder());
+		m_exportLists = FindExportLists(::CoreMod::GetModsFolder());
 		m_exportListSelected.assign(m_exportLists.size(), false);
 	}
 

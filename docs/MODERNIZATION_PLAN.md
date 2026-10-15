@@ -13,6 +13,22 @@ Status legend: ☐ todo · ◐ in progress · ☑ done
 ## Current state — READ THIS FIRST (updated 2026-10-15)
 Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
 
+- **Mod components, phase 1 follow-ups (owner answers, 2026-10-15, working tree, pending owner test):** `CoreMod::OnUnload` is now called at game exit
+  from a hook on `FEngineLoop::Exit` (PDB name `?Exit@FEngineLoop@@QEAAXXZ`; reverse load order, exception-safe, once; missing symbol = warning), a failed core drops
+  the **whole mod** (F1 shows `[FAILED]`), the test mod lives in `Tests/OverwriteTest` (builds to `Output/Tests/OverwriteTest`), `Tools/ModManager` (`ModScanner` + tests)
+  reads `[Mod]`/`[Core]`/`[Blueprint]`/`[Overwrite]`. Full rebuild 0 warnings/0 errors (also fixed a C4005 in `Dependencies/SDG` that only a full rebuild shows),
+  `ModManagerTests` green. Level end is not unload (becomes an `MD.*` world event in phase 2). In-game checklist item 8 (quit -> each core logs `OnUnload`) in the report.
+  Left for the owner: `State.cpp` release-zip / default selection still special-case a mod named BaseMod (which no longer exists), decide what ships in a release zip.
+- **Mod components, phase 1 ("Mod model") done in the working tree 2026-10-15, pending owner test** (not committed, not deployed;
+  design `docs/design/mod-components.md`, report + in-game checklist `docs/reports/mod-components-phase1.md`). One `Mod` per mod folder
+  with nullable `Core`/`Blueprint`/`Overwrite` components declared in `mod.ini` (`[Mod]`, `[Core]`, `[Blueprint]`, `[Overwrite]`);
+  the DLL base class `Mod` is now `CoreMod` (`MDML/CoreMod.h`, `GameMod` derives from it) with the `MDML_MOD(Class)` entry point
+  (no `DllMain`/`CompleteModCreation`); load phases 0-3 (scan, core `OnLoad(ModContext&)`, overwrite links, Blueprint registration);
+  `ModContext` (`AddOverwriteFile`/`RemoveOverwriteFile`/`EditBlueprint`). DevTools + examples ported, new test mod
+  `Tests/OverwriteTest` (Core + Overwrite, adds a file in `OnLoad`). The old event mechanism is unchanged (phase 2 replaces it).
+  Build: full solution 0 warnings, 0 errors. Old `mod.ini` sections are gone: the game copy of DevTools' `mod.ini` must be replaced
+  by the new one. The 7 phase 1 questions (design section 11) are answered.
+
 - **Wave 4 in progress** (2026-10-14), libraries done, **in-game test passed** 2026-10-14 (owner; themes not
   checked visually). Logs: "Loader config: …", "Hooks initialized", all 24 symbols from the PDB cache, "Engine layout
   verified", no format errors; BaseMod/DevTools logs written; clean shutdown. Generate SDK: 202 headers in 2.0 s, 0 missing,
@@ -125,6 +141,8 @@ Older handoffs and test logs: `docs/HISTORY.md` (archive, verbatim).
 - **C# replaces Lua** for script mods (Phase 3): `docs/design/csharp-scripting.md`. Lua spike in `Loader/Scripting/` = reference.
 
 **Next (in order) — start here in a new session:**
+0. Owner in-game test of mod-components phase 1 (checklist `docs/reports/mod-components-phase1.md`), then phase 2 (event bus,
+   `docs/design/mod-components.md` section 10). `Tools/ModManager` still reads the old `mod.ini` sections (`ModScanner`) and must follow.
 1. Owner in-game test of Wave 4 step B (deployed, checklist in `docs/reports/wave4-stepB.md`).
 2. Mods: DevTools follow-ups done 2026-10-15 (timeline member names, cheat menu button, inventory list; owner test +
    one more regeneration open). ModManager (separate session): drop the BaseMod special cases, SDG controls +
@@ -205,6 +223,8 @@ Generated: most other files under `UE4/<Package>/` and `Medieval_Dynasty/<BP_…
 
 
 ## Phase 3 — New features (after Phase 2; ideas inspired by UE4SS)
+Mod model redesign (one Mod with Core/Blueprint/Overwrite components, event bus, Blueprint rework): `docs/design/mod-components.md`
+(phase 1 done, see "Current state").
 Design docs (each ends with owner questions): `docs/design/csharp-scripting.md` (**C# mods, replaces Lua**),
 `live-view.md`, `hot-reload.md`, `ufunction-hooks.md`, `pak-mods.md`; Lua (`lua-scripting.md`) is reference only.
 Also: improved Blueprint mod loading with load order · pak mod loading (old AES key, see `CLAUDE.md`) · maybe D3D12 UI.

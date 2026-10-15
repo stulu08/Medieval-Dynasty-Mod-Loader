@@ -1,7 +1,8 @@
 #include "Core.h"
 #include "Startup.h"
 
-#include "Mods/CoreModLoader.h"
+#include "Mods/ModLoading.h"
+#include "Mods/Registry.h"
 #include "Mods/LogicMods.h"
 #include "Mods/OverwriteMods.h"
 #include "MDML/Hooks.h"
@@ -78,8 +79,8 @@ namespace mdml::runtime {
 		}
 
 		// Blocking: MinHook, overwrite links, pak hooks, mod loading, game hooks, UI logic thread (was
-		// HooksManager::SetupHooks). Mods are loaded synchronously, so every core mod is constructed before the game
-		// hooks (InitGameState, BeginPlay, Tick) can fire.
+		// HooksManager::SetupHooks). Mods are loaded synchronously, so every core mod is constructed (and has run OnLoad)
+		// before the game hooks (InitGameState, BeginPlay, Tick) can fire.
 		void InstallHooks()
 		{
 			Log::Info_UML("Setting Up Loader");
@@ -88,6 +89,12 @@ namespace mdml::runtime {
 			Log::Info_MDML("Hooks initialized");
 			Log::Info_UML("Loading Mods");
 
+			// Mod loading in phases (docs/design/mod-components.md section 4): 0 scan, 1 core (DLLs + OnLoad, may change the
+			// other components), 2 overwrite links over the final file lists, 3 Blueprint registration.
+			mods::ScanMods();
+			mods::LoadCoreMods();
+
+			mods::SetPhase(mods::LoadPhase::Overwrite);
 			if (Config.ModOverwritesEnabled)
 				mods::CreateSysLinks();
 			else
@@ -98,8 +105,7 @@ namespace mdml::runtime {
 				Log::Info_MDML("Pak overwrites loaded ({0} ms after process start, {1} UObjects exist)", MsSinceProcessStart(), GetUObjectCount());
 			}
 
-			mods::LoadCoreMods();
-			mods::RegisterLogicMods();
+			mods::RegisterBlueprintMods();
 
 			InstallGameHooks();
 

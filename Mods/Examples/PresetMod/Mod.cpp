@@ -13,6 +13,13 @@
 //	stack->SetOutput<bool>("ReturnValue", true);
 //}
 
+void ExampleMod::OnLoad(ModContext& ctx) {
+	// ctx.Self() is this mod; ctx.ForEachMod / FindMod / AddOverwriteFile / EditBlueprint can change the other mods
+	// before their components are applied (see docs/guides/Modding.md).
+	if (logger)
+		logger->Info("{0} loaded, {1} mod(s) in the list", GetName(), mdml::mods::GetModCount());
+}
+
 void ExampleMod::OnModInitialize() {
 	//REGISTER_FUNCTION(WriteToFile);
 	//if you want to name them on your own do this
@@ -20,7 +27,7 @@ void ExampleMod::OnModInitialize() {
 
 	// Function hooks go through MDML (it owns MinHook, no init needed), e.g.
 	//mdml::platform::Hooks::Add(targetAddress, &hookFunction, &origFunction, "Class::Function");
-	UseMenuButton = true; // Allows Mod Loader To Show a Button, if pressed OnModMenuButtonPressed will be called
+	// MenuButton=1 in the [Core] section of mod.ini makes the Mod Loader show a button, if pressed OnModMenuButtonPressed will be called
 }
 
 bool ExampleMod::MenuBeginPlay(UE4::AActor* Actor)

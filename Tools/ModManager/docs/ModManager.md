@@ -24,8 +24,8 @@ Old standalone layout (own workspace, SDG's imgui fork): `C:\dev\MDML\backup\202
 - INI dialect: whole-line `;`/`#` comments, `;` after a value belongs to the value, case-insensitive fallback lookup. `IniDocument` keeps
   every line untouched except the edited value.
 - `Config/LoadOrder.ini`: `Name = 1/0`, top = first, trailing `; comment` allowed; `LoadOrder` keeps header/footer comments.
-  New mods are appended in memory (BaseMod first, then alphabetical) and written only when the user changes something.
-- Mod discovery = `ModLoader::ScanMods`: folder with `mod.ini` or `<Folder>/<Folder>.dll`, plus loose `*.dll`.
+  New mods are appended in memory (alphabetical) and written only when the user changes something.
+- Mod discovery = `ModLoader::ScanMods`: folder with a `mod.ini` that has at least one `[Core]`, `[Blueprint]` or `[Overwrite]` section (loose DLLs and folders without a `mod.ini` are no longer mods).
 - Loader package = a directory (up to 2 levels deep) containing `MDML.dll`; mods are `Mods/<name>` (build output) or `<name>/mod.ini`
   (release zip). `*.pdb/*.exp/*.lib` are never installed. `Config/` files are only copied when missing.
 - Zip I/O uses Windows' `tar.exe` (no zip library); it rejects `..` entries.

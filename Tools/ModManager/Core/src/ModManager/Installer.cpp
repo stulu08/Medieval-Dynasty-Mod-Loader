@@ -79,11 +79,10 @@ namespace mm {
 		for (const auto& e : fs::directory_iterator(fs::is_directory(modsDir, ec) ? modsDir : root, ec)) {
 			if (!e.is_directory(ec)) continue;
 			std::string n = PathToUtf8(e.path().filename());
-			if (!fs::is_directory(modsDir, ec) && !HasModIni(e.path()) && !fs::exists(e.path() / (n + ".dll"), ec)) continue;
-			if (HasModIni(e.path()) || fs::exists(e.path() / (n + ".dll"), ec)) out.mods.push_back(n);
+			// the loader only knows folders with a mod.ini (docs/design/mod-components.md), no <Folder>/<Folder>.dll guessing
+			if (HasModIni(e.path())) out.mods.push_back(n);
 		}
 		std::sort(out.mods.begin(), out.mods.end(), [](const std::string& a, const std::string& b) {
-			if (IEquals(a, "BaseMod") != IEquals(b, "BaseMod")) return IEquals(a, "BaseMod");
 			return Lower(a) < Lower(b);
 		});
 

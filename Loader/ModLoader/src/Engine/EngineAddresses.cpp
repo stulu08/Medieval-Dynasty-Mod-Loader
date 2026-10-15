@@ -22,6 +22,8 @@ namespace mdml {
 		constexpr const char* InitGameState = "?InitGameState@AGameModeBase@@UEAAXXZ";
 		constexpr const char* BeginPlay = "?BeginPlay@AActor@@MEAAXXZ";
 		constexpr const char* WorldTick = "?Tick@UWorld@@QEAAXW4ELevelTick@@M@Z";
+		// Called once on the game thread when the game quits; UObjects are alive (GEngine->PreExit() and AppPreExit() come later in it).
+		constexpr const char* EngineLoopExit = "?Exit@FEngineLoop@@QEAAXXZ";
 		constexpr const char* StaticLoadObject = "?StaticLoadObject@@YAPEAVUObject@@PEAVUClass@@PEAV1@PEB_W2IPEAVUPackageMap@@_NPEBVFLinkerInstancingContext@@@Z";
 		constexpr const char* StaticFindObject = "?StaticFindObject@@YAPEAVUObject@@PEAVUClass@@PEAV1@PEB_W_N@Z";
 		constexpr const char* SpawnActorFTrans = "?SpawnActor@UWorld@@QEAAPEAVAActor@@PEAVUClass@@PEBUFTransform@@AEBUFActorSpawnParameters@@@Z";
@@ -115,6 +117,11 @@ namespace mdml {
 			Addresses.GameStateInit = ResolveFunction(GameInfo, "FunctionInfo", "GameStateInit", { Symbols::InitGameState });
 			Addresses.BeginPlay = ResolveFunction(GameInfo, "FunctionInfo", "BeginPlay", { Symbols::BeginPlay });
 			Addresses.Tick = ResolveFunction(GameInfo, "FunctionInfo", "Tick", { Symbols::WorldTick });
+			Addresses.EngineExit = platform::SymbolResolver::Find({ Symbols::EngineLoopExit });
+			if (Addresses.EngineExit)
+				LogResolved("FEngineLoop::Exit", Addresses.EngineExit, "pdb");
+			else
+				Log::Warn_MDML("FEngineLoop::Exit not found (needs the game PDB or the symbol cache): CoreMod::OnUnload will not be called");
 			Addresses.StaticLoadObject = ResolveFunction(GameInfo, "FunctionInfo", "StaticLoadObject", { Symbols::StaticLoadObject });
 			Addresses.StaticFindObject = ResolveFunction(GameInfo, "FunctionInfo", "StaticFindObject", { Symbols::StaticFindObject });
 			Addresses.SpawnActorFTrans = ResolveFunction(GameInfo, "FunctionInfo", "SpawnActorFTrans", { Symbols::SpawnActorFTrans });

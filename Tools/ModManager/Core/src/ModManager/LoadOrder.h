@@ -15,7 +15,7 @@ namespace mm {
 		bool Load(const fs::path& path);
 		bool Save(const fs::path& path) const;
 
-		// Appends mods which are not in the list yet ("Name = 1"), BaseMod first. Returns the number of added entries.
+		// Appends mods which are not in the list yet ("Name = 1"), alphabetically. Returns the number of added entries.
 		int Merge(const std::vector<std::string>& installedMods);
 		void Remove(const std::string& name);
 		int IndexOf(const std::string& name) const;

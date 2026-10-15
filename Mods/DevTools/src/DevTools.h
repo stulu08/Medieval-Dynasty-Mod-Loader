@@ -19,9 +19,9 @@
 #include "PlayerTools.h"
 
 namespace devtools {
-	class DevToolsMod : public ::Mod {
+	class DevToolsMod : public ::CoreMod {
 	public:
-		DevToolsMod(HMODULE Handle);
+		DevToolsMod();
 
 		void InitializeMod() override;
 		bool InitGameState() override;

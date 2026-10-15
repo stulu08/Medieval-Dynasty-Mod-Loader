@@ -7,7 +7,7 @@
 #include "BP_WeatherManager.hpp"
 
 void TimeWeatherChanger::OnModInitialize() {
-	UseMenuButton = true; // Allows Mod Loader To Show a Button, if pressed OnModMenuButtonPressed will be called
+	// MenuButton=1 in the [Core] section of mod.ini: the Mod Loader shows a button, if pressed OnModMenuButtonPressed will be called
 
 	m_alwaysClearWeather = this->GetINIConfig<bool>("bAlwaysClearWeather");
 	m_NoWind = this->GetINIConfig<bool>("bNoWind");

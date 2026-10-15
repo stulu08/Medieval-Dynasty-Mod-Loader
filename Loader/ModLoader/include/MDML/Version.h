@@ -1,6 +1,6 @@
 #pragma once
-// Version strings, included by MDML/Core.h (so every mod sees them). Mods store MODLOADER_VERSION / MEDIEVAL_VERSION in
-// Mod::ModLoaderVersion / MedievalModLoaderVersion; CompleteModCreation warns when they differ from the loader's.
+// Version strings, included by MDML/Core.h (so every mod sees them). MDML_MOD (MDML/CoreMod.h) exports MODLOADER_VERSION /
+// MEDIEVAL_VERSION from the mod DLL; the loader warns when they differ from its own.
 
 //The version of unreal mod loader (the project MDML was forked from; only logged)
 #define UML_VERSION "2.2.1"

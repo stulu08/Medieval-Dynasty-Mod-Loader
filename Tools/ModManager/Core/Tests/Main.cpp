@@ -61,20 +61,26 @@ static void TestLoadOrder() {
 static void TestScanAndInstall() {
 	fs::path root = MakeTempDir("scan");
 	fs::path mods = root / "Mods";
-	Write(mods / "BaseMod" / "mod.ini", "[Mod]\nDLLPath=BaseMod.dll\n");
-	Write(mods / "BaseMod" / "BaseMod.dll", "x");
-	Write(mods / "Skin" / "mod.ini", "[Overwrites]\nEnable=True\nFolder=Content\n");
+	Write(mods / "Alpha" / "mod.ini", "[Mod]\nName=Alpha Mod\nVersion=1.2\nAuthor=Me\nDescription=Test\n\n[Core]\nLogger=File\n");
+	Write(mods / "Alpha" / "Alpha.dll", "x");
+	Write(mods / "Beta" / "mod.ini", "[Mod]\n[Core]\nDll=Other.dll\n[Blueprint]\nActor=A.uasset\n[Overwrite]\nFolder=Content\n");
+	Write(mods / "Skin" / "mod.ini", "[Overwrite]\nFolder=Content\n");
+	Write(mods / "OnlyMeta" / "mod.ini", "[Mod]\nName=No components\n");
+	Write(mods / "Old" / "mod.ini", "[Mod]\nDLLPath=Old.dll\n[LogicMod]\nActorFile=A.uasset\n[Overwrites]\nFolder=Content\n");
+	Write(mods / "NoIni" / "NoIni.dll", "x");
 	Write(mods / "Loose.dll", "x");
 	Write(mods / "Empty" / "readme.txt", "no mod");
 	auto found = ScanMods(mods);
-	CHECK(found.size() == 3);
-	CHECK(found[0].name == "BaseMod" && found[0].coreDll);
-	CHECK(found[1].name == "Loose" && found[1].looseDll);
-	CHECK(found[2].name == "Skin" && found[2].overwrite && !found[2].coreDll);
+	CHECK(found.size() == 3); // OnlyMeta/Old (no component section), NoIni, Loose.dll, Empty are not mods
+	CHECK(found[0].name == "Alpha" && found[0].core && !found[0].blueprint && !found[0].overwrite);
+	CHECK(found[0].dllPath == "Alpha.dll" && found[0].version == "1.2" && found[0].author == "Me" && found[0].description == "Test");
+	CHECK(found[1].name == "Beta" && found[1].core && found[1].blueprint && found[1].overwrite && found[1].dllPath == "Other.dll");
+	CHECK(DescribeKinds(found[1]) == "Core, Blueprint, Overwrite");
+	CHECK(found[2].name == "Skin" && found[2].overwrite && !found[2].core && found[2].dllPath.empty());
 
 	// archive of a mod -> candidates -> install
 	fs::path src = root / "src" / "CoolMod";
-	Write(src / "mod.ini", "[LogicMod]\nModName=CoolMod\n");
+	Write(src / "mod.ini", "[Mod]\nName=CoolMod\n[Blueprint]\nActor=A.uasset\n");
 	Write(src / "Content" / "a.uasset", "x");
 	fs::path zip = root / "CoolMod.zip";
 	std::string err;
@@ -116,7 +122,7 @@ static void TestLoaderPackage() {
 	Write(root / "Release 1" / "MDML.dll", "x");
 	Write(root / "Release 1" / "xinput1_3.dll", "x");
 	Write(root / "Release 1" / "Config" / "ModLoaderInfo.ini", "[General]\n");
-	Write(root / "Release 1" / "BaseMod" / "mod.ini", "[Mod]\nDLLPath=BaseMod.dll\n");
+	Write(root / "Release 1" / "BaseMod" / "mod.ini", "[Mod]\n[Core]\nDll=BaseMod.dll\n");
 	Write(root / "Release 1" / "BaseMod" / "BaseMod.pdb", "x");
 	LoaderPackage pkg;
 	CHECK(DetectLoaderPackage(root, pkg));

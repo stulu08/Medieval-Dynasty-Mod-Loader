@@ -2,8 +2,9 @@
 #include "OverwriteMods.h"
 
 #include "Mods/Registry.h"
-#include "Mods/CoreModLoader.h"
+#include "Mods/ModLoading.h"
 #include "Mods/LoadOrder.h"
+#include "MDML/CoreMod.h"
 #include "MDML/Mod.h"
 #include "MDML/Hooks.h"
 #include "MDML/IniFile.h"
@@ -382,82 +383,25 @@ namespace mdml::mods
 	// END link-ops
 	void CreateSysLinks() {
 		DeleteSysLinks(true);
-		std::error_code ec;
-		std::string ModFolderPath = Mod::GetModsFolder();
-		ResolveLoadOrder();
-		if (!std::filesystem::exists(ModFolderPath, ec))
-		{
-			std::filesystem::create_directory(ModFolderPath, ec);
-		}
 		// Entries that could not be cleaned up above stay in the file, so it is appended to, not truncated.
 		LinkRecord record;
 		if (!record.Open(runtime::Config.HardLinksFile))
 			return;
 		std::set<std::wstring> keys;
 		std::set<std::wstring> linked;
-		std::filesystem::directory_iterator modsIt(ModFolderPath, ec);
-		if (ec) {
-			Log::Error_MDML("Could not read the mods folder {0} ({1})", ModFolderPath, ec.message());
-			return;
-		}
-		for (const auto& entry : modsIt) {
-			if (entry.is_directory()) {
-
-				auto dirName = entry.path().filename().string();
-				auto dirPath = entry.path().string();
-				auto iniPath = std::filesystem::path(dirPath + "/mod.ini");
-
-				if (std::filesystem::exists(iniPath, ec)) {
-
-					platform::IniFile modIni(iniPath);
-					// [Overwrites], or the older name [Overrides] if there is no [Overwrites] section.
-					const char* section = modIni.HasSection("Overwrites") ? "Overwrites" : (modIni.HasSection("Overrides") ? "Overrides" : nullptr);
-
-					if (section) {
-						if (!LoadOrder::IsEnabled(dirName)) {
-							Log::Info_MDML("Overwrite mod {0} is disabled in LoadOrder.ini, no links created", dirName);
-							continue;
-						}
-						std::string enabled = modIni.Get(section, "Enable", "False");
-						OverwriteMod oMod;
-						oMod.Name = modIni.Get(section, "Name", "Unknown");
-						oMod.Author = modIni.Get(section, "Author", "Unknown");
-						oMod.Description = modIni.Get(section, "Description", "Unknown");
-
-						std::transform(enabled.begin(), enabled.end(), enabled.begin(), [](char c)->char { return std::tolower(c); });
-						if (enabled == "true" || enabled.rfind("1", 0) == 0) {
-							// A missing/empty Folder used to resolve to the mod folder itself, so every file of the mod
-							// (mod.ini, DLL, ...) was linked into Content.
-							const std::string folder = modIni.Get(section, "Folder", "");
-							std::filesystem::path folderPath = dirPath + "/" + folder;
-							if (folder.empty() || !std::filesystem::exists(folderPath, ec)) {
-								Log::Warn_MDML("Overwrite mod {0} is enabled but its Folder {1} does not exist, skipping it", oMod.Name, runtime::FormatPath(folderPath));
-								continue;
-							}
-							std::filesystem::recursive_directory_iterator fileIt(folderPath, ec);
-							for (; !ec && fileIt != std::filesystem::recursive_directory_iterator(); fileIt.increment(ec)) {
-								const auto& dirEntry = *fileIt;
-								if (dirEntry.is_directory())
-									continue;
-								auto path = dirEntry.path();
-								if (!dirEntry.is_regular_file()) {
-									Log::Warn_MDML("Skipping file linking {0}, source it is not a regular file", runtime::FormatPath(path));
-									continue;
-								}
-								auto relPath = std::filesystem::relative(path, folderPath);
-								auto target = std::filesystem::path(Mod::GetContentFolder() + "\\" + relPath.string());
-								if (LinkFile(path, target, runtime::Config.UseHardLinks, keys, record)) {
-									//formating this doesnt work cause it inserts the mod folder, and i dont know why
-									Log::Trace_MDML("Created link to {0}", target.string());
-									linked.insert(GetPathKey(target));
-									oMod.Files.push_back(target.string());
-								}
-							}
-							if (ec)
-								Log::Error_MDML("Could not read the files of overwrite mod {0} ({1}), the rest of it is skipped", oMod.Name, ec.message());
-							mdml::mods::Registry::Get().OverwriteMods.push_back(oMod);
-						}
-					}
+		// The final file lists: phase 0 added the files of every [Overwrite] Folder, core mods may have changed them in
+		// phase 1. Mods are in load order, a later mod wins over an earlier one for the same file.
+		for (const auto& mod : Registry::Get().Mods) {
+			OverwriteMod* overwrite = mod->Overwrite();
+			if (!overwrite)
+				continue;
+			for (const OverwriteFile& file : overwrite->Files) {
+				const auto target = std::filesystem::path(CoreMod::GetContentFolder() + "\\" + file.Target);
+				if (LinkFile(file.Source, target, runtime::Config.UseHardLinks, keys, record)) {
+					//formating this doesnt work cause it inserts the mod folder, and i dont know why
+					Log::Trace_MDML("Created link to {0}", target.string());
+					linked.insert(GetPathKey(target));
+					overwrite->Linked.push_back(target.string());
 				}
 			}
 		}

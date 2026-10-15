@@ -30,6 +30,8 @@ namespace mdml {
 		DWORD64 GameStateInit = 0x0;
 		DWORD64 BeginPlay = 0x0;
 		DWORD64 Tick = 0x0;
+		// FEngineLoop::Exit (PDB only, optional): the engine shutdown hook that triggers CoreMod::OnUnload.
+		DWORD64 EngineExit = 0x0;
 		// ProcessLocalScriptFunction (called from UObject::ProcessInternal), the logic-mod BP function hook.
 		DWORD64 ProcessInternals = 0x0;
 		//bool FPakPlatformFile::IsNonPakFilenameAllowed(const FString & InFilename)

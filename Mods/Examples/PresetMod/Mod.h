@@ -5,16 +5,13 @@ class ExampleMod : public GameMod
 {
 public:
 
-	//Basic Mod Info
-	ExampleMod(HMODULE handle = nullptr)
-		: GameMod(handle) {
-		ModName = "Your Mod"; // Mod Name -- If Using BP ModActor, Should Be The Same Name As Your Pak
-		ModVersion = "1.0.0"; // Mod Version
-		ModDescription = ""; // Mod Description
-		ModAuthors = "You"; // Mod Author
+	// Name, version, author and description are in mod.ini ([Mod]); MDML_MOD(ExampleMod) in dllmain.cpp is the entry point.
+	ExampleMod() {
 		EnabledModEvents = EventsEnabled::Default;// You can enable specific events here to improve performance
-		CompleteModCreation();
 	}
+
+	//Load phase 1 (before the engine exists): read settings, change other mods' components through ctx
+	virtual void OnLoad(ModContext& ctx) override;
 
 	//Called When Internal GameMod and Mod Setup is finished, use this to setup stuff like hooks or bp functions
 	virtual void OnModInitialize() override;

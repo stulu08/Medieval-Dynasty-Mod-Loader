@@ -70,106 +70,107 @@ namespace mdml::ui {
 			}
 		}
 
-		void ShowLogicMods()
+		// One entry per mod folder with its components (mod-components phase 1; was three lists: logic, core, overwrite mods).
+		void ShowCoreComponent(Mod& mod, size_t index)
 		{
-			if (!ImGui::CollapsingHeader("Logic Mods"))
+			CoreMod* core = mod.Core();
+			if (!core || !ImGui::TreeNode(IdLabel("Core", "mc", index).c_str()))
 				return;
-
-			auto& modList = mdml::mods::Registry::Get().ModInfoList;
-			for (size_t i = 0; i < modList.size(); i++)
+			if (core->UseMenuButton)
 			{
-				if (ImGui::TreeNode(IdLabel(NarrowTruncating(modList[i].ModName), "lm", i).c_str()))
+				if (ImGui::Button(IdLabel(mod.Info().Name + " Button", "cm", index).c_str()))
 				{
-					ImGui::Text("%s", ("Created By: " + modList[i].ModAuthor).c_str());
-					ImGui::Separator();
-					ImGui::Text("%s", ("Description: " + modList[i].ModDescription).c_str());
-					ImGui::Separator();
-					ImGui::Text("%s", ("Version: " + modList[i].ModVersion).c_str());
-					ImGui::Separator();
-					if (ImGui::TreeNode("Mod Buttons"))
-					{
-						if (modList[i].IsEnabled && modList[i].CurrentModActor && modList[i].ContainsButton)
-						{
-							for (size_t bi = 0; bi < modList[i].ModButtons.size(); bi++)
-							{
-								std::string ButtonLabel = modList[i].ModButtons[bi] + "##" + std::to_string(i + bi);
-								if (ImGui::Button(ButtonLabel.c_str()))
-								{
-									// The button calls into the mod's blueprint actor: game thread only. The actor is looked
-									// up again there since it may have changed meanwhile.
-									GameThread::Enqueue([i, bi]() {
-										auto& list = mdml::mods::Registry::Get().ModInfoList;
-										if (i >= list.size() || !list[i].IsEnabled || !list[i].CurrentModActor)
-											return;
-										std::wstring FuncNameAndArgs = L"ModMenuButtonPressed " + std::to_wstring(bi);
-										list[i].CurrentModActor->CallFunctionByNameWithArguments(FuncNameAndArgs.c_str(), nullptr, NULL, true);
-									});
-								}
-							}
-							ImGui::Separator();
-						}
-						ImGui::TreePop();
-					}
-					ImGui::Checkbox(("Enable##" + std::to_string(i)).c_str(), &modList[i].IsEnabled);
-					ImGui::TreePop();
+					// OnModMenuButtonPressed is mod code and usually calls into the engine: game thread only.
+					GameThread::Enqueue([core]() {
+						// Skip it if the mod was removed from the stack meanwhile (it threw).
+						if (mods::Registry::Get().CoreMods.contains(core))
+							core->OnModMenuButtonPressed();
+					});
 				}
 			}
+			ImGui::TreePop();
 		}
 
-		void ShowCoreMods()
+		void ShowBlueprintComponent(Mod& mod, size_t index)
 		{
-			if (!ImGui::CollapsingHeader("Core Mods"))
+			BlueprintMod* blueprint = mod.Blueprint();
+			if (!blueprint || !ImGui::TreeNode(IdLabel("Blueprint", "mb", index).c_str()))
 				return;
-
-			size_t i = 0;
-			mods::Registry::Get().CoreMods.forEach([&i](Mod* mod) {
-				const size_t index = i++;
-				const std::string name = mod->ModName;
-				if (ImGui::TreeNode(IdLabel(name, "cm", index).c_str()))
+			ImGui::Text("%s", ("Actor: " + (blueprint->ActorFile.empty() ? std::string("none (asset-only)") : blueprint->ActorFile)).c_str());
+			if (ImGui::TreeNode("Mod Buttons"))
+			{
+				if (blueprint->Enabled && blueprint->ActorInstance && blueprint->ContainsButton)
 				{
-					ImGui::Text("%s", ("Created By: " + mod->ModAuthors).c_str());
-					ImGui::Separator();
-					ImGui::Text("%s", ("Description: " + mod->ModDescription).c_str());
-					ImGui::Separator();
-					ImGui::Text("%s", ("Version: " + mod->ModVersion).c_str());
-					ImGui::Separator();
-
-					if (mod->UseMenuButton && mod->IsFinishedCreating)
+					for (size_t bi = 0; bi < blueprint->ModButtons.size(); bi++)
 					{
-						if (ImGui::Button(IdLabel(name + " Button", "cm", index).c_str()))
+						std::string ButtonLabel = blueprint->ModButtons[bi] + "##" + std::to_string(index + bi);
+						if (ImGui::Button(ButtonLabel.c_str()))
 						{
-							// OnModMenuButtonPressed is mod code and usually calls into the engine: game thread only.
-							GameThread::Enqueue([mod]() {
-								// Skip it if the mod was removed from the stack meanwhile (it threw).
-								if (mods::Registry::Get().CoreMods.contains(mod))
-									mod->OnModMenuButtonPressed();
+							// The button calls into the mod's blueprint actor: game thread only. The actor is looked
+							// up again there since it may have changed meanwhile.
+							GameThread::Enqueue([blueprint, bi]() {
+								if (!blueprint->Enabled || !blueprint->ActorInstance)
+									return;
+								std::wstring FuncNameAndArgs = L"ModMenuButtonPressed " + std::to_wstring(bi);
+								blueprint->ActorInstance->CallFunctionByNameWithArguments(FuncNameAndArgs.c_str(), nullptr, NULL, true);
 							});
 						}
 					}
-					ImGui::TreePop();
+					ImGui::Separator();
 				}
-			});
+				ImGui::TreePop();
+			}
+			ImGui::Checkbox(("Enable##" + std::to_string(index)).c_str(), &blueprint->Enabled);
+			ImGui::TreePop();
 		}
 
-		void ShowOverrideMods()
+		void ShowOverwriteComponent(Mod& mod, size_t index)
 		{
-			if (!ImGui::CollapsingHeader("Overwrite Mods"))
+			OverwriteMod* overwrite = mod.Overwrite();
+			if (!overwrite || !ImGui::TreeNode(IdLabel("Overwrite", "mo", index).c_str()))
+				return;
+			ImGui::Text("%s", ("Files: " + std::to_string(overwrite->Files.size()) + ", linked: " + std::to_string(overwrite->Linked.size())).c_str());
+			if (ImGui::TreeNode("Files overwritten")) {
+				for (const auto& file : overwrite->Linked) {
+					ImGui::TextUnformatted(file.c_str());
+				}
+				ImGui::TreePop();
+			}
+			ImGui::TreePop();
+		}
+
+		void ShowMods()
+		{
+			if (!ImGui::CollapsingHeader("Mods"))
 				return;
 
-			auto& overwriteMods = mdml::mods::Registry::Get().OverwriteMods;
-			for (size_t i = 0; i < overwriteMods.size(); i++) {
-				const mods::OverwriteMod& mod = overwriteMods[i];
-				if (ImGui::TreeNode(IdLabel(mod.Name, "om", i).c_str())) {
-					ImGui::Text("%s", ("Created By: " + mod.Author).c_str());
+			// The mod list is frozen after loading (Registry::Mods), so it is safe to read from the render thread.
+			size_t i = 0;
+			for (auto& mod : mods::Registry::Get().Mods)
+			{
+				const size_t index = i++;
+				const ModInfo& info = mod->Info();
+				if (ImGui::TreeNode(IdLabel(info.Name + (mod->Failed() ? " [FAILED]" : ""), "mod", index).c_str()))
+				{
+					ImGui::Text("%s", ("Created By: " + info.Author).c_str());
 					ImGui::Separator();
-					ImGui::Text("%s", ("Description: " + mod.Description).c_str());
+					ImGui::Text("%s", ("Description: " + info.Description).c_str());
 					ImGui::Separator();
-					if (ImGui::TreeNode("Files overwritten")) {
-						for (const auto& file : mod.Files) {
-							ImGui::TextUnformatted(file.c_str());
-						}
+					ImGui::Text("%s", ("Version: " + info.Version).c_str());
+					ImGui::Separator();
+					if (mod->Failed())
+					{
+						ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.f, 0.35f, 0.35f, 1.f));
+						ImGui::PushTextWrapPos(0.f);
+						ImGui::TextUnformatted(("FAILED, mod dropped: " + mod->FailReason()).c_str());
+						ImGui::PopTextWrapPos();
+						ImGui::PopStyleColor();
 						ImGui::TreePop();
+						continue;
 					}
+					ShowCoreComponent(*mod, index);
+					ShowBlueprintComponent(*mod, index);
+					ShowOverwriteComponent(*mod, index);
 					ImGui::TreePop();
 				}
 			}
@@ -214,9 +215,7 @@ namespace mdml::ui {
 			ShowNotices();
 			ImGui::Text("Medieval Dynasty Mod Loader Version: %s", MODLOADER_VERSION);
 			ImGui::Text("Medieval Dynasty Version: %s", MEDIEVAL_VERSION);
-			ShowLogicMods();
-			ShowCoreMods();
-			ShowOverrideMods();
+			ShowMods();
 			ShowTools();
 		}
 		ImGui::End();

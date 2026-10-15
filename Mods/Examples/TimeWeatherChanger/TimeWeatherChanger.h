@@ -4,15 +4,9 @@
 class TimeWeatherChanger : public GameMod
 {
 public:
-	//Basic Mod Info
-	TimeWeatherChanger(HMODULE handle = nullptr)
-		: GameMod(handle) {
-		ModName = "TimeWeatherChanger"; // Mod Name -- If Using BP ModActor, Should Be The Same Name As Your Pak
-		ModVersion = "1.0.0"; // Mod Version
-		ModDescription = "Changes the time and weather"; // Mod Description
-		ModAuthors = "Stulu"; // Mod Author
+	// Name, version, author and description are in mod.ini ([Mod]).
+	TimeWeatherChanger() {
 		EnabledModEvents = EventsEnabled::EngineAndGui;// You can enable specific events here to improve performance
-		CompleteModCreation();
 	}
 	virtual void OnModInitialize() override;
 	virtual void OnModMenuButtonPressed() override;

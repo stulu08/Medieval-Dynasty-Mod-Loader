@@ -2,7 +2,7 @@
 #include "MDML/Core.h"
 
 // Path helpers for the loader and mods (Wave 3A, were static members of the old class MDML).
-// Mod folders: Mod::GetModsFolder() / Mod::GetContentFolder() (MDML/Mod.h). Nothing here depends on the process
+// Mod folders: CoreMod::GetModsFolder() / CoreMod::GetContentFolder() (MDML/CoreMod.h). Nothing here depends on the process
 // working directory.
 namespace mdml::runtime {
 	// path relative to the game root (Config.rootGameDir, where Engine/ and Medieval_Dynasty/ live), for log lines.

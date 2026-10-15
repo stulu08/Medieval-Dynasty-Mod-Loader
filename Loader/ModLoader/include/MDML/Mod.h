@@ -1,118 +1,133 @@
 #pragma once
-// The base class of every core mod (native mod DLL). Game-specific helpers: MDML/GameMod.h. The other public headers: MDML/MDML.h.
-#include "MDML/Log.h"
-#include "MDML/Math.h"
-#include "MDML/UI.h"
-#include "MDML/Paths.h"
+// The mod container (docs/design/mod-components.md): ONE Mod per mod folder, declared by its mod.ini, with up to three
+// components. A component pointer is null when the mod.ini has no such section.
+//   [Core]      CoreMod       native DLL (MDML/CoreMod.h), created by the DLL
+//   [Blueprint] BlueprintMod  cooked Blueprint assets and an optional actor (was "logic mod")
+//   [Overwrite] OverwriteMod  loose files that replace game files
+// The loader owns every Mod; mods get them through CoreMod::GetMod(), ModContext and MDML/Mods.h.
+#include "MDML/Core.h"
 
-#include "UE4.h"
-
-
-namespace EventsEnabled {
-	struct EnabledEvents {
-		EnabledEvents() = default;
-		EnabledEvents(bool InitGameState, bool BeginPlay, bool PostBeginPlay, bool Tick, bool SetupImGui, bool DrawImGui, bool DX11Present, bool DX11ResizeBuffers) {
-			this->InitGameState = InitGameState;
-			this->BeginPlay = BeginPlay;
-			// PostBeginPlay has no argument of its own: it follows BeginPlay (owner decision 2026-10-14, fixes C4:
-			// before, every preset incl. None/GuiOnly registered PostBeginPlay).
-			this->PostBeginPlay = BeginPlay;
-			this->Tick = Tick;
-			this->SetupImGui = SetupImGui;
-			this->DrawImGui = DrawImGui;
-			this->DX11Present = DX11Present;
-			this->DX11ResizeBuffers = DX11ResizeBuffers;
-		}
-		bool InitGameState = true;
-		bool BeginPlay = true;
-		bool PostBeginPlay = true;
-		bool Tick = false;
-
-		bool SetupImGui = true;
-		bool DrawImGui = true;
-
-		bool DX11Present = true;
-		bool DX11ResizeBuffers = true;
-
-	};
-	static inline EnabledEvents Default = EnabledEvents();
-	static inline EnabledEvents None = EnabledEvents(false, false, false, false, false, false, false, false);
-	static inline EnabledEvents All = EnabledEvents(true, true, true, true, true, true, true, true);
-	static inline EnabledEvents EngineOnly = EnabledEvents(true, true, true, true, false, false, false, false);
-	static inline EnabledEvents GuiOnly = EnabledEvents(false, false, false, false, true, true, false, false);
-	static inline EnabledEvents DXOnly = EnabledEvents(false, false, false, false, false, false, true, true);
-	static inline EnabledEvents EngineAndGui = EnabledEvents(true, true, true, true, true, true, false, false);
-	static inline EnabledEvents EngineAndDX = EnabledEvents(true, true, true, true, false, false, true, true);
-	static inline EnabledEvents GuiAndDX = EnabledEvents(false, false, false, false, true, true, true, true);
-	static inline EnabledEvents EngineNoTick = EnabledEvents(true, true, true, false, false, false, false, false);
-	static inline EnabledEvents EngineAndGuiNoTick = EnabledEvents(true, true, true, false, true, true, false, false);
-	static inline EnabledEvents EngineAndDXNoTick = EnabledEvents(true, true, true, false, false, false, true, true);
+class CoreMod;
+namespace UE4 {
+	class AActor;
+	class UObject;
 }
-class LOADER_API Mod
-{
-public:
-	// Mod Default Variables
-	std::string ModName;
-	std::string ModVersion;
-	std::string ModDescription;
-	std::string ModAuthors;
-	std::string ModLoaderVersion;
-	std::string MedievalModLoaderVersion;
-	bool UseMenuButton = 0;
-	bool CreateLogger = 0;
-	bool LogToFile = 0;
-	//ModInternals
-	bool IsFinishedCreating = 0;
+namespace mdml::mods { struct ModAccess; }
 
-	//Called after each mod is injected, Looped through via globals
-	virtual void InitializeMod() {}
-
-	//InitGameState Call
-	virtual bool InitGameState() { return false; }
-
-	//Call ImGui Here
-	virtual bool DrawImGui() { return false; }
-
-	//If you want to load a font or theme
-	virtual bool SetupImGui(ImGuiIO& io) { return false; }
-
-	//Beginplay Hook of Every Actor
-	virtual bool BeginPlay(UE4::AActor* Actor) { return false; }
-
-	//Called on UWorld::Tick
-	virtual bool Tick(UE4::ELevelTick tick, float DeltaTime) { return false; }
-
-	//PostBeginPlay of EVERY Blueprint ModActor
-	virtual bool PostBeginPlay(std::wstring ModActorName, UE4::AActor* Actor) { return false; }
-
-	//DX11 hook for when an image will be presented to the screen
-	virtual bool DX11Present(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, ID3D11RenderTargetView* pRenderTargetView) { return false; }
-
-	virtual bool DX11ResizeBuffers(ID3D11Device* pDevice, ID3D11DeviceContext* pContext, UINT Width, UINT Height, DXGI_FORMAT NewFormat, UINT SwapChainFlags) { return false; }
-
-	virtual void OnModMenuButtonPressed() {}
-
-	//Used Internally to setup Hook Event System
-	void SetupHooks(const EventsEnabled::EnabledEvents& events = EventsEnabled::Default);
-
-	// The folder to the Mod Directory
-	static std::string GetModsFolder();
-	// The folder where Movies, Paks,... is located
-	static std::string GetContentFolder();
-	//Returns the folder where the mod dll is located
-	std::string GetFolder();
-protected:
-	//Called When Mod Construct Finishes: registers this mod in the loader's core mod list (in load order, see MDML/Mods.h) and creates its logger.
-	//(There is no Mod::ModRef any more: set nothing before calling this.)
-	void CompleteModCreation();
-	Ref<Logger> logger = nullptr;
-	HMODULE hModule;
+// [Mod]: metadata. Name defaults to the folder name.
+struct ModInfo {
+	std::string Name;
+	std::string Version = "Unknown";
+	std::string Author = "Unknown";
+	std::string Description;
+	// Folder name under Content/Mods, e.g. "DevTools"
+	std::string Folder;
+	// Absolute path of the mod folder (where mod.ini is)
+	std::string Path;
 };
 
-namespace std {
-	inline std::ostream& operator<<(std::ostream& os, const UE4::FQuat& quat) { return os << glm::to_string((glm::quat)quat); }
-	inline std::ostream& operator<<(std::ostream& os, const UE4::FVector4& vector) { return os << glm::to_string((glm::vec4)vector); }
-	inline std::ostream& operator<<(std::ostream& os, const UE4::FVector& vector) { return os << glm::to_string((glm::vec3)vector); }
-	inline std::ostream& operator<<(std::ostream& os, const UE4::FRotator& vector) { return os << glm::to_string((glm::vec3)vector); }
-	inline std::ostream& operator<<(std::ostream& os, const UE4::FVector2D& vector) { return os << glm::to_string((glm::vec2)vector); }
-}
+// One loose file of an overwrite mod.
+struct OverwriteFile {
+	// Existing file on disk
+	std::filesystem::path Source;
+	// Where it goes, relative to the game's Content folder (backslashes), e.g. "Blueprints\Foo.uasset"
+	std::string Target;
+};
+
+// [Overwrite]: files linked into the game's Content folder (load phase 2).
+struct OverwriteMod {
+	// [Overwrite] Folder: relative to the mod folder, every file in it is added (phase 0). Empty = no folder.
+	std::string Folder;
+	// The files to link. Final after load phase 1 (see ModContext::AddOverwriteFile).
+	std::vector<OverwriteFile> Files;
+	// Filled in phase 2: the absolute game paths that were linked.
+	std::vector<std::string> Linked;
+};
+
+// [Blueprint]: cooked assets under /Game/Mods/<Folder>/ and an optional actor (load phase 3 registers it).
+// Phase 1 only reads and stores SpawnIn / Persistent / Events; the actor still spawns on every InitGameState like the
+// old logic mods. The new spawn rules come with mod-components phase 3.
+struct BlueprintMod {
+	// ---- settings from mod.ini, a CoreMod may change them in phase 1 (ModContext::EditBlueprint) ----
+	bool Enabled = true;
+	// Actor=MyActor.uasset (relative to the mod folder). Empty = asset-only mod.
+	std::string ActorFile;
+	// SpawnIn=Game | Menu | Always | Never
+	std::string SpawnIn = "Game";
+	// Persistent=MyData.uasset (relative to the mod folder), optional
+	std::string PersistentFile;
+	// Events=Tick,PostBeginPlay
+	std::vector<std::string> Events;
+
+	// ---- state, owned by the loader (read only for mods) ----
+	// The spawned actor of the current level, null outside a level / before the spawn.
+	UE4::AActor* Actor() const { return ActorInstance; }
+	UE4::UObject* PersistentObject() const { return PersistentInstance; }
+
+	// Phase 3 found an actor to spawn
+	bool Registered = false;
+	// /Game/Mods/<Folder>/MyActor.MyActor_C
+	std::wstring ActorPath;
+	std::wstring PersistentObjectPath;
+	UE4::AActor* ActorInstance = nullptr;
+	UE4::UObject* PersistentInstance = nullptr;
+	bool ContainsButton = false;
+	bool WasInitialized = false;
+	std::vector<std::string> ModButtons;
+};
+
+class LOADER_API Mod {
+public:
+	Mod(ModInfo info);
+	~Mod();
+	Mod(const Mod&) = delete;
+	Mod& operator=(const Mod&) = delete;
+
+	const ModInfo& Info() const { return m_info; }
+	// null = the mod has no such component
+	CoreMod* Core() const { return m_core; }
+	BlueprintMod* Blueprint() const { return m_blueprint.get(); }
+	OverwriteMod* Overwrite() const { return m_overwrite.get(); }
+	// True if the mod failed to load (a [Core] that could not be loaded or whose OnLoad threw). A failed mod stays in
+	// the list so it can be shown, but ALL its components are dropped: Core/Blueprint/Overwrite are null, nothing of it
+	// is linked or registered, and ModContext refuses to change it. FailReason() says why.
+	bool Failed() const { return m_failed; }
+	const std::string& FailReason() const { return m_failReason; }
+
+private:
+	friend struct mdml::mods::ModAccess;
+	ModInfo m_info;
+	CoreMod* m_core = nullptr;
+	std::unique_ptr<BlueprintMod> m_blueprint;
+	std::unique_ptr<OverwriteMod> m_overwrite;
+	bool m_failed = false;
+	std::string m_failReason;
+};
+
+// Handed to CoreMod::OnLoad (load phase 1, init thread): the mod list is still mutable. The components of every mod
+// (also other mods') can be changed until they are applied: overwrite files until phase 2 starts, the Blueprint
+// component until phase 3 starts. Later calls log an error and change nothing.
+class LOADER_API ModContext {
+public:
+	// The mod whose OnLoad is running.
+	Mod& Self() const { return m_self; }
+	// All mods in load order.
+	void ForEachMod(const std::function<void(Mod&)>& fn);
+	// The mod with this Info().Name, or null.
+	Mod* FindMod(const std::string& name);
+
+	// Adds a file to target's [Overwrite] component (created when the mod has none). source must be an existing file;
+	// gameRelativePath is relative to the game's Content folder and must stay inside it. Replaces an entry for the same
+	// target. Returns false (and logs) if the file is invalid or the phase is over.
+	bool AddOverwriteFile(Mod& target, const std::filesystem::path& source, const std::string& gameRelativePath);
+	// Removes the entry for gameRelativePath. False if there is none.
+	bool RemoveOverwriteFile(Mod& target, const std::string& gameRelativePath);
+	// The Blueprint component of target (created when the mod has none: asset-only, no actor). After phase 2 a scratch
+	// object is returned and an error is logged.
+	BlueprintMod& EditBlueprint(Mod& target);
+
+private:
+	friend struct mdml::mods::ModAccess;
+	explicit ModContext(Mod& self) : m_self(self) {}
+	Mod& m_self;
+};

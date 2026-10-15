@@ -60,7 +60,7 @@ namespace devtools {
 			}
 			return files;
 		};
-		m_groups.push_back({ "Mods", collect(::Mod::GetModsFolder(), true) });
+		m_groups.push_back({ "Mods", collect(::CoreMod::GetModsFolder(), true) });
 		m_groups.push_back({ "WindowsNoEditor", collect(std::filesystem::path(mdml::runtime::GetDataFolder()) / "Config" / "WindowsNoEditor", false) });
 		m_groups.push_back({ "MDML", collect(mdml::runtime::GetConfigFolder(), false) });
 		m_scanned = true;
