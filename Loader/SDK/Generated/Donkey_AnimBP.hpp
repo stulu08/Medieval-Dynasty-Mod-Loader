@@ -207,303 +207,6 @@ public:
 	MDML_MEMBER(FallMinRotationAngle, "FallMinRotationAngle", 0x45DC, float)                         // 0x45DC(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	MDML_MEMBER(FallMaxRotationAngle, "FallMaxRotationAngle", 0x45E0, float)                         // 0x45E0(0x0004)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.GetMountID_BPI
-	// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-	void GetMountID_BPI(struct FGuid* MountID)
-	{
-		struct _mdml_FParams
-		{
-		struct FGuid MountID;                                                                            // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		};
-		static_assert(offsetof(_mdml_FParams, MountID) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.GetMountID_BPI");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "MountID", 0x0000, 0x0010 },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "GetMountID_BPI", 0x0010, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
-			return;
-		if (MountID != nullptr)
-			*MountID = _mdml_Parms.MountID;
-	}
-
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.GetShouldSprint
-	// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-	void GetShouldSprint(bool* ShouldSprint)
-	{
-		struct _mdml_FParams
-		{
-		bool ShouldSprint;                                                                               // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
-		};
-		static_assert(offsetof(_mdml_FParams, ShouldSprint) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.GetShouldSprint");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "ShouldSprint", 0x0000, 0x0001 },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "GetShouldSprint", 0x0001, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
-			return;
-		if (ShouldSprint != nullptr)
-			*ShouldSprint = _mdml_Parms.ShouldSprint;
-	}
-
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.GetSprintKeyDown
-	// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-	void GetSprintKeyDown(bool* IsSprintKeyDown)
-	{
-		struct _mdml_FParams
-		{
-		bool IsSprintKeyDown;                                                                            // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
-		};
-		static_assert(offsetof(_mdml_FParams, IsSprintKeyDown) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.GetSprintKeyDown");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "IsSprintKeyDown", 0x0000, 0x0001 },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "GetSprintKeyDown", 0x0001, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
-			return;
-		if (IsSprintKeyDown != nullptr)
-			*IsSprintKeyDown = _mdml_Parms.IsSprintKeyDown;
-	}
-
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.GetMountCameraRotation
-	// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-	void GetMountCameraRotation(struct FRotator* Rotation)
-	{
-		struct _mdml_FParams
-		{
-		struct FRotator Rotation;                                                                        // 0x0000(0x000C)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
-		};
-		static_assert(offsetof(_mdml_FParams, Rotation) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.GetMountCameraRotation");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "Rotation", 0x0000, 0x000C },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "GetMountCameraRotation", 0x000C, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
-			return;
-		if (Rotation != nullptr)
-			*Rotation = _mdml_Parms.Rotation;
-	}
-
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.AnimGraph
-	// (HasOutParams, BlueprintCallable, BlueprintEvent)
-	void AnimGraph(struct FPoseLink* AnimGraph)
-	{
-		struct _mdml_FParams
-		{
-		struct FPoseLink AnimGraph;                                                                      // 0x0000(0x0010)(Parm, OutParm, NoDestructor)
-		};
-		static_assert(offsetof(_mdml_FParams, AnimGraph) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.AnimGraph");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "AnimGraph", 0x0000, 0x0010 },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "AnimGraph", 0x0010, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
-			return;
-		if (AnimGraph != nullptr)
-			*AnimGraph = _mdml_Parms.AnimGraph;
-	}
-
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.UpdateReins
-	// (Private, BlueprintCallable, BlueprintEvent)
-	void UpdateReins()
-	{
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "UpdateReins", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
-	}
-
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.CalculateReinsHeightOffset
-	// (Private, HasOutParams, BlueprintCallable, BlueprintEvent)
-	void CalculateReinsHeightOffset(const struct FVector& StartLocation, const struct FVector& EndLocation, float At, float ReinsLength, float* HeightOffset)
-	{
-		struct _mdml_FParams
-		{
-		struct FVector StartLocation;                                                                    // 0x0000(0x000C)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		struct FVector EndLocation;                                                                      // 0x000C(0x000C)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		float At;                                                                                        // 0x0018(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		float ReinsLength;                                                                               // 0x001C(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		float HeightOffset;                                                                              // 0x0020(0x0004)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		};
-		static_assert(offsetof(_mdml_FParams, StartLocation) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.CalculateReinsHeightOffset");
-		static_assert(offsetof(_mdml_FParams, EndLocation) == 0x000C, "MDML SDK: parameter layout of Donkey_AnimBP_C.CalculateReinsHeightOffset");
-		static_assert(offsetof(_mdml_FParams, At) == 0x0018, "MDML SDK: parameter layout of Donkey_AnimBP_C.CalculateReinsHeightOffset");
-		static_assert(offsetof(_mdml_FParams, ReinsLength) == 0x001C, "MDML SDK: parameter layout of Donkey_AnimBP_C.CalculateReinsHeightOffset");
-		static_assert(offsetof(_mdml_FParams, HeightOffset) == 0x0020, "MDML SDK: parameter layout of Donkey_AnimBP_C.CalculateReinsHeightOffset");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "StartLocation", 0x0000, 0x000C },
-			{ "EndLocation", 0x000C, 0x000C },
-			{ "At", 0x0018, 0x0004 },
-			{ "ReinsLength", 0x001C, 0x0004 },
-			{ "HeightOffset", 0x0020, 0x0004 },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "CalculateReinsHeightOffset", 0x0024, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 5, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		_mdml_Parms.StartLocation = StartLocation;
-		_mdml_Parms.EndLocation = EndLocation;
-		_mdml_Parms.At = At;
-		_mdml_Parms.ReinsLength = ReinsLength;
-		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
-			return;
-		if (HeightOffset != nullptr)
-			*HeightOffset = _mdml_Parms.HeightOffset;
-	}
-
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.ShouldEnableInverseKinematics
-	// (Event, Protected, HasOutParams, BlueprintCallable, BlueprintEvent)
-	bool ShouldEnableInverseKinematics()
-	{
-		struct _mdml_FParams
-		{
-		bool ReturnValue_ShouldEnableInverseKinematics;                                                  // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor)
-		};
-		static_assert(offsetof(_mdml_FParams, ReturnValue_ShouldEnableInverseKinematics) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.ShouldEnableInverseKinematics");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "ReturnValue", 0x0000, 0x0001 },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "ShouldEnableInverseKinematics", 0x0001, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
-			return {};
-		return _mdml_Parms.ReturnValue_ShouldEnableInverseKinematics;
-	}
-
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.TraceTerrainSlope
-	// (Private, HasDefaults, BlueprintCallable, BlueprintEvent)
-	void TraceTerrainSlope()
-	{
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "TraceTerrainSlope", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
-	}
-
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.CalculateInterpSpeed
-	// (Private, BlueprintCallable, BlueprintEvent)
-	void CalculateInterpSpeed(float DeltaTime)
-	{
-		struct _mdml_FParams
-		{
-		float DeltaTime;                                                                                 // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		};
-		static_assert(offsetof(_mdml_FParams, DeltaTime) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.CalculateInterpSpeed");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "DeltaTime", 0x0000, 0x0004 },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "CalculateInterpSpeed", 0x0004, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		_mdml_Parms.DeltaTime = DeltaTime;
-		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
-	}
-
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.UpdateSpineParameters
-	// (Private, BlueprintCallable, BlueprintEvent)
-	void UpdateSpineParameters(float DeltaTime)
-	{
-		struct _mdml_FParams
-		{
-		float DeltaTime;                                                                                 // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		};
-		static_assert(offsetof(_mdml_FParams, DeltaTime) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.UpdateSpineParameters");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "DeltaTime", 0x0000, 0x0004 },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "UpdateSpineParameters", 0x0004, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		_mdml_Parms.DeltaTime = DeltaTime;
-		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
-	}
-
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.Initialize
-	// (Private, BlueprintCallable, BlueprintEvent)
-	void Initialize()
-	{
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "Initialize", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
-	}
-
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.SetAnimalLocationAndRotationAllPlayers_BPI
-	// (Public, BlueprintCallable, BlueprintEvent)
-	void SetAnimalLocationAndRotationAllPlayers_BPI(const struct FVector& Location, const struct FRotator& Rotation)
-	{
-		struct _mdml_FParams
-		{
-		struct FVector Location;                                                                         // 0x0000(0x000C)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		struct FRotator Rotation;                                                                        // 0x000C(0x000C)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
-		};
-		static_assert(offsetof(_mdml_FParams, Location) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.SetAnimalLocationAndRotationAllPlayers_BPI");
-		static_assert(offsetof(_mdml_FParams, Rotation) == 0x000C, "MDML SDK: parameter layout of Donkey_AnimBP_C.SetAnimalLocationAndRotationAllPlayers_BPI");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "Location", 0x0000, 0x000C },
-			{ "Rotation", 0x000C, 0x000C },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "SetAnimalLocationAndRotationAllPlayers_BPI", 0x0018, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 2, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		_mdml_Parms.Location = Location;
-		_mdml_Parms.Rotation = Rotation;
-		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
-	}
-
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.SetAnimalLocationAllPlayers_BPI
-	// (Public, BlueprintCallable, BlueprintEvent)
-	void SetAnimalLocationAllPlayers_BPI(const struct FVector& Location)
-	{
-		struct _mdml_FParams
-		{
-		struct FVector Location;                                                                         // 0x0000(0x000C)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		};
-		static_assert(offsetof(_mdml_FParams, Location) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.SetAnimalLocationAllPlayers_BPI");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "Location", 0x0000, 0x000C },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "SetAnimalLocationAllPlayers_BPI", 0x000C, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		_mdml_Parms.Location = Location;
-		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
-	}
-
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.DestroyToolMesh_BPI
-	// (Public, BlueprintCallable, BlueprintEvent)
-	void DestroyToolMesh_BPI()
-	{
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "DestroyToolMesh_BPI", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
-	}
-
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.UpdateMountCameraFoV
-	// (Public, BlueprintCallable, BlueprintEvent)
-	void UpdateMountCameraFoV(float FieldOfView)
-	{
-		struct _mdml_FParams
-		{
-		float FieldOfView;                                                                               // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		};
-		static_assert(offsetof(_mdml_FParams, FieldOfView) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.UpdateMountCameraFoV");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "FieldOfView", 0x0000, 0x0004 },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "UpdateMountCameraFoV", 0x0004, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		_mdml_Parms.FieldOfView = FieldOfView;
-		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
-	}
-
 	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.Backwards_Axis
 	// (Public, BlueprintCallable, BlueprintEvent)
 	void Backwards_Axis(float Axis_Value)
@@ -593,25 +296,6 @@ public:
 			{ "Key", 0x0000, 0x0018 },
 		};
 		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "SprintPressed", 0x0018, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		_mdml_Parms.Key = Key;
-		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
-	}
-
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.SprintReleased
-	// (Public, BlueprintCallable, BlueprintEvent)
-	void SprintReleased(const struct FKey& Key)
-	{
-		struct _mdml_FParams
-		{
-		struct FKey Key;                                                                                 // 0x0000(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash)
-		};
-		static_assert(offsetof(_mdml_FParams, Key) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.SprintReleased");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "Key", 0x0000, 0x0018 },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "SprintReleased", 0x0018, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
 		static ::mdml::sdk::FFunctionSlot _mdml_s;
 		_mdml_FParams _mdml_Parms{};
 		_mdml_Parms.Key = Key;
@@ -789,38 +473,6 @@ public:
 		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
 	}
 
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.GetMountCameraAndArm
-	// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-	void GetMountCameraAndArm(bool* IsValid, class UCameraComponent** Canera, class USpringArmComponent** SpringArm)
-	{
-		struct _mdml_FParams
-		{
-		bool IsValid;                                                                                    // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
-		uint8_t _mdml_Pad_1[0x7];                                                                        // 0x0001(0x0007)(padding)
-		class UCameraComponent* Canera;                                                                  // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		class USpringArmComponent* SpringArm;                                                            // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		};
-		static_assert(offsetof(_mdml_FParams, IsValid) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.GetMountCameraAndArm");
-		static_assert(offsetof(_mdml_FParams, Canera) == 0x0008, "MDML SDK: parameter layout of Donkey_AnimBP_C.GetMountCameraAndArm");
-		static_assert(offsetof(_mdml_FParams, SpringArm) == 0x0010, "MDML SDK: parameter layout of Donkey_AnimBP_C.GetMountCameraAndArm");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "IsValid", 0x0000, 0x0001 },
-			{ "Canera", 0x0008, 0x0008 },
-			{ "SpringArm", 0x0010, 0x0008 },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "GetMountCameraAndArm", 0x0018, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 3, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
-			return;
-		if (IsValid != nullptr)
-			*IsValid = _mdml_Parms.IsValid;
-		if (Canera != nullptr)
-			*Canera = _mdml_Parms.Canera;
-		if (SpringArm != nullptr)
-			*SpringArm = _mdml_Parms.SpringArm;
-	}
-
 	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.CameraActionReleased
 	// (Public, BlueprintCallable, BlueprintEvent)
 	void CameraActionReleased(const struct FKey& Key)
@@ -859,6 +511,25 @@ public:
 		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
 	}
 
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.SetPlayerID_BPI
+	// (Public, BlueprintCallable, BlueprintEvent)
+	void SetPlayerID_BPI(const struct FGuid& PlayerId)
+	{
+		struct _mdml_FParams
+		{
+		struct FGuid PlayerId;                                                                           // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		};
+		static_assert(offsetof(_mdml_FParams, PlayerId) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.SetPlayerID_BPI");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "PlayerId", 0x0000, 0x0010 },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "SetPlayerID_BPI", 0x0010, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		_mdml_Parms.PlayerId = PlayerId;
+		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
+	}
+
 	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.MountSummon_BPI
 	// (Public, BlueprintCallable, BlueprintEvent)
 	void MountSummon_BPI()
@@ -887,25 +558,6 @@ public:
 		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
 	}
 
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.SetPlayerID_BPI
-	// (Public, BlueprintCallable, BlueprintEvent)
-	void SetPlayerID_BPI(const struct FGuid& PlayerId)
-	{
-		struct _mdml_FParams
-		{
-		struct FGuid PlayerId;                                                                           // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		};
-		static_assert(offsetof(_mdml_FParams, PlayerId) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.SetPlayerID_BPI");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "PlayerId", 0x0000, 0x0010 },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "SetPlayerID_BPI", 0x0010, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		_mdml_Parms.PlayerId = PlayerId;
-		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
-	}
-
 	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.UnstuckMount_BPI
 	// (Public, BlueprintCallable, BlueprintEvent)
 	void UnstuckMount_BPI()
@@ -913,6 +565,25 @@ public:
 		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "UnstuckMount_BPI", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
 		static ::mdml::sdk::FFunctionSlot _mdml_s;
 		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.SprintReleased
+	// (Public, BlueprintCallable, BlueprintEvent)
+	void SprintReleased(const struct FKey& Key)
+	{
+		struct _mdml_FParams
+		{
+		struct FKey Key;                                                                                 // 0x0000(0x0018)(BlueprintVisible, BlueprintReadOnly, Parm, HasGetValueTypeHash)
+		};
+		static_assert(offsetof(_mdml_FParams, Key) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.SprintReleased");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "Key", 0x0000, 0x0018 },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "SprintReleased", 0x0018, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		_mdml_Parms.Key = Key;
+		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
 	}
 
 	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.SetNightRiderTalent_BPI
@@ -1535,6 +1206,15 @@ public:
 		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
 	}
 
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_Donkey_AnimBP_AnimGraphNode_TransitionResult_FBA523EF4310A4955A701F8F5B7D4C88
+	// (BlueprintEvent)
+	void EvaluateGraphExposedInputs_ExecuteUbergraph_Donkey_AnimBP_AnimGraphNode_TransitionResult_FBA523EF4310A4955A701F8F5B7D4C88()
+	{
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "EvaluateGraphExposedInputs_ExecuteUbergraph_Donkey_AnimBP_AnimGraphNode_TransitionResult_FBA523EF4310A4955A701F8F5B7D4C88", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
+	}
+
 	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_Donkey_AnimBP_AnimGraphNode_TransitionResult_6363EEBA474CD8934255E4901AF6A141
 	// (BlueprintEvent)
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_Donkey_AnimBP_AnimGraphNode_TransitionResult_6363EEBA474CD8934255E4901AF6A141()
@@ -1931,13 +1611,333 @@ public:
 		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
 	}
 
-	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_Donkey_AnimBP_AnimGraphNode_TransitionResult_FBA523EF4310A4955A701F8F5B7D4C88
-	// (BlueprintEvent)
-	void EvaluateGraphExposedInputs_ExecuteUbergraph_Donkey_AnimBP_AnimGraphNode_TransitionResult_FBA523EF4310A4955A701F8F5B7D4C88()
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.UpdateMountCameraFoV
+	// (Public, BlueprintCallable, BlueprintEvent)
+	void UpdateMountCameraFoV(float FieldOfView)
 	{
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "EvaluateGraphExposedInputs_ExecuteUbergraph_Donkey_AnimBP_AnimGraphNode_TransitionResult_FBA523EF4310A4955A701F8F5B7D4C88", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
+		struct _mdml_FParams
+		{
+		float FieldOfView;                                                                               // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		};
+		static_assert(offsetof(_mdml_FParams, FieldOfView) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.UpdateMountCameraFoV");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "FieldOfView", 0x0000, 0x0004 },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "UpdateMountCameraFoV", 0x0004, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		_mdml_Parms.FieldOfView = FieldOfView;
+		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.DestroyToolMesh_BPI
+	// (Public, BlueprintCallable, BlueprintEvent)
+	void DestroyToolMesh_BPI()
+	{
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "DestroyToolMesh_BPI", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
 		static ::mdml::sdk::FFunctionSlot _mdml_s;
 		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.SetAnimalLocationAllPlayers_BPI
+	// (Public, BlueprintCallable, BlueprintEvent)
+	void SetAnimalLocationAllPlayers_BPI(const struct FVector& Location)
+	{
+		struct _mdml_FParams
+		{
+		struct FVector Location;                                                                         // 0x0000(0x000C)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		};
+		static_assert(offsetof(_mdml_FParams, Location) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.SetAnimalLocationAllPlayers_BPI");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "Location", 0x0000, 0x000C },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "SetAnimalLocationAllPlayers_BPI", 0x000C, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		_mdml_Parms.Location = Location;
+		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.SetAnimalLocationAndRotationAllPlayers_BPI
+	// (Public, BlueprintCallable, BlueprintEvent)
+	void SetAnimalLocationAndRotationAllPlayers_BPI(const struct FVector& Location, const struct FRotator& Rotation)
+	{
+		struct _mdml_FParams
+		{
+		struct FVector Location;                                                                         // 0x0000(0x000C)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		struct FRotator Rotation;                                                                        // 0x000C(0x000C)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+		};
+		static_assert(offsetof(_mdml_FParams, Location) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.SetAnimalLocationAndRotationAllPlayers_BPI");
+		static_assert(offsetof(_mdml_FParams, Rotation) == 0x000C, "MDML SDK: parameter layout of Donkey_AnimBP_C.SetAnimalLocationAndRotationAllPlayers_BPI");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "Location", 0x0000, 0x000C },
+			{ "Rotation", 0x000C, 0x000C },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "SetAnimalLocationAndRotationAllPlayers_BPI", 0x0018, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 2, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		_mdml_Parms.Location = Location;
+		_mdml_Parms.Rotation = Rotation;
+		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.Initialize
+	// (Private, BlueprintCallable, BlueprintEvent)
+	void Initialize()
+	{
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "Initialize", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.UpdateSpineParameters
+	// (Private, BlueprintCallable, BlueprintEvent)
+	void UpdateSpineParameters(float DeltaTime)
+	{
+		struct _mdml_FParams
+		{
+		float DeltaTime;                                                                                 // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		};
+		static_assert(offsetof(_mdml_FParams, DeltaTime) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.UpdateSpineParameters");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "DeltaTime", 0x0000, 0x0004 },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "UpdateSpineParameters", 0x0004, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		_mdml_Parms.DeltaTime = DeltaTime;
+		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.CalculateInterpSpeed
+	// (Private, BlueprintCallable, BlueprintEvent)
+	void CalculateInterpSpeed(float DeltaTime)
+	{
+		struct _mdml_FParams
+		{
+		float DeltaTime;                                                                                 // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		};
+		static_assert(offsetof(_mdml_FParams, DeltaTime) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.CalculateInterpSpeed");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "DeltaTime", 0x0000, 0x0004 },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "CalculateInterpSpeed", 0x0004, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		_mdml_Parms.DeltaTime = DeltaTime;
+		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.TraceTerrainSlope
+	// (Private, HasDefaults, BlueprintCallable, BlueprintEvent)
+	void TraceTerrainSlope()
+	{
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "TraceTerrainSlope", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.ShouldEnableInverseKinematics
+	// (Event, Protected, HasOutParams, BlueprintCallable, BlueprintEvent)
+	bool ShouldEnableInverseKinematics()
+	{
+		struct _mdml_FParams
+		{
+		bool ReturnValue;                                                                                // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor)
+		};
+		static_assert(offsetof(_mdml_FParams, ReturnValue) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.ShouldEnableInverseKinematics");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "ReturnValue", 0x0000, 0x0001 },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "ShouldEnableInverseKinematics", 0x0001, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
+			return {};
+		return _mdml_Parms.ReturnValue;
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.CalculateReinsHeightOffset
+	// (Private, HasOutParams, BlueprintCallable, BlueprintEvent)
+	void CalculateReinsHeightOffset(const struct FVector& StartLocation, const struct FVector& EndLocation, float At, float ReinsLength, float* HeightOffset)
+	{
+		struct _mdml_FParams
+		{
+		struct FVector StartLocation;                                                                    // 0x0000(0x000C)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		struct FVector EndLocation;                                                                      // 0x000C(0x000C)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		float At;                                                                                        // 0x0018(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		float ReinsLength;                                                                               // 0x001C(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		float HeightOffset;                                                                              // 0x0020(0x0004)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		};
+		static_assert(offsetof(_mdml_FParams, StartLocation) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.CalculateReinsHeightOffset");
+		static_assert(offsetof(_mdml_FParams, EndLocation) == 0x000C, "MDML SDK: parameter layout of Donkey_AnimBP_C.CalculateReinsHeightOffset");
+		static_assert(offsetof(_mdml_FParams, At) == 0x0018, "MDML SDK: parameter layout of Donkey_AnimBP_C.CalculateReinsHeightOffset");
+		static_assert(offsetof(_mdml_FParams, ReinsLength) == 0x001C, "MDML SDK: parameter layout of Donkey_AnimBP_C.CalculateReinsHeightOffset");
+		static_assert(offsetof(_mdml_FParams, HeightOffset) == 0x0020, "MDML SDK: parameter layout of Donkey_AnimBP_C.CalculateReinsHeightOffset");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "StartLocation", 0x0000, 0x000C },
+			{ "EndLocation", 0x000C, 0x000C },
+			{ "At", 0x0018, 0x0004 },
+			{ "ReinsLength", 0x001C, 0x0004 },
+			{ "HeightOffset", 0x0020, 0x0004 },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "CalculateReinsHeightOffset", 0x0024, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 5, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		_mdml_Parms.StartLocation = StartLocation;
+		_mdml_Parms.EndLocation = EndLocation;
+		_mdml_Parms.At = At;
+		_mdml_Parms.ReinsLength = ReinsLength;
+		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
+			return;
+		if (HeightOffset != nullptr)
+			*HeightOffset = _mdml_Parms.HeightOffset;
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.UpdateReins
+	// (Private, BlueprintCallable, BlueprintEvent)
+	void UpdateReins()
+	{
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "UpdateReins", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.AnimGraph
+	// (HasOutParams, BlueprintCallable, BlueprintEvent)
+	void AnimGraph(struct FPoseLink* AnimGraph_0)
+	{
+		struct _mdml_FParams
+		{
+		struct FPoseLink AnimGraph_0;                                                                    // 0x0000(0x0010)(Parm, OutParm, NoDestructor)
+		};
+		static_assert(offsetof(_mdml_FParams, AnimGraph_0) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.AnimGraph");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "AnimGraph", 0x0000, 0x0010 },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "AnimGraph", 0x0010, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
+			return;
+		if (AnimGraph_0 != nullptr)
+			*AnimGraph_0 = _mdml_Parms.AnimGraph_0;
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.GetMountCameraAndArm
+	// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+	void GetMountCameraAndArm(bool* IsValid, class UCameraComponent** Canera, class USpringArmComponent** SpringArm)
+	{
+		struct _mdml_FParams
+		{
+		bool IsValid;                                                                                    // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
+		uint8_t _mdml_Pad_1[0x7];                                                                        // 0x0001(0x0007)(padding)
+		class UCameraComponent* Canera;                                                                  // 0x0008(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		class USpringArmComponent* SpringArm;                                                            // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		};
+		static_assert(offsetof(_mdml_FParams, IsValid) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.GetMountCameraAndArm");
+		static_assert(offsetof(_mdml_FParams, Canera) == 0x0008, "MDML SDK: parameter layout of Donkey_AnimBP_C.GetMountCameraAndArm");
+		static_assert(offsetof(_mdml_FParams, SpringArm) == 0x0010, "MDML SDK: parameter layout of Donkey_AnimBP_C.GetMountCameraAndArm");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "IsValid", 0x0000, 0x0001 },
+			{ "Canera", 0x0008, 0x0008 },
+			{ "SpringArm", 0x0010, 0x0008 },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "GetMountCameraAndArm", 0x0018, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 3, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
+			return;
+		if (IsValid != nullptr)
+			*IsValid = _mdml_Parms.IsValid;
+		if (Canera != nullptr)
+			*Canera = _mdml_Parms.Canera;
+		if (SpringArm != nullptr)
+			*SpringArm = _mdml_Parms.SpringArm;
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.GetMountCameraRotation
+	// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+	void GetMountCameraRotation(struct FRotator* Rotation)
+	{
+		struct _mdml_FParams
+		{
+		struct FRotator Rotation;                                                                        // 0x0000(0x000C)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
+		};
+		static_assert(offsetof(_mdml_FParams, Rotation) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.GetMountCameraRotation");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "Rotation", 0x0000, 0x000C },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "GetMountCameraRotation", 0x000C, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
+			return;
+		if (Rotation != nullptr)
+			*Rotation = _mdml_Parms.Rotation;
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.GetSprintKeyDown
+	// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+	void GetSprintKeyDown(bool* IsSprintKeyDown)
+	{
+		struct _mdml_FParams
+		{
+		bool IsSprintKeyDown;                                                                            // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
+		};
+		static_assert(offsetof(_mdml_FParams, IsSprintKeyDown) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.GetSprintKeyDown");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "IsSprintKeyDown", 0x0000, 0x0001 },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "GetSprintKeyDown", 0x0001, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
+			return;
+		if (IsSprintKeyDown != nullptr)
+			*IsSprintKeyDown = _mdml_Parms.IsSprintKeyDown;
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.GetShouldSprint
+	// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+	void GetShouldSprint(bool* ShouldSprint)
+	{
+		struct _mdml_FParams
+		{
+		bool ShouldSprint;                                                                               // 0x0000(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
+		};
+		static_assert(offsetof(_mdml_FParams, ShouldSprint) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.GetShouldSprint");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "ShouldSprint", 0x0000, 0x0001 },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "GetShouldSprint", 0x0001, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
+			return;
+		if (ShouldSprint != nullptr)
+			*ShouldSprint = _mdml_Parms.ShouldSprint;
+	}
+
+	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.GetMountID_BPI
+	// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
+	void GetMountID_BPI(struct FGuid* MountID)
+	{
+		struct _mdml_FParams
+		{
+		struct FGuid MountID;                                                                            // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		};
+		static_assert(offsetof(_mdml_FParams, MountID) == 0x0000, "MDML SDK: parameter layout of Donkey_AnimBP_C.GetMountID_BPI");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "MountID", 0x0000, 0x0010 },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "GetMountID_BPI", 0x0010, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 1, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
+			return;
+		if (MountID != nullptr)
+			*MountID = _mdml_Parms.MountID;
 	}
 
 	// Function Function Donkey_AnimBP.Donkey_AnimBP_C.GetMountEncumberedSpeedMultiplier_BPI

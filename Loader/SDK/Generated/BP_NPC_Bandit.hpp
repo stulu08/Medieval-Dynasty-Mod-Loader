@@ -215,6 +215,15 @@ public:
 		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
 	}
 
+	// Function Function BP_NPC_Bandit.BP_NPC_Bandit_C.DisableNPC
+	// (BlueprintCallable, BlueprintEvent)
+	void DisableNPC()
+	{
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "DisableNPC", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
+	}
+
 	// Function Function BP_NPC_Bandit.BP_NPC_Bandit_C.FarOptimization
 	// (BlueprintCallable, BlueprintEvent)
 	void FarOptimization()
@@ -229,15 +238,6 @@ public:
 	void MediumOptimization()
 	{
 		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "MediumOptimization", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
-	}
-
-	// Function Function BP_NPC_Bandit.BP_NPC_Bandit_C.DisableNPC
-	// (BlueprintCallable, BlueprintEvent)
-	void DisableNPC()
-	{
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "DisableNPC", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
 		static ::mdml::sdk::FFunctionSlot _mdml_s;
 		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
 	}

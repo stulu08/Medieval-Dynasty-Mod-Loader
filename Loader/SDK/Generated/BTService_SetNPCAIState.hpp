@@ -38,7 +38,7 @@ public:
 	MDML_MEMBER(DayTimer, "DayTimer", 0x0180, struct FTimerHandle)                                   // 0x0180(0x0008)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	MDML_MEMBER(EveningTimer, "EveningTimer", 0x0188, struct FTimerHandle)                           // 0x0188(0x0008)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
 	MDML_MEMBER(NightTimer, "NightTimer", 0x0190, struct FTimerHandle)                               // 0x0190(0x0008)(Edit, BlueprintVisible, DisableEditOnInstance, NoDestructor, HasGetValueTypeHash)
-	MDML_MEMBER(E_DailyCycle, "E_DailyCycle", 0x0198, E_DailyCycle)                                  // 0x0198(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	MDML_MEMBER(E_DailyCycle_0, "E_DailyCycle", 0x0198, E_DailyCycle)                                // 0x0198(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	MDML_MEMBER(IsLoadGame, "IsLoadGame", 0x01A0, struct FBlackboardKeySelector)                     // 0x01A0(0x0028)(Edit, BlueprintVisible)
 	MDML_MEMBER(Furniture, "Furniture", 0x01C8, struct FBlackboardKeySelector)                       // 0x01C8(0x0028)(Edit, BlueprintVisible)
 	MDML_MEMBER(LastTimeOfDayCheck, "LastTimeOfDayCheck", 0x01F0, struct FBlackboardKeySelector)     // 0x01F0(0x0028)(Edit, BlueprintVisible)

@@ -42,7 +42,7 @@ public:
 	MDML_MEMBER(NormalColor_Red, "NormalColor_Red", 0x0480, struct FLinearColor)                     // 0x0480(0x0010)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 	MDML_MEMBER(Count, "Count", 0x0490, int32_t)                                                     // 0x0490(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
 	MDML_MEMBER(IsActive, "IsActive", 0x0494, bool)                                                  // 0x0494(0x0001)(Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData, NoDestructor)
-	MDML_MEMBER(E_ShopType, "E_ShopType", 0x0495, E_ShopType)                                        // 0x0495(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
+	MDML_MEMBER(E_ShopType_0, "E_ShopType", 0x0495, E_ShopType)                                      // 0x0495(0x0001)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, ExposeOnSpawn, HasGetValueTypeHash)
 
 	// Function Function UI_Slot_StoreType.UI_Slot_StoreType_C.ExecuteUbergraph_UI_Slot_StoreType
 	// (Final, UbergraphFunction, HasDefaults)

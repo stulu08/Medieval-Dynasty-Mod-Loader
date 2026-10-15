@@ -2,7 +2,7 @@ MDML SDK generation report
 Game: Medieval_Dynasty 4.27.2-0+++UE4+Release-4.27
 Requested: <all packages>
 Missing (not found in the running game): 0
-Generated: 2523 header(s), 4196 classes, 2148 structs, 1289 enums, 30901 functions (0 skipped), 49 opaque members
+Generated: 2530 header(s), 4203 classes, 2148 structs, 1289 enums, 30998 functions (0 skipped), 49 opaque members
   ACLPlugin.hpp
   AIC_Flying.hpp
   AIC_Husbandry.hpp
@@ -825,9 +825,11 @@ Generated: 2523 header(s), 4196 classes, 2148 structs, 1289 enums, 30901 functio
   BP_Gosling_Male.hpp
   BP_GroundAnimalBase.hpp
   BP_HideCave.hpp
+  BP_HoldableItem_Bow.hpp
   BP_HoldableItem_Hands.hpp
   BP_HoldableItem_Hands_Main.hpp
   BP_HoldableItem_Hands_Off.hpp
+  BP_HoldableItem_Longbow.hpp
   BP_HoldableItem_SimpleTorch.hpp
   BP_HoldableItem_Torch.hpp
   BP_Horse_Female.hpp
@@ -896,6 +898,8 @@ Generated: 2523 header(s), 4196 classes, 2148 structs, 1289 enums, 30901 functio
   BP_MasterPlatform.hpp
   BP_MasterProjectile.hpp
   BP_MasterQuestScenography.hpp
+  BP_MasterRangeHoldableItem.hpp
+  BP_MasterRangeHoldableItem_Skeletal.hpp
   BP_MasterResourceItem.hpp
   BP_MasterResourceStack.hpp
   BP_MasterRoadSpline.hpp
@@ -1294,6 +1298,8 @@ Generated: 2523 header(s), 4196 classes, 2148 structs, 1289 enums, 30901 functio
   BTTask_WakeUp.hpp
   Bellows_AnimBP.hpp
   BinkMediaPlayer.hpp
+  Bow_AnimBP.hpp
+  Bow_NPC_AnimBP.hpp
   Boy_AnimBP.hpp
   BuildPatchServices.hpp
   Build_CameraShake.hpp
@@ -1685,6 +1691,7 @@ Generated: 2523 header(s), 4196 classes, 2148 structs, 1289 enums, 30901 functio
   O_ChatterTalkingNPCsManager.hpp
   O_QuestTalkingNPCsManager.hpp
   O_TalkingNPCsManager.hpp
+  Object_AnimNotify.hpp
   OldManPlayChatter_AnimNotify.hpp
   OnlineSubsystem.hpp
   OnlineSubsystemEOS.hpp

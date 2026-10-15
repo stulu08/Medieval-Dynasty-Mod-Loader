@@ -616,20 +616,20 @@ public:
 		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
 	}
 
-	// Function Function BP_NPC_Multi_Village.BP_NPC_Multi_Village_C.OnOptimizationDeactive
-	// (Public, BlueprintCallable, BlueprintEvent)
-	void OnOptimizationDeactive()
-	{
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "OnOptimizationDeactive", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
-	}
-
 	// Function Function BP_NPC_Multi_Village.BP_NPC_Multi_Village_C.OnOptimizationActive
 	// (Public, BlueprintCallable, BlueprintEvent)
 	void OnOptimizationActive()
 	{
 		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "OnOptimizationActive", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
+	}
+
+	// Function Function BP_NPC_Multi_Village.BP_NPC_Multi_Village_C.OnOptimizationDeactive
+	// (Public, BlueprintCallable, BlueprintEvent)
+	void OnOptimizationDeactive()
+	{
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "OnOptimizationDeactive", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
 		static ::mdml::sdk::FFunctionSlot _mdml_s;
 		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
 	}

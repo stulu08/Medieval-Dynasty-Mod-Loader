@@ -2410,27 +2410,27 @@ public:
 
 	// Function Function PC_Player.PC_Player_C.Server_Assignment_Workplace_NPC
 	// (Net, NetServer, BlueprintCallable, BlueprintEvent)
-	void Server_Assignment_Workplace_NPC(class ABP_NPC_C* NPC, class ABP_MasterBuilding_C* Workplace, class ABP_BaseCharacter_C* OtherNPC)
+	void Server_Assignment_Workplace_NPC(class ABP_NPC_C* NPC, class ABP_MasterBuilding_C* WorkPlace, class ABP_BaseCharacter_C* OtherNPC)
 	{
 		struct _mdml_FParams
 		{
 		class ABP_NPC_C* NPC;                                                                            // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		class ABP_MasterBuilding_C* Workplace;                                                           // 0x0008(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		class ABP_MasterBuilding_C* WorkPlace;                                                           // 0x0008(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 		class ABP_BaseCharacter_C* OtherNPC;                                                             // 0x0010(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 		};
 		static_assert(offsetof(_mdml_FParams, NPC) == 0x0000, "MDML SDK: parameter layout of PC_Player_C.Server_Assignment_Workplace_NPC");
-		static_assert(offsetof(_mdml_FParams, Workplace) == 0x0008, "MDML SDK: parameter layout of PC_Player_C.Server_Assignment_Workplace_NPC");
+		static_assert(offsetof(_mdml_FParams, WorkPlace) == 0x0008, "MDML SDK: parameter layout of PC_Player_C.Server_Assignment_Workplace_NPC");
 		static_assert(offsetof(_mdml_FParams, OtherNPC) == 0x0010, "MDML SDK: parameter layout of PC_Player_C.Server_Assignment_Workplace_NPC");
 		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
 			{ "NPC", 0x0000, 0x0008 },
-			{ "Workplace", 0x0008, 0x0008 },
+			{ "WorkPlace", 0x0008, 0x0008 },
 			{ "OtherNPC", 0x0010, 0x0008 },
 		};
 		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "Server_Assignment_Workplace_NPC", 0x0018, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 3, ::mdml::sdk::FunctionDesc_None };
 		static ::mdml::sdk::FFunctionSlot _mdml_s;
 		_mdml_FParams _mdml_Parms{};
 		_mdml_Parms.NPC = NPC;
-		_mdml_Parms.Workplace = Workplace;
+		_mdml_Parms.WorkPlace = WorkPlace;
 		_mdml_Parms.OtherNPC = OtherNPC;
 		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
 	}
@@ -2455,27 +2455,27 @@ public:
 
 	// Function Function PC_Player.PC_Player_C.Server_Assignment_NPC_Workplace
 	// (Net, NetReliable, NetServer, BlueprintCallable, BlueprintEvent)
-	void Server_Assignment_NPC_Workplace(class ABP_NPC_C* NPC, class ABP_MasterBuilding_C* Workplace, class ABP_NPC_C* OtherNPC)
+	void Server_Assignment_NPC_Workplace(class ABP_NPC_C* NPC, class ABP_MasterBuilding_C* WorkPlace, class ABP_NPC_C* OtherNPC)
 	{
 		struct _mdml_FParams
 		{
 		class ABP_NPC_C* NPC;                                                                            // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		class ABP_MasterBuilding_C* Workplace;                                                           // 0x0008(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		class ABP_MasterBuilding_C* WorkPlace;                                                           // 0x0008(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 		class ABP_NPC_C* OtherNPC;                                                                       // 0x0010(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 		};
 		static_assert(offsetof(_mdml_FParams, NPC) == 0x0000, "MDML SDK: parameter layout of PC_Player_C.Server_Assignment_NPC_Workplace");
-		static_assert(offsetof(_mdml_FParams, Workplace) == 0x0008, "MDML SDK: parameter layout of PC_Player_C.Server_Assignment_NPC_Workplace");
+		static_assert(offsetof(_mdml_FParams, WorkPlace) == 0x0008, "MDML SDK: parameter layout of PC_Player_C.Server_Assignment_NPC_Workplace");
 		static_assert(offsetof(_mdml_FParams, OtherNPC) == 0x0010, "MDML SDK: parameter layout of PC_Player_C.Server_Assignment_NPC_Workplace");
 		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
 			{ "NPC", 0x0000, 0x0008 },
-			{ "Workplace", 0x0008, 0x0008 },
+			{ "WorkPlace", 0x0008, 0x0008 },
 			{ "OtherNPC", 0x0010, 0x0008 },
 		};
 		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "Server_Assignment_NPC_Workplace", 0x0018, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 3, ::mdml::sdk::FunctionDesc_None };
 		static ::mdml::sdk::FFunctionSlot _mdml_s;
 		_mdml_FParams _mdml_Parms{};
 		_mdml_Parms.NPC = NPC;
-		_mdml_Parms.Workplace = Workplace;
+		_mdml_Parms.WorkPlace = WorkPlace;
 		_mdml_Parms.OtherNPC = OtherNPC;
 		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
 	}

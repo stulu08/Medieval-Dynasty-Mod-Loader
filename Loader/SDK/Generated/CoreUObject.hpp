@@ -168,7 +168,7 @@ MDML_PREDEFINED_CHECK(FTransform, 0x0030, 0x10)
 MDML_PREDEFINED_CHECK_STRICT(FRandomStream, 0x0008, 0x04)
 
 // ScriptStruct CoreUObject.DateTime -> hand-written core type UE4::FDateTime (layout check)
-MDML_PREDEFINED_CHECK_STRICT(FDateTime, 0x0008, 0x08)
+MDML_PREDEFINED_CHECK(FDateTime, 0x0008, 0x08)
 
 // ScriptStruct CoreUObject.FrameNumber -> hand-written core type UE4::FFrameNumber (layout check)
 MDML_PREDEFINED_CHECK_STRICT(FFrameNumber, 0x0004, 0x04)
@@ -186,7 +186,7 @@ MDML_PREDEFINED_CHECK_STRICT(FQualifiedFrameTime, 0x0010, 0x04)
 MDML_PREDEFINED_CHECK_STRICT(FTimecode, 0x0014, 0x04)
 
 // ScriptStruct CoreUObject.Timespan -> hand-written core type UE4::FTimespan (layout check)
-MDML_PREDEFINED_CHECK_STRICT(FTimespan, 0x0008, 0x08)
+MDML_PREDEFINED_CHECK(FTimespan, 0x0008, 0x08)
 
 // ScriptStruct CoreUObject.SoftClassPath -> hand-written core type UE4::FSoftClassPath (layout check)
 MDML_PREDEFINED_CHECK(FSoftClassPath, 0x0018, 0x08)

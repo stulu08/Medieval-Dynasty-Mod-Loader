@@ -29,28 +29,28 @@ public:
 
 	// Function Function BPI_Field.BPI_Field_C.IField_IsChunkInteractableForNPC
 	// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-	void IField_IsChunkInteractableForNPC(int32_t ChunkID, class AActor* Workplace, bool* Success)
+	void IField_IsChunkInteractableForNPC(int32_t ChunkID, class AActor* WorkPlace, bool* Success)
 	{
 		struct _mdml_FParams
 		{
 		int32_t ChunkID;                                                                                 // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 		uint8_t _mdml_Pad_4[0x4];                                                                        // 0x0004(0x0004)(padding)
-		class AActor* Workplace;                                                                         // 0x0008(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		class AActor* WorkPlace;                                                                         // 0x0008(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 		bool Success;                                                                                    // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
 		};
 		static_assert(offsetof(_mdml_FParams, ChunkID) == 0x0000, "MDML SDK: parameter layout of BPI_Field_C.IField_IsChunkInteractableForNPC");
-		static_assert(offsetof(_mdml_FParams, Workplace) == 0x0008, "MDML SDK: parameter layout of BPI_Field_C.IField_IsChunkInteractableForNPC");
+		static_assert(offsetof(_mdml_FParams, WorkPlace) == 0x0008, "MDML SDK: parameter layout of BPI_Field_C.IField_IsChunkInteractableForNPC");
 		static_assert(offsetof(_mdml_FParams, Success) == 0x0010, "MDML SDK: parameter layout of BPI_Field_C.IField_IsChunkInteractableForNPC");
 		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
 			{ "ChunkID", 0x0000, 0x0004 },
-			{ "Workplace", 0x0008, 0x0008 },
+			{ "WorkPlace", 0x0008, 0x0008 },
 			{ "Success", 0x0010, 0x0001 },
 		};
 		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "IField_IsChunkInteractableForNPC", 0x0011, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 3, ::mdml::sdk::FunctionDesc_Dynamic };
 		static ::mdml::sdk::FFunctionSlot _mdml_s;
 		_mdml_FParams _mdml_Parms{};
 		_mdml_Parms.ChunkID = ChunkID;
-		_mdml_Parms.Workplace = Workplace;
+		_mdml_Parms.WorkPlace = WorkPlace;
 		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
 			return;
 		if (Success != nullptr)
@@ -128,14 +128,14 @@ public:
 
 	// Function Function BPI_Field.BPI_Field_C.IField_GetFieldTask
 	// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-	void IField_GetFieldTask(bool CurrentTask, E_FieldActivities FieldActivity, class AActor* Workplace, E_NPCStatus* Status, E_Tools_Activity* NeedToolActivity, FName* NeedItem, struct FST_FieldTasksLists* Task, int32_t* FieldTaskListIndex, int32_t* ChunkID)
+	void IField_GetFieldTask(bool CurrentTask, E_FieldActivities FieldActivity, class AActor* WorkPlace, E_NPCStatus* Status, E_Tools_Activity* NeedToolActivity, FName* NeedItem, struct FST_FieldTasksLists* Task, int32_t* FieldTaskListIndex, int32_t* ChunkID)
 	{
 		struct _mdml_FParams
 		{
 		bool CurrentTask;                                                                                // 0x0000(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
 		E_FieldActivities FieldActivity;                                                                 // 0x0001(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 		uint8_t _mdml_Pad_2[0x6];                                                                        // 0x0002(0x0006)(padding)
-		class AActor* Workplace;                                                                         // 0x0008(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		class AActor* WorkPlace;                                                                         // 0x0008(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 		E_NPCStatus Status;                                                                              // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 		E_Tools_Activity NeedToolActivity;                                                               // 0x0011(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 		uint8_t _mdml_Pad_12[0x2];                                                                       // 0x0012(0x0002)(padding)
@@ -147,7 +147,7 @@ public:
 		};
 		static_assert(offsetof(_mdml_FParams, CurrentTask) == 0x0000, "MDML SDK: parameter layout of BPI_Field_C.IField_GetFieldTask");
 		static_assert(offsetof(_mdml_FParams, FieldActivity) == 0x0001, "MDML SDK: parameter layout of BPI_Field_C.IField_GetFieldTask");
-		static_assert(offsetof(_mdml_FParams, Workplace) == 0x0008, "MDML SDK: parameter layout of BPI_Field_C.IField_GetFieldTask");
+		static_assert(offsetof(_mdml_FParams, WorkPlace) == 0x0008, "MDML SDK: parameter layout of BPI_Field_C.IField_GetFieldTask");
 		static_assert(offsetof(_mdml_FParams, Status) == 0x0010, "MDML SDK: parameter layout of BPI_Field_C.IField_GetFieldTask");
 		static_assert(offsetof(_mdml_FParams, NeedToolActivity) == 0x0011, "MDML SDK: parameter layout of BPI_Field_C.IField_GetFieldTask");
 		static_assert(offsetof(_mdml_FParams, NeedItem) == 0x0014, "MDML SDK: parameter layout of BPI_Field_C.IField_GetFieldTask");
@@ -157,7 +157,7 @@ public:
 		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
 			{ "CurrentTask", 0x0000, 0x0001 },
 			{ "FieldActivity", 0x0001, 0x0001 },
-			{ "Workplace", 0x0008, 0x0008 },
+			{ "WorkPlace", 0x0008, 0x0008 },
 			{ "Status", 0x0010, 0x0001 },
 			{ "NeedToolActivity", 0x0011, 0x0001 },
 			{ "NeedItem", 0x0014, 0x0008 },
@@ -170,7 +170,7 @@ public:
 		_mdml_FParams _mdml_Parms{};
 		_mdml_Parms.CurrentTask = CurrentTask;
 		_mdml_Parms.FieldActivity = FieldActivity;
-		_mdml_Parms.Workplace = Workplace;
+		_mdml_Parms.WorkPlace = WorkPlace;
 		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
 			return;
 		if (Status != nullptr)

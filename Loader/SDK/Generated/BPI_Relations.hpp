@@ -48,17 +48,17 @@ public:
 
 	// Function Function BPI_Relations.BPI_Relations_C.GetWorkPlace_BPI
 	// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-	void GetWorkPlace_BPI(class AActor** Workplace, FString* WorkPlaceID)
+	void GetWorkPlace_BPI(class AActor** WorkPlace, FString* WorkPlaceID)
 	{
 		struct _mdml_FParams
 		{
-		class AActor* Workplace;                                                                         // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		class AActor* WorkPlace;                                                                         // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 		FString WorkPlaceID;                                                                             // 0x0008(0x0010)(Parm, OutParm, ZeroConstructor, HasGetValueTypeHash)
 		};
-		static_assert(offsetof(_mdml_FParams, Workplace) == 0x0000, "MDML SDK: parameter layout of BPI_Relations_C.GetWorkPlace_BPI");
+		static_assert(offsetof(_mdml_FParams, WorkPlace) == 0x0000, "MDML SDK: parameter layout of BPI_Relations_C.GetWorkPlace_BPI");
 		static_assert(offsetof(_mdml_FParams, WorkPlaceID) == 0x0008, "MDML SDK: parameter layout of BPI_Relations_C.GetWorkPlace_BPI");
 		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "Workplace", 0x0000, 0x0008 },
+			{ "WorkPlace", 0x0000, 0x0008 },
 			{ "WorkPlaceID", 0x0008, 0x0010 },
 		};
 		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "GetWorkPlace_BPI", 0x0018, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 2, ::mdml::sdk::FunctionDesc_Dynamic };
@@ -66,8 +66,8 @@ public:
 		_mdml_FParams _mdml_Parms{};
 		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
 			return;
-		if (Workplace != nullptr)
-			*Workplace = _mdml_Parms.Workplace;
+		if (WorkPlace != nullptr)
+			*WorkPlace = _mdml_Parms.WorkPlace;
 		if (WorkPlaceID != nullptr)
 			*WorkPlaceID = _mdml_Parms.WorkPlaceID;
 	}

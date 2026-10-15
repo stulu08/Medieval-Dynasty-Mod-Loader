@@ -2339,21 +2339,21 @@ public:
 
 	// Function Function AIC_NPC.AIC_NPC_C.AI_FindWorkPlace
 	// (Public, HasOutParams, BlueprintCallable, BlueprintEvent)
-	void AI_FindWorkPlace(struct FVector* Destination, float* WorkRadius, bool* Workplace)
+	void AI_FindWorkPlace(struct FVector* Destination, float* WorkRadius, bool* WorkPlace)
 	{
 		struct _mdml_FParams
 		{
 		struct FVector Destination;                                                                      // 0x0000(0x000C)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
 		float WorkRadius;                                                                                // 0x000C(0x0004)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		bool Workplace;                                                                                  // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
+		bool WorkPlace;                                                                                  // 0x0010(0x0001)(Parm, OutParm, ZeroConstructor, IsPlainOldData, NoDestructor)
 		};
 		static_assert(offsetof(_mdml_FParams, Destination) == 0x0000, "MDML SDK: parameter layout of AIC_NPC_C.AI_FindWorkPlace");
 		static_assert(offsetof(_mdml_FParams, WorkRadius) == 0x000C, "MDML SDK: parameter layout of AIC_NPC_C.AI_FindWorkPlace");
-		static_assert(offsetof(_mdml_FParams, Workplace) == 0x0010, "MDML SDK: parameter layout of AIC_NPC_C.AI_FindWorkPlace");
+		static_assert(offsetof(_mdml_FParams, WorkPlace) == 0x0010, "MDML SDK: parameter layout of AIC_NPC_C.AI_FindWorkPlace");
 		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
 			{ "Destination", 0x0000, 0x000C },
 			{ "WorkRadius", 0x000C, 0x0004 },
-			{ "Workplace", 0x0010, 0x0001 },
+			{ "WorkPlace", 0x0010, 0x0001 },
 		};
 		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "AI_FindWorkPlace", 0x0011, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 3, ::mdml::sdk::FunctionDesc_None };
 		static ::mdml::sdk::FFunctionSlot _mdml_s;
@@ -2364,8 +2364,8 @@ public:
 			*Destination = _mdml_Parms.Destination;
 		if (WorkRadius != nullptr)
 			*WorkRadius = _mdml_Parms.WorkRadius;
-		if (Workplace != nullptr)
-			*Workplace = _mdml_Parms.Workplace;
+		if (WorkPlace != nullptr)
+			*WorkPlace = _mdml_Parms.WorkPlace;
 	}
 
 	// Function Function AIC_NPC.AIC_NPC_C.AI_FindClosestFurniture

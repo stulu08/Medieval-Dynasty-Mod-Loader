@@ -137,40 +137,6 @@ public:
 		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
 	}
 
-	// Function Function BP_NPC_Bard.BP_NPC_Bard_C.SpawnSoundComponentAndPlay
-	// (Protected, HasOutParams, BlueprintCallable, BlueprintEvent)
-	void SpawnSoundComponentAndPlay(class USoundBase* Sound, float StartTime, bool AutoDestroy, class UAudioComponent** AudioComponent)
-	{
-		struct _mdml_FParams
-		{
-		class USoundBase* Sound;                                                                         // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		float StartTime;                                                                                 // 0x0008(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		bool AutoDestroy;                                                                                // 0x000C(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
-		uint8_t _mdml_Pad_D[0x3];                                                                        // 0x000D(0x0003)(padding)
-		class UAudioComponent* AudioComponent;                                                           // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		};
-		static_assert(offsetof(_mdml_FParams, Sound) == 0x0000, "MDML SDK: parameter layout of BP_NPC_Bard_C.SpawnSoundComponentAndPlay");
-		static_assert(offsetof(_mdml_FParams, StartTime) == 0x0008, "MDML SDK: parameter layout of BP_NPC_Bard_C.SpawnSoundComponentAndPlay");
-		static_assert(offsetof(_mdml_FParams, AutoDestroy) == 0x000C, "MDML SDK: parameter layout of BP_NPC_Bard_C.SpawnSoundComponentAndPlay");
-		static_assert(offsetof(_mdml_FParams, AudioComponent) == 0x0010, "MDML SDK: parameter layout of BP_NPC_Bard_C.SpawnSoundComponentAndPlay");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "Sound", 0x0000, 0x0008 },
-			{ "StartTime", 0x0008, 0x0004 },
-			{ "AutoDestroy", 0x000C, 0x0001 },
-			{ "AudioComponent", 0x0010, 0x0008 },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "SpawnSoundComponentAndPlay", 0x0018, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 4, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		_mdml_Parms.Sound = Sound;
-		_mdml_Parms.StartTime = StartTime;
-		_mdml_Parms.AutoDestroy = AutoDestroy;
-		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
-			return;
-		if (AudioComponent != nullptr)
-			*AudioComponent = _mdml_Parms.AudioComponent;
-	}
-
 	// Function Function BP_NPC_Bard.BP_NPC_Bard_C.FindChatter
 	// (Public, HasOutParams, HasDefaults, BlueprintCallable, BlueprintEvent)
 	void FindChatter(bool* IsChatter, EChatterSoundType* ChatterCategory, FName* ChatterSubCategory, FName* ChatterID, struct FChatterData* ChatterData)
@@ -212,6 +178,40 @@ public:
 			*ChatterID = _mdml_Parms.ChatterID;
 		if (ChatterData != nullptr)
 			*ChatterData = _mdml_Parms.ChatterData;
+	}
+
+	// Function Function BP_NPC_Bard.BP_NPC_Bard_C.SpawnSoundComponentAndPlay
+	// (Protected, HasOutParams, BlueprintCallable, BlueprintEvent)
+	void SpawnSoundComponentAndPlay(class USoundBase* Sound, float StartTime, bool AutoDestroy, class UAudioComponent** AudioComponent)
+	{
+		struct _mdml_FParams
+		{
+		class USoundBase* Sound;                                                                         // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		float StartTime;                                                                                 // 0x0008(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		bool AutoDestroy;                                                                                // 0x000C(0x0001)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor)
+		uint8_t _mdml_Pad_D[0x3];                                                                        // 0x000D(0x0003)(padding)
+		class UAudioComponent* AudioComponent;                                                           // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		};
+		static_assert(offsetof(_mdml_FParams, Sound) == 0x0000, "MDML SDK: parameter layout of BP_NPC_Bard_C.SpawnSoundComponentAndPlay");
+		static_assert(offsetof(_mdml_FParams, StartTime) == 0x0008, "MDML SDK: parameter layout of BP_NPC_Bard_C.SpawnSoundComponentAndPlay");
+		static_assert(offsetof(_mdml_FParams, AutoDestroy) == 0x000C, "MDML SDK: parameter layout of BP_NPC_Bard_C.SpawnSoundComponentAndPlay");
+		static_assert(offsetof(_mdml_FParams, AudioComponent) == 0x0010, "MDML SDK: parameter layout of BP_NPC_Bard_C.SpawnSoundComponentAndPlay");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "Sound", 0x0000, 0x0008 },
+			{ "StartTime", 0x0008, 0x0004 },
+			{ "AutoDestroy", 0x000C, 0x0001 },
+			{ "AudioComponent", 0x0010, 0x0008 },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "SpawnSoundComponentAndPlay", 0x0018, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 4, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		_mdml_Parms.Sound = Sound;
+		_mdml_Parms.StartTime = StartTime;
+		_mdml_Parms.AutoDestroy = AutoDestroy;
+		if (!::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms))
+			return;
+		if (AudioComponent != nullptr)
+			*AudioComponent = _mdml_Parms.AudioComponent;
 	}
 
 	// Function Function BP_NPC_Bard.BP_NPC_Bard_C.AI_FindBandSlot

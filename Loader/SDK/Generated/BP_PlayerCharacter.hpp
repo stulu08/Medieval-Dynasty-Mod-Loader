@@ -11039,6 +11039,33 @@ public:
 		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
 	}
 
+	// Function Function BP_PlayerCharacter.BP_PlayerCharacter_C.FOVLerpUpdateSettings
+	// (BlueprintCallable, BlueprintEvent)
+	void FOVLerpUpdateSettings(class UCurveFloat* FloatCurve, float NewRate, float TargetFOV)
+	{
+		struct _mdml_FParams
+		{
+		class UCurveFloat* FloatCurve;                                                                   // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		float NewRate;                                                                                   // 0x0008(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		float TargetFOV;                                                                                 // 0x000C(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+		};
+		static_assert(offsetof(_mdml_FParams, FloatCurve) == 0x0000, "MDML SDK: parameter layout of BP_PlayerCharacter_C.FOVLerpUpdateSettings");
+		static_assert(offsetof(_mdml_FParams, NewRate) == 0x0008, "MDML SDK: parameter layout of BP_PlayerCharacter_C.FOVLerpUpdateSettings");
+		static_assert(offsetof(_mdml_FParams, TargetFOV) == 0x000C, "MDML SDK: parameter layout of BP_PlayerCharacter_C.FOVLerpUpdateSettings");
+		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
+			{ "FloatCurve", 0x0000, 0x0008 },
+			{ "NewRate", 0x0008, 0x0004 },
+			{ "TargetFOV", 0x000C, 0x0004 },
+		};
+		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "FOVLerpUpdateSettings", 0x0010, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 3, ::mdml::sdk::FunctionDesc_None };
+		static ::mdml::sdk::FFunctionSlot _mdml_s;
+		_mdml_FParams _mdml_Parms{};
+		_mdml_Parms.FloatCurve = FloatCurve;
+		_mdml_Parms.NewRate = NewRate;
+		_mdml_Parms.TargetFOV = TargetFOV;
+		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
+	}
+
 	// Function Function BP_PlayerCharacter.BP_PlayerCharacter_C.StopCameraFOVLerp
 	// (BlueprintCallable, BlueprintEvent)
 	void StopCameraFOVLerp()
@@ -11082,33 +11109,6 @@ public:
 		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "ReverseFromEndCameraFOVLerp", 0x0000, 0, nullptr, 0, ::mdml::sdk::FunctionDesc_None };
 		static ::mdml::sdk::FFunctionSlot _mdml_s;
 		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, nullptr);
-	}
-
-	// Function Function BP_PlayerCharacter.BP_PlayerCharacter_C.FOVLerpUpdateSettings
-	// (BlueprintCallable, BlueprintEvent)
-	void FOVLerpUpdateSettings(class UCurveFloat* FloatCurve, float NewRate, float TargetFOV)
-	{
-		struct _mdml_FParams
-		{
-		class UCurveFloat* FloatCurve;                                                                   // 0x0000(0x0008)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		float NewRate;                                                                                   // 0x0008(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		float TargetFOV;                                                                                 // 0x000C(0x0004)(BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
-		};
-		static_assert(offsetof(_mdml_FParams, FloatCurve) == 0x0000, "MDML SDK: parameter layout of BP_PlayerCharacter_C.FOVLerpUpdateSettings");
-		static_assert(offsetof(_mdml_FParams, NewRate) == 0x0008, "MDML SDK: parameter layout of BP_PlayerCharacter_C.FOVLerpUpdateSettings");
-		static_assert(offsetof(_mdml_FParams, TargetFOV) == 0x000C, "MDML SDK: parameter layout of BP_PlayerCharacter_C.FOVLerpUpdateSettings");
-		static constexpr ::mdml::sdk::FParamDesc _mdml_p[] = {
-			{ "FloatCurve", 0x0000, 0x0008 },
-			{ "NewRate", 0x0008, 0x0004 },
-			{ "TargetFOV", 0x000C, 0x0004 },
-		};
-		static constexpr ::mdml::sdk::FFunctionDesc _mdml_f{ _mdml_OwnerName, "FOVLerpUpdateSettings", 0x0010, static_cast<int32_t>(sizeof(_mdml_FParams)), _mdml_p, 3, ::mdml::sdk::FunctionDesc_None };
-		static ::mdml::sdk::FFunctionSlot _mdml_s;
-		_mdml_FParams _mdml_Parms{};
-		_mdml_Parms.FloatCurve = FloatCurve;
-		_mdml_Parms.NewRate = NewRate;
-		_mdml_Parms.TargetFOV = TargetFOV;
-		::mdml::sdk::CallFunction(this, _mdml_s, _mdml_f, &_mdml_Parms);
 	}
 
 	// Function Function BP_PlayerCharacter.BP_PlayerCharacter_C.SetNewTimeCameraFOVLerp
