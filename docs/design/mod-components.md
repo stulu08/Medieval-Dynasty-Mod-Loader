@@ -245,6 +245,17 @@ Answered 2026-10-15 (were open questions 1, 2, 3, 7):
 17. **Generated overwrite files dropped for now**: a core can add/remove existing files in phase 1, but there is no API to
     create files from bytes (was: MDML writes them to `<ModFolder>/Generated/`). Can be added later without changing the model.
 
+Answered 2026-10-15, second round (phase 2 scope):
+18. **Order of the next work: event bus (phase 2) -> Lua (`[Lua]` component on the bus) -> modding tools.**
+19. **Unsubscribe**: `Subscribe` returns a handle (`handle.Unsubscribe()`, copyable, not RAII: dropping it does *not* unsubscribe);
+    all subscriptions of a mod are removed automatically when it unloads.
+20. **`MD.*` events**: keep all of today's `GameMod` virtuals as events (`MD.MenuInit`, `MD.GameInit`, `MD.MenuBeginPlay`,
+    `MD.GameLoadingBeginPlay`, `MD.GameBeginPlay`, `MD.MenuTick`, `MD.GameTick`) **plus** `MD.GameStateChanged` (old + new
+    `EMD_GameState`), `MD.LevelEnd` (before a level is unloaded; menu -> game, game -> menu) and `MD.SaveGame` / `MD.LoadGame`
+    (**[verify]** the game functions via PDB/SDK first; if none fits, report instead of guessing).
+21. **Bus debug view in DevTools** (tab: events, subscribers per mod, call counts, time per handler); later part of Live View.
+    The F1 loader window stays as it is.
+
 ## 11. Phase 1 questions (all answered 2026-10-15)
 Raised by the phase 1 implementation, answered by the owner; the follow-ups are implemented (section 12).
 1. **`CoreMod::OnUnload()`: shutdown point.** Answer: do **not** call it from `DllMain`/`DLL_PROCESS_DETACH` (loader lock, engine already

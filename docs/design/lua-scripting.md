@@ -420,6 +420,21 @@ Build/run instructions: `Loader/Scripting/README.md`. Results, findings (e.g. so
 | OQ-16 | Should the SDK generator also emit LuaLS type stubs (`---@class ABP_BaseCharacter_C`, fields, functions) for editor autocomplete? | yes, later (cheap once the generator exists) |
 | OQ-17 | Order vs. the plan: Lua is Phase 3, Phase 2 (Wave 3/4: C++20, libraries, exported hook API) is not finished. Start S1 now or after Wave 4? | S1 prerequisites after the exported hook API (Wave 4); S2 can start in parallel against the existing core |
 
+### Answers (owner, 2026-10-15)
+Asked directly: **OQ-1/2** Lua 5.4.9 + sol2 3.3.0 · **OQ-3 inside `MDML.dll`** (Lua is a mod component `[Lua]` like Core/Blueprint/Overwrite,
+`docs/design/mod-components.md`; this replaces the "core mod" recommendation) · **OQ-5** one `lua_State` per mod; cross-mod messages
+go through the event bus (Lua events are ordinary mod events) · **OQ-6** own tables (`Log`, `Hooks`, `Events`, `GameThread`, ...), only
+object lookup UE4SS-like (`FindFirstOf`/`FindAllOf`), no UE4SS shim · **OQ-6b** unknown name = Lua error, `obj:Has(name)` to check ·
+**OQ-7** restricted + opt-in (no `os.execute`/`io.popen`/native `require`; file access only inside the own mod folder; more via an
+`mod.ini` switch the player can see) · **OQ-8/8b** declared as `[Lua]` in `mod.ini` (`Script=Scripts/main.lua`), no `mod.ini`-less
+Lua mods; `main.lua` runs at the first game-thread tick (earlier code subscribes to `MDML.EngineReady`).
+
+Taken by default as recommended (owner was away, **may veto**): OQ-4 Lua compiled as C++ · OQ-9 `(self, params)` view, no skipping
+the original for now · OQ-9b deferred hooks later · OQ-10 skip hooks on non-game threads (warn once) · OQ-11 WndProc key binds ·
+OQ-12 reload button + optional file watcher (off by default) · OQ-13 declarative settings first · OQ-14 SEH only around own reads/writes ·
+OQ-15 instruction-budget watchdog, configurable · OQ-16 LuaLS stubs from the generator later · OQ-17 obsolete (Wave 4 done; Lua starts
+after mod-components phase 2, the event bus).
+
 ## 15. Phased plan
 
 | Phase | Content | Depends on |
