@@ -755,7 +755,9 @@ namespace UE4 {
 	// Size 8
 	/////////////////////////////////////////////
 	struct FDateTime {
-		unsigned char unknownData_0[8];		//Offset: 0	Size: 8
+		// int64 Ticks like UE (PDB); was unsigned char[8], which gave alignment 1 instead of 8 and broke
+		// generated structs that embed it (FMediaPlayerOptions, Wave 4 step B).
+		int64_t Ticks;
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.FrameNumber
@@ -805,7 +807,9 @@ namespace UE4 {
 	// Size 8
 	/////////////////////////////////////////////
 	struct FTimespan {
-		unsigned char unknownData_0[8];		//Offset: 0	Size: 8
+		// int64 Ticks like UE (PDB); was unsigned char[8], which gave alignment 1 instead of 8 and broke
+		// generated structs that embed it (FMediaPlayerOptions, Wave 4 step B).
+		int64_t Ticks;
 	};
 	/////////////////////////////////////////////
 	// ScriptStruct CoreUObject.PrimaryAssetType

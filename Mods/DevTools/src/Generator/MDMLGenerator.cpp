@@ -54,9 +54,9 @@ namespace
 		{ "FInterpCurvePointVector2D", false }, { "FInterpCurveVector2D", false }, { "FInterpCurvePointVector", false },
 		{ "FInterpCurveVector", false }, { "FInterpCurvePointQuat", false }, { "FInterpCurveQuat", false },
 		{ "FInterpCurvePointTwoVectors", false }, { "FInterpCurveTwoVectors", false }, { "FInterpCurvePointLinearColor", false },
-		{ "FInterpCurveLinearColor", false }, { "FRandomStream", false }, { "FDateTime", false }, { "FFrameNumber", false },
+		{ "FInterpCurveLinearColor", false }, { "FRandomStream", false }, { "FDateTime", true }, { "FFrameNumber", false },
 		{ "FFrameRate", false }, { "FFrameTime", false }, { "FQualifiedFrameTime", false }, { "FTimecode", false },
-		{ "FTimespan", false }, { "FPrimaryAssetType", false }, { "FPrimaryAssetId", false }, { "FFallbackStruct", false },
+		{ "FTimespan", true }, { "FPrimaryAssetType", false }, { "FPrimaryAssetId", false }, { "FFallbackStruct", false },
 		{ "FFloatRangeBound", false }, { "FFloatRange", false }, { "FInt32RangeBound", false }, { "FInt32Range", false },
 		{ "FFrameNumberRangeBound", false }, { "FFrameNumberRange", false }, { "FFloatInterval", false },
 		{ "FInt32Interval", false }, { "FPolyglotTextData", false }, { "FAutomationEvent", false },
@@ -245,6 +245,8 @@ namespace
 			return ValidName;
 		return PackageManager::GetName(Enum.GetUnrealEnum().GetPackageIndex()) + "::" + ValidName;
 	}
+
+	std::string SafeMemberName(const std::string& Name); // below, next to CollectTypeNames
 
 	std::string GetEnumUnderlyingType(const EnumWrapper& Enum)
 	{
@@ -463,6 +465,7 @@ namespace
 			std::string Name = Member.GetName();
 			if (auto Short = ShortNames.find(Name); Short != ShortNames.end())
 				Name = Short->second;
+			Name = SafeMemberName(Name);
 			bool bOpaque = false;
 			std::string OpaqueWhy;
 			std::string Type = bIsBitField ? TypeFromSize(MemberSize) : GetMemberType(Member.GetUnrealProperty(), FTypeContext{ PackageIndex, &bOpaque, &OpaqueWhy });
@@ -695,7 +698,7 @@ namespace
 			EnsurePublic();
 
 			const UEProperty Property = Member.GetUnrealProperty();
-			const std::string MemberName = Member.GetName();
+			const std::string MemberName = SafeMemberName(Member.GetName());
 			const std::string Raw = NarrowLiteral(Property.GetName());
 			const int32 Offset = Member.GetOffset();
 			const std::string Comment = std::format("{}({})({})", Hex(Offset), Hex(Member.GetSize()), Member.GetFlagsOrCustomComment());
@@ -896,6 +899,44 @@ namespace
 		}
 	}
 
+	/* C++ names of every generated struct/class/enum of this run (filled by CollectTypeNames before any header). A
+	 * member with one of these names would hide the type inside its class (Blueprints do that: a member
+	 * "E_DailyCycle" of type E_DailyCycle -> "E_DailyCycle is not a type name"), see SafeMemberName. */
+	std::unordered_set<std::string> s_TypeNames;
+
+	void CollectTypeNames()
+	{
+		s_TypeNames.clear();
+		for (const auto& [Index, Info] : StructManager::GetStructInfos())
+		{
+			UEStruct Struct = ObjectArray::GetByIndex<UEStruct>(Index);
+			if (!Struct || Struct.IsA(EClassCastFlags::Function))
+				continue;
+			s_TypeNames.insert(GetStructPrefixedName(StructWrapper(Struct)));
+		}
+		for (const auto& [Index, Info] : EnumManager::GetEnumInfos())
+		{
+			UEEnum Enum = ObjectArray::GetByIndex<UEEnum>(Index);
+			if (!Enum)
+				continue;
+			s_TypeNames.insert(GetEnumPrefixedName(EnumWrapper(Enum)));
+		}
+	}
+
+	/* Member name that does not hide a type: "E_DailyCycle" -> "E_DailyCycle_0" (then _1, ...). Only the C++ name
+	 * changes; the accessor still resolves the property by its raw UE name. */
+	std::string SafeMemberName(const std::string& Name)
+	{
+		if (!s_TypeNames.contains(Name))
+			return Name;
+		for (int32 Suffix = 0;; ++Suffix)
+		{
+			std::string Candidate = std::format("{}_{}", Name, Suffix);
+			if (!s_TypeNames.contains(Candidate))
+				return Candidate;
+		}
+	}
+
 	std::string ToLower(std::string Text)
 	{
 		std::transform(Text.begin(), Text.end(), Text.begin(), [](unsigned char c) { return static_cast<char>(std::tolower(c)); });
@@ -1007,6 +1048,7 @@ void MDMLGenerator::Generate()
 	std::cerr << std::format("MDMLGenerator: generating {} package header(s) into {}\n", Selected.size(), MainFolder.string());
 
 	/* 2. shared files */
+	CollectTypeNames();
 	GenerateNameCollisions(MainFolder / "NameCollisions.hpp");
 
 	/* 3. one header per package */

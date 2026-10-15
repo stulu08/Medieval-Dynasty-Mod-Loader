@@ -71,6 +71,14 @@ since the generator library has no MDML headers.
 - `check_layout.py`: 165 constants, 0 mismatches.
 - `compile_generated.py` on the first full output (before the name fixes): 940 of 2523 headers checked, 0 errors,
   0 warnings (run stopped because the output was going to be regenerated).
+- `compile_generated.py` on the committed output (`Loader/SDK/Generated`, 01:41-02:5x, 16 jobs): **2518/2524**, 0 warnings.
+  The 6 failures had two causes, both fixed afterwards:
+  - `BTService_SetNPCAIState.hpp`, `UI_Slot_StoreType.hpp` (+ `MDML_SDK.hpp`): a Blueprint member named like its enum
+    type (`E_DailyCycle E_DailyCycle`, `E_ShopType E_ShopType`) hides the type in the class → generator renames such
+    members `<Name>_0`. Needs a regeneration.
+  - `MediaUtils.hpp`, `ImgMedia.hpp`, `MediaAssets.hpp`: `FMediaPlayerOptions` alignment 4 instead of 8 because the core's
+    `FTimespan`/`FDateTime` were `unsigned char[8]` → now `int64_t Ticks` like UE (PDB-checked), and their predefined
+    layout check is always on. Rechecked: the three headers compile.
 
 ## Deploy notes
 - The game's `Content/Mods/BaseMod` must go (move to the backup, owner decision): BaseMod.dll imports symbols that
