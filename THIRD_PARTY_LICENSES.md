@@ -2,7 +2,7 @@
 
 MDML itself is licensed under the GNU LGPL v2.1 (see `LICENSE`). It includes or builds on the third-party components listed below. Each keeps its own license and copyright; the notices are reproduced here as required by those licenses.
 
-Where a vendored folder does not contain the license file, this document says so and records the upstream license under "Follow-ups" at the end. No license text was fetched from the web for this document; the texts below are copied from files in this repository.
+Where a vendored folder does not contain the license file, this document says so and records the upstream license under "Follow-ups" at the end. The texts below are copied from files in this repository (GLM's `copying.txt` was added from upstream on 2026-10-15).
 
 Contents:
 
@@ -180,7 +180,7 @@ Andrey Unis <uniskz@gmail.com>
 - Upstream: https://github.com/g-truc/glm
 - Version: "0.9.9.9" (`GLM_VERSION_MESSAGE`, a master snapshot between the 0.9.9.8 tag and 1.0.0)
 - License: MIT / "Happy Bunny" dual license (Copyright (c) G-Truc Creation). Per the library review (`docs/reports/libraries.md`) this was not verified against a local file.
-- License file in vendor folder: **missing** (upstream `copying.txt`, see Follow-ups)
+- License file in vendor folder: yes (`Dependencies/glm/copying.txt`, downloaded unchanged from the upstream tag 0.9.9.8 on 2026-10-15: Happy Bunny License or MIT)
 
 ## 5. Feather INI Parser
 
@@ -287,7 +287,6 @@ License files missing from the vendor folders. Upstream licenses are listed for 
 
 | Component | Folder | Upstream license | Action |
 |---|---|---|---|
-| GLM | `Dependencies/glm` | MIT / Happy Bunny (G-Truc) | Add upstream `copying.txt` |
 | Feather INI Parser | `Dependencies/INI` | No standard license ("free to use however you wish"); the c-ridgway fork lists MIT | mINI replaces it in the loader (Wave 3A). Since Wave 3 only `Tools/ModManager` (parked) still uses it; remove it when the ModManager moves to `mdml::platform::IniFile` |
 | Dumper-7 | `Dependencies/Dumper-7` | No license file; permission by maintainer statement (issue #416) | Keep the attribution headers; consider asking upstream to add an explicit license |
 

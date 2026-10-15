@@ -189,7 +189,11 @@ namespace mdml::ui {
 	void D3D11Hook::Install()
 	{
 		if (!mdml::runtime::Config.bEnableGUI) {
-			Log::SetupMessage("Cant enable MDML UI", "To enable MDML Debug UI, switch rendering mode to DirectX11 in Medieval Dynasty Settings or set UseDebugUI to 1 in  Medieval_Dynasty/Binaries/Win64/Config/ModLoaderInfo.ini");
+			// Was a system-modal MessageBox on every F1 press (stole fullscreen focus, blocked the hotkey thread). There
+			// is no F1 window to show a notice in, so it is a log line, written once.
+			static std::atomic<bool> s_warned{ false };
+			if (!s_warned.exchange(true))
+				Log::Warn_MDML("F1 window disabled: set [DEBUG] UseDebugUI=1 in Binaries/Win64/Config/ModLoaderInfo.ini and use DirectX 11 rendering in the game settings");
 			return;
 		}
 		if (s_installed.exchange(true))

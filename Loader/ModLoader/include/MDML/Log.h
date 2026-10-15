@@ -120,9 +120,7 @@ class LOADER_API Log {
 public:
 	// Loader only (startup): opens the base log in `dir`. Mods must not call it.
 	static void Init(const std::string& dir);
-	static inline void SetupMessage(const std::string& Info, const std::string& Message) {
-		MessageBoxA(NULL, Message.c_str(), Info.c_str(), MB_OK | MB_SYSTEMMODAL);
-	}
+	// (SetupMessage, a system-modal MessageBox, was removed: use a log line or mdml::runtime::Notices.)
 	template <typename ...Args>
 	static inline void Trace_UML(spdlog::format_string_t<Args...> format, Args&& ...args) {
 		s_umlLogger->Trace(format, std::forward<Args>(args)...);

@@ -16,7 +16,7 @@ namespace mdml::ui {
 	class D3D11Hook {
 	public:
 		// Starts the install thread (waits for dxgi.dll, creates the dummy swap chain, hooks). Does nothing when the UI is
-		// disabled (UseDebugUI / DirectX 11 rendering mode, shows a message) or when it was already started.
+		// disabled (UseDebugUI / DirectX 11 rendering mode; logs a warning once) or when it was already started.
 		static void Install();
 		static bool IsInstalled();
 
