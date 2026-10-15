@@ -58,3 +58,36 @@ project "ModManagerTests"
 	filter "configurations:Release"
 		runtime "Release"
 		optimize "on"
+
+
+-- console front end of the release packages (scripts/package.bat): Output/Tools/MDMLPackager.exe
+project "MDMLPackager"
+	kind "ConsoleApp"
+	language "C++"
+	cppdialect "C++17"
+	staticruntime "off"
+
+	targetdir ("bin/" .. outputdir)
+
+	DeployTo("Tools")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	defines { "_CRT_SECURE_NO_WARNINGS", "WIN32_LEAN_AND_MEAN", "NOMINMAX" }
+
+	files { "../Packager/**.cpp" }
+
+	includedirs
+	{
+		"src",
+		"%{IncludeDir.nlohmann_json}"
+	}
+
+	links { "ModManagerCore" }
+
+	filter "system:windows"
+		systemversion "latest"
+
+	filter "configurations:Release"
+		runtime "Release"
+		optimize "on"
+		symbols "on"

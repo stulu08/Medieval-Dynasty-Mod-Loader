@@ -1,6 +1,6 @@
 # C# scripting for MDML mods — design (draft)
 
-Status: **draft, 2026-10-13; runtime decisions taken (see §7).** Owner decision of the same day: mods get **C# instead of Lua**. This document compares the
+Status: **deferred (owner, 2026-10-15): Lua comes first, C# later.** Draft, 2026-10-13; runtime decisions taken (see §7). Owner decision of the same day: mods get **C# instead of Lua**. This document compares the
 two runtime options the owner offered, proposes an architecture and ends with open questions (CS-1…). Nothing is
 implemented; Phase 2 (cleanup) comes first.
 

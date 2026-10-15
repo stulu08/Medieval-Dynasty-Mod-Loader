@@ -50,7 +50,7 @@ namespace mmui {
 		void CheckGitHub();
 		void DownloadGitHubRelease();
 		void InstallLoader();
-		void CreateReleaseZip(const mm::fs::path& zipFile);
+		void CreateReleaseZip(const mm::fs::path& zipFile, mm::ReleaseKind kind);
 
 		// ---- background work
 		bool Busy() const { return m_busy.load(); }

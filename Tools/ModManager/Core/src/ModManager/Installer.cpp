@@ -274,27 +274,159 @@ namespace mm {
 		return true;
 	}
 
-	bool CreateReleaseZip(const LoaderPackage& pkg, const std::vector<std::string>& mods, const fs::path& zipFile, std::string& error) {
+	// ------------------------------------------------------------------ release packages
+
+	namespace {
+		// files the loader creates at runtime / the user edits: never ship them
+		bool IsStateFile(const fs::path& p) {
+			std::string n = Lower(PathToUtf8(p.filename()));
+			if (n == "loadorder.ini" || n == "symbolcache.txt" || n == "windowconfig.ini") return true;
+			const std::string suffix = "-config.ini"; // "<app>-config.ini" written by the Mod Manager
+			return n.size() > suffix.size() && n.compare(n.size() - suffix.size(), suffix.size(), suffix) == 0;
+		}
+
+		bool IsHeaderOrLicense(const fs::path& p) {
+			std::string ext = Lower(PathToUtf8(p.extension()));
+			if (ext == ".h" || ext == ".hpp" || ext == ".inl" || ext == ".ipp") return true;
+			std::string n = Lower(PathToUtf8(p.filename()));
+			return n.rfind("license", 0) == 0 || n.rfind("copying", 0) == 0;
+		}
+
+		bool IsSourceFile(const fs::path& p) {
+			std::string ext = Lower(PathToUtf8(p.extension()));
+			return ext == ".h" || ext == ".hpp" || ext == ".cpp" || ext == ".inl" || ext == ".lua" || ext == ".ini" || ext == ".md" || ext == ".txt";
+		}
+
+		bool IsShippable(const fs::path& p) { return !IsJunkFile(p) && !IsStateFile(p); }
+		bool Always(const fs::path&) { return true; }
+
+		// copies src -> dst; files for which keep() is false are skipped (a directory exists only if it got a file)
+		template <class Keep>
+		bool CopyFiltered(const fs::path& src, const fs::path& dst, Keep keep, std::string& error) {
+			std::error_code ec;
+			if (!fs::is_directory(src, ec)) { error = "missing folder " + PathToUtf8(src); return false; }
+			for (fs::recursive_directory_iterator it(src, ec), end; it != end; it.increment(ec)) {
+				if (ec) { error = ec.message(); return false; }
+				if (!it->is_regular_file(ec) || !keep(it->path())) continue;
+				fs::path target = dst / fs::relative(it->path(), src, ec);
+				fs::create_directories(target.parent_path(), ec);
+				fs::copy_file(it->path(), target, fs::copy_options::overwrite_existing, ec);
+				if (ec) { error = "cannot copy " + PathToUtf8(it->path()) + ": " + ec.message(); return false; }
+			}
+			return true;
+		}
+
+		bool CopyOne(const fs::path& src, const fs::path& dst, std::string& error, bool required = true) {
+			std::error_code ec;
+			if (!fs::exists(src, ec)) {
+				if (required) error = "missing " + PathToUtf8(src);
+				return !required;
+			}
+			fs::create_directories(dst.parent_path(), ec);
+			fs::copy_file(src, dst, fs::copy_options::overwrite_existing, ec);
+			if (ec) { error = "cannot copy " + PathToUtf8(src) + ": " + ec.message(); return false; }
+			return true;
+		}
+	}
+
+	bool FindRepoRoot(const LoaderPackage& pkg, fs::path& repoRoot) {
 		std::error_code ec;
-		fs::path stage = MakeTempDir("release");
-		for (const char* f : { "MDML.dll", "xinput1_3.dll" }) {
-			if (fs::exists(pkg.root / f, ec)) fs::copy_file(pkg.root / f, stage / f, ec);
+		fs::path p = pkg.root;
+		for (int i = 0; i < 4 && !p.empty(); i++, p = p.parent_path()) {
+			if (fs::exists(p / "premake5.lua", ec) && fs::is_directory(p / "Loader" / "ModLoader" / "include" / "MDML", ec)) {
+				repoRoot = p;
+				return true;
+			}
+			if (p == p.parent_path()) break;
 		}
-		fs::path cfg = pkg.root / "Config";
-		if (fs::is_directory(cfg, ec)) {
-			fs::create_directories(stage / "Config", ec);
-			for (const auto& e : fs::directory_iterator(cfg, ec))
-				if (e.is_regular_file(ec) && !IsJunkFile(e.path())) {
-					std::string n = Lower(PathToUtf8(e.path().filename()));
-					// state files created by the loader must not ship
-					if (n == "loadorder.ini" || n == "symbolcache.txt" || n == "windowconfig.ini") continue;
-					fs::copy_file(e.path(), stage / "Config" / e.path().filename(), ec);
-				}
+		return false;
+	}
+
+	std::string ReleaseZipName(const LoaderPackage& pkg, ReleaseKind kind) {
+		std::string v = pkg.version.empty() ? "dev" : pkg.version;
+		return std::string(kind == ReleaseKind::DevKit ? "MDML-DevKit-" : "MDML-") + v + ".zip";
+	}
+
+	bool StageRelease(const LoaderPackage& pkg, ReleaseKind kind, const fs::path& stage, std::string& error) {
+		std::error_code ec;
+		const bool dev = kind == ReleaseKind::DevKit;
+		fs::path repo;
+		const bool inRepo = FindRepoRoot(pkg, repo);
+		if (dev && !inRepo) { error = "the development kit can only be built from the repo build output (Output/ModLoader)"; return false; }
+		fs::create_directories(stage, ec);
+
+		// ---- loader: same layout in both packages, it is what the Mod Manager's zip source installs
+		if (!CopyOne(pkg.root / "MDML.dll", stage / "MDML.dll", error)) return false;
+		if (!CopyOne(pkg.root / "xinput1_3.dll", stage / "xinput1_3.dll", error, false)) return false;
+		if (dev) {
+			if (!CopyOne(pkg.root / "MDML.pdb", stage / "MDML.pdb", error, false)) return false;
+			if (!CopyOne(pkg.root / "xinput1_3.pdb", stage / "xinput1_3.pdb", error, false)) return false;
 		}
+		if (fs::is_directory(pkg.root / "Config", ec) && !CopyFiltered(pkg.root / "Config", stage / "Config", IsShippable, error)) return false;
+
+		if (!inRepo) return true; // a downloaded package that is re-zipped: loader + config only
+
+		// ---- Mod Manager app (exe + Resources; no pdb, no per-user config ini)
+		fs::path mgr = repo / "Output" / "ModManager";
+		if (fs::is_directory(mgr, ec) && !CopyFiltered(mgr, stage / "ModManager", IsShippable, error)) return false;
+
+		// ---- readme, licenses, install guide
+		for (const char* f : { "README.md", "LICENSE", "THIRD_PARTY_LICENSES.md" })
+			if (!CopyOne(repo / f, stage / f, error, false)) return false;
+		for (const char* f : { "Installation.md", "Binaries Folder.png", "Mods Folder.png" })
+			if (!CopyOne(repo / "docs" / "guides" / f, stage / "docs" / f, error, false)) return false;
+
+		if (!dev) return true;
+
+		// ---- development kit. DevTools keeps its shipped mod.ini (disabled); pdb included
 		fs::path modsSrc = fs::is_directory(pkg.root / "Mods", ec) ? pkg.root / "Mods" : pkg.root;
-		for (const auto& m : mods)
-			if (!CopyTree(modsSrc / PathFromUtf8(m), stage / "Mods" / PathFromUtf8(m), {}, error)) return false;
-		bool ok = CreateZip(stage, zipFile, error);
+		if (!CopyFiltered(modsSrc / "DevTools", stage / "Mods" / "DevTools", Always, error)) return false;
+
+		const fs::path kit = stage / "DevKit";
+		const fs::path inc = kit / "include";
+		const fs::path mdml = repo / "Loader" / "ModLoader";
+		// public mod API (MDML/...) + the hand-written engine core headers (include dirs include/Engine and include/Engine/UE4)
+		if (!CopyFiltered(mdml / "include", inc, Always, error)) return false;
+		if (!CopyFiltered(mdml / "src" / "Engine", inc / "Engine", IsHeaderOrLicense, error)) return false;
+		// generated game SDK (header-only)
+		if (!CopyFiltered(repo / "Loader" / "SDK" / "Generated", inc / "SDK", Always, error)) return false;
+		// third-party headers the public headers include
+		if (!CopyFiltered(repo / "Dependencies" / "spdlog", inc / "ThirdParty" / "spdlog", IsHeaderOrLicense, error)) return false;
+		if (!CopyFiltered(repo / "Dependencies" / "glm", inc / "ThirdParty" / "glm", IsHeaderOrLicense, error)) return false;
+		if (!CopyFiltered(repo / "Dependencies" / "ImGui" / "imgui", inc / "ThirdParty" / "ImGui" / "imgui", IsHeaderOrLicense, error)) return false;
+		if (!CopyOne(repo / "Dependencies" / "ImGui" / "LICENSE.txt", inc / "ThirdParty" / "ImGui" / "LICENSE.txt", error, false)) return false;
+
+		// import library of MDML.dll (not part of Output/, it stays in the project's bin folder)
+		if (!CopyOne(mdml / "bin" / "Release-windows-x86_64" / "MDML.lib", kit / "lib" / "MDML.lib", error)) return false;
+
+		// example mods: sources, premake files, mod.ini (no generated project files, no build output)
+		fs::path ex = repo / "Mods" / "Examples";
+		if (!CopyOne(ex / "Examples.lua", kit / "examples" / "Examples.lua", error, false)) return false;
+		for (const auto& e : fs::directory_iterator(ex, ec)) {
+			if (!e.is_directory(ec)) continue;
+			const fs::path dir = e.path();
+			auto keep = [&dir](const fs::path& p) {
+				std::string top = PathToUtf8(*fs::relative(p, dir).begin());
+				return top != "bin" && top != "bin-int" && IsSourceFile(p);
+			};
+			if (!CopyFiltered(dir, kit / "examples" / dir.filename(), keep, error)) return false;
+		}
+
+		// modder docs; DevKit.md becomes the kit's README
+		const std::pair<const char*, const char*> docList[] = {
+			{ "guides/Modding.md", "Modding.md" }, { "ARCHITECTURE.md", "ARCHITECTURE.md" }, { "SDK_GENERATOR.md", "SDK_GENERATOR.md" },
+			{ "design/mod-components.md", "mod-components.md" }, { "reports/public-api.md", "public-api.md" },
+			{ "reports/hook-api.md", "hook-api.md" }, { "guides/GamePatch.md", "GamePatch.md" },
+		};
+		for (const auto& d : docList)
+			if (!CopyOne(repo / "docs" / d.first, kit / "docs" / d.second, error, false)) return false;
+		return CopyOne(repo / "docs" / "guides" / "DevKit.md", kit / "README.md", error, false);
+	}
+
+	bool CreateReleaseZip(const LoaderPackage& pkg, ReleaseKind kind, const fs::path& zipFile, std::string& error) {
+		std::error_code ec;
+		fs::path stage = MakeTempDir(kind == ReleaseKind::DevKit ? "devkit" : "release");
+		bool ok = StageRelease(pkg, kind, stage, error) && CreateZip(stage, zipFile, error);
 		fs::remove_all(stage, ec);
 		return ok;
 	}

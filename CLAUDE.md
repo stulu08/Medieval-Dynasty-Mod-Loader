@@ -37,7 +37,7 @@ named `<Project>.lua` (not `premake5.lua`); the root `premake5.lua` includes the
 | `Tools/RE/` | Python RE scripts (`pdbsym.py`, `check_patterns.py` = ini/hardcoded AOBs vs EXE+PDB, `check_layout.py` = `src/Engine/EngineLayout.h` constants vs PDB) |
 | `Tests/` | `OverwriteTest/` (test mod, Core + Overwrite, deploys to `Output/Tests/OverwriteTest`), `SDKCompileTest/` (offline compile test of generator output, `compile_generated.py`), `OverwriteBackupTest/` (pak-overwrite fixture + `check.py`), `PdbTiming/` (PDB lookup timing tool) |
 | `docs/` | plan, RE notes, design docs, reports; `docs/guides/` has `Installation.md` (+ images) and `Modding.md` |
-| `scripts/` | `setup.bat`, `generateProjects - *.bat`, `python/` (premake download + project generation) |
+| `scripts/` | `package.bat` (end-user zip + DevKit zip into `Output/Packages`, see `Tools/ModManager/docs/ModManager.md`), `setup.bat`, `generateProjects - *.bat`, `python/` (premake download + project generation) |
 
 ## Build
 - Local toolchain since 2026-10-13: **VS 2026 (v145) only** (VS 2022 is no longer installed), x64 Release only:

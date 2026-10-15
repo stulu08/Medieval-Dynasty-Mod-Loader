@@ -143,11 +143,88 @@ static void TestLoaderPackage() {
 	CHECK(txt.find("Mine") != std::string::npos);                // user config survives
 }
 
+static void TestReleasePackages() {
+	fs::path root = fs::temp_directory_path() / "mm_release_test";
+	fs::remove_all(root);
+	// fake repo: Output/ModLoader (build) + the sources the dev kit collects
+	Write(root / "premake5.lua", "");
+	Write(root / "README.md", "r");
+	Write(root / "LICENSE", "l");
+	Write(root / "docs" / "guides" / "Modding.md", "m");
+	Write(root / "docs" / "guides" / "DevKit.md", "k");
+	Write(root / "Loader" / "ModLoader" / "include" / "MDML" / "Mod.h", "h");
+	Write(root / "Loader" / "ModLoader" / "src" / "Engine" / "UE4.h", "h");
+	Write(root / "Loader" / "ModLoader" / "src" / "Engine" / "EngineInit.cpp", "cpp");
+	Write(root / "Loader" / "ModLoader" / "bin" / "Release-windows-x86_64" / "MDML.lib", "lib");
+	Write(root / "Loader" / "SDK" / "Generated" / "Engine.hpp", "sdk");
+	Write(root / "Dependencies" / "spdlog" / "spdlog" / "spdlog.h", "h");
+	Write(root / "Dependencies" / "spdlog" / "spdlog" / "src.cpp", "cpp");
+	Write(root / "Dependencies" / "glm" / "glm" / "glm.hpp", "h");
+	Write(root / "Dependencies" / "ImGui" / "imgui" / "imgui.h", "h");
+	Write(root / "Dependencies" / "ImGui" / "imgui" / "imgui.cpp", "cpp");
+	Write(root / "Mods" / "Examples" / "Examples.lua", "x");
+	Write(root / "Mods" / "Examples" / "PresetMod" / "Mod.cpp", "x");
+	Write(root / "Mods" / "Examples" / "PresetMod" / "PresetMod.vcxproj", "x");
+	Write(root / "Mods" / "Examples" / "PresetMod" / "bin" / "junk.cpp", "x");
+	Write(root / "Output" / "ModManager" / "MDML Mod Manager.exe", "exe");
+	Write(root / "Output" / "ModManager" / "MDML Mod Manager.pdb", "pdb");
+	Write(root / "Output" / "ModManager" / "MDML Mod Manager-config.ini", "cfg");
+	Write(root / "Output" / "ModManager" / "Resources" / "f.ttf", "ttf");
+	fs::path b = root / "Output" / "ModLoader";
+	Write(b / "MDML.dll", "dll");
+	Write(b / "MDML.pdb", "pdb");
+	Write(b / "xinput1_3.dll", "dll");
+	Write(b / "Config" / "ModLoaderInfo.ini", "[General]\n");
+	Write(b / "Config" / "LoadOrder.ini", "state");
+	Write(b / "Mods" / "DevTools" / "mod.ini", "[Mod]\n");
+	Write(b / "Mods" / "DevTools" / "DevTools.dll", "dll");
+	Write(b / "Mods" / "DevTools" / "DevTools.pdb", "pdb");
+	Write(b / "Mods" / "BaseMod" / "mod.ini", "[Mod]\n[Core]\n"); // stale folder in Output: must not ship
+	LoaderPackage pkg;
+	CHECK(DetectLoaderPackage(b, pkg));
+	fs::path repo;
+	CHECK(FindRepoRoot(pkg, repo));
+	CHECK(ReleaseZipName(pkg, ReleaseKind::EndUser) == "MDML-dev.zip" || !pkg.version.empty());
+	CHECK(ReleaseZipName(pkg, ReleaseKind::DevKit).rfind("MDML-DevKit-", 0) == 0);
+
+	std::string err;
+	fs::path user = root / "stage-user", dev = root / "stage-dev";
+	CHECK(StageRelease(pkg, ReleaseKind::EndUser, user, err));
+	CHECK(fs::exists(user / "MDML.dll") && fs::exists(user / "xinput1_3.dll"));
+	CHECK(fs::exists(user / "Config" / "ModLoaderInfo.ini") && !fs::exists(user / "Config" / "LoadOrder.ini"));
+	CHECK(fs::exists(user / "ModManager" / "MDML Mod Manager.exe") && fs::exists(user / "ModManager" / "Resources" / "f.ttf"));
+	CHECK(!fs::exists(user / "ModManager" / "MDML Mod Manager.pdb") && !fs::exists(user / "ModManager" / "MDML Mod Manager-config.ini"));
+	CHECK(fs::exists(user / "README.md") && fs::exists(user / "LICENSE"));
+	CHECK(!fs::exists(user / "MDML.pdb") && !fs::exists(user / "Mods") && !fs::exists(user / "DevKit"));
+
+	CHECK(StageRelease(pkg, ReleaseKind::DevKit, dev, err));
+	CHECK(fs::exists(dev / "MDML.dll") && fs::exists(dev / "MDML.pdb") && fs::exists(dev / "README.md"));
+	CHECK(fs::exists(dev / "Mods" / "DevTools" / "mod.ini") && fs::exists(dev / "Mods" / "DevTools" / "DevTools.pdb"));
+	CHECK(!fs::exists(dev / "Mods" / "BaseMod"));
+	CHECK(fs::exists(dev / "DevKit" / "README.md") && fs::exists(dev / "DevKit" / "docs" / "Modding.md"));
+	CHECK(fs::exists(dev / "DevKit" / "include" / "MDML" / "Mod.h") && fs::exists(dev / "DevKit" / "include" / "Engine" / "UE4.h"));
+	CHECK(!fs::exists(dev / "DevKit" / "include" / "Engine" / "EngineInit.cpp"));
+	CHECK(fs::exists(dev / "DevKit" / "include" / "SDK" / "Engine.hpp") && fs::exists(dev / "DevKit" / "lib" / "MDML.lib"));
+	CHECK(fs::exists(dev / "DevKit" / "include" / "ThirdParty" / "spdlog" / "spdlog" / "spdlog.h"));
+	CHECK(!fs::exists(dev / "DevKit" / "include" / "ThirdParty" / "ImGui" / "imgui" / "imgui.cpp"));
+	CHECK(fs::exists(dev / "DevKit" / "examples" / "PresetMod" / "Mod.cpp") && fs::exists(dev / "DevKit" / "examples" / "Examples.lua"));
+	CHECK(!fs::exists(dev / "DevKit" / "examples" / "PresetMod" / "PresetMod.vcxproj") && !fs::exists(dev / "DevKit" / "examples" / "PresetMod" / "bin"));
+
+	// a package outside the repo (re-zipped download): loader + config only, no dev kit
+	fs::path stray = root / "stray";
+	Write(stray / "MDML.dll", "dll");
+	LoaderPackage sp;
+	CHECK(DetectLoaderPackage(stray, sp));
+	CHECK(!StageRelease(sp, ReleaseKind::DevKit, root / "stage-bad", err));
+	fs::remove_all(root);
+}
+
 int main() {
 	TestIni();
 	TestLoadOrder();
 	TestScanAndInstall();
 	TestLoaderPackage();
+	TestReleasePackages();
 	std::cout << (g_failed ? "FAILED: " : "all passed, failures: ") << g_failed << "\n";
 	return g_failed ? 1 : 0;
 }

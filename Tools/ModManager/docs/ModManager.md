@@ -32,10 +32,30 @@ Old standalone layout (own workspace, SDG's imgui fork): `C:\dev\MDML\backup\202
 - Never deletes: replaced files/folders are copied to `%LOCALAPPDATA%\MDML ModManager\backups\<timestamp>\`, removed mods go to the recycle bin.
 - Install/remove refuse while the game process runs.
 
+## Release packages
+Two zips are made from the repo build output (`Output/ModLoader`, found relative to the exe; `Output/ModManager` and the repo sources are
+read too). Code: `Installer.cpp` (`StageRelease`/`CreateReleaseZip`, `ReleaseKind`), tests in `ModManagerTests` (`TestReleasePackages`).
+- **How:** UI (Loader tab, local build): "Create release zip..." and "Create development kit..." (Windows `tar.exe`, no zip library);
+  or without the UI after a build: `scripts\package.bat [outDir]` runs `Output/Tools/MDMLPackager.exe` (project `MDMLPackager`,
+  `Packager/Main.cpp`) and writes both zips to `Output/Packages` (git-ignored). Names: `MDML-<version>.zip`, `MDML-DevKit-<version>.zip`
+  (version = file version of MDML.dll; "dev" while the dll has no version resource, as now).
+- **End user** (`MDML-<v>.zip`, ~17 MB): `MDML.dll`, `xinput1_3.dll`, `Config/` (shipped `ModLoaderInfo.ini`, `NoOverwrite.ini`; never
+  `LoadOrder.ini`/`SymbolCache.txt`/`WindowConfig.ini`), `ModManager/` (exe + `Resources/`, no pdb, no `*-config.ini`), `docs/Installation.md` +
+  images, `README.md`, `LICENSE`, `THIRD_PARTY_LICENSES.md`. No mods, no pdb, no headers. The root is a loader package, so the manager's
+  "Zip file" source installs it (and a mod list of zero).
+- **Development kit** (`MDML-DevKit-<v>.zip`, ~37 MB, ~3200 files): everything above + `MDML.pdb`, `xinput1_3.pdb`, `Mods/DevTools/` (with pdb, its
+  shipped `mod.ini` keeps it disabled) + `DevKit/` (own README = `docs/guides/DevKit.md`): `include/MDML` (public API), `include/Engine`
+  (engine core headers only), `include/SDK` (generated SDK), `include/ThirdParty` (spdlog, glm, imgui headers + licenses), `lib/MDML.lib`,
+  `examples/` (PresetMod, TimeWeatherChanger sources + `Config/mod.ini` + premake files, no vcxproj/bin), `docs/` (Modding, ARCHITECTURE,
+  SDK_GENERATOR, mod-components, public-api, hook-api, GamePatch). Only DevTools is taken from `Mods/` (stale folders in `Output` are ignored).
+- The dev kit needs the repo (it reads sources and `Loader/ModLoader/bin/Release-windows-x86_64/MDML.lib`); a package that is not the repo build
+  output (zip/GitHub source) can only be re-zipped as the end-user package (loader + Config).
+- No mod is special-cased any more (BaseMod removal): no default mod selection when installing, mods are opt-in.
+
 ## Why not the GitHub release
 The only published release is v2.3.1 (2025-01); MDML was rewritten locally since. The default source is therefore the local build
 (`Output/ModLoader` of the MDML repo, auto-detected relative to the exe). "Create release zip" produces a package the
-GitHub source and the zip source understand; publishing it is a manual decision of the owner.
+GitHub source and the zip source understand (see "Release packages"); publishing it is a manual decision of the owner.
 
 ## Open / ideas
 - Pak mods (`docs/design/pak-mods.md` in the loader repo) once designed: a `[Pak]` section and priority direction are needed.

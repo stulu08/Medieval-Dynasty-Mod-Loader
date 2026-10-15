@@ -189,12 +189,18 @@ namespace mmui {
 			if (ImGui::Button("Rescan")) s.RefreshLocalBuild();
 			if (s.localBuildFound) {
 				ImGui::SameLine();
-				if (ImGui::Button("Create release zip...")) {
-					fs::path z = SaveFile(L"MDML-release.zip", L"zip", L"Save the release package");
-					if (!z.empty()) s.CreateReleaseZip(z);
+				for (mm::ReleaseKind kind : { mm::ReleaseKind::EndUser, mm::ReleaseKind::DevKit }) {
+					const bool dev = kind == mm::ReleaseKind::DevKit;
+					if (dev) ImGui::SameLine();
+					if (ImGui::Button(dev ? "Create development kit..." : "Create release zip...")) {
+						std::wstring name = PathFromUtf8(mm::ReleaseZipName(s.localBuild, kind)).wstring();
+						fs::path z = SaveFile(name.c_str(), L"zip", dev ? L"Save the development kit" : L"Save the release package");
+						if (!z.empty()) s.CreateReleaseZip(z, kind);
+					}
+					if (ImGui::IsItemHovered())
+						ImGui::SetTooltip(dev ? "MDML-DevKit-<version>.zip: the release package plus pdbs, the DevTools mod, headers, generated SDK, MDML.lib, examples and modder docs."
+							: "MDML-<version>.zip: MDML.dll, the proxy, default Config, the Mod Manager app, readme/licenses. For players.");
 				}
-				if (ImGui::IsItemHovered())
-					ImGui::SetTooltip("Packs MDML.dll, the proxy, Config and BaseMod of this build into a zip you can publish.");
 			}
 			break;
 		case LoaderSource::ZipFile:

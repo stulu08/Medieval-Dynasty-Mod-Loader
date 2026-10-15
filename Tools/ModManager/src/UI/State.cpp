@@ -203,8 +203,7 @@ namespace mmui {
 		preparedValid = true;
 		preparedLabel = label;
 		preparedModSelected.assign(pkg.mods.size(), false);
-		for (size_t i = 0; i < pkg.mods.size(); i++)
-			preparedModSelected[i] = IEquals(pkg.mods[i], "BaseMod"); // DevTools & examples are opt-in
+		// every mod is opt-in (DevTools, examples)
 	}
 
 	void State::RefreshLocalBuild() {
@@ -316,15 +315,12 @@ namespace mmui {
 		});
 	}
 
-	void State::CreateReleaseZip(const fs::path& zipFile) {
+	void State::CreateReleaseZip(const fs::path& zipFile, mm::ReleaseKind kind) {
 		if (!localBuildFound) return;
 		LoaderPackage pkg = localBuild;
-		std::vector<std::string> mods_;
-		for (const auto& m : pkg.mods)
-			if (IEquals(m, "BaseMod")) mods_.push_back(m);
-		RunAsync("Creating " + PathToUtf8(zipFile.filename()), [pkg, mods_, zipFile]() {
+		RunAsync("Creating " + PathToUtf8(zipFile.filename()), [pkg, kind, zipFile]() {
 			std::string err;
-			if (mm::CreateReleaseZip(pkg, mods_, zipFile, err))
+			if (mm::CreateReleaseZip(pkg, kind, zipFile, err))
 				Log::Info("Release zip written: " + PathToUtf8(zipFile));
 			else
 				Log::Error("Could not create the zip: " + err);

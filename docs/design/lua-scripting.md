@@ -1,6 +1,6 @@
 # Lua scripting for MDML mods — design
 
-Status: **proposal, nothing decided** (2026-10-10; spike results added 2026-10-13, see §13). Phase 3 feature from `docs/MODERNIZATION_PLAN.md`.
+Status: **active again (owner, 2026-10-15): Lua is wanted for quick script mods, C# is deferred.** Proposal, nothing decided (2026-10-10; spike results added 2026-10-13, see §13). Lua becomes a `[Lua]` component of the mod model (`docs/design/mod-components.md`), so parts of §3/§4 (layout, load order) follow that model; revisit with OQ-3/OQ-8. Phase 3 feature from `docs/MODERNIZATION_PLAN.md`.
 Every choice marked **(OQ-n)** is an open question for the owner, listed again in §14. Where the spike had to pick
 something to compile at all, it is marked *spike default* and can be changed.
 

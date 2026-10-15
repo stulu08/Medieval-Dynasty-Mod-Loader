@@ -38,6 +38,17 @@ namespace mm {
 	// recycle bin, not a permanent delete
 	bool RemoveMod(const fs::path& modPath, std::string& error);
 
-	// zips a loader package (MDML.dll, proxy, Config, Mods) without pdb/exp/lib into zipFile
-	bool CreateReleaseZip(const LoaderPackage& pkg, const std::vector<std::string>& mods, const fs::path& zipFile, std::string& error);
+	// ---- release packages (docs: Tools/ModManager/docs/ModManager.md, "Release packages") ----
+	enum class ReleaseKind {
+		EndUser, // what a player needs: MDML.dll, proxy, default Config, ModManager app, readme/licenses, install guide. No pdb/DevTools/headers.
+		DevKit,  // EndUser + pdbs, DevTools mod, DevKit/ (headers, generated SDK, MDML.lib, examples, modder docs)
+	};
+	// the repo root (has premake5.lua + Loader/ModLoader) when pkg is the repo build output Output/ModLoader
+	bool FindRepoRoot(const LoaderPackage& pkg, fs::path& repoRoot);
+	// "MDML-<version>.zip" / "MDML-DevKit-<version>.zip" (version = MDML.dll file version, or "dev")
+	std::string ReleaseZipName(const LoaderPackage& pkg, ReleaseKind kind);
+	// copies the package files into stageDir (an empty dir); the zip is the content of stageDir
+	bool StageRelease(const LoaderPackage& pkg, ReleaseKind kind, const fs::path& stageDir, std::string& error);
+	// StageRelease + zip into zipFile (the staging dir is a temp dir that is removed again)
+	bool CreateReleaseZip(const LoaderPackage& pkg, ReleaseKind kind, const fs::path& zipFile, std::string& error);
 }
